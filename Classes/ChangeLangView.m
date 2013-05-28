@@ -174,7 +174,7 @@
 	[UIImageView setAnimationDelegate: self];
 	[UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
 	[UIImageView setAnimationDidStopSelector: @selector(helpAnimation3)];
-	[UIImageView setAnimationDuration: 2.6];
+	[UIImageView setAnimationDuration: 3.2];
 	[UIImageView setAnimationBeginsFromCurrentState: YES];
   
 	hand.frame = handFrame;
@@ -231,6 +231,53 @@
 }
 
 - (void) helpAnimation5 {
+    // Move hand to lock button
+  [Sentence playSpeaker: @"Language_Wizard_2"];
+    
+	[UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
+	[UIImageView setAnimationDelegate: self];
+	[UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
+	[UIImageView setAnimationDidStopSelector: @selector(helpAnimation6)];
+  angle = 0;    // set it up to start always in the same place in helpAnimation6
+	[UIImageView setAnimationDuration: 3];
+	[UIImageView setAnimationBeginsFromCurrentState: YES];
+  
+    // center hand in lockUnlockButton
+  CGPoint center = lockUnlockButton.center;
+  center.x += lockUnlockButton.frame.size.height;
+  center.y += lockUnlockButton.frame.size.width;
+  hand.center = center;
+  
+	[UIImageView commitAnimations];
+  
+}
+
+- (void) helpAnimation6 {
+    // hover over lock button
+  CGPoint center = hand.center;
+
+    //NSLog(@"angle is: %g", angle);
+  [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
+  [UIImageView setAnimationDelegate: self];
+  [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
+  if (angle>3*M_PI) {
+    [UIImageView setAnimationDidStopSelector: @selector(helpAnimation7)];
+  }
+  else {
+    [UIImageView setAnimationDidStopSelector: @selector(helpAnimation6)];
+  }
+  [UIImageView setAnimationDuration: .001];
+  [UIImageView setAnimationBeginsFromCurrentState: YES];
+
+  center.x = lockUnlockButton.center.x + lockUnlockButton.frame.size.width/2 + lockUnlockButton.frame.size.width/2*cos(angle);
+  center.y = lockUnlockButton.center.y + lockUnlockButton.frame.size.height/2 - lockUnlockButton.frame.size.height/2*sin(angle);
+  hand.center = center;
+  
+  angle += M_PI/100;
+  [UIImageView commitAnimations];
+}
+
+- (void) helpAnimation7 {
     // bring hand to nextButton
     [Sentence playSpeaker: @"User_Wizard_3"];
     CGRect handFrame = hand.frame;
@@ -238,7 +285,7 @@
 	[UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
 	[UIImageView setAnimationDelegate: self];
 	[UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
-	[UIImageView setAnimationDidStopSelector: @selector(helpAnimation6)];
+	[UIImageView setAnimationDidStopSelector: @selector(helpAnimation8)];
 	[UIImageView setAnimationDuration: 2];
 	[UIImageView setAnimationBeginsFromCurrentState: YES];
   
@@ -250,19 +297,19 @@
 	[UIImageView commitAnimations];
 }
 
-- (void) helpAnimation6 {
+- (void) helpAnimation8 {
     // bring hand to alpha = 0
     [UIImageView beginAnimations: @"helpAnimation" context: ( void *)(hand)];
 	[UIImageView setAnimationDelegate: self];
 	[UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
-	[UIImageView setAnimationDidStopSelector: @selector(helpAnimation7)];
+	[UIImageView setAnimationDidStopSelector: @selector(helpAnimation9)];
 	[UIImageView setAnimationDuration: .5];
 
 	hand.alpha = 0;
 	[UIImageView commitAnimations];
 }
 
-- (void) helpAnimation7 {
+- (void) helpAnimation9 {
     // bring hand to start position
   
 	[UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];

@@ -65,6 +65,7 @@ Dictionary of Methods:
 	<Sentence Method="AlbumView-help2" name="Album help 2" type="always"></Sentence>
 <!-- Level -->	
 	<Sentence Method="LevelView-Help" name="Level help" type="always"></Sentence>
+	<Sentence Method="LevelView-Help2" name="Level help2" type="always"></Sentence>
   <Sentence Method="LevelView-DidSelectRow-UnlockLevel-Buyed" name="Unlock help" type="always"></Sentence>
   <Sentence Method="LevelView-DidSelectRow-UnlockLevel" name="to unlock this level you first" type="always">
     <Alternative name= "keep playing to advance to that level"></Alternative></Sentence>
@@ -75,6 +76,9 @@ Dictionary of Methods:
 	<Sentence Method="User_Wizard_3" name="User_Wizard_3" type="always"></Sentence>
 <!-- Language Wizard -->
 	<Sentence Method="Language_Wizard_1" name="Language_Wizard_1" type="always"></Sentence>
+	<Sentence Method="Language_Wizard_2" name="Language_Wizard_2" type="always"></Sentence>
+<!-- Download Wizard -->
+	<Sentence Method="Download_Wizard_1" name="Download_Wizard_1" type="always"></Sentence>
   
 <!-- Numbers
     <Sentence Method="1" name="OneNative" type="always"></Sentence>
