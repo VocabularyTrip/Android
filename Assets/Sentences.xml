@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+
+<!--
+Dictionary of Methods:
+
+  * Test-EndGame-PracticeMore:
+  * Test-EndGame-Amazing:
+  * Test-EndGame-GoodJob:
+  * Test-EndGame-GreatJob:
+  * Test-EvaluateGetIntoNextLevel-NextLevel: the player reached a new level. Is started after the money count
+  * Test-IntroduceTrain: The train begin introduced 
+  * Test-BuyNewLevel: the player has reached a new level, but must buy new dictionary to advance
+  * Test-EvaluateGetIntoNextLevel-CloseToLearned:
+  * GenericTrain-touchesBegan-cTouchesSimultaneously:
+  * Training-ViewDidAppear:
+  * AlbumView-onEmptyFigClick-NotEnoughMoney: the user clicked in an empty fig but the user hasn´t enough money
+  * AlbumView-ViewDidAppear-Album1Start:
+  * AlbumView-ViewDidAppear-Album2Start:
+  * AlbumView-onEmptyFigClick-NotInSilverSection:
+  * AlbumView-onEmptyFigClick-NotInGoldSection:
+  
+-->
+
+<list>
+	<Sentence Method="AppDelegate-ResponseToBuyAction-NextLevel" name="Advanced to next level" type="always"></Sentence>
+
+<!-- TEST -->
+	<Sentence Method="Test-EndGame-PracticeMore" name="Maybe you should practice" type="alwaysSoundOn">
+        <Alternative name= "Congratulations3"></Alternative> <!-- I konw you can do it -->
+        <Alternative name= "Congratulations13"></Alternative> <!-- Keep working on it -->
+    </Sentence>
+	<Sentence Method="Test-EndGame-Amazing" name="Congratulations4" type="alwaysSoundOn">
+        <Alternative name= "Congratulations6"></Alternative></Sentence> <!-- Wow You got the mok! -->
+    <Sentence Method="Test-EndGame-GreatJob" name="Congratulations8" type="alwaysSoundOn">
+        <Alternative name= "Congratulations9"></Alternative>
+        <Alternative name= "Congratulations12"></Alternative>
+        <Alternative name= "Congratulations2"></Alternative></Sentence> <!-- You are very good on this -->
+    <Sentence Method="Test-EndGame-GoodJob" name="Congratulations10" type="alwaysSoundOn">
+        <Alternative name= "Congratulations14"></Alternative> <!-- You are geting better -->
+        <Alternative name= "Congratulations5"></Alternative></Sentence> <!-- Keep working you are definetely improving -->
+        
+	<Sentence Method="Test-EvaluateGetIntoNextLevel-NextLevel" name="Advanced to next level" type="always"></Sentence>
+	<Sentence Method="Test-IntroduceTrain" name="Test help" type="always"></Sentence>
+	<Sentence Method="Test-BuyNewLevel" name="Congratulations4" type="always"></Sentence>
+	<Sentence Method="Test-EvaluateGetIntoNextLevel-CloseToLearned" name="Keep playing you are getting closer" type="alwaysSoundOn"></Sentence>
+<!-- Generic & Toolbar -->	
+<!--	<Sentence Method="GenericTrain-touchesBegan-cTouchesSimultaneously" name="One finger at a time" type="always"></Sentence> -->
+	<Sentence Method="Toolbar-saySentence-BronzeToolbar" name="more correct answers more coins" type="always"></Sentence>
+	<Sentence Method="Toolbar-saySentence-NotInSilverSection" name="To win silver coins" type="always"></Sentence>
+	<Sentence Method="Toolbar-saySentence-NotInGoldSection" name="To win gold coins" type="always"></Sentence>
+<!-- Training -->
+	<Sentence Method="Training-ViewDidAppear" name="Training help" type="always"></Sentence>
+<!-- Album -->
+	<Sentence Method="AlbumView-onEmptyFigClick-NotEnoughGold" name="Sorry you can not buy this sticker" type="always"></Sentence>
+	<Sentence Method="AlbumView-onEmptyFigClick-NotEnoughSilver" name="Sorry you can not buy this sticker" type="always"></Sentence>
+	<Sentence Method="AlbumView-onEmptyFigClick-NotEnoughBronze" name="Sorry you can not buy this sticker" type="always">
+		<Alternative name= "win more play more"></Alternative></Sentence>
+    <Sentence Method="AlbumView-ViewDidAppear-Album1Start" name="Welcome to fairyland" type="alwaysSoundOn"></Sentence>
+	<Sentence Method="AlbumView-ViewDidAppear-Album2Start" name="Welcome to monsters world" type="alwaysSoundOn"></Sentence>
+	<Sentence Method="AlbumView-onEmptyFigClick-NotInSilverSection" name="To win silver coins" type="always">
+        <Alternative name= "Sorry you can not buy this sticker"></Alternative></Sentence>
+	<Sentence Method="AlbumView-onEmptyFigClick-NotInGoldSection" name="To win gold coins" type="always">
+        <Alternative name= "Sorry you can not buy this sticker"></Alternative></Sentence>
+	<Sentence Method="AlbumView-help1" name="Album help 1" type="always"></Sentence>
+	<Sentence Method="AlbumView-help2" name="Album help 2" type="always"></Sentence>
+<!-- Level -->	
+	<Sentence Method="LevelView-Help" name="Level help" type="always"></Sentence>
+  <Sentence Method="LevelView-DidSelectRow-UnlockLevel-Buyed" name="Unlock help" type="always"></Sentence>
+  <Sentence Method="LevelView-DidSelectRow-UnlockLevel" name="to unlock this level you first" type="always">
+    <Alternative name= "keep playing to advance to that level"></Alternative></Sentence>
+  <Sentence Method="LevelView-DidSelectRow-LearnThisLevel" name="Once you know these words you Advance" type="always"></Sentence>
+<!-- User Wizard -->
+	<Sentence Method="User_Wizard_1" name="User_Wizard_1" type="always"></Sentence>
+	<Sentence Method="User_Wizard_2" name="User_Wizard_2" type="always"></Sentence>
+	<Sentence Method="User_Wizard_3" name="User_Wizard_3" type="always"></Sentence>
+<!-- Language Wizard -->
+	<Sentence Method="Language_Wizard_1" name="Language_Wizard_1" type="always"></Sentence>
+  
+<!-- Numbers
+    <Sentence Method="1" name="OneNative" type="always"></Sentence>
+    <Sentence Method="2" name="TwoNative" type="always"></Sentence>
+    <Sentence Method="3" name="ThreeNative" type="always"></Sentence>
+    <Sentence Method="4" name="FourNative" type="always"></Sentence>
+    <Sentence Method="5" name="FiveNative" type="always"></Sentence>
+    <Sentence Method="6" name="SixNative" type="always"></Sentence>
+    <Sentence Method="7" name="SevenNative" type="always"></Sentence>
+    <Sentence Method="8" name="EightNative" type="always"></Sentence>
+    <Sentence Method="9" name="NineNative" type="always"></Sentence>
+
+    <Sentence Method="FourNative" name="FourNative" type="always"></Sentence>
+    <Sentence Method="SevenNative" name="SevenNative" type="always"></Sentence>
+ -->
+</list>

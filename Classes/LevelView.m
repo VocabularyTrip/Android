@@ -1,0 +1,605 @@
+//
+//  LevelView.m
+//  VocabularyTrip2
+//
+//  Created by Ariel Jadzinsky on 8/6/11.
+//  Copyright 2011 VocabularyTrip. All rights reserved.
+//
+
+#import "LevelView.h"
+#import "UserContext.h"
+#import "Word.h"
+#import "Vocabulary.h"
+#import "Album.h"
+#import "Sentence.h"
+#import "VocabularyTrip2AppDelegate.h"
+
+@implementation LevelView
+
+@synthesize page;
+@synthesize backButton;
+
+@synthesize levelText;
+@synthesize prevVersionText;
+@synthesize levelBoughtText;	
+@synthesize saveButton;
+
+@synthesize word1Button;
+@synthesize word2Button;
+@synthesize word3Button;
+@synthesize word1Label;
+@synthesize word2Label;
+@synthesize word3Label;	
+@synthesize trainLabel;
+@synthesize coinView;
+
+@synthesize train;
+@synthesize wagon1;
+@synthesize wagon2;
+@synthesize wagon3;
+@synthesize driverView;
+@synthesize langView;
+@synthesize wheel1;
+@synthesize wheel2;
+@synthesize wheel3;
+@synthesize wheel4;
+@synthesize wheel5;
+@synthesize wheel6;
+@synthesize wheel7;
+@synthesize wheel8;
+@synthesize wheel9;
+
+@synthesize nextButton;
+@synthesize prevButton;
+@synthesize imageView;
+@synthesize wordNamelabel;
+@synthesize nativeWordNamelabel;
+@synthesize alertDownloadSounds;
+
+@synthesize hand;
+@synthesize helpButton;
+@synthesize buyButton;
+@synthesize backgroundView;
+
+@synthesize progressBackView;
+@synthesize progressMaskView;
+@synthesize progressFillView;
+
+- (IBAction)done:(id)sender {
+	VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
+	[vocTripDelegate popMainMenuFromLevel];
+	[theTimer invalidate];
+	theTimer = nil;
+	[self purgeLevel];
+    //[PurchaseManager getSingleton].delegate = nil;
+}
+
+- (void) viewWillAppear:(BOOL)animated { 
+	[self refreshLevelInfo];
+    
+    User *user = [UserContext getUserSelected];
+    [driverView setImage: user.image];
+    
+    Language *lang = [UserContext getLanguageSelected];
+    [langView setImage: lang.image];
+    
+    
+}
+
+- (void) viewDidAppear:(BOOL)animated {
+	if ([UserContext getHelpLevel]) [self helpAnimation1];
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self shiftTrain: [UserContext getDeltaWidthIphone5]];
+    
+	// ************************
+	// ***** Debug mode 
+
+	levelBoughtText.enabled = [activeConfig isEqualToString: @"Debug"] ? YES : NO;
+	levelText.alpha = [activeConfig isEqualToString: @"Debug"] ? 1 : 0;
+	saveButton.alpha = [activeConfig isEqualToString: @"Debug"] ? 1 : 0;
+	levelBoughtText.alpha = [activeConfig isEqualToString: @"Debug"] ? 1 : 0;
+	saveButton.alpha = [activeConfig isEqualToString: @"Debug"] ? 1 : 0;	
+    prevVersionText.alpha = [activeConfig isEqualToString: @"Debug"] ? 1 : 0;	
+
+
+	// ***** Debug mode 
+	// ************************
+
+	wordNamelabel.alpha = 0;
+	nativeWordNamelabel.alpha = 0;
+	imageView.alpha = 0;
+
+	NSURL* soundUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"PageTurn" ofType:@"wav"]];
+	AudioServicesCreateSystemSoundID((__bridge   CFURLRef) soundUrl, &pageTurnSoundId);
+	
+    flagReset = 0;
+}
+
+- (void) updateLevelSlider {
+
+    NSLog(@"Level: %i, Page: %i", [UserContext getLevel], page);
+    int level = [UserContext getLevel] - 1;
+    int i = level / 3;
+    if (i == page) {
+        progressBackView.alpha = 1;
+        progressFillView.alpha = 1;
+        progressMaskView.alpha = 1;
+
+        CGRect frame = progressMaskView.frame;
+        CGRect frameFill = progressBackView.frame;
+        int deltaWidth = frameFill.size.width;
+        
+        CGRect frameOrigin;
+        
+        int r = level % 3;
+        NSLog(@"R: %i", r);
+        if (r==0) frameOrigin = wagon1.frame;
+        if (r==1) frameOrigin = wagon2.frame;
+        if (r==2) frameOrigin = wagon3.frame;
+        
+//        int deltaX = frameOrigin.origin.x;
+        
+        float progress = [Vocabulary wasLearned] / 1;
+        progress = [Vocabulary progressIndividualLevel]; // Overwrite with new formula
+        
+        frame.size.width = deltaWidth * (1-progress);
+        frame.origin.x = frameOrigin.origin.x + (deltaWidth * progress);
+        progressMaskView.frame = frame;
+
+        frameFill.origin.x = frameOrigin.origin.x;
+        progressBackView.frame = frameFill;
+
+        frameFill = progressFillView.frame;
+        frameFill.origin.x = frameOrigin.origin.x;
+        progressFillView.frame = frameFill;
+        
+    } else {
+        progressBackView.alpha = 0;
+        progressFillView.alpha = 0;
+        progressMaskView.alpha = 0;
+    }
+
+    
+
+    
+}
+
+- (void) shiftTrain: (int) xPix {
+    
+	CGRect frame = train.frame;
+	frame.origin.x = frame.origin.x + xPix;
+	train.frame = frame;
+    
+	frame = driverView.frame;
+	frame.origin.x = frame.origin.x + xPix;
+	driverView.frame = frame;
+
+    frame = langView.frame;
+	frame.origin.x = frame.origin.x + xPix;
+	langView.frame = frame;
+
+	frame = wagon1.frame;
+	frame.origin.x = frame.origin.x + xPix;
+	wagon1.frame = frame;
+    
+	frame = wagon2.frame;
+	frame.origin.x = frame.origin.x + xPix;
+	wagon2.frame = frame;
+    
+	frame = wagon3.frame;
+	frame.origin.x = frame.origin.x + xPix;
+	wagon3.frame = frame;
+    
+	frame = word1Button.frame;
+	frame.origin.x = frame.origin.x + xPix;
+	word1Button.frame = frame;
+    
+	frame = word2Button.frame;
+	frame.origin.x = frame.origin.x + xPix;
+	word2Button.frame = frame;
+    
+	frame = word3Button.frame;
+	frame.origin.x = frame.origin.x + xPix;
+	word3Button.frame = frame;
+    
+    frame = word1Label.frame;
+	frame.origin.x = frame.origin.x + xPix;
+	word1Label.frame = frame;
+    
+	frame = word2Label.frame;
+	frame.origin.x = frame.origin.x + xPix;
+	word2Label.frame = frame;
+    
+	frame = word3Label.frame;
+	frame.origin.x = frame.origin.x + xPix;
+	word3Label.frame = frame;
+    
+	frame = wheel1.frame;
+	frame.origin.x = frame.origin.x + xPix;
+	wheel1.frame = frame;
+    
+	frame = wheel2.frame;
+	frame.origin.x = frame.origin.x + xPix;
+	wheel2.frame = frame;
+    
+	frame = wheel3.frame;
+	frame.origin.x = frame.origin.x + xPix;
+	wheel3.frame = frame;
+    
+	frame = wheel4.frame;
+	frame.origin.x = frame.origin.x + xPix;
+	wheel4.frame = frame;
+    
+	frame = wheel5.frame;
+	frame.origin.x = frame.origin.x + xPix;
+	wheel5.frame = frame;
+    
+	frame = wheel6.frame;
+	frame.origin.x = frame.origin.x + xPix;
+	wheel6.frame = frame;
+    
+	frame = wheel7.frame;
+	frame.origin.x = frame.origin.x + xPix;
+	wheel7.frame = frame;
+
+    frame = wheel8.frame;
+	frame.origin.x = frame.origin.x + xPix;
+	wheel8.frame = frame;
+
+    frame = wheel9.frame;
+	frame.origin.x = frame.origin.x + xPix;
+	wheel9.frame = frame;
+
+}
+
+
+- (void) refreshLevelInfo {
+
+    
+    NSString *coverName;
+    coverName = [UserContext getIphone5xIpadFile: @"empty-page-monsters"];
+    [backgroundView setImage: [UIImage imageNamed: coverName]];
+    
+	levelText.text = [NSString stringWithFormat: @"%d", [UserContext getLevel]];
+	levelBoughtText.text = [NSString stringWithFormat: @"%d", [UserContext getMaxLevel]];
+
+	imageView.alpha = 0;
+	prevButton.alpha = page > 0 ? 1 : 0;
+	nextButton.alpha = page < 2 ? 1 : 0 ;
+
+	if (page == 0) {
+		coinView.image = [UIImage imageNamed: @"token-bronze.png"];
+		trainLabel.text = @"Bronze Level";
+	}
+	if (page == 1) {
+		coinView.image = [UIImage imageNamed: @"token-silver.png"];
+		trainLabel.text = @"Silver Level";
+	}
+	if (page == 2) {
+		coinView.image = [UIImage imageNamed: @"token-gold.png"];
+		trainLabel.text = @"Gold Level";
+	}
+	[self setImageToButton: 0];
+	[self setImageToButton: 1];
+	[self setImageToButton: 2];
+    
+    [self updateLevelSlider];
+
+}
+
+- (void) setImageToButton: (int) i {
+
+	int levelNumber = page * 3 + i;
+	Level* level = [UserContext getLevelAt: levelNumber];
+
+	UIImage *aImage;
+	if (levelNumber >= [UserContext getMaxLevel] && levelNumber != 0) {		// Buy - Hardcoded First level is free
+		aImage = level.imageNotAvailable;
+	} else if (levelNumber >= [UserContext getLevel] && levelNumber != 0) {	// Locked - Hardcoded First level is free
+		aImage = level.imageLocked;
+	} else {    // Unlocked
+		aImage = level.image;
+	}
+
+	if (i==0) { word1Label.text = level.levelName; [word1Button setImage: aImage forState: UIControlStateNormal]; }
+	if (i==1) { word2Label.text = level.levelName; [word2Button setImage: aImage forState: UIControlStateNormal]; }
+	if (i==2) { word3Label.text = level.levelName; [word3Button setImage: aImage forState: UIControlStateNormal]; }
+
+}
+
+- (void) purgeLevel {
+
+	if (page >=0 && page <3) {
+		Level* level = [UserContext getLevelAt: page * 3 + 0];
+		[level purge];
+
+		level = [UserContext getLevelAt: page * 3 + 1];
+		[level purge];
+
+		level = [UserContext getLevelAt: page * 3 + 2];
+		[level purge];
+	}
+}
+
+
+- (IBAction) testAllSounds:(id)sender {
+    NSLog(@"******************************************");
+    NSLog(@"************* Test All Sounds*************");    
+    [Sentence testAllSentences];
+    [Vocabulary testAllSounds];
+    NSLog(@"************** End Test ******************");
+}
+
+- (void) alertView: (UIAlertView*) alertView clickedButtonAtIndex: (NSInteger) aButtonIndex {
+	switch (aButtonIndex) {
+		case 0:
+			break;
+		case 1:
+			[[UserContext getSingleton] resetGame];
+			[self refreshLevelInfo];
+			break;
+		default:
+			break;
+	}	
+}
+
+- (IBAction) word1ButtonClicked {
+	buttonIndex = 0;
+	[self showAndSayDictionary: page * 3 + buttonIndex];
+}
+
+- (IBAction) word2ButtonClicked {
+	buttonIndex = 1;
+	[self showAndSayDictionary: page * 3 + buttonIndex];
+}
+
+- (IBAction) word3ButtonClicked {
+	buttonIndex = 2;
+	[self showAndSayDictionary: page * 3 + buttonIndex];
+}
+
+- (IBAction) prevButtonClicked {
+    if (helpButton.enabled == NO) return;
+	[self purgeLevel];
+	page--;
+	[self refreshLevelInfo];
+	AudioServicesPlaySystemSound(pageTurnSoundId);	
+
+	[self cancelAnimation];
+
+	[UIView beginAnimations: @"Turn Page Left" context: nil]; 
+	[UIView setAnimationDuration:1];
+	[UIView setAnimationTransition: UIViewAnimationTransitionCurlDown forView: self.view cache: YES];
+	[UIView commitAnimations];
+}
+
+- (IBAction) nextButtonClicked {
+    if (helpButton.enabled == NO) return;
+	[self purgeLevel];
+	page++;
+	[self refreshLevelInfo];
+	AudioServicesPlaySystemSound(pageTurnSoundId);
+
+	[self cancelAnimation];
+
+	[UIView beginAnimations: @"Turn Page Right" context: nil]; 
+	[UIView setAnimationDuration:1];
+	[UIView setAnimationTransition: UIViewAnimationTransitionCurlUp forView: self.view cache: YES];
+	[UIView commitAnimations];
+}
+
+// The button in the debug mode to save ad-hoc the information
+- (IBAction) save:(id)sender {
+	[[UserContext getUserSelected] setLevel: [levelText.text intValue]];
+	[[UserContext getSingleton] setMaxLevel: [levelBoughtText.text intValue]];
+    
+    [[NSUserDefaults standardUserDefaults] setObject: prevVersionText forKey:@"prevStartupVersions"];
+    [[UserContext getUserSelected] setMoney1:1000];
+    [[UserContext getUserSelected] setMoney2:1000];
+    [[UserContext getUserSelected] setMoney3:1000];
+  
+	[self refreshLevelInfo];
+}
+
+- (IBAction) jumpDownloadDictionary {
+    [self done: nil];
+    VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
+    [vocTripDelegate pushUserLangResumView];
+}
+
+- (void) showAndSayDictionary: (int) i {
+    //if (i > 0 && [UserContext getMaxLevel] == 0) return;
+    if (helpButton.enabled == NO) return;
+	[Vocabulary initializeLevelAt: i];
+	helpButton.enabled = NO;
+	[self initializeTimer];
+}
+
+- (void) initializeTimer {
+	if (theTimer == nil) {
+		theTimer = [CADisplayLink displayLinkWithTarget:self selector:@selector(showAndSayWord)];
+		theTimer.frameInterval = 120;
+		[theTimer addToRunLoop: [NSRunLoop currentRunLoop] forMode: NSDefaultRunLoopMode];	
+	} 
+}
+
+- (void) showAndSayWord {
+
+	Word *word;
+	word = [Vocabulary getAWord];
+	if ((word != nil)) {
+		[imageView setImage: word.image];
+		wordNamelabel.text = word.translatedName;
+        if (![wordNamelabel.text isEqualToString: word.localizationName]) 
+            nativeWordNamelabel.text =  word.localizationName;
+        else
+            nativeWordNamelabel.text = @"";
+		imageView.alpha = 1;
+		wordNamelabel.alpha = 1;
+        nativeWordNamelabel.alpha = 1;
+		if ([word playSound])
+            alertDownloadSounds.alpha = 0;
+        else
+            [self showAlertDownloadSounds];
+        
+	} else {
+		[self cancelAnimation];
+		[self helpLevel: buttonIndex + page * 3];
+	}
+}
+
+-(void) showAlertDownloadSounds {
+
+    // alertDownloadSounds.alpha = 0.0;                
+	[UIImageView beginAnimations: @"helpAnimation" context: Nil]; 
+	[UIImageView setAnimationDelegate: self];
+	[UIImageView setAnimationDuration: 0.8];
+    //[UIImageView setAnimationRepeatAutoreverses: YES];
+    [UIImageView setAnimationCurve: UIViewAnimationCurveEaseInOut];    
+	[UIImageView setAnimationBeginsFromCurrentState: YES];
+	[UIImageView setAnimationDidStopSelector: @selector(alertDownloadSoundsFinished)]; 
+    
+     alertDownloadSounds.alpha = 0.8;                
+	[UIImageView commitAnimations];
+}
+
+- (void) alertDownloadSoundsFinished {
+    //alertDownloadSounds.alpha = 0.0;
+}
+
+-(void) cancelAnimation {
+	imageView.alpha = 0;	
+	wordNamelabel.alpha = 0;
+    nativeWordNamelabel.alpha = 0;
+	helpButton.enabled = YES;
+	if (theTimer) [theTimer invalidate];
+	theTimer = nil;
+}
+
+-(void) helpLevel: (int) i {
+	// the user reach the last level
+	if ([UserContext getLevel] >= cLimitLevelGold) return;
+
+	if ([UserContext getLevel] >= (i+1)) 
+		[Sentence playSpeaker: @"LevelView-DidSelectRow-LearnThisLevel"];
+	else if ([UserContext getLevel] < (i+1)) 
+		[Sentence playSpeaker: @"LevelView-DidSelectRow-UnlockLevel"];		
+}
+
+- (IBAction) buyClicked {
+    VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
+    [vocTripDelegate pushPurchaseView];
+}
+
+// Override to allow orientations other than the default portrait orientation.
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    // Return YES for supported orientations.
+    return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft || interfaceOrientation == UIInterfaceOrientationLandscapeRight);
+}
+
+- (void)didReceiveMemoryWarning {
+    // Releases the view if it doesn't have a superview.
+    [super didReceiveMemoryWarning];
+	NSLog(@"didReceiveMemoryWarning in LevelView");
+}
+
+- (void)viewDidUnload {
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
+}
+
+- (void)dealloc {
+	AudioServicesDisposeSystemSoundID(pageTurnSoundId);
+}
+
+// *****************************
+// ***** Help Animation
+
+- (IBAction) helpClicked {
+	[self helpAnimation1];
+}
+
+- (void) helpAnimation1 {
+	helpButton.enabled = NO;
+
+	// Make clicking hand visible
+	[UIImageView beginAnimations: @"helpAnimation" context: ( void *)(hand)];
+	[UIImageView setAnimationDelegate: self]; 
+	[UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
+	[UIImageView setAnimationDidStopSelector: @selector(helpAnimation2)]; 
+	[UIImageView setAnimationDuration: .5];
+	hand.alpha = 1;
+	[UIImageView commitAnimations];    
+}
+
+- (void) helpAnimation2 {
+	// bring clicking hand onto the corresponding wagon
+	CGRect handFrame = hand.frame;
+
+	handFrame.origin.y = word2Button.frame.origin.y + word2Button.frame.size.width / 2;
+	handFrame.origin.x = word2Button.frame.origin.x + word2Button.frame.size.width / 2;
+	[UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])]; 
+	[UIImageView setAnimationDelegate: self]; 
+	[UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
+	[UIImageView setAnimationDidStopSelector: @selector(helpAnimation3)]; 
+//	[UIImageView setAnimationDidStopSelector: @selector(helpAnimation2b:finished:context:)]; 
+	[UIImageView setAnimationDuration: 2];
+	[UIImageView setAnimationBeginsFromCurrentState: YES];
+
+	hand.frame = handFrame;
+	[UIImageView commitAnimations];
+}
+
+- (void) helpAnimation3 {
+    // click down
+	[Sentence playSpeaker: @"LevelView-Help"];
+	CGRect frame = hand.frame;
+
+	[UIImageView beginAnimations: @"helpAnimation" context: nil]; 
+	[UIImageView setAnimationDelegate: self]; 
+	[UIImageView setAnimationDidStopSelector: @selector(helpAnimation4)]; 
+	[UIImageView setAnimationDuration: .15];
+	[UIImageView setAnimationBeginsFromCurrentState: YES];
+
+	frame.size.width = frame.size.width*.9;
+	frame.size.height = frame.size.height*.9;
+	hand.frame = frame;
+
+	[UIImageView commitAnimations];
+}
+
+- (void) helpAnimation4 {
+	// Release click
+	CGRect frame = hand.frame;
+
+	[UIImageView beginAnimations: @"helpAnimation" context: Nil]; 
+	[UIImageView setAnimationDelegate: self];
+	[UIImageView setAnimationDuration: .15];
+	[UIImageView setAnimationBeginsFromCurrentState: YES];
+	[UIImageView setAnimationDidStopSelector: @selector(helpAnimation5)]; 
+
+	frame.size.width = frame.size.width/.9;
+	frame.size.height = frame.size.height/.9;
+	hand.frame = frame;
+
+	[UIImageView commitAnimations];
+}
+
+- (void) helpAnimation5 {
+	// bring hand to original position
+    CGRect frame = hand.frame;
+    
+	[UserContext setHelpLevel: NO];
+	helpButton.enabled = YES;
+	hand.alpha = 0;
+    frame.origin.x=100;
+    frame.origin.y=50;
+    hand.frame = frame;
+}
+
+
+@end

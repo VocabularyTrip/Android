@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<list>
+	<landscape name="landscape1" sky="landscape1Sky"/>
+	<landscape name="landscape2" sky="landscape2Sky"/>
+	<landscape name="landscape3" sky="landscape3Sky"/>
+</list>

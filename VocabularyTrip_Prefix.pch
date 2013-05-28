@@ -1,0 +1,10 @@
+//
+// Prefix header for all source files of the 'VocabularyTrip2' target in the 'VocabularyTrip2' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+    #import <UIKit/UIKit.h>
+    #import <SystemConfiguration/SystemConfiguration.h>
+    #import <MobileCoreServices/MobileCoreServices.h>
+#endif

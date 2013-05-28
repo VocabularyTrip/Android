@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+
+<album>
+	<Fig number="0" image="princess6.png" page ="0" x= "68" y = "164" cost = "1" type="bronze" size="120"></Fig>
+	<Fig number="1" image="fairy3.png" page ="0" x= "240" y = "164" cost = "23" type="silver" size="120"></Fig>
+	<Fig number="2" image="fairy8.png" page ="0" x= "390" y = "164" cost = "13" type="silver" size="120"></Fig>
+	<Fig number="3" image="dragon5w.png" page ="1" x= "68" y = "164" cost = "35" type="bronze" size="120"></Fig>
+	<Fig number="4" image="other9h.png" page ="1" x= "240" y = "164" cost = "22" type="bronze" size="120"></Fig>
+	<Fig number="5" image="castle3.png" page ="1" x= "390" y = "164" cost = "4" type="silver" size="120"></Fig>
+	<Fig number="6" image="dragon1.png" page ="2" x= "68" y = "164" cost = "11" type="silver" size="120"></Fig>
+	<Fig number="7" image="fairy19h.png" page ="2" x= "240" y = "164" cost = "11" type="gold" size="120"></Fig>
+	<Fig number="8" image="other6w.png" page ="2" x= "390" y = "164" cost = "28" type="bronze" size="120"></Fig>
+	<Fig number="9" image="dragon2w.png" page ="3" x= "68" y = "164" cost = "20" type="silver" size="120"></Fig>
+	<Fig number="10" image="pony4h.png" page ="3" x= "240" y = "164" cost = "34" type="silver" size="120"></Fig>
+	<Fig number="11" image="fairy11h.png" page ="3" x= "390" y = "164" cost = "28" type="bronze" size="120"></Fig>
+	<Fig number="12" image="other5.png" page ="4" x= "68" y = "164" cost = "17" type="gold" size="120"></Fig>
+	<Fig number="13" image="fairy20a4h.png" page ="4" x= "240" y = "164" cost = "24" type="bronze" size="120"></Fig>
+	<Fig number="14" image="fairy14h.png" page ="4" x= "390" y = "164" cost = "33" type="gold" size="120"></Fig>
+	<Fig number="15" image="fairy1.png" page ="5" x= "68" y = "164" cost = "17" type="silver" size="120"></Fig>
+	<Fig number="16" image="fairy10.png" page ="5" x= "240" y = "164" cost = "15" type="gold" size="120"></Fig>
+	<Fig number="17" image="other4.png" page ="5" x= "390" y = "164" cost = "38" type="silver" size="120"></Fig>
+	<Fig number="18" image="fairy12.png" page ="6" x= "68" y = "164" cost = "24" type="bronze" size="120"></Fig>
+	<Fig number="19" image="fairy5.png" page ="6" x= "240" y = "164" cost = "26" type="bronze" size="120"></Fig>
+	<Fig number="20" image="witch1h.png" page ="6" x= "390" y = "164" cost = "24" type="gold" size="120"></Fig>
+	<Fig number="21" image="other8.png" page ="7" x= "68" y = "164" cost = "13" type="bronze" size="120"></Fig>
+	<Fig number="22" image="siren1h.png" page ="7" x= "240" y = "164" cost = "24" type="gold" size="120"></Fig>
+	<Fig number="23" image="castle4.png" page ="7" x= "390" y = "164" cost = "35" type="silver" size="120"></Fig>
+	<Fig number="24" image="castle5h.png" page ="8" x= "68" y = "164" cost = "22" type="bronze" size="120"></Fig>
+	<Fig number="25" image="fairy7.png" page ="8" x= "240" y = "164" cost = "49" type="silver" size="120"></Fig>
+	<Fig number="26" image="other1.png" page ="8" x= "390" y = "164" cost = "13" type="silver" size="120"></Fig>
+	<Fig number="27" image="dragon3.png" page ="9" x= "68" y = "164" cost = "31" type="gold" size="120"></Fig>
+	<Fig number="28" image="fairy17h.png" page ="9" x= "240" y = "164" cost = "22" type="silver" size="120"></Fig>
+	<Fig number="29" image="other10.png" page ="9" x= "390" y = "164" cost = "22" type="bronze" size="90"></Fig>
+	<Fig number="30" image="fairy20a3h.png" page ="10" x= "68" y = "164" cost = "7" type="silver" size="120"></Fig>
+	<Fig number="31" image="other12w.png" page ="10" x= "240" y = "164" cost = "15" type="gold" size="120"></Fig>
+	<Fig number="32" image="fairy18.png" page ="10" x= "390" y = "164" cost = "31" type="gold" size="120"></Fig>
+	<Fig number="33" image="fairy2.png" page ="11" x= "68" y = "164" cost = "34" type="bronze" size="120"></Fig>
+	<Fig number="34" image="witch3.png" page ="11" x= "240" y = "164" cost = "2" type="bronze" size="120"></Fig>
+	<Fig number="35" image="dragon3h.png" page ="11" x= "390" y = "164" cost = "47" type="bronze" size="120"></Fig>
+	<Fig number="36" image="castle2.png" page ="12" x= "68" y = "164" cost = "25" type="silver" size="120"></Fig>
+	<Fig number="37" image="fairy15h.png" page ="12" x= "240" y = "164" cost = "15" type="bronze" size="120"></Fig>
+	<Fig number="38" image="siren2w.png" page ="12" x= "390" y = "164" cost = "6" type="silver" size="120"></Fig>
+	<Fig number="39" image="fairy20a2h.png" page ="13" x= "68" y = "164" cost = "6" type="bronze" size="120"></Fig>
+	<Fig number="40" image="fairy20a1.png" page ="13" x= "240" y = "164" cost = "25" type="bronze" size="120"></Fig>
+	<Fig number="41" image="castle1.png" page ="13" x= "390" y = "164" cost = "18" type="bronze" size="120"></Fig>
+	<Fig number="42" image="fairy13.png" page ="14" x= "68" y = "164" cost = "11" type="silver" size="120"></Fig>
+	<Fig number="43" image="fairy9h.png" page ="14" x= "240" y = "164" cost = "24" type="silver" size="120"></Fig>
+	<Fig number="44" image="witch2h.png" page ="14" x= "390" y = "164" cost = "2" type="gold" size="120"></Fig>
+	<Fig number="45" image="princess2.png" page ="15" x= "68" y = "164" cost = "31" type="gold" size="120"></Fig>
+	<Fig number="46" image="dragon4w.png" page ="15" x= "240" y = "164" cost = "20" type="silver" size="120"></Fig>
+	<Fig number="47" image="princess5.png" page ="15" x= "390" y = "164" cost = "43" type="silver" size="120"></Fig>
+	<Fig number="48" image="witch4.png" page ="16" x= "68" y = "164" cost = "32" type="silver" size="120"></Fig>
+	<Fig number="49" image="princess7.png" page ="16" x= "240" y = "164" cost = "32" type="bronze" size="120"></Fig>
+	<Fig number="50" image="other11w.png" page ="16" x= "390" y = "164" cost = "15" type="gold" size="120"></Fig>
+	<Fig number="51" image="other7.png" page ="17" x= "68" y = "164" cost = "19" type="gold" size="120"></Fig>
+	<Fig number="52" image="fairy6.png" page ="17" x= "240" y = "164" cost = "25" type="gold" size="120"></Fig>
+	<Fig number="53" image="pony1w.png" page ="17" x= "390" y = "164" cost = "30" type="bronze" size="120"></Fig>
+	<Fig number="54" image="princess4w.png" page ="18" x= "68" y = "164" cost = "6" type="gold" size="120"></Fig>
+	<Fig number="55" image="fairy20a5h.png" page ="18" x= "240" y = "164" cost = "25" type="bronze" size="120"></Fig>
+	<Fig number="56" image="fairy20a6h.png" page ="18" x= "390" y = "164" cost = "13" type="gold" size="120"></Fig>
+	<Fig number="57" image="princess1.png" page ="19" x= "68" y = "164" cost = "7" type="bronze" size="120"></Fig>
+	<Fig number="58" image="prince1h.png" page ="19" x= "240" y = "164" cost = "22" type="gold" size="90"></Fig>
+	<Fig number="59" image="princess3h.png" page ="19" x= "390" y = "164" cost = "30" type="bronze" size="120"></Fig>
+	<Fig number="60" image="other9.png" page ="20" x= "68" y = "164" cost = "20" type="gold" size="120"></Fig>
+	<Fig number="61" image="pony3w.png" page ="20" x= "240" y = "164" cost = "30" type="gold" size="120"></Fig>
+	<Fig number="62" image="siren3w.png" page ="20" x= "390" y = "164" cost = "2" type="silver" size="120"></Fig>
+	<Fig number="63" image="fairy4.png" page ="21" x= "68" y = "164" cost = "8" type="bronze" size="120"></Fig>
+	<Fig number="64" image="other2.png" page ="21" x= "240" y = "164" cost = "1" type="bronze" size="120"></Fig>
+	<Fig number="65" image="siren4.png" page ="21" x= "390" y = "164" cost = "32" type="gold" size="120"></Fig>
+	<Fig number="66" image="pony2.png" page ="22" x= "240" y = "227" cost = "25" type="silver" size="120"></Fig>
+	<Fig number="67" image="wizard1.png" page ="22" x= "80" y = "164" cost = "32" type="silver" size="120"></Fig>
+	<Fig number="68" image="fairy16w.png" page ="22" x= "240" y = "104" cost = "17" type="bronze" size="120"></Fig>
+	<Fig number="69" image="wizard2h.png" page ="22" x= "390" y = "164" cost = "25" type="bronze" size="120"></Fig>
+</album>
+
+
