@@ -22,6 +22,8 @@
     UILabel *__unsafe_unretained promoCodeStatus;
     UILabel *__unsafe_unretained promoCodeLabel;
     UIImageView *__unsafe_unretained backgroundView;
+    UIImageView *__unsafe_unretained imageHelp1View;
+    UIImageView *__unsafe_unretained imageHelp2View;
 }
 
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *backButton;
@@ -31,6 +33,8 @@
 @property (nonatomic, unsafe_unretained) IBOutlet UILabel *promoCodeStatus;
 @property (nonatomic, unsafe_unretained) IBOutlet UILabel *promoCodeLabel;
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *backgroundView;
+@property (nonatomic, unsafe_unretained) IBOutlet UIImageView *imageHelp1View;
+@property (nonatomic, unsafe_unretained) IBOutlet UIImageView *imageHelp2View;
 
 - (IBAction) done:(id)sender;
 - (IBAction) restorePurchase:(id)sender;
@@ -48,6 +52,9 @@
 - (void) responseToBuyAction;
 - (void) responseToCancelAction;
 
+- (IBAction) helpAnimation1;
+- (void) helpAnimation2;
+- (void) helpAnimation3;
 
 
 @end

@@ -92,6 +92,6 @@
 - (void) checkPromoCodeDueDate;
 - (void) checkAPromoCodeForUUID;
 - (void) saveTimePlayedInDB;
-
+    
 @end
 
