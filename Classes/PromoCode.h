@@ -55,5 +55,9 @@ typedef enum  {
 + (void) claimPromoCodeFinishWidhError:(NSError *) error;
     
 + (void) answerPromoCodeResult: (NSString*) promoCodeResult;
++ (void) checkPromoCodeDueDate;
+
++ (NSDate*) dateOnly: (NSDate*) date;
++ (bool) isExpired: (NSDate*) date;
 
 @end

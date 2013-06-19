@@ -66,6 +66,7 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{0, 6}, {200, 92}}</string>
 								<reference key="NSSuperview" ref="205561208"/>
+								<reference key="NSNextKeyView" ref="791684390"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
@@ -104,6 +105,7 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{128, 521}, {307, 108}}</string>
 								<reference key="NSSuperview" ref="205561208"/>
+								<reference key="NSNextKeyView" ref="610473201"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<int key="IBUIContentVerticalAlignment">0</int>
@@ -136,6 +138,7 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{945, 20}, {68, 68}}</string>
 								<reference key="NSSuperview" ref="205561208"/>
+								<reference key="NSNextKeyView" ref="900182574"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
@@ -158,6 +161,7 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{131, 630}, {300, 60}}</string>
 								<reference key="NSSuperview" ref="205561208"/>
+								<reference key="NSNextKeyView" ref="746253472"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
@@ -188,6 +192,7 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{604, 584}, {301, 43}}</string>
 								<reference key="NSSuperview" ref="205561208"/>
+								<reference key="NSNextKeyView" ref="459893072"/>
 								<object class="NSColor" key="IBUIBackgroundColor">
 									<int key="NSColorSpace">3</int>
 									<bytes key="NSWhite">MC42NjY2NjY2NjY3AA</bytes>
@@ -230,6 +235,7 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{604, 552}, {301, 21}}</string>
 								<reference key="NSSuperview" ref="205561208"/>
+								<reference key="NSNextKeyView" ref="669536775"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
@@ -261,6 +267,7 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{604, 633}, {420, 21}}</string>
 								<reference key="NSSuperview" ref="205561208"/>
+								<reference key="NSNextKeyView"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
@@ -289,6 +296,7 @@
 						</object>
 						<string key="NSFrameSize">{1024, 768}</string>
 						<reference key="NSSuperview" ref="251504986"/>
+						<reference key="NSNextKeyView" ref="467787974"/>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -296,7 +304,7 @@
 				</object>
 				<string key="NSFrameSize">{1024, 768}</string>
 				<reference key="NSSuperview"/>
-				<reference key="NSNextKeyView" ref="467787974"/>
+				<reference key="NSNextKeyView" ref="205561208"/>
 				<reference key="IBUIBackgroundColor" ref="899620473"/>
 				<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
 					<int key="IBUIInterfaceOrientation">3</int>
@@ -398,15 +406,6 @@
 						<reference key="destination" ref="372490531"/>
 					</object>
 					<int key="connectionID">209</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">registerPromoCode</string>
-						<reference key="source" ref="669536775"/>
-						<reference key="destination" ref="372490531"/>
-						<int key="IBEventType">19</int>
-					</object>
-					<int key="connectionID">214</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">

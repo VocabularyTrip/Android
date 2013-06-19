@@ -303,7 +303,7 @@
 	[UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
 	[UIImageView setAnimationDidStopSelector: @selector(helpAnimation3)];
     //	[UIImageView setAnimationDidStopSelector: @selector(helpAnimation2b:finished:context:)];
-	[UIImageView setAnimationDuration: 3];
+	[UIImageView setAnimationDuration: 1];
 	[UIImageView setAnimationBeginsFromCurrentState: YES];
   
 	hand.frame = handFrame;

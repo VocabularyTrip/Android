@@ -20,6 +20,8 @@
 @synthesize promoCodeStatus;
 @synthesize promoCodeLabel;
 @synthesize backgroundView;
+@synthesize imageHelp1View;
+@synthesize imageHelp2View;
 
 - (IBAction)done:(id)sender {
 	VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
@@ -49,7 +51,6 @@
 	[self refreshLevelInfo];
     NSString* coverName = [UserContext getIphone5xIpadFile: @"background_purchase"];
     [backgroundView setImage: [UIImage imageNamed: coverName]];
-    
 }
 
 - (void)viewDidLoad {
@@ -130,5 +131,35 @@
     // e.g. self.myOutlet = nil;
 }
 
+- (IBAction) helpAnimation1 {
+	[Sentence playSpeaker: @"Purchase_Help_1"];
+    // Make clicking hand visible
+	[UIImageView beginAnimations: @"helpAnimation" context: nil];
+	[UIImageView setAnimationDelegate: self];
+	[UIImageView setAnimationCurve: UIViewAnimationCurveEaseIn];
+	[UIImageView setAnimationDidStopSelector: @selector(helpAnimation2)];
+	[UIImageView setAnimationDuration: 4];
+    imageHelp1View.alpha = 1;
+	[UIImageView commitAnimations];
+}
+
+- (void) helpAnimation2 {
+    // bring hand to language
+	[Sentence playSpeaker: @"Purchase_Help_2"];
+    imageHelp1View.alpha = 0;
+    
+	[UIImageView beginAnimations: @"helpAnimation" context: nil];
+	[UIImageView setAnimationDelegate: self];
+	[UIImageView setAnimationCurve: UIViewAnimationCurveEaseOut];
+	[UIImageView setAnimationDidStopSelector: @selector(helpAnimation3)];
+	[UIImageView setAnimationDuration: 4];
+	[UIImageView setAnimationBeginsFromCurrentState: YES];
+    imageHelp2View.alpha = 1;
+	[UIImageView commitAnimations];
+}
+
+- (void) helpAnimation3 {
+    imageHelp2View.alpha = 0;
+}
 
 @end

@@ -75,32 +75,9 @@
 	self.startPlaying = [NSDate date];
 }
 
--(void) checkPromoCodeDueDate {
 
-    NSUserDefaults *pref = [NSUserDefaults standardUserDefaults];
-    NSDate *date =
-       [pref objectForKey: cPromoCodeExpireDate];
-    if (date) {
-        NSString *message;
-        if (date && [date compare: [NSDate date]] == NSOrderedAscending) {
-           [[UserContext getSingleton] setMaxLevel: 0];
-           [pref removeObjectForKey: cPromoCodeExpireDate];
-           [pref synchronize];
-           message = cPromoCodeStatusFinished;
-        } else {
-           int days = [date timeIntervalSinceNow] / 86400;
-           message = [NSString stringWithFormat: @"You have access to full content for %i days", days];
-        }
-        [pref setObject: message forKey: cPromoCodeStatus];
-        
-        UIAlertView *alert = [[UIAlertView alloc] 
-                              initWithTitle: cNotifyToPromoCodeLimited
-                              message: message
-                              delegate: self 
-                              cancelButtonTitle: @"OK" 
-                              otherButtonTitles: nil];
-        [alert show];
-    }
+-(void) checkPromoCodeDueDate {
+    [PromoCode checkPromoCodeDueDate];
 }
 
 - (void) checkAPromoCodeForUUID {
@@ -108,7 +85,14 @@
 }
 
 - (void) checkDownloadCompleted {
-    if (!([UserContext getMaxLevel] >= 6)) return;
+    
+    
+    double wasLearnedResult = [Vocabulary wasLearned];
+    // Check Download complete only if advance to level 2 is unlock and at least is close to level 2
+    if (!([UserContext getMaxLevel] >= 6) ||
+        (wasLearnedResult < cPercentageCloseToLearnd && [UserContext getLevel] == 1)
+        ) return;
+    
     if (![Vocabulary isDownloadCompleted]) {
 
         Language *lang = [UserContext getLanguageSelected];

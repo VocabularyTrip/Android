@@ -462,9 +462,9 @@
 
 }
 
-
 -(void) showAlertDownloadSounds {
     
+    [Sentence playSpeaker: @"AlertDownloadSounds"];
     // alertDownloadSounds.alpha = 0.0;                
 	[UIImageView beginAnimations: @"helpAnimation" context: Nil]; 
 	[UIImageView setAnimationDelegate: self];

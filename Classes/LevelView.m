@@ -452,7 +452,8 @@
 }
 
 -(void) showAlertDownloadSounds {
-
+	[Sentence playSpeaker: @"AlertDownloadSounds"];
+    
     // alertDownloadSounds.alpha = 0.0;                
 	[UIImageView beginAnimations: @"helpAnimation" context: Nil]; 
 	[UIImageView setAnimationDelegate: self];
@@ -462,7 +463,7 @@
 	[UIImageView setAnimationBeginsFromCurrentState: YES];
 	[UIImageView setAnimationDidStopSelector: @selector(alertDownloadSoundsFinished)]; 
     
-     alertDownloadSounds.alpha = 0.8;                
+    alertDownloadSounds.alpha = 0.8;                
 	[UIImageView commitAnimations];
 }
 

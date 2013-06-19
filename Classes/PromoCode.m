@@ -21,14 +21,12 @@
 + (void) checkAPromoCodeForUUID {
     if ([UserContext getMaxLevel] >= 6) return; // [self answerPromoCodeResult: PromoCodeRegistered];
     
-    
     NSURL *url = [NSURL URLWithString: [NSString stringWithFormat: @"%@/db_promo_code.php?rquest=getPromoCodeForUUID", cUrlServer]];
     NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:
                           [[UIDevice currentDevice] uniqueIdentifier], @"uuid",
                           nil];
     
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL: url];
-
 
     NSMutableURLRequest *jsonRequest =
     [httpClient requestWithMethod: @"POST" path: [url  absoluteString] parameters: dict];
@@ -77,7 +75,7 @@
             
             if (![aPromoCode.type isEqualToString: @"Expire"] ||
                 ((aPromoCode.expireDate != (id)[NSNull null]) &&
-                ([aPromoCode.expireDate compare: [NSDate date]] == NSOrderedDescending)))
+                ![self isExpired: date]))
                     [self claimPromoCode: aPromoCode];
             return;
         }
@@ -139,10 +137,11 @@
     
     for (NSDictionary* value in response) {
         PromoCode* aPromoCode = [[PromoCode alloc] init];
-        aPromoCode.promoCode = [value objectForKey:@"promo_code"];;
+        aPromoCode.promoCode = [value objectForKey:@"promo_code"];
         
         NSString *promoCodeExpireDateStr = [value objectForKey:@"promo_code_expire_date"];
-        if (!promoCodeExpireDateStr) {
+        NSLog(@"promoCodeExpireDateStr: %@", promoCodeExpireDateStr);
+        if (promoCodeExpireDateStr != (id)[NSNull null]) {
             NSDateFormatter *dateF = [[NSDateFormatter alloc] init];
             [dateF setDateFormat: @"yyyy-MM-dd"];
             NSDate* date = [dateF dateFromString: promoCodeExpireDateStr];
@@ -156,12 +155,14 @@
 + (void) claimPromoCode: (PromoCode*) aPromoCode {
  
     
-    if (aPromoCode.expireDate != (id)[NSNull null]) {
-        if ([aPromoCode.expireDate compare: [NSDate date]] == NSOrderedDescending) {
+    if (aPromoCode.expireDate != (id)[NSNull null] && aPromoCode.expireDate != nil) {
+        //if ([aPromoCode.expireDate compare: [NSDate date]] == NSOrderedDescending) {
+        if (![self isExpired: aPromoCode.expireDate]) {
             [[NSUserDefaults standardUserDefaults] 
              setObject: aPromoCode.expireDate forKey: cPromoCodeExpireDate];
         } else {
-            NSLog(@"Registering a promo code allready expired?");
+           [self answerPromoCodeResult: @"Registering a promo code expired"];
+            return;
         }
     }
     
@@ -214,10 +215,55 @@
     if ([result isEqualToString: @"Success"]) {
         [[NSUserDefaults standardUserDefaults] setObject: cPromoCodeStatusActive forKey: cPromoCodeStatus];
         [[NSUserDefaults standardUserDefaults] setObject: [response objectForKey: @"promoCode"] forKey: cPromoCode];
+        
         [[PurchaseManager getSingleton] provideContent: cPurchaseAllLevels]; // Provide Content !!!!!
         [self answerPromoCodeResult: @"Promo Code Registered Successfully"];
     }
 }
 
++(NSDate*) dateOnly: (NSDate*) date {
+    unsigned int flags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit;
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    NSDateComponents* components = [calendar components:flags fromDate: date];
+    NSDate* dateOnly = [calendar dateFromComponents:components];
+    return dateOnly;
+}
+
++(bool) isExpired: (NSDate*) date {
+    date = [self dateOnly: date];
+    NSDate *today = [self dateOnly: [NSDate date]];
+    return !([date compare: today] == NSOrderedDescending);
+}
+
++(void) checkPromoCodeDueDate {
+    NSUserDefaults *pref = [NSUserDefaults standardUserDefaults];
+    NSDate *date = [pref objectForKey: cPromoCodeExpireDate];
+    if (date) {
+        date = [self dateOnly: date];
+        
+        NSString *message;
+        if (date && [self isExpired: date]) {
+            [[UserContext getSingleton] setMaxLevel: 0];
+            [pref removeObjectForKey: cPromoCodeExpireDate];
+            [pref synchronize];
+            message = cPromoCodeStatusFinished;
+        } else {
+            NSDate *today = [self dateOnly: [NSDate date]];
+            NSLog(@"today: %@", today);
+            int days = [date timeIntervalSinceDate: today] / 86400;
+            NSLog(@"Days: %i", days);
+            message = [NSString stringWithFormat: @"You have access to full content for %i days", days];
+        }
+        [pref setObject: message forKey: cPromoCodeStatus];
+        
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle: cNotifyToPromoCodeLimited
+                              message: message
+                              delegate: self
+                              cancelButtonTitle: @"OK"
+                              otherButtonTitles: nil];
+        [alert show];
+    }
+}
 
 @end
