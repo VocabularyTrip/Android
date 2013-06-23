@@ -168,6 +168,13 @@
 - (void) helpAnimation3;
 - (void) helpAnimation4;
 - (void) helpAnimation5;
+- (void) helpAnimation6;
+- (void) helpEnd1;
+- (void) helpEnd2;
+- (void) helpDownload1;
+- (void) helpDownload2;
+- (void) helpDownload3;
+- (void) helpDownload4;
 
 
 @end

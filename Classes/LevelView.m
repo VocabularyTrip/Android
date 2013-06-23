@@ -89,9 +89,9 @@
 
 - (void) viewDidAppear:(BOOL)animated {
 	if ([UserContext getHelpLevel] || startWithHelp) [self helpAnimation1];
-    if (startWithHelp) [self startLoading];
-    startWithHelp = 0;
-    [super viewDidAppear: animated];
+  if (startWithHelp) [self startLoading];
+  startWithHelp = 0;
+  [super viewDidAppear: animated];
 }
 
 - (void)viewDidLoad {
@@ -106,7 +106,7 @@
 	saveButton.alpha = [activeConfig isEqualToString: @"Debug"] ? 1 : 0;
 	levelBoughtText.alpha = [activeConfig isEqualToString: @"Debug"] ? 1 : 0;
 	saveButton.alpha = [activeConfig isEqualToString: @"Debug"] ? 1 : 0;
-    prevVersionText.alpha = [activeConfig isEqualToString: @"Debug"] ? 1 : 0;
+  prevVersionText.alpha = [activeConfig isEqualToString: @"Debug"] ? 1 : 0;
   
   
     // ***** Debug mode
@@ -441,14 +441,17 @@
       nativeWordNamelabel.text =  word.localizationName;
     else
       nativeWordNamelabel.text = @"";
+
 		imageView.alpha = 1;
 		wordNamelabel.alpha = 1;
     nativeWordNamelabel.alpha = 1;
-		if ([word playSound])
+		if ([word playSound]) {
       alertDownloadSounds.alpha = 0;
-    else
+    }
+    else {
       [self showAlertDownloadSounds];
-    
+      [self helpDownload1];
+    }
 	} else {
 		[self cancelAnimation];
 		[self helpLevel: buttonIndex + page * 3];
@@ -543,6 +546,7 @@
 - (void) helpAnimation2 {
     // bring clicking hand onto the corresponding wagon
 	CGRect handFrame = hand.frame;
+	[Sentence playSpeaker: @"LevelView-Help"];
   
 	handFrame.origin.y = word2Button.frame.origin.y + word2Button.frame.size.width / 2;
 	handFrame.origin.x = word2Button.frame.origin.x + word2Button.frame.size.width / 2;
@@ -560,7 +564,6 @@
 
 - (void) helpAnimation3 {
     // click down
-	[Sentence playSpeaker: @"LevelView-Help"];
 	CGRect frame = hand.frame;
   
 	[UIImageView beginAnimations: @"helpAnimation" context: nil];
@@ -578,7 +581,6 @@
 
 - (void) helpAnimation4 {
     // release click
-	[Sentence playSpeaker: @"LevelView-Help"];
 	CGRect frame = hand.frame;
   
 	[UIImageView beginAnimations: @"helpAnimation" context: nil];
@@ -595,11 +597,11 @@
 }
 
 - (void) helpAnimation5 {
-   if ([UserContext getMaxLevel] < 6) {
-       [self helpAnimation13];
-       return;
-   }
     // do nothing, change alpha to .99 and in next help back to 1
+  if ([UserContext getMaxLevel] < 6) {
+    [self helpEnd1];
+    return;
+  }
   
   [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
   [UIImageView setAnimationDelegate: self];
@@ -685,7 +687,7 @@
   [UIImageView setAnimationDidStopSelector: @selector(helpAnimation9)];
   [UIImageView setAnimationDuration: 3];
   [UIImageView setAnimationBeginsFromCurrentState: YES];
-
+  
   center.x = center.x+1;
   hand.center = center;
   hand.alpha = 1;
@@ -733,7 +735,7 @@
   center.x = center.x + progressMaskView.frame.size.width/2;
   center.y = center.y + 2*progressMaskView.frame.size.height;
   hand.center = center;
-
+  
   angle=0;
   [UIImageView commitAnimations];
 }
@@ -770,20 +772,22 @@
   [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
   [UIImageView setAnimationDelegate: self];
   [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
-  [UIImageView setAnimationDidStopSelector: @selector(helpAnimation13)];
+  [UIImageView setAnimationDidStopSelector: @selector(helpDownload1)];
+    //  [UIImageView setAnimationDidStopSelector: @selector(helpEnds1)];
   [UIImageView setAnimationDuration: 1];
   [UIImageView setAnimationBeginsFromCurrentState: YES];
   hand.alpha=.99;
-
+  
   [UIImageView commitAnimations];
 }
 
--(void) helpAnimation13{
+-(void) helpEnd1{
     // hand dissapears
   helpButton.enabled = YES;
   [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
   [UIImageView setAnimationDelegate: self];
   [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
+  [UIImageView setAnimationDidStopSelector: @selector(helpEnd2)];
   [UIImageView setAnimationDuration: .5];
   [UIImageView setAnimationBeginsFromCurrentState: YES];
   
@@ -793,9 +797,9 @@
   
 }
 
--(void) helpAnimation14{
+-(void) helpEnd2{
     // get hand to original position
-
+  
   CGPoint center = hand.center;
   
   [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
@@ -810,5 +814,107 @@
   [UIImageView commitAnimations];
   
 }
+
+-(void) helpDownload1{
+    // Make clicking hand visible
+  helpButton.enabled = NO;
+  
+  [UIImageView beginAnimations: @"helpAnimation" context: ( void *)(hand)];
+  [UIImageView setAnimationDelegate: self];
+  [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
+  [UIImageView setAnimationDidStopSelector: @selector(helpDownload2)];
+  [UIImageView setAnimationDuration: .5];
+  hand.alpha = 1;
+  [UIImageView commitAnimations];
+}
+
+-(void) helpDownload2 {
+    // bring clicking hand onto Download button
+  [Sentence playSpeaker: @"Download_Help_1"];
+  
+  [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
+  [UIImageView setAnimationDelegate: self];
+  [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
+  [UIImageView setAnimationDidStopSelector: @selector(helpDownload3)];
+  
+  [UIImageView setAnimationDuration: 2];
+  [UIImageView setAnimationBeginsFromCurrentState: YES];
+  
+  hand.center = cancelDownloadButton.center;
+    //  CGPoint handCenter = hand.center;
+    //cancelDownloadButton.center;
+    //hand.frame = handFrame;
+  [UIImageView commitAnimations];
+}
+
+- (void) helpDownload3 {
+    // click down
+  [Sentence playSpeaker: @"Download_Help_2"];
+	CGRect frame = hand.frame;
+  
+	[UIImageView beginAnimations: @"helpAnimation" context: nil];
+	[UIImageView setAnimationDelegate: self];
+	[UIImageView setAnimationDidStopSelector: @selector(helpDownload4)];
+	[UIImageView setAnimationDuration: .15];
+	[UIImageView setAnimationBeginsFromCurrentState: YES];
+  
+	frame.size.width = frame.size.width*.9;
+	frame.size.height = frame.size.height*.9;
+	hand.frame = frame;
+  
+	[UIImageView commitAnimations];
+}
+
+- (void) helpDownload4 {
+    // release click
+	CGRect frame = hand.frame;
+  
+	[UIImageView beginAnimations: @"helpAnimation" context: nil];
+	[UIImageView setAnimationDelegate: self];
+	[UIImageView setAnimationDidStopSelector: @selector(helpDownload5)];
+	[UIImageView setAnimationDuration: .15];
+	[UIImageView setAnimationBeginsFromCurrentState: YES];
+  
+	frame.size.width = frame.size.width/.9;
+	frame.size.height = frame.size.height/.9;
+	hand.frame = frame;
+  
+	[UIImageView commitAnimations];
+}
+
+- (void) helpDownload5 {
+    // Wait before restarting this help
+  
+	[UIImageView beginAnimations: @"helpAnimation" context: nil];
+	[UIImageView setAnimationDelegate: self];
+	[UIImageView setAnimationDidStopSelector: @selector(helpDownload6)];
+	[UIImageView setAnimationDuration: .1];
+	[UIImageView setAnimationBeginsFromCurrentState: YES];
+  
+  CGRect frame = hand.frame;
+	frame.size.width = frame.size.width*.99;
+	frame.size.height = frame.size.height*.99;
+	hand.frame = frame;
+  
+	[UIImageView commitAnimations];
+}
+
+- (void) helpDownload6 {
+    // Wait before restarting this help
+  
+	[UIImageView beginAnimations: @"helpAnimation" context: nil];
+	[UIImageView setAnimationDelegate: self];
+	[UIImageView setAnimationDidStopSelector: @selector(helpEnd1)];
+	[UIImageView setAnimationDuration: .9];
+	[UIImageView setAnimationBeginsFromCurrentState: YES];
+
+  CGRect frame = hand.frame;
+	frame.size.width = frame.size.width/.99;
+	frame.size.height = frame.size.height/.99;
+	hand.frame = frame;
+  
+	[UIImageView commitAnimations];
+}
+
 
 @end
