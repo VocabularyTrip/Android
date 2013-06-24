@@ -37,3 +37,9 @@
 .Icon?
 ehtumbs.db
 Thumbs.db
+
+# Xcode generated files
+VocabularyTrip.xcodeproj/project.xcworkspace/xcuserdata/jadz.xcuserdatad/UserInterfaceState.xcuserstate
+VocabularyTrip.xcodeproj/project.pbxproj
+VocabularyTrip.xcodeproj/xcuserdata/jadz.xcuserdatad/xcdebugger/Breakpoints.xcbkptlist
+
