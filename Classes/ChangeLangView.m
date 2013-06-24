@@ -242,7 +242,7 @@
 	[UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
 	[UIImageView setAnimationDidStopSelector: @selector(helpAnimation6)];
     angle = 0;    // set it up to start always in the same place in helpAnimation6
-	[UIImageView setAnimationDuration: 3];
+	[UIImageView setAnimationDuration: 5];
 	[UIImageView setAnimationBeginsFromCurrentState: YES];
   
     // center hand in lockUnlockButton

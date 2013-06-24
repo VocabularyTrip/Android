@@ -64,10 +64,15 @@ Dictionary of Methods:
 	<Sentence Method="AlbumView-help1" name="Album help 1" type="always"></Sentence>
 	<Sentence Method="AlbumView-help2" name="Album help 2" type="always"></Sentence>
 <!-- Level -->
-  <Sentence Method="Donwload_Help_1" name="Download_Help_1" ytpe="always"></Sentence>
-  <Sentence Method="Donwload_Help_2" name="Download_Help_2" ytpe="always"></Sentence>
+  <Sentence Method="Download_Help_1" name="Download_Help_1" type="always"></Sentence>
+  <Sentence Method="Download_Help_2" name="Download_Help_2" type="always"></Sentence>
   
-	<Sentence Method="LevelView-Help" name="Level help" type="always"></Sentence>
+	<Sentence Method="Level_helpA" name="Level_helpA" type="always"></Sentence>
+	<Sentence Method="Level_helpB" name="Level_helpB" type="always"></Sentence>
+	<Sentence Method="Level_helpC" name="Level_helpC" type="always"></Sentence>
+	<Sentence Method="Level_helpD" name="Level_helpD" type="always"></Sentence>
+	<Sentence Method="Level_helpE" name="Level_helpE" type="always"></Sentence>
+	<Sentence Method="Level_helpF" name="Level_helpF" type="always"></Sentence>
   <Sentence Method="LevelView-DidSelectRow-UnlockLevel-Buyed" name="Unlock help" type="always"></Sentence>
   <Sentence Method="LevelView-DidSelectRow-UnlockLevel" name="to unlock this level you first" type="always">
     <Alternative name= "keep playing to advance to that level"></Alternative></Sentence>

@@ -450,7 +450,10 @@
     }
     else {
       [self showAlertDownloadSounds];
-      [self helpDownload1];
+      if (angle==0){    // I want this help to start only if it is not running already. Not to start every time it tries to say a word that does not exist. 
+        [self helpDownload1];
+        angle = 1;
+      }
     }
 	} else {
 		[self cancelAnimation];
@@ -546,7 +549,7 @@
 - (void) helpAnimation2 {
     // bring clicking hand onto the corresponding wagon
 	CGRect handFrame = hand.frame;
-	[Sentence playSpeaker: @"LevelView-Help"];
+	[Sentence playSpeaker: @"Level_helpA"];
   
 	handFrame.origin.y = word2Button.frame.origin.y + word2Button.frame.size.width / 2;
 	handFrame.origin.x = word2Button.frame.origin.x + word2Button.frame.size.width / 2;
@@ -638,7 +641,7 @@
     // hover over lock button
   CGPoint center = hand.center;
   if (angle<M_PI) {
-    [Sentence playSpeaker: @"LevelView-HelpB"];
+    [Sentence playSpeaker: @"Level_helpB"];
   }
     //NSLog(@"angle is: %g", angle);
   [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
@@ -663,7 +666,7 @@
 
 - (void) helpAnimation8 {
     // do nothing, change alpha to .99 and in next help back to 1
-	[Sentence playSpeaker: @"LevelView-HelpC"];
+	[Sentence playSpeaker: @"Level_helpC"];
   
   [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
   [UIImageView setAnimationDelegate: self];
@@ -678,7 +681,7 @@
 
 - (void) helpAnimation8B {
     // do nothing, change alpha to .99 and in next help back to 1
-	[Sentence playSpeaker: @"LevelView-HelpC"];
+	[Sentence playSpeaker: @"Level_helpC"];
   CGPoint center = hand.center;
   
   [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
@@ -696,7 +699,7 @@
 
 - (void) helpAnimation9 {
     // hover over lock button
-	[Sentence playSpeaker: @"LevelView-HelpD"];
+	[Sentence playSpeaker: @"Level_helpD"];
   CGPoint center = hand.center;
   
     //NSLog(@"angle is: %g", angle);
@@ -742,7 +745,7 @@
 
 - (void) helpAnimation11 {
     // hover over progress bar
-	[Sentence playSpeaker: @"LevelView-HelpE"];
+	[Sentence playSpeaker: @"Level_helpE"];
   CGPoint center = hand.center;
   
     //NSLog(@"angle is: %g", angle);
@@ -772,14 +775,29 @@
   [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
   [UIImageView setAnimationDelegate: self];
   [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
-  [UIImageView setAnimationDidStopSelector: @selector(helpDownload1)];
-    //  [UIImageView setAnimationDidStopSelector: @selector(helpEnds1)];
-  [UIImageView setAnimationDuration: 1];
+  [UIImageView setAnimationDidStopSelector: @selector(helpAnimation13)];
+  [UIImageView setAnimationDuration: 3];
   [UIImageView setAnimationBeginsFromCurrentState: YES];
   hand.alpha=.99;
   
   [UIImageView commitAnimations];
 }
+
+- (void) helpAnimation13 {
+    // do nothing, change alpha to .99 and in next help back to 1
+  [Sentence playSpeaker:@"Level_helpF"];
+  [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
+  [UIImageView setAnimationDelegate: self];
+  [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
+  [UIImageView setAnimationDidStopSelector: @selector(helpEnd1)];
+  [UIImageView setAnimationDuration: 4];
+  [UIImageView setAnimationBeginsFromCurrentState: YES];
+  hand.alpha=1;
+  
+  [UIImageView commitAnimations];
+}
+
+
 
 -(void) helpEnd1{
     // hand dissapears
@@ -810,6 +828,7 @@
   
   center = progressMaskView.center;
   hand.center = center;
+  angle = 0;      // set angle to 0 to restart animation if needed
   
   [UIImageView commitAnimations];
   
@@ -837,13 +856,13 @@
   [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
   [UIImageView setAnimationDidStopSelector: @selector(helpDownload3)];
   
-  [UIImageView setAnimationDuration: 2];
+  [UIImageView setAnimationDuration: 6];
   [UIImageView setAnimationBeginsFromCurrentState: YES];
   
-  hand.center = cancelDownloadButton.center;
-    //  CGPoint handCenter = hand.center;
-    //cancelDownloadButton.center;
-    //hand.frame = handFrame;
+  CGPoint center = cancelDownloadButton.center;
+  center.y = center.y + hand.frame.size.height/2;
+  hand.center = center;
+  
   [UIImageView commitAnimations];
 }
 
