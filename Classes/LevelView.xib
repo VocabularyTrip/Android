@@ -427,7 +427,6 @@
 								<int key="NSvFlags">256</int>
 								<string key="NSFrame">{{444, 284}, {31, 31}}</string>
 								<reference key="NSSuperview" ref="956815380"/>
-								<reference key="NSNextKeyView"/>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<object class="NSCustomResource" key="IBUIImage" id="401886792">
@@ -848,20 +847,6 @@
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<reference key="IBUIImage" ref="603926117"/>
 							</object>
-							<object class="IBUIImageView" id="572494212">
-								<reference key="NSNextResponder" ref="956815380"/>
-								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{367, 74}, {46, 54}}</string>
-								<reference key="NSSuperview" ref="956815380"/>
-								<reference key="NSNextKeyView" ref="158192700"/>
-								<float key="IBUIAlpha">0.0</float>
-								<bool key="IBUIUserInteractionEnabled">NO</bool>
-								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<object class="NSCustomResource" key="IBUIImage">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">clicking.png</string>
-								</object>
-							</object>
 							<object class="IBUIButton" id="810950945">
 								<reference key="NSNextResponder" ref="956815380"/>
 								<int key="NSvFlags">292</int>
@@ -925,6 +910,20 @@
 								<bool key="IBUIOpaque">NO</bool>
 								<float key="IBUIAlpha">0.0</float>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+							</object>
+							<object class="IBUIImageView" id="572494212">
+								<reference key="NSNextResponder" ref="956815380"/>
+								<int key="NSvFlags">292</int>
+								<string key="NSFrame">{{367, 74}, {46, 54}}</string>
+								<reference key="NSSuperview" ref="956815380"/>
+								<reference key="NSNextKeyView" ref="158192700"/>
+								<float key="IBUIAlpha">0.0</float>
+								<bool key="IBUIUserInteractionEnabled">NO</bool>
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<object class="NSCustomResource" key="IBUIImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">clicking.png</string>
+								</object>
 							</object>
 						</object>
 						<string key="NSFrameSize">{480, 320}</string>
@@ -1472,7 +1471,6 @@
 							<reference ref="1022746786"/>
 							<reference ref="705709729"/>
 							<reference ref="398491747"/>
-							<reference ref="572494212"/>
 							<reference ref="625550075"/>
 							<reference ref="780723011"/>
 							<reference ref="998660445"/>
@@ -1490,6 +1488,7 @@
 							<reference ref="825794196"/>
 							<reference ref="760762879"/>
 							<reference ref="219730904"/>
+							<reference ref="572494212"/>
 							<reference ref="323831788"/>
 						</object>
 						<reference key="parent" ref="251504986"/>

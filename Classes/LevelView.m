@@ -699,7 +699,8 @@
 
 - (void) helpAnimation9 {
     // hover over lock button
-	[Sentence playSpeaker: @"Level_helpD"];
+  if (angle<4.5*M_PI)
+    [Sentence playSpeaker: @"Level_helpD"];
   CGPoint center = hand.center;
   
     //NSLog(@"angle is: %g", angle);
@@ -907,7 +908,7 @@
 	[UIImageView beginAnimations: @"helpAnimation" context: nil];
 	[UIImageView setAnimationDelegate: self];
 	[UIImageView setAnimationDidStopSelector: @selector(helpDownload6)];
-	[UIImageView setAnimationDuration: .1];
+	[UIImageView setAnimationDuration: 3];
 	[UIImageView setAnimationBeginsFromCurrentState: YES];
   
   CGRect frame = hand.frame;

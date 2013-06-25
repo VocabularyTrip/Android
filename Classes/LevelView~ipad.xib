@@ -2,10 +2,10 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">1552</int>
-		<string key="IBDocument.SystemVersion">12A269</string>
+		<string key="IBDocument.SystemVersion">12E55</string>
 		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
-		<string key="IBDocument.AppKitVersion">1187</string>
-		<string key="IBDocument.HIToolboxVersion">624.00</string>
+		<string key="IBDocument.AppKitVersion">1187.39</string>
+		<string key="IBDocument.HIToolboxVersion">626.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			<string key="NS.object.0">2083</string>
@@ -728,20 +728,6 @@
 									<string key="NSResourceName">progress_empty@2x.png</string>
 								</object>
 							</object>
-							<object class="IBUIImageView" id="278312868">
-								<reference key="NSNextResponder" ref="205561208"/>
-								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{100, 407}, {92, 108}}</string>
-								<reference key="NSSuperview" ref="205561208"/>
-								<reference key="NSNextKeyView" ref="269597581"/>
-								<float key="IBUIAlpha">0.0</float>
-								<bool key="IBUIUserInteractionEnabled">NO</bool>
-								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<object class="NSCustomResource" key="IBUIImage">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">clicking.png</string>
-								</object>
-							</object>
 							<object class="IBUIProgressView" id="1043458031">
 								<reference key="NSNextResponder" ref="205561208"/>
 								<int key="NSvFlags">292</int>
@@ -803,6 +789,20 @@
 								</object>
 								<reference key="IBUIFontDescription" ref="803639667"/>
 								<reference key="IBUIFont" ref="325616209"/>
+							</object>
+							<object class="IBUIImageView" id="278312868">
+								<reference key="NSNextResponder" ref="205561208"/>
+								<int key="NSvFlags">292</int>
+								<string key="NSFrame">{{100, 407}, {92, 108}}</string>
+								<reference key="NSSuperview" ref="205561208"/>
+								<reference key="NSNextKeyView" ref="269597581"/>
+								<float key="IBUIAlpha">0.0</float>
+								<bool key="IBUIUserInteractionEnabled">NO</bool>
+								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+								<object class="NSCustomResource" key="IBUIImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">clicking.png</string>
+								</object>
 							</object>
 						</object>
 						<string key="NSFrameSize">{1024, 768}</string>
@@ -1201,7 +1201,6 @@
 							<reference ref="993397615"/>
 							<reference ref="691248368"/>
 							<reference ref="392025077"/>
-							<reference ref="278312868"/>
 							<reference ref="647744564"/>
 							<reference ref="467787974"/>
 							<reference ref="426049326"/>
@@ -1210,6 +1209,7 @@
 							<reference ref="966669574"/>
 							<reference ref="867692135"/>
 							<reference ref="629621496"/>
+							<reference ref="278312868"/>
 							<reference ref="760762879"/>
 						</object>
 						<reference key="parent" ref="251504986"/>
@@ -1653,7 +1653,7 @@
 			<object class="NSArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<string>{267, 182}</string>
-				<string>{200, 81}</string>
+				<string>{200, 92}</string>
 				<string>{80, 80}</string>
 				<string>{99, 111}</string>
 				<string>{250, 350}</string>

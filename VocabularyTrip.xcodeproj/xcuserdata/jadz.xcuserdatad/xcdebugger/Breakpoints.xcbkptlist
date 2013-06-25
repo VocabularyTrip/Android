@@ -22,11 +22,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Classes/LevelView.m"
-         timestampString = "393721336.800711"
+         timestampString = "393809067.043049"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "619"
-         endingLineNumber = "619"
+         startingLineNumber = "622"
+         endingLineNumber = "622"
          landmarkName = "-helpAnimation6"
          landmarkType = "5">
       </FileBreakpoint>
@@ -35,11 +35,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Classes/LevelView.m"
-         timestampString = "393721336.800711"
+         timestampString = "393809067.043049"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "605"
-         endingLineNumber = "605"
+         startingLineNumber = "608"
+         endingLineNumber = "608"
          landmarkName = "-helpAnimation5"
          landmarkType = "5">
       </FileBreakpoint>
@@ -48,11 +48,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Classes/LevelView.m"
-         timestampString = "393721336.800711"
+         timestampString = "393809067.043049"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "540"
-         endingLineNumber = "540"
+         startingLineNumber = "543"
+         endingLineNumber = "543"
          landmarkName = "-helpAnimation1"
          landmarkType = "5">
       </FileBreakpoint>
@@ -61,11 +61,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Classes/LevelView.m"
-         timestampString = "393721336.800711"
+         timestampString = "393809067.043049"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "551"
-         endingLineNumber = "551"
+         startingLineNumber = "554"
+         endingLineNumber = "554"
          landmarkName = "-helpAnimation2"
          landmarkType = "5">
       </FileBreakpoint>
@@ -74,11 +74,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Classes/LevelView.m"
-         timestampString = "393721336.800711"
+         timestampString = "393809067.043049"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "569"
-         endingLineNumber = "569"
+         startingLineNumber = "572"
+         endingLineNumber = "572"
          landmarkName = "-helpAnimation3"
          landmarkType = "5">
       </FileBreakpoint>
@@ -87,11 +87,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Classes/LevelView.m"
-         timestampString = "393721336.800711"
+         timestampString = "393809067.043049"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "586"
-         endingLineNumber = "586"
+         startingLineNumber = "589"
+         endingLineNumber = "589"
          landmarkName = "-helpAnimation4"
          landmarkType = "5">
       </FileBreakpoint>
@@ -100,11 +100,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Classes/LevelView.m"
-         timestampString = "393721336.800711"
+         timestampString = "393809067.043049"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "641"
-         endingLineNumber = "641"
+         startingLineNumber = "644"
+         endingLineNumber = "644"
          landmarkName = "-helpAnimation7"
          landmarkType = "5">
       </FileBreakpoint>

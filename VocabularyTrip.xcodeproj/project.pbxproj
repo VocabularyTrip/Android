@@ -18,8 +18,8 @@
 		893AF8DB153BAD5100EA0BF1 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 893AF8DA153BAD5100EA0BF1 /* Default@2x.png */; };
 		893AF8DD153BAD6000EA0BF1 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 893AF8DC153BAD6000EA0BF1 /* Default-Portrait~ipad.png */; };
 		893AF8DF153BAD6900EA0BF1 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 893AF8DE153BAD6900EA0BF1 /* Default-Landscape~ipad.png */; };
-		895BB77F1777AB9C00E7540C /* en_Donwload_Help_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 895BB7781777AB9C00E7540C /* en_Donwload_Help_1.mp3 */; };
-		895BB7801777AB9C00E7540C /* en_Level help.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 895BB7791777AB9C00E7540C /* en_Level help.mp3 */; };
+		895BB77F1777AB9C00E7540C /* en_Download_Help_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 895BB7781777AB9C00E7540C /* en_Download_Help_1.mp3 */; };
+		895BB7801777AB9C00E7540C /* en_Level_helpA.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 895BB7791777AB9C00E7540C /* en_Level_helpA.mp3 */; };
 		895BB7811777AB9C00E7540C /* en_Level_helpF.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 895BB77A1777AB9C00E7540C /* en_Level_helpF.mp3 */; };
 		895BB7821777AB9C00E7540C /* en_Level_helpE.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 895BB77B1777AB9C00E7540C /* en_Level_helpE.mp3 */; };
 		895BB7831777AB9C00E7540C /* en_Level_helpD.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 895BB77C1777AB9C00E7540C /* en_Level_helpD.mp3 */; };
@@ -108,7 +108,6 @@
 		CE1627DA1522531A00BFDE69 /* en_Album help 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE1627B61522531A00BFDE69 /* en_Album help 2.mp3 */; };
 		CE1627E61522531A00BFDE69 /* en_keep playing to advance to that level.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE1627B91522531A00BFDE69 /* en_keep playing to advance to that level.mp3 */; };
 		CE1627EA1522531A00BFDE69 /* en_Keep playing you are getting closer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE1627BA1522531A00BFDE69 /* en_Keep playing you are getting closer.mp3 */; };
-		CE1627EE1522531A00BFDE69 /* en_Level help.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE1627BB1522531A00BFDE69 /* en_Level help.mp3 */; };
 		CE1627F21522531A00BFDE69 /* en_Maybe you should practice.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE1627BC1522531A00BFDE69 /* en_Maybe you should practice.mp3 */; };
 		CE1627F61522531A00BFDE69 /* en_more correct answers more coins.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE1627BD1522531A00BFDE69 /* en_more correct answers more coins.mp3 */; };
 		CE1627FE1522531A00BFDE69 /* en_Once you know these words you Advance.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE1627BF1522531A00BFDE69 /* en_Once you know these words you Advance.mp3 */; };
@@ -819,8 +818,8 @@
 		893AF8DA153BAD5100EA0BF1 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../../Default@2x.png"; sourceTree = "<group>"; };
 		893AF8DC153BAD6000EA0BF1 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait~ipad.png"; path = "../../Default-Portrait~ipad.png"; sourceTree = "<group>"; };
 		893AF8DE153BAD6900EA0BF1 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape~ipad.png"; path = "../../Default-Landscape~ipad.png"; sourceTree = "<group>"; };
-		895BB7781777AB9C00E7540C /* en_Donwload_Help_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_Donwload_Help_1.mp3; sourceTree = "<group>"; };
-		895BB7791777AB9C00E7540C /* en_Level help.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "en_Level help.mp3"; sourceTree = "<group>"; };
+		895BB7781777AB9C00E7540C /* en_Download_Help_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_Download_Help_1.mp3; sourceTree = "<group>"; };
+		895BB7791777AB9C00E7540C /* en_Level_helpA.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_Level_helpA.mp3; sourceTree = "<group>"; };
 		895BB77A1777AB9C00E7540C /* en_Level_helpF.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_Level_helpF.mp3; sourceTree = "<group>"; };
 		895BB77B1777AB9C00E7540C /* en_Level_helpE.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_Level_helpE.mp3; sourceTree = "<group>"; };
 		895BB77C1777AB9C00E7540C /* en_Level_helpD.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_Level_helpD.mp3; sourceTree = "<group>"; };
@@ -924,7 +923,6 @@
 		CE1627B61522531A00BFDE69 /* en_Album help 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "en_Album help 2.mp3"; sourceTree = "<group>"; };
 		CE1627B91522531A00BFDE69 /* en_keep playing to advance to that level.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "en_keep playing to advance to that level.mp3"; sourceTree = "<group>"; };
 		CE1627BA1522531A00BFDE69 /* en_Keep playing you are getting closer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "en_Keep playing you are getting closer.mp3"; sourceTree = "<group>"; };
-		CE1627BB1522531A00BFDE69 /* en_Level help.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "en_Level help.mp3"; sourceTree = "<group>"; };
 		CE1627BC1522531A00BFDE69 /* en_Maybe you should practice.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "en_Maybe you should practice.mp3"; sourceTree = "<group>"; };
 		CE1627BD1522531A00BFDE69 /* en_more correct answers more coins.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "en_more correct answers more coins.mp3"; sourceTree = "<group>"; };
 		CE1627BF1522531A00BFDE69 /* en_Once you know these words you Advance.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "en_Once you know these words you Advance.mp3"; sourceTree = "<group>"; };
@@ -1825,46 +1823,41 @@
 		CE1627B31522531A00BFDE69 /* English */ = {
 			isa = PBXGroup;
 			children = (
-				895BB7781777AB9C00E7540C /* en_Donwload_Help_1.mp3 */,
-				895BB7881777AC4C00E7540C /* en_Download_Help_2.mp3 */,
-				895BB7791777AB9C00E7540C /* en_Level help.mp3 */,
-				895BB77A1777AB9C00E7540C /* en_Level_helpF.mp3 */,
-				895BB77B1777AB9C00E7540C /* en_Level_helpE.mp3 */,
-				895BB77C1777AB9C00E7540C /* en_Level_helpD.mp3 */,
-				895BB77D1777AB9C00E7540C /* en_Level_helpC.mp3 */,
-				895BB77E1777AB9C00E7540C /* en_Level_helpB.mp3 */,
-				B0BD2FC51754D3BE00226A38 /* en_Language_Wizard_1.mp3 */,
-				895BB78A1777B07B00E7540C /* en_Language_Wizard_2.mp3 */,
-				B0BD2FBF1754D02900226A38 /* en_User_Wizard_1.mp3 */,
-				B0BD2FC01754D02900226A38 /* en_User_Wizard_2.mp3 */,
-				B0BD2FC11754D02900226A38 /* en_User_Wizard_3.mp3 */,
-				B09A36251725C60500153E71 /* en_Congratulations2.mp3 */,
-				B09A36261725C60500153E71 /* en_Congratulations3.mp3 */,
-				B09A36271725C60500153E71 /* en_Congratulations5.mp3 */,
-				B09A36281725C60500153E71 /* en_Congratulations6.mp3 */,
+				CE1627B41522531A00BFDE69 /* en_Advanced to next level.mp3 */,
+				CE1627B51522531A00BFDE69 /* en_Album help 1.mp3 */,
+				CE1627B61522531A00BFDE69 /* en_Album help 2.mp3 */,
+				CEBFCCF2156C96BB006E9E8F /* en_Congratulations10.mp3 */,
 				B09A36291725C60500153E71 /* en_Congratulations11.mp3 */,
 				B09A362A1725C60500153E71 /* en_Congratulations12.mp3 */,
 				B09A362B1725C60500153E71 /* en_Congratulations13.mp3 */,
 				B09A362C1725C60500153E71 /* en_Congratulations14.mp3 */,
-				B09A362E1725C60500153E71 /* en_Unlock help.mp3 */,
-				CEBFCCE5156C96BB006E9E8F /* en_Talk sentence 2.mp3 */,
-				CEBFCCE6156C96BB006E9E8F /* en_Talk sentence 1.mp3 */,
-				CEBFCCE7156C96BB006E9E8F /* en_Talk help 2.mp3 */,
-				CEBFCCE8156C96BB006E9E8F /* en_Talk help 1.mp3 */,
-				CEBFCCE9156C96BB006E9E8F /* en_Sorry you can not buy this sticker.mp3 */,
-				CEBFCCEA156C96BB006E9E8F /* en_Congratulations9.mp3 */,
-				CEBFCCEB156C96BB006E9E8F /* en_Congratulations8.mp3 */,
+				B09A36251725C60500153E71 /* en_Congratulations2.mp3 */,
+				B09A36261725C60500153E71 /* en_Congratulations3.mp3 */,
 				CEBFCCEF156C96BB006E9E8F /* en_Congratulations4.mp3 */,
-				CEBFCCF2156C96BB006E9E8F /* en_Congratulations10.mp3 */,
-				CE1627B41522531A00BFDE69 /* en_Advanced to next level.mp3 */,
-				CE1627B51522531A00BFDE69 /* en_Album help 1.mp3 */,
-				CE1627B61522531A00BFDE69 /* en_Album help 2.mp3 */,
+				B09A36271725C60500153E71 /* en_Congratulations5.mp3 */,
+				B09A36281725C60500153E71 /* en_Congratulations6.mp3 */,
+				CEBFCCEB156C96BB006E9E8F /* en_Congratulations8.mp3 */,
+				CEBFCCEA156C96BB006E9E8F /* en_Congratulations9.mp3 */,
+				895BB7781777AB9C00E7540C /* en_Download_Help_1.mp3 */,
+				895BB7881777AC4C00E7540C /* en_Download_Help_2.mp3 */,
 				CE1627B91522531A00BFDE69 /* en_keep playing to advance to that level.mp3 */,
 				CE1627BA1522531A00BFDE69 /* en_Keep playing you are getting closer.mp3 */,
-				CE1627BB1522531A00BFDE69 /* en_Level help.mp3 */,
+				B0BD2FC51754D3BE00226A38 /* en_Language_Wizard_1.mp3 */,
+				895BB78A1777B07B00E7540C /* en_Language_Wizard_2.mp3 */,
+				895BB7791777AB9C00E7540C /* en_Level_helpA.mp3 */,
+				895BB77E1777AB9C00E7540C /* en_Level_helpB.mp3 */,
+				895BB77D1777AB9C00E7540C /* en_Level_helpC.mp3 */,
+				895BB77C1777AB9C00E7540C /* en_Level_helpD.mp3 */,
+				895BB77B1777AB9C00E7540C /* en_Level_helpE.mp3 */,
+				895BB77A1777AB9C00E7540C /* en_Level_helpF.mp3 */,
 				CE1627BC1522531A00BFDE69 /* en_Maybe you should practice.mp3 */,
 				CE1627BD1522531A00BFDE69 /* en_more correct answers more coins.mp3 */,
 				CE1627BF1522531A00BFDE69 /* en_Once you know these words you Advance.mp3 */,
+				CEBFCCE9156C96BB006E9E8F /* en_Sorry you can not buy this sticker.mp3 */,
+				CEBFCCE8156C96BB006E9E8F /* en_Talk help 1.mp3 */,
+				CEBFCCE7156C96BB006E9E8F /* en_Talk help 2.mp3 */,
+				CEBFCCE6156C96BB006E9E8F /* en_Talk sentence 1.mp3 */,
+				CEBFCCE5156C96BB006E9E8F /* en_Talk sentence 2.mp3 */,
 				CE1627C61522531A00BFDE69 /* en_Test help.mp3 */,
 				CE1627C71522531A00BFDE69 /* en_that was very good.mp3 */,
 				CE1627C81522531A00BFDE69 /* en_ThatWasAmazing.mp3 */,
@@ -1873,6 +1866,10 @@
 				CE1627CB1522531A00BFDE69 /* en_To win gold coins.mp3 */,
 				CE1627CC1522531A00BFDE69 /* en_To win silver coins.mp3 */,
 				CE1627CD1522531A00BFDE69 /* en_Training help.mp3 */,
+				B09A362E1725C60500153E71 /* en_Unlock help.mp3 */,
+				B0BD2FBF1754D02900226A38 /* en_User_Wizard_1.mp3 */,
+				B0BD2FC01754D02900226A38 /* en_User_Wizard_2.mp3 */,
+				B0BD2FC11754D02900226A38 /* en_User_Wizard_3.mp3 */,
 				CE1627CE1522531A00BFDE69 /* en_Welcome to fairyland.mp3 */,
 				CE1627CF1522531A00BFDE69 /* en_Welcome to monsters world.mp3 */,
 				CE1627D01522531A00BFDE69 /* en_win more play more.mp3 */,
@@ -3420,7 +3417,6 @@
 				CE1627DA1522531A00BFDE69 /* en_Album help 2.mp3 in Resources */,
 				CE1627E61522531A00BFDE69 /* en_keep playing to advance to that level.mp3 in Resources */,
 				CE1627EA1522531A00BFDE69 /* en_Keep playing you are getting closer.mp3 in Resources */,
-				CE1627EE1522531A00BFDE69 /* en_Level help.mp3 in Resources */,
 				CE1627F21522531A00BFDE69 /* en_Maybe you should practice.mp3 in Resources */,
 				CE1627F61522531A00BFDE69 /* en_more correct answers more coins.mp3 in Resources */,
 				CE1627FE1522531A00BFDE69 /* en_Once you know these words you Advance.mp3 in Resources */,
@@ -3644,8 +3640,8 @@
 				B0BD2FC61754D3BF00226A38 /* en_Language_Wizard_1.mp3 in Resources */,
 				B0CC5A47175A5B3D00648985 /* Purchase_Help1.png in Resources */,
 				B0CC5A48175A5B3D00648985 /* Purchase_Help2.png in Resources */,
-				895BB77F1777AB9C00E7540C /* en_Donwload_Help_1.mp3 in Resources */,
-				895BB7801777AB9C00E7540C /* en_Level help.mp3 in Resources */,
+				895BB77F1777AB9C00E7540C /* en_Download_Help_1.mp3 in Resources */,
+				895BB7801777AB9C00E7540C /* en_Level_helpA.mp3 in Resources */,
 				895BB7811777AB9C00E7540C /* en_Level_helpF.mp3 in Resources */,
 				895BB7821777AB9C00E7540C /* en_Level_helpE.mp3 in Resources */,
 				895BB7831777AB9C00E7540C /* en_Level_helpD.mp3 in Resources */,
