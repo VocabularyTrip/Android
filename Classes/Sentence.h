@@ -50,6 +50,7 @@ extern bool isPlaying;
 + (AVAudioPlayer*) getAudioPlayer: (NSString*) fileName;
 + (bool) playSpeaker: (NSString*) name;
 - (void) play;
+- (void) audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag;
 + (AVAudioPlayer*) getAudioPlayerRelPath: (NSString*) fileName;
 + (AVAudioPlayer*) getAudioPlayerAtURL: (NSURL*) file_url;
 + (AVAudioPlayer*) getAudioPlayer: (NSString*) fileName dir: (NSString*) dir;

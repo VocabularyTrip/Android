@@ -27,7 +27,6 @@ PromoCode *promoCodeSingleton;
 	return promoCodeSingleton;
 }
 
-
 + (void) checkAPromoCodeForUUID {
     if ([UserContext getMaxLevel] >= 6) return;
     

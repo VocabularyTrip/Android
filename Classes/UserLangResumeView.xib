@@ -206,7 +206,7 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrameSize">{248, 245}</string>
 								<reference key="NSSuperview" ref="815066954"/>
-								<reference key="NSNextKeyView" ref="937208385"/>
+								<reference key="NSNextKeyView" ref="364797281"/>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<object class="NSCustomResource" key="IBUIImage">
@@ -217,32 +217,46 @@
 							<object class="IBUIButton" id="937208385">
 								<reference key="NSNextResponder" ref="815066954"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{211, 39}, {30, 28}}</string>
+								<string key="NSFrame">{{201, 31}, {40, 40}}</string>
 								<reference key="NSSuperview" ref="815066954"/>
-								<reference key="NSNextKeyView" ref="364797281"/>
+								<reference key="NSNextKeyView" ref="1008095739"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
 								<int key="IBUIContentVerticalAlignment">0</int>
+								<double key="IBUIContentEdgeInsets.top">0.0</double>
+								<double key="IBUIContentEdgeInsets.bottom">-33</double>
+								<double key="IBUIContentEdgeInsets.left">0.0</double>
+								<double key="IBUIContentEdgeInsets.right">0.0</double>
+								<string key="IBUINormalTitle">Reset</string>
 								<reference key="IBUIHighlightedTitleColor" ref="19048345"/>
 								<object class="NSColor" key="IBUINormalTitleColor">
 									<int key="NSColorSpace">1</int>
 									<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 								</object>
 								<reference key="IBUINormalTitleShadowColor" ref="657651162"/>
-								<object class="NSCustomResource" key="IBUINormalImage">
+								<object class="NSCustomResource" key="IBUINormalBackgroundImage">
 									<string key="NSClassName">NSImage</string>
 									<string key="NSResourceName">reset@ipad.png</string>
 								</object>
-								<reference key="IBUIFontDescription" ref="255162482"/>
-								<reference key="IBUIFont" ref="754665856"/>
+								<object class="IBUIFontDescription" key="IBUIFontDescription">
+									<string key="name">MarkerFelt-Wide</string>
+									<string key="family">Marker Felt</string>
+									<int key="traits">2</int>
+									<double key="pointSize">9</double>
+								</object>
+								<object class="NSFont" key="IBUIFont">
+									<string key="NSName">MarkerFelt-Wide</string>
+									<double key="NSSize">9</double>
+									<int key="NSfFlags">16</int>
+								</object>
 							</object>
 							<object class="IBUIImageView" id="364797281">
 								<reference key="NSNextResponder" ref="815066954"/>
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{15, 70}, {62, 46}}</string>
 								<reference key="NSSuperview" ref="815066954"/>
-								<reference key="NSNextKeyView" ref="1008095739"/>
+								<reference key="NSNextKeyView" ref="937208385"/>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<object class="NSCustomResource" key="IBUIImage">
@@ -758,13 +772,13 @@
 						<array class="NSMutableArray" key="children">
 							<reference ref="815066954"/>
 							<reference ref="620139468"/>
-							<reference ref="488991395"/>
 							<reference ref="56420855"/>
 							<reference ref="187117780"/>
 							<reference ref="867358886"/>
 							<reference ref="981933202"/>
 							<reference ref="240424916"/>
 							<reference ref="925444967"/>
+							<reference ref="488991395"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -824,12 +838,12 @@
 							<reference ref="998072426"/>
 							<reference ref="760186323"/>
 							<reference ref="123483181"/>
-							<reference ref="937208385"/>
 							<reference ref="364797281"/>
 							<reference ref="1008095739"/>
 							<reference ref="204308132"/>
 							<reference ref="886032678"/>
 							<reference ref="703411904"/>
+							<reference ref="937208385"/>
 						</array>
 						<reference key="parent" ref="191373211"/>
 						<string key="objectName">MoneyView</string>
@@ -965,6 +979,7 @@
 				<string key="19.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="25.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="27.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<real value="0.0" key="27.IBUIButtonInspectorSelectedEdgeInsetMetadataKey"/>
 				<string key="29.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="3.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="30.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>

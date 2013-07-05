@@ -164,6 +164,7 @@
 //- (void) showAlertDownloadSounds;
 //- (void) alertDownloadSoundsFinished;
 - (void) purgeLevel;
+- (void) shiftImageAndWordIphone5;
 	
 - (IBAction) helpClicked;
 - (void) helpAnimation1;

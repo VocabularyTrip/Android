@@ -27,10 +27,10 @@
 @synthesize word1Button;
 @synthesize word2Button;
 @synthesize word3Button;
+@synthesize wordHelpButton;
 @synthesize word1Label;
 @synthesize word2Label;
 @synthesize word3Label;
-@synthesize wordHelpButton;
 @synthesize trainLabel;
 @synthesize coinView;
 
@@ -98,7 +98,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self shiftTrain: [UserContext getDeltaWidthIphone5]];
-  
+    [self shiftImageAndWordIphone5];
+    
     // ************************
     // ***** Debug mode
   
@@ -108,7 +109,6 @@
 	levelBoughtText.alpha = [activeConfig isEqualToString: @"Debug"] ? 1 : 0;
 	saveButton.alpha = [activeConfig isEqualToString: @"Debug"] ? 1 : 0;
     prevVersionText.alpha = [activeConfig isEqualToString: @"Debug"] ? 1 : 0;
-  
   
     // ***** Debug mode
     // ************************
@@ -204,7 +204,11 @@
 	frame = word3Button.frame;
 	frame.origin.x = frame.origin.x + xPix;
 	word3Button.frame = frame;
-  
+
+    frame = wordHelpButton.frame;
+	frame.origin.x = frame.origin.x + xPix;
+	wordHelpButton.frame = frame;
+    
     frame = word1Label.frame;
 	frame.origin.x = frame.origin.x + xPix;
 	word1Label.frame = frame;
@@ -425,6 +429,7 @@
   
 	Word *word;
 	word = [Vocabulary getAWord];
+    
 	if ((word != nil)) {
 		[imageView setImage: word.image];
 		wordNamelabel.text = word.translatedName;
@@ -446,6 +451,22 @@
 		[self cancelAnimation];
 		[self helpLevel: buttonIndex + page * 3];
 	}
+}
+
+- (void) shiftImageAndWordIphone5 {
+    int delta = [UserContext getDeltaWidthIphone5];
+
+	CGRect frame = imageView.frame;
+	frame.origin.x = frame.origin.x + delta;
+	imageView.frame = frame;
+    
+	frame = wordNamelabel.frame;
+	frame.origin.x = frame.origin.x + delta;
+	wordNamelabel.frame = frame;
+
+    frame = nativeWordNamelabel.frame;
+	frame.origin.x = frame.origin.x + delta;
+	nativeWordNamelabel.frame = frame;
 }
 
 /*-(void) showAlertDownloadSounds {

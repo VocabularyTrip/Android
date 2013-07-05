@@ -103,13 +103,13 @@
 								<float key="IBUIMinimumFontSize">10</float>
 								<int key="IBUITextAlignment">1</int>
 								<object class="IBUIFontDescription" key="IBUIFontDescription">
-									<string key="name">Chalkduster</string>
-									<string key="family">Chalkduster</string>
+									<string key="name">MarkerFelt-Thin</string>
+									<string key="family">Marker Felt</string>
 									<int key="traits">0</int>
 									<double key="pointSize">48</double>
 								</object>
 								<object class="NSFont" key="IBUIFont">
-									<string key="NSName">Chalkduster</string>
+									<string key="NSName">MarkerFelt-Thin</string>
 									<double key="NSSize">48</double>
 									<int key="NSfFlags">16</int>
 								</object>
@@ -524,11 +524,11 @@
 							<reference ref="221224056"/>
 							<reference ref="618695904"/>
 							<reference ref="869705498"/>
-							<reference ref="537815144"/>
 							<reference ref="938986315"/>
 							<reference ref="311085783"/>
 							<reference ref="543054644"/>
 							<reference ref="687409495"/>
+							<reference ref="537815144"/>
 						</array>
 						<reference key="parent" ref="191373211"/>
 						<string key="objectName">LangsOpenFlow</string>
@@ -650,7 +650,7 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="Menu1@ipad.png">{200, 92}</string>
+			<string key="Menu1@ipad.png">{200, 81}</string>
 			<string key="background_wizard@ipad.png">{1024, 683}</string>
 			<string key="clicking.png">{139, 147}</string>
 			<string key="help@ipad.png">{97, 97}</string>

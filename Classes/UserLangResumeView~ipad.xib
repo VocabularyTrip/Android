@@ -143,25 +143,39 @@
 							<object class="IBUIButton" id="1040454986">
 								<reference key="NSNextResponder" ref="767133433"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{412, 80}, {64, 64}}</string>
+								<string key="NSFrame">{{414, 80}, {70, 70}}</string>
 								<reference key="NSSuperview" ref="767133433"/>
 								<reference key="NSNextKeyView" ref="687816239"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
 								<int key="IBUIContentVerticalAlignment">0</int>
+								<double key="IBUIContentEdgeInsets.top">0.0</double>
+								<double key="IBUIContentEdgeInsets.bottom">-59</double>
+								<double key="IBUIContentEdgeInsets.left">0.0</double>
+								<double key="IBUIContentEdgeInsets.right">0.0</double>
+								<string key="IBUINormalTitle">Reset</string>
 								<reference key="IBUIHighlightedTitleColor" ref="585736414"/>
 								<object class="NSColor" key="IBUINormalTitleColor">
 									<int key="NSColorSpace">1</int>
 									<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 								</object>
 								<reference key="IBUINormalTitleShadowColor" ref="351602274"/>
-								<object class="NSCustomResource" key="IBUINormalImage">
+								<object class="NSCustomResource" key="IBUINormalBackgroundImage">
 									<string key="NSClassName">NSImage</string>
 									<string key="NSResourceName">reset@ipad.png</string>
 								</object>
-								<reference key="IBUIFontDescription" ref="392521948"/>
-								<reference key="IBUIFont" ref="1056879244"/>
+								<object class="IBUIFontDescription" key="IBUIFontDescription">
+									<string key="name">MarkerFelt-Wide</string>
+									<string key="family">Marker Felt</string>
+									<int key="traits">2</int>
+									<double key="pointSize">15</double>
+								</object>
+								<object class="NSFont" key="IBUIFont">
+									<string key="NSName">MarkerFelt-Wide</string>
+									<double key="NSSize">15</double>
+									<int key="NSfFlags">16</int>
+								</object>
 							</object>
 							<object class="IBUIImageView" id="687816239">
 								<reference key="NSNextResponder" ref="767133433"/>
@@ -260,7 +274,7 @@
 							<object class="IBUILabel" id="1007959340">
 								<reference key="NSNextResponder" ref="767133433"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{136, 293}, {306, 27}}</string>
+								<string key="NSFrame">{{39, 293}, {403, 27}}</string>
 								<reference key="NSSuperview" ref="767133433"/>
 								<reference key="NSNextKeyView" ref="221847816"/>
 								<bool key="IBUIOpaque">NO</bool>
@@ -269,23 +283,23 @@
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<string key="IBUIText">Progress To Next Level</string>
-								<object class="NSColor" key="IBUITextColor" id="432218791">
+								<object class="NSColor" key="IBUITextColor" id="460161607">
 									<int key="NSColorSpace">1</int>
-									<bytes key="NSRGB">MCAwIDAAA</bytes>
-									<string key="IBUIColorCocoaTouchKeyPath">darkTextColor</string>
+									<bytes key="NSRGB">MSAxIDEAA</bytes>
 								</object>
 								<nil key="IBUIHighlightedColor"/>
 								<int key="IBUIBaselineAdjustment">1</int>
 								<float key="IBUIMinimumFontSize">10</float>
-								<object class="IBUIFontDescription" key="IBUIFontDescription" id="381076378">
-									<string key="name">Chalkduster</string>
-									<string key="family">Chalkduster</string>
+								<int key="IBUITextAlignment">1</int>
+								<object class="IBUIFontDescription" key="IBUIFontDescription">
+									<string key="name">MarkerFelt-Thin</string>
+									<string key="family">Marker Felt</string>
 									<int key="traits">0</int>
-									<double key="pointSize">17</double>
+									<double key="pointSize">25</double>
 								</object>
-								<object class="NSFont" key="IBUIFont" id="896052636">
-									<string key="NSName">Chalkduster</string>
-									<double key="NSSize">17</double>
+								<object class="NSFont" key="IBUIFont">
+									<string key="NSName">MarkerFelt-Thin</string>
+									<double key="NSSize">25</double>
 									<int key="NSfFlags">16</int>
 								</object>
 							</object>
@@ -302,7 +316,11 @@
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<string key="IBUIText">English</string>
-								<reference key="IBUITextColor" ref="432218791"/>
+								<object class="NSColor" key="IBUITextColor">
+									<int key="NSColorSpace">1</int>
+									<bytes key="NSRGB">MCAwIDAAA</bytes>
+									<string key="IBUIColorCocoaTouchKeyPath">darkTextColor</string>
+								</object>
 								<nil key="IBUIHighlightedColor"/>
 								<int key="IBUIBaselineAdjustment">1</int>
 								<float key="IBUIMinimumFontSize">10</float>
@@ -330,12 +348,21 @@
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<string key="IBUIText">Label</string>
-								<reference key="IBUITextColor" ref="432218791"/>
+								<reference key="IBUITextColor" ref="460161607"/>
 								<nil key="IBUIHighlightedColor"/>
 								<int key="IBUIBaselineAdjustment">1</int>
 								<float key="IBUIMinimumFontSize">10</float>
-								<reference key="IBUIFontDescription" ref="381076378"/>
-								<reference key="IBUIFont" ref="896052636"/>
+								<object class="IBUIFontDescription" key="IBUIFontDescription" id="228869110">
+									<string key="name">MarkerFelt-Thin</string>
+									<string key="family">Marker Felt</string>
+									<int key="traits">0</int>
+									<double key="pointSize">30</double>
+								</object>
+								<object class="NSFont" key="IBUIFont" id="441761597">
+									<string key="NSName">MarkerFelt-Thin</string>
+									<double key="NSSize">30</double>
+									<int key="NSfFlags">16</int>
+								</object>
 							</object>
 							<object class="IBUILabel" id="845975705">
 								<reference key="NSNextResponder" ref="767133433"/>
@@ -349,12 +376,12 @@
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<string key="IBUIText">Label</string>
-								<reference key="IBUITextColor" ref="432218791"/>
+								<reference key="IBUITextColor" ref="460161607"/>
 								<nil key="IBUIHighlightedColor"/>
 								<int key="IBUIBaselineAdjustment">1</int>
 								<float key="IBUIMinimumFontSize">10</float>
-								<reference key="IBUIFontDescription" ref="381076378"/>
-								<reference key="IBUIFont" ref="896052636"/>
+								<reference key="IBUIFontDescription" ref="228869110"/>
+								<reference key="IBUIFont" ref="441761597"/>
 							</object>
 							<object class="IBUILabel" id="951758441">
 								<reference key="NSNextResponder" ref="767133433"/>
@@ -368,21 +395,12 @@
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<string key="IBUIText">Label</string>
-								<reference key="IBUITextColor" ref="432218791"/>
+								<reference key="IBUITextColor" ref="460161607"/>
 								<nil key="IBUIHighlightedColor"/>
 								<int key="IBUIBaselineAdjustment">1</int>
 								<float key="IBUIMinimumFontSize">10</float>
-								<object class="IBUIFontDescription" key="IBUIFontDescription">
-									<string key="name">Chalkduster</string>
-									<string key="family">Chalkduster</string>
-									<int key="traits">0</int>
-									<double key="pointSize">19</double>
-								</object>
-								<object class="NSFont" key="IBUIFont">
-									<string key="NSName">Chalkduster</string>
-									<double key="NSSize">19</double>
-									<int key="NSfFlags">16</int>
-								</object>
+								<reference key="IBUIFontDescription" ref="228869110"/>
+								<reference key="IBUIFont" ref="441761597"/>
 							</object>
 							<object class="IBUIProgressView" id="137375535">
 								<reference key="NSNextResponder" ref="767133433"/>
@@ -472,14 +490,14 @@
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="351602274"/>
 						<object class="IBUIFontDescription" key="IBUIFontDescription">
-							<string key="name">Chalkduster</string>
-							<string key="family">Chalkduster</string>
+							<string key="name">MarkerFelt-Thin</string>
+							<string key="family">Marker Felt</string>
 							<int key="traits">0</int>
-							<double key="pointSize">18</double>
+							<double key="pointSize">31</double>
 						</object>
 						<object class="NSFont" key="IBUIFont">
-							<string key="NSName">Chalkduster</string>
-							<double key="NSSize">18</double>
+							<string key="NSName">MarkerFelt-Thin</string>
+							<double key="NSSize">31</double>
 							<int key="NSfFlags">16</int>
 						</object>
 					</object>
@@ -499,7 +517,7 @@
 					<object class="IBUILabel" id="343719293">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{142, 527}, {248, 47}}</string>
+						<string key="NSFrame">{{141, 527}, {248, 47}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSNextKeyView" ref="767133433"/>
 						<bool key="IBUIOpaque">NO</bool>
@@ -508,20 +526,20 @@
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<string key="IBUIText">Label</string>
-						<reference key="IBUITextColor" ref="432218791"/>
+						<reference key="IBUITextColor" ref="460161607"/>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">1</int>
 						<float key="IBUIMinimumFontSize">10</float>
 						<int key="IBUITextAlignment">1</int>
 						<object class="IBUIFontDescription" key="IBUIFontDescription">
-							<string key="name">Chalkduster</string>
-							<string key="family">Chalkduster</string>
+							<string key="name">MarkerFelt-Thin</string>
+							<string key="family">Marker Felt</string>
 							<int key="traits">0</int>
-							<double key="pointSize">26</double>
+							<double key="pointSize">48</double>
 						</object>
 						<object class="NSFont" key="IBUIFont">
-							<string key="NSName">Chalkduster</string>
-							<double key="NSSize">26</double>
+							<string key="NSName">MarkerFelt-Thin</string>
+							<double key="NSSize">48</double>
 							<int key="NSfFlags">16</int>
 						</object>
 					</object>
@@ -761,15 +779,15 @@
 						<int key="objectID">1</int>
 						<reference key="object" ref="191373211"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="679091693"/>
-							<reference ref="343719293"/>
 							<reference ref="232491776"/>
 							<reference ref="33866493"/>
 							<reference ref="213946689"/>
 							<reference ref="103851679"/>
 							<reference ref="767133433"/>
-							<reference ref="198764985"/>
 							<reference ref="77749934"/>
+							<reference ref="679091693"/>
+							<reference ref="343719293"/>
+							<reference ref="198764985"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -839,18 +857,18 @@
 							<reference ref="625309474"/>
 							<reference ref="1038324159"/>
 							<reference ref="614336290"/>
-							<reference ref="1040454986"/>
-							<reference ref="951758441"/>
-							<reference ref="845975705"/>
-							<reference ref="1050830478"/>
 							<reference ref="798751378"/>
 							<reference ref="416141909"/>
 							<reference ref="334926123"/>
-							<reference ref="1007959340"/>
 							<reference ref="687816239"/>
 							<reference ref="137375535"/>
 							<reference ref="806435736"/>
 							<reference ref="11468280"/>
+							<reference ref="845975705"/>
+							<reference ref="1050830478"/>
+							<reference ref="951758441"/>
+							<reference ref="1007959340"/>
+							<reference ref="1040454986"/>
 						</array>
 						<reference key="parent" ref="191373211"/>
 						<string key="objectName">MoneyView</string>
@@ -1003,7 +1021,7 @@
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="EnglishFlag@ipad.png">{267, 182}</string>
-			<string key="Menu1@ipad.png">{200, 92}</string>
+			<string key="Menu1@ipad.png">{200, 81}</string>
 			<string key="avatar1Big@ipad.png">{594, 683}</string>
 			<string key="background_wizard@ipad.png">{1024, 683}</string>
 			<string key="bg_user@ipad.png">{496, 490}</string>

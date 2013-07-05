@@ -448,7 +448,6 @@
 								<string key="NSFrame">{{444, 284}, {31, 31}}</string>
 								<reference key="NSSuperview" ref="956815380"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<object class="NSCustomResource" key="IBUIImage" id="401886792">
@@ -641,7 +640,7 @@
 								<string key="NSFrame">{{207, 201}, {40, 40}}</string>
 								<reference key="NSSuperview" ref="956815380"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="84777136"/>
+								<reference key="NSNextKeyView" ref="1033768417"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<int key="IBUIContentMode">1</int>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -691,7 +690,7 @@
 								<string key="NSFrame">{{408, 201}, {40, 40}}</string>
 								<reference key="NSSuperview" ref="956815380"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="323831788"/>
+								<reference key="NSNextKeyView" ref="84777136"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
@@ -715,7 +714,7 @@
 								<string key="NSFrame">{{408, 201}, {40, 40}}</string>
 								<reference key="NSSuperview" ref="956815380"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="1033768417"/>
+								<reference key="NSNextKeyView" ref="323831788"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<float key="IBUIAlpha">0.0</float>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -871,7 +870,7 @@
 							</object>
 							<object class="IBUIImageView" id="780723011">
 								<reference key="NSNextResponder" ref="956815380"/>
-								<int key="NSvFlags">310</int>
+								<int key="NSvFlags">288</int>
 								<string key="NSFrame">{{181, 188}, {93, 13}}</string>
 								<reference key="NSSuperview" ref="956815380"/>
 								<reference key="NSWindow"/>
@@ -886,7 +885,7 @@
 							</object>
 							<object class="IBUIImageView" id="998660445">
 								<reference key="NSNextResponder" ref="956815380"/>
-								<int key="NSvFlags">310</int>
+								<int key="NSvFlags">288</int>
 								<string key="NSFrame">{{181, 188}, {93, 13}}</string>
 								<reference key="NSSuperview" ref="956815380"/>
 								<reference key="NSWindow"/>
@@ -901,7 +900,7 @@
 							</object>
 							<object class="IBUIImageView" id="120149495">
 								<reference key="NSNextResponder" ref="956815380"/>
-								<int key="NSvFlags">310</int>
+								<int key="NSvFlags">288</int>
 								<string key="NSFrame">{{181, 188}, {93, 13}}</string>
 								<reference key="NSSuperview" ref="956815380"/>
 								<reference key="NSWindow"/>
@@ -913,7 +912,7 @@
 							</object>
 							<object class="IBUIButton" id="810950945">
 								<reference key="NSNextResponder" ref="956815380"/>
-								<int key="NSvFlags">292</int>
+								<int key="NSvFlags">289</int>
 								<string key="NSFrame">{{307, 8}, {77, 29}}</string>
 								<reference key="NSSuperview" ref="956815380"/>
 								<reference key="NSWindow"/>
@@ -942,7 +941,7 @@
 							</object>
 							<object class="IBUIButton" id="219730904">
 								<reference key="NSNextResponder" ref="956815380"/>
-								<int key="NSvFlags">292</int>
+								<int key="NSvFlags">289</int>
 								<string key="NSFrame">{{307, 8}, {77, 29}}</string>
 								<reference key="NSSuperview" ref="956815380"/>
 								<reference key="NSWindow"/>
@@ -968,7 +967,7 @@
 							</object>
 							<object class="IBUIProgressView" id="825794196">
 								<reference key="NSNextResponder" ref="956815380"/>
-								<int key="NSvFlags">292</int>
+								<int key="NSvFlags">289</int>
 								<string key="NSFrame">{{309, 38}, {73, 9}}</string>
 								<reference key="NSSuperview" ref="956815380"/>
 								<reference key="NSWindow"/>
@@ -1541,7 +1540,6 @@
 							<reference ref="1022746786"/>
 							<reference ref="705709729"/>
 							<reference ref="398491747"/>
-							<reference ref="625550075"/>
 							<reference ref="780723011"/>
 							<reference ref="998660445"/>
 							<reference ref="120149495"/>
@@ -1551,16 +1549,17 @@
 							<reference ref="467787974"/>
 							<reference ref="629621496"/>
 							<reference ref="842592003"/>
-							<reference ref="233473248"/>
 							<reference ref="697318280"/>
 							<reference ref="810950945"/>
 							<reference ref="27766495"/>
 							<reference ref="825794196"/>
 							<reference ref="760762879"/>
-							<reference ref="219730904"/>
 							<reference ref="572494212"/>
 							<reference ref="323831788"/>
 							<reference ref="84777136"/>
+							<reference ref="233473248"/>
+							<reference ref="219730904"/>
+							<reference ref="625550075"/>
 						</object>
 						<reference key="parent" ref="251504986"/>
 					</object>
@@ -2089,6 +2088,7 @@
 							<string>helpClicked</string>
 							<string>nextButtonClicked</string>
 							<string>prevButtonClicked</string>
+							<string>save:</string>
 							<string>testAllSounds:</string>
 							<string>word1ButtonClicked</string>
 							<string>word2ButtonClicked</string>
@@ -2096,6 +2096,7 @@
 						</object>
 						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -2116,6 +2117,7 @@
 							<string>helpClicked</string>
 							<string>nextButtonClicked</string>
 							<string>prevButtonClicked</string>
+							<string>save:</string>
 							<string>testAllSounds:</string>
 							<string>word1ButtonClicked</string>
 							<string>word2ButtonClicked</string>
@@ -2141,6 +2143,10 @@
 							</object>
 							<object class="IBActionInfo">
 								<string key="name">prevButtonClicked</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">save:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
