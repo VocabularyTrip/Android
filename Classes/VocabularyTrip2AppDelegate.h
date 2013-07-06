@@ -10,7 +10,6 @@
 #import "ChangeLangView.h"
 #import "ChangeUserView.h"
 #import "LockLanguageView.h"
-#import "UserLangResumeView.h"
 #import "GenericTrain.h"
 #import "LevelView.h"
 #import "AlbumView.h"
@@ -31,7 +30,6 @@
 	TrainingTrain *trainingTrain;
 	ChangeLangView *changeLangView;    
 	ChangeUserView *changeUserView;    
-	UserLangResumeView *userLangResumeView;    
     LockLanguageView *lockLanguageView;
 	LevelView *levelView;
 	AlbumView *albumView;
@@ -47,7 +45,6 @@
 @property (nonatomic) TestTrain *testTrain;
 @property (nonatomic) ChangeLangView *changeLangView;
 @property (nonatomic) ChangeUserView *changeUserView;
-@property (nonatomic) UserLangResumeView *userLangResumeView;
 @property (nonatomic) LockLanguageView *lockLanguageView;
 @property (nonatomic) LevelView *levelView;
 @property (nonatomic) AlbumView *albumView;
@@ -64,7 +61,8 @@
 - (void) pushChangeLangView;
 - (void) pushChangeUserView;
 - (void) pushLevelView;
-- (void) pushLevelViewWithHelp;
+- (void) pushLevelViewWithHelpPurchase;
+- (void) pushLevelViewWithHelpDownload;
 - (void) pushPurchaseView;
 - (void) pushTestTrain;
 - (void) pushAlbumView;
@@ -74,11 +72,9 @@
 - (void) popMainMenuFromAlbum;
 - (void) popMainMenuFromTestTrain;
 - (void) popMainMenuFromTrainingTrain;
-//- (void) popMainMenuFromChangeLang;
-//- (void) popMainMenuFromChangeUser;
-- (void) popMainMenuFromUserLangResume;
 - (void) popFromLockLanguageView;
-
+- (void) popMainMenuFromChangeLang;
+    
 - (void) responseToBuyAction;
 - (void) responseToCancelAction;
 //- (bool) existUserData;

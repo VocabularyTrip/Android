@@ -50,7 +50,7 @@
 @synthesize closeSoundId;
 @synthesize viewMode;
 @synthesize trainSound;
-@synthesize alertDownloadSounds;
+//@synthesize alertDownloadSounds;
 
 @synthesize backButton;
 @synthesize soundButton;
@@ -462,7 +462,13 @@
 
 }
 
--(void) showAlertDownloadSounds {
+-(void) pushLevelWithHelpDownload {
+    VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
+    vocTripDelegate.levelView.startWithHelpDownload = 1;
+    [vocTripDelegate pushLevelViewWithHelpDownload];
+}
+
+/*-(void) showAlertDownloadSounds {
     
     [Sentence playSpeaker: @"AlertDownloadSounds"];
     //alertDownloadSounds.alpha = 0.0;
@@ -480,21 +486,13 @@
 
 - (void) alertDownloadSoundsFinished {
    alertDownloadSounds.alpha = 0.0;
-}
+}*/
 
 - (IBAction) jumpDownloadDictionary {
     [self done: nil];
     VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
     [vocTripDelegate pushUserLangResumView];
 }
-
-
-/*- (int) windowWidth {
-	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-		return 1024;
-	else
-		return 480;
-}*/
 
 - (int) getLandscapeOffset {
 	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)	

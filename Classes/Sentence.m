@@ -14,6 +14,7 @@
 NSMutableArray *allSentences = nil;
 id <GenericTrainDelegate> delegate = nil;
 bool isPlaying = NO;
+AVAudioPlayer *currentAudio = nil;
 
 @implementation Sentence
 
@@ -47,17 +48,29 @@ bool isPlaying = NO;
 	return NO;
 }
 
++ (void) stopCurrentAudio {
+    if (currentAudio) {
+        [currentAudio stop];
+        isPlaying = NO;
+        currentAudio = nil;
+    }
+}
+
 - (void) play {
 	
 	@try {
 		int c = arc4random() % [names count];
 		avProxy = [names objectAtIndex: c];
 		avProxy.sound.delegate = self;
-		if (avProxy.sound) [avProxy.sound play];
+		if (avProxy.sound) {
+            currentAudio = avProxy.sound;
+            [avProxy.sound play];
+        }
 	}
 	@catch (NSException * e) {
 		NSLog(@"Error Sentence.Play");
         isPlaying = NO;
+        currentAudio = nil;
 	}
 	@finally {
 	}
@@ -65,8 +78,8 @@ bool isPlaying = NO;
 }
 
 - (void) audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
-	isPlaying = NO;	
-
+	isPlaying = NO;
+    currentAudio = nil;
 	@try {
 		if ([next isEqualToString: @"NumCurrentLevel"]) {
 			NSString *l = [[NSString alloc] initWithFormat: @"%d", [UserContext getLevel]];
@@ -186,6 +199,7 @@ bool isPlaying = NO;
 	} @catch (NSException * e) {
 		NSLog(@"Error in getAudioPlayer: %@", file_url);
         isPlaying = NO;
+        currentAudio = nil;
 	}
 	@finally {
 	}

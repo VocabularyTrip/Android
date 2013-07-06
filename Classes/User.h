@@ -25,7 +25,6 @@
     Language* __unsafe_unretained langSelected;
     NSString *userName;
     UIImage *image;
-    UIImage *imageBig;
 }
 
 @property (nonatomic, assign) int level;
@@ -36,7 +35,6 @@
 @property (nonatomic, assign) int userId;
 @property (nonatomic, strong) NSString* userName;
 @property (nonatomic, strong) UIImage* image;
-@property (nonatomic, strong) UIImage* imageBig;
 
 + (void)loadDataFromXML;
 + (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict;

@@ -104,7 +104,7 @@
 -(void) responseToBuyAction {
     
     VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
-    vocTripDelegate.levelView.startWithHelp=1;
+    vocTripDelegate.levelView.startWithHelpPurchase=1;
     [self done: nil];
     
 /*    [PurchaseManager getSingleton].delegate = nil;

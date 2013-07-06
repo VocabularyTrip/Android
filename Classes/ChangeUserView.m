@@ -29,7 +29,8 @@
 
 - (IBAction) nextButtonPressed: (id)sender {
 	VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
-	[vocTripDelegate pushChangeLangView];    
+	[vocTripDelegate pushChangeLangView];
+    [Sentence stopCurrentAudio];    
 }
 
 - (void) initUsers {

@@ -46,12 +46,6 @@
 		B06C86FA178CC75500E2A1E8 /* GenericDownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B06C86F9178CC75500E2A1E8 /* GenericDownloadViewController.m */; };
 		B086B395171F29FA00C714B9 /* btn_download_cancel@ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B086B394171F29FA00C714B9 /* btn_download_cancel@ipad.png */; };
 		B088D4DC16EE5A4C00F916DC /* menu_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B088D4DB16EE5A4C00F916DC /* menu_bg@2x.png */; };
-		B08EAB28172951830041E918 /* avatar1Big.png in Resources */ = {isa = PBXBuildFile; fileRef = B08EAB22172951820041E918 /* avatar1Big.png */; };
-		B08EAB29172951830041E918 /* avatar2Big.png in Resources */ = {isa = PBXBuildFile; fileRef = B08EAB23172951820041E918 /* avatar2Big.png */; };
-		B08EAB2A172951830041E918 /* avatar3Big.png in Resources */ = {isa = PBXBuildFile; fileRef = B08EAB24172951820041E918 /* avatar3Big.png */; };
-		B08EAB2B172951830041E918 /* avatar4Big.png in Resources */ = {isa = PBXBuildFile; fileRef = B08EAB25172951820041E918 /* avatar4Big.png */; };
-		B08EAB2C172951830041E918 /* avatar5Big.png in Resources */ = {isa = PBXBuildFile; fileRef = B08EAB26172951820041E918 /* avatar5Big.png */; };
-		B08EAB2D172951830041E918 /* avatar6Big.png in Resources */ = {isa = PBXBuildFile; fileRef = B08EAB27172951830041E918 /* avatar6Big.png */; };
 		B0915DE916FB958D000F2C23 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B0915DD516FB958C000F2C23 /* AFHTTPClient.m */; };
 		B0915DEA16FB958D000F2C23 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = B0915DD716FB958C000F2C23 /* AFHTTPRequestOperation.m */; };
 		B0915DEB16FB958D000F2C23 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = B0915DD916FB958D000F2C23 /* AFImageRequestOperation.m */; };
@@ -599,12 +593,6 @@
 		CE7C408116E138E5002DA556 /* btn_download_on@ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CE7C406B16E138D3002DA556 /* btn_download_on@ipad.png */; };
 		CE7C408216E138E5002DA556 /* bg_user@ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CE7C406C16E138D4002DA556 /* bg_user@ipad.png */; };
 		CE7C408316E138E5002DA556 /* background_wizard@ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CE7C406D16E138D6002DA556 /* background_wizard@ipad.png */; };
-		CE7C408416E138E5002DA556 /* avatar6Big@ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CE7C406E16E138D8002DA556 /* avatar6Big@ipad.png */; };
-		CE7C408516E138E6002DA556 /* avatar5Big@ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CE7C406F16E138D9002DA556 /* avatar5Big@ipad.png */; };
-		CE7C408616E138E6002DA556 /* avatar4Big@ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CE7C407016E138DA002DA556 /* avatar4Big@ipad.png */; };
-		CE7C408716E138E6002DA556 /* avatar3Big@ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CE7C407116E138DF002DA556 /* avatar3Big@ipad.png */; };
-		CE7C408816E138E6002DA556 /* avatar2Big@ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CE7C407216E138E0002DA556 /* avatar2Big@ipad.png */; };
-		CE7C408916E138E6002DA556 /* avatar1Big@ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CE7C407316E138E0002DA556 /* avatar1Big@ipad.png */; };
 		CE7C408A16E138E6002DA556 /* progress_fill@ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CE7C407416E138E1002DA556 /* progress_fill@ipad.png */; };
 		CE7C408B16E138E6002DA556 /* progress_empty@ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CE7C407516E138E3002DA556 /* progress_empty@ipad.png */; };
 		CE7C408C16E138E6002DA556 /* progress_back@ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CE7C407616E138E4002DA556 /* progress_back@ipad.png */; };
@@ -638,9 +626,6 @@
 		CE837CDB14C0D3D10031DF2F /* run@ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CE837CD114C0D3D10031DF2F /* run@ipad.png */; };
 		CE837CDC14C0D3D10031DF2F /* eat@ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CE837CD214C0D3D10031DF2F /* eat@ipad.png */; };
 		CE838066146C5A1C00BB32F0 /* AlbumMonsters~ipad.xml in Resources */ = {isa = PBXBuildFile; fileRef = CE838065146C5A1C00BB32F0 /* AlbumMonsters~ipad.xml */; };
-		CE84964216519EE90022A3F1 /* UserLangResumeView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE84964016519EE90022A3F1 /* UserLangResumeView.m */; };
-		CE84964B16519F860022A3F1 /* UserLangResumeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE84964A16519F860022A3F1 /* UserLangResumeView.xib */; };
-		CE84964D16519FA10022A3F1 /* UserLangResumeView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE84964C16519FA10022A3F1 /* UserLangResumeView~ipad.xib */; };
 		CE8496591651CC090022A3F1 /* ChineseFlag.png in Resources */ = {isa = PBXBuildFile; fileRef = CE84964E1651CC090022A3F1 /* ChineseFlag.png */; };
 		CE84965A1651CC090022A3F1 /* VietnameseFlag.png in Resources */ = {isa = PBXBuildFile; fileRef = CE84964F1651CC090022A3F1 /* VietnameseFlag.png */; };
 		CE84965B1651CC090022A3F1 /* MalayFlag.png in Resources */ = {isa = PBXBuildFile; fileRef = CE8496501651CC090022A3F1 /* MalayFlag.png */; };
@@ -849,12 +834,6 @@
 		B06C86F9178CC75500E2A1E8 /* GenericDownloadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenericDownloadViewController.m; sourceTree = "<group>"; };
 		B086B394171F29FA00C714B9 /* btn_download_cancel@ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_download_cancel@ipad.png"; sourceTree = "<group>"; };
 		B088D4DB16EE5A4C00F916DC /* menu_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_bg@2x.png"; sourceTree = "<group>"; };
-		B08EAB22172951820041E918 /* avatar1Big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = avatar1Big.png; path = Assets/Images/ChangeUserLang/avatar1Big.png; sourceTree = SOURCE_ROOT; };
-		B08EAB23172951820041E918 /* avatar2Big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = avatar2Big.png; path = Assets/Images/ChangeUserLang/avatar2Big.png; sourceTree = SOURCE_ROOT; };
-		B08EAB24172951820041E918 /* avatar3Big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = avatar3Big.png; path = Assets/Images/ChangeUserLang/avatar3Big.png; sourceTree = SOURCE_ROOT; };
-		B08EAB25172951820041E918 /* avatar4Big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = avatar4Big.png; path = Assets/Images/ChangeUserLang/avatar4Big.png; sourceTree = SOURCE_ROOT; };
-		B08EAB26172951820041E918 /* avatar5Big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = avatar5Big.png; path = Assets/Images/ChangeUserLang/avatar5Big.png; sourceTree = SOURCE_ROOT; };
-		B08EAB27172951830041E918 /* avatar6Big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = avatar6Big.png; path = Assets/Images/ChangeUserLang/avatar6Big.png; sourceTree = SOURCE_ROOT; };
 		B0915DD416FB958C000F2C23 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		B0915DD516FB958C000F2C23 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		B0915DD616FB958C000F2C23 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -1442,12 +1421,6 @@
 		CE7C406B16E138D3002DA556 /* btn_download_on@ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_download_on@ipad.png"; sourceTree = "<group>"; };
 		CE7C406C16E138D4002DA556 /* bg_user@ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_user@ipad.png"; sourceTree = "<group>"; };
 		CE7C406D16E138D6002DA556 /* background_wizard@ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background_wizard@ipad.png"; sourceTree = "<group>"; };
-		CE7C406E16E138D8002DA556 /* avatar6Big@ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "avatar6Big@ipad.png"; path = "../ChangeUserLang/avatar6Big@ipad.png"; sourceTree = "<group>"; };
-		CE7C406F16E138D9002DA556 /* avatar5Big@ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "avatar5Big@ipad.png"; path = "../ChangeUserLang/avatar5Big@ipad.png"; sourceTree = "<group>"; };
-		CE7C407016E138DA002DA556 /* avatar4Big@ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "avatar4Big@ipad.png"; path = "../ChangeUserLang/avatar4Big@ipad.png"; sourceTree = "<group>"; };
-		CE7C407116E138DF002DA556 /* avatar3Big@ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "avatar3Big@ipad.png"; path = "../ChangeUserLang/avatar3Big@ipad.png"; sourceTree = "<group>"; };
-		CE7C407216E138E0002DA556 /* avatar2Big@ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "avatar2Big@ipad.png"; path = "../ChangeUserLang/avatar2Big@ipad.png"; sourceTree = "<group>"; };
-		CE7C407316E138E0002DA556 /* avatar1Big@ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "avatar1Big@ipad.png"; path = "../ChangeUserLang/avatar1Big@ipad.png"; sourceTree = "<group>"; };
 		CE7C407416E138E1002DA556 /* progress_fill@ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "progress_fill@ipad.png"; sourceTree = "<group>"; };
 		CE7C407516E138E3002DA556 /* progress_empty@ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "progress_empty@ipad.png"; sourceTree = "<group>"; };
 		CE7C407616E138E4002DA556 /* progress_back@ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "progress_back@ipad.png"; sourceTree = "<group>"; };
@@ -1487,10 +1460,6 @@
 		CE837CD114C0D3D10031DF2F /* run@ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "run@ipad.png"; sourceTree = "<group>"; };
 		CE837CD214C0D3D10031DF2F /* eat@ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eat@ipad.png"; sourceTree = "<group>"; };
 		CE838065146C5A1C00BB32F0 /* AlbumMonsters~ipad.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "AlbumMonsters~ipad.xml"; sourceTree = "<group>"; };
-		CE84963F16519EE90022A3F1 /* UserLangResumeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserLangResumeView.h; sourceTree = "<group>"; };
-		CE84964016519EE90022A3F1 /* UserLangResumeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserLangResumeView.m; sourceTree = "<group>"; };
-		CE84964A16519F860022A3F1 /* UserLangResumeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserLangResumeView.xib; sourceTree = "<group>"; };
-		CE84964C16519FA10022A3F1 /* UserLangResumeView~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "UserLangResumeView~ipad.xib"; sourceTree = "<group>"; };
 		CE84964E1651CC090022A3F1 /* ChineseFlag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ChineseFlag.png; sourceTree = "<group>"; };
 		CE84964F1651CC090022A3F1 /* VietnameseFlag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VietnameseFlag.png; sourceTree = "<group>"; };
 		CE8496501651CC090022A3F1 /* MalayFlag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MalayFlag.png; sourceTree = "<group>"; };
@@ -2544,18 +2513,6 @@
 		CE774D8F15C8C0EC00136BA9 /* Users */ = {
 			isa = PBXGroup;
 			children = (
-				B08EAB22172951820041E918 /* avatar1Big.png */,
-				B08EAB23172951820041E918 /* avatar2Big.png */,
-				B08EAB24172951820041E918 /* avatar3Big.png */,
-				B08EAB25172951820041E918 /* avatar4Big.png */,
-				B08EAB26172951820041E918 /* avatar5Big.png */,
-				B08EAB27172951830041E918 /* avatar6Big.png */,
-				CE7C406E16E138D8002DA556 /* avatar6Big@ipad.png */,
-				CE7C406F16E138D9002DA556 /* avatar5Big@ipad.png */,
-				CE7C407016E138DA002DA556 /* avatar4Big@ipad.png */,
-				CE7C407116E138DF002DA556 /* avatar3Big@ipad.png */,
-				CE7C407216E138E0002DA556 /* avatar2Big@ipad.png */,
-				CE7C407316E138E0002DA556 /* avatar1Big@ipad.png */,
 				CED118BA16DDA3D10046365A /* avatar1.png */,
 				CED118C316DDA3D10046365A /* avatar1@ipad.png */,
 				CED118C416DDA3D10046365A /* avatar1@2x.png */,
@@ -2752,10 +2709,6 @@
 				CEEF06F915A3EFC6006FE284 /* ChangeLangView.m */,
 				CE7DEE291603D8D200CD0088 /* ChangeLangView.xib */,
 				CEEF06FA15A3EFC6006FE284 /* ChangeLangView~ipad.xib */,
-				CE84963F16519EE90022A3F1 /* UserLangResumeView.h */,
-				CE84964016519EE90022A3F1 /* UserLangResumeView.m */,
-				CE84964A16519F860022A3F1 /* UserLangResumeView.xib */,
-				CE84964C16519FA10022A3F1 /* UserLangResumeView~ipad.xib */,
 				CE77DAE116ADB4CA009AAB3C /* LockLanguageView.h */,
 				CE77DAE216ADB4CA009AAB3C /* LockLanguageView.m */,
 				CE77DAE416ADBABD009AAB3C /* LockLanguageView.xib */,
@@ -3477,8 +3430,6 @@
 				CE7818B21650B4C5009CD017 /* PortugueseFlag@ipad.png in Resources */,
 				CE7818B31650B4C5009CD017 /* SpanishFlag@ipad.png in Resources */,
 				CE7818B41650B4C5009CD017 /* VietnameseFlag@ipad.png in Resources */,
-				CE84964B16519F860022A3F1 /* UserLangResumeView.xib in Resources */,
-				CE84964D16519FA10022A3F1 /* UserLangResumeView~ipad.xib in Resources */,
 				CE8496591651CC090022A3F1 /* ChineseFlag.png in Resources */,
 				CE84965A1651CC090022A3F1 /* VietnameseFlag.png in Resources */,
 				CE84965B1651CC090022A3F1 /* MalayFlag.png in Resources */,
@@ -3572,12 +3523,6 @@
 				CE7C408116E138E5002DA556 /* btn_download_on@ipad.png in Resources */,
 				CE7C408216E138E5002DA556 /* bg_user@ipad.png in Resources */,
 				CE7C408316E138E5002DA556 /* background_wizard@ipad.png in Resources */,
-				CE7C408416E138E5002DA556 /* avatar6Big@ipad.png in Resources */,
-				CE7C408516E138E6002DA556 /* avatar5Big@ipad.png in Resources */,
-				CE7C408616E138E6002DA556 /* avatar4Big@ipad.png in Resources */,
-				CE7C408716E138E6002DA556 /* avatar3Big@ipad.png in Resources */,
-				CE7C408816E138E6002DA556 /* avatar2Big@ipad.png in Resources */,
-				CE7C408916E138E6002DA556 /* avatar1Big@ipad.png in Resources */,
 				CE7C408A16E138E6002DA556 /* progress_fill@ipad.png in Resources */,
 				CE7C408B16E138E6002DA556 /* progress_empty@ipad.png in Resources */,
 				CE7C408C16E138E6002DA556 /* progress_back@ipad.png in Resources */,
@@ -3623,12 +3568,6 @@
 				B09A36351725C60500153E71 /* en_Congratulations13.mp3 in Resources */,
 				B09A36361725C60500153E71 /* en_Congratulations14.mp3 in Resources */,
 				B09A36381725C60500153E71 /* en_Unlock help.mp3 in Resources */,
-				B08EAB28172951830041E918 /* avatar1Big.png in Resources */,
-				B08EAB29172951830041E918 /* avatar2Big.png in Resources */,
-				B08EAB2A172951830041E918 /* avatar3Big.png in Resources */,
-				B08EAB2B172951830041E918 /* avatar4Big.png in Resources */,
-				B08EAB2C172951830041E918 /* avatar5Big.png in Resources */,
-				B08EAB2D172951830041E918 /* avatar6Big.png in Resources */,
 				B095BBC71747A5D8006D2944 /* btn_avatar_on@2x.png in Resources */,
 				B095BBC81747A5D8006D2944 /* btn_challenge@2x.png in Resources */,
 				B095BBC91747A5D8006D2944 /* btn_info_on@2x.png in Resources */,
@@ -3706,7 +3645,6 @@
 				CE7B636A161F2EA700101A16 /* PromoCode.m in Sources */,
 				CE79AAA916265ACA0020CA5B /* TPKeyboardAvoidingScrollView.m in Sources */,
 				CE71CD771648A8C1009E6E61 /* ChangeUserView.m in Sources */,
-				CE84964216519EE90022A3F1 /* UserLangResumeView.m in Sources */,
 				CE7BB9CC165A4A920089EE99 /* ImageManger.m in Sources */,
 				CE77DAE316ADB4CA009AAB3C /* LockLanguageView.m in Sources */,
 				CE75CD1116AED1DC00BBFD39 /* AvatarView.m in Sources */,

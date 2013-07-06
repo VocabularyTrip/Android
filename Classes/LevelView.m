@@ -65,7 +65,8 @@
 @synthesize progressBackView;
 @synthesize progressMaskView;
 @synthesize progressFillView;
-@synthesize startWithHelp;
+@synthesize startWithHelpPurchase;
+@synthesize startWithHelpDownload;
 
 - (IBAction)done:(id)sender {
 	VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
@@ -73,7 +74,20 @@
 	[theTimer invalidate];
 	theTimer = nil;
 	[self purgeLevel];
+    [Sentence stopCurrentAudio];
+    [self cancelAllAnimations];
     //[PurchaseManager getSingleton].delegate = nil;
+}
+
+- (void) cancelAllAnimations {
+	// Cancel actual animation
+	[UIView beginAnimations: nil context: NULL];
+	[UIView setAnimationBeginsFromCurrentState: YES];
+	[UIView setAnimationDuration: 0.1];
+	[UIView setAnimationCurve:UIViewAnimationCurveLinear];
+	[UIView commitAnimations];
+	
+	[self.view.layer removeAllAnimations];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -89,9 +103,11 @@
 }
 
 - (void) viewDidAppear:(BOOL)animated {
-    if ([UserContext getHelpLevel] || startWithHelp) [self helpAnimation1];
-    if (startWithHelp) [self startLoading];
-    startWithHelp = 0;
+    if ([UserContext getHelpLevel] || startWithHelpPurchase) [self helpAnimation1];
+    if (startWithHelpPurchase) [self startLoading];
+    if (startWithHelpDownload) [self helpDownload1];
+    startWithHelpDownload = 0;
+    startWithHelpPurchase = 0;
     [super viewDidAppear: animated];
 }
 
@@ -378,6 +394,18 @@
     [self refreshPage];
 }
 
+
+- (IBAction) resetButtonClicked {
+    
+	UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle: @"WORNING!"
+                          message: @"By reseting, all coins, levels and sticker information about this user will be lost. Are you sure you want to reset?"
+                          delegate: self
+                          cancelButtonTitle: @"No"
+                          otherButtonTitles: @"Yes", nil];
+	[alert show];
+}
+
 - (void) refreshPage {
 	[self refreshLevelInfo];
 	AudioServicesPlaySystemSound(pageTurnSoundId);
@@ -646,7 +674,7 @@
     [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
     [UIImageView setAnimationDelegate: self];
     [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
-    [UIImageView setAnimationDidStopSelector: @selector(helpAnimation7)];
+    [UIImageView setAnimationDidStopSelector: @selector(helpAnimation7:finished:context:)];
     [UIImageView setAnimationDuration: 2];
     [UIImageView setAnimationBeginsFromCurrentState: YES];
   
@@ -662,8 +690,9 @@
     [UIImageView commitAnimations];
 }
 
-- (void) helpAnimation7 {
+- (void) helpAnimation7:(NSString *)theAnimation finished:(BOOL)flag context:(void *)context {
     // hover over lock button
+    if (!flag) return;
   CGPoint center = hand.center;
   if (angle<M_PI) {
     [Sentence playSpeaker: @"Level_helpB"];

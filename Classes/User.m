@@ -19,7 +19,6 @@
 @synthesize userId;
 @synthesize userName;
 @synthesize image;
-@synthesize imageBig;
 
 +(void)loadDataFromXML {
 	
@@ -256,20 +255,9 @@
     return image;
 }
 
--(UIImage*) imageBig {
-    if (imageBig == nil) {
-        NSString *imageName = [NSString stringWithFormat: @"avatar%iBig", userId];
-        NSString *file = [[NSString alloc ] initWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath], [UserContext getIphoneIpadFile: imageName]];
-        imageBig = [UIImage alloc];
-        imageBig = [imageBig initWithContentsOfFile: file];
-    }
-    return imageBig;
-}
-
 -(void) purge {
 	image = nil;
-	imageBig = nil;
-    
+ 
 }
 
 

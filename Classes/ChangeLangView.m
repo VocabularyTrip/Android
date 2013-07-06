@@ -22,25 +22,17 @@
 @synthesize hand;
 @synthesize helpButton;
 
-- (IBAction)done:(id)sender {
-	VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
-	[vocTripDelegate pushUserLangResumView];
-}
-
 - (IBAction) prevButtonPressed:(id)sender {
 	VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
     [vocTripDelegate.navController popViewControllerAnimated: YES];
+    [Sentence stopCurrentAudio];
 }
 
 - (IBAction) nextButtonPressed:(id)sender {
     
-    if ([UserContext getMaxLevel] >= 6) {
-        VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
-        [vocTripDelegate pushUserLangResumView];
-    } else {
-        VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
-        [vocTripDelegate popMainMenuFromUserLangResume];
-    }
+    VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
+    [vocTripDelegate popMainMenuFromChangeLang];
+    [Sentence stopCurrentAudio];
 }
 
 - (IBAction) lockLangPressed:(id)sender {

@@ -80,7 +80,7 @@
 	UIImageView *__unsafe_unretained progressFillView;
 	UIImageView *__unsafe_unretained progressMaskView;
 	
-	int page, buttonIndex, flagReset, startWithHelp;
+	int page, buttonIndex, flagReset, startWithHelpPurchase, startWithHelpDownload;
     float angle;
 }
 
@@ -133,20 +133,23 @@
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *buyButton;
 
 @property (nonatomic, assign) int page;
-@property (nonatomic, assign) int startWithHelp;
+@property (nonatomic, assign) int startWithHelpPurchase;
+@property (nonatomic, assign) int startWithHelpDownload;
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *progressBackView;
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *progressFillView;
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *progressMaskView;
 
 
 - (IBAction) done:(id)sender;
+- (void) cancelAllAnimations;
 - (IBAction) testAllSounds: (id)sender;
 - (IBAction) word1ButtonClicked;
 - (IBAction) word2ButtonClicked;
 - (IBAction) word3ButtonClicked;
 - (IBAction) prevButtonClicked;
 - (IBAction) nextButtonClicked;
-//- (IBAction) jumpDownloadDictionary;
+- (IBAction) resetButtonClicked;
+
 - (IBAction) buyClicked;
 
 - (void) viewWillAppear:(BOOL)animated;

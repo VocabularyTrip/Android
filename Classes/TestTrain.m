@@ -66,10 +66,8 @@
 
 -(void) sayTargetWord { 
 	Word *word = [words objectAtIndex: targetId];
-    if ([word playSound])
-        alertDownloadSounds.alpha = 0;
-    else
-        [self showAlertDownloadSounds];
+    if (![word playSound])
+        [self pushLevelWithHelpDownload];
 	inactivity1 = CFAbsoluteTimeGetCurrent();
 }
 

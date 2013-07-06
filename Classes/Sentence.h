@@ -21,6 +21,7 @@ extern id <GenericTrainDelegate> delegate;
 // This flag is used to avoid concurrent sentences.
 // If isPlaying is YES, no other Sentence can be played and is ignored.
 extern bool isPlaying; 
+extern AVAudioPlayer *currentAudio;
 
 @interface Sentence : NSObject <NSXMLParserDelegate, AVAudioSessionDelegate, AVAudioPlayerDelegate> {
 	NSMutableArray *names;
@@ -49,6 +50,7 @@ extern bool isPlaying;
 + (void) testAllSentences;
 + (AVAudioPlayer*) getAudioPlayer: (NSString*) fileName;
 + (bool) playSpeaker: (NSString*) name;
++ (void) stopCurrentAudio;
 - (void) play;
 - (void) audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag;
 + (AVAudioPlayer*) getAudioPlayerRelPath: (NSString*) fileName;

@@ -87,7 +87,7 @@
 
 	SystemSoundID closeSoundId;
 	AVAudioPlayer* trainSound;
-    UIButton *__unsafe_unretained alertDownloadSounds;
+    //UIButton *__unsafe_unretained alertDownloadSounds;
     
 	int gameStatus;
 	int viewMode; // 1 when the View is visible, and 0 when is not.
@@ -141,7 +141,7 @@
 @property (nonatomic, assign) SystemSoundID closeSoundId;
 @property (nonatomic, assign) int viewMode;
 @property (nonatomic, strong) AVAudioPlayer *trainSound;
-@property (nonatomic, unsafe_unretained) IBOutlet UIButton *alertDownloadSounds;
+//@property (nonatomic, unsafe_unretained) IBOutlet UIButton *alertDownloadSounds;
 
 - (IBAction) done:(id)sender;
 - (IBAction) wordButton1Clicked;
@@ -189,8 +189,9 @@
 - (void) showMoneyViews;
 - (void) moveWagon;
 - (void) initializeLevel;
-- (void) showAlertDownloadSounds;
-- (void) alertDownloadSoundsFinished;
+-(void) pushLevelWithHelpDownload;
+//- (void) showAlertDownloadSounds;
+//- (void) alertDownloadSoundsFinished;
 
 @end
 

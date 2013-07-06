@@ -38,7 +38,6 @@
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *hand;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *helpButton;
 
-- (IBAction) done:(id)sender;
 - (IBAction) prevButtonPressed:(id)sender;
 - (IBAction) nextButtonPressed:(id)sender;
 - (IBAction) lockLangPressed:(id)sender;

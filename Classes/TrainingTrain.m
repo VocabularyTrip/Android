@@ -182,10 +182,8 @@
 	if (r < 0) r = [self beginFlyWord: 2 touch: touchLocation];
 	if (r >= 0) {
 		Word *word = [words objectAtIndex: r];
-        if ([word playSound]) // playSound should always return true. In case download faild, cound be posible the file sound doesn't exists and return false.
-            alertDownloadSounds.alpha = 0; // The alert is hidden
-        else
-            [self showAlertDownloadSounds]; // An alert is shown 
+        if (![word playSound]) // playSound should always return true. In case download faild, cound be posible the file sound doesn't exists and return false.
+            [self pushLevelWithHelpDownload];
 		wordFlying = r;
 	} else {
 		wordFlying = -1;

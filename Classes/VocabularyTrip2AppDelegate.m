@@ -18,7 +18,6 @@
 @synthesize testTrain;
 @synthesize changeLangView;
 @synthesize changeUserView;
-@synthesize userLangResumeView;
 @synthesize lockLanguageView;
 @synthesize levelView;
 @synthesize purchaseView;
@@ -216,16 +215,6 @@
 	return changeUserView;
 }
 
--(UserLangResumeView*) userLangResumeView {
-	if (userLangResumeView == nil) {	
-		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-			userLangResumeView = [[UserLangResumeView alloc] initWithNibName:@"UserLangResumeView~ipad" bundle:nil];
-		else
-			userLangResumeView = [[UserLangResumeView alloc] initWithNibName:@"UserLangResumeView" bundle:nil];
-	}
-	return userLangResumeView;
-}
-
 -(LockLanguageView*) lockLanguageView {
 	if (lockLanguageView == nil) {	
 		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
@@ -267,10 +256,6 @@
 	return trainingTrain;
 }
 
-- (void) pushUserLangResumView {
-	[navController pushViewController: self.userLangResumeView animated: YES];
-}
-
 - (void) pushChangeLangView {
 	[navController pushViewController: self.changeLangView animated: YES];
 }
@@ -291,11 +276,18 @@
 	[navController pushViewController: self.levelView animated: YES];
 }
 
-- (void) pushLevelViewWithHelp {
+- (void) pushLevelViewWithHelpPurchase {
   	[navController popViewControllerAnimated: NO];
-    self.levelView.startWithHelp = 1;
+    self.levelView.startWithHelpPurchase = 1;
 	[navController pushViewController: self.levelView animated: YES];
 }
+
+- (void) pushLevelViewWithHelpDownload {
+  	[navController popViewControllerAnimated: NO];
+    self.levelView.startWithHelpDownload = 1;
+	[navController pushViewController: self.levelView animated: YES];
+}
+
 
 - (void) pushPurchaseView {
 	[navController pushViewController: self.purchaseView animated: YES];
@@ -313,18 +305,10 @@
 	[navController popViewControllerAnimated: NO];
 }
 
-/*- (void) popMainMenuFromChangeLang {
+- (void) popMainMenuFromChangeLang {
   	[navController popViewControllerAnimated: NO];
 	[self popMainMenu];
-	[changeLangView release];
 	changeLangView = nil;
-}*/
-
-- (void) popMainMenuFromUserLangResume {
-  	[navController popViewControllerAnimated: NO];
-  	[navController popViewControllerAnimated: NO];    
-	[self popMainMenu];
-	userLangResumeView = nil;
 }
 
 - (void) popFromLockLanguageView {
@@ -409,7 +393,9 @@
         case 0: // Don't Download !
             break;
         case 1:  { // Download
-            [self startLoadingVocabulary];
+            VocabularyTrip2AppDelegate *vcDelegate;
+            vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
+            [vcDelegate pushLevelViewWithHelpDownload];
             break;
         }            
         default: // Don't ask again
