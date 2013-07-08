@@ -23,6 +23,7 @@ Vocabulary *singletonVocabulary;
 
 @synthesize delegate;
 @synthesize wasErrorAtDownload;
+@synthesize isDownloading;
 
 // ****************************************************************
 // Load from Server. The first time is loaded and save localy

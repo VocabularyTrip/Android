@@ -465,12 +465,12 @@
 -(void) showAlertDownloadSounds {
     
     [Sentence playSpeaker: @"AlertDownloadSounds"];
-    // alertDownloadSounds.alpha = 0.0;                
+    //alertDownloadSounds.alpha = 0.0;
 	[UIImageView beginAnimations: @"helpAnimation" context: Nil]; 
 	[UIImageView setAnimationDelegate: self];
-	[UIImageView setAnimationDuration: 0.8];
-    [UIImageView setAnimationRepeatAutoreverses: YES];
-    [UIImageView setAnimationCurve: UIViewAnimationCurveEaseInOut];    
+	[UIImageView setAnimationDuration: 2];
+    //[UIImageView setAnimationRepeatAutoreverses: YES];
+    [UIImageView setAnimationCurve: UIViewAnimationCurveEaseOut];    
 	[UIImageView setAnimationBeginsFromCurrentState: YES];
 	[UIImageView setAnimationDidStopSelector: @selector(alertDownloadSoundsFinished)]; 
     
@@ -479,8 +479,15 @@
 }
 
 - (void) alertDownloadSoundsFinished {
-    alertDownloadSounds.alpha = 0.0;                
+   alertDownloadSounds.alpha = 0.0;
 }
+
+- (IBAction) jumpDownloadDictionary {
+    [self done: nil];
+    VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
+    [vocTripDelegate pushUserLangResumView];
+}
+
 
 /*- (int) windowWidth {
 	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)

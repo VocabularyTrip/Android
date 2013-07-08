@@ -31,7 +31,7 @@ extern PurchaseManager *purchaseManagerSingleton;
 @property (nonatomic, unsafe_unretained) id delegate;
 @property (nonatomic) NSMutableArray *products;
 
-+(PurchaseManager*) getSingleton;
++ (PurchaseManager*) getSingleton;
 + (NSString*) getCompletePurchaseIdentier: (NSString*) inAppPurchase;
 + (void) buyDictionary;
 + (void) buyBronzeLevel;

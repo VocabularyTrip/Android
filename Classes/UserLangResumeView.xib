@@ -825,11 +825,11 @@
 							<reference ref="760186323"/>
 							<reference ref="123483181"/>
 							<reference ref="937208385"/>
-							<reference ref="703411904"/>
 							<reference ref="364797281"/>
 							<reference ref="1008095739"/>
 							<reference ref="204308132"/>
 							<reference ref="886032678"/>
+							<reference ref="703411904"/>
 						</array>
 						<reference key="parent" ref="191373211"/>
 						<string key="objectName">MoneyView</string>

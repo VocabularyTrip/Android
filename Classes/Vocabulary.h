@@ -28,12 +28,14 @@ extern id <DownloadDelegate> downloadDelegate;
 @interface Vocabulary : NSObject <NSXMLParserDelegate, NSURLConnectionDelegate> {
     id <DownloadDelegate> __unsafe_unretained delegate;
     int wasErrorAtDownload;
+    bool isDownloading;
 }
 
 extern Vocabulary *singletonVocabulary;
 
 @property (nonatomic, unsafe_unretained) id delegate;
 @property (nonatomic, unsafe_unretained) int wasErrorAtDownload;
+@property (nonatomic, unsafe_unretained) bool isDownloading;
 
 + (void) loadDataFromXML; //
 + (void) parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict; //

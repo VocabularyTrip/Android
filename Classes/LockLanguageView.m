@@ -31,10 +31,11 @@
 
 - (IBAction) lockUnlockButtonClicked :(id)sender {
     [self.view endEditing: YES];
-    if ([self isLocked]) 
-        [self unlockLangSelection];
-    else
-        [self lockLangSelection];
+    if ([self isLocked]) {
+        if ([self unlockLangSelection]) [self done: nil];
+    } else {
+        if ([self lockLangSelection]) [self done: nil];
+    }
 }
 
 - (IBAction) mailMePasswordButtonClicked :(id)sender {
@@ -62,27 +63,31 @@
     return [UserContext getIsLocked];
 }
 
-- (void) lockLangSelection {
+- (bool) lockLangSelection {
     if ([password1TextField.text isEqualToString:@""]) {
         errorLabel.text = @"Please complete password";
         errorLabel.textColor = [UIColor redColor];
+        return NO;
     } else if (![password1TextField.text isEqualToString: password2TextField.text]) {
         errorLabel.text = @"The two passwords do not machted";
         errorLabel.textColor = [UIColor redColor];
+        return NO;
     } else {
-        [self privateLockLangSelection];        
+        return [self privateLockLangSelection];
     }
 }
 
-- (void) privateLockLangSelection {
+- (bool) privateLockLangSelection {
     if ([self savePassword]) {
         [UserContext setIsLocked: YES];
         errorLabel.text = @"Language selection is locked";
         errorLabel.textColor = [UIColor blueColor];
         [self refreshView];
+        return YES;
     } else {
         errorLabel.text = @"Error saving password.";
-        errorLabel.textColor = [UIColor redColor];        
+        errorLabel.textColor = [UIColor redColor];
+        return NO;
     }
 }
 
@@ -90,19 +95,22 @@
     return [UserContext setUserPassword: password1TextField.text];
 }
 
-- (void) unlockLangSelection {
+- (bool) unlockLangSelection {
     NSString *savedPassword = [UserContext getUserPassword];
     if ([password1TextField.text isEqualToString:@""]) {
         errorLabel.text = @"Please complete password";
         errorLabel.textColor = [UIColor redColor];
+        return NO;
     } else if (![password1TextField.text isEqualToString: savedPassword]) {
         errorLabel.text = @"Incorrect password";
         errorLabel.textColor = [UIColor redColor];
+        return NO;
     } else {
         [UserContext setIsLocked: NO];
         errorLabel.text = @"Language selection is unlocked";
         errorLabel.textColor = [UIColor blueColor];
-        [self refreshView];    
+        [self refreshView];
+        return YES;
     }
 }
 

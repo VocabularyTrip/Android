@@ -150,6 +150,7 @@
 - (IBAction) pauseClicked;
 - (IBAction) soundClicked;
 - (IBAction) helpClicked;
+- (IBAction) jumpDownloadDictionary;
 
 - (void) hideAllViews;
 - (void) showAllViews;

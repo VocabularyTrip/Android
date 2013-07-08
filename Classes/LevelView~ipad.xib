@@ -16,6 +16,7 @@
 			<string>IBUIButton</string>
 			<string>IBUIImageView</string>
 			<string>IBUILabel</string>
+			<string>IBUIProgressView</string>
 			<string>IBUIScrollView</string>
 			<string>IBUIView</string>
 		</object>
@@ -116,9 +117,9 @@
 							<object class="IBUILabel" id="629621496">
 								<reference key="NSNextResponder" ref="205561208"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{317, 15}, {474, 75}}</string>
+								<string key="NSFrame">{{285, 15}, {474, 75}}</string>
 								<reference key="NSSuperview" ref="205561208"/>
-								<reference key="NSNextKeyView" ref="795264419"/>
+								<reference key="NSNextKeyView" ref="867692135"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
@@ -133,15 +134,15 @@
 								<reference key="IBUIHighlightedColor" ref="899620473"/>
 								<int key="IBUIBaselineAdjustment">1</int>
 								<float key="IBUIMinimumFontSize">10</float>
-								<object class="IBUIFontDescription" key="IBUIFontDescription" id="386102459">
+								<object class="IBUIFontDescription" key="IBUIFontDescription">
 									<string key="name">Chalkduster</string>
 									<string key="family">Chalkduster</string>
 									<int key="traits">0</int>
-									<double key="pointSize">64</double>
+									<double key="pointSize">53</double>
 								</object>
-								<object class="NSFont" key="IBUIFont" id="893492354">
+								<object class="NSFont" key="IBUIFont">
 									<string key="NSName">Chalkduster</string>
-									<double key="NSSize">64</double>
+									<double key="NSSize">53</double>
 									<int key="NSfFlags">16</int>
 								</object>
 								<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
@@ -149,7 +150,7 @@
 							<object class="IBUIImageView" id="426049326">
 								<reference key="NSNextResponder" ref="205561208"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{225, 20}, {66, 66}}</string>
+								<string key="NSFrame">{{205, 20}, {66, 66}}</string>
 								<reference key="NSSuperview" ref="205561208"/>
 								<reference key="NSNextKeyView" ref="629621496"/>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -176,8 +177,17 @@
 								<int key="IBUIBaselineAdjustment">0</int>
 								<float key="IBUIMinimumFontSize">10</float>
 								<int key="IBUILineBreakMode">0</int>
-								<reference key="IBUIFontDescription" ref="386102459"/>
-								<reference key="IBUIFont" ref="893492354"/>
+								<object class="IBUIFontDescription" key="IBUIFontDescription">
+									<string key="name">Chalkduster</string>
+									<string key="family">Chalkduster</string>
+									<int key="traits">0</int>
+									<double key="pointSize">64</double>
+								</object>
+								<object class="NSFont" key="IBUIFont">
+									<string key="NSName">Chalkduster</string>
+									<double key="NSSize">64</double>
+									<int key="NSfFlags">16</int>
+								</object>
 							</object>
 							<object class="IBUIImageView" id="993397615">
 								<reference key="NSNextResponder" ref="205561208"/>
@@ -583,7 +593,7 @@
 							<object class="IBUIButton" id="795264419">
 								<reference key="NSNextResponder" ref="205561208"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{844, 12}, {80, 80}}</string>
+								<string key="NSFrame">{{862, 12}, {80, 80}}</string>
 								<reference key="NSSuperview" ref="205561208"/>
 								<reference key="NSNextKeyView" ref="791684390"/>
 								<bool key="IBUIOpaque">NO</bool>
@@ -731,6 +741,68 @@
 									<string key="NSClassName">NSImage</string>
 									<string key="NSResourceName">clicking.png</string>
 								</object>
+							</object>
+							<object class="IBUIProgressView" id="1043458031">
+								<reference key="NSNextResponder" ref="205561208"/>
+								<int key="NSvFlags">292</int>
+								<string key="NSFrame">{{702, 77}, {150, 9}}</string>
+								<reference key="NSSuperview" ref="205561208"/>
+								<reference key="NSNextKeyView" ref="795264419"/>
+								<string key="NSReuseIdentifierKey">_NS:9</string>
+								<bool key="IBUIOpaque">NO</bool>
+								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+								<float key="IBUIProgress">0.5</float>
+							</object>
+							<object class="IBUIButton" id="966669574">
+								<reference key="NSNextResponder" ref="205561208"/>
+								<int key="NSvFlags">292</int>
+								<string key="NSFrame">{{695, 30}, {165, 44}}</string>
+								<reference key="NSSuperview" ref="205561208"/>
+								<reference key="NSNextKeyView" ref="1043458031"/>
+								<string key="NSReuseIdentifierKey">_NS:9</string>
+								<bool key="IBUIOpaque">NO</bool>
+								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+								<int key="IBUIContentHorizontalAlignment">0</int>
+								<int key="IBUIContentVerticalAlignment">0</int>
+								<reference key="IBUIHighlightedTitleColor" ref="899620473"/>
+								<object class="NSColor" key="IBUINormalTitleColor">
+									<int key="NSColorSpace">1</int>
+									<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
+								</object>
+								<reference key="IBUINormalTitleShadowColor" ref="939716079"/>
+								<object class="NSCustomResource" key="IBUINormalImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">btn_download_cancel@ipad.png</string>
+								</object>
+								<object class="IBUIFontDescription" key="IBUIFontDescription" id="803639667">
+									<int key="type">2</int>
+									<double key="pointSize">15</double>
+								</object>
+								<reference key="IBUIFont" ref="325616209"/>
+							</object>
+							<object class="IBUIButton" id="867692135">
+								<reference key="NSNextResponder" ref="205561208"/>
+								<int key="NSvFlags">292</int>
+								<string key="NSFrame">{{695, 30}, {165, 44}}</string>
+								<reference key="NSSuperview" ref="205561208"/>
+								<reference key="NSNextKeyView" ref="966669574"/>
+								<string key="NSReuseIdentifierKey">_NS:9</string>
+								<bool key="IBUIOpaque">NO</bool>
+								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+								<int key="IBUIContentHorizontalAlignment">0</int>
+								<int key="IBUIContentVerticalAlignment">0</int>
+								<reference key="IBUIHighlightedTitleColor" ref="899620473"/>
+								<object class="NSColor" key="IBUINormalTitleColor">
+									<int key="NSColorSpace">1</int>
+									<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
+								</object>
+								<reference key="IBUINormalTitleShadowColor" ref="939716079"/>
+								<object class="NSCustomResource" key="IBUINormalImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">btn_download@ipad.png</string>
+								</object>
+								<reference key="IBUIFontDescription" ref="803639667"/>
+								<reference key="IBUIFont" ref="325616209"/>
 							</object>
 						</object>
 						<string key="NSFrameSize">{1024, 768}</string>
@@ -1097,10 +1169,6 @@
 						<reference key="object" ref="205561208"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="467787974"/>
-							<reference ref="760762879"/>
-							<reference ref="629621496"/>
-							<reference ref="426049326"/>
 							<reference ref="187333989"/>
 							<reference ref="154710009"/>
 							<reference ref="279122532"/>
@@ -1129,13 +1197,20 @@
 							<reference ref="493461311"/>
 							<reference ref="256236176"/>
 							<reference ref="269597581"/>
-							<reference ref="795264419"/>
 							<reference ref="791684390"/>
 							<reference ref="993397615"/>
 							<reference ref="691248368"/>
 							<reference ref="392025077"/>
 							<reference ref="278312868"/>
 							<reference ref="647744564"/>
+							<reference ref="467787974"/>
+							<reference ref="426049326"/>
+							<reference ref="795264419"/>
+							<reference ref="1043458031"/>
+							<reference ref="966669574"/>
+							<reference ref="867692135"/>
+							<reference ref="629621496"/>
+							<reference ref="760762879"/>
 						</object>
 						<reference key="parent" ref="251504986"/>
 					</object>
@@ -1372,6 +1447,23 @@
 						<reference key="parent" ref="205561208"/>
 						<string key="objectName">ProgressMaskView</string>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">236</int>
+						<reference key="object" ref="1043458031"/>
+						<reference key="parent" ref="205561208"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">237</int>
+						<reference key="object" ref="867692135"/>
+						<reference key="parent" ref="205561208"/>
+						<string key="objectName">DownloadButton</string>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">238</int>
+						<reference key="object" ref="966669574"/>
+						<reference key="parent" ref="205561208"/>
+						<string key="objectName">DownloadCancelButton</string>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -1430,6 +1522,9 @@
 					<string>227.IBPluginDependency</string>
 					<string>228.IBPluginDependency</string>
 					<string>229.IBPluginDependency</string>
+					<string>236.IBPluginDependency</string>
+					<string>237.IBPluginDependency</string>
+					<string>238.IBPluginDependency</string>
 					<string>38.IBPluginDependency</string>
 					<string>65.IBPluginDependency</string>
 					<string>76.IBPluginDependency</string>
@@ -1493,6 +1588,9 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="unlocalizedProperties">
@@ -1507,15 +1605,11 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">235</int>
+			<int key="maxID">238</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBIPadFramework</string>
-		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
-			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.iPhoneOS</string>
-			<real value="1552" key="NS.object.0"/>
-		</object>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDevelopmentDependencies">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.InterfaceBuilder3</string>
 			<integer value="3000" key="NS.object.0"/>
@@ -1532,6 +1626,8 @@
 				<string>apple.png</string>
 				<string>avatar1@ipad.png</string>
 				<string>background_wizard@ipad.png</string>
+				<string>btn_download@ipad.png</string>
+				<string>btn_download_cancel@ipad.png</string>
 				<string>buyButton@ipad.png</string>
 				<string>clicking.png</string>
 				<string>colors-buy@ipad.png</string>
@@ -1557,11 +1653,13 @@
 			<object class="NSArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<string>{267, 182}</string>
-				<string>{200, 92}</string>
+				<string>{200, 81}</string>
 				<string>{80, 80}</string>
 				<string>{99, 111}</string>
 				<string>{250, 350}</string>
 				<string>{1024, 683}</string>
+				<string>{165, 56}</string>
+				<string>{165, 56}</string>
 				<string>{97, 97}</string>
 				<string>{139, 147}</string>
 				<string>{80, 80}</string>

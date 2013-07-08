@@ -291,6 +291,12 @@
 	[navController pushViewController: self.levelView animated: YES];
 }
 
+- (void) pushLevelViewWithHelp {
+  	[navController popViewControllerAnimated: NO];
+    self.levelView.startWithHelp = 1;
+	[navController pushViewController: self.levelView animated: YES];
+}
+
 - (void) pushPurchaseView {
 	[navController pushViewController: self.purchaseView animated: YES];
 }

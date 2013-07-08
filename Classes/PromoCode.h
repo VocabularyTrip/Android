@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "SBJSON.h"
 #import "PurchaseManager.h"
+#import "PurchaseProtocol.h"
 
 typedef enum  {
     PromoCodeUnknowError,
@@ -24,7 +25,7 @@ typedef enum  {
 #define cPromoCodeStatusActive @"Promo Code Active !"
 #define cPromoCodeStatusFinished @"Promo Code Finished"
 
-@interface PromoCode : NSObject {
+@interface PromoCode : NSObject <UIAlertViewDelegate> {
     int promoCodeId;
     NSString* __unsafe_unretained promoCode;
     NSString* __unsafe_unretained type;
@@ -32,8 +33,14 @@ typedef enum  {
     BOOL claimed;
     NSString* __unsafe_unretained uuid;
     NSString* __unsafe_unretained sentTo;
+	id <PurchaseDelegate> __unsafe_unretained delegate;    
 }
 
+extern PromoCode *promoCodeSingleton;
+
++(PromoCode*) getSingleton;
+
+@property (nonatomic, unsafe_unretained) id delegate;
 @property (nonatomic, assign) int promoCodeId;
 @property (nonatomic, unsafe_unretained) NSString* promoCode;
 @property (nonatomic, unsafe_unretained) NSString* type;

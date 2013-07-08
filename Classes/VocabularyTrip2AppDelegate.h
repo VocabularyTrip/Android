@@ -64,6 +64,7 @@
 - (void) pushChangeLangView;
 - (void) pushChangeUserView;
 - (void) pushLevelView;
+- (void) pushLevelViewWithHelp;
 - (void) pushPurchaseView;
 - (void) pushTestTrain;
 - (void) pushAlbumView;

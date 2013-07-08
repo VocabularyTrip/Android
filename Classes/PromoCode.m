@@ -8,6 +8,8 @@
 
 #import "PromoCode.h"
 
+PromoCode *promoCodeSingleton;
+
 @implementation PromoCode
 
 @synthesize promoCodeId;
@@ -17,9 +19,17 @@
 @synthesize claimed;
 @synthesize uuid;
 @synthesize sentTo;
+@synthesize delegate;
+
++(PromoCode*) getSingleton {
+	if (promoCodeSingleton == nil)
+		promoCodeSingleton = [[PromoCode alloc] init];
+	return promoCodeSingleton;
+}
+
 
 + (void) checkAPromoCodeForUUID {
-    if ([UserContext getMaxLevel] >= 6) return; // [self answerPromoCodeResult: PromoCodeRegistered];
+    if ([UserContext getMaxLevel] >= 6) return;
     
     NSURL *url = [NSURL URLWithString: [NSString stringWithFormat: @"%@/db_promo_code.php?rquest=getPromoCodeForUUID", cUrlServer]];
     NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:
@@ -45,10 +55,7 @@
 + (void) checkAPromoCodeForUUIDFinishSuccesfully: (NSDictionary*) response {
     NSDate* date;
     
-    if ([response count] == 0) { // the promoCode doesn't exists
-        //[self answerPromoCodeResult: @"Promo Code Does Not Exists"];
-        return;
-    }
+    if ([response count] == 0) return; // the promoCode doesn't exists
     
     if ([response count] > 0) {
         PromoCode* aPromoCode = [[PromoCode alloc] init];
@@ -80,12 +87,10 @@
             return;
         }
     }
-    //[self answerPromoCodeResult: @"Unknow Error - Are you connected to the Internet?"];
 }
 
 + (void) checkAPromoCodeForUUIDFinishWidhError:(NSError *) error {
     NSString *result = error.localizedDescription;
-    //[self answerPromoCodeResult: result];
     NSLog(@"%@", result);
 }
 
@@ -96,6 +101,16 @@
             cancelButtonTitle: @"OK"
             otherButtonTitles: nil];
         [alert show];
+}
+
++ (void) alertView: (UIAlertView*) alertView clickedButtonAtIndex: (NSInteger) buttonIndex {
+    switch (buttonIndex) {
+        case 0: // OK
+            if (promoCodeSingleton.delegate) [promoCodeSingleton.delegate responseToBuyAction];
+            break;
+        default:
+            break;
+    }
 }
 
 + (void) registerPromoCode: (NSString*) promoCode {
@@ -210,14 +225,14 @@
 }
 
 + (void) claimPromoCodeFinishSuccesfully: (NSDictionary*) response {
-
     NSString *result = [response objectForKey: @"status"];
     if ([result isEqualToString: @"Success"]) {
         [[NSUserDefaults standardUserDefaults] setObject: cPromoCodeStatusActive forKey: cPromoCodeStatus];
         [[NSUserDefaults standardUserDefaults] setObject: [response objectForKey: @"promoCode"] forKey: cPromoCode];
         
         [[PurchaseManager getSingleton] provideContent: cPurchaseAllLevels]; // Provide Content !!!!!
-        [self answerPromoCodeResult: @"Promo Code Registered Successfully"];
+        //if (promoCodeSingleton.delegate) [promoCodeSingleton.delegate responseToBuyAction];
+        [self answerPromoCodeResult: @"Promo Code Registered Successfully"];        
     }
 }
 

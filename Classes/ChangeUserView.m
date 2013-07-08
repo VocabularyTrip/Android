@@ -101,27 +101,26 @@
     
     NSString* coverName = [UserContext getIphone5xIpadFile: @"background_wizard"];
     [backgroundView setImage: [UIImage imageNamed: coverName]];
-    [super viewWillAppear: animated];
-}
-
-
-- (void)viewDidAppear:(BOOL)animated {
-
+    
     User *user = [UserContext getUserSelected];
     if (!user) {
         user = [[UserContext getSingleton].users objectAtIndex: 0];
-        [[UserContext getSingleton] setUserSelected: user];    
+        [[UserContext getSingleton] setUserSelected: user];
     }
     
     if (user.userId >= 6)
-        [usersView setSelectedCover: 6];        
+        [usersView setSelectedCover: 6];
     
     [usersView setSelectedCover: [[UserContext getSingleton].users indexOfObject: user]];
     [usersView centerOnSelectedCover: YES];
-
+    
     userNameText.text = user.userName;
     [self refreshLabels];
+    
+    [super viewWillAppear: animated];
+}
 
+- (void)viewDidAppear:(BOOL)animated {
     if ([UserContext getHelpSelectUser]) [self helpAnimation1];
 }
 
@@ -205,6 +204,7 @@
     [[UserContext getSingleton] setUserSelected: user];
     [usersView setSelectedCover: userId];
     [usersView centerOnSelectedCover: YES];
+    userNameText.text = user.userName;
     
 	[UIImageView beginAnimations: @"helpAnimation" context: Nil];
 	[UIImageView setAnimationDelegate: self];

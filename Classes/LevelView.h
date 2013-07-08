@@ -10,8 +10,9 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import <AudioToolbox/AudioToolbox.h>	
 #import "UIWheelView.h"
+#import "GenericDownloadViewController.h"
 
-@interface LevelView : UIViewController { 
+@interface LevelView : GenericDownloadViewController {
 
 	UIButton *__unsafe_unretained backButton;
 
@@ -78,7 +79,8 @@
 	UIImageView *__unsafe_unretained progressFillView;
 	UIImageView *__unsafe_unretained progressMaskView;
 	
-	int page, buttonIndex, flagReset;
+	int page, buttonIndex, flagReset, startWithHelp;
+    float angle;
 }
 
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *backButton;
@@ -129,7 +131,7 @@
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *buyButton;
 
 @property (nonatomic, assign) int page;
-
+@property (nonatomic, assign) int startWithHelp;
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *progressBackView;
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *progressFillView;
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *progressMaskView;

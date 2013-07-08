@@ -11,17 +11,14 @@
 
 @implementation UserLangResumeView
 
-@synthesize cancelDownloadButton;
 @synthesize userView;
 @synthesize flagView;
 @synthesize nameLabel;
-@synthesize confirmUserLangButton;
 @synthesize moneyGoldLabel;
 @synthesize moneyBronzeLabel;
 @synthesize moneySilverLabel;
 @synthesize progressView;
 @synthesize langSelectedLabel;
-@synthesize downloadProgressView;
 @synthesize backgroundView;
 @synthesize progressBarFillView;
 @synthesize hand;
@@ -42,45 +39,9 @@
     [vocTripDelegate.navController popViewControllerAnimated: YES];
 }
 
--(IBAction) startLoading {
-    //if (![Vocabulary isDownloadCompleted]) {
-        [self setSearchingModeEnabled: YES];
-        
-        if (!singletonVocabulary)
-            singletonVocabulary = [Vocabulary alloc];
-        singletonVocabulary.delegate = self;
-        
-        [Vocabulary loadDataFromSql];
-        NSLog(@"Load Launched...");
-    //}
-}
-
-- (void) downloadFinishWidhError: (NSString*) error {
-    [self setSearchingModeEnabled: NO];
-    
-    singletonVocabulary.wasErrorAtDownload++;
-    errorAtDownload = error;
-    if (singletonVocabulary.wasErrorAtDownload == 1) {
-        UIAlertView *alert = [[UIAlertView alloc]
-                          initWithTitle: @"Download Error"
-                          message: error
-                          delegate: self
-                          cancelButtonTitle: @"OK"
-                          otherButtonTitles: nil];
-        [alert show];
-    }
-}
-
-- (void) downloadFinishSuccesfully {
-}
-
-- (IBAction) cancelDownload:(id)sender {
-    [self setSearchingModeEnabled: NO];
-}
-
-- (IBAction) showMoney {
+/*- (IBAction) showMoney {
     //moneyView.hidden = NO;
-}
+}*/
 
 - (void) updateLevelSlider {
     
@@ -152,55 +113,7 @@
 	}	
 }
 
--(void)setSearchingModeEnabled:(BOOL)isDownloading
-{
-	//when network action, toggle network indicator and activity indicator
-	if (isDownloading) {
-        qWordsLoaded = 0;
-        singletonVocabulary.wasErrorAtDownload = 0;
-        errorAtDownload = @"";
-        
-        cancelDownloadButton.alpha = 1;
-        downloadProgressView.alpha = 1;
-        confirmUserLangButton.alpha = 0;
-		[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-	} else {
-        if (cancelDownloadButton.alpha != 0) {                
-            cancelDownloadButton.alpha = 0;
-            downloadProgressView.alpha = 0;
-            confirmUserLangButton.alpha = [Vocabulary isDownloadCompleted] ? 0 : 1;
-            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-            //[[UserContext getLanguageSelected] countOfWords];
-        }
-	}
-}
 
-- (void) addProgress {
-    Language *lang = [UserContext getLanguageSelected];
-    qWordsLoaded++;
-    float progress =  (float) qWordsLoaded / (float) lang.qWords;
-    
-    downloadProgressView.progress = progress;
-    
-    if (progress >= 1) {
-        [self setSearchingModeEnabled: NO];
-        NSString *message = @"Download finished successfully";
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Download completed" 
-             message: message delegate:self cancelButtonTitle: @"OK" otherButtonTitles:nil];
-        [alert show];
-        return;
-    }
-    
-    /*progress =  (float) (qWordsLoaded + singletonVocabulary.wasErrorAtDownload) / (float) lang.qWords;
-    if (progress >= 1) {
-        [self setSearchingModeEnabled: NO];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Download Error"
-                                                        message: errorAtDownload delegate:self cancelButtonTitle: @"OK" otherButtonTitles:nil];
-        [alert show];
-        return;
-    }*/
-    
-}
 
 - (void)viewWillAppear:(BOOL)animated {
     User *user = [UserContext getUserSelected];
@@ -220,20 +133,9 @@
     else
         buyButton.alpha = 1;
         
-    downloadProgressView.alpha = 0;
-    // We are not shoure if the request countOfWords did finish.
-    confirmUserLangButton.alpha = 1;
-    if (![Vocabulary isDownloadCompleted]) {
-        confirmUserLangButton.alpha = 1;
-        cancelDownloadButton.alpha = 0;
-    } else {
-        confirmUserLangButton.alpha = 0;
-        cancelDownloadButton.alpha = 0;
-    }
     [self refreshToolbar];
 
-    //[self startLoading]; // This method first check is download is completed
-    
+ 
     NSString* coverName = [UserContext getIphone5xIpadFile: @"background_wizard"];
     [backgroundView setImage: [UIImage imageNamed: coverName]];
     [super viewWillAppear: animated];
@@ -292,7 +194,7 @@
 - (void) helpAnimation2 {
     // bring clicking hand over download button
 	CGRect handFrame = hand.frame;
-  
+ 	[Sentence playSpeaker: @"LevelView-HelpA"]; 
     CGPoint targetOrigin = [self.view convertPoint: cancelDownloadButton.frame.origin fromView: userInfoView];
     CGRect targetFrame = cancelDownloadButton.frame;
 	handFrame.origin.x = targetOrigin.x + (targetFrame.size.width / 2);
@@ -303,7 +205,7 @@
 	[UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
 	[UIImageView setAnimationDidStopSelector: @selector(helpAnimation3)];
     //	[UIImageView setAnimationDidStopSelector: @selector(helpAnimation2b:finished:context:)];
-	[UIImageView setAnimationDuration: 1];
+	[UIImageView setAnimationDuration: 4];
 	[UIImageView setAnimationBeginsFromCurrentState: YES];
   
 	hand.frame = handFrame;
@@ -312,7 +214,6 @@
 
 - (void) helpAnimation3 {
     // click down
-	[Sentence playSpeaker: @"LevelView-Help"];
 	CGRect frame = hand.frame;
   
 	[UIImageView beginAnimations: @"helpAnimation" context: nil];
@@ -367,7 +268,7 @@
 
 - (void) helpAnimation6 {
     // click down
-	[Sentence playSpeaker: @"LevelView-Help"];
+	//[Sentence playSpeaker: @"LevelView-Help"];
 	CGRect frame = hand.frame;
   
 	[UIImageView beginAnimations: @"helpAnimation" context: nil];

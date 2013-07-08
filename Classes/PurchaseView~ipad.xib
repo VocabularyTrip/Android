@@ -66,7 +66,7 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{0, 6}, {200, 92}}</string>
 								<reference key="NSSuperview" ref="205561208"/>
-								<reference key="NSNextKeyView" ref="791684390"/>
+								<reference key="NSNextKeyView" ref="900182574"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
@@ -88,13 +88,13 @@
 									<string key="NSClassName">NSImage</string>
 									<string key="NSResourceName">Menu1@ipad.png</string>
 								</object>
-								<object class="IBUIFontDescription" key="IBUIFontDescription" id="920435203">
+								<object class="IBUIFontDescription" key="IBUIFontDescription">
 									<string key="name">Helvetica-Bold</string>
 									<string key="family">Helvetica</string>
 									<int key="traits">2</int>
 									<double key="pointSize">15</double>
 								</object>
-								<object class="NSFont" key="IBUIFont" id="325616209">
+								<object class="NSFont" key="IBUIFont">
 									<string key="NSName">Helvetica-Bold</string>
 									<double key="NSSize">15</double>
 									<int key="NSfFlags">16</int>
@@ -132,29 +132,6 @@
 									<double key="NSSize">34</double>
 									<int key="NSfFlags">16</int>
 								</object>
-							</object>
-							<object class="IBUIButton" id="791684390">
-								<reference key="NSNextResponder" ref="205561208"/>
-								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{945, 20}, {68, 68}}</string>
-								<reference key="NSSuperview" ref="205561208"/>
-								<reference key="NSNextKeyView" ref="900182574"/>
-								<bool key="IBUIOpaque">NO</bool>
-								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<int key="IBUIContentHorizontalAlignment">0</int>
-								<int key="IBUIContentVerticalAlignment">0</int>
-								<reference key="IBUIHighlightedTitleColor" ref="899620473"/>
-								<object class="NSColor" key="IBUINormalTitleColor">
-									<int key="NSColorSpace">1</int>
-									<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
-								</object>
-								<reference key="IBUINormalTitleShadowColor" ref="939716079"/>
-								<object class="NSCustomResource" key="IBUINormalImage">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">help@ipad.png</string>
-								</object>
-								<reference key="IBUIFontDescription" ref="920435203"/>
-								<reference key="IBUIFont" ref="325616209"/>
 							</object>
 							<object class="IBUIButton" id="459893072">
 								<reference key="NSNextResponder" ref="205561208"/>
@@ -446,7 +423,6 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="467787974"/>
 							<reference ref="760762879"/>
-							<reference ref="791684390"/>
 							<reference ref="669536775"/>
 							<reference ref="900182574"/>
 							<reference ref="459893072"/>
@@ -474,15 +450,10 @@
 						<string key="objectName">BuyAllLevelsButton</string>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">177</int>
-						<reference key="object" ref="791684390"/>
-						<reference key="parent" ref="205561208"/>
-						<string key="objectName">HelpButton</string>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">199</int>
 						<reference key="object" ref="459893072"/>
 						<reference key="parent" ref="205561208"/>
+						<string key="objectName">RestoreButton</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">202</int>
@@ -511,7 +482,6 @@
 					<string>-2.CustomClassName</string>
 					<string>-2.IBPluginDependency</string>
 					<string>117.IBPluginDependency</string>
-					<string>177.IBPluginDependency</string>
 					<string>199.IBPluginDependency</string>
 					<string>202.IBPluginDependency</string>
 					<string>210.IBPluginDependency</string>
@@ -527,7 +497,6 @@
 					<string>PurchaseView</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>UIResponder</string>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -575,7 +544,6 @@
 				<string>Buy All@ipad.png</string>
 				<string>Menu1@ipad.png</string>
 				<string>background_purchase@ipad.png</string>
-				<string>help@ipad.png</string>
 				<string>restoreButton@ipad.png</string>
 			</object>
 			<object class="NSArray" key="dict.values">
@@ -583,7 +551,6 @@
 				<string>{254, 95}</string>
 				<string>{200, 92}</string>
 				<string>{1024, 683}</string>
-				<string>{97, 97}</string>
 				<string>{254, 67}</string>
 			</object>
 		</object>

@@ -67,7 +67,8 @@
 // Response to Download Word
 + (void) connectionFinishSuccesfully: (NSDictionary*) response {
     NSLog(@"Word Downloaded");
-    if (singletonVocabulary) [singletonVocabulary.delegate addProgress];
+    if (singletonVocabulary && singletonVocabulary.isDownloading)
+        [singletonVocabulary.delegate addProgress];
 }
 
 + (void) connectionFinishWidhError:(NSError *) error url: (NSURL *) url {

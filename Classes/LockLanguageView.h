@@ -41,9 +41,9 @@
 - (IBAction) lockUnlockButtonClicked :(id)sender;
 - (IBAction) mailMePasswordButtonClicked :(id)sender;
 - (bool) isLocked;
-- (void) lockLangSelection;
-- (void) unlockLangSelection;
-- (void) privateLockLangSelection;
+- (bool) lockLangSelection;
+- (bool) unlockLangSelection;
+- (bool) privateLockLangSelection;
 - (void) refreshView;
 - (bool) savePassword;
 - (BOOL)validateEmailWithString:(NSString*)email;
