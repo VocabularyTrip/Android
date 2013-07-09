@@ -34,6 +34,7 @@
 		B0309DA917164C98003002D4 /* landscape2@iphone5.png in Resources */ = {isa = PBXBuildFile; fileRef = B0309D9F17164C98003002D4 /* landscape2@iphone5.png */; };
 		B0309DAA17164C98003002D4 /* landscape3@iphone5.png in Resources */ = {isa = PBXBuildFile; fileRef = B0309DA017164C98003002D4 /* landscape3@iphone5.png */; };
 		B0309DAD171652FE003002D4 /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B0309DAC171652FD003002D4 /* Default-Landscape@2x~ipad.png */; };
+		B06C86FA178CC75500E2A1E8 /* GenericDownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B06C86F9178CC75500E2A1E8 /* GenericDownloadViewController.m */; };
 		B086B395171F29FA00C714B9 /* btn_download_cancel@ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B086B394171F29FA00C714B9 /* btn_download_cancel@ipad.png */; };
 		B088D4DC16EE5A4C00F916DC /* menu_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B088D4DB16EE5A4C00F916DC /* menu_bg@2x.png */; };
 		B08EAB28172951830041E918 /* avatar1Big.png in Resources */ = {isa = PBXBuildFile; fileRef = B08EAB22172951820041E918 /* avatar1Big.png */; };
@@ -828,6 +829,8 @@
 		B0309D9F17164C98003002D4 /* landscape2@iphone5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "landscape2@iphone5.png"; sourceTree = "<group>"; };
 		B0309DA017164C98003002D4 /* landscape3@iphone5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "landscape3@iphone5.png"; sourceTree = "<group>"; };
 		B0309DAC171652FD003002D4 /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape@2x~ipad.png"; path = "../../Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
+		B06C86F8178CC75500E2A1E8 /* GenericDownloadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenericDownloadViewController.h; sourceTree = "<group>"; };
+		B06C86F9178CC75500E2A1E8 /* GenericDownloadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenericDownloadViewController.m; sourceTree = "<group>"; };
 		B086B394171F29FA00C714B9 /* btn_download_cancel@ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_download_cancel@ipad.png"; sourceTree = "<group>"; };
 		B088D4DB16EE5A4C00F916DC /* menu_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_bg@2x.png"; sourceTree = "<group>"; };
 		B08EAB22172951820041E918 /* avatar1Big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = avatar1Big.png; path = Assets/Images/ChangeUserLang/avatar1Big.png; sourceTree = SOURCE_ROOT; };
@@ -2718,6 +2721,8 @@
 		CE7C916F165D96A90016F2F7 /* WizardUserLang */ = {
 			isa = PBXGroup;
 			children = (
+				B06C86F8178CC75500E2A1E8 /* GenericDownloadViewController.h */,
+				B06C86F9178CC75500E2A1E8 /* GenericDownloadViewController.m */,
 				CE71CD751648A8C1009E6E61 /* ChangeUserView.h */,
 				CE71CD731648A8C1009E6E61 /* ChangeUserView.m */,
 				CE71CD741648A8C1009E6E61 /* ChangeUserView.xib */,
@@ -3688,6 +3693,7 @@
 				B0915DF016FB958D000F2C23 /* AFURLConnectionOperation.m in Sources */,
 				B0915DF116FB958D000F2C23 /* AFXMLRequestOperation.m in Sources */,
 				B0915DF216FB958D000F2C23 /* UIImageView+AFNetworking.m in Sources */,
+				B06C86FA178CC75500E2A1E8 /* GenericDownloadViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

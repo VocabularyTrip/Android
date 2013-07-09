@@ -24,6 +24,7 @@
 
     UIButton *__unsafe_unretained helpButton;
     UIImageView *__unsafe_unretained hand;
+    float angle;
 }
 
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *backButton;
