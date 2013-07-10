@@ -267,8 +267,9 @@
 
 - (void) helpAnimation1 {
     // Make clicking hand visible
-	[self pauseClicked];
-	
+	//[self pauseClicked];
+	gameStatus = cStatusHelpOn;
+    
 	helpButton.enabled = NO;
 	[Sentence playSpeaker: @"Test-IntroduceTrain"];
 	

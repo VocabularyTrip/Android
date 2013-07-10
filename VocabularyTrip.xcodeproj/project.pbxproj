@@ -46,6 +46,7 @@
 		B06C86FA178CC75500E2A1E8 /* GenericDownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B06C86F9178CC75500E2A1E8 /* GenericDownloadViewController.m */; };
 		B086B395171F29FA00C714B9 /* btn_download_cancel@ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B086B394171F29FA00C714B9 /* btn_download_cancel@ipad.png */; };
 		B088D4DC16EE5A4C00F916DC /* menu_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B088D4DB16EE5A4C00F916DC /* menu_bg@2x.png */; };
+		B08ECE3B178C79E400ECE303 /* GenericViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B08ECE3A178C79E400ECE303 /* GenericViewController.m */; };
 		B0915DE916FB958D000F2C23 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B0915DD516FB958C000F2C23 /* AFHTTPClient.m */; };
 		B0915DEA16FB958D000F2C23 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = B0915DD716FB958C000F2C23 /* AFHTTPRequestOperation.m */; };
 		B0915DEB16FB958D000F2C23 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = B0915DD916FB958D000F2C23 /* AFImageRequestOperation.m */; };
@@ -834,6 +835,8 @@
 		B06C86F9178CC75500E2A1E8 /* GenericDownloadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenericDownloadViewController.m; sourceTree = "<group>"; };
 		B086B394171F29FA00C714B9 /* btn_download_cancel@ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_download_cancel@ipad.png"; sourceTree = "<group>"; };
 		B088D4DB16EE5A4C00F916DC /* menu_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_bg@2x.png"; sourceTree = "<group>"; };
+		B08ECE39178C79E400ECE303 /* GenericViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenericViewController.h; sourceTree = "<group>"; };
+		B08ECE3A178C79E400ECE303 /* GenericViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenericViewController.m; sourceTree = "<group>"; };
 		B0915DD416FB958C000F2C23 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		B0915DD516FB958C000F2C23 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		B0915DD616FB958C000F2C23 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -2828,6 +2831,8 @@
 				CE7740791465C1A900A4D2DA /* MainMenu~ipad.xib */,
 				CE77DD4F14589E8000FBDFC9 /* ToolbarController.h */,
 				CE77DD5014589E8000FBDFC9 /* ToolbarController.m */,
+				B08ECE39178C79E400ECE303 /* GenericViewController.h */,
+				B08ECE3A178C79E400ECE303 /* GenericViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -3660,6 +3665,7 @@
 				B0915DF116FB958D000F2C23 /* AFXMLRequestOperation.m in Sources */,
 				B0915DF216FB958D000F2C23 /* UIImageView+AFNetworking.m in Sources */,
 				B06C86FA178CC75500E2A1E8 /* GenericDownloadViewController.m in Sources */,
+				B08ECE3B178C79E400ECE303 /* GenericViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

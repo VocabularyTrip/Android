@@ -10,8 +10,9 @@
 #import "AFOpenFlowView.h"
 #import "Language.h"
 #import "ImageManger.h"
+#import "GenericViewController.h"
 
-@interface ChangeLangView : UIViewController <AFOpenFlowViewDelegate, AFOpenFlowViewDataSource> {
+@interface ChangeLangView : GenericViewController <AFOpenFlowViewDelegate, AFOpenFlowViewDataSource> {
     AFOpenFlowView *__unsafe_unretained langsView;
     UIButton *__unsafe_unretained backButton;
     UIButton *__unsafe_unretained nextButton;

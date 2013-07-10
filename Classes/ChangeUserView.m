@@ -30,7 +30,7 @@
 - (IBAction) nextButtonPressed: (id)sender {
 	VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
 	[vocTripDelegate pushChangeLangView];
-    [Sentence stopCurrentAudio];    
+    [super done: sender];
 }
 
 - (void) initUsers {
@@ -123,6 +123,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     if ([UserContext getHelpSelectUser]) [self helpAnimation1];
+    [super viewDidAppear: animated];
 }
 
 - (void)viewDidUnload
@@ -143,6 +144,7 @@
 
 - (void) helpAnimation1 {
     // Make clicking hand visible
+    if (flagCancelAllSounds) return;    
 	[UIImageView beginAnimations: @"helpAnimation" context: ( void *)(hand)];
 	[UIImageView setAnimationDelegate: self];
 	[UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
@@ -154,6 +156,7 @@
 
 - (void) helpAnimation2 {
     // bring clicking hand onto a character
+    if (flagCancelAllSounds) return;    
     [Sentence playSpeaker: @"User_Wizard_1"];
 
     CGRect handFrame = hand.frame;
@@ -179,7 +182,8 @@
 
 - (void) helpAnimation3 {
     // click down
-
+    if (flagCancelAllSounds) return;
+    
     CGRect frame = hand.frame;
 	[UIImageView beginAnimations: @"helpAnimation" context: nil];
 	[UIImageView setAnimationDelegate: self];
@@ -196,6 +200,8 @@
 
 - (void) helpAnimation4 {
     // Release click
+    if (flagCancelAllSounds) return;
+    
 	CGRect frame = hand.frame;
 
     int userId = [UserContext getUserSelected].userId;
@@ -222,6 +228,7 @@
 
 - (void) helpAnimation5 {
     // bring hand to name
+    if (flagCancelAllSounds) return;    
     [Sentence playSpeaker: @"User_Wizard_2"];
 
 	CGRect handFrame = hand.frame;
@@ -243,6 +250,7 @@
 
 - (void) helpAnimation6 {
     // click down
+    if (flagCancelAllSounds) return;
 	CGRect frame = hand.frame;
   
 	[UIImageView beginAnimations: @"helpAnimation" context: nil];
@@ -261,6 +269,7 @@
 
 - (void) helpAnimation7 {
     // Release click and write name
+    if (flagCancelAllSounds) return;    
     CGRect frame = hand.frame;
   
 	[UIImageView beginAnimations: @"helpAnimation" context: Nil];
@@ -274,12 +283,11 @@
 	hand.frame = frame;
   
 	[UIImageView commitAnimations];
-
 }
-
 
 - (void) helpAnimation8 {
     // Move hand to nextButton
+    if (flagCancelAllSounds) return;    
     [Sentence playSpeaker: @"User_Wizard_3"];
   
     CGPoint handCenter = hand.center;
@@ -303,6 +311,7 @@
 
 - (void) helpAnimation9 {
     // make hand dissapear
+    if (flagCancelAllSounds) return;
 	[UIImageView beginAnimations: @"helpAnimation" context: ( void *)(hand)];
 	[UIImageView setAnimationDelegate: self];
 	[UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
@@ -318,17 +327,17 @@
 
 - (void) helpAnimation10 {
     // Bring hand to original position
+    if (flagCancelAllSounds) return;
 	[UIImageView beginAnimations: @"helpAnimation" context: ( void *)(hand)];
 	[UIImageView setAnimationDelegate: self];
 	[UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
 	[UIImageView setAnimationDuration: .5];
-  CGPoint handCenter = userNameText.center;
-  handCenter.x = userNameText.center.x;
-  handCenter.y = userNameText.center.y;
-  hand.center = handCenter;
+    CGPoint handCenter = userNameText.center;
+    handCenter.x = userNameText.center.x;
+    handCenter.y = userNameText.center.y;
+    hand.center = handCenter;
   
 	[UIImageView commitAnimations];
-  
   
 	[UserContext setHelpSelectUser: NO];
 	helpButton.enabled = YES;

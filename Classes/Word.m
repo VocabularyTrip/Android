@@ -67,15 +67,22 @@
 // Response to Download Word
 + (void) connectionFinishSuccesfully: (NSDictionary*) response {
     NSLog(@"Word Downloaded");
-    if (singletonVocabulary && singletonVocabulary.isDownloading)
-        [singletonVocabulary.delegate addProgress];
+    singletonVocabulary.qWordsLoaded++;
+    Language *lang = [UserContext getLanguageSelected];
+    float progress =  (float) singletonVocabulary.qWordsLoaded / (float) lang.qWords;
+        
+    if (singletonVocabulary.isDownloading && singletonVocabulary.isDownloadView)
+        [singletonVocabulary.delegate addProgress: progress];
+    
+    if (progress >= 1) singletonVocabulary.isDownloading = NO;
 }
 
 + (void) connectionFinishWidhError:(NSError *) error url: (NSURL *) url {
     NSString *result = error.localizedDescription;
     NSLog(@"%@", result);
     NSLog(@"%@", url);
-    if (singletonVocabulary.delegate)
+    singletonVocabulary.isDownloading = NO;
+    if (singletonVocabulary.isDownloadView)
         [singletonVocabulary.delegate downloadFinishWidhError: result];
 }
 

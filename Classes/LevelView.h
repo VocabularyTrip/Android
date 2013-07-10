@@ -80,8 +80,10 @@
 	UIImageView *__unsafe_unretained progressFillView;
 	UIImageView *__unsafe_unretained progressMaskView;
 	
-	int page, buttonIndex, flagReset, startWithHelpPurchase, startWithHelpDownload;
-    float angle;
+	int page, buttonIndex,
+    startWithHelpPurchase, // when the View did show, the Purchase help is launched. When the user finish his purchase succesfully the user is redirected automatically to LevelView with purchase help
+    startWithHelpDownload; // when the View did show, the Download help is launched. When the user is playing and a sound is not loaded from server, the user is redirected automatically to LevelView with download help
+    float angle; // Used in help. The hand go round over some objetcs.
 }
 
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *backButton;
@@ -140,8 +142,6 @@
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *progressMaskView;
 
 
-- (IBAction) done:(id)sender;
-- (void) cancelAllAnimations;
 - (IBAction) testAllSounds: (id)sender;
 - (IBAction) word1ButtonClicked;
 - (IBAction) word2ButtonClicked;

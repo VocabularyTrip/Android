@@ -26,9 +26,14 @@ extern int levelIndex;
 extern id <DownloadDelegate> downloadDelegate;
 
 @interface Vocabulary : NSObject <NSXMLParserDelegate, NSURLConnectionDelegate> {
-    id <DownloadDelegate> __unsafe_unretained delegate;
-    int wasErrorAtDownload;
-    bool isDownloading;
+
+    // Variables used to syncronyze download with UI
+    id <DownloadDelegate> __unsafe_unretained delegate; // View to delegate response
+    int qWordsLoaded; // count the words downloaded. Is used to know if downloading has finished
+    int wasErrorAtDownload; // flag to detect an error
+    bool isDownloading; // is true when download is active. is false when an error is detected or 90 words al allready downloaded
+    bool isDownloadView; // is true if LevelView is visible and the downloadButton and progressBar exists
+        // Is flase when the user press back button and the download continue in background.
 }
 
 extern Vocabulary *singletonVocabulary;
@@ -36,6 +41,8 @@ extern Vocabulary *singletonVocabulary;
 @property (nonatomic, unsafe_unretained) id delegate;
 @property (nonatomic, unsafe_unretained) int wasErrorAtDownload;
 @property (nonatomic, assign) bool isDownloading;
+@property (nonatomic, assign) bool isDownloadView;
+@property (nonatomic, assign) int qWordsLoaded;
 
 + (void) loadDataFromXML; //
 + (void) parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict; //

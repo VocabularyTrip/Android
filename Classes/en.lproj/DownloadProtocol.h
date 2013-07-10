@@ -11,9 +11,9 @@
 
 @protocol DownloadDelegate <NSObject>
 @required
-   - (void) downloadFinishWidhError: (NSString*) error;
-   - (void) downloadFinishSuccesfully;
-   - (void) addProgress;
+    - (void) downloadFinishWidhError: (NSString*) error;
+    - (void) downloadFinishSuccesfully;
+    - (void) addProgress: (float) aProgress;
 @end
 
 @interface DownloadProtocol : NSObject 

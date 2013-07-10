@@ -192,6 +192,8 @@
 -(void) pushLevelWithHelpDownload;
 //- (void) showAlertDownloadSounds;
 //- (void) alertDownloadSoundsFinished;
+- (void) throbPauseButton;
+- (void) throbPauseButtonOff;
 
 @end
 

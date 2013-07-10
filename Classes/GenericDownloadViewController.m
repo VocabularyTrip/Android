@@ -18,29 +18,30 @@
 @synthesize cancelDownloadButton;
 @synthesize downloadProgressView;
 
+- (IBAction)done:(id)sender {
+    [super done: sender];
+    singletonVocabulary.isDownloadView = NO;
+}
 
 -(IBAction) startLoading {
     //if (![Vocabulary isDownloadCompleted]) {
-    if (!singletonVocabulary)
-        singletonVocabulary = [Vocabulary alloc];
     singletonVocabulary.delegate = self;
 
-    [self setSearchingModeEnabled: YES];
-    
+    [self refreshSearchingModeEnabled: YES];
     
     [Vocabulary loadDataFromSql];
     NSLog(@"Load Launched...");
     
-    self.backButton.enabled = NO;
+    //self.backButton.enabled = NO;
     //}
 }
 
 - (void) downloadFinishWidhError: (NSString*) error {
-    [self setSearchingModeEnabled: NO];
+    [self refreshSearchingModeEnabled: NO];
     
     singletonVocabulary.wasErrorAtDownload++;
     singletonVocabulary.isDownloading = NO;
-    errorAtDownload = error;
+    //errorAtDownload = error;
     if (singletonVocabulary.wasErrorAtDownload == 1) {
         UIAlertView *alert = [[UIAlertView alloc]
                               initWithTitle: @"Download Error"
@@ -56,62 +57,72 @@
 }
 
 - (IBAction) cancelDownload:(id)sender {
-    [self setSearchingModeEnabled: NO];
+    [self refreshSearchingModeEnabled: NO];
 }
 
--(void)setSearchingModeEnabled:(BOOL)isDownloading
-{
+/*-(void) setSearchingModeEnabled:(BOOL)isDownloading {
+	if (isDownloading) {
+        singletonVocabulary.qWordsLoaded = 0;
+        singletonVocabulary.wasErrorAtDownload = 0;
+        //errorAtDownload = @"";
+    }
+    [self refreshSearchingModeEnabled: isDownloading];
+}*/
+
+-(void) refreshSearchingModeEnabled:(BOOL)isDownloading {
     singletonVocabulary.isDownloading = isDownloading;
 	//when network action, toggle network indicator and activity indicator
 	if (isDownloading) {
-        qWordsLoaded = 0;
-        singletonVocabulary.wasErrorAtDownload = 0;
-        errorAtDownload = @"";
-        
-        cancelDownloadButton.alpha = 1;
+        cancelDownloadButton.alpha = 0; // Test eliminate cancel
         downloadProgressView.alpha = 1;
-        confirmUserLangButton.alpha = 0;
-        self.backButton.enabled = NO;
+        confirmUserLangButton.alpha = 1; // Test eliminate cancel
+        confirmUserLangButton.enabled = NO; // Test eliminate cancel
+        //self.backButton.enabled = NO; // Test eliminate cancel
 		[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	} else {
-        self.backButton.enabled = YES;
-        if (cancelDownloadButton.alpha != 0) {
+        //self.backButton.enabled = YES;
+        downloadProgressView.alpha = 0;
+        confirmUserLangButton.enabled = YES;
+        confirmUserLangButton.alpha = [Vocabulary isDownloadCompleted] ? 0 : 1;
+        /*if (cancelDownloadButton.alpha != 0) {
             cancelDownloadButton.alpha = 0;
             downloadProgressView.alpha = 0;
             confirmUserLangButton.alpha = [Vocabulary isDownloadCompleted] ? 0 : 1;
             [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-        }
+        }*/
 	}
 }
 
-- (void) addProgress {
-    Language *lang = [UserContext getLanguageSelected];
-    qWordsLoaded++;
-    float progress =  (float) qWordsLoaded / (float) lang.qWords;
+- (void) addProgress: (float) aProgress {
+    //Language *lang = [UserContext getLanguageSelected];
+    //float progress =  (float) singletonVocabulary.qWordsLoaded / (float) lang.qWords;
     
-    downloadProgressView.progress = progress;
+    downloadProgressView.progress = aProgress;
     
-    if (progress >= 1) {
-        [self setSearchingModeEnabled: NO];
-        NSString *message = @"Download finished successfully";
+    if (aProgress >= 1) {
+        [self refreshSearchingModeEnabled: NO];
+        /*NSString *message = @"Download finished successfully";
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Download completed"
                                                         message: message delegate:self cancelButtonTitle: @"OK" otherButtonTitles:nil];
         [alert show];
-        return;
+        return;*/
     }
 }
 
 - (void) viewWillAppear:(BOOL)animated {
-    downloadProgressView.alpha = 0;
-    // We are not shoure if the request countOfWords did finish.
+    singletonVocabulary.isDownloadView = YES;
+    singletonVocabulary.delegate = self;
+
     confirmUserLangButton.alpha = 1;
-    if (![Vocabulary isDownloadCompleted]) {
+    //cancelDownloadButton.alpha = 0;
+    
+    /*if (![Vocabulary isDownloadCompleted]) {
         confirmUserLangButton.alpha = 1;
-        cancelDownloadButton.alpha = 0;
     } else {
         confirmUserLangButton.alpha = 0;
-        cancelDownloadButton.alpha = 0;
-    }
+    }*/
+    
+    [self refreshSearchingModeEnabled: singletonVocabulary.isDownloading];
 }
 
 @end

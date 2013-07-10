@@ -119,6 +119,8 @@
 		wordButton2.enabled = NO;
 		wordButton3.enabled = NO;		
 		helpButton.enabled = NO;
+        
+        [self throbPauseButton];
 	} else	{
 		imageFile = [UserContext getIphoneIpadFile: @"pause2"];		
 		[pauseButton setImage: [UIImage imageNamed: imageFile] forState: UIControlStateNormal];
@@ -128,6 +130,36 @@
 		wordButton3.enabled = YES;	
 		helpButton.enabled = YES;		
 	}
+}
+
+- (void) throbPauseButton {
+    if (gameStatus != cStatusGameIsPaused) {
+        pauseButton.alpha = 1;
+        return;
+    }
+    
+	[UIView beginAnimations:@"HideWordAnimation" context: nil];
+	[UIView setAnimationDelegate:self];
+	[UIView setAnimationDuration:0.2];
+	[UIView setAnimationDidStopSelector: @selector(throbPauseButtonOff)];
+	[UIView setAnimationCurve: UIViewAnimationCurveLinear];
+	pauseButton.alpha = 0.5;
+	[UIView commitAnimations];
+}
+
+- (void) throbPauseButtonOff {
+    if (gameStatus != cStatusGameIsPaused) {
+        pauseButton.alpha = 1;
+        return;
+    }
+    
+	[UIView beginAnimations:@"HideWordAnimation" context: nil];
+	[UIView setAnimationDelegate:self];
+	[UIView setAnimationDuration:0.2];
+	[UIView setAnimationDidStopSelector: @selector(throbPauseButton)];
+	[UIView setAnimationCurve: UIViewAnimationCurveLinear];
+	pauseButton.alpha = 1;
+	[UIView commitAnimations];
 }
 
 - (IBAction)soundClicked { 

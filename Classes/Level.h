@@ -31,8 +31,8 @@
 @property (nonatomic, strong) NSString *levelName;
 
 + (void)loadDataFromSql: (int) levelId;
-+ (void) requestFinished:(AFHTTPRequestOperation *)request;
-+ (void) requestFailed:(AFHTTPRequestOperation *)request;
++ (void) connectionFinishSuccesfully: (NSDictionary*) response;
++ (void) connectionFinishWidhError:(NSError *) error;
 - (UIImage*) imageLocked;
 - (UIImage*) imageNotAvailable;
 - (void) purge;

@@ -45,6 +45,9 @@
     [self checkAPromoCodeForUUID];
     [self checkPromoCodeDueDate];
     [self checkDownloadCompleted];
+
+    if (!singletonVocabulary)
+        singletonVocabulary = [Vocabulary alloc];
     
 	UIView *aView = [self.navController view];
 	[window addSubview: aView];
@@ -58,7 +61,6 @@
         [self.window setRootViewController: self.navController];
     }
 
-    
 	[self saveTimePlayedInDB];
     [self.window makeKeyAndVisible];
     

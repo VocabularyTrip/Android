@@ -24,12 +24,17 @@ Vocabulary *singletonVocabulary;
 @synthesize delegate;
 @synthesize wasErrorAtDownload;
 @synthesize isDownloading;
+@synthesize isDownloadView;
+@synthesize qWordsLoaded;
 
 // ****************************************************************
 // Load from Server. The first time is loaded and save localy
 // Second time is loaded from xml file
 + (void)loadDataFromSql {
-    
+
+    singletonVocabulary.qWordsLoaded = 0;
+    singletonVocabulary.wasErrorAtDownload = 0;
+
     NSURL *url =
     [NSURL URLWithString: [NSString stringWithFormat: @"%@/db_select.php?rquest=getLevelsForLang", cUrlServer]];
     

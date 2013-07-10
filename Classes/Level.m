@@ -46,11 +46,19 @@
     }
 }
 
-+ (void)requestFailed: (NSError *) error
++ (void) connectionFinishWidhError:(NSError *) error {
+    NSString *result = error.localizedDescription;
+    NSLog(@"%@", result);
+    singletonVocabulary.isDownloading = NO;
+    if (singletonVocabulary.isDownloadView)
+        [singletonVocabulary.delegate downloadFinishWidhError: result];
+}
+
+/*+ (void)requestFailed: (NSError *) error
 {
     NSString *result = error.localizedDescription;
     NSLog(@"%@", result);
-}
+}*/
 
 -(UIImage*) imageLocked {
 	if (imageLocked == nil) {

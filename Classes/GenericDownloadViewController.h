@@ -9,11 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "DownloadProtocol.h"
 #import "UserContext.h"
+#import "GenericViewController.h"
 
-@interface GenericDownloadViewController : UIViewController <UIAlertViewDelegate, DownloadDelegate> {
+@interface GenericDownloadViewController : GenericViewController <UIAlertViewDelegate, DownloadDelegate> {
     // Progress
-    int qWordsLoaded;
-    NSString *__unsafe_unretained errorAtDownload;
+    //int qWordsLoaded;
+    //NSString *__unsafe_unretained errorAtDownload;
 
     UIButton *__unsafe_unretained confirmUserLangButton;
     UIButton *__unsafe_unretained cancelDownloadButton;
@@ -28,9 +29,11 @@
 
 - (IBAction) cancelDownload:(id)sender;
 - (IBAction) startLoading;
+- (IBAction) done:(id)sender;
 
-- (void) setSearchingModeEnabled:(BOOL)isDownloading;
-- (void) addProgress;
+//- (void) setSearchingModeEnabled:(BOOL)isDownloading;
+- (void) refreshSearchingModeEnabled:(BOOL)isDownloading;
+- (void) addProgress: (float) aProgress;
 - (void) downloadFinishWidhError: (NSString*) error;
 - (void) downloadFinishSuccesfully;
 

@@ -74,20 +74,8 @@
 	[theTimer invalidate];
 	theTimer = nil;
 	[self purgeLevel];
-    [Sentence stopCurrentAudio];
-    [self cancelAllAnimations];
-    //[PurchaseManager getSingleton].delegate = nil;
-}
 
-- (void) cancelAllAnimations {
-	// Cancel actual animation
-	[UIView beginAnimations: nil context: NULL];
-	[UIView setAnimationBeginsFromCurrentState: YES];
-	[UIView setAnimationDuration: 0.1];
-	[UIView setAnimationCurve:UIViewAnimationCurveLinear];
-	[UIView commitAnimations];
-	
-	[self.view.layer removeAllAnimations];
+    [super done: sender];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -136,7 +124,6 @@
 	NSURL* soundUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"PageTurn" ofType:@"wav"]];
 	AudioServicesCreateSystemSoundID((__bridge   CFURLRef) soundUrl, &pageTurnSoundId);
 	
-  flagReset = 0;
 }
 
 - (void) updateLevelSlider {
@@ -381,14 +368,20 @@
 }
 
 - (IBAction) prevButtonClicked {
-    if (helpButton.enabled == NO) return;
+    if (helpButton.enabled == NO) {
+        [self cancelAnimation];
+        [self cancelAllAnimations];
+    }
 	[self purgeLevel];
 	page--;
     [self refreshPage];
 }
 
 - (IBAction) nextButtonClicked {
-    if (helpButton.enabled == NO) return;
+    if (helpButton.enabled == NO) {
+        [self cancelAnimation];
+        [self cancelAllAnimations];
+    }
 	[self purgeLevel];
 	page++;
     [self refreshPage];
@@ -416,6 +409,7 @@
 	[UIView setAnimationDuration: 1];
 	[UIView setAnimationTransition: UIViewAnimationTransitionCurlUp forView: self.view cache: YES];
 	[UIView commitAnimations];
+    flagCancelAllSounds = 0;
 }
 
   // The button in the debug mode to save ad-hoc the information
@@ -439,7 +433,7 @@
 
 - (void) showAndSayDictionary: (int) i {
     //if (i > 0 && [UserContext getMaxLevel] == 0) return;
-  if (helpButton.enabled == NO) return;
+    if (helpButton.enabled == NO) [self cancelAnimation];
 	[Vocabulary initializeLevelAt: i];
 	helpButton.enabled = NO;
 	[self initializeTimer];
@@ -566,7 +560,7 @@
   // ***** Help Animation
 
 - (IBAction) helpClicked {
-    
+    if (flagCancelAllSounds) return;
     // Before start help, we move to the page where the user is located.
     // We need the page where the progress bar is visible
     int level = [UserContext getLevel] - 1;
@@ -580,6 +574,7 @@
 }
 
 - (void) helpAnimation1 {
+    if (flagCancelAllSounds) return;    
 	helpButton.enabled = NO;
   
     // Make clicking hand visible
@@ -593,6 +588,7 @@
 }
 
 - (void) helpAnimation2 {
+    if (flagCancelAllSounds) return;    
     // bring clicking hand onto the corresponding wagon
 	CGRect handFrame = hand.frame;
 	[Sentence playSpeaker: @"Level_helpA"];
@@ -612,6 +608,7 @@
 }
 
 - (void) helpAnimation3 {
+    if (flagCancelAllSounds) return;
     // click down
 	CGRect frame = hand.frame;
   
@@ -629,6 +626,7 @@
 }
 
 - (void) helpAnimation4 {
+    if (flagCancelAllSounds) return;
     // release click
 	CGRect frame = hand.frame;
   
@@ -646,24 +644,26 @@
 }
 
 - (void) helpAnimation5 {
+    if (flagCancelAllSounds) return;
     // do nothing, change alpha to .99 and in next help back to 1
-  if ([UserContext getMaxLevel] < 6) {
-    [self helpEnd1];
-    return;
-  }
+    if ([UserContext getMaxLevel] < 6) {
+        [self helpEnd1];
+        return;
+    }
   
-  [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
-  [UIImageView setAnimationDelegate: self];
-  [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
-  [UIImageView setAnimationDidStopSelector: @selector(helpAnimation6)];
-  [UIImageView setAnimationDuration: 4];
-  [UIImageView setAnimationBeginsFromCurrentState: YES];
+    [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
+    [UIImageView setAnimationDelegate: self];
+    [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
+    [UIImageView setAnimationDidStopSelector: @selector(helpAnimation6)];
+    [UIImageView setAnimationDuration: 4];
+    [UIImageView setAnimationBeginsFromCurrentState: YES];
   
-  hand.alpha=.99;
-  [UIImageView commitAnimations];
+    hand.alpha=.99;
+    [UIImageView commitAnimations];
 }
 
 - (void) helpAnimation6 {
+    if (flagCancelAllSounds) return;    
     // go over to $ symbol
     CGPoint center = hand.center;
   
@@ -674,7 +674,7 @@
     [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
     [UIImageView setAnimationDelegate: self];
     [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
-    [UIImageView setAnimationDidStopSelector: @selector(helpAnimation7:finished:context:)];
+    [UIImageView setAnimationDidStopSelector: @selector(helpAnimation7)];
     [UIImageView setAnimationDuration: 2];
     [UIImageView setAnimationBeginsFromCurrentState: YES];
   
@@ -690,51 +690,53 @@
     [UIImageView commitAnimations];
 }
 
-- (void) helpAnimation7:(NSString *)theAnimation finished:(BOOL)flag context:(void *)context {
+- (void) helpAnimation7 {
     // hover over lock button
-    if (!flag) return;
-  CGPoint center = hand.center;
-  if (angle<M_PI) {
-    [Sentence playSpeaker: @"Level_helpB"];
-  }
-    //NSLog(@"angle is: %g", angle);
-  [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
-  [UIImageView setAnimationDelegate: self];
-  [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
-  if (angle>4*M_PI) {
-    [UIImageView setAnimationDidStopSelector: @selector(helpAnimation8)];
-  }
-  else {
-    [UIImageView setAnimationDidStopSelector: @selector(helpAnimation7)];
-  }
-  [UIImageView setAnimationDuration: .001];
-  [UIImageView setAnimationBeginsFromCurrentState: YES];
+    if (flagCancelAllSounds) return;
+    CGPoint center = hand.center;
+    if (angle<M_PI) {
+        [Sentence playSpeaker: @"Level_helpB"];
+    }
+
+    [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
+    [UIImageView setAnimationDelegate: self];
+    [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
+    if (angle>4*M_PI) {
+        [UIImageView setAnimationDidStopSelector: @selector(helpAnimation8)];
+    } else {
+        [UIImageView setAnimationDidStopSelector: @selector(helpAnimation7)];
+    }
+    [UIImageView setAnimationDuration: .001];
+    [UIImageView setAnimationBeginsFromCurrentState: YES];
   
-  center.x = word3Button.center.x + word3Button.frame.size.width/2 + word3Button.frame.size.width/2*cos(angle);
-  center.y = word3Button.center.y + word3Button.frame.size.height/2 - word3Button.frame.size.height/2*sin(angle);
-  hand.center = center;
+    center.x = word3Button.center.x + word3Button.frame.size.width/2 + word3Button.frame.size.width/2*cos(angle);
+    center.y = word3Button.center.y + word3Button.frame.size.height/2 - word3Button.frame.size.height/2*sin(angle);
+    hand.center = center;
   
-  angle += M_PI/100;
-  [UIImageView commitAnimations];
+    angle += M_PI/100;
+    [UIImageView commitAnimations];
 }
 
 - (void) helpAnimation8 {
-  // do nothing, change alpha to .99 and in next help back to 1
-  [Sentence playSpeaker: @"Level_helpC"];
+    // do nothing, change alpha to .99 and in next help back to 1
+    if (flagCancelAllSounds) return;    
+    [Sentence playSpeaker: @"Level_helpC"];
   
-  [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
-  [UIImageView setAnimationDelegate: self];
-  [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
-  [UIImageView setAnimationDidStopSelector: @selector(helpAnimation8B)];
-  [UIImageView setAnimationDuration: 2];
-  [UIImageView setAnimationBeginsFromCurrentState: YES];
+    [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
+    [UIImageView setAnimationDelegate: self];
+    [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
+    [UIImageView setAnimationDidStopSelector: @selector(helpAnimation8B)];
+    [UIImageView setAnimationDuration: 2];
+    [UIImageView setAnimationBeginsFromCurrentState: YES];
   
-  hand.alpha = .99;
-  [UIImageView commitAnimations];
+    hand.alpha = .99;
+    [UIImageView commitAnimations];
 }
 
 - (void) helpAnimation8B {
     // do nothing, change alpha to .99 and in next help back to 1
+    if (flagCancelAllSounds) return;
+    
 	[Sentence playSpeaker: @"Level_helpC"];
     CGPoint center = hand.center;
   
@@ -757,33 +759,34 @@
 
 - (void) helpAnimation9 {
     // hover over lock button
-  if (angle<4.5*M_PI)
-    [Sentence playSpeaker: @"Level_helpD"];
-  CGPoint center = hand.center;
+    if (flagCancelAllSounds) return;
+    if (angle<4.5*M_PI)
+        [Sentence playSpeaker: @"Level_helpD"];
+    CGPoint center = hand.center;
   
     //NSLog(@"angle is: %g", angle);
-  [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
-  [UIImageView setAnimationDelegate: self];
-  [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
-  if (angle>8*M_PI) {
-    [UIImageView setAnimationDidStopSelector: @selector(helpAnimation10)];
-  }
-  else {
-    [UIImageView setAnimationDidStopSelector: @selector(helpAnimation9)];
-  }
-  [UIImageView setAnimationDuration: .001];
-  [UIImageView setAnimationBeginsFromCurrentState: YES];
+    [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
+    [UIImageView setAnimationDelegate: self];
+    [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
+    if (angle>8*M_PI) {
+        [UIImageView setAnimationDidStopSelector: @selector(helpAnimation10)];
+    } else {
+        [UIImageView setAnimationDidStopSelector: @selector(helpAnimation9)];
+    }
+    [UIImageView setAnimationDuration: .001];
+    [UIImageView setAnimationBeginsFromCurrentState: YES];
   
-  center.x = word3Button.center.x + word3Button.frame.size.width/2 + word3Button.frame.size.width/2*cos(angle);
-  center.y = word3Button.center.y + word3Button.frame.size.height/2 - word3Button.frame.size.height/2*sin(angle);
-  hand.center = center;
+    center.x = word3Button.center.x + word3Button.frame.size.width/2 + word3Button.frame.size.width/2*cos(angle);
+    center.y = word3Button.center.y + word3Button.frame.size.height/2 - word3Button.frame.size.height/2*sin(angle);
+    hand.center = center;
   
-  angle += M_PI/100;
-  [UIImageView commitAnimations];
+    angle += M_PI/100;
+    [UIImageView commitAnimations];
 }
 
 - (void) helpAnimation10 {
     // goto progress bar
+    if (flagCancelAllSounds) return;
     CGPoint center = hand.center;
   
     [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
@@ -805,130 +808,136 @@
 
 - (void) helpAnimation11 {
     // hover over progress bar
+    if (flagCancelAllSounds) return;
 	[Sentence playSpeaker: @"Level_helpE"];
-  CGPoint center = hand.center;
+    CGPoint center = hand.center;
   
     //NSLog(@"angle is: %g", angle);
-  [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
-  [UIImageView setAnimationDelegate: self];
-  [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
-  if (angle>2*M_PI) {
-    [UIImageView setAnimationDidStopSelector: @selector(helpAnimation12)];
-  }
-  else {
-    [UIImageView setAnimationDidStopSelector: @selector(helpAnimation11)];
-  }
-  [UIImageView setAnimationDuration: .001];
-  [UIImageView setAnimationBeginsFromCurrentState: YES];
+    [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
+    [UIImageView setAnimationDelegate: self];
+    [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
+    if (angle>2*M_PI) {
+        [UIImageView setAnimationDidStopSelector: @selector(helpAnimation12)];
+    } else {
+        [UIImageView setAnimationDidStopSelector: @selector(helpAnimation11)];
+    }
+    [UIImageView setAnimationDuration: .001];
+    [UIImageView setAnimationBeginsFromCurrentState: YES];
   
-  center.x = progressMaskView.center.x + progressMaskView.frame.size.width/2*cos(angle);
-  center.y = progressMaskView.center.y + 2*progressMaskView.frame.size.height - progressMaskView.frame.size.height/2*sin(angle);
-  hand.center = center;
+    center.x = progressMaskView.center.x + progressMaskView.frame.size.width/2*cos(angle);
+    center.y = progressMaskView.center.y + 2*progressMaskView.frame.size.height - progressMaskView.frame.size.height/2*sin(angle);
+    hand.center = center;
   
-  angle += M_PI/100;
-  [UIImageView commitAnimations];
+    angle += M_PI/100;
+    [UIImageView commitAnimations];
 }
 
 - (void) helpAnimation12 {
     // do nothing, change alpha to .99 and in next help back to 1
+    if (flagCancelAllSounds) return;
+    
+    [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
+    [UIImageView setAnimationDelegate: self];
+    [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
+    [UIImageView setAnimationDidStopSelector: @selector(helpAnimation13)];
+    [UIImageView setAnimationDuration: 3];
+    [UIImageView setAnimationBeginsFromCurrentState: YES];
+    hand.alpha=.99;
   
-  [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
-  [UIImageView setAnimationDelegate: self];
-  [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
-  [UIImageView setAnimationDidStopSelector: @selector(helpAnimation13)];
-  [UIImageView setAnimationDuration: 3];
-  [UIImageView setAnimationBeginsFromCurrentState: YES];
-  hand.alpha=.99;
-  
-  [UIImageView commitAnimations];
+    [UIImageView commitAnimations];
 }
 
 - (void) helpAnimation13 {
-  [UserContext setHelpLevel: NO];
+
+    [UserContext setHelpLevel: NO];
+    if (flagCancelAllSounds) return;
     // do nothing, change alpha to .99 and in next help back to 1
-  [Sentence playSpeaker:@"Level_helpF"];
-  [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
-  [UIImageView setAnimationDelegate: self];
-  [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
-  [UIImageView setAnimationDidStopSelector: @selector(helpEnd1)];
-  [UIImageView setAnimationDuration: 4];
-  [UIImageView setAnimationBeginsFromCurrentState: YES];
-  hand.alpha=1;
+    [Sentence playSpeaker:@"Level_helpF"];
+    [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
+    [UIImageView setAnimationDelegate: self];
+    [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
+    [UIImageView setAnimationDidStopSelector: @selector(helpEnd1)];
+    [UIImageView setAnimationDuration: 4];
+    [UIImageView setAnimationBeginsFromCurrentState: YES];
+    hand.alpha=1;
   
-  [UIImageView commitAnimations];
+    [UIImageView commitAnimations];
 }
 
 -(void) helpEnd1{
     // hand dissapears
-  helpButton.enabled = YES;
-  [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
-  [UIImageView setAnimationDelegate: self];
-  [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
-  [UIImageView setAnimationDidStopSelector: @selector(helpEnd2)];
-  [UIImageView setAnimationDuration: .5];
-  [UIImageView setAnimationBeginsFromCurrentState: YES];
+    if (flagCancelAllSounds) return;
+    helpButton.enabled = YES;
+    [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
+    [UIImageView setAnimationDelegate: self];
+    [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
+    [UIImageView setAnimationDidStopSelector: @selector(helpEnd2)];
+    [UIImageView setAnimationDuration: .5];
+    [UIImageView setAnimationBeginsFromCurrentState: YES];
   
-  hand.alpha = 0;
+    hand.alpha = 0;
   
-  [UIImageView commitAnimations];
-  
+    [UIImageView commitAnimations];
 }
 
 -(void) helpEnd2{
     // get hand to original position
-  [UserContext setHelpLevel: NO];
+    if (flagCancelAllSounds) return;
+    [UserContext setHelpLevel: NO];
     
-  CGPoint center = hand.center;
+    CGPoint center = hand.center;
   
-  [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
-  [UIImageView setAnimationDelegate: self];
-  [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
-  [UIImageView setAnimationDuration: .01];
-  [UIImageView setAnimationBeginsFromCurrentState: YES];
+    [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
+    [UIImageView setAnimationDelegate: self];
+    [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
+    [UIImageView setAnimationDuration: .01];
+    [UIImageView setAnimationBeginsFromCurrentState: YES];
   
-  center = progressMaskView.center;
-  hand.center = center;
-  angle = 0;      // set angle to 0 to restart animation if needed
+    center = progressMaskView.center;
+    hand.center = center;
+    angle = 0;      // set angle to 0 to restart animation if needed
   
-  [UIImageView commitAnimations];
-  
+    [UIImageView commitAnimations];
 }
 
 -(void) helpDownload1{
     // Make clicking hand visible
-  helpButton.enabled = NO;
+    if (flagCancelAllSounds) return;
+    helpButton.enabled = NO;
   
-  [UIImageView beginAnimations: @"helpAnimation" context: ( void *)(hand)];
-  [UIImageView setAnimationDelegate: self];
-  [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
-  [UIImageView setAnimationDidStopSelector: @selector(helpDownload2)];
-  [UIImageView setAnimationDuration: .5];
-  hand.alpha = 1;
-  [UIImageView commitAnimations];
+    [UIImageView beginAnimations: @"helpAnimation" context: ( void *)(hand)];
+    [UIImageView setAnimationDelegate: self];
+    [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
+    [UIImageView setAnimationDidStopSelector: @selector(helpDownload2)];
+    [UIImageView setAnimationDuration: .5];
+    hand.alpha = 1;
+    [UIImageView commitAnimations];
 }
 
 -(void) helpDownload2 {
     // bring clicking hand onto Download button
-  [Sentence playSpeaker: @"Download_Help_1"];
+    if (flagCancelAllSounds) return;    
+    [Sentence playSpeaker: @"Download_Help_1"];
   
-  [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
-  [UIImageView setAnimationDelegate: self];
-  [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
-  [UIImageView setAnimationDidStopSelector: @selector(helpDownload3)];
+    [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
+    [UIImageView setAnimationDelegate: self];
+    [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
+    [UIImageView setAnimationDidStopSelector: @selector(helpDownload3)];
   
-  [UIImageView setAnimationDuration: 6];
-  [UIImageView setAnimationBeginsFromCurrentState: YES];
+    [UIImageView setAnimationDuration: 6];
+    [UIImageView setAnimationBeginsFromCurrentState: YES];
   
-  CGPoint center = cancelDownloadButton.center;
-  center.y = center.y + hand.frame.size.height/2;
-  hand.center = center;
+    CGPoint center = confirmUserLangButton.center;
+    center.y = center.y + hand.frame.size.height/2;
+    hand.center = center;
   
-  [UIImageView commitAnimations];
+    [UIImageView commitAnimations];
 }
 
 - (void) helpDownload3 {
     // click down
-  [Sentence playSpeaker: @"Download_Help_2"];
+    if (flagCancelAllSounds) return;
+    [Sentence playSpeaker: @"Download_Help_2"];
 	CGRect frame = hand.frame;
   
 	[UIImageView beginAnimations: @"helpAnimation" context: nil];
@@ -946,6 +955,7 @@
 
 - (void) helpDownload4 {
     // release click
+    if (flagCancelAllSounds) return;    
 	CGRect frame = hand.frame;
   
 	[UIImageView beginAnimations: @"helpAnimation" context: nil];
@@ -963,7 +973,7 @@
 
 - (void) helpDownload5 {
     // Wait before restarting this help
-  
+    if (flagCancelAllSounds) return;
 	[UIImageView beginAnimations: @"helpAnimation" context: nil];
 	[UIImageView setAnimationDelegate: self];
 	[UIImageView setAnimationDidStopSelector: @selector(helpDownload6)];
@@ -980,14 +990,14 @@
 
 - (void) helpDownload6 {
     // Wait before restarting this help
-  
+    if (flagCancelAllSounds) return;  
 	[UIImageView beginAnimations: @"helpAnimation" context: nil];
 	[UIImageView setAnimationDelegate: self];
 	[UIImageView setAnimationDidStopSelector: @selector(helpEnd1)];
 	[UIImageView setAnimationDuration: .9];
 	[UIImageView setAnimationBeginsFromCurrentState: YES];
 
-  CGRect frame = hand.frame;
+    CGRect frame = hand.frame;
 	frame.size.width = frame.size.width/.99;
 	frame.size.height = frame.size.height/.99;
 	hand.frame = frame;

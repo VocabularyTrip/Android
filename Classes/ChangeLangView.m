@@ -25,14 +25,21 @@
 - (IBAction) prevButtonPressed:(id)sender {
 	VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
     [vocTripDelegate.navController popViewControllerAnimated: YES];
-    [Sentence stopCurrentAudio];
+    [super done: sender];
 }
 
 - (IBAction) nextButtonPressed:(id)sender {
     
     VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
     [vocTripDelegate popMainMenuFromChangeLang];
-    [Sentence stopCurrentAudio];
+    [super done: sender];
+    
+    if (![Vocabulary isDownloadCompleted]) {
+        singletonVocabulary.delegate = nil;
+        singletonVocabulary.isDownloadView = NO;
+        singletonVocabulary.isDownloading = YES;
+        [Vocabulary loadDataFromSql];
+    }
 }
 
 - (IBAction) lockLangPressed:(id)sender {
@@ -122,10 +129,8 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-
-
     if ([UserContext getHelpSelectLang]) [self helpAnimation1];
-
+    [super viewDidAppear: animated];
 }
 
 - (void)viewDidUnload
@@ -146,6 +151,7 @@
 
 - (void) helpAnimation1 {
     // Make clicking hand visible
+    if (flagCancelAllSounds) return;    
 	[UIImageView beginAnimations: @"helpAnimation" context: ( void *)(hand)];
 	[UIImageView setAnimationDelegate: self];
 	[UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
@@ -157,9 +163,9 @@
 
 - (void) helpAnimation2 {
     // bring hand to language
+    if (flagCancelAllSounds) return;
 	[Sentence playSpeaker: @"Language_Wizard_1"];
 	CGRect handFrame = hand.frame;
-  
     
     langSelected = [UserContext getLanguageSelected];
     int langKey = langSelected.key;
@@ -184,7 +190,7 @@
 
 - (void) helpAnimation3 {
     // click down
-
+    if (flagCancelAllSounds) return;
     langSelected = [UserContext getLanguageSelected];
     int langKey = langSelected.key;
     if (langKey == [[Language getAllLanguages] count]) langKey--; else langKey++;
@@ -216,6 +222,7 @@
 
 - (void) helpAnimation4 {
     // Release click
+    if (flagCancelAllSounds) return;    
 	CGRect frame = hand.frame;
   
 	[UIImageView beginAnimations: @"helpAnimation" context: Nil];
@@ -233,6 +240,7 @@
 
 - (void) helpAnimation5 {
     // Move hand to lock button
+    if (flagCancelAllSounds) return;    
     [Sentence playSpeaker: @"Language_Wizard_2"];
     
 	[UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
@@ -255,6 +263,7 @@
 
 - (void) helpAnimation6 {
     // hover over lock button
+    if (flagCancelAllSounds) return;    
     CGPoint center = hand.center;
 
     //NSLog(@"angle is: %g", angle);
@@ -280,6 +289,7 @@
 
 - (void) helpAnimation7 {
     // bring hand to nextButton
+    if (flagCancelAllSounds) return;    
     [Sentence playSpeaker: @"User_Wizard_3"];
     CGRect handFrame = hand.frame;
 
@@ -300,6 +310,7 @@
 
 - (void) helpAnimation8 {
     // bring hand to alpha = 0
+    if (flagCancelAllSounds) return;    
     [UIImageView beginAnimations: @"helpAnimation" context: ( void *)(hand)];
 	[UIImageView setAnimationDelegate: self];
 	[UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
@@ -312,7 +323,7 @@
 
 - (void) helpAnimation9 {
     // bring hand to start position
-  
+    if (flagCancelAllSounds) return;  
 	[UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
 	[UIImageView setAnimationDelegate: self];
 	[UIImageView setAnimationCurve: UIViewAnimationCurveLinear];

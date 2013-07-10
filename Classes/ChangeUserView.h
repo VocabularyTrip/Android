@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "AFOpenFlowView.h"
 #import "Language.h"
+#import "GenericViewController.h"
 
-@interface ChangeUserView : UIViewController <AFOpenFlowViewDelegate, AFOpenFlowViewDataSource, UITextFieldDelegate> {
+@interface ChangeUserView : GenericViewController <AFOpenFlowViewDelegate, AFOpenFlowViewDataSource, UITextFieldDelegate> {
     
     AFOpenFlowView *__unsafe_unretained usersView;
     UIButton *__unsafe_unretained backButton;
