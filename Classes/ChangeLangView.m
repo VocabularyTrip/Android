@@ -168,9 +168,15 @@
 	[Sentence playSpeaker: @"Language_Wizard_1"];
 	CGRect handFrame = hand.frame;
   
+    
+    langSelected = [UserContext getLanguageSelected];
+    int langKey = langSelected.key;
+    int dir=1; // if we are in the last flag, the hand has to move to the left.
+    if (langKey == [[Language getAllLanguages] count]) dir = -1;
+    
     CGRect langsFrame = langsView.frame;
 	handFrame.origin.x = langsFrame.origin.x + (langsFrame.size.width / 2)
-        + [AFItemView getCoverSpacing];
+    + [AFItemView getCoverSpacing] * dir;
 	handFrame.origin.y = langsFrame.origin.y + (langsFrame.size.height / 2);
    
 	[UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
@@ -242,7 +248,7 @@
 	[UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
 	[UIImageView setAnimationDidStopSelector: @selector(helpAnimation6)];
     angle = 0;    // set it up to start always in the same place in helpAnimation6
-	[UIImageView setAnimationDuration: 5];
+	[UIImageView setAnimationDuration: 3];
 	[UIImageView setAnimationBeginsFromCurrentState: YES];
   
     // center hand in lockUnlockButton
@@ -269,7 +275,7 @@
     else {
        [UIImageView setAnimationDidStopSelector: @selector(helpAnimation6)];
     }
-    [UIImageView setAnimationDuration: .001];
+    [UIImageView setAnimationDuration: .025];
     [UIImageView setAnimationBeginsFromCurrentState: YES];
 
     center.x = lockUnlockButton.center.x + lockUnlockButton.frame.size.width/2 + lockUnlockButton.frame.size.width/2*cos(angle);

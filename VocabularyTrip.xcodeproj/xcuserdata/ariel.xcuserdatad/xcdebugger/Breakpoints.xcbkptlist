@@ -46,13 +46,13 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "Classes/Word.m"
-         timestampString = "391440520.643265"
+         filePath = "Classes/PurchaseView.m"
+         timestampString = "395267454.459667"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "77"
-         endingLineNumber = "77"
-         landmarkName = "+connectionFinishWidhError:url:"
+         startingLineNumber = "119"
+         endingLineNumber = "119"
+         landmarkName = "-responseToCancelAction"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

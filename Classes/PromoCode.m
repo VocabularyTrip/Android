@@ -106,7 +106,8 @@ PromoCode *promoCodeSingleton;
 + (void) alertView: (UIAlertView*) alertView clickedButtonAtIndex: (NSInteger) buttonIndex {
     switch (buttonIndex) {
         case 0: // OK
-            if (promoCodeSingleton.delegate) [promoCodeSingleton.delegate responseToBuyAction];
+            if (promoCodeSingleton.delegate && [UserContext getMaxLevel] >= 6)
+                [promoCodeSingleton.delegate responseToBuyAction];
             break;
         default:
             break;
