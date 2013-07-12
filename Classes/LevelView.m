@@ -92,11 +92,12 @@
 
 - (void) viewDidAppear:(BOOL)animated {
     if ([UserContext getHelpLevel] || startWithHelpPurchase) [self helpAnimation1];
-    if (startWithHelpPurchase) [self startLoading];
+    if (startWithHelpPurchase && ![Vocabulary isDownloadCompleted]) [self startLoading];
     if (startWithHelpDownload) [self helpDownload1];
     startWithHelpDownload = 0;
     startWithHelpPurchase = 0;
     [super viewDidAppear: animated];
+
 }
 
 - (void)viewDidLoad {
@@ -679,6 +680,8 @@
     [UIImageView setAnimationBeginsFromCurrentState: YES];
   
     center.x = word3Button.center.x + word3Button.frame.size.width/2 + word3Button.frame.size.width/2*cos(angle);
+    NSLog(@"angle: %f, x: %f, with: %f, cos: %f", angle, center.x, word3Button.frame.size.width, cos(angle));
+
     center.y = word3Button.center.y + word3Button.frame.size.height/2 - word3Button.frame.size.height/2*sin(angle);
   
     hand.center = center;
