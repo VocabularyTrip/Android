@@ -49,7 +49,7 @@
 + (void) download: (NSString*) wordName {
     
     // Set Source & Destination
-    NSLog(@"Download Word: %@", wordName);
+    //NSLog(@"Download Word: %@", wordName);
     NSString *fullUrl =
     [NSString stringWithFormat: @"%@%@%@", [self urlDownloadFrom], wordName, @".mp3"];
     NSString *destPath = [self checkIfDestinationPathExist];
@@ -57,7 +57,7 @@
     
     // Start Download
     NSURL *url = [NSURL URLWithString: fullUrl];
-    NSLog(@"URL: %@, DestPath: %@", url, destPath);
+    //NSLog(@"URL: %@, DestPath: %@", url, destPath);
     AFHTTPRequestOperation* operation = [AFProxy prepareDownload: url destination: destPath delegate:self];
 
     [operation start];
@@ -66,7 +66,7 @@
 
 // Response to Download Word
 + (void) connectionFinishSuccesfully: (NSDictionary*) response {
-    NSLog(@"Word Downloaded");
+    //NSLog(@"Word Downloaded");
     singletonVocabulary.qWordsLoaded++;
     Language *lang = [UserContext getLanguageSelected];
     float progress =  (float) singletonVocabulary.qWordsLoaded / (float) lang.qWords;

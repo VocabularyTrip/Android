@@ -13,10 +13,12 @@
 #import "AFJSONRequestOperation.h"
 #import "ConnectionProtocol.h"
 
+
 @interface AFProxy : NSObject
 
 + (AFJSONRequestOperation*) prepareRequest: (NSURL *) url delegate: (id) delegate;
 + (AFJSONRequestOperation*) preparePostRequest: (NSURL *) url param: (NSDictionary*) dict delegate: (id) delegate;
 + (AFHTTPRequestOperation*) prepareDownload: (NSURL *) url destination: (NSString*) destinPath delegate: (id) delegate;
-    
++ (bool) checkConnectivity;
+
 @end

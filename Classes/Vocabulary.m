@@ -66,7 +66,8 @@ Vocabulary *singletonVocabulary;
     NSString *result = error.localizedDescription;
     NSLog(@"%@", result);
     
-    if (singletonVocabulary.delegate)
+    singletonVocabulary.isDownloading = NO;
+    if (singletonVocabulary.isDownloadView)
         [singletonVocabulary.delegate downloadFinishWidhError: result];
 
 }
@@ -77,7 +78,7 @@ Vocabulary *singletonVocabulary;
 + (bool) isDownloadCompleted {
     Language *lang = [UserContext getLanguageSelected];
     if (!lang) return true;
-    NSLog(@"In disk: %i, in cloud: %i", [self countOfFilesInLocalPath], lang.qWords);
+    //NSLog(@"In disk: %i, in cloud: %i", [self countOfFilesInLocalPath], lang.qWords);
     return [self countOfFilesInLocalPath] >= lang.qWords;
     //([UserContext getMaxLevel] == 0 ? 1 : 
 }
@@ -290,7 +291,7 @@ Vocabulary *singletonVocabulary;
     NSLog(@"Was Learned: %f, Level: %i, hist one Level: %f",[self wasLearned], [UserContext getLevel], hitsOneLevel);
     progress = (hitsOneLevel - ([UserContext getLevel] - 1) * cSizeOfEachLevel)/10;
     
-    NSLog(@"Progress: %f", progress);
+    //NSLog(@"Progress: %f", progress);
     if (progress <= 0) progress = 0.03;
     return progress / cPercentageLearnd;
 }

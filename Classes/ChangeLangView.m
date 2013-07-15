@@ -34,7 +34,8 @@
     [vocTripDelegate popMainMenuFromChangeLang];
     [super done: sender];
     
-    if (![Vocabulary isDownloadCompleted]) {
+    bool connectivity = ([vocTripDelegate.internetReachable currentReachabilityStatus] != NotReachable);
+    if (![Vocabulary isDownloadCompleted] && connectivity) {
         singletonVocabulary.delegate = nil;
         singletonVocabulary.isDownloadView = NO;
         singletonVocabulary.isDownloading = YES;
@@ -72,11 +73,11 @@
 - (void) updateLevelSlider {
     
     float progress = [Vocabulary wasLearned] / 1;
-    NSLog(@"General Progress: %f", progress);
+    //NSLog(@"General Progress: %f", progress);
     
 	// New formula of Progress
     progress = [Vocabulary progressIndividualLevel];
-    NSLog(@"Progress this Level: %f", progress);
+    //NSLog(@"Progress this Level: %f", progress);
     CGRect frame = progressView.frame;
     
     CGRect frameFill = progressBarFillView.frame;
@@ -126,6 +127,12 @@
     [langsView centerOnSelectedCover: YES];
     
     [super viewWillAppear: animated];
+
+    // Initialize to check if there are Internet Connection
+    /*internetReachability = [Reachability reachabilityForInternetConnection];
+    [internetReachability startNotifier];
+    Reachability *hostReachable = [Reachability reachabilityWithHostName:@"www.google.com"];
+    [hostReachable startNotifier];*/
 }
 
 - (void)viewDidAppear:(BOOL)animated {

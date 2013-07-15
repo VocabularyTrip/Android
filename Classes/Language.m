@@ -58,7 +58,7 @@ NSMutableArray *allLanguages = nil;
 
     [allLanguages removeAllObjects]; // since the request is asynchronous, could be load languages locally
     allLanguages = [[NSMutableArray alloc] init];
-    NSLog(@"Start Loading Languages !!!!!");
+    //NSLog(@"Start Loading Languages !!!!!");
     
     for (NSDictionary* value in response) {
         Language *lang = [Language alloc];
@@ -74,7 +74,7 @@ NSMutableArray *allLanguages = nil;
     }
     
     [[UserContext getUserSelected] setLangSelected: [allLanguages objectAtIndex: langSelKey - 1]];
-    NSLog(@"Finish Loading Languages !!!!!");
+    //NSLog(@"Finish Loading Languages !!!!!");
     [self saveLanguagesLocaly];
     
 }

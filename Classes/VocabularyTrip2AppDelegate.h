@@ -19,6 +19,7 @@
 #import "Language.h"
 #import "PromoCode.h"
 #import "PurchaseView.h"
+#import "Reachability.h"
 
 @class MainMenu;
 
@@ -37,6 +38,8 @@
     
 	UINavigationController *navController;
     NSDate *startPlaying;
+    
+    Reachability *internetReachable;
 }
 
 @property (nonatomic, strong) IBOutlet UIWindow *window;
@@ -51,6 +54,7 @@
 @property (nonatomic) PurchaseView *purchaseView;
 @property (nonatomic) UINavigationController *navController;
 @property (nonatomic, strong) NSDate *startPlaying;
+@property (nonatomic) Reachability *internetReachable;
 
 - (void) initMainMenu;
 - (void) initUsersDefaults;
@@ -89,6 +93,10 @@
 - (void) checkPromoCodeDueDate;
 - (void) checkAPromoCodeForUUID;
 - (void) saveTimePlayedInDB;
-    
+
+- (void) initializeInternetReachabilityNotifier;
+- (void)checkNetworkStatus:(NSNotification *)notice;
+
+
 @end
 

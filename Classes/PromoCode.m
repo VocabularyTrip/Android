@@ -66,7 +66,7 @@ PromoCode *promoCodeSingleton;
                 NSDateFormatter *dateF = [[NSDateFormatter alloc] init];
                 [dateF setDateFormat: @"yyyy-MM-dd"];
                 NSString* dateS = [value objectForKey:@"promo_code_expire_date"];
-                NSLog(@"Date %@", dateS);
+
                 if ((NSNull*) dateS == [NSNull null]) {
                     date = [[NSDate alloc] init];
                     date = [date dateByAddingTimeInterval: 60*60*24]; // 1 day
@@ -155,7 +155,7 @@ PromoCode *promoCodeSingleton;
         aPromoCode.promoCode = [value objectForKey:@"promo_code"];
         
         NSString *promoCodeExpireDateStr = [value objectForKey:@"promo_code_expire_date"];
-        NSLog(@"promoCodeExpireDateStr: %@", promoCodeExpireDateStr);
+
         if (promoCodeExpireDateStr != (id)[NSNull null]) {
             NSDateFormatter *dateF = [[NSDateFormatter alloc] init];
             [dateF setDateFormat: @"yyyy-MM-dd"];
@@ -264,9 +264,7 @@ PromoCode *promoCodeSingleton;
             message = cPromoCodeStatusFinished;
         } else {
             NSDate *today = [self dateOnly: [NSDate date]];
-            NSLog(@"today: %@", today);
             int days = [date timeIntervalSinceDate: today] / 86400;
-            NSLog(@"Days: %i", days);
             message = [NSString stringWithFormat: @"You have access to full content for %i days", days];
         }
         [pref setObject: message forKey: cPromoCodeStatus];

@@ -11,6 +11,7 @@
 #import "Language.h"
 #import "ImageManger.h"
 #import "GenericViewController.h"
+#import "Reachability.h"
 
 @interface ChangeLangView : GenericViewController <AFOpenFlowViewDelegate, AFOpenFlowViewDataSource> {
     AFOpenFlowView *__unsafe_unretained langsView;

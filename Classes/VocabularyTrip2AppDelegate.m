@@ -24,6 +24,7 @@
 @synthesize albumView;
 @synthesize navController;
 @synthesize startPlaying;
+@synthesize internetReachable;
 
 #pragma mark -
 #pragma mark Application lifecycle
@@ -45,8 +46,9 @@
     [self checkAPromoCodeForUUID];
     [self checkPromoCodeDueDate];
     [self checkDownloadCompleted];
-
-    if (!singletonVocabulary)
+    [self initializeInternetReachabilityNotifier];
+    
+    if (!singletonVocabulary) // Initialize singletonVocabulary
         singletonVocabulary = [Vocabulary alloc];
     
 	UIView *aView = [self.navController view];
@@ -67,7 +69,43 @@
     return YES;
 }
 
--(void) saveTimePlayedInDB {
+- (void) initializeInternetReachabilityNotifier {
+    // check for internet connection
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(checkNetworkStatus:)
+                                                 name:kReachabilityChangedNotification object:nil];
+    
+    // Set up Reachability
+    internetReachable = [Reachability reachabilityForInternetConnection];
+    [internetReachable startNotifier];
+}
+
+- (void)checkNetworkStatus:(NSNotification *)notice {
+    // called after network status changes
+    
+    NetworkStatus internetStatus = [internetReachable currentReachabilityStatus];
+    switch (internetStatus)
+    {
+        case NotReachable:
+        {
+            NSLog(@"The internet is down.");
+            break;
+        }
+        case ReachableViaWiFi:
+        {
+            
+            NSLog(@"The internet is working via WIFI");
+            break;
+        }
+        case ReachableViaWWAN:
+        {
+            NSLog(@"The internet is working via WWAN!");
+            break;
+        }
+    }
+}
+
+- (void) saveTimePlayedInDB {
     int i = [[NSUserDefaults standardUserDefaults] integerForKey: cLastTimePlayed];
     if (i!=0) {
         Language *lang = [UserContext getLanguageSelected];
