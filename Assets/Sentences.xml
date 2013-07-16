@@ -1,26 +1,5 @@
 <?xml version="1.0"?>
 
-<!--
-Dictionary of Methods:
-
-  * Test-EndGame-PracticeMore:
-  * Test-EndGame-Amazing:
-  * Test-EndGame-GoodJob:
-  * Test-EndGame-GreatJob:
-  * Test-EvaluateGetIntoNextLevel-NextLevel: the player reached a new level. Is started after the money count
-  * Test-IntroduceTrain: The train begin introduced 
-  * Test-BuyNewLevel: the player has reached a new level, but must buy new dictionary to advance
-  * Test-EvaluateGetIntoNextLevel-CloseToLearned:
-  * GenericTrain-touchesBegan-cTouchesSimultaneously:
-  * Training-ViewDidAppear:
-  * AlbumView-onEmptyFigClick-NotEnoughMoney: the user clicked in an empty fig but the user hasn´t enough money
-  * AlbumView-ViewDidAppear-Album1Start:
-  * AlbumView-ViewDidAppear-Album2Start:
-  * AlbumView-onEmptyFigClick-NotInSilverSection:
-  * AlbumView-onEmptyFigClick-NotInGoldSection:
-  
--->
-
 <list>
 	<Sentence Method="AppDelegate-ResponseToBuyAction-NextLevel" name="Advanced to next level" type="always"></Sentence> <!-- ok -->
 

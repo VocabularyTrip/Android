@@ -49,7 +49,6 @@
 + (void) download: (NSString*) wordName {
     
     // Set Source & Destination
-    //NSLog(@"Download Word: %@", wordName);
     NSString *fullUrl =
     [NSString stringWithFormat: @"%@%@%@", [self urlDownloadFrom], wordName, @".mp3"];
     NSString *destPath = [self checkIfDestinationPathExist];
@@ -79,8 +78,10 @@
 
 + (void) connectionFinishWidhError:(NSError *) error url: (NSURL *) url {
     NSString *result = error.localizedDescription;
+    NSLog(@"*******************");
     NSLog(@"%@", result);
-    NSLog(@"%@", url);
+    NSLog(@"Error with url: %@", url);
+    NSLog(@"*******************");
     singletonVocabulary.isDownloading = NO;
     if (singletonVocabulary.isDownloadView)
         [singletonVocabulary.delegate downloadFinishWidhError: result];

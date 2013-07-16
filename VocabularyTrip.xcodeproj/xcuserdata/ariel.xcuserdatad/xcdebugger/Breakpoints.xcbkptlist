@@ -47,11 +47,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Classes/Word.m"
-         timestampString = "395372809.227762"
+         timestampString = "395683909.881621"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "81"
-         endingLineNumber = "81"
+         startingLineNumber = "80"
+         endingLineNumber = "80"
          landmarkName = "+connectionFinishWidhError:url:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -112,19 +112,6 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Classes/PromoCode.m"
-         timestampString = "395582106.41917"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "33"
-         endingLineNumber = "33"
-         landmarkName = "+checkAPromoCodeForUUID"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Classes/PromoCode.m"
          timestampString = "395582125.420682"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
@@ -144,19 +131,6 @@
          startingLineNumber = "55"
          endingLineNumber = "55"
          landmarkName = "+checkAPromoCodeForUUIDFinishSuccesfully:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Classes/PromoCode.m"
-         timestampString = "395582176.756143"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "92"
-         endingLineNumber = "92"
-         landmarkName = "+checkAPromoCodeForUUIDFinishWidhError:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
