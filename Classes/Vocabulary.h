@@ -35,7 +35,7 @@ extern Vocabulary *singletonVocabulary;
 
 @property (nonatomic, unsafe_unretained) id delegate;
 @property (nonatomic, unsafe_unretained) int wasErrorAtDownload;
-@property (nonatomic, unsafe_unretained) bool isDownloading;
+@property (nonatomic, assign) bool isDownloading;
 
 + (void) loadDataFromXML; //
 + (void) parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict; //

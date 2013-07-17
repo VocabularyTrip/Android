@@ -47,14 +47,15 @@
     
     
 	// *****************
-	// **** Dynamic
+	// **** 
 	UIButton *__unsafe_unretained word1Button;
 	UIButton *__unsafe_unretained word2Button;
 	UIButton *__unsafe_unretained word3Button;
-	UILabel *__unsafe_unretained word1Label;
-	UILabel *__unsafe_unretained word2Label;
-	UILabel *__unsafe_unretained word3Label;	
-	UILabel *__unsafe_unretained trainLabel;
+	UIButton *__unsafe_unretained wordHelpButton;
+	UILabel  *__unsafe_unretained word1Label;
+	UILabel  *__unsafe_unretained word2Label;
+	UILabel  *__unsafe_unretained word3Label;
+	UILabel  *__unsafe_unretained trainLabel;
 	UIImageView *__unsafe_unretained coinView;
 
 	UIButton *__unsafe_unretained nextButton;
@@ -65,7 +66,7 @@
 	UIImageView *__unsafe_unretained imageView;	
 	UILabel *__unsafe_unretained wordNamelabel;
 	UILabel *__unsafe_unretained nativeWordNamelabel;
-    UIButton *__unsafe_unretained alertDownloadSounds;
+    //UIButton *__unsafe_unretained alertDownloadSounds;
     
 	NSString *activeConfig;	
 	CADisplayLink *theTimer; 
@@ -93,6 +94,7 @@
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *word1Button;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *word2Button;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *word3Button;
+@property (nonatomic, unsafe_unretained) IBOutlet UIButton *wordHelpButton;
 @property (nonatomic, unsafe_unretained) IBOutlet UILabel *word1Label;
 @property (nonatomic, unsafe_unretained) IBOutlet UILabel *word2Label;
 @property (nonatomic, unsafe_unretained) IBOutlet UILabel *word3Label;	
@@ -124,7 +126,7 @@
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *imageView;
 @property (nonatomic, unsafe_unretained) IBOutlet UILabel *wordNamelabel;
 @property (nonatomic, unsafe_unretained) IBOutlet UILabel *nativeWordNamelabel;
-@property (nonatomic, unsafe_unretained) IBOutlet UIButton *alertDownloadSounds;
+//@property (nonatomic, unsafe_unretained) IBOutlet UIButton *alertDownloadSounds;
 
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *hand;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *helpButton;
@@ -144,13 +146,14 @@
 - (IBAction) word3ButtonClicked;
 - (IBAction) prevButtonClicked;
 - (IBAction) nextButtonClicked;
-- (IBAction) jumpDownloadDictionary;
+//- (IBAction) jumpDownloadDictionary;
 - (IBAction) buyClicked;
 
 - (void) viewWillAppear:(BOOL)animated;
 - (void) viewDidLoad;
 - (void) updateLevelSlider;
 - (void) refreshLevelInfo;
+- (void) refreshPage;
 - (void) setImageToButton: (int) i;
 - (void) alertView: (UIAlertView*) alertView clickedButtonAtIndex: (NSInteger) buttonIndex;
 - (void) showAndSayDictionary: (int) i;
@@ -158,8 +161,8 @@
 - (void) showAndSayWord;
 - (void) cancelAnimation;
 - (void) helpLevel: (int) i;
-- (void) showAlertDownloadSounds;
-- (void) alertDownloadSoundsFinished;
+//- (void) showAlertDownloadSounds;
+//- (void) alertDownloadSoundsFinished;
 - (void) purgeLevel;
 	
 - (IBAction) helpClicked;

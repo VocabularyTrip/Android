@@ -44,6 +44,7 @@
 - (bool) lockLangSelection;
 - (bool) unlockLangSelection;
 - (bool) privateLockLangSelection;
+- (void) selectLangToAllUsers;
 - (void) refreshView;
 - (bool) savePassword;
 - (BOOL)validateEmailWithString:(NSString*)email;

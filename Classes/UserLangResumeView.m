@@ -310,7 +310,7 @@
 	hand.alpha = 0;
 	[UIImageView commitAnimations];
   
-	[UserContext setHelpLevel: NO];
+	//[UserContext setHelpLevel: NO];
 	helpButton.enabled = YES;
 }
 

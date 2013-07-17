@@ -83,12 +83,21 @@
         errorLabel.text = @"Language selection is locked";
         errorLabel.textColor = [UIColor blueColor];
         [self refreshView];
+        [self selectLangToAllUsers];
         return YES;
     } else {
         errorLabel.text = @"Error saving password.";
         errorLabel.textColor = [UIColor redColor];
         return NO;
     }
+}
+
+- (void) selectLangToAllUsers {
+    Language *lang = [UserContext getLanguageSelected];
+	for (int i=0; i < [[UserContext getSingleton].users count]; i++) {
+        User* u = [[UserContext getSingleton].users objectAtIndex: i];
+        [u setLangSelected: lang];
+	}
 }
 
 - (bool) savePassword {

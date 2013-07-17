@@ -21,11 +21,12 @@
 
 -(IBAction) startLoading {
     //if (![Vocabulary isDownloadCompleted]) {
-    [self setSearchingModeEnabled: YES];
-    
     if (!singletonVocabulary)
         singletonVocabulary = [Vocabulary alloc];
     singletonVocabulary.delegate = self;
+
+    [self setSearchingModeEnabled: YES];
+    
     
     [Vocabulary loadDataFromSql];
     NSLog(@"Load Launched...");
