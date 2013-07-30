@@ -407,9 +407,10 @@
             int appId = [self getAppId];
             NSString *url = [NSString stringWithFormat: @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%i", appId];
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString: url]];
+            [[NSUserDefaults standardUserDefaults] setBool: YES forKey: cNoAskMeAgain];
             break;
         }  default: // Don't ask again
-            [[NSUserDefaults standardUserDefaults] setBool: YES forKey: cNoAskMeAgain];
+            //[[NSUserDefaults standardUserDefaults] setBool: YES forKey: cNoAskMeAgain];
             break;
     }
 }
@@ -423,6 +424,9 @@
             //case 0:
             //	break;
         default:
+            // If the user confirme the purchase, the user has to be redirected to the LevelView to see the help
+            [vcDelegate.mainMenu stopBackgroundSound];
+          	[navController pushViewController: self.levelView animated: NO];
             [vcDelegate pushPurchaseView];
             break;
     }	
@@ -438,7 +442,7 @@
             [vcDelegate pushLevelViewWithHelpDownload];
             break;
         }            
-        default: // Don't ask again
+        default: 
             break;
     }
 }
@@ -501,19 +505,20 @@
     countExecutions++;
 
     [[NSUserDefaults standardUserDefaults] setInteger: countExecutions forKey: cCountExecutions];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void) askToRate {
     
     NSString *appName = [[NSBundle mainBundle] objectForInfoDictionaryKey: (NSString*)kCFBundleExecutableKey];
-    NSString *message = [NSString stringWithFormat: @"If you enjou using %@, would you mind taking a moment to rate it? It won't take mora than a minute. Thanks for your support !", appName];
+    NSString *message = [NSString stringWithFormat: @"If you enjou using %@, would you mind taking a moment to rate it? It won't take more than a minute. Thanks for your support !", appName];
     
     UIAlertView *alert = [[UIAlertView alloc] 
         initWithTitle: cAskToReviewTitle 
         message: message
         delegate:self 
         cancelButtonTitle: @"Ramind me later" 
-        otherButtonTitles: @"Yes, Rate It!", @"Don't ask again", nil];
+                          otherButtonTitles: @"Yes, Rate It!", nil]; //, @"Don't ask again", nil];
     [alert show];
 }
 

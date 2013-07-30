@@ -111,13 +111,13 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "Classes/PromoCode.m"
-         timestampString = "395582125.420682"
+         filePath = "Classes/MainMenu.m"
+         timestampString = "396567449.125959"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "174"
-         endingLineNumber = "174"
-         landmarkName = "+claimPromoCode:"
+         startingLineNumber = "133"
+         endingLineNumber = "133"
+         landmarkName = "-mailComposeController:didFinishWithResult:error:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -125,12 +125,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Classes/PromoCode.m"
-         timestampString = "395582172.426744"
+         timestampString = "396707741.191126"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "55"
-         endingLineNumber = "55"
-         landmarkName = "+checkAPromoCodeForUUIDFinishSuccesfully:"
+         startingLineNumber = "173"
+         endingLineNumber = "173"
+         landmarkName = "+claimPromoCode:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

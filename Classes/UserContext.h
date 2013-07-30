@@ -32,7 +32,7 @@
 
 #define cNoAskMeAgain @"noAskMeAgain"
 #define cCountExecutions @"countExecutions"
-#define cAskRateEachTimes 7
+#define cAskRateEachTimes 6
 #define cAskToReviewTitle @"Review App"
 #define cAskToRedownloadTitle @"Download all words"
 #define cNotifyToPromoCodeDetected @"Promo Code Detected !" 

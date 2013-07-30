@@ -72,6 +72,8 @@
 
 - (void) updateLevelSlider {
     
+    
+    // Original is widh: 434, x: 295
     float progress = [Vocabulary wasLearned] / 1;
     //NSLog(@"General Progress: %f", progress);
     

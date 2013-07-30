@@ -292,8 +292,11 @@ Vocabulary *singletonVocabulary;
     progress = (hitsOneLevel - ([UserContext getLevel] - 1) * cSizeOfEachLevel)/10;
     
     //NSLog(@"Progress: %f", progress);
+
+    NSLog(@"Progress: %f, cPercentageLearned: %f, result: %f", progress, cPercentageLearnd, progress >= cPercentageLearnd ? 1 : progress / cPercentageLearnd);
+    progress = progress >= cPercentageLearnd ? 1 : progress / cPercentageLearnd;
     if (progress <= 0) progress = 0.03;
-    return progress / cPercentageLearnd;
+    return progress;
 }
 
 @end

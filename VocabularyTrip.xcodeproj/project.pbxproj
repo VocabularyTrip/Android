@@ -84,7 +84,6 @@
 		B09A36341725C60500153E71 /* en_Congratulations12.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B09A362A1725C60500153E71 /* en_Congratulations12.mp3 */; };
 		B09A36351725C60500153E71 /* en_Congratulations13.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B09A362B1725C60500153E71 /* en_Congratulations13.mp3 */; };
 		B09A36361725C60500153E71 /* en_Congratulations14.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B09A362C1725C60500153E71 /* en_Congratulations14.mp3 */; };
-		B09A36381725C60500153E71 /* en_Unlock help.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B09A362E1725C60500153E71 /* en_Unlock help.mp3 */; };
 		B0BD2FC21754D02900226A38 /* en_User_Wizard_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B0BD2FBF1754D02900226A38 /* en_User_Wizard_1.mp3 */; };
 		B0BD2FC31754D02900226A38 /* en_User_Wizard_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B0BD2FC01754D02900226A38 /* en_User_Wizard_2.mp3 */; };
 		B0BD2FC41754D02900226A38 /* en_User_Wizard_3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B0BD2FC11754D02900226A38 /* en_User_Wizard_3.mp3 */; };
@@ -97,8 +96,6 @@
 		B0C4993F16EBBCC400971770 /* progress_fill@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B0C4993916EBBCC400971770 /* progress_fill@2x.png */; };
 		B0CBAE9817189D4F006FAAF4 /* btn_album_monster_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B0CBAE9617189D4F006FAAF4 /* btn_album_monster_on@2x.png */; };
 		B0CBAE9917189D4F006FAAF4 /* btn_album_princesas_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B0CBAE9717189D4F006FAAF4 /* btn_album_princesas_on@2x.png */; };
-		B0CC5A47175A5B3D00648985 /* Purchase_Help1.png in Resources */ = {isa = PBXBuildFile; fileRef = B0CC5A45175A5B3D00648985 /* Purchase_Help1.png */; };
-		B0CC5A48175A5B3D00648985 /* Purchase_Help2.png in Resources */ = {isa = PBXBuildFile; fileRef = B0CC5A46175A5B3D00648985 /* Purchase_Help2.png */; };
 		CE1627D21522531A00BFDE69 /* en_Advanced to next level.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE1627B41522531A00BFDE69 /* en_Advanced to next level.mp3 */; };
 		CE1627D61522531A00BFDE69 /* en_Album help 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE1627B51522531A00BFDE69 /* en_Album help 1.mp3 */; };
 		CE1627DA1522531A00BFDE69 /* en_Album help 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE1627B61522531A00BFDE69 /* en_Album help 2.mp3 */; };
@@ -640,7 +637,6 @@
 		CE8496631651CC090022A3F1 /* KoreanFlag.png in Resources */ = {isa = PBXBuildFile; fileRef = CE8496581651CC090022A3F1 /* KoreanFlag.png */; };
 		CE84D691140F1956009119FD /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE84D690140F1956009119FD /* StoreKit.framework */; };
 		CE85E78D141E59BC00677380 /* AlbumPrincess.xml in Resources */ = {isa = PBXBuildFile; fileRef = CE85E78C141E59BC00677380 /* AlbumPrincess.xml */; };
-		CE88B0E814F6CC7A00887924 /* reset game.png in Resources */ = {isa = PBXBuildFile; fileRef = CE88B0E114F6CC7A00887924 /* reset game.png */; };
 		CE8976AA16CC081700F908BD /* MailingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8976A916CC081700F908BD /* MailingManager.m */; };
 		CE8C5BA714CDD74100EE2A26 /* figu-empty-no.png in Resources */ = {isa = PBXBuildFile; fileRef = CE8C5BA614CDD74100EE2A26 /* figu-empty-no.png */; };
 		CE8C734616D973600046CCBD /* wagon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE8C734416D9735F0046CCBD /* wagon@2x.png */; };
@@ -665,8 +661,6 @@
 		CE946A6115BDDC4800A5A069 /* Chinese in Resources */ = {isa = PBXBuildFile; fileRef = CE946A6015BDDC4700A5A069 /* Chinese */; };
 		CE950DFB16728127000BCBA5 /* buyButton.png in Resources */ = {isa = PBXBuildFile; fileRef = CE950DF716728127000BCBA5 /* buyButton.png */; };
 		CE950DFC16728127000BCBA5 /* buyButton@ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CE950DF816728127000BCBA5 /* buyButton@ipad.png */; };
-		CE950DFD16728127000BCBA5 /* ResetButton.png in Resources */ = {isa = PBXBuildFile; fileRef = CE950DF916728127000BCBA5 /* ResetButton.png */; };
-		CE950DFE16728127000BCBA5 /* ResetButton@ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CE950DFA16728127000BCBA5 /* ResetButton@ipad.png */; };
 		CE9BDEC515A291E5005C14B9 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9BDEAC15A291E5005C14B9 /* SBJsonWriter.m */; };
 		CE9BDEC615A291E5005C14B9 /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9BDEAE15A291E5005C14B9 /* SBJsonUTF8Stream.m */; };
 		CE9BDEC715A291E5005C14B9 /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9BDEB015A291E5005C14B9 /* SBJsonTokeniser.m */; };
@@ -755,10 +749,6 @@
 		CEB32C0215A3EB0C008AB0C9 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB32C0115A3EB0B008AB0C9 /* CFNetwork.framework */; };
 		CEB32C0415A3EB55008AB0C9 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB32C0315A3EB55008AB0C9 /* MobileCoreServices.framework */; };
 		CEB32C0615A3EB79008AB0C9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB32C0515A3EB79008AB0C9 /* SystemConfiguration.framework */; };
-		CEBFCCF4156C96BB006E9E8F /* en_Talk sentence 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEBFCCE5156C96BB006E9E8F /* en_Talk sentence 2.mp3 */; };
-		CEBFCCFA156C96BB006E9E8F /* en_Talk sentence 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEBFCCE6156C96BB006E9E8F /* en_Talk sentence 1.mp3 */; };
-		CEBFCD00156C96BB006E9E8F /* en_Talk help 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEBFCCE7156C96BB006E9E8F /* en_Talk help 2.mp3 */; };
-		CEBFCD06156C96BB006E9E8F /* en_Talk help 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEBFCCE8156C96BB006E9E8F /* en_Talk help 1.mp3 */; };
 		CEBFCD0C156C96BB006E9E8F /* en_Sorry you can not buy this sticker.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEBFCCE9156C96BB006E9E8F /* en_Sorry you can not buy this sticker.mp3 */; };
 		CEBFCD12156C96BB006E9E8F /* en_Congratulations9.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEBFCCEA156C96BB006E9E8F /* en_Congratulations9.mp3 */; };
 		CEBFCD18156C96BB006E9E8F /* en_Congratulations8.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEBFCCEB156C96BB006E9E8F /* en_Congratulations8.mp3 */; };
@@ -887,7 +877,6 @@
 		B09A362A1725C60500153E71 /* en_Congratulations12.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_Congratulations12.mp3; sourceTree = "<group>"; };
 		B09A362B1725C60500153E71 /* en_Congratulations13.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_Congratulations13.mp3; sourceTree = "<group>"; };
 		B09A362C1725C60500153E71 /* en_Congratulations14.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_Congratulations14.mp3; sourceTree = "<group>"; };
-		B09A362E1725C60500153E71 /* en_Unlock help.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "en_Unlock help.mp3"; sourceTree = "<group>"; };
 		B0BD2FBF1754D02900226A38 /* en_User_Wizard_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_User_Wizard_1.mp3; sourceTree = "<group>"; };
 		B0BD2FC01754D02900226A38 /* en_User_Wizard_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_User_Wizard_2.mp3; sourceTree = "<group>"; };
 		B0BD2FC11754D02900226A38 /* en_User_Wizard_3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_User_Wizard_3.mp3; sourceTree = "<group>"; };
@@ -901,8 +890,6 @@
 		B0C4993916EBBCC400971770 /* progress_fill@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "progress_fill@2x.png"; sourceTree = "<group>"; };
 		B0CBAE9617189D4F006FAAF4 /* btn_album_monster_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_album_monster_on@2x.png"; sourceTree = "<group>"; };
 		B0CBAE9717189D4F006FAAF4 /* btn_album_princesas_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_album_princesas_on@2x.png"; sourceTree = "<group>"; };
-		B0CC5A45175A5B3D00648985 /* Purchase_Help1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Purchase_Help1.png; sourceTree = "<group>"; };
-		B0CC5A46175A5B3D00648985 /* Purchase_Help2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Purchase_Help2.png; sourceTree = "<group>"; };
 		CE1627B41522531A00BFDE69 /* en_Advanced to next level.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "en_Advanced to next level.mp3"; sourceTree = "<group>"; };
 		CE1627B51522531A00BFDE69 /* en_Album help 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "en_Album help 1.mp3"; sourceTree = "<group>"; };
 		CE1627B61522531A00BFDE69 /* en_Album help 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "en_Album help 2.mp3"; sourceTree = "<group>"; };
@@ -1478,7 +1465,6 @@
 		CE8496581651CC090022A3F1 /* KoreanFlag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = KoreanFlag.png; sourceTree = "<group>"; };
 		CE84D690140F1956009119FD /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		CE85E78C141E59BC00677380 /* AlbumPrincess.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = AlbumPrincess.xml; sourceTree = "<group>"; };
-		CE88B0E114F6CC7A00887924 /* reset game.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reset game.png"; sourceTree = "<group>"; };
 		CE8976A816CC081600F908BD /* MailingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailingManager.h; sourceTree = "<group>"; };
 		CE8976A916CC081700F908BD /* MailingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailingManager.m; sourceTree = "<group>"; };
 		CE8C5BA614CDD74100EE2A26 /* figu-empty-no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "figu-empty-no.png"; sourceTree = "<group>"; };
@@ -1504,8 +1490,6 @@
 		CE946A6015BDDC4700A5A069 /* Chinese */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Chinese; path = Assets/Sounds/Chinese; sourceTree = SOURCE_ROOT; };
 		CE950DF716728127000BCBA5 /* buyButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buyButton.png; sourceTree = "<group>"; };
 		CE950DF816728127000BCBA5 /* buyButton@ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buyButton@ipad.png"; sourceTree = "<group>"; };
-		CE950DF916728127000BCBA5 /* ResetButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ResetButton.png; sourceTree = "<group>"; };
-		CE950DFA16728127000BCBA5 /* ResetButton@ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ResetButton@ipad.png"; sourceTree = "<group>"; };
 		CE9BDEAC15A291E5005C14B9 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonWriter.m; path = JSON/SBJsonWriter.m; sourceTree = "<group>"; };
 		CE9BDEAD15A291E5005C14B9 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonWriter.h; path = JSON/SBJsonWriter.h; sourceTree = "<group>"; };
 		CE9BDEAE15A291E5005C14B9 /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonUTF8Stream.m; path = JSON/SBJsonUTF8Stream.m; sourceTree = "<group>"; };
@@ -1609,10 +1593,6 @@
 		CEB32C0515A3EB79008AB0C9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CEBA9B3B16E4C45C00805AC4 /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = en; path = en.lproj/DownloadProtocol.h; sourceTree = "<group>"; };
 		CEBA9B3D16E4C46E00805AC4 /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = en; path = en.lproj/PurchaseProtocol.h; sourceTree = "<group>"; };
-		CEBFCCE5156C96BB006E9E8F /* en_Talk sentence 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "en_Talk sentence 2.mp3"; sourceTree = "<group>"; };
-		CEBFCCE6156C96BB006E9E8F /* en_Talk sentence 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "en_Talk sentence 1.mp3"; sourceTree = "<group>"; };
-		CEBFCCE7156C96BB006E9E8F /* en_Talk help 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "en_Talk help 2.mp3"; sourceTree = "<group>"; };
-		CEBFCCE8156C96BB006E9E8F /* en_Talk help 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "en_Talk help 1.mp3"; sourceTree = "<group>"; };
 		CEBFCCE9156C96BB006E9E8F /* en_Sorry you can not buy this sticker.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "en_Sorry you can not buy this sticker.mp3"; sourceTree = "<group>"; };
 		CEBFCCEA156C96BB006E9E8F /* en_Congratulations9.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_Congratulations9.mp3; sourceTree = "<group>"; };
 		CEBFCCEB156C96BB006E9E8F /* en_Congratulations8.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_Congratulations8.mp3; sourceTree = "<group>"; };
@@ -1831,10 +1811,6 @@
 				CE1627BD1522531A00BFDE69 /* en_more correct answers more coins.mp3 */,
 				CE1627BF1522531A00BFDE69 /* en_Once you know these words you Advance.mp3 */,
 				CEBFCCE9156C96BB006E9E8F /* en_Sorry you can not buy this sticker.mp3 */,
-				CEBFCCE8156C96BB006E9E8F /* en_Talk help 1.mp3 */,
-				CEBFCCE7156C96BB006E9E8F /* en_Talk help 2.mp3 */,
-				CEBFCCE6156C96BB006E9E8F /* en_Talk sentence 1.mp3 */,
-				CEBFCCE5156C96BB006E9E8F /* en_Talk sentence 2.mp3 */,
 				CE1627C61522531A00BFDE69 /* en_Test help.mp3 */,
 				CE1627C71522531A00BFDE69 /* en_that was very good.mp3 */,
 				CE1627C81522531A00BFDE69 /* en_ThatWasAmazing.mp3 */,
@@ -1843,7 +1819,6 @@
 				CE1627CB1522531A00BFDE69 /* en_To win gold coins.mp3 */,
 				CE1627CC1522531A00BFDE69 /* en_To win silver coins.mp3 */,
 				CE1627CD1522531A00BFDE69 /* en_Training help.mp3 */,
-				B09A362E1725C60500153E71 /* en_Unlock help.mp3 */,
 				B0BD2FBF1754D02900226A38 /* en_User_Wizard_1.mp3 */,
 				B0BD2FC01754D02900226A38 /* en_User_Wizard_2.mp3 */,
 				B0BD2FC11754D02900226A38 /* en_User_Wizard_3.mp3 */,
@@ -2147,8 +2122,6 @@
 			children = (
 				CE950DF716728127000BCBA5 /* buyButton.png */,
 				CE950DF816728127000BCBA5 /* buyButton@ipad.png */,
-				CE950DF916728127000BCBA5 /* ResetButton.png */,
-				CE950DFA16728127000BCBA5 /* ResetButton@ipad.png */,
 				CE720FB6149675EC00D60184 /* animals1-buy.png */,
 				CEB0EC1C14FC33F6005A6082 /* animals1-buy@ipad.png */,
 				CE720FB7149675EC00D60184 /* animals1-lock.png */,
@@ -2196,7 +2169,6 @@
 				CEB0EC0F14FC33F6005A6082 /* professions-lock@ipad.png */,
 				CE75ABCB14FF0CD8002AA89B /* professions.png */,
 				CE75ABC314FF0CD8002AA89B /* professions@ipad.png */,
-				CE88B0E114F6CC7A00887924 /* reset game.png */,
 				CE720FC7149675EC00D60184 /* verbs-buy.png */,
 				CEB0EC0C14FC33F6005A6082 /* verbs-buy@ipad.png */,
 				CE720FC8149675EC00D60184 /* verbs-lock.png */,
@@ -2689,8 +2661,6 @@
 		CE7C404F16DFFDFD002DA556 /* Purchase */ = {
 			isa = PBXGroup;
 			children = (
-				B0CC5A45175A5B3D00648985 /* Purchase_Help1.png */,
-				B0CC5A46175A5B3D00648985 /* Purchase_Help2.png */,
 				B09A360F1722B7D500153E71 /* background_purchase.png */,
 				B09A36101722B7D500153E71 /* background_purchase@2x.png */,
 				B09A36111722B7D500153E71 /* background_purchase@ipad.png */,
@@ -3334,7 +3304,6 @@
 				CE797FC314F3E3B900F9D59A /* landscape3Sky@ipad.png in Resources */,
 				CE797FC414F3E3B900F9D59A /* landscape2Sky@ipad.png in Resources */,
 				CE797FC514F3E3B900F9D59A /* landscape1Sky@2x.png in Resources */,
-				CE88B0E814F6CC7A00887924 /* reset game.png in Resources */,
 				CEB0EC1D14FC33F6005A6082 /* verbs-lock@ipad.png in Resources */,
 				CEB0EC1E14FC33F6005A6082 /* verbs-buy@ipad.png in Resources */,
 				CEB0EC1F14FC33F6005A6082 /* clothes-lock@ipad.png in Resources */,
@@ -3398,10 +3367,6 @@
 				893AF8DB153BAD5100EA0BF1 /* Default@2x.png in Resources */,
 				893AF8DD153BAD6000EA0BF1 /* Default-Portrait~ipad.png in Resources */,
 				893AF8DF153BAD6900EA0BF1 /* Default-Landscape~ipad.png in Resources */,
-				CEBFCCF4156C96BB006E9E8F /* en_Talk sentence 2.mp3 in Resources */,
-				CEBFCCFA156C96BB006E9E8F /* en_Talk sentence 1.mp3 in Resources */,
-				CEBFCD00156C96BB006E9E8F /* en_Talk help 2.mp3 in Resources */,
-				CEBFCD06156C96BB006E9E8F /* en_Talk help 1.mp3 in Resources */,
 				CEBFCD0C156C96BB006E9E8F /* en_Sorry you can not buy this sticker.mp3 in Resources */,
 				CEBFCD12156C96BB006E9E8F /* en_Congratulations9.mp3 in Resources */,
 				CEBFCD18156C96BB006E9E8F /* en_Congratulations8.mp3 in Resources */,
@@ -3462,8 +3427,6 @@
 				CE4E93CC16630086002A667A /* ChineseFlag@2x.png in Resources */,
 				CE950DFB16728127000BCBA5 /* buyButton.png in Resources */,
 				CE950DFC16728127000BCBA5 /* buyButton@ipad.png in Resources */,
-				CE950DFD16728127000BCBA5 /* ResetButton.png in Resources */,
-				CE950DFE16728127000BCBA5 /* ResetButton@ipad.png in Resources */,
 				CE7FE92E16AD98D700F96D32 /* LockLanguageView~ipad.xib in Resources */,
 				CE77DAE516ADBABD009AAB3C /* LockLanguageView.xib in Resources */,
 				CE81A2E716C1AD2400CD7535 /* wagon.png in Resources */,
@@ -3577,7 +3540,6 @@
 				B09A36341725C60500153E71 /* en_Congratulations12.mp3 in Resources */,
 				B09A36351725C60500153E71 /* en_Congratulations13.mp3 in Resources */,
 				B09A36361725C60500153E71 /* en_Congratulations14.mp3 in Resources */,
-				B09A36381725C60500153E71 /* en_Unlock help.mp3 in Resources */,
 				B095BBC71747A5D8006D2944 /* btn_avatar_on@2x.png in Resources */,
 				B095BBC81747A5D8006D2944 /* btn_challenge@2x.png in Resources */,
 				B095BBC91747A5D8006D2944 /* btn_info_on@2x.png in Resources */,
@@ -3587,8 +3549,6 @@
 				B0BD2FC31754D02900226A38 /* en_User_Wizard_2.mp3 in Resources */,
 				B0BD2FC41754D02900226A38 /* en_User_Wizard_3.mp3 in Resources */,
 				B0BD2FC61754D3BF00226A38 /* en_Language_Wizard_1.mp3 in Resources */,
-				B0CC5A47175A5B3D00648985 /* Purchase_Help1.png in Resources */,
-				B0CC5A48175A5B3D00648985 /* Purchase_Help2.png in Resources */,
 				895BB77F1777AB9C00E7540C /* en_Download_Help_1.mp3 in Resources */,
 				895BB7801777AB9C00E7540C /* en_Level_helpA.mp3 in Resources */,
 				895BB7811777AB9C00E7540C /* en_Level_helpF.mp3 in Resources */,
