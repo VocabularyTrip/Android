@@ -27,7 +27,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "622"
          endingLineNumber = "622"
-         landmarkName = "-helpAnimation6"
+         landmarkName = "-helpAnimation3"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -40,7 +40,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "608"
          endingLineNumber = "608"
-         landmarkName = "-helpAnimation5"
+         landmarkName = "-helpAnimation2"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -53,8 +53,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "543"
          endingLineNumber = "543"
-         landmarkName = "-helpAnimation1"
-         landmarkType = "5">
+         landmarkName = "@implementation LevelView"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -66,7 +66,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "554"
          endingLineNumber = "554"
-         landmarkName = "-helpAnimation2"
+         landmarkName = "-viewDidUnload"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -79,7 +79,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "572"
          endingLineNumber = "572"
-         landmarkName = "-helpAnimation3"
+         landmarkName = "-helpClicked"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -92,7 +92,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "589"
          endingLineNumber = "589"
-         landmarkName = "-helpAnimation4"
+         landmarkName = "-helpAnimation1"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -105,7 +105,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "644"
          endingLineNumber = "644"
-         landmarkName = "-helpAnimation7"
+         landmarkName = "-helpAnimation4"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

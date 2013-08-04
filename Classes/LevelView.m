@@ -819,7 +819,7 @@
     [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
     [UIImageView setAnimationDelegate: self];
     [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
-    if (angle>2*M_PI) {
+    if (angle>4*M_PI) {
         [UIImageView setAnimationDidStopSelector: @selector(helpAnimation12)];
     } else {
         [UIImageView setAnimationDidStopSelector: @selector(helpAnimation11)];
@@ -843,7 +843,7 @@
     [UIImageView setAnimationDelegate: self];
     [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
     [UIImageView setAnimationDidStopSelector: @selector(helpAnimation13)];
-    [UIImageView setAnimationDuration: 3];
+    [UIImageView setAnimationDuration: 2];
     [UIImageView setAnimationBeginsFromCurrentState: YES];
     hand.alpha=.99;
   
