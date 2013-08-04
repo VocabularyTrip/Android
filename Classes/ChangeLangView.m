@@ -279,7 +279,7 @@
     [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
     [UIImageView setAnimationDelegate: self];
     [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
-    if (angle>2*M_PI) {
+    if (angle>3*M_PI) {
        [UIImageView setAnimationDidStopSelector: @selector(helpAnimation7)];
     }
     else {
@@ -295,6 +295,7 @@
     angle += M_PI/100;
     [UIImageView commitAnimations];
 }
+
 
 - (void) helpAnimation7 {
     // bring hand to nextButton
