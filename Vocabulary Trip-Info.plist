@@ -5,13 +5,13 @@
 	<key>Active Configuration</key>
 	<string>Release</string>
 	<key>Application Id</key>
-	<string>548942804</string>
+	<string>683626437</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleDisplayName</key>
-	<string>Voca Trip</string>
+	<string>Kids Learn Vocabulary</string>
 	<key>CFBundleExecutable</key>
-	<string>Vocabulary Trip</string>
+	<string>Kids Learn Vocabulary</string>
 	<key>CFBundleIconFiles</key>
 	<array>
 		<string>Icon.png</string>
@@ -22,11 +22,11 @@
 		<string>Icon-Small-50.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>
-	<string>com.VocabularyTrip.VocaTrip</string>
+	<string>com.VocabularyTrip.KidsLearnVocabulary</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>Vocabulary Trip</string>
+	<string>Kids Learn Vocabulary</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleSignature</key>

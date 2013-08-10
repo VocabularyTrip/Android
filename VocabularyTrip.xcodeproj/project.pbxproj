@@ -101,12 +101,8 @@
 		CE1627DA1522531A00BFDE69 /* en_Album help 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE1627B61522531A00BFDE69 /* en_Album help 2.mp3 */; };
 		CE1627E61522531A00BFDE69 /* en_keep playing to advance to that level.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE1627B91522531A00BFDE69 /* en_keep playing to advance to that level.mp3 */; };
 		CE1627EA1522531A00BFDE69 /* en_Keep playing you are getting closer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE1627BA1522531A00BFDE69 /* en_Keep playing you are getting closer.mp3 */; };
-		CE1627F21522531A00BFDE69 /* en_Maybe you should practice.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE1627BC1522531A00BFDE69 /* en_Maybe you should practice.mp3 */; };
-		CE1627F61522531A00BFDE69 /* en_more correct answers more coins.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE1627BD1522531A00BFDE69 /* en_more correct answers more coins.mp3 */; };
 		CE1627FE1522531A00BFDE69 /* en_Once you know these words you Advance.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE1627BF1522531A00BFDE69 /* en_Once you know these words you Advance.mp3 */; };
 		CE16281A1522531A00BFDE69 /* en_Test help.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE1627C61522531A00BFDE69 /* en_Test help.mp3 */; };
-		CE16281E1522531A00BFDE69 /* en_that was very good.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE1627C71522531A00BFDE69 /* en_that was very good.mp3 */; };
-		CE1628221522531A00BFDE69 /* en_ThatWasAmazing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE1627C81522531A00BFDE69 /* en_ThatWasAmazing.mp3 */; };
 		CE1628261522531A00BFDE69 /* en_The more correct the more coins.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE1627C91522531A00BFDE69 /* en_The more correct the more coins.mp3 */; };
 		CE16282A1522531A00BFDE69 /* en_To unlock this level you first.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE1627CA1522531A00BFDE69 /* en_To unlock this level you first.mp3 */; };
 		CE16282E1522531A00BFDE69 /* en_To win gold coins.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE1627CB1522531A00BFDE69 /* en_To win gold coins.mp3 */; };
@@ -749,7 +745,6 @@
 		CEB32C0215A3EB0C008AB0C9 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB32C0115A3EB0B008AB0C9 /* CFNetwork.framework */; };
 		CEB32C0415A3EB55008AB0C9 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB32C0315A3EB55008AB0C9 /* MobileCoreServices.framework */; };
 		CEB32C0615A3EB79008AB0C9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB32C0515A3EB79008AB0C9 /* SystemConfiguration.framework */; };
-		CEBFCD0C156C96BB006E9E8F /* en_Sorry you can not buy this sticker.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEBFCCE9156C96BB006E9E8F /* en_Sorry you can not buy this sticker.mp3 */; };
 		CEBFCD12156C96BB006E9E8F /* en_Congratulations9.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEBFCCEA156C96BB006E9E8F /* en_Congratulations9.mp3 */; };
 		CEBFCD18156C96BB006E9E8F /* en_Congratulations8.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEBFCCEB156C96BB006E9E8F /* en_Congratulations8.mp3 */; };
 		CEBFCD30156C96BB006E9E8F /* en_Congratulations4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEBFCCEF156C96BB006E9E8F /* en_Congratulations4.mp3 */; };
@@ -895,12 +890,8 @@
 		CE1627B61522531A00BFDE69 /* en_Album help 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "en_Album help 2.mp3"; sourceTree = "<group>"; };
 		CE1627B91522531A00BFDE69 /* en_keep playing to advance to that level.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "en_keep playing to advance to that level.mp3"; sourceTree = "<group>"; };
 		CE1627BA1522531A00BFDE69 /* en_Keep playing you are getting closer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "en_Keep playing you are getting closer.mp3"; sourceTree = "<group>"; };
-		CE1627BC1522531A00BFDE69 /* en_Maybe you should practice.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "en_Maybe you should practice.mp3"; sourceTree = "<group>"; };
-		CE1627BD1522531A00BFDE69 /* en_more correct answers more coins.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "en_more correct answers more coins.mp3"; sourceTree = "<group>"; };
 		CE1627BF1522531A00BFDE69 /* en_Once you know these words you Advance.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "en_Once you know these words you Advance.mp3"; sourceTree = "<group>"; };
 		CE1627C61522531A00BFDE69 /* en_Test help.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "en_Test help.mp3"; sourceTree = "<group>"; };
-		CE1627C71522531A00BFDE69 /* en_that was very good.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "en_that was very good.mp3"; sourceTree = "<group>"; };
-		CE1627C81522531A00BFDE69 /* en_ThatWasAmazing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_ThatWasAmazing.mp3; sourceTree = "<group>"; };
 		CE1627C91522531A00BFDE69 /* en_The more correct the more coins.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "en_The more correct the more coins.mp3"; sourceTree = "<group>"; };
 		CE1627CA1522531A00BFDE69 /* en_To unlock this level you first.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "en_To unlock this level you first.mp3"; sourceTree = "<group>"; };
 		CE1627CB1522531A00BFDE69 /* en_To win gold coins.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "en_To win gold coins.mp3"; sourceTree = "<group>"; };
@@ -1593,7 +1584,6 @@
 		CEB32C0515A3EB79008AB0C9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CEBA9B3B16E4C45C00805AC4 /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = en; path = en.lproj/DownloadProtocol.h; sourceTree = "<group>"; };
 		CEBA9B3D16E4C46E00805AC4 /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = en; path = en.lproj/PurchaseProtocol.h; sourceTree = "<group>"; };
-		CEBFCCE9156C96BB006E9E8F /* en_Sorry you can not buy this sticker.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "en_Sorry you can not buy this sticker.mp3"; sourceTree = "<group>"; };
 		CEBFCCEA156C96BB006E9E8F /* en_Congratulations9.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_Congratulations9.mp3; sourceTree = "<group>"; };
 		CEBFCCEB156C96BB006E9E8F /* en_Congratulations8.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_Congratulations8.mp3; sourceTree = "<group>"; };
 		CEBFCCEF156C96BB006E9E8F /* en_Congratulations4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_Congratulations4.mp3; sourceTree = "<group>"; };
@@ -1807,13 +1797,8 @@
 				895BB77C1777AB9C00E7540C /* en_Level_helpD.mp3 */,
 				895BB77B1777AB9C00E7540C /* en_Level_helpE.mp3 */,
 				895BB77A1777AB9C00E7540C /* en_Level_helpF.mp3 */,
-				CE1627BC1522531A00BFDE69 /* en_Maybe you should practice.mp3 */,
-				CE1627BD1522531A00BFDE69 /* en_more correct answers more coins.mp3 */,
 				CE1627BF1522531A00BFDE69 /* en_Once you know these words you Advance.mp3 */,
-				CEBFCCE9156C96BB006E9E8F /* en_Sorry you can not buy this sticker.mp3 */,
 				CE1627C61522531A00BFDE69 /* en_Test help.mp3 */,
-				CE1627C71522531A00BFDE69 /* en_that was very good.mp3 */,
-				CE1627C81522531A00BFDE69 /* en_ThatWasAmazing.mp3 */,
 				CE1627C91522531A00BFDE69 /* en_The more correct the more coins.mp3 */,
 				CE1627CA1522531A00BFDE69 /* en_To unlock this level you first.mp3 */,
 				CE1627CB1522531A00BFDE69 /* en_To win gold coins.mp3 */,
@@ -3349,12 +3334,8 @@
 				CE1627DA1522531A00BFDE69 /* en_Album help 2.mp3 in Resources */,
 				CE1627E61522531A00BFDE69 /* en_keep playing to advance to that level.mp3 in Resources */,
 				CE1627EA1522531A00BFDE69 /* en_Keep playing you are getting closer.mp3 in Resources */,
-				CE1627F21522531A00BFDE69 /* en_Maybe you should practice.mp3 in Resources */,
-				CE1627F61522531A00BFDE69 /* en_more correct answers more coins.mp3 in Resources */,
 				CE1627FE1522531A00BFDE69 /* en_Once you know these words you Advance.mp3 in Resources */,
 				CE16281A1522531A00BFDE69 /* en_Test help.mp3 in Resources */,
-				CE16281E1522531A00BFDE69 /* en_that was very good.mp3 in Resources */,
-				CE1628221522531A00BFDE69 /* en_ThatWasAmazing.mp3 in Resources */,
 				CE1628261522531A00BFDE69 /* en_The more correct the more coins.mp3 in Resources */,
 				CE16282A1522531A00BFDE69 /* en_To unlock this level you first.mp3 in Resources */,
 				CE16282E1522531A00BFDE69 /* en_To win gold coins.mp3 in Resources */,
@@ -3367,7 +3348,6 @@
 				893AF8DB153BAD5100EA0BF1 /* Default@2x.png in Resources */,
 				893AF8DD153BAD6000EA0BF1 /* Default-Portrait~ipad.png in Resources */,
 				893AF8DF153BAD6900EA0BF1 /* Default-Landscape~ipad.png in Resources */,
-				CEBFCD0C156C96BB006E9E8F /* en_Sorry you can not buy this sticker.mp3 in Resources */,
 				CEBFCD12156C96BB006E9E8F /* en_Congratulations9.mp3 in Resources */,
 				CEBFCD18156C96BB006E9E8F /* en_Congratulations8.mp3 in Resources */,
 				CEBFCD30156C96BB006E9E8F /* en_Congratulations4.mp3 in Resources */,

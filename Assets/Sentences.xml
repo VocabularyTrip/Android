@@ -4,9 +4,8 @@
 	<Sentence Method="AppDelegate-ResponseToBuyAction-NextLevel" name="Advanced to next level" type="always"></Sentence> <!-- ok -->
 
 <!-- TEST -->
-	<Sentence Method="Test-EndGame-PracticeMore" name="Maybe you should practice" type="alwaysSoundOn"> <!-- ok -->
+	<Sentence Method="Test-EndGame-PracticeMore" name="Congratulations13" type="alwaysSoundOn"> <!-- ok -->
         <Alternative name= "Congratulations3"></Alternative> <!-- I konw you can do it -->
-        <Alternative name= "Congratulations13"></Alternative> <!-- Keep working on it -->
     </Sentence>
 	<Sentence Method="Test-EndGame-Amazing" name="Congratulations4" type="alwaysSoundOn"> <!-- ok -->
         <Alternative name= "Congratulations6"></Alternative></Sentence> <!-- Wow You got the mok! -->
@@ -23,7 +22,7 @@
 	<Sentence Method="Test-EvaluateGetIntoNextLevel-CloseToLearned" name="Keep playing you are getting closer" type="alwaysSoundOn"></Sentence> <!-- ok -->
     
 <!-- Generic & Toolbar -->	
-	<Sentence Method="Toolbar-saySentence-BronzeToolbar" name="more correct answers more coins" type="always"></Sentence> <!-- ok -->
+	<Sentence Method="Toolbar-saySentence-BronzeToolbar" name="The more correct the more coins" type="always"></Sentence> <!-- ok -->
 	<Sentence Method="Toolbar-saySentence-NotInSilverSection" name="To win silver coins" type="always"></Sentence> <!-- ok -->
 	<Sentence Method="Toolbar-saySentence-NotInGoldSection" name="To win gold coins" type="always"></Sentence> <!-- ok -->
 
@@ -32,16 +31,13 @@
     
     
 <!-- Album -->
-	<Sentence Method="AlbumView-onEmptyFigClick-NotEnoughGold" name="Sorry you can not buy this sticker" type="always"></Sentence> <!-- ok -->
-	<Sentence Method="AlbumView-onEmptyFigClick-NotEnoughSilver" name="Sorry you can not buy this sticker" type="always"></Sentence> <!-- ok -->
-	<Sentence Method="AlbumView-onEmptyFigClick-NotEnoughBronze" name="Sorry you can not buy this sticker" type="always"> <!-- ok -->
-		<Alternative name= "win more play more"></Alternative></Sentence>
+	<Sentence Method="AlbumView-onEmptyFigClick-NotEnoughGold" name="win more play more" type="always"></Sentence> <!-- ok -->
+	<Sentence Method="AlbumView-onEmptyFigClick-NotEnoughSilver" name="win more play more" type="always"></Sentence> <!-- ok -->
+	<Sentence Method="AlbumView-onEmptyFigClick-NotEnoughBronze" name="win more play more" type="always"></Sentence>  <!-- ok -->
     <Sentence Method="AlbumView-ViewDidAppear-Album1Start" name="Welcome to fairyland" type="alwaysSoundOn"></Sentence> <!-- ok -->
 	<Sentence Method="AlbumView-ViewDidAppear-Album2Start" name="Welcome to monsters world" type="alwaysSoundOn"></Sentence> <!-- ok -->
 	<Sentence Method="AlbumView-onEmptyFigClick-NotInSilverSection" name="To win silver coins" type="always"> <!-- ok -->
-        <Alternative name= "Sorry you can not buy this sticker"></Alternative></Sentence> 
-	<Sentence Method="AlbumView-onEmptyFigClick-NotInGoldSection" name="To win gold coins" type="always"> <!-- ok -->
-        <Alternative name= "Sorry you can not buy this sticker"></Alternative></Sentence>
+	<Sentence Method="AlbumView-onEmptyFigClick-NotInGoldSection" name="To win gold coins" type="always"></Sentence> <!-- ok -->
 	<Sentence Method="AlbumView-help1" name="Album help 1" type="always"></Sentence> <!-- ok -->
 	<Sentence Method="AlbumView-help2" name="Album help 2" type="always"></Sentence> <!-- ok -->
     
