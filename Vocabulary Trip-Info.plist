@@ -11,7 +11,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>Kids Learn Vocabulary</string>
 	<key>CFBundleExecutable</key>
-	<string>Kids Learn Vocabulary</string>
+	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFiles</key>
 	<array>
 		<string>Icon.png</string>
