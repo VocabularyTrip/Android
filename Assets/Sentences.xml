@@ -19,7 +19,6 @@
         
 	<Sentence Method="Test-EvaluateGetIntoNextLevel-NextLevel" name="Advanced to next level" type="always"></Sentence> <!-- ok -->
 	<Sentence Method="Test-IntroduceTrain" name="Test help" type="always"></Sentence> <!-- ok -->
-	<Sentence Method="Test-EvaluateGetIntoNextLevel-CloseToLearned" name="Keep playing you are getting closer" type="alwaysSoundOn"></Sentence> <!-- ok -->
     
 <!-- Generic & Toolbar -->	
 	<Sentence Method="Toolbar-saySentence-BronzeToolbar" name="The more correct the more coins" type="always"></Sentence> <!-- ok -->

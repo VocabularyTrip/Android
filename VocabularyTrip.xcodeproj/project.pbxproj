@@ -100,7 +100,6 @@
 		CE1627D61522531A00BFDE69 /* en_Album help 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE1627B51522531A00BFDE69 /* en_Album help 1.mp3 */; };
 		CE1627DA1522531A00BFDE69 /* en_Album help 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE1627B61522531A00BFDE69 /* en_Album help 2.mp3 */; };
 		CE1627E61522531A00BFDE69 /* en_keep playing to advance to that level.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE1627B91522531A00BFDE69 /* en_keep playing to advance to that level.mp3 */; };
-		CE1627EA1522531A00BFDE69 /* en_Keep playing you are getting closer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE1627BA1522531A00BFDE69 /* en_Keep playing you are getting closer.mp3 */; };
 		CE1627FE1522531A00BFDE69 /* en_Once you know these words you Advance.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE1627BF1522531A00BFDE69 /* en_Once you know these words you Advance.mp3 */; };
 		CE16281A1522531A00BFDE69 /* en_Test help.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE1627C61522531A00BFDE69 /* en_Test help.mp3 */; };
 		CE1628261522531A00BFDE69 /* en_The more correct the more coins.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE1627C91522531A00BFDE69 /* en_The more correct the more coins.mp3 */; };
@@ -889,7 +888,6 @@
 		CE1627B51522531A00BFDE69 /* en_Album help 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "en_Album help 1.mp3"; sourceTree = "<group>"; };
 		CE1627B61522531A00BFDE69 /* en_Album help 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "en_Album help 2.mp3"; sourceTree = "<group>"; };
 		CE1627B91522531A00BFDE69 /* en_keep playing to advance to that level.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "en_keep playing to advance to that level.mp3"; sourceTree = "<group>"; };
-		CE1627BA1522531A00BFDE69 /* en_Keep playing you are getting closer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "en_Keep playing you are getting closer.mp3"; sourceTree = "<group>"; };
 		CE1627BF1522531A00BFDE69 /* en_Once you know these words you Advance.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "en_Once you know these words you Advance.mp3"; sourceTree = "<group>"; };
 		CE1627C61522531A00BFDE69 /* en_Test help.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "en_Test help.mp3"; sourceTree = "<group>"; };
 		CE1627C91522531A00BFDE69 /* en_The more correct the more coins.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "en_The more correct the more coins.mp3"; sourceTree = "<group>"; };
@@ -1788,7 +1786,6 @@
 				895BB7781777AB9C00E7540C /* en_Download_Help_1.mp3 */,
 				895BB7881777AC4C00E7540C /* en_Download_Help_2.mp3 */,
 				CE1627B91522531A00BFDE69 /* en_keep playing to advance to that level.mp3 */,
-				CE1627BA1522531A00BFDE69 /* en_Keep playing you are getting closer.mp3 */,
 				B0BD2FC51754D3BE00226A38 /* en_Language_Wizard_1.mp3 */,
 				895BB78A1777B07B00E7540C /* en_Language_Wizard_2.mp3 */,
 				895BB7791777AB9C00E7540C /* en_Level_helpA.mp3 */,
@@ -3333,7 +3330,6 @@
 				CE1627D61522531A00BFDE69 /* en_Album help 1.mp3 in Resources */,
 				CE1627DA1522531A00BFDE69 /* en_Album help 2.mp3 in Resources */,
 				CE1627E61522531A00BFDE69 /* en_keep playing to advance to that level.mp3 in Resources */,
-				CE1627EA1522531A00BFDE69 /* en_Keep playing you are getting closer.mp3 in Resources */,
 				CE1627FE1522531A00BFDE69 /* en_Once you know these words you Advance.mp3 in Resources */,
 				CE16281A1522531A00BFDE69 /* en_Test help.mp3 in Resources */,
 				CE1628261522531A00BFDE69 /* en_The more correct the more coins.mp3 in Resources */,

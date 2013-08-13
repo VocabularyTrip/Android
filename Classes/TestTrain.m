@@ -149,9 +149,9 @@
 	double wasLearnedResult = [Vocabulary wasLearned];
 	if (wasLearnedResult >= cPercentageLearnd && [self hitRate] >= 5) {
 		[self goToNextLevel];
-	} else if (wasLearnedResult >= cPercentageCloseToLearnd && [self hitRate] >= 5) {
+	} /*else if (wasLearnedResult >= cPercentageCloseToLearnd && [self hitRate] >= 5) {
 		if (viewMode == 1) [Sentence playSpeaker: @"Test-EvaluateGetIntoNextLevel-CloseToLearned"];
-	}
+	}*/
 	
 	[self takeOutTrain];
 }
