@@ -123,7 +123,7 @@
 					<object class="IBUIButton" id="805411463">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">301</int>
-						<string key="NSFrame">{{30, 71}, {101, 126}}</string>
+						<string key="NSFrame">{{30, 87}, {101, 126}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="21875859"/>
@@ -146,7 +146,7 @@
 					<object class="IBUIButton" id="21875859">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">301</int>
-						<string key="NSFrame">{{190, 71}, {101, 126}}</string>
+						<string key="NSFrame">{{190, 86}, {101, 126}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="418195840"/>
@@ -171,7 +171,7 @@
 					<object class="IBUIButton" id="418195840">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">301</int>
-						<string key="NSFrame">{{344, 71}, {102, 126}}</string>
+						<string key="NSFrame">{{344, 86}, {102, 126}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="994557715"/>
@@ -382,14 +382,14 @@
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="219305190"/>
-							<reference ref="21875859"/>
-							<reference ref="418195840"/>
 							<reference ref="667798070"/>
 							<reference ref="1014497422"/>
 							<reference ref="16575861"/>
-							<reference ref="805411463"/>
 							<reference ref="994557715"/>
 							<reference ref="44834801"/>
+							<reference ref="21875859"/>
+							<reference ref="418195840"/>
+							<reference ref="805411463"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -656,7 +656,7 @@
 				<string>{170, 90}</string>
 				<string>{43, 43}</string>
 				<string>{127, 158}</string>
-				<string>{43, 43}</string>
+				<string>{49, 49}</string>
 				<string>{127, 158}</string>
 				<string>{127, 158}</string>
 				<string>{480, 320}</string>

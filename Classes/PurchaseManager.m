@@ -60,7 +60,7 @@ PurchaseManager *purchaseManagerSingleton;
 
 + (NSString*) getCompletePurchaseIdentier: (NSString*) inAppPurchase {
 	//NSString *l = [[NSBundle mainBundle] objectForInfoDictionaryKey: cLanguage];
-	return [NSString stringWithFormat: @"VocabularyTrip_%@", inAppPurchase];
+	return [NSString stringWithFormat: @"KLVocabulary_%@", inAppPurchase];
 }
 
 + (void) buy: (NSString*) inAppPurchase {

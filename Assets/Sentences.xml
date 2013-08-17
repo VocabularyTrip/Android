@@ -19,14 +19,13 @@
   
 	<Sentence Method="Test-EvaluateGetIntoNextLevel-NextLevel" name="Advanced to next level" type="always"></Sentence> <!-- ok -->
 	<Sentence Method="Test-IntroduceTrain" name="Test help" type="always"></Sentence> <!-- ok -->
-<<<<<<< HEAD
     
 <!-- Generic & Toolbar -->	
-=======
+
 	<Sentence Method="Test-EvaluateGetIntoNextLevel-CloseToLearned" name="Congratulations1" type="alwaysSoundOn"></Sentence> <!-- ok -->
   
   <!-- Generic & Toolbar -->
->>>>>>> 9766cfe2883cf2b52054bdc1e416060084541b6c
+
 	<Sentence Method="Toolbar-saySentence-BronzeToolbar" name="The more correct the more coins" type="always"></Sentence> <!-- ok -->
 	<Sentence Method="Toolbar-saySentence-NotInSilverSection" name="To win silver coins" type="always"></Sentence> <!-- ok -->
 	<Sentence Method="Toolbar-saySentence-NotInGoldSection" name="To win gold coins" type="always"></Sentence> <!-- ok -->
