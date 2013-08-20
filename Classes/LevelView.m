@@ -675,12 +675,12 @@
     [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
     [UIImageView setAnimationDelegate: self];
     [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
-    [UIImageView setAnimationDidStopSelector: @selector(helpAnimation7)];
+    [UIImageView setAnimationDidStopSelector: @selector(helpAnimation7Pre)];
     [UIImageView setAnimationDuration: 2];
     [UIImageView setAnimationBeginsFromCurrentState: YES];
   
     center.x = word3Button.center.x + word3Button.frame.size.width/2 + word3Button.frame.size.width/2*cos(angle);
-    NSLog(@"angle: %f, x: %f, with: %f, cos: %f", angle, center.x, word3Button.frame.size.width, cos(angle));
+    //NSLog(@"angle: %f, x: %f, with: %f, cos: %f", angle, center.x, word3Button.frame.size.width, cos(angle));
 
     center.y = word3Button.center.y + word3Button.frame.size.height/2 - word3Button.frame.size.height/2*sin(angle);
   
@@ -693,13 +693,19 @@
     [UIImageView commitAnimations];
 }
 
+- (void) helpAnimation7Pre {
+    if (flagCancelAllSounds) return;
+    [Sentence playSpeaker: @"Level_helpB"];
+    [self helpAnimation7];
+}
+
 - (void) helpAnimation7 {
     // hover over lock button
     if (flagCancelAllSounds) return;
     CGPoint center = hand.center;
-    if (angle<M_PI) {
-        [Sentence playSpeaker: @"Level_helpB"];
-    }
+//    if (angle<M_PI) {
+//        [Sentence playSpeaker: @"Level_helpB"];
+//    }
 
     [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
     [UIImageView setAnimationDelegate: self];
@@ -746,8 +752,8 @@
     [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
     [UIImageView setAnimationDelegate: self];
     [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
-    [UIImageView setAnimationDidStopSelector: @selector(helpAnimation9)];
-    [UIImageView setAnimationDuration: 3];
+    [UIImageView setAnimationDidStopSelector: @selector(helpAnimation9Pre)];
+    [UIImageView setAnimationDuration: 4];
     [UIImageView setAnimationBeginsFromCurrentState: YES];
   
     center.x = center.x+1;
@@ -760,11 +766,17 @@
     [UIImageView commitAnimations];
 }
 
+- (void) helpAnimation9Pre {
+    if (flagCancelAllSounds) return;
+    [Sentence playSpeaker: @"Level_helpD"];
+    [self helpAnimation9];
+}
+
 - (void) helpAnimation9 {
     // hover over lock button
     if (flagCancelAllSounds) return;
-    if (angle<4.5*M_PI)
-        [Sentence playSpeaker: @"Level_helpD"];
+//    if (angle<4.5*M_PI)
+//        [Sentence playSpeaker: @"Level_helpD"];
     CGPoint center = hand.center;
   
     //NSLog(@"angle is: %g", angle);
@@ -795,8 +807,8 @@
     [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
     [UIImageView setAnimationDelegate: self];
     [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
-    [UIImageView setAnimationDidStopSelector: @selector(helpAnimation11)];
-    [UIImageView setAnimationDuration: 2];
+    [UIImageView setAnimationDidStopSelector: @selector(helpAnimation11Pre)];
+    [UIImageView setAnimationDuration: 3];
     [UIImageView setAnimationBeginsFromCurrentState: YES];
   
     center = progressMaskView.center;
@@ -809,10 +821,16 @@
     [UIImageView commitAnimations];
 }
 
+- (void) helpAnimation11Pre {
+    if (flagCancelAllSounds) return;
+	[Sentence playSpeaker: @"Level_helpE"];
+    [self helpAnimation11];
+}
+
 - (void) helpAnimation11 {
     // hover over progress bar
     if (flagCancelAllSounds) return;
-	[Sentence playSpeaker: @"Level_helpE"];
+
     CGPoint center = hand.center;
   
     //NSLog(@"angle is: %g", angle);
