@@ -64,7 +64,7 @@
 	
 }
 
--(void) sayTargetWord { 
+-(void) sayTargetWord {
 	Word *word = [words objectAtIndex: targetId];
     if (![word playSound])
         [self pushLevelWithHelpDownload];
@@ -95,6 +95,7 @@
 
 - (void) endGame { 
 	[super endGame];
+    gameStatus = cStatusGameIsMoneyCount;
 	if (viewMode == 1) {
 		int hitRate = [self hitRate];
 		if (hitRate < 5) {
@@ -107,8 +108,17 @@
 			[Sentence playSpeaker: @"Test-EndGame-Amazing"];
 		}
 	}
+//	[self refreshMoneyLabels];
+}
+
+-(void) sentenceDidFinish: (NSString*) method {
+    if ([method isEqualToString: @"Test-EndGame-PracticeMore"]
+        || [method isEqualToString: @"Test-EndGame-GoodJob"]
+        || [method isEqualToString: @"Test-EndGame-GreatJob"]
+        || [method isEqualToString: @"Test-EndGame-Amazing"])
 	[self refreshMoneyLabels];
 }
+
 
 
 - (void) trainLoop {
