@@ -96,6 +96,8 @@ AVAudioPlayer *currentAudio = nil;
 	}
 	@finally {
 	}
+    
+    [delegate sentenceDidFinish: method];
 }
 
 +(void)loadDataFromXML {

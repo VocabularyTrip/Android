@@ -175,6 +175,9 @@
 // **** IBActions *****
 // ********************
 
+-(void) sentenceDidFinish: (NSString*) method {
+}
+
 // ************************
 // **** Core Business *****
 
@@ -405,7 +408,7 @@
 	[UIView beginAnimations:@"GoldAnimation" context:(__bridge void *)(train)];
 	[UIView setAnimationDelegate:self]; 
 	[UIView setAnimationDidStopSelector: @selector(goldAnimationDidStop:finished:context:)]; 
-	[UIView setAnimationDuration: 0.4];
+	[UIView setAnimationDuration: 0.3];
 	[UIView setAnimationCurve:UIViewAnimationCurveLinear];
 	[UIView setAnimationRepeatAutoreverses: NO];
 	

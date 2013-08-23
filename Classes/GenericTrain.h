@@ -189,17 +189,19 @@
 - (void) showMoneyViews;
 - (void) moveWagon;
 - (void) initializeLevel;
--(void) pushLevelWithHelpDownload;
+- (void) pushLevelWithHelpDownload;
 //- (void) showAlertDownloadSounds;
 //- (void) alertDownloadSoundsFinished;
 - (void) throbPauseButton;
 - (void) throbPauseButtonOff;
+
 
 @end
 
 
 @protocol GenericTrainDelegate
 - (void) takeOutTrain;
+- (void) sentenceDidFinish: (NSString*) method;
 @end
 
 

@@ -117,8 +117,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "158"
          endingLineNumber = "158"
-         landmarkName = "+parser:parseErrorOccurred:"
-         landmarkType = "5">
+         landmarkName = "@implementation Sentence"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
@@ -131,6 +131,32 @@
          startingLineNumber = "151"
          endingLineNumber = "151"
          landmarkName = "+parser:didStartElement:namespaceURI:qualifiedName:attributes:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Classes/GenericTrain.m"
+         timestampString = "398917326.639279"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "127"
+         endingLineNumber = "127"
+         landmarkName = "-pauseClicked"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Classes/TrainingTrain.m"
+         timestampString = "398917366.347762"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "423"
+         endingLineNumber = "423"
+         landmarkName = "-helpAnimation6"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
