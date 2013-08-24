@@ -146,7 +146,7 @@ PromoCode *promoCodeSingleton;
 + (void) registerPromoCodeFinishSuccesfully: (NSDictionary*) response {
     
     if ([response count] == 0) {
-        [self answerPromoCodeResult: @"Promo Code does't exists"];
+        [self answerPromoCodeResult: @"Promo Code does NOT exist. Please make sure you entered it correctly"];
         return; // PromoCodeDoseNotExists; // the promoCode doesn't exists
     }
     
@@ -176,7 +176,7 @@ PromoCode *promoCodeSingleton;
             [[NSUserDefaults standardUserDefaults] 
              setObject: aPromoCode.expireDate forKey: cPromoCodeExpireDate];
         } else {
-           [self answerPromoCodeResult: @"Registering a promo code expired"];
+           [self answerPromoCodeResult: @"Registering an expired promo code"];
             return;
         }
     }
@@ -265,7 +265,8 @@ PromoCode *promoCodeSingleton;
         } else {
             NSDate *today = [self dateOnly: [NSDate date]];
             int days = [date timeIntervalSinceDate: today] / 86400;
-            message = [NSString stringWithFormat: @"You have access to full content for %i days", days];
+            NSString *dayDesc = days == 1 ? @"day" : @"days";
+            message = [NSString stringWithFormat: @"You have access to full content for %i %@", days, dayDesc];
         }
         [pref setObject: message forKey: cPromoCodeStatus];
         
