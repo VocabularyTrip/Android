@@ -131,7 +131,8 @@ extern UserContext *userContextSingleton;
 + (UIDeviceResolution)resolution;
 + (int) getDeltaWidthIphone5;
 + (int) windowWidth;
-    
++ (NSString*) getUUID;
+
 -(void) addThreeLevels; // deprecated?
 -(void) addLevel: (Level*) level;	
 -(int)  countOfLevels;

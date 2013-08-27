@@ -32,13 +32,17 @@ PromoCode *promoCodeSingleton;
     
     NSURL *url = [NSURL URLWithString: [NSString stringWithFormat: @"%@/db_promo_code.php?rquest=getPromoCodeForUUID", cUrlServer]];
     NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:
-                          [[UIDevice currentDevice] uniqueIdentifier], @"uuid",
+                          [UserContext getUUID], @"uuid",
                           nil];
+    NSLog(@"IdentifierForVendor: ***%@***", [UserContext getUUID]);
     
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL: url];
 
     NSMutableURLRequest *jsonRequest =
     [httpClient requestWithMethod: @"POST" path: [url  absoluteString] parameters: dict];
+    
+    NSLog(@"json: %@", jsonRequest);
+    
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:
        jsonRequest success:
        ^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
@@ -188,7 +192,7 @@ PromoCode *promoCodeSingleton;
     //      Other use case, is the application was uninstalled and installed again.
     //      In this case if the uuid is the same is allowed to register.
     
-    if (![aPromoCode.uuid isEqualToString: [[UIDevice currentDevice] uniqueIdentifier]]
+    if (![aPromoCode.uuid isEqualToString: [UserContext getUUID]]
         && aPromoCode.claimed) {
         [self answerPromoCodeResult: @"This Promo Code is already in use"];
         return; // PromoCodeAlreadyInUse; // The promoCode was Claimed
@@ -200,7 +204,7 @@ PromoCode *promoCodeSingleton;
     
     NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:
                           aPromoCode.promoCode, @"promoCode",
-                          [[UIDevice currentDevice] uniqueIdentifier], @"uuid",
+                          [UserContext getUUID], @"uuid",
                           nil];
     
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL: url];

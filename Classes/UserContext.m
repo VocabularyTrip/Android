@@ -229,13 +229,18 @@ UserContext *userContextSingleton;
     return money || figurines;
 }
 
++ (NSString*) getUUID {
+    NSString* uuid = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+    //return [uuid stringByReplacingOccurrencesOfString: @"-" withString: @""];
+    return  uuid;
+}
+
 -(id) init { 
     if (self=[super init]) {    
         soundEnabled = -1;
     }
 	return self;
 }
-
 
 - (NSMutableArray*) users {
     //if (!users) users = [User loadDataFromXML];
