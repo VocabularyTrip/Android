@@ -18,7 +18,7 @@
                           key, @"key",
                           valueStr, @"valueStr",
                           valueNum, @"valueNum",
-                          [[UIDevice currentDevice] uniqueIdentifier], @"uuid",
+                          [UserContext getUUID], @"uuid",
                           nil];
     
     AFJSONRequestOperation *operation = [AFProxy preparePostRequest: url param: dict delegate: self];
