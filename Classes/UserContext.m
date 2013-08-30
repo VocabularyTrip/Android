@@ -230,9 +230,18 @@ UserContext *userContextSingleton;
 }
 
 + (NSString*) getUUID {
-    NSString* uuid = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
-    //return [uuid stringByReplacingOccurrencesOfString: @"-" withString: @""];
-    return  uuid;
+  NSString* uniqueIdentifier = nil;
+  if( [UIDevice instancesRespondToSelector:@selector(identifierForVendor)] ) {
+      // iOS 6+
+    uniqueIdentifier = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+  } else {
+      // before iOS 6, so just generate an identifier and store it
+    CFUUIDRef uuid = CFUUIDCreate(NULL);
+    uniqueIdentifier = (__bridge_transfer NSString*)CFUUIDCreateString(NULL, uuid);
+  }
+  return uniqueIdentifier;
+    //    NSString* uuid = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+    //    return  uuid;
 }
 
 -(id) init { 
