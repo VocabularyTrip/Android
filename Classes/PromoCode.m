@@ -35,13 +35,12 @@ PromoCode *promoCodeSingleton;
                           [UserContext getUUID], @"uuid",
                           nil];
     NSLog(@"IdentifierForVendor: ***%@***", [UserContext getUUID]);
-    
+    NSLog(@"url: %@", [url  absoluteString]);
+          
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL: url];
 
     NSMutableURLRequest *jsonRequest =
     [httpClient requestWithMethod: @"POST" path: [url  absoluteString] parameters: dict];
-    
-    NSLog(@"json: %@", jsonRequest);
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:
        jsonRequest success:
@@ -51,12 +50,14 @@ PromoCode *promoCodeSingleton;
        } failure:^(NSURLRequest *request , NSURLResponse *response , NSError *error , id JSON) {
            [self checkAPromoCodeForUUIDFinishWidhError: error];
     }];
-    
+
+    //operation.JSONReadingOptions = NSJSONReadingAllowFragments;
     [operation start];
 }
 
 + (void) checkAPromoCodeForUUIDFinishSuccesfully: (NSDictionary*) response {
     NSDate* date;
+    NSLog(@"checkAPromoCodeForUUIDFinishSuccesfully");
     
     if ([response count] == 0) return; // the promoCode doesn't exists
     
@@ -137,6 +138,7 @@ PromoCode *promoCodeSingleton;
        } failure:^(NSURLRequest *request , NSURLResponse *response , NSError *error , id JSON) {
            [self registerPromoCodeFinishWidhError: error];
     }];
+
     
     [operation start];
 }
