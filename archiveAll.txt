@@ -1,0 +1,14 @@
+#!/bin/sh
+
+xcodebuild -scheme Chinese\ Trip archive
+xcodebuild -scheme English\ Trip archive
+xcodebuild -scheme Farsi\ Trip archive
+xcodebuild -scheme French\ Trip archive
+xcodebuild -scheme German\ Trip archive
+xcodebuild -scheme Italian\ Trip archive
+xcodebuild -scheme Korean\ Trip archive
+xcodebuild -scheme Malaysian\ Trip archive
+xcodebuild -scheme Spanish\ Trip archive
+xcodebuild -scheme Vietnamese\ Trip archive
+
+# xcrun -sdk iphoneos PackageApplication -v /Users/jadz/Dropbox/VocabularyTrip2 (3)/VocabularyTrip2 v1.3/ItalinaTrip -0 /Users/jadz/Dropbox/Templates/Archives/
