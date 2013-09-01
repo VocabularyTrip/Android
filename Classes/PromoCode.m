@@ -34,9 +34,7 @@ PromoCode *promoCodeSingleton;
     NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:
                           [UserContext getUUID], @"uuid",
                           nil];
-    NSLog(@"IdentifierForVendor: ***%@***", [UserContext getUUID]);
-    NSLog(@"url: %@", [url  absoluteString]);
-          
+
     AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL: url];
 
     NSMutableURLRequest *jsonRequest =
@@ -57,7 +55,6 @@ PromoCode *promoCodeSingleton;
 
 + (void) checkAPromoCodeForUUIDFinishSuccesfully: (NSDictionary*) response {
     NSDate* date;
-    NSLog(@"checkAPromoCodeForUUIDFinishSuccesfully");
     
     if ([response count] == 0) return; // the promoCode doesn't exists
     
