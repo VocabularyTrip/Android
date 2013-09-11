@@ -61,17 +61,16 @@
 	}
 	@finally {
 	}
-	
 }
 
--(void) sayTargetWord {
+- (void) sayTargetWord {
 	Word *word = [words objectAtIndex: targetId];
     if (![word playSound])
         [self pushLevelWithHelpDownload];
 	inactivity1 = CFAbsoluteTimeGetCurrent();
 }
 
--(void) selectNextTarget { 
+- (void) selectNextTarget {
 	targetId = arc4random() % 3;
 	flagFaild = NO;
 }
@@ -119,8 +118,6 @@
 	[self refreshMoneyLabels];
 }
 
-
-
 - (void) trainLoop {
 	if (gameStatus == cStatusGameIsOn) {
 		if ([self shortInactivity]) {
@@ -159,9 +156,9 @@
 	double wasLearnedResult = [Vocabulary wasLearned];
 	if (wasLearnedResult >= cPercentageLearnd && [self hitRate] >= 5) {
 		[self goToNextLevel];
-	} /*else if (wasLearnedResult >= cPercentageCloseToLearnd && [self hitRate] >= 5) {
+	} else if (wasLearnedResult >= cPercentageCloseToLearnd && [self hitRate] >= 5) {
 		if (viewMode == 1) [Sentence playSpeaker: @"Test-EvaluateGetIntoNextLevel-CloseToLearned"];
-	}*/
+	}
 	
 	[self takeOutTrain];
 }

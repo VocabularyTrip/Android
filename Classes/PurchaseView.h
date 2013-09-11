@@ -13,7 +13,9 @@
 #import "PurchaseManager.h"
 #import "PromoCode.h"
 
-@interface PurchaseView : UIViewController <UITextFieldDelegate, UIAlertViewDelegate, PurchaseDelegate> { 
+#define cParentalGateTitle @"Parental Gate"
+
+@interface PurchaseView : UIViewController <UITextFieldDelegate, UIAlertViewDelegate, PurchaseDelegate> {
 
 	UIButton *__unsafe_unretained backButton;
 	UIButton *__unsafe_unretained buyAllButton;
@@ -23,6 +25,7 @@
     UILabel *__unsafe_unretained promoCodeLabel;
     UIImageView *__unsafe_unretained backgroundView;
 
+    int resultParentalGate;
 }
 
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *backButton;
@@ -49,5 +52,7 @@
     
 - (void) responseToBuyAction;
 - (void) responseToCancelAction;
+- (void) implementParentalGate;
+- (void) alertView: (UIAlertView *)alertView clickedButtonAtIndex: (NSInteger)buttonIndex;
 
 @end

@@ -35,9 +35,48 @@
 }
 
 - (IBAction) buyAllLevels {
-	[PurchaseManager getSingleton].delegate = self;	
+    [self implementParentalGate];
+	/*[PurchaseManager getSingleton].delegate = self;
 	[PurchaseManager buyAllLevels];
-	[self disableBuyButtons];
+	[self disableBuyButtons];*/
+}
+
+- (void) implementParentalGate {
+    
+    int n1 = arc4random() % 40 + 40;
+    int n2 = arc4random() % 40 + 40;
+    NSString *message = [NSString stringWithFormat: @"before buying, solve this problem. %i + %i is ", n1, n2];
+    
+    resultParentalGate = n1 + n2;
+    
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle: cParentalGateTitle
+                          message: message
+                          delegate:self
+                          cancelButtonTitle: @"OK"
+                          otherButtonTitles: nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [[alert textFieldAtIndex: 0] setKeyboardType: UIKeyboardTypeNumberPad];
+    [alert show];
+}
+
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (![alertView.title isEqualToString: cParentalGateTitle]) return;
+    
+    NSString *value = [[alertView textFieldAtIndex: 0] text];
+    if (resultParentalGate == [value intValue]) {
+        [PurchaseManager getSingleton].delegate = self;
+        [PurchaseManager buyAllLevels];
+    } else {
+        [self refreshLevelInfo];
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle: @"Parental Gate Result"
+                              message: @"Ask an adult to unlock purchase"
+                              delegate: self
+                              cancelButtonTitle: @"OK"
+                              otherButtonTitles: nil];
+        [alert show];
+    }
 }
 
 - (IBAction) registerPromoCode {
