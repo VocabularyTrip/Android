@@ -43,6 +43,7 @@
 
 	Album *album1;			// Album Princess. this object hold all figurines
 	Album *album2;			// Album Monsters. this object hold all figurines
+	Album *album3;			// Album Animals. this object hold all figurines
 	Album *currentAlbum;	// This variable is a pionter to the Album viewed at the moment (the selected album)
 	NSMutableArray *figurinesInPage; // This array is used to draw the page
 
@@ -71,6 +72,7 @@
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *nextButton;
 @property (nonatomic) IBOutlet Album *album1;
 @property (nonatomic) IBOutlet Album *album2;
+@property (nonatomic) IBOutlet Album *album3;
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *hand;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *helpButton;
 
@@ -90,6 +92,7 @@
 - (void) hideToolbar;
 - (void) selectAlbum1;
 - (void) selectAlbum2;
+- (void) selectAlbum3;
 - (void) initializePage;
 - (UIButtonEmptyFigurine*) getEmptyFig: (Figurine*) fig index: (int) anIndex;
 - (void) showMagnifier: (UIButtonEmptyFigurine*) emptyF at: (CGPoint) touchLocation;
