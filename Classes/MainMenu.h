@@ -34,7 +34,8 @@
 - (IBAction) levelShowInfo:(id)sender;
 - (IBAction) album1ShowInfo:(id)sender;
 - (IBAction) album2ShowInfo:(id)sender;
-
+- (IBAction) album3ShowInfo:(id)sender;
+    
 - (void) initialize;
 - (void) stopBackgroundSound;
 - (void) initAudioSession;

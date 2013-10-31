@@ -182,6 +182,13 @@
 	[vcDelegate pushAlbumView];
 }
 
+- (IBAction)album3ShowInfo:(id)sender {
+	[self stopBackgroundSound];
+	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
+	[vcDelegate.albumView selectAlbum3];
+	[vcDelegate pushAlbumView];
+}
+
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Return YES for supported orientations.
