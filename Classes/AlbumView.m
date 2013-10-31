@@ -380,7 +380,7 @@
 }
 
 -(void) setAffordable: (UIButtonEmptyFigurine*) buttonEmptyFig to: (bool) aValue {
-	buttonEmptyFig.alpha = aValue ? 1 : 0.4;
+	buttonEmptyFig.alpha = aValue ? 1 : 1; // 0.4;
 	UIImage *imageEmpty = aValue ? [UIImage imageNamed: @"figu-empty.png"] : [UIImage imageNamed: @"figu-empty-no.png"];
 	[buttonEmptyFig setBackgroundImage: imageEmpty forState: UIControlStateNormal];
 }
