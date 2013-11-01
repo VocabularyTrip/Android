@@ -195,6 +195,10 @@
     return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft || interfaceOrientation == UIInterfaceOrientationLandscapeRight);
 }
 
+- (BOOL) prefersStatusBarHidden {
+    return YES;
+}
+
 -(NSUInteger) supportedInterfaceOrientations
 {
     return UIInterfaceOrientationMaskLandscape;

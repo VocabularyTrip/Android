@@ -213,6 +213,10 @@ UserContext *userContextSingleton;
     return 	[[NSLocale preferredLanguages] objectAtIndex: 0];
 }
 
++ (int) osVersion {
+    return [[UIDevice currentDevice] systemVersion];
+}
+
 + (bool) existUserData {
     if (![self getUserSelected]) return false;
     bool money = 

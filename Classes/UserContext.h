@@ -125,6 +125,7 @@ extern UserContext *userContextSingleton;
 + (NSString*) getPreferredLanguage;
 + (int) soundEnabled;
 + (void) setSoundEnabled: (int) newVal;
++ (int) osVersion;
 + (NSString*) getIphoneIpadFile: (NSString*) imageFile;
 + (NSString*) getIphoneIpadFile: (NSString*) imageFile ext: (NSString*) ext;
 + (NSString*) getIphone5xIpadFile: (NSString*) imageFile;
