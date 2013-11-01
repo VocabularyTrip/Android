@@ -10,7 +10,10 @@
 
 @interface ImageManger : NSObject
 
-+(void) adjustImage: (UIView*) imageView toSize: (int) aSize;
-+(void) adjustImage: (UIView*) imageView width: (int) aSize;
-    
++ (void) adjustImage: (UIView*) imageView toSize: (int) aSize;
++ (void) adjustImage: (UIView*) imageView width: (int) aSize;
++ (UIImage *) imageWithImage: (UIImage *) image scaledToSize: (CGSize) newSize;
++ (UIImage *) imageWithImage: (UIImage *) image scaledToSize: (CGSize) newSize;
++ (UIImage *) imageWithName: (NSString *) imageName scaledToSize: (CGSize) newSize;
+
 @end

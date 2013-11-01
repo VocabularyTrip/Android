@@ -15,6 +15,7 @@
 @synthesize backgroundSound;
 @synthesize aNewLanguage;
 @synthesize backgroundView;
+@synthesize albumsView;
 
 - (void) initialize {
     [[PurchaseManager getSingleton] initializeObserver];
@@ -22,6 +23,7 @@
     [Vocabulary loadDataFromXML];
     [Sentence loadDataFromXML];
     [self initAudioSession];
+
 }
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
@@ -34,6 +36,23 @@
 	}
 	@finally {
 	}
+    [self initAlbums];
+}
+
+- (void) initAlbums {
+    albumsView.viewDelegate = self;
+    [albumsView setVerticalOffset: 110];
+    
+    UIImage *newImage = [ImageManger imageWithName: @"cover-princess" scaledToSize: CGSizeMake(170,90)];
+    [(AFOpenFlowView *) self.albumsView setImage: newImage forIndex: 0];
+
+    newImage = [ImageManger imageWithName: @"cover-monster" scaledToSize: CGSizeMake(170,90)];
+    [(AFOpenFlowView *) self.albumsView setImage: newImage forIndex: 1];
+    
+    newImage = [ImageManger imageWithName: @"cover-animal" scaledToSize: CGSizeMake(170,90)];
+    [(AFOpenFlowView *) self.albumsView setImage: newImage forIndex: 2];
+    
+    [(AFOpenFlowView *)self.albumsView setNumberOfImages: 3];
 }
 
 -(void) viewWillAppear:(BOOL)animated {

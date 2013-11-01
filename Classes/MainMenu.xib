@@ -8,12 +8,13 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainMenu">
             <connections>
                 <outlet property="aNewLanguage" destination="72" id="74"/>
+                <outlet property="albumsView" destination="1" id="Lfc-lw-uvQ"/>
                 <outlet property="backgroundView" destination="18" id="86"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="1">
+        <view contentMode="scaleToFill" id="1" customClass="AFOpenFlowView">
             <rect key="frame" x="0.0" y="0.0" width="480" height="300"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -97,7 +98,7 @@
                         <action selector="levelShowInfo:" destination="-1" eventType="touchDown" id="57"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="46" userLabel="Album1Button">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="46" userLabel="Album1Button">
                     <rect key="frame" x="5" y="219" width="150" height="80"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
@@ -112,7 +113,7 @@
                         <action selector="album1ShowInfo:" destination="-1" eventType="touchDown" id="50"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="47" userLabel="Album2Button">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="47" userLabel="Album2Button">
                     <rect key="frame" x="163" y="219" width="150" height="80"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
@@ -131,7 +132,7 @@
                     <rect key="frame" x="246" y="57" width="127" height="158"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="pkf-UH-fNL">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="pkf-UH-fNL">
                     <rect key="frame" x="314" y="219" width="150" height="80"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>

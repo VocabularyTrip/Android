@@ -59,7 +59,7 @@
    	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
         return  -50;
     else 
-        return  -80;
+        return  -10; //-80;
 }
 
 - (id)initWithFrame:(CGRect)frame {
@@ -78,11 +78,11 @@
 	return self;
 }
 
-- (void)setImage:(UIImage *)newImage originalImageHeight:(CGFloat)imageHeight reflectionFraction:(CGFloat)reflectionFraction {
-	[imageView setImage:newImage];
+- (void)setImage:(UIImage *)newImage verticalOffset: (CGFloat) verticalOffset originalImageHeight:(CGFloat)imageHeight reflectionFraction:(CGFloat)reflectionFraction {
+	[imageView setImage: newImage];
 	verticalPosition = imageHeight * reflectionFraction / 2;
 	originalImageHeight = imageHeight;
-	self.frame = CGRectMake(0, 0, newImage.size.width, newImage.size.height);
+	self.frame = CGRectMake(0, verticalOffset, newImage.size.width, newImage.size.height);
 }
 
 - (void)setNumber:(int)newNumber {
@@ -111,6 +111,5 @@
 	[super setFrame:newFrame];
 	[imageView setFrame:newFrame];
 }
-
 
 @end

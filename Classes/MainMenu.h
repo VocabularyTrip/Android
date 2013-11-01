@@ -14,18 +14,21 @@
 #import "TrainingTrain.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import <MessageUI/MessageUI.h>
+#import "AFOpenFlowView.h"
 
 #define cMailInfo @"info@vocabularyTrip.com"
 
-@interface MainMenu : UIViewController <MFMailComposeViewControllerDelegate> {
+@interface MainMenu : UIViewController <MFMailComposeViewControllerDelegate, AFOpenFlowViewDelegate, AFOpenFlowViewDataSource> {
 	AVAudioPlayer* backgroundSound;
     UIImageView *__unsafe_unretained aNewLanguage;
     UIImageView *__unsafe_unretained backgroundView;
+    AFOpenFlowView *__unsafe_unretained albumsView;
 }
 
 @property (nonatomic, strong) AVAudioPlayer *backgroundSound;
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *aNewLanguage;
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *backgroundView;
+@property (nonatomic, unsafe_unretained) IBOutlet AFOpenFlowView *albumsView;
 
 - (IBAction) changeUserShowInfo:(id)sender;  
 - (IBAction) mailButtonClicked:(id)sender;

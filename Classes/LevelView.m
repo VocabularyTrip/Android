@@ -267,7 +267,7 @@
 - (void) refreshLevelInfo {
   
     NSString *coverName;
-    coverName = [UserContext getIphone5xIpadFile: @"empty-page-monsters"];
+    coverName = [UserContext getIphone5xIpadFile: @"background_wizard"];
     [backgroundView setImage: [UIImage imageNamed: coverName]];
   
 	levelText.text = [NSString stringWithFormat: @"%d", [UserContext getLevel]];
