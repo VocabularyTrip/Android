@@ -19,6 +19,6 @@
 + (AFJSONRequestOperation*) prepareRequest: (NSURL *) url delegate: (id) delegate;
 + (AFJSONRequestOperation*) preparePostRequest: (NSURL *) url param: (NSDictionary*) dict delegate: (id) delegate;
 + (AFHTTPRequestOperation*) prepareDownload: (NSURL *) url destination: (NSString*) destinPath delegate: (id) delegate;
-+ (bool) checkConnectivity;
+//+ (bool) checkConnectivity;
 
 @end

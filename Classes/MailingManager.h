@@ -13,6 +13,6 @@
 
 + (void) sendMail: (NSString*) message to: (NSString*) mailT;
 + (void) connectionFinishSuccesfully: (NSDictionary*) response;
-+ (void) requestFailed: (NSError *) error;
+//+ (void) requestFailed: (NSError *) error;
 
 @end

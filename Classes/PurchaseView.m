@@ -45,12 +45,12 @@
     
     int n1 = arc4random() % 40 + 40;
     int n2 = arc4random() % 40 + 40;
-    NSString *message = [NSString stringWithFormat: @"before buying, solve this problem. %i + %i is ", n1, n2];
+    NSString *message = [NSString stringWithFormat: @"Before, solve this problem: %i + %i", n1, n2];
     
     resultParentalGate = n1 + n2;
     
     UIAlertView *alert = [[UIAlertView alloc]
-                          initWithTitle: cParentalGateTitle
+                          initWithTitle: @"" //cParentalGateTitle
                           message: message
                           delegate:self
                           cancelButtonTitle: @"OK"
@@ -61,7 +61,7 @@
 }
 
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (![alertView.title isEqualToString: cParentalGateTitle]) return;
+    if ([alertView.title isEqualToString: @"Parental Gate Result"]) return;
     
     NSString *value = [[alertView textFieldAtIndex: 0] text];
     if (resultParentalGate == [value intValue]) {

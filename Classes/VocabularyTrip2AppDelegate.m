@@ -405,7 +405,11 @@
             break;
         case 1: { // Rate It
             int appId = [self getAppId];
-            NSString *url = [NSString stringWithFormat: @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%i", appId];
+            NSString *url;
+            if ([UserContext osVersion] >= 7)
+                url = [NSString stringWithFormat: @"itms-apps://itunes.apple.com/app/id%i", appId];
+            else
+                url = [NSString stringWithFormat: @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%i", appId];
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString: url]];
             [[NSUserDefaults standardUserDefaults] setBool: YES forKey: cNoAskMeAgain];
             break;
@@ -447,9 +451,9 @@
     }
 }
 
-- (void) startLoadingVocabulary {
+/*- (void) startLoadingVocabulary {
     [self pushUserLangResumView];
-}
+}*/
 
 
 - (int) getAppId {
@@ -497,9 +501,10 @@
     
 	int countExecutions = [[NSUserDefaults standardUserDefaults] integerForKey: cCountExecutions];
     
-    int delta = (countExecutions / cAskRateEachTimes);
-    delta = countExecutions - (delta * cAskRateEachTimes);
-    if (delta == cAskRateEachTimes - 1) 
+    int eachRateTime = cAskRateEachTimes;
+    int delta = (countExecutions / eachRateTime);
+    delta = countExecutions - (delta * eachRateTime);
+    if (delta == eachRateTime - 1)
         [self askToRate];
 
     countExecutions++;
@@ -510,7 +515,7 @@
 
 - (void) askToRate {
     
-    NSString *appName = [[NSBundle mainBundle] objectForInfoDictionaryKey: (NSString*)kCFBundleExecutableKey];
+    NSString *appName = [[NSBundle mainBundle] objectForInfoDictionaryKey: (NSString*)  kCFBundleNameKey]; // kCFBundleExecutableKey];
     NSString *message = [NSString stringWithFormat: @"If you enjou using %@, would you mind taking a moment to rate it? It won't take more than a minute. Thanks for your support !", appName];
     
     UIAlertView *alert = [[UIAlertView alloc] 
