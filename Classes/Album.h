@@ -12,7 +12,6 @@
 
 #define cAlbum1 @"AlbumPrincess"
 #define cAlbum2 @"AlbumMonsters"
-#define cAlbum3 @"AlbumAnimals"
 
 @interface Album : NSObject <NSXMLParserDelegate> {
 	NSMutableArray *pages; 
