@@ -4,16 +4,16 @@
 	<Sentence Method="AppDelegate-ResponseToBuyAction-NextLevel" name="Advanced to next level" type="always"></Sentence> <!-- ok -->
   
   <!-- TEST -->
-	<Sentence Method="Test-EndGame-PracticeMore" name="Congratulations13" type="always"> <!-- ok -->
+	<Sentence Method="Test-EndGame-PracticeMore" name="Congratulations13" type="alwaysSoundOn"> <!-- ok -->
     <Alternative name= "Congratulations3"></Alternative> <!-- I konw you can do it -->
   </Sentence>
-	<Sentence Method="Test-EndGame-Amazing" name="Congratulations4" type="always"> <!-- ok -->
+	<Sentence Method="Test-EndGame-Amazing" name="Congratulations4" type="alwaysSoundOn"> <!-- ok -->
     <Alternative name= "Congratulations6"></Alternative></Sentence> <!-- Wow You got the mok! -->
-  <Sentence Method="Test-EndGame-GreatJob" name="Congratulations8" type="always"> <!-- ok -->
+  <Sentence Method="Test-EndGame-GreatJob" name="Congratulations8" type="alwaysSoundOn"> <!-- ok -->
     <Alternative name= "Congratulations9"></Alternative>
     <Alternative name= "Congratulations12"></Alternative>
     <Alternative name= "Congratulations2"></Alternative></Sentence> <!-- You are very good on this -->
-  <Sentence Method="Test-EndGame-GoodJob" name="Congratulations10" type="always"> <!-- ok -->
+  <Sentence Method="Test-EndGame-GoodJob" name="Congratulations10" type="alwaysSoundOn"> <!-- ok -->
     <Alternative name= "Congratulations14"></Alternative> <!-- You are geting better -->
     <Alternative name= "Congratulations5"></Alternative></Sentence> <!-- Keep working you are definetely improving -->
   

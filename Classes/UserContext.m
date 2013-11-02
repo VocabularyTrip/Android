@@ -213,10 +213,6 @@ UserContext *userContextSingleton;
     return 	[[NSLocale preferredLanguages] objectAtIndex: 0];
 }
 
-+ (int) osVersion {
-    return [[UIDevice currentDevice] systemVersion];
-}
-
 + (bool) existUserData {
     if (![self getUserSelected]) return false;
     bool money = 
@@ -229,10 +225,6 @@ UserContext *userContextSingleton;
     
 	albumTemp = [Album alloc];
 	figurines = figurines || [albumTemp checkAnyBought: cAlbum2];
-
-	albumTemp = [Album alloc];
-	figurines = figurines || [albumTemp checkAnyBought: cAlbum3];
-   
     
     return money || figurines;
 }
@@ -336,10 +328,7 @@ UserContext *userContextSingleton;
     
 	albumTemp = [Album alloc];
 	[albumTemp resetAlbum: cAlbum2];
-
-	albumTemp = [Album alloc];
-	[albumTemp resetAlbum: cAlbum3];
-    
+        
 }
 
 +(void) reloadContext {
