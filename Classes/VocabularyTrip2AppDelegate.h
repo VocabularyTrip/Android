@@ -60,7 +60,7 @@
 - (void) initUsersDefaults;
 - (void) initAllControllers;
 - (void) popMainMenu;
-- (void) pushUserLangResumView;
+//- (void) pushUserLangResumView;
 - (void) pushLockLanguageView;
 - (void) pushChangeLangView;
 - (void) pushChangeUserView;
@@ -89,7 +89,7 @@
 - (void) alertAskToReview: (UIAlertView*) alertView clickedButtonAtIndex: (NSInteger) buttonIndex;
 - (void) alertBuyNewLevel: (UIAlertView*) alertView clickedButtonAtIndex: (NSInteger) buttonIndex;
 - (void) alertDownloadLang: (UIAlertView*) alertView clickedButtonAtIndex: (NSInteger) buttonIndex;
-- (void) startLoadingVocabulary;
+//- (void) startLoadingVocabulary;
 - (void) checkPromoCodeDueDate;
 - (void) checkAPromoCodeForUUID;
 - (void) saveTimePlayedInDB;

@@ -447,9 +447,9 @@
     }
 }
 
-- (void) startLoadingVocabulary {
+/*- (void) startLoadingVocabulary {
     [self pushUserLangResumView];
-}
+}*/
 
 
 - (int) getAppId {

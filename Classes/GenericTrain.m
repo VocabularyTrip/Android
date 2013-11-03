@@ -523,11 +523,11 @@
    alertDownloadSounds.alpha = 0.0;
 }*/
 
-- (IBAction) jumpDownloadDictionary {
+/*- (IBAction) jumpDownloadDictionary {
     [self done: nil];
     VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
     [vocTripDelegate pushUserLangResumView];
-}
+}*/
 
 - (int) getLandscapeOffset {
 	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)	

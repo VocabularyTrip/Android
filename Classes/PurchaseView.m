@@ -61,7 +61,7 @@
 }
 
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (![alertView.title isEqualToString: cParentalGateTitle]) return;
+    if ([alertView.title isEqualToString: @"Parental Gate Result"]) return;
     
     NSString *value = [[alertView textFieldAtIndex: 0] text];
     if (resultParentalGate == [value intValue]) {

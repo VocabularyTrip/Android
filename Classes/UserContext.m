@@ -230,10 +230,6 @@ UserContext *userContextSingleton;
 	albumTemp = [Album alloc];
 	figurines = figurines || [albumTemp checkAnyBought: cAlbum2];
 
-	albumTemp = [Album alloc];
-	figurines = figurines || [albumTemp checkAnyBought: cAlbum3];
-   
-    
     return money || figurines;
 }
 
@@ -337,9 +333,6 @@ UserContext *userContextSingleton;
 	albumTemp = [Album alloc];
 	[albumTemp resetAlbum: cAlbum2];
 
-	albumTemp = [Album alloc];
-	[albumTemp resetAlbum: cAlbum3];
-    
 }
 
 +(void) reloadContext {

@@ -59,7 +59,7 @@
 - (void) helpAnimation7;
 - (void) helpAnimation8;
 - (void) helpAnimation9;
-- (void) helpAnimation10;
+//- (void) helpAnimation10;
 
 @end
 
