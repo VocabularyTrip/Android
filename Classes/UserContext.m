@@ -214,7 +214,7 @@ UserContext *userContextSingleton;
 }
 
 + (int) osVersion {
-    return [[UIDevice currentDevice] systemVersion];
+    return [[[UIDevice currentDevice] systemVersion] integerValue];
 }
 
 + (bool) existUserData {
