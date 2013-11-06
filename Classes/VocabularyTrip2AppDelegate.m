@@ -405,7 +405,14 @@
             break;
         case 1: { // Rate It
             int appId = [self getAppId];
-            NSString *url = [NSString stringWithFormat: @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%i", appId];
+            //NSString *url = [NSString stringWithFormat: @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%i", appId];
+            
+            NSString *url;
+            if ([UserContext osVersion] >= 7)
+                url = [NSString stringWithFormat: @"itms-apps://itunes.apple.com/app/id%i", appId];
+            else
+                url = [NSString stringWithFormat: @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%i", appId];
+
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString: url]];
             [[NSUserDefaults standardUserDefaults] setBool: YES forKey: cNoAskMeAgain];
             break;
