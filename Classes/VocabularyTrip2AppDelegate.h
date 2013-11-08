@@ -20,6 +20,7 @@
 #import "PromoCode.h"
 #import "PurchaseView.h"
 #import "Reachability.h"
+#import "AlbumMenu.h"
 
 @class MainMenu;
 
@@ -35,6 +36,7 @@
 	LevelView *levelView;
 	AlbumView *albumView;
 	PurchaseView *purchaseView;
+	AlbumMenu *albumMenu;
     
 	UINavigationController *navController;
     NSDate *startPlaying;
@@ -52,6 +54,7 @@
 @property (nonatomic) LevelView *levelView;
 @property (nonatomic) AlbumView *albumView;
 @property (nonatomic) PurchaseView *purchaseView;
+@property (nonatomic) AlbumMenu *albumMenu;
 @property (nonatomic) UINavigationController *navController;
 @property (nonatomic, strong) NSDate *startPlaying;
 @property (nonatomic) Reachability *internetReachable;
@@ -71,12 +74,14 @@
 - (void) pushTestTrain;
 - (void) pushAlbumView;
 - (void) pushTrainingTrain;
+- (void) pushAlbumMenu;
 - (void) popMainMenuFromLevel;
 - (void) popMainMenuFromPurchase;
 - (void) popMainMenuFromAlbum;
 - (void) popMainMenuFromTestTrain;
 - (void) popMainMenuFromTrainingTrain;
 - (void) popFromLockLanguageView;
+- (void) popMainMenuFromAlbumMenu;
 - (void) popMainMenuFromChangeLang;
     
 - (void) responseToBuyAction;
@@ -95,7 +100,7 @@
 - (void) saveTimePlayedInDB;
 
 - (void) initializeInternetReachabilityNotifier;
-- (void)checkNetworkStatus:(NSNotification *)notice;
+- (void) checkNetworkStatus:(NSNotification *)notice;
 
 
 @end

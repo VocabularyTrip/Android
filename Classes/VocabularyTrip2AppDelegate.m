@@ -25,6 +25,7 @@
 @synthesize navController;
 @synthesize startPlaying;
 @synthesize internetReachable;
+@synthesize albumMenu;
 
 #pragma mark -
 #pragma mark Application lifecycle
@@ -54,7 +55,7 @@
 	UIView *aView = [self.navController view];
 	[window addSubview: aView];
     
-    if ( [[UIDevice currentDevice].systemVersion floatValue] < 6.0) {
+    if ([UserContext osVersion] < 6.0) {
         // warning: addSubView doesn’t work on iOS6
         [self.window addSubview: aView];
     }
@@ -178,23 +179,6 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-/*- (bool) existUserData {
-    bool money = 
-        (UserContext.getMoney1 != 0) || 
-        (UserContext.getMoney2 != 0) || 
-        (UserContext.getMoney3 != 0);
-    
-  	Album* albumTemp = [Album alloc];
-	bool figurines = [albumTemp checkAnyBought: cAlbum1];
-	[albumTemp release];
-    
-	albumTemp = [Album alloc];
-	figurines = figurines || [albumTemp checkAnyBought: cAlbum2];
-	[albumTemp release];
-  
-    return money || figurines;
-}*/
-
 - (void) initAllControllers {
 	
 	[self initMainMenu];
@@ -296,6 +280,16 @@
 	return trainingTrain;
 }
 
+-(AlbumMenu*) albumMenu {
+	if ( albumMenu == nil) {
+		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+			albumMenu = [[AlbumMenu alloc] initWithNibName:@"AlbumMenu~ipad" bundle:nil];
+		else
+			albumMenu = [[AlbumMenu alloc] initWithNibName:@"AlbumMenu" bundle:nil];
+	}
+	return albumMenu;
+}
+
 - (void) pushChangeLangView {
 	[navController pushViewController: self.changeLangView animated: YES];
 }
@@ -341,6 +335,10 @@
 	[navController pushViewController: self.trainingTrain animated: NO];
 }
 
+- (void) pushAlbumMenu {
+	[navController pushViewController: self.albumMenu animated: YES];
+}
+
 - (void) popMainMenu {
 	[navController popViewControllerAnimated: NO];
 }
@@ -381,6 +379,11 @@
 	[self popMainMenu];
 	Sentence.delegate = nil;	
 	trainingTrain = nil;
+}
+
+- (void) popMainMenuFromAlbumMenu {
+	[self popMainMenu];
+	albumMenu = nil;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

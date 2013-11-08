@@ -59,7 +59,7 @@
    	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
         return  -50;
     else 
-        return  -10; //-80;
+        return  -80;
 }
 
 - (id)initWithFrame:(CGRect)frame {

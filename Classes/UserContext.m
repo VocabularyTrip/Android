@@ -213,8 +213,8 @@ UserContext *userContextSingleton;
     return 	[[NSLocale preferredLanguages] objectAtIndex: 0];
 }
 
-+ (int) osVersion {
-    return [[UIDevice currentDevice] systemVersion];
++ (float) osVersion {
+    return [[[UIDevice currentDevice] systemVersion] floatValue];
 }
 
 + (bool) existUserData {

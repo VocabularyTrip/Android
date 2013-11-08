@@ -233,7 +233,6 @@
 	[self initializeTimer];
 }
 
-
 - (void) initializeTimer {
 	if (theTimer == nil) {
 		theTimer = [CADisplayLink displayLinkWithTarget:self selector:@selector(initializePage)];
@@ -335,7 +334,7 @@
 
     if (emptyF.fig.image) {
         int moveDelta = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 30 : 15;
-        int sizePreview = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 60 : 30;
+        int sizePreview = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 120 : 60;
         [previewView setImage: emptyF.fig.image];	
 	
         UIImageView *tempImageView = [[UIImageView alloc] initWithImage: emptyF.fig.image];
@@ -380,7 +379,7 @@
 }
 
 -(void) setAffordable: (UIButtonEmptyFigurine*) buttonEmptyFig to: (bool) aValue {
-	buttonEmptyFig.alpha = aValue ? 1 : 1; // 0.4;
+	buttonEmptyFig.alpha = aValue ? 1 : 0.7;
 	UIImage *imageEmpty = aValue ? [UIImage imageNamed: @"figu-empty.png"] : [UIImage imageNamed: @"figu-empty-no.png"];
 	[buttonEmptyFig setBackgroundImage: imageEmpty forState: UIControlStateNormal];
 }

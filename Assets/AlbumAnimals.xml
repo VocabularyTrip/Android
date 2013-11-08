@@ -1,100 +1,125 @@
 <?xml version="1.0"?>
 
 <album>
-	<Fig number="23" image="animal03.png" page = "0" x= "390" y = "164" cost = "38" type="bronze" size="150"></Fig>
-	<Fig number="21" image="animal38.png" page = "0" x= "68" y = "164" cost = "1" type="bronze" size="150"></Fig>
-	<Fig number="22" image="animal39.png" page = "0" x= "240" y = "164" cost = "24" type="gold" size="150"></Fig>
-	<Fig number="0" image="animal18.png" page = "1" x= "68" y = "164" cost = "37" type="gold" size="130"></Fig>
-	<Fig number="1" image="animal19.png" page = "1" x= "240" y = "164" cost = "24" type="bronze" size="130"></Fig>
-	<Fig number="2" image="animal20.png" page = "1" x= "390" y = "164" cost = "19" type="bronze" size="130"></Fig>
     
-	<Fig number="60" image="animal08.png" page = "2" x= "240" y = "230" cost = "3" type="gold" size="120"></Fig>
-	<Fig number="61" image="animal09.png" page = "2" x= "80" y = "167" cost = "35" type="gold" size="120"></Fig>
-	<Fig number="62" image="animal10.png" page = "2" x= "240" y = "107" cost = "25" type="silver" size="120"></Fig>
-	<Fig number="63" image="animal11.png" page = "2" x= "390" y = "167" cost = "37" type="bronze" size="140"></Fig>
+    <Fig number="86" image="animal88.png" page = "0" x= "75" y = "164" cost = "2" type="bronze" size="140"></Fig>
+	<Fig number="87" image="animal89.png" page = "0" x= "240" y = "164" cost = "10" type="bronze" size="140"></Fig>
+	<Fig number="88" image="animal90.png" page = "0" x= "400" y = "164" cost = "34" type="silver" size="140"></Fig>
     
-    <Fig number="3" image="animal21.png" page = "3" x= "68" y = "164" cost = "26" type="bronze" size="120"></Fig>
-	<Fig number="4" image="animal22.png" page = "3" x= "240" y = "164" cost = "29" type="silver" size="120"></Fig>
-	<Fig number="5" image="animal23.png" page = "3" x= "390" y = "164" cost = "9" type="silver" size="120"></Fig>
-	<Fig number="6" image="animal24.png" page = "4" x= "68" y = "164" cost = "32" type="bronze" size="120"></Fig>
-	<Fig number="7" image="animal25.png" page = "4" x= "240" y = "164" cost = "38" type="gold" size="120"></Fig>
-	<Fig number="8" image="animal26.png" page = "4" x= "390" y = "164" cost = "5" type="silver" size="120"></Fig>
-    <Fig number="40" image="animal55.png" page = "5" x= "240" y = "227" cost = "36" type="gold" size="120"></Fig>
-	<Fig number="42" image="animal56.png" page = "5" x= "240" y = "104" cost = "23" type="gold" size="120"></Fig>
-	<Fig number="43" image="animal57.png" page = "5" x= "390" y = "164" cost = "35" type="bronze" size="120"></Fig>
-	<Fig number="41" image="animal66.png" page = "5" x= "80" y = "164" cost = "21" type="gold" size="120"></Fig>
-	<Fig number="9" image="animal27.png" page = "6" x= "68" y = "164" cost = "7" type="gold" size="120"></Fig>
-	<Fig number="10" image="animal28.png" page = "6" x= "240" y = "164" cost = "5" type="gold" size="120"></Fig>
-	<Fig number="11" image="animal29.png" page = "6" x= "390" y = "164" cost = "27" type="bronze" size="120"></Fig>
-	<Fig number="13" image="animal30.png" page = "7" x= "240" y = "164" cost = "23" type="gold" size="120"></Fig>
-	<Fig number="14" image="animal31.png" page = "7" x= "390" y = "164" cost = "22" type="gold" size="120"></Fig>
-    <Fig number="12" image="animal01.png" page = "7" x= "68" y = "164" cost = "31" type="silver" size="120"></Fig>
-	<Fig number="12" image="animal02.png" page = "7" x= "68" y = "164" cost = "31" type="silver" size="120"></Fig>
-	<Fig number="48" image="animal62.png" page = "8" x= "240" y = "227" cost = "11" type="gold" size="110"></Fig>
-	<Fig number="49" image="animal63.png" page = "8" x= "80" y = "164" cost = "35" type="bronze" size="120"></Fig>
-	<Fig number="50" image="animal64.png" page = "8" x= "240" y = "104" cost = "38" type="gold" size="110"></Fig>
-	<Fig number="51" image="animal65.png" page = "8" x= "390" y = "164" cost = "37" type="gold" size="120"></Fig>
-    <Fig number="15" image="animal32.png" page = "9" x= "68" y = "164" cost = "38" type="silver" size="120"></Fig>
-	<Fig number="16" image="animal33.png" page = "9" x= "240" y = "164" cost = "36" type="silver" size="120"></Fig>
-	<Fig number="17" image="animal34.png" page = "9" x= "390" y = "164" cost = "37" type="silver" size="120"></Fig>
-	<Fig number="18" image="animal35.png" page = "10" x= "68" y = "164" cost = "15" type="bronze" size="120"></Fig>
-	<Fig number="19" image="animal36.png" page = "10" x= "240" y = "164" cost = "38" type="gold" size="120"></Fig>
-	<Fig number="20" image="animal37.png" page = "10" x= "390" y = "164" cost = "2" type="gold" size="120"></Fig>
-	<Fig number="54" image="animal43.png" page = "11" x= "240" y = "104" cost = "11" type="gold" size="120"></Fig>
-	<Fig number="55" image="animal44.png" page = "11" x= "390" y = "164" cost = "35" type="bronze" size="120"></Fig>
-	<Fig number="53" image="animal50.png" page = "11" x= "240" y = "227" cost = "31" type="gold" size="120"></Fig>
-	<Fig number="52" image="animal54.png" page = "11" x= "80" y = "164" cost = "30" type="silver" size="120"></Fig>
-    <Fig number="24" image="animal40.png" page = "12" x= "68" y = "164" cost = "15" type="gold" size="120"></Fig>
-	<Fig number="25" image="animal41.png" page = "12" x= "240" y = "164" cost = "22" type="gold" size="120"></Fig>
-	<Fig number="26" image="animal42.png" page = "12" x= "390" y = "164" cost = "15" type="gold" size="120"></Fig>
-	<Fig number="29" image="animal45.png" page = "13" x= "390" y = "164" cost = "6" type="silver" size="120"></Fig>
-	<Fig number="27" image="animal68.png" page = "13" x= "68" y = "164" cost = "37" type="gold" size="120"></Fig>
-	<Fig number="28" image="animal69.png" page = "13" x= "240" y = "164" cost = "4" type="bronze" size="120"></Fig>
-    <Fig number="59" image="animal06.png" page = "14" x= "390" y = "167" cost = "31" type="silver" size="120"></Fig>
-	<Fig number="56" image="animal07.png" page = "14" x= "240" y = "230" cost = "38" type="bronze" size="120"></Fig>
-	<Fig number="57" image="animal70.png" page = "14" x= "80" y = "167" cost = "12" type="gold" size="120"></Fig>
-	<Fig number="58" image="animal71.png" page = "14" x= "240" y = "107" cost = "34" type="gold" size="120"></Fig>
-	<Fig number="70" image="animal72.png" page = "14" x= "240" y = "107" cost = "34" type="gold" size="120"></Fig>
-    <Fig number="30" image="animal46.png" page = "15" x= "68" y = "164" cost = "1" type="bronze" size="120"></Fig>
-	<Fig number="31" image="animal47.png" page = "15" x= "240" y = "164" cost = "22" type="silver" size="120"></Fig>
-	<Fig number="32" image="animal48.png" page = "15" x= "390" y = "164" cost = "13" type="silver" size="120"></Fig>
-    <Fig number="34" image="animal04.png" page = "16" x= "240" y = "164" cost = "35" type="silver" size="120"></Fig>
-	<Fig number="35" image="animal05.png" page = "16" x= "390" y = "164" cost = "35" type="silver" size="120"></Fig>
-	<Fig number="33" image="animal49.png" page = "16" x= "68" y = "164" cost = "25" type="bronze" size="120"></Fig>
-	<Fig number="37" image="animal51.png" page = "17" x= "240" y = "227" cost = "5" type="gold" size="120"></Fig>
-	<Fig number="38" image="animal53.png" page = "17" x= "240" y = "104" cost = "4" type="bronze" size="120"></Fig>
-	<Fig number="39" image="animal52.png" page = "17" x= "390" y = "164" cost = "32" type="gold" size="120"></Fig>
-	<Fig number="36" image="animal67.png" page = "17" x= "80" y = "164" cost = "6" type="gold" size="120"></Fig>
-	<Fig number="44" image="animal58.png" page = "18" x= "240" y = "227" cost = "33" type="gold" size="120"></Fig>
-	<Fig number="45" image="animal59.png" page = "18" x= "80" y = "164" cost = "20" type="bronze" size="120"></Fig>
-	<Fig number="46" image="animal60.png" page = "18" x= "240" y = "104" cost = "34" type="gold" size="120"></Fig>
-	<Fig number="47" image="animal61.png" page = "18" x= "390" y = "164" cost = "39" type="silver" size="120"></Fig>
-	<Fig number="64" image="animal12.png" page = "19" x= "68" y = "164" cost = "37" type="silver" size="120"></Fig>
-	<Fig number="65" image="animal13.png" page = "19" x= "240" y = "164" cost = "36" type="bronze" size="120"></Fig>
-	<Fig number="66" image="animal14.png" page = "19" x= "390" y = "164" cost = "6" type="gold" size="120"></Fig>
-	<Fig number="67" image="animal15.png" page = "20" x= "68" y = "164" cost = "24" type="bronze" size="120"></Fig>
-	<Fig number="68" image="animal16.png" page = "20" x= "240" y = "164" cost = "36" type="bronze" size="120"></Fig>
-	<Fig number="69" image="animal17.png" page = "20" x= "390" y = "164" cost = "27" type="bronze" size="120"></Fig>
-	<Fig number="71" image="animal73.png" page = "21" x= "240" y = "107" cost = "34" type="gold" size="120"></Fig>
-	<Fig number="72" image="animal74.png" page = "21" x= "240" y = "107" cost = "34" type="gold" size="120"></Fig>
-	<Fig number="73" image="animal75.png" page = "21" x= "240" y = "107" cost = "34" type="gold" size="120"></Fig>
+    <Fig number="71" image="animal73.png" page = "1" x= "75" y = "164" cost = "50" type="bronze" size="140"></Fig>
+	<Fig number="72" image="animal74.png" page = "1" x= "240" y = "164" cost = "15" type="silver" size="140"></Fig>
+	<Fig number="73" image="animal75.png" page = "1" x= "400" y = "164" cost = "20" type="silver" size="140"></Fig>
     
-    <Fig number="74" image="animal76.png" page = "22" x= "240" y = "227" cost = "5" type="gold" size="130"></Fig>
-    <Fig number="75" image="animal77.png" page = "22" x= "240" y = "104" cost = "4" type="bronze" size="130"></Fig>
-    <Fig number="76" image="animal78.png" page = "22" x= "390" y = "164" cost = "32" type="gold" size="130"></Fig>
-    <Fig number="77" image="animal79.png" page = "22" x= "80" y = "164" cost = "6" type="gold"
-size="150"></Fig>
+    <Fig number="74" image="animal76.png" page = "2" x= "240" y = "240" cost = "5" type="gold" size="130"></Fig>
+    <Fig number="75" image="animal77.png" page = "2" x= "240" y = "114" cost = "4" type="bronze" size="120"></Fig>
+    <Fig number="76" image="animal78.png" page = "2" x= "400" y = "164" cost = "32" type="gold" size="130"></Fig>
+    <Fig number="77" image="animal85.png" page = "2" x= "75" y = "164" cost = "6" type="gold" size="120"></Fig>
+    
+	<Fig number="83" image="animal79.png" page = "3" x= "75" y = "164" cost = "14" type="silver" size="140"></Fig>
+	<Fig number="84" image="animal86.png" page = "3" x= "240" y = "164" cost = "50" type="silver" size="140"></Fig>
+	<Fig number="85" image="animal87.png" page = "3" x= "400" y = "164" cost = "21" type="bronze" size="140"></Fig>
+    
+	<Fig number="23" image="animal03.png" page = "4" x= "400" y = "210" cost = "38" type="bronze" size="160"></Fig>
+	<Fig number="21" image="animal38.png" page = "4" x= "75" y = "210" cost = "1" type="bronze" size="150"></Fig>
+	<Fig number="22" image="animal39.png" page = "4" x= "240" y = "140" cost = "24" type="gold" size="150"></Fig>
 
-	<Fig number="78" image="animal80.png" page = "23" x= "240" y = "107" cost = "34" type="gold" size="120"></Fig>
-	<Fig number="79" image="animal81.png" page = "23" x= "240" y = "107" cost = "34" type="gold" size="120"></Fig>
-	<Fig number="80" image="animal82.png" page = "24" x= "240" y = "107" cost = "34" type="gold" size="120"></Fig>
-	<Fig number="81" image="animal83.png" page = "24" x= "240" y = "107" cost = "34" type="gold" size="120"></Fig>
-	<Fig number="82" image="animal84.png" page = "24" x= "240" y = "107" cost = "34" type="gold" size="120"></Fig>
-	<Fig number="83" image="animal85.png" page = "25" x= "240" y = "107" cost = "34" type="gold" size="120"></Fig>
-	<Fig number="84" image="animal86.png" page = "25" x= "240" y = "107" cost = "34" type="gold" size="120"></Fig>
-	<Fig number="85" image="animal87.png" page = "25" x= "240" y = "107" cost = "34" type="gold" size="120"></Fig>
-	<Fig number="86" image="animal88.png" page = "26" x= "240" y = "107" cost = "34" type="gold" size="120"></Fig>
-	<Fig number="87" image="animal89.png" page = "26" x= "240" y = "107" cost = "34" type="gold" size="120"></Fig>
-	<Fig number="88" image="animal90.png" page = "26" x= "240" y = "107" cost = "34" type="gold" size="120"></Fig>
+    <Fig number="0" image="animal18.png" page = "5" x= "75" y = "200" cost = "37" type="gold" size="150"></Fig>
+	<Fig number="1" image="animal19.png" page = "5" x= "240" y = "140" cost = "24" type="bronze" size="160"></Fig>
+	<Fig number="2" image="animal20.png" page = "5" x= "400" y = "200" cost = "19" type="bronze" size="150"></Fig>
+    
+	<Fig number="60" image="animal11.png" page = "6" x= "240" y = "230" cost = "3" type="gold" size="130"></Fig>
+	<Fig number="61" image="animal09.png" page = "6" x= "75" y = "167" cost = "35" type="gold" size="120"></Fig>
+	<Fig number="62" image="animal10.png" page = "6" x= "240" y = "107" cost = "25" type="silver" size="140"></Fig>
+	<Fig number="63" image="animal08.png" page = "6" x= "400" y = "167" cost = "37" type="bronze" size="140"></Fig>
+    
+    <Fig number="3" image="animal22.png" page = "7" x= "240" y = "240" cost = "26" type="bronze" size="140"></Fig>
+	<Fig number="4" image="animal21.png" page = "7" x= "75" y = "167" cost = "29" type="silver" size="140"></Fig>
+	<Fig number="5" image="animal23.png" page = "7" x= "240" y = "107" cost = "9" type="silver" size="140"></Fig>
+    <Fig number="78" image="animal80.png" page = "7" x= "400" y = "167" cost = "34" type="gold" size="140"></Fig>
+
+
+    <Fig number="6" image="animal24.png" page = "8" x= "75" y = "164" cost = "32" type="bronze" size="130"></Fig>
+	<Fig number="7" image="animal25.png" page = "8" x= "240" y = "240" cost = "38" type="gold" size="140"></Fig>
+	<Fig number="8" image="animal26.png" page = "8" x= "400" y = "164" cost = "5" type="silver"
+        size="130"></Fig>
+    <Fig number="79" image="animal81.png" page = "8" x= "240" y = "107" cost = "34" type="gold" size="140"></Fig>
+    
+    <Fig number="40" image="animal55.png" page = "9" x= "240" y = "227" cost = "36" type="gold" size="130"></Fig>
+	<Fig number="42" image="animal56.png" page = "9" x= "240" y = "104" cost = "23" type="gold" size="130"></Fig>
+	<Fig number="43" image="animal57.png" page = "9" x= "400" y = "164" cost = "35" type="bronze" size="130"></Fig>
+	<Fig number="41" image="animal66.png" page = "9" x= "75" y = "164" cost = "21" type="gold" size="140"></Fig>
+    
+	<Fig number="9" image="animal27.png" page = "10" x= "75" y = "164" cost = "7" type="gold" size="120"></Fig>
+	<Fig number="10" image="animal28.png" page = "10" x= "240" y = "227" cost = "5" type="gold" size="120"></Fig>
+	<Fig number="11" image="animal29.png" page = "10" x= "400" y = "164" cost = "27" type="bronze" size="110"></Fig>
+    <Fig number="80" image="animal82.png" page = "10" x= "240" y = "107" cost = "34" type="gold" size="120"></Fig>
+
+	<Fig number="13" image="animal30.png" page = "11" x= "240" y = "227" cost = "23" type="gold" size="140"></Fig>
+	<Fig number="14" image="animal02.png" page = "11" x= "400" y = "164" cost = "22" type="gold" size="140"></Fig>
+    <Fig number="12" image="animal01.png" page = "11" x= "75" y = "164" cost = "31" type="silver" size="140"></Fig>
+	<Fig number="12" image="animal31.png" page = "11" x= "240" y = "107" cost = "31" type="silver" size="140"></Fig>
+    
+	<Fig number="48" image="animal63.png" page = "12" x= "240" y = "227" cost = "11" type="gold" size="110"></Fig>
+	<Fig number="49" image="animal62.png" page = "12" x= "75" y = "164" cost = "35" type="bronze" size="130"></Fig>
+	<Fig number="50" image="animal64.png" page = "12" x= "240" y = "104" cost = "38" type="gold" size="110"></Fig>
+	<Fig number="51" image="animal65.png" page = "12" x= "400" y = "164" cost = "37" type="gold" size="120"></Fig>
+    
+    <Fig number="15" image="animal32.png" page = "13" x= "75" y = "164" cost = "38" type="silver" size="120"></Fig>
+	<Fig number="16" image="animal34.png" page = "13" x= "240" y = "227" cost = "36" type="silver" size="120"></Fig>
+	<Fig number="17" image="animal33.png" page = "13" x= "400" y = "164" cost = "37" type="silver" size="120"></Fig>
+    <Fig number="81" image="animal83.png" page = "13" x= "240" y = "107" cost = "34" type="gold" size="120"></Fig>
+    
+	<Fig number="18" image="animal36.png" page = "14" x= "75" y = "164" cost = "15" type="bronze" size="120"></Fig>
+	<Fig number="19" image="animal35.png" page = "14" x= "240" y = "227" cost = "38" type="gold" size="120"></Fig>
+	<Fig number="20" image="animal84.png" page = "14" x= "400" y = "164" cost = "2" type="gold" size="120"></Fig>
+    <Fig number="82" image="animal37.png" page = "14" x= "240" y = "107" cost = "34" type="gold" size="120"></Fig>
+    
+	<Fig number="54" image="animal43.png" page = "15" x= "240" y = "104" cost = "11" type="gold" size="140"></Fig>
+	<Fig number="55" image="animal50.png" page = "15" x= "400" y = "164" cost = "35" type="bronze" size="140"></Fig>
+	<Fig number="53" image="animal44.png" page = "15" x= "240" y = "227" cost = "31" type="gold" size="140"></Fig>
+	<Fig number="52" image="animal54.png" page = "15" x= "75" y = "164" cost = "30" type="silver" size="140"></Fig>
+    
+    <Fig number="24" image="animal40.png" page = "16" x= "75" y = "164" cost = "15" type="gold" size="150"></Fig>
+	<Fig number="25" image="animal41.png" page = "16" x= "240" y = "164" cost = "22" type="gold" size="150"></Fig>
+	<Fig number="26" image="animal42.png" page = "16" x= "400" y = "164" cost = "15" type="gold" size="150"></Fig>
+    
+	<Fig number="29" image="animal45.png" page = "17" x= "400" y = "164" cost = "6" type="silver" size="150"></Fig>
+	<Fig number="27" image="animal68.png" page = "17" x= "75" y = "164" cost = "37" type="gold" size="150"></Fig>
+	<Fig number="28" image="animal69.png" page = "17" x= "240" y = "164" cost = "4" type="bronze" size="150"></Fig>
+    
+    <Fig number="59" image="animal71.png" page = "18" x= "400" y = "167" cost = "31" type="silver" size="130"></Fig>
+	<Fig number="56" image="animal07.png" page = "18" x= "240" y = "230" cost = "38" type="bronze" size="130"></Fig>
+	<Fig number="57" image="animal70.png" page = "18" x= "75" y = "167" cost = "12" type="gold" size="130"></Fig>
+	<Fig number="58" image="animal06.png" page = "18" x= "240" y = "107" cost = "34" type="gold" size="130"></Fig>
+
+    <Fig number="70" image="animal72.png" page = "15" x= "240" y = "107" cost = "34" type="gold" size="130"></Fig>
+    <Fig number="30" image="animal46.png" page = "15" x= "75" y = "164" cost = "1" type="bronze"
+        size="130"></Fig>
+    
+	<Fig number="31" image="animal47.png" page = "15" x= "240" y = "230" cost = "22" type="silver" size="130"></Fig>
+	<Fig number="32" image="animal48.png" page = "15" x= "400" y = "164" cost = "13" type="silver" size="130"></Fig>
+    
+    <Fig number="34" image="animal04.png" page = "16" x= "240" y = "164" cost = "35" type="silver" size="150"></Fig>
+	<Fig number="35" image="animal05.png" page = "16" x= "400" y = "164" cost = "35" type="silver" size="150"></Fig>
+	<Fig number="33" image="animal49.png" page = "16" x= "75" y = "164" cost = "25" type="bronze" size="150"></Fig>
+    
+	<Fig number="37" image="animal67.png" page = "17" x= "240" y = "227" cost = "5" type="gold" size="150"></Fig>
+	<Fig number="38" image="animal53.png" page = "17" x= "240" y = "104" cost = "4" type="bronze" size="150"></Fig>
+	<Fig number="39" image="animal52.png" page = "17" x= "400" y = "164" cost = "32" type="gold" size="150"></Fig>
+	<Fig number="36" image="animal51.png" page = "17" x= "75" y = "164" cost = "6" type="gold" size="150"></Fig>
+    
+	<Fig number="44" image="animal59.png" page = "18" x= "240" y = "227" cost = "33" type="gold" size="150"></Fig>
+	<Fig number="45" image="animal58.png" page = "18" x= "75" y = "164" cost = "20" type="bronze" size="130"></Fig>
+	<Fig number="46" image="animal60.png" page = "18" x= "240" y = "104" cost = "34" type="gold" size="150"></Fig>
+	<Fig number="47" image="animal61.png" page = "18" x= "400" y = "164" cost = "39" type="silver" size="150"></Fig>
+    
+	<Fig number="64" image="animal12.png" page = "19" x= "75" y = "164" cost = "37" type="silver" size="140"></Fig>
+	<Fig number="65" image="animal13.png" page = "19" x= "240" y = "164" cost = "36" type="bronze" size="140"></Fig>
+	<Fig number="66" image="animal14.png" page = "19" x= "400" y = "164" cost = "6" type="gold" size="140"></Fig>
+    
+	<Fig number="67" image="animal15.png" page = "20" x= "75" y = "164" cost = "24" type="bronze" size="150"></Fig>
+	<Fig number="68" image="animal16.png" page = "20" x= "240" y = "164" cost = "36" type="bronze" size="150"></Fig>
+	<Fig number="69" image="animal17.png" page = "20" x= "400" y = "164" cost = "27" type="bronze" size="140"></Fig>
+
 
 </album>

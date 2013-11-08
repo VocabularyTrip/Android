@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
+    <dependencies>
+        <deployment defaultVersion="1072" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AlbumMenu">
+            <connections>
+                <outlet property="backButton" destination="FZf-oT-28c" id="qgL-44-ZNE"/>
+                <outlet property="backgroundView" destination="cpE-h8-oYx" id="1PQ-Eb-FR7"/>
+                <outlet property="view" destination="2" id="3"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="2">
+            <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menu_bg@ipad.png" id="cpE-h8-oYx">
+                    <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="FZf-oT-28c" userLabel="BackButton">
+                    <rect key="frame" x="20" y="12" width="200" height="92"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="Menu1@ipad.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="done:" destination="-1" eventType="touchDown" id="jlQ-ZM-fcO"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="isf-Q2-VSp" userLabel="AnimalAlbumButton">
+                    <rect key="frame" x="707" y="480" width="267" height="160"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button" image="cover-animal.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="album3ShowInfo:" destination="-1" eventType="touchDown" id="uhT-rW-7ww"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bDr-dC-xPV" userLabel="PrincessesAlbumButton">
+                    <rect key="frame" x="37" y="480" width="267" height="160"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button" image="cover-princess.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="album1ShowInfo:" destination="-1" eventType="touchDown" id="unM-Df-MQ2"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0xp-ea-9Ed" userLabel="MonsterAlbumButton">
+                    <rect key="frame" x="374" y="480" width="267" height="160"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button" image="cover-monster.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="album2ShowInfo:" destination="-1" eventType="touchDown" id="9Gx-0E-WDl"/>
+                    </connections>
+                </button>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Completeness" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="Eh5-fc-esX">
+                    <rect key="frame" x="44" y="657" width="253" height="28"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_empty@ipad.png" id="wsj-iN-HRJ" userLabel="ProgressEmptyView">
+                    <rect key="frame" x="62" y="684" width="217" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_fill@ipad.png" id="vQI-mz-3VF" userLabel="ProgressFillView">
+                    <rect key="frame" x="62" y="684" width="217" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_back@ipad.png" id="8tk-F2-tyO" userLabel="ProgressBackView">
+                    <rect key="frame" x="62" y="684" width="217" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_fill@ipad.png" id="Jnw-OA-Nt9" userLabel="ProgressFillView">
+                    <rect key="frame" x="399" y="684" width="217" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Completeness" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="gWU-3J-0Dd">
+                    <rect key="frame" x="381" y="657" width="253" height="28"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_back@ipad.png" id="W7e-Me-q2E" userLabel="ProgressBackView">
+                    <rect key="frame" x="399" y="684" width="217" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_empty@ipad.png" id="Yoh-ev-jnn" userLabel="ProgressEmptyView">
+                    <rect key="frame" x="399" y="684" width="217" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_fill@ipad.png" id="f9s-V3-NHC" userLabel="ProgressFillView">
+                    <rect key="frame" x="732" y="685" width="217" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Completeness" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="cak-eA-oDN">
+                    <rect key="frame" x="714" y="657" width="253" height="28"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_back@ipad.png" id="lAR-n9-tuE" userLabel="ProgressBackView">
+                    <rect key="frame" x="732" y="685" width="217" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_empty@ipad.png" id="B8c-Xk-Ets" userLabel="ProgressEmptyView">
+                    <rect key="frame" x="732" y="685" width="217" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Menu1@ipad.png" width="209" height="80"/>
+        <image name="cover-animal.png" width="480" height="320"/>
+        <image name="cover-monster.png" width="480" height="320"/>
+        <image name="cover-princess.png" width="480" height="320"/>
+        <image name="menu_bg@ipad.png" width="1024" height="748"/>
+        <image name="progress_back@ipad.png" width="434" height="61"/>
+        <image name="progress_empty@ipad.png" width="434" height="61"/>
+        <image name="progress_fill@ipad.png" width="434" height="61"/>
+    </resources>
+</document>
