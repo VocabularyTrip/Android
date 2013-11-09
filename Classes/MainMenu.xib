@@ -17,7 +17,7 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="300"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="background_wizard.png" id="18" userLabel="BackgroundMenu">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="menu_bg.png" id="18" userLabel="BackgroundMenu">
                     <rect key="frame" x="0.0" y="-10" width="480" height="320"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                 </imageView>
@@ -52,7 +52,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="21" userLabel="ChallengeButton">
-                    <rect key="frame" x="190" y="66" width="101" height="126"/>
+                    <rect key="frame" x="190" y="88" width="101" height="126"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                     <state key="normal" image="btn_challenge.png">
@@ -67,7 +67,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="30" userLabel="TrainigButton">
-                    <rect key="frame" x="38" y="66" width="101" height="126"/>
+                    <rect key="frame" x="38" y="88" width="101" height="126"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                     <state key="normal" image="btn_training.png">
@@ -83,7 +83,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="39" userLabel="LevelButton">
-                    <rect key="frame" x="346" y="66" width="102" height="126"/>
+                    <rect key="frame" x="346" y="88" width="102" height="126"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                     <state key="normal" image="btn_level.png">
@@ -98,7 +98,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="46" userLabel="AlbumButton">
-                    <rect key="frame" x="165" y="209" width="150" height="80"/>
+                    <rect key="frame" x="172" y="216" width="150" height="80"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                     <state key="normal" image="cover-princess.png">
@@ -118,12 +118,12 @@
         </view>
     </objects>
     <resources>
-        <image name="background_wizard.png" width="480" height="320"/>
         <image name="btn_avatar_on.png" width="43" height="43"/>
         <image name="btn_challenge.png" width="127" height="158"/>
         <image name="btn_info_on.png" width="49" height="49"/>
         <image name="btn_level.png" width="127" height="158"/>
         <image name="btn_training.png" width="127" height="158"/>
         <image name="cover-princess.png" width="480" height="320"/>
+        <image name="menu_bg.png" width="480" height="320"/>
     </resources>
 </document>

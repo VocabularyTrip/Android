@@ -38,8 +38,12 @@
 	<Sentence Method="AlbumView-onEmptyFigClick-NotEnoughGold" name="win more play more" type="always"></Sentence> <!-- ok -->
 	<Sentence Method="AlbumView-onEmptyFigClick-NotEnoughSilver" name="win more play more" type="always"></Sentence> <!-- ok -->
 	<Sentence Method="AlbumView-onEmptyFigClick-NotEnoughBronze" name="win more play more" type="always"></Sentence>  <!-- ok -->
-  <Sentence Method="AlbumView-ViewDidAppear-Album1Start" name="Welcome to fairyland" type="alwaysSoundOn"></Sentence> <!-- ok -->
+    <Sentence Method="AlbumView-ViewDidAppear-Album1Start" name="Welcome to fairyland" type="alwaysSoundOn"></Sentence> <!-- ok -->
 	<Sentence Method="AlbumView-ViewDidAppear-Album2Start" name="Welcome to monsters world" type="alwaysSoundOn"></Sentence> <!-- ok -->
+	<Sentence Method="AlbumView-ViewDidAppear-Album3Start" name="elephant" type="alwaysSoundOn">
+        <Alternative name= "owl"></Alternative>
+    </Sentence> <!-- ok -->
+    
 	<Sentence Method="AlbumView-onEmptyFigClick-NotInSilverSection" name="To win silver coins" type="always"></Sentence> <!-- ok -->
   <Sentence Method="AlbumView-onEmptyFigClick-NotInGoldSection" name="To win gold coins" type="always"></Sentence> <!-- ok -->
   <Sentence Method="AlbumView-help1" name="Album help 1" type="always"></Sentence> <!-- ok -->
