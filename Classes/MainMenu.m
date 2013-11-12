@@ -29,7 +29,7 @@
 - (void) initializeTimer {
 	if (theTimer == nil) {
 		theTimer = [CADisplayLink displayLinkWithTarget:self selector:@selector(albumFlipAnimation)];
-		theTimer.frameInterval = 200;
+		theTimer.frameInterval = 400;
 		[theTimer addToRunLoop: [NSRunLoop currentRunLoop] forMode: NSDefaultRunLoopMode];
 	}
 }

@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AlbumMenu">
             <connections>
+                <outlet property="album1Button" destination="Mb2-pc-0Sb" id="tjy-Iq-YTK"/>
                 <outlet property="backButton" destination="BaY-ou-r5i" id="ujN-af-OCn"/>
                 <outlet property="backgroundView" destination="gyq-fK-YKx" id="53a-PO-0TD"/>
                 <outlet property="view" destination="1" id="JqI-4O-C73"/>

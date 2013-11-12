@@ -8,23 +8,23 @@
 	<Fig number="22" image="animal80.png" page = "0" x= "885" y = "320" cost = "24" type="gold" size="240"> </Fig>
 	<Fig number="0" image="animal83.png" page = "0" x= "704" y = "590" cost = "37" type="gold" size="240"> </Fig>
 
-	<Fig number="21" image="animal72.png" page = "1" x= "511" y = "240" cost = "1" type="bronze" size="240"> </Fig>
-	<Fig number="23" image="animal75.png" page = "1" x= "145" y = "320" cost = "38" type="bronze" size="240"> </Fig>
-	<Fig number="1" image="animal78.png" page = "1" x= "320" y = "590" cost = "24" type="bronze" size="240"> </Fig>
-	<Fig number="22" image="animal81.png" page = "1" x= "885" y = "320" cost = "24" type="gold" size="240"> </Fig>
+	<Fig number="21" image="animal72.png" page = "1" x= "511" y = "240" cost = "15" type="bronze" size="240"> </Fig>
+	<Fig number="23" image="animal75.png" page = "1" x= "145" y = "320" cost = "7" type="silver" size="240"> </Fig>
+	<Fig number="1" image="animal78.png" page = "1" x= "320" y = "590" cost = "24" type="silver" size="240"> </Fig>
+	<Fig number="22" image="animal81.png" page = "1" x= "885" y = "320" cost = "10" type="bronze" size="240"> </Fig>
 	<Fig number="0" image="animal84.png" page = "1" x= "704" y = "590" cost = "37" type="gold" size="240"> </Fig>
 
-    <Fig number="21" image="animal73.png" page = "2" x= "511" y = "240" cost = "1" type="bronze" size="240"> </Fig>
-    <Fig number="23" image="animal76.png" page = "2" x= "145" y = "320" cost = "38" type="bronze" size="240"> </Fig>
-    <Fig number="1" image="animal79.png" page = "2" x= "320" y = "590" cost = "24" type="bronze" size="240"> </Fig>
-    <Fig number="22" image="animal85.png" page = "2" x= "885" y = "320" cost = "24" type="gold" size="210"> </Fig>
-    <Fig number="0" image="animal82.png" page = "2" x= "704" y = "590" cost = "37" type="gold" size="240"> </Fig>
+    <Fig number="21" image="animal73.png" page = "2" x= "511" y = "240" cost = "6" type="silver" size="240"> </Fig>
+    <Fig number="23" image="animal76.png" page = "2" x= "145" y = "320" cost = "22" type="bronze" size="240"> </Fig>
+    <Fig number="1" image="animal79.png" page = "2" x= "320" y = "590" cost = "37" type="gold" size="240"> </Fig>
+    <Fig number="22" image="animal85.png" page = "2" x= "885" y = "320" cost = "19" type="silver" size="210"> </Fig>
+    <Fig number="0" image="animal82.png" page = "2" x= "704" y = "590" cost = "30" type="bronze" size="240"> </Fig>
 
-    <Fig number="21" image="animal86.png" page = "3" x= "511" y = "240" cost = "1" type="bronze" size="270"> </Fig>
-    <Fig number="23" image="animal87.png" page = "3" x= "145" y = "320" cost = "38" type="bronze" size="240"> </Fig>
-    <Fig number="1" image="animal88.png" page = "3" x= "320" y = "590" cost = "24" type="bronze" size="240"> </Fig>
-    <Fig number="22" image="animal89.png" page = "3" x= "885" y = "320" cost = "24" type="gold" size="240"> </Fig>
-    <Fig number="0" image="animal90.png" page = "3" x= "704" y = "590" cost = "37" type="gold" size="240"> </Fig>
+    <Fig number="21" image="animal86.png" page = "3" x= "511" y = "240" cost = "50" type="gold" size="270"> </Fig>
+    <Fig number="23" image="animal87.png" page = "3" x= "145" y = "320" cost = "40" type="gold" size="240"> </Fig>
+    <Fig number="1" image="animal88.png" page = "3" x= "320" y = "590" cost = "9" type="silver" size="240"> </Fig>
+    <Fig number="22" image="animal89.png" page = "3" x= "885" y = "320" cost = "36" type="silver" size="240"> </Fig>
+    <Fig number="0" image="animal90.png" page = "3" x= "704" y = "590" cost = "28" type="bronze" size="240"> </Fig>
 
 	<Fig number="2" image="animal20.png" page = "4" x= "511" y = "240" cost = "19" type="bronze" size="240"> </Fig>
 	<Fig number="60" image="animal08.png" page = "4" x= "145" y = "320" cost = "3" type="gold" size="270"> </Fig>
@@ -40,7 +40,7 @@
 
     <Fig number="8" image="animal26.png" page = "6" x= "511" y = "250" cost = "5" type="silver" size="270"> </Fig>
 	<Fig number="41" image="animal57.png" page = "6" x= "145" y = "320" cost = "21" type="gold" size="240"> </Fig>
-	<Fig number="40" image="animal55.png" page = "6" x= "320" y = "590" cost = "36" type="gold" size="240"> </Fig>
+	<Fig number="40" image="animal55.png" page = "6" x= "320" y = "590" cost = "7" type="gold" size="240"> </Fig>
 	<Fig number="42" image="animal56.png" page = "6" x= "704" y = "590" cost = "23" type="gold" size="240"> </Fig>
 	<Fig number="43" image="animal66.png" page = "6" x= "885" y = "320" cost = "35" type="bronze" size="240"> </Fig>
 

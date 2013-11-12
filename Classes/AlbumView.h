@@ -94,6 +94,7 @@
 - (void) selectAlbum2;
 - (void) selectAlbum3;
 - (void) initializePage;
+- (void) initializePageAndThenSoundLoop;
 - (UIButtonEmptyFigurine*) getEmptyFig: (Figurine*) fig index: (int) anIndex;
 - (void) showMagnifier: (UIButtonEmptyFigurine*) emptyF at: (CGPoint) touchLocation;
 - (void) onEmptyFigClick: (id) sender;

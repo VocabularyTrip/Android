@@ -71,10 +71,9 @@
 
 }
 
+/*+ (bool) checkConnectivity {
 
-+ (bool) checkConnectivity {
-
-/*    Reachability *r = [Reachability reachabilityWithHostName: @"www.google.com"];
+    Reachability *r = [Reachability reachabilityWithHostName: @"www.google.com"];
     return [r currentReachabilityStatus] != NotReachable*/
     
     /*Reachability *r = [Reachability reachabilityForInternetConnection];
@@ -88,8 +87,8 @@
     }];
     
     NSLog(@"Connected: %i", r);
-    return r;*/
-}
+    return r;
+}*/
 
 
 @end

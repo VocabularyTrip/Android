@@ -25,7 +25,7 @@
 #import "AFOpenFlowView.h"
 #import "AFOpenFlowConstants.h"
 #import "AFUIImageReflection.h"
-
+#import "ImageManager.h"
 
 @interface AFOpenFlowView (hidden)
 
@@ -239,11 +239,11 @@ const static CGFloat kReflectionFraction = 0.85;
 	UIImage *imageWithReflection = [image addImageReflection:kReflectionFraction];
 	NSNumber *coverNumber = [NSNumber numberWithInt:index];
 	[coverImages setObject:imageWithReflection forKey:coverNumber];
+
 	[coverImageHeights setObject:[NSNumber numberWithFloat:image.size.height] forKey:coverNumber];
 	
 	// If this cover is onscreen, set its image and call layoutCover.
 	AFItemView *aCover = (AFItemView *)[onscreenCovers objectForKey:[NSNumber numberWithInt:index]];
-    
 	if (aCover) {
 		[aCover setImage:imageWithReflection verticalOffset: verticalOffset originalImageHeight:image.size.height reflectionFraction:kReflectionFraction];
 		[self layoutCover:aCover selectedCover:selectedCoverView.number animated:NO];
@@ -456,8 +456,12 @@ const static CGFloat kReflectionFraction = 0.85;
 	}
 }
 
--(void) setVerticalOffset:(CGFloat)newValue {
+/*-(void) setVerticalOffset:(CGFloat)newValue {
     verticalOffset = newValue;
+}*/
+
+- (AFItemView*) getSelectedCoverView {
+    return selectedCoverView;
 }
 
 @end

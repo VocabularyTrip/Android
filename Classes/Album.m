@@ -46,6 +46,25 @@
 	}
 }
 
+- (double) progress {
+	if ([pages count] == 0) return 0;
+	Figurine* fig;
+	AlbumPage* page;
+    int total = 0;
+    int qWasBought = 0;
+    
+	for (int i=0; i < [pages count]; i++) {
+		page = [pages objectAtIndex: i];
+		for (int j=0; j < [page.figurines count]; j++) {
+			fig = [page.figurines objectAtIndex: j];
+            if (fig.wasBought) qWasBought++;
+            total++;
+		}
+	}
+    NSLog(@"Progress: %f", (double) qWasBought / (double) total);
+  	return ((double) qWasBought / (double) total);
+}
+
 - (bool) checkAnyBought: (NSString*) albumName {
 	Figurine* fig;
 	AlbumPage* page;

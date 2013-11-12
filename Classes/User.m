@@ -247,8 +247,9 @@
 
 -(UIImage*) image {
     if (image == nil) {
-        NSString *imageName = [NSString stringWithFormat: @"avatar%i", userId];
-        NSString *file = [[NSString alloc ] initWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath], [UserContext getIphoneIpadFile: imageName]];		
+        NSString *imageName = [NSString stringWithFormat: @"avatar%i_0.png", userId];
+        NSLog(@"User: %@", imageName);
+        NSString *file = [[NSString alloc ] initWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath], imageName]; // [UserContext getIphoneIpadFile: imageName]];
         image = [UIImage alloc];
         image = [image initWithContentsOfFile: file];
     }

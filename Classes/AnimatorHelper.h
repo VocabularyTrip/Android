@@ -1,0 +1,18 @@
+//
+//  AnimatorHelper
+//  VocabularyTrip
+//
+//  Created by Ariel on 11/11/13.
+//
+//
+
+#import <Foundation/Foundation.h>
+
+@interface AnimatorHelper : NSObject
+
++ (void) avatarFlutter: (UIImageView*) avatar;
++ (void) shakeView: (UIView*)itemView;
++ (void) avatarGreet: (UIImageView*) avatarView;
++ (void) avatarOk: (UIImageView*) avatarView;
+
+@end

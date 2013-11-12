@@ -6,13 +6,18 @@
 //  Copyright (c) 2012 __VocabularyTrip__. All rights reserved.
 //
 
-#import "ImageManger.h"
+#import "ImageManager.h"
 #import "UserContext.h"
 
-@implementation ImageManger
+@implementation ImageManager
 
 
-+(void) adjustImage: (UIView*) imageView toSize: (int) aSize {
++(void) adjustImage: (UIImage*) image toSize: (int) aSize {
+    //UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
+    [image drawInRect: CGRectMake(0,0,aSize, image.size.height * aSize / image.size.width)];
+}
+
++(void) adjustImageView: (UIView*) imageView toSize: (int) aSize {
 	CGRect frame = imageView.frame;
 	int originalWidth = frame.size.width;
 	frame.size.width = aSize;
@@ -20,7 +25,7 @@
     imageView.frame = frame;    
 }
 
-+(void) adjustImage: (UIView*) imageView width: (int) aSize {
++(void) adjustImageView: (UIView*) imageView width: (int) aSize {
 	CGRect frame = imageView.frame;
 	frame.size.width = aSize;
     imageView.frame = frame;    

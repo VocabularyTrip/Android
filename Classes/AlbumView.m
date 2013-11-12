@@ -36,7 +36,9 @@
 - (IBAction)done:(id)sender {
 	VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
 	[self removeCurrentPage];	
-	[vocTripDelegate popMainMenuFromAlbum];		
+	[theTimer invalidate];
+	theTimer = nil;
+	[vocTripDelegate popMainMenuFromAlbum];
 }
 
 - (void) selectAlbum1 {
@@ -235,7 +237,7 @@
 
 - (void) initializeTimer {
 	if (theTimer == nil) {
-		theTimer = [CADisplayLink displayLinkWithTarget:self selector:@selector(initializePage)];
+		theTimer = [CADisplayLink displayLinkWithTarget:self selector:@selector(initializePageAndThenSoundLoop)];
 		theTimer.frameInterval = 160;
 		[theTimer addToRunLoop: [NSRunLoop currentRunLoop] forMode: NSDefaultRunLoopMode];
 	}
@@ -253,7 +255,7 @@
     
 	if (currentAlbum.actualPage < 0) { // Cover
 		// Once the cover is touched, we jump to the firts page
-		[self initializePage];
+		[self initializePageAndThenSoundLoop];
 	} else {
 		UITouch *touch = [[event allTouches] anyObject];
 		CGPoint touchLocation = [touch locationInView: touch.view];
@@ -267,17 +269,28 @@
 	}
 }
 
--(void) initializePage {
+-(void) initializePageAndThenSoundLoop {
+
     
+
 	if (currentAlbum.actualPage == -2) {
 		currentAlbum.actualPage = -1;
-		return; // wait 2 second to the next loop. First call from theTimer is deprecated.
-	}
-	
-	[theTimer invalidate];
-	theTimer = nil;
-    
-	[self setToolbarAlpha: 1];
+		return; // wait 2 second to the next loop.
+	} else if (currentAlbum.actualPage == -1) {
+        [self initializePage];
+        theTimer.frameInterval = 1500;
+    } else {
+        if ([currentAlbum.xmlName isEqualToString: cAlbum1])
+            [Sentence playSpeaker: @"AlbumView-Loop-Album1"];	// Princess World
+        else if ([currentAlbum.xmlName isEqualToString: cAlbum2])
+            [Sentence playSpeaker: @"AlbumView-Loop-Album2"];	// Monster World
+        else
+            [Sentence playSpeaker: @"AlbumView-Loop-Album3"];	// Animals World
+    }
+}
+
+- (void) initializePage {
+    [self setToolbarAlpha: 1];
     
 	NSString* backgroundName;
 	if ([currentAlbum.xmlName isEqualToString: cAlbum1])
@@ -300,9 +313,7 @@
 	} else {
 		[self nextButtonClicked: nil];
 	}
-	
 }
-
 
 -(void) setToolbarAlpha: (int) aValue {
 	backButton.alpha = aValue;

@@ -63,13 +63,15 @@
 @property (nonatomic, unsafe_unretained) id <AFOpenFlowViewDataSource> dataSource;
 @property (nonatomic, unsafe_unretained) id <AFOpenFlowViewDelegate> viewDelegate;
 @property (nonatomic, strong) UIImage *defaultImage;
-@property (nonatomic) CGFloat verticalOffset;
+//@property (nonatomic) CGFloat verticalOffset;
 @property int numberOfImages;
 
+- (AFItemView*) getSelectedCoverView;
 - (void)setSelectedCover:(int)newSelectedCover;
 - (void)centerOnSelectedCover:(BOOL)animated;
 - (void)setImage:(UIImage *)image forIndex:(int)index;
 - (void)adjustFrontAndBack; // By AJ
+
 
 @end
 
