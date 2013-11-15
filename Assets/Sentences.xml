@@ -49,9 +49,10 @@
     <!-- <Sentence Method="AlbumView-Loop-Album1" name="Welcome to fairyland" type="alwaysSoundOn"></Sentence>  -->
     <!-- <Sentence Method="AlbumView-Loop-Album2" name="Welcome to monsters world" type="alwaysSoundOn"></Sentence>  -->
     <Sentence Method="AlbumView-Loop-Album3" name="owl" type="alwaysSoundOn">
-        <!--<Alternative name= "owl"></Alternative> -->
+        <Alternative name= "birds flap"></Alternative>
+        <Alternative name= "birds"></Alternative>
+        <Alternative name= "hen"></Alternative>
     </Sentence>
-
 
 	<Sentence Method="AlbumView-onEmptyFigClick-NotInSilverSection" name="To win silver coins" type="always"></Sentence> <!-- ok -->
   <Sentence Method="AlbumView-onEmptyFigClick-NotInGoldSection" name="To win gold coins" type="always"></Sentence> <!-- ok -->

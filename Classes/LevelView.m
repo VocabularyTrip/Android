@@ -105,10 +105,10 @@
 }
 
 - (void) initializeTimerAnimator {
-	if (theTimer == nil) {
-		theTimer = [CADisplayLink displayLinkWithTarget:self selector:@selector(randomAvatarAnimation)];
-		theTimer.frameInterval = 400;
-		[theTimer addToRunLoop: [NSRunLoop currentRunLoop] forMode: NSDefaultRunLoopMode];
+	if (theTimerAnimator == nil) {
+		theTimerAnimator = [CADisplayLink displayLinkWithTarget:self selector:@selector(randomAvatarAnimation)];
+		theTimerAnimator.frameInterval = 400;
+		[theTimerAnimator addToRunLoop: [NSRunLoop currentRunLoop] forMode: NSDefaultRunLoopMode];
 	}
 }
 
@@ -119,14 +119,14 @@
             [AnimatorHelper avatarGreet: driverView];
             break;
         case 1:
-            [AnimatorHelper avatarFlutter: driverView];
+            [AnimatorHelper avatarBlink: driverView];
             //[self flutterAnimation];
             break;
         case 2:
             [AnimatorHelper avatarOk: driverView];
             break;
         default:
-            [AnimatorHelper avatarFlutter: driverView];
+            [AnimatorHelper avatarBlink: driverView];
             break;
     }
 }

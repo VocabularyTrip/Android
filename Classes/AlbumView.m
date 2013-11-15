@@ -271,14 +271,12 @@
 
 -(void) initializePageAndThenSoundLoop {
 
-    
-
 	if (currentAlbum.actualPage == -2) {
 		currentAlbum.actualPage = -1;
 		return; // wait 2 second to the next loop.
 	} else if (currentAlbum.actualPage == -1) {
         [self initializePage];
-        theTimer.frameInterval = 1500;
+        theTimer.frameInterval = 600;
     } else {
         if ([currentAlbum.xmlName isEqualToString: cAlbum1])
             [Sentence playSpeaker: @"AlbumView-Loop-Album1"];	// Princess World
@@ -287,6 +285,7 @@
         else
             [Sentence playSpeaker: @"AlbumView-Loop-Album3"];	// Animals World
     }
+    
 }
 
 - (void) initializePage {

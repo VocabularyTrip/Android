@@ -65,7 +65,7 @@
 - (void) initializeTimer {
 	if (theTimer == nil) {
 		theTimer = [CADisplayLink displayLinkWithTarget:self selector:@selector(randomAvatarAnimation)];
-		theTimer.frameInterval = 300;
+		theTimer.frameInterval = 200;
 		[theTimer addToRunLoop: [NSRunLoop currentRunLoop] forMode: NSDefaultRunLoopMode];
 	}
 }
@@ -77,26 +77,26 @@
             [AnimatorHelper avatarGreet: avatarView];
             break;
         case 1:
-            [AnimatorHelper avatarFlutter: avatarView];
+            [AnimatorHelper avatarBlink: avatarView];
             //[self flutterAnimation];
             break;
         case 2:
             [AnimatorHelper shakeView: album1Button];
             break;
         case 3:
-            [AnimatorHelper avatarFlutter: avatarView];
+            [AnimatorHelper avatarBlink: avatarView];
             break;
         case 4:
             [AnimatorHelper shakeView: album2Button];
             break;
         case 5:
-            [AnimatorHelper avatarFlutter: avatarView];
+            [AnimatorHelper avatarBlink: avatarView];
             break;
         case 6:
             [AnimatorHelper shakeView: album3Button];
             break;
         default:
-            [AnimatorHelper avatarFlutter: avatarView];
+            [AnimatorHelper avatarBlink: avatarView];
             break;
     }
     avatarAnimationSeq++;

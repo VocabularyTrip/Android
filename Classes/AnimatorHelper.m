@@ -12,13 +12,13 @@
 
 @implementation AnimatorHelper
 
-+ (void) avatarFlutter: (UIImageView*) avatarView {
++ (void) avatarBlink: (UIImageView*) avatarView {
     User *user = [UserContext getUserSelected];
     avatarView.animationImages = @[
        //[UIImage imageNamed: @"avatar2_0.png"],
-      [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_flutter1.png"]],
-      [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_flutter2.png"]],
-      [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_flutter1.png"]]
+      [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_blink1.png"]],
+      [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_blink2.png"]],
+      [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_blink1.png"]]
     ];
     
     avatarView.animationDuration = 0.2;
