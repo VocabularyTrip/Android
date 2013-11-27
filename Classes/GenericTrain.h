@@ -42,6 +42,7 @@
 	// **********************************
 	// Toolbar **************************
 	UIButton *__unsafe_unretained pauseButton;
+	UIButton *__unsafe_unretained gameModeButton;
 	UIButton *__unsafe_unretained helpButton;
 	UIButton *__unsafe_unretained backButton;
 	UIButton *__unsafe_unretained soundButton;
@@ -101,6 +102,10 @@
 	int hitsOfLevel2;
 	int hitsOfLevel3;		
 	// **********************************
+    
+  	UIButton *__unsafe_unretained wordButtonLabel1;
+   	UIButton *__unsafe_unretained wordButtonLabel2;
+  	UIButton *__unsafe_unretained wordButtonLabel3;
 }
 
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *backButton;
@@ -114,6 +119,7 @@
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *landscape;
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *landscapeSky;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *pauseButton;
+@property (nonatomic, unsafe_unretained) IBOutlet UIButton *gameModeButton;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *helpButton;
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *loadingView;	
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *railView;	
@@ -137,6 +143,9 @@
 @property (nonatomic, unsafe_unretained) IBOutlet UIWheelView *wheel8;
 @property (nonatomic, unsafe_unretained) IBOutlet UIWheelView *wheel9;
 @property (nonatomic, unsafe_unretained) IBOutlet SmokeView *smokeView;
+@property (nonatomic, unsafe_unretained) IBOutlet UIButton *wordButtonLabel1;
+@property (nonatomic, unsafe_unretained) IBOutlet UIButton *wordButtonLabel2;
+@property (nonatomic, unsafe_unretained) IBOutlet UIButton *wordButtonLabel3;
 
 @property (nonatomic, assign) SystemSoundID closeSoundId;
 @property (nonatomic, assign) int viewMode;
@@ -170,11 +179,11 @@
 - (void) takeoutTrainAnimationDidStop:(NSString *)theAnimation finished:(BOOL)flag context:(void *)context;
 - (void) initWagons;
 - (int) hitsPerGame;
-- (Word*) changeImageOn: (UIButton *) aWordButton  id: (int) idButton; 
+- (Word*) changeImageOn: (UIButton *) aWordButton wordButtonLabel: (UIButton *) aWordButtonLabel id: (int) idButton;
 - (Word*) getNextWord;
 - (void) hideWordAnimationDidStop:(NSString *)theAnimation finished:(BOOL)flag context:(void *)context;
 - (void) showWordAnimationDidStop:(NSString *)theAnimation finished:(BOOL)flag context:(void *)context;
-- (void) showThisWord: (Word*) aWord id: (int) idButton button: (UIButton*) aWordButton context:(void *)context;
+- (void) showThisWord: (Word*) aWord id: (int) idButton button: (UIButton*) aWordButton buttonLabel: (UIButton*) aWordButtonLabel context:(void *)context;
 - (void) refreshSoundButton;
 - (int) hitRate;
 - (void) refreshMoneyViews: (NSString*) moneyType;
@@ -194,7 +203,10 @@
 //- (void) alertDownloadSoundsFinished;
 - (void) throbPauseButton;
 - (void) throbPauseButtonOff;
-
+- (void) setImageModeGame;
+- (void) setWordModeGame;
+- (void) setImageAndWordModeGame;
+- (void) refreshGameMode;
 
 @end
 

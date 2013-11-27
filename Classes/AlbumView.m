@@ -110,8 +110,10 @@
 	
 }
 
-- (IBAction)soundClicked { 
-	if (UserContext.soundEnabled == YES) { 
+- (IBAction)soundClicked {
+    [self takeScreenshot: nil]; // remove !!!!!!!!!!!!!!!!!!!
+    
+	if (UserContext.soundEnabled == YES) {
 		UserContext.soundEnabled = NO;
 	} else	{
 		UserContext.soundEnabled = YES;
@@ -146,6 +148,16 @@
 	[UIView setAnimationDuration:1];
 	[UIView setAnimationTransition: UIViewAnimationTransitionCurlUp forView: self.view cache: YES];
 	[UIView commitAnimations];
+}
+
+- (IBAction) takeScreenshot:(id)sender {
+    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+    UIGraphicsBeginImageContext(window.bounds.size);
+    [window.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    NSData * data = UIImagePNGRepresentation(image);
+    [data writeToFile:@"foo.png" atomically:YES];
 }
 
 - (void) removeCurrentPage {

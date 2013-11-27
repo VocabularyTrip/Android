@@ -19,6 +19,11 @@
 #define cMaxLevelKey @"keyMaxLevel"
 #define cSoundKey @"keySound"
 
+#define cImageWordGameModeKey @"keyImageWordGameModeKey"
+#define cImageModeGame 1
+#define cWordModeGame 2
+#define cImageAndWordModeGame 3
+
 #define cBronzeType @"bronze"
 #define cSilverType @"silver"
 #define cGoldType @"gold"
@@ -64,6 +69,7 @@ enum {
 	int maxLevel;
 	NSMutableArray *allLevels;
 	int soundEnabled;
+    int imageWordGameMode;
     NSString* aNewLanguage;
 }
 
@@ -72,6 +78,7 @@ extern UserContext *userContextSingleton;
 @property (nonatomic, assign) int maxLevel;
 @property (nonatomic) NSMutableArray *allLevels;
 @property (nonatomic, assign) int soundEnabled;
+@property (nonatomic, assign) int imageWordGameMode;
 @property (nonatomic, strong) NSMutableArray *users;
 @property (nonatomic, unsafe_unretained) User *userSelected;
 @property (nonatomic, strong) NSString* aNewLanguage;
@@ -125,6 +132,10 @@ extern UserContext *userContextSingleton;
 + (NSString*) getPreferredLanguage;
 + (int) soundEnabled;
 + (void) setSoundEnabled: (int) newVal;
+
++ (int) imageWordGameMode;
++ (void) setImageWordGameMode: (int) newVal;
+
 + (int) osVersion;
 + (NSString*) getIphoneIpadFile: (NSString*) imageFile;
 + (NSString*) getIphoneIpadFile: (NSString*) imageFile ext: (NSString*) ext;

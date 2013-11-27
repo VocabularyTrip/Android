@@ -22,6 +22,7 @@
 @implementation GenericTrain
 
 @synthesize pauseButton;
+@synthesize gameModeButton;
 @synthesize helpButton;
 @synthesize train;
 @synthesize wagon1;
@@ -61,6 +62,9 @@
 @synthesize money3View;
 @synthesize money3Label;	
 @synthesize hand;
+@synthesize wordButtonLabel1;
+@synthesize wordButtonLabel2;
+@synthesize wordButtonLabel3;
 
 // ********************
 // **** IBActions *****
@@ -119,6 +123,9 @@
 		wordButton2.enabled = NO;
 		wordButton3.enabled = NO;		
 		helpButton.enabled = NO;
+        wordButtonLabel1.enabled = NO;
+        wordButtonLabel2.enabled = NO;
+        wordButtonLabel3.enabled = NO;
         
         [self throbPauseButton];
 	} else	{
@@ -128,8 +135,100 @@
 		wordButton1.enabled = YES;
 		wordButton2.enabled = YES;
 		wordButton3.enabled = YES;	
-		helpButton.enabled = YES;		
+		helpButton.enabled = YES;
+        wordButtonLabel1.enabled = YES;
+        wordButtonLabel2.enabled = YES;
+        wordButtonLabel3.enabled = YES;
 	}
+}
+
+- (IBAction) gameModeClicked {
+	NSString *imageFile;
+	if ([UserContext imageWordGameMode] == cImageModeGame) {
+        [UserContext setImageWordGameMode: cWordModeGame];
+		imageFile = [UserContext getIphoneIpadFile: @"wheel1"];
+		[gameModeButton setImage: [UIImage imageNamed: imageFile] forState: UIControlStateNormal];
+        [self setWordModeGame];
+    } else if ([UserContext imageWordGameMode] == cWordModeGame) {
+        [UserContext setImageWordGameMode: cImageAndWordModeGame];
+		imageFile = [UserContext getIphoneIpadFile: @"wheel2"];
+		[gameModeButton setImage: [UIImage imageNamed: imageFile] forState: UIControlStateNormal];
+        [self setImageAndWordModeGame];
+    } else {
+        [UserContext setImageWordGameMode: cImageModeGame];
+		imageFile = [UserContext getIphoneIpadFile: @"wheel3"];
+		[gameModeButton setImage: [UIImage imageNamed: imageFile] forState: UIControlStateNormal];
+        [self setImageModeGame];
+    }
+}
+
+- (void) refreshGameMode {
+	if ([UserContext imageWordGameMode] == cImageModeGame) {
+        [self setImageModeGame];
+    } else if ([UserContext imageWordGameMode] == cWordModeGame) {
+        [self setWordModeGame];
+    } else {
+        [self setImageAndWordModeGame];
+    }
+}
+
+- (void) setImageModeGame {
+    wordButtonLabel1.alpha = 0;
+    wordButtonLabel2.alpha = 0;
+    wordButtonLabel3.alpha = 0;
+    wordButton1.alpha = 1;
+    wordButton2.alpha = 1;
+    wordButton3.alpha = 1;
+    
+	[UIView beginAnimations: @"MoveButtons" context: nil];
+	[UIView setAnimationDelegate: self];
+	[UIView setAnimationDidStopSelector: nil];
+	[UIView setAnimationDuration: .4];
+	[UIView setAnimationCurve: UIViewAnimationCurveLinear];
+
+    CGRect frame = wordButton1.frame;
+	frame.origin.y = wagon1.frame.origin.y - wordButton1.frame.size.height;
+	wordButton1.frame = frame;
+    
+    frame = wordButton2.frame;
+	frame.origin.y = wagon2.frame.origin.y - wordButton2.frame.size.height;
+	wordButton2.frame = frame;
+
+    frame = wordButton3.frame;
+	frame.origin.y = wagon3.frame.origin.y - wordButton3.frame.size.height;
+	wordButton3.frame = frame;
+	
+    [UIView commitAnimations];
+}
+
+- (void) setWordModeGame {
+    wordButtonLabel1.alpha = 1;
+    wordButtonLabel2.alpha = 1;
+    wordButtonLabel3.alpha = 1;
+    wordButton1.alpha = 0;
+    wordButton2.alpha = 0;
+    wordButton3.alpha = 0;
+}
+
+- (void) setImageAndWordModeGame {
+    wordButtonLabel1.alpha = 1;
+    wordButtonLabel2.alpha = 1;
+    wordButtonLabel3.alpha = 1;
+    wordButton1.alpha = 1;
+    wordButton2.alpha = 1;
+    wordButton3.alpha = 1;
+
+    CGRect frame = wordButton1.frame;
+	frame.origin.y = wagon1.frame.origin.y - wordButtonLabel1.frame.size.height - wordButton1.frame.size.height;
+	wordButton1.frame = frame;
+    
+    frame = wordButton2.frame;
+	frame.origin.y = wagon2.frame.origin.y - wordButtonLabel2.frame.size.height - wordButton2.frame.size.height;
+	wordButton2.frame = frame;
+    
+    frame = wordButton3.frame;
+	frame.origin.y = wagon3.frame.origin.y - wordButtonLabel3.frame.size.height - wordButton3.frame.size.height;
+	wordButton3.frame = frame;
 }
 
 - (void) throbPauseButton {
@@ -188,13 +287,15 @@
 }
 
 // Hide the Word Clicked.
-- (Word*) changeImageOn: (UIButton *) aWordButton id: (int) idButton { 
+- (Word*) changeImageOn: (UIButton *) aWordButton wordButtonLabel: (UIButton *) aWordButtonLabel id: (int) idButton {
+
 	AudioServicesPlaySystemSound(self.closeSoundId);
 
 	Word *word = [self getNextWord];
 	NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
 
 	[parameters setObject: aWordButton forKey: @"button"];
+	[parameters setObject: aWordButtonLabel forKey: @"buttonLabel"];
 	[parameters setObject: [NSNumber numberWithInt: idButton] forKey: @"id"];
 	if (word) [parameters setObject: word forKey: @"word"];	
 
@@ -204,7 +305,16 @@
 	[UIView setAnimationDuration:0.5];
 	[UIView setAnimationDidStopSelector: @selector(hideWordAnimationDidStop:finished:context:)]; 	
 	[UIView setAnimationCurve: UIViewAnimationCurveLinear];
-	aWordButton.alpha = 0;
+
+    if ([UserContext imageWordGameMode] == cImageModeGame) {
+        aWordButton.alpha = 0;
+    } else if ([UserContext imageWordGameMode] == cWordModeGame) {
+        aWordButtonLabel.alpha = 0;
+    } else { // cImageAndWordModeGame
+        aWordButton.alpha = 0;
+        aWordButtonLabel.alpha = 0;
+    }
+    
 	[UIView commitAnimations];
 
 	return word;
@@ -219,13 +329,14 @@
 	NSMutableDictionary *parameters = (__bridge NSMutableDictionary*) context; // *** ARC
 	
 	UIButton *aWordButton = (UIButton*) [parameters objectForKey: @"button"];
+	UIButton *aWordButtonLabel = (UIButton*) [parameters objectForKey: @"buttonLabel"];
 	NSNumber *n = (NSNumber*) [parameters objectForKey: @"id"];
 	int idButton = [n intValue];
 	Word* word = (Word*) [parameters objectForKey: @"word"];
 	
 	if (word != nil && idButton >= 0 && idButton < 3) {
 		@try {
-            [self showThisWord: word id: idButton button: aWordButton context: context];
+            [self showThisWord: word id: idButton button: aWordButton buttonLabel: aWordButtonLabel context: context];
 		} @catch (NSException * e) {
 			NSLog(@"Error on changeImageOn %@", word.name);
 		}
@@ -239,10 +350,12 @@
 	
 }
 
-- (void) showThisWord: (Word*) aWord id: (int) idButton button: (UIButton*) aWordButton context:(void *)context {
+- (void) showThisWord: (Word*) aWord id: (int) idButton button: (UIButton*) aWordButton buttonLabel: (UIButton*) aWordButtonLabel context:(void *)context {
     
 	NSMutableDictionary *parameters = (__bridge  NSMutableDictionary*) context; // *** ARC
     [aWordButton setImage: aWord.image forState: UIControlStateNormal];
+    [aWordButtonLabel setTitle: aWord.translatedName forState: UIControlStateNormal];
+    
     [words replaceObjectAtIndex: idButton withObject: aWord];
     
     // Show new Image
@@ -251,7 +364,16 @@
     [UIView setAnimationDidStopSelector: @selector(showWordAnimationDidStop:finished:context:)]; 
     [UIView setAnimationDuration: 0.5];
     [UIView setAnimationCurve: UIViewAnimationCurveLinear];
-    aWordButton.alpha = 1;
+
+    if ([UserContext imageWordGameMode] == cImageModeGame) {
+        aWordButton.alpha = 1;
+    } else if ([UserContext imageWordGameMode] == cWordModeGame) {
+        aWordButtonLabel.alpha = 1;
+    } else { // cImageAndWordModeGame
+        aWordButton.alpha = 1;
+        aWordButtonLabel.alpha = 1;
+    }
+    
     [UIView commitAnimations];
     qOfImagesRemaining--;
     if (qOfImagesRemaining <= 0) {
@@ -341,6 +463,8 @@
 	[wheel7 initialize];
 	[wheel8 initialize];
     [wheel9 initialize];
+    
+    [self refreshGameMode];
 	
 }
 
@@ -362,6 +486,13 @@
 	if (!words) words = [[NSMutableArray alloc] init];		
 	[self initializeTimer];
 	[self initMusicPlayer];
+    
+    wordButtonLabel1.titleLabel.minimumFontSize = 9;
+    wordButtonLabel1.titleLabel.adjustsFontSizeToFitWidth = true;
+    wordButtonLabel2.titleLabel.minimumFontSize = 9;
+    wordButtonLabel2.titleLabel.adjustsFontSizeToFitWidth = true;
+    wordButtonLabel3.titleLabel.minimumFontSize = 9;
+    wordButtonLabel3.titleLabel.adjustsFontSizeToFitWidth = true;
 }
 
 - (void) takeOutTrain { 
@@ -670,14 +801,17 @@
 	Word *word = [Vocabulary getAWord];
 	[words addObject: word];
 	[wordButton1 setImage: word.image forState: UIControlStateNormal];
-	
+	[wordButtonLabel1 setTitle: word.translatedName forState: UIControlStateNormal];
+    
 	word = [Vocabulary getAWord];
 	[words addObject: word];
 	[wordButton2 setImage: word.image forState: UIControlStateNormal];
-
+	[wordButtonLabel2 setTitle: word.translatedName forState: UIControlStateNormal];
+    
 	word = [Vocabulary getAWord];
 	[words addObject: word];
 	[wordButton3 setImage: word.image forState: UIControlStateNormal];
+	[wordButtonLabel3 setTitle: word.translatedName forState: UIControlStateNormal];
 	
 }
 
@@ -704,6 +838,8 @@
 	
 	// Close Sound
 	NSURL* closeSoundUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"Finished" ofType:@"wav"]];
+    //NSLog(@"%@", closeSoundUrl);
+    
 	AudioServicesCreateSystemSoundID((__bridge CFURLRef) closeSoundUrl, &closeSoundId);
 	
 	self.trainSound = [Sentence getAudioPlayer: @"ToyTrain"];
@@ -748,6 +884,18 @@
 	frame.origin.x = frame.origin.x + xPix; 
 	wordButton3.frame = frame;	
 
+    frame = wordButtonLabel1.frame;
+	frame.origin.x = frame.origin.x + xPix;
+	wordButtonLabel1.frame = frame;
+
+    frame = wordButtonLabel2.frame;
+	frame.origin.x = frame.origin.x + xPix;
+	wordButtonLabel2.frame = frame;
+
+    frame = wordButtonLabel3.frame;
+	frame.origin.x = frame.origin.x + xPix;
+	wordButtonLabel3.frame = frame;
+    
 	frame = wheel1.frame;
 	frame.origin.x = frame.origin.x + xPix; 
 	wheel1.frame = frame;	

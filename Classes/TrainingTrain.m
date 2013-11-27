@@ -24,7 +24,10 @@
 	
 	wordButton1.userInteractionEnabled = NO;
 	wordButton2.userInteractionEnabled = NO;
-	wordButton3.userInteractionEnabled = NO;	
+	wordButton3.userInteractionEnabled = NO;
+    wordButtonLabel1.userInteractionEnabled = NO;
+    wordButtonLabel2.userInteractionEnabled = NO;
+    wordButtonLabel3.userInteractionEnabled = NO;
 }
 
 - (void)trainAnimationDidStop:(NSString *)theAnimation finished:(BOOL)flag context:(void *)context {
@@ -57,7 +60,8 @@
 
 
 - (int) getYposOfFlyWords {
-	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 		return cYposOfFlyWords * 3;
 	else
 		return cYposOfFlyWords;
@@ -225,15 +229,27 @@
 
 - (BOOL) checkFlyWordArriveTarget: (CGPoint) touchLocation {
 	UIButton *button;
+    UIButton* buttonLabel;
+    UIButton* buttonToCheckArrival;
 	@try {
-		if (wordFlying == 0 ) button = wordButton1;
-		if (wordFlying == 1 ) button = wordButton2;
-		if (wordFlying == 2 ) button = wordButton3;
-		if (CGRectContainsPoint(button.frame, touchLocation)) { 
+		if (wordFlying == 0 ) {
+            button = wordButton1;
+            buttonLabel = wordButtonLabel1;
+        }
+		if (wordFlying == 1 )  {
+            button = wordButton2;
+            buttonLabel = wordButtonLabel2;
+        }
+		if (wordFlying == 2 ) {
+            button = wordButton3;
+            buttonLabel = wordButtonLabel3;
+        }
+        buttonToCheckArrival = [UserContext imageWordGameMode] == cWordModeGame ? buttonLabel : button;
+		if (CGRectContainsPoint(buttonToCheckArrival.frame, touchLocation)) {
 			int tempWordFlying = wordFlying;	// Prevent Recursive entry.
 			wordFlying = -1;
-			Word* word = [self changeImageOn: button id: tempWordFlying]; 
-			[self changeImageTo: tempWordFlying  with: word];
+			Word* word = [self changeImageOn: button wordButtonLabel: buttonLabel id: tempWordFlying];
+			[self changeImageTo: tempWordFlying with: word];
 			[self incrementHitAtLevel: word.theme];
 			return YES;
 		}
@@ -386,23 +402,27 @@
     // Change image on selected wagon
     int helpWagonSelected = [((__bridge NSNumber*) context) intValue];
     UIButton *button;
+    UIButton *buttonLabel;
     switch (helpWagonSelected) {
         case 0: {
             button = wordButton1;
+            buttonLabel = wordButtonLabel1;
             break;
         }
         case 1: {
             button = wordButton2;
+            buttonLabel = wordButtonLabel2;
             break;
         }
         case 2: {
             button = wordButton3;
+            buttonLabel = wordButtonLabel3;
             break;
         }
         default:
             break;
     }
-    Word* word = [self changeImageOn: button id: helpWagonSelected]; 
+    Word* word = [self changeImageOn: button wordButtonLabel: buttonLabel id: helpWagonSelected];
     [self changeImageTo: helpWagonSelected  with: word];
     [self helpAnimation5];
 }

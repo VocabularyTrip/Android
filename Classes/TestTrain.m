@@ -25,7 +25,10 @@
 	
 	wordButton1.userInteractionEnabled = YES;
 	wordButton2.userInteractionEnabled = YES;
-	wordButton3.userInteractionEnabled = YES;	
+	wordButton3.userInteractionEnabled = YES;
+    wordButtonLabel1.userInteractionEnabled = YES;
+    wordButtonLabel2.userInteractionEnabled = YES;
+    wordButtonLabel3.userInteractionEnabled = YES;
 }
 
 - (IBAction) pauseClicked { 
@@ -191,9 +194,9 @@
 
 
 // Hide the Word Clicked and then replace with the new one
-- (Word*) changeImageOn: (UIButton *) aWordButton id: (int) idButton { 
+- (Word*) changeImageOn: (UIButton *) aWordButton wordButtonLabel: (UIButton *) aWordButtonLabel id: (int) idButton {
 	aWordButton.userInteractionEnabled = NO;
-	Word* word = [super changeImageOn: aWordButton id: idButton];
+	Word* word = [super changeImageOn: aWordButton wordButtonLabel: aWordButtonLabel id: idButton];
 	if (qOfImagesRemaining > 0) {
 		[self selectNextTarget]; // Random chose new target	
 	}
@@ -205,18 +208,18 @@
 }
 
 - (IBAction)wordButton1Clicked { 
-	[self wordButton: wordButton1 clicked: 0];
+	[self wordButton: wordButton1 buttonLabel: wordButtonLabel1 clicked: 0];
 }
 
 - (IBAction)wordButton2Clicked { 
-	[self wordButton: wordButton2 clicked: 1];
+	[self wordButton: wordButton2 buttonLabel: wordButtonLabel2 clicked: 1];
 }
 
 - (IBAction)wordButton3Clicked { 
-	[self wordButton: wordButton3 clicked: 2];
+	[self wordButton: wordButton3 buttonLabel: wordButtonLabel3 clicked: 2];
 }
 
-- (void) wordButton: (UIButton*) aButton clicked: (int) i { 
+- (void) wordButton: (UIButton*) aButton buttonLabel: (UIButton*) aButtonLabel clicked: (int) i {
 	// We should say something if the button is clicked and paused.
 	//if (gameStatus == cStatusGameIsPaused) 
 		// Say something...
@@ -233,7 +236,7 @@
 				// Increment the hit of Level
 				[self incrementHitAtLevel: w.theme];
 			}
-			[self changeImageOn: aButton id: i];
+			[self changeImageOn: aButton wordButtonLabel: aButtonLabel id: i];
 		} else {
 			flagFaild = YES;
 			[w incWeight];
@@ -364,13 +367,13 @@
     // change image on the wagon just clicked onto
     switch (targetId) {
         case 0: {
-            [self changeImageOn: wordButton1 id: 0];
+            [self changeImageOn: wordButton1 wordButtonLabel: wordButtonLabel1 id: 0];
             break;
         } case 1: {
-            [self changeImageOn: wordButton2 id: 1];
+            [self changeImageOn: wordButton2 wordButtonLabel: wordButtonLabel2 id: 1];
             break;
         } case 2: {
-            [self changeImageOn: wordButton3 id: 2];
+            [self changeImageOn: wordButton3 wordButtonLabel: wordButtonLabel3 id: 2];
             break;
         }
         default:

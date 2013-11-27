@@ -29,8 +29,6 @@
 #pragma mark -
 #pragma mark Application lifecycle
 
-
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     
 	[[UIApplication sharedApplication] setStatusBarHidden: YES];
@@ -47,6 +45,14 @@
     [self checkPromoCodeDueDate];
     [self checkDownloadCompleted];
     [self initializeInternetReachabilityNotifier];
+    
+    [FacebookManager initFacebookSession];
+    [FacebookManager facebookLogin];
+    //[FacebookManager requestForMe];
+    [FacebookManager requestWritePermissions];
+    //[FacebookManager inviteAFriend];
+    //[FacebookManager loadListOfFriends];
+    [FacebookManager postFeedDialog: 0];
     
     if (!singletonVocabulary) // Initialize singletonVocabulary
         singletonVocabulary = [Vocabulary alloc];
@@ -66,6 +72,19 @@
 	[self saveTimePlayedInDB];
     [self.window makeKeyAndVisible];
     
+    return YES;
+}
+
+// Addeb by Facebook Implementation.
+// To control facebook page opening
+// No behaviour yet
+- (BOOL) application: (UIApplication*) application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    
+    [FBAppCall handleOpenURL: url sourceApplication: sourceApplication fallbackHandler:^(FBAppCall *call) {
+        if (call.appLinkData && call.appLinkData.targetURL) {
+            [[NSNotificationCenter defaultCenter] postNotificationName: APP_HANDLED_URL object: call.appLinkData.targetURL];
+        }
+    }];
     return YES;
 }
 
@@ -177,23 +196,6 @@
     // Save changes to disk
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
-
-/*- (bool) existUserData {
-    bool money = 
-        (UserContext.getMoney1 != 0) || 
-        (UserContext.getMoney2 != 0) || 
-        (UserContext.getMoney3 != 0);
-    
-  	Album* albumTemp = [Album alloc];
-	bool figurines = [albumTemp checkAnyBought: cAlbum1];
-	[albumTemp release];
-    
-	albumTemp = [Album alloc];
-	figurines = figurines || [albumTemp checkAnyBought: cAlbum2];
-	[albumTemp release];
-  
-    return money || figurines;
-}*/
 
 - (void) initAllControllers {
 	
@@ -454,11 +456,6 @@
     }
 }
 
-/*- (void) startLoadingVocabulary {
-    [self pushUserLangResumView];
-}*/
-
-
 - (int) getAppId {
     NSString *appId = [[NSBundle mainBundle] objectForInfoDictionaryKey: @"Application Id"];
     return [appId intValue];
@@ -466,11 +463,7 @@
                      
 - (void) responseToBuyAction {
 	
-	//double wasLearnedResult = [Vocabulary wasLearned];
-	//if (wasLearnedResult >= cPercentageLearnd)
-		
-	//NSLog(@"Response To Buy Action");
-	if ([UserContext nextLevel]) 	
+	if ([UserContext nextLevel])
 		[Sentence playSpeaker: @"AppDelegate-ResponseToBuyAction-NextLevel"];
 	
 	// If the actual view is LevelView, send responseToBuyAction to refresh level information
@@ -495,6 +488,8 @@
     NSTimeInterval timePlayed = [self.startPlaying timeIntervalSinceNow];
     [[NSUserDefaults standardUserDefaults] setInteger: timePlayed forKey: cLastTimePlayed];
     [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    [[FBSession activeSession] close];
 }
 
 - (void) checkIfaskToRate {

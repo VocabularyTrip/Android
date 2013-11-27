@@ -22,6 +22,7 @@ UserContext *userContextSingleton;
 @synthesize users;
 @synthesize userSelected;
 @synthesize aNewLanguage;
+@synthesize imageWordGameMode;
 
 +(UserContext*) getSingleton {
 	if (userContextSingleton == nil)
@@ -48,8 +49,16 @@ UserContext *userContextSingleton;
 	return [[UserContext getSingleton] soundEnabled];
 }
 
++ (int) imageWordGameMode {
+	return [[UserContext getSingleton] imageWordGameMode];
+}
+
 +(void) setSoundEnabled: (int) newVal {
 	[[UserContext getSingleton] setSoundEnabled: newVal];
+}
+
++ (void) setImageWordGameMode: (int) newVal {
+	[[UserContext getSingleton] setImageWordGameMode: newVal];
 }
 
 +(int) getLevel {
@@ -251,6 +260,7 @@ UserContext *userContextSingleton;
 -(id) init { 
     if (self=[super init]) {    
         soundEnabled = -1;
+        imageWordGameMode = -1;
     }
 	return self;
 }
@@ -274,6 +284,13 @@ UserContext *userContextSingleton;
 
 }
 
+-(int) imageWordGameMode {
+	if (imageWordGameMode == -1) {
+		imageWordGameMode = [[NSUserDefaults standardUserDefaults] integerForKey: cImageWordGameModeKey];
+	}
+	return imageWordGameMode;
+}
+
 - (User *) userSelected {
     if (!userSelected) {
         int i=0;
@@ -290,6 +307,11 @@ UserContext *userContextSingleton;
 - (void) setSoundEnabled: (int) newVal {
 	soundEnabled = newVal;
 	[[NSUserDefaults standardUserDefaults] setInteger:soundEnabled forKey: cSoundKey];
+}
+
+- (void) setImageWordGameMode: (int) newVal {
+	imageWordGameMode = newVal;
+	[[NSUserDefaults standardUserDefaults] setInteger: imageWordGameMode forKey: cImageWordGameModeKey];
 }
 
 -(int) maxLevel {
@@ -321,6 +343,7 @@ UserContext *userContextSingleton;
     [UserContext setHelpSelectLang: YES];
     [UserContext setHelpSelectUser: YES];
 	UserContext.soundEnabled = YES;
+    UserContext.imageWordGameMode = cImageModeGame;
 	[[UserContext getSingleton] setMaxLevel: 0];
 }
 

@@ -33,7 +33,7 @@
 - (bool) longInactivity;
 - (void) selectNextTarget;
 - (void) sayTargetWord;
-- (void) wordButton: (UIButton*) aButton clicked: (int) i;
+- (void) wordButton: (UIButton*) aButton buttonLabel: (UIButton*) aButtonLabel clicked: (int) i;
 - (void) evaluateGetIntoNextLevel;
 - (void) goToNextLevel;
 - (IBAction) askToBuyNewLevels;

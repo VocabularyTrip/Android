@@ -20,6 +20,7 @@
 #import "PromoCode.h"
 #import "PurchaseView.h"
 #import "Reachability.h"
+#import "FacebookManager.h"
 
 @class MainMenu;
 
@@ -59,8 +60,8 @@
 - (void) initMainMenu;
 - (void) initUsersDefaults;
 - (void) initAllControllers;
+
 - (void) popMainMenu;
-//- (void) pushUserLangResumView;
 - (void) pushLockLanguageView;
 - (void) pushChangeLangView;
 - (void) pushChangeUserView;
@@ -81,7 +82,6 @@
     
 - (void) responseToBuyAction;
 - (void) responseToCancelAction;
-//- (bool) existUserData;
 - (void) checkIfaskToRate;
 - (void) askToRate;
 - (int) getAppId;
@@ -89,7 +89,6 @@
 - (void) alertAskToReview: (UIAlertView*) alertView clickedButtonAtIndex: (NSInteger) buttonIndex;
 - (void) alertBuyNewLevel: (UIAlertView*) alertView clickedButtonAtIndex: (NSInteger) buttonIndex;
 - (void) alertDownloadLang: (UIAlertView*) alertView clickedButtonAtIndex: (NSInteger) buttonIndex;
-//- (void) startLoadingVocabulary;
 - (void) checkPromoCodeDueDate;
 - (void) checkAPromoCodeForUUID;
 - (void) saveTimePlayedInDB;

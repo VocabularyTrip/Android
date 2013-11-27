@@ -12,6 +12,7 @@
 #import "UIButtonEmptyFigurine.h"
 #import "UserContext.h"
 #import "ToolbarController.h"
+#import <QuartzCore/QuartzCore.h>
 
 #define cComeFromMenu 1
 #define cComeFromPlaying 2
