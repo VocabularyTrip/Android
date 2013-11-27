@@ -275,8 +275,11 @@
   
 	imageView.alpha = 0;
 	prevButton.alpha = page > 0 ? 1 : 0;
-	nextButton.alpha = page < 2 ? 1 : 0 ;
+    // ******** change 400 words
+	nextButton.alpha = page < [Vocabulary countOfLevels] ? 1 : 0 ;
   
+    // ******** change 400 words - Pending
+    // Ya no aplica que cada p[agina corresponda a un tipo de moneda.
 	if (page == 0) {
 		coinView.image = [UIImage imageNamed: @"token-bronze.png"];
 		trainLabel.text = @"Bronze Level";
@@ -289,6 +292,7 @@
 		coinView.image = [UIImage imageNamed: @"token-gold.png"];
 		trainLabel.text = @"Gold Level";
 	}
+    
 	[self setImageToButton: 0];
 	[self setImageToButton: 1];
 	[self setImageToButton: 2];
@@ -319,7 +323,8 @@
 
 - (void) purgeLevel {
   
-	if (page >=0 && page <3) {
+    // ******** change 400 words
+	if (page >=0 && page < [Vocabulary countOfLevels]) {
 		Level* level = [UserContext getLevelAt: page * 3 + 0];
 		[level purge];
     

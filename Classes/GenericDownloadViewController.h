@@ -12,10 +12,6 @@
 #import "GenericViewController.h"
 
 @interface GenericDownloadViewController : GenericViewController <UIAlertViewDelegate, DownloadDelegate> {
-    // Progress
-    //int qWordsLoaded;
-    //NSString *__unsafe_unretained errorAtDownload;
-
     UIButton *__unsafe_unretained confirmUserLangButton;
     UIButton *__unsafe_unretained cancelDownloadButton;
     UIProgressView *__unsafe_unretained downloadProgressView;

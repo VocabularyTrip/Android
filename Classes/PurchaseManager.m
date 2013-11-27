@@ -221,6 +221,8 @@ PurchaseManager *purchaseManagerSingleton;
 }
 
 -(void) provideContent: (NSString*) productIdentifier {
+// ******** change 400 words - Pending
+// Reflotar las compras por segmento
     UserContext *user = [UserContext getSingleton];
 	if ([productIdentifier rangeOfString: cPurchaseAllLevels].location != NSNotFound)
 		[user setMaxLevel: cLastLevel];

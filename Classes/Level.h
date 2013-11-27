@@ -22,6 +22,7 @@
 	UIImage *imageNotAvailable;
 	NSString *imageNotAvailableName;
 	NSString *levelName;
+    int size;
 }
 
 @property (nonatomic) UIImage *imageLocked;
@@ -29,6 +30,7 @@
 @property (nonatomic, strong) NSString *imageLockedName;
 @property (nonatomic, strong) NSString *imageNotAvailableName;
 @property (nonatomic, strong) NSString *levelName;
+@property (nonatomic) int size;
 
 + (void)loadDataFromSql: (int) levelId;
 + (void) connectionFinishSuccesfully: (NSDictionary*) response;

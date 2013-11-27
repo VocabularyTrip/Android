@@ -60,15 +60,6 @@
     [self refreshSearchingModeEnabled: NO];
 }
 
-/*-(void) setSearchingModeEnabled:(BOOL)isDownloading {
-	if (isDownloading) {
-        singletonVocabulary.qWordsLoaded = 0;
-        singletonVocabulary.wasErrorAtDownload = 0;
-        //errorAtDownload = @"";
-    }
-    [self refreshSearchingModeEnabled: isDownloading];
-}*/
-
 -(void) refreshSearchingModeEnabled:(BOOL)isDownloading {
     singletonVocabulary.isDownloading = isDownloading;
 	//when network action, toggle network indicator and activity indicator
@@ -94,18 +85,11 @@
 }
 
 - (void) addProgress: (float) aProgress {
-    //Language *lang = [UserContext getLanguageSelected];
-    //float progress =  (float) singletonVocabulary.qWordsLoaded / (float) lang.qWords;
     
     downloadProgressView.progress = aProgress;
     
     if (aProgress >= 1) {
         [self refreshSearchingModeEnabled: NO];
-        /*NSString *message = @"Download finished successfully";
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Download completed"
-                                                        message: message delegate:self cancelButtonTitle: @"OK" otherButtonTitles:nil];
-        [alert show];
-        return;*/
     }
 }
 

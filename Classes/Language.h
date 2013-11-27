@@ -11,6 +11,8 @@
 #import "SBJSON.h"
 
 #define cArrayLanguages @"arrayOfLanguages"
+// ******** change 400 words - Pending
+// Actualizar con arabe
 #define cInitFirst10Languages @"1|English-2|Spanish-3|Chinese-4|Farsi-5|French-6|German-7|Italian-8|Korean-9|Malay-10|Vietnamese"
 
 extern NSMutableArray *allLanguages;
