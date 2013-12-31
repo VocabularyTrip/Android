@@ -110,10 +110,14 @@ Vocabulary *singletonVocabulary;
 	
 	@try {
 		if ([elementName isEqualToString: @"level"]) {
-			if (levelIndex!=0) { 
+
+            if (levelIndex!=0) {
+                Level* lastLevel = [UserContext getLevelAt: levelIndex-1];
+                lastLevel.size = [oneLevel count];
 				[allWords addObject: [oneLevel copy]];
 				[oneLevel removeAllObjects];
 			}
+
 			Level *newLevel;
 			newLevel = [Level alloc];
 			newLevel.levelName = [attributeDict objectForKey: @"name"];
@@ -122,7 +126,8 @@ Vocabulary *singletonVocabulary;
 			newLevel.imageLockedName = [attributeDict objectForKey: @"imageLocked"];
 			newLevel.imageNotAvailableName = [attributeDict objectForKey: @"imageNotAvailable"];
 			levelIndex++;
-
+            
+            
 			[UserContext addLevel: newLevel];
 		}
 		
@@ -143,8 +148,13 @@ Vocabulary *singletonVocabulary;
 	}
 }
 
++ (int) countOfLevels {
+    return levelIndex;
+}
+
 +(NSString*) getNativeNameFromLocalization: (NSDictionary *) attributeDict {  
     
+    // ******** change 400 words - Pending
     NSString *loc = [UserContext getPreferredLanguage];
 
     if ([loc isEqualToString: @"zh-Hant"]) return [attributeDict objectForKey: @"Chinese"];
@@ -235,7 +245,7 @@ Vocabulary *singletonVocabulary;
     // Loadweight depends on UserSelected.
     // When the user is changed, the weight has to be reloaded.
 	Word *w;
-	for (int i=0; i< cLastLevel; i++) {
+	for (int i=0; i< [Vocabulary countOfLevels]; i++) { // cLastLevel
 		for (w in [allWords objectAtIndex:i]) {
 			[w loadWeight];
 		}
@@ -245,7 +255,7 @@ Vocabulary *singletonVocabulary;
 + (void) resetAllWeigths {
 	@try {
 		Word *w;
-		for (int i=0; i< cLastLevel; i++) {
+		for (int i=0; i< [Vocabulary countOfLevels]; i++) { // cLastLevel
 			for (w in [allWords objectAtIndex:i]) {
 				[w resetWeight];
 			}
@@ -260,7 +270,7 @@ Vocabulary *singletonVocabulary;
 
 + (void) testAllSounds {
 	Word *w;
-	for (int i=0; i< cLastLevel; i++) {
+	for (int i=0; i< [Vocabulary countOfLevels]; i++) { // cLastLevel
 		for (w in [allWords objectAtIndex:i]) {
 			[w.sound play];
 		}
@@ -285,18 +295,30 @@ Vocabulary *singletonVocabulary;
 }
 
 + (double) progressIndividualLevel {
+	int r = 0, total = 0;
+	Word *w;
+	
+    for (w in [allWords objectAtIndex: [UserContext getLevel] - 1]) {
+		if (w.weight <= cLearnedWeight) r++;
+		total ++;
+	}
+	if (total == 0) return NO;
+	//NSLog(@"Words Learned: %@ Total: %@", [NSString stringWithFormat:@"%i", r], [NSString stringWithFormat:@"%i",total]);
+    double progress = ((double) r / (double) total);
+    progress = progress >= cPercentageLearnd ? 1 : progress / cPercentageLearnd;
+	return progress;
+}
+
+/*+ (double) progressIndividualLevel {
+    // ******** change 400 words -- ok
     // This forma works if all Levels are cSizeOfEachLevel
     double progress = 0;
-    double hitsOneLevel = [self wasLearned] * [UserContext getLevel] * cSizeOfEachLevel;
-    NSLog(@"Was Learned: %f, Level: %i, hist one Level: %f",[self wasLearned], [UserContext getLevel], hitsOneLevel);
-    progress = (hitsOneLevel - ([UserContext getLevel] - 1) * cSizeOfEachLevel)/10;
     
-    //NSLog(@"Progress: %f", progress);
-
-    NSLog(@"Progress: %f, cPercentageLearned: %f, result: %f", progress, cPercentageLearnd, progress >= cPercentageLearnd ? 1 : progress / cPercentageLearnd);
+    double hitsOneLevel = [self wasLearned] * [UserContext getLevel] * cSizeOfEachLevel;
+    progress = (hitsOneLevel - ([UserContext getLevel] - 1) * cSizeOfEachLevel)/10;
     progress = progress >= cPercentageLearnd ? 1 : progress / cPercentageLearnd;
     if (progress <= 0) progress = 0.03;
     return progress;
-}
+}*/
 
 @end

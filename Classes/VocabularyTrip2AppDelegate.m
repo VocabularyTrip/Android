@@ -46,13 +46,13 @@
     [self checkDownloadCompleted];
     [self initializeInternetReachabilityNotifier];
     
-    [FacebookManager initFacebookSession];
-    [FacebookManager facebookLogin];
+    //[FacebookManager initFacebookSession];
+    //[FacebookManager facebookLogin];
     //[FacebookManager requestForMe];
-    [FacebookManager requestWritePermissions];
+    //[FacebookManager requestWritePermissions];
     //[FacebookManager inviteAFriend];
     //[FacebookManager loadListOfFriends];
-    [FacebookManager postFeedDialog: 0];
+    //[FacebookManager postFeedDialog: 0];
     
     if (!singletonVocabulary) // Initialize singletonVocabulary
         singletonVocabulary = [Vocabulary alloc];

@@ -17,6 +17,7 @@
 @synthesize imageLockedName;
 @synthesize imageNotAvailableName;
 @synthesize levelName;
+@synthesize size;
 
 + (void)loadDataFromSql: (int) levelId {
     

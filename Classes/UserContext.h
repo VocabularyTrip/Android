@@ -12,6 +12,8 @@
 
 #define cDefaultLang 1
 
+// ******** change 400 words - Pending
+// Ya no son 9 niveles. Usar [Vocabulary countOfLevels]
 #define cLastLevel 9
 #define cSilverLevel 6
 #define cBronzeLevel 3

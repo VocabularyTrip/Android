@@ -524,6 +524,8 @@
 }
 
 - (int) hitRate {
+    // ******** change 400 words - Revisar
+    // Validar si el hitsPerGame se deja fijo o variable. El 10 est[a ok
 	return (hitsOfLevel1 + hitsOfLevel2 + hitsOfLevel3) * 10 / [self hitsPerGame];
 }
 
