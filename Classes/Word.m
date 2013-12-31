@@ -89,7 +89,7 @@
 
 -(UIImage*) image {
 	if (image == nil) {
-        NSString *file = [[NSString alloc ] initWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath], [UserContext getIphoneIpadFile: name]];
+        NSString *file = [[NSString alloc ] initWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath], [NSString stringWithFormat: @"%@.png", name]]; // [UserContext getIphoneIpadFile: name]];
         image = [UIImage alloc];
         image = [image initWithContentsOfFile: file];
     }

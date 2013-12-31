@@ -41,6 +41,7 @@
 - (IBAction) restorePurchase:(id)sender;
 - (IBAction) buyAllLevels;
 - (IBAction) registerPromoCode;
+- (IBAction) facebookButton;
 
 - (BOOL) textFieldShouldBeginEditing:(UITextField *)textField;
 - (BOOL) textFieldShouldReturn: (UITextField*) textField;

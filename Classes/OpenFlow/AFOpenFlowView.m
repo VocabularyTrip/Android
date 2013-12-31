@@ -201,7 +201,7 @@ const static CGFloat kReflectionFraction = 0.85;
 	[super setBounds:newSize];
 	
 	halfScreenWidth = self.bounds.size.width / 2;
-    if ([UserContext resolution] == UIDeviceResolution_iPhoneRetina5) halfScreenWidth += 44;
+    if ([ImageManager resolution] == UIDeviceResolution_iPhoneRetina5) halfScreenWidth += 44;
 	halfScreenHeight = self.bounds.size.height / 2;
 
 	int lowerBound = MAX(-1, selectedCoverView.number - COVER_BUFFER);

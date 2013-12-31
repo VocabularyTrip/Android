@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CoreGraphics.h>	
-#import "UserContext.h"
+#import "ImageManager.h"
 
 @interface UIWheelView : UIImageView {
 	//CADisplayLink *theTimer; 

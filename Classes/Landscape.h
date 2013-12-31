@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "UserContext.h"
+#import "ImageManager.h"
 
 @interface Landscape : NSObject {
 	UIImage *image;

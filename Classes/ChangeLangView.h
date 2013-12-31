@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AFOpenFlowView.h"
 #import "Language.h"
-#import "ImageManger.h"
+#import "ImageManager.h"
 #import "GenericViewController.h"
 #import "Reachability.h"
 

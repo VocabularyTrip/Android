@@ -104,7 +104,7 @@
 
 - (void) viewWillAppear:(BOOL)animated {
     
-    NSString* coverName = [UserContext getIphone5xIpadFile: @"background_wizard"];
+    NSString* coverName = [ImageManager getIphone5xIpadFile: @"background_wizard"];
     [backgroundView setImage: [UIImage imageNamed: coverName]];
  
     langSelected = [UserContext getLanguageSelected];
@@ -114,11 +114,11 @@
     if ([UserContext getIsLocked]) {
         langsView.alpha = 0.5;
         langsView.userInteractionEnabled = NO;
-        [lockUnlockButton setImage: [UIImage imageNamed: [UserContext getIphoneIpadFile: @"unlock"]] forState: UIControlStateNormal];
+        [lockUnlockButton setImage: [UIImage imageNamed: [ImageManager getIphoneIpadFile: @"unlock"]] forState: UIControlStateNormal];
     } else {
         langsView.alpha = 1;
         langsView.userInteractionEnabled = YES;
-        [lockUnlockButton setImage: [UIImage imageNamed: [UserContext getIphoneIpadFile: @"lock"]] forState: UIControlStateNormal];
+        [lockUnlockButton setImage: [UIImage imageNamed: [ImageManager getIphoneIpadFile: @"lock"]] forState: UIControlStateNormal];
     }
     [self updateLevelSlider];
     

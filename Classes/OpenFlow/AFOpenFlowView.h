@@ -25,7 +25,7 @@
 #import <UIKit/UIKit.h>
 #import "AFItemView.h"
 #import <QuartzCore/QuartzCore.h>
-#import "UserContext.h"
+#import "ImageManager.h"
 
 @protocol AFOpenFlowViewDataSource;
 @protocol AFOpenFlowViewDelegate;

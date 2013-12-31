@@ -16,6 +16,7 @@
 #import "UIWheelView.h"
 #import "ToolbarController.h"
 #import "SmokeView.h"
+#import "ImageManager.h"
 
 #define cStatusGameIsNone 0
 #define cStatusGameIsOn 1

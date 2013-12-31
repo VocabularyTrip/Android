@@ -7,8 +7,8 @@
 //
 
 #import "Level.h"
+#import "ImageManager.h"
 #import "UserContext.h"
-
 
 @implementation Level
 
@@ -63,7 +63,7 @@
 
 -(UIImage*) imageLocked {
 	if (imageLocked == nil) {
-        NSString *file = [[NSString alloc ] initWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath], [UserContext getIphoneIpadFile: imageLockedName]];		
+        NSString *file = [[NSString alloc ] initWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath], [ImageManager getIphoneIpadFile: imageLockedName]];
         imageLocked = [UIImage alloc];
         imageLocked = [imageLocked initWithContentsOfFile: file];
     }
@@ -72,7 +72,7 @@
 
 -(UIImage*) imageNotAvailable {
 	if (imageNotAvailable == nil) {
-        NSString *file = [[NSString alloc ] initWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath], [UserContext getIphoneIpadFile: imageNotAvailableName]];		
+        NSString *file = [[NSString alloc ] initWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath], [ImageManager getIphoneIpadFile: imageNotAvailableName]];
         imageNotAvailable = [UIImage alloc];
         imageNotAvailable = [imageNotAvailable initWithContentsOfFile: file];
     }

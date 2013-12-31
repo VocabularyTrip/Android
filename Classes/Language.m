@@ -7,6 +7,7 @@
 //
 
 #import "Language.h"
+#import "ImageManager.h"
 #import "UserContext.h"
 
 NSMutableArray *allLanguages = nil;
@@ -99,7 +100,7 @@ NSMutableArray *allLanguages = nil;
 }
 
 + (NSString*) iconImageName: (NSString*) fileName {
-    NSString *a = [UserContext getIphoneIpadFile: [NSString stringWithFormat: @"%@Flag", fileName]];
+    NSString *a = [ImageManager getIphoneIpadFile: [NSString stringWithFormat: @"%@Flag", fileName]];
     return a;
 }
 

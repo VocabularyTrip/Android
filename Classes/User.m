@@ -8,6 +8,7 @@
 
 #import "User.h"
 #import "UserContext.h"
+#import "ImageManager.h"
 
 @implementation User
 
@@ -248,7 +249,7 @@
 -(UIImage*) image {
     if (image == nil) {
         NSString *imageName = [NSString stringWithFormat: @"avatar%i", userId];
-        NSString *file = [[NSString alloc ] initWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath], [UserContext getIphoneIpadFile: imageName]];		
+        NSString *file = [[NSString alloc ] initWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath], [ImageManager getIphoneIpadFile: imageName]];		
         image = [UIImage alloc];
         image = [image initWithContentsOfFile: file];
     }

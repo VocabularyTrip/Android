@@ -100,7 +100,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     
-    NSString* coverName = [UserContext getIphone5xIpadFile: @"background_wizard"];
+    NSString* coverName = [ImageManager getIphone5xIpadFile: @"background_wizard"];
     [backgroundView setImage: [UIImage imageNamed: coverName]];
     
     User *user = [UserContext getUserSelected];

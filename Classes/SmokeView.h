@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UserContext.h"
+#import "ImageManager.h"
 
 #define cSmokeSpeedX 10
 #define cSmokeSpeedY -30

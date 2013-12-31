@@ -18,7 +18,7 @@
 
 -(UIImage*) image {
 	if (image == nil) {
-        NSString *file = [[NSString alloc] initWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath], [UserContext getIphone5xIpadFile: imageName]];
+        NSString *file = [[NSString alloc] initWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath], [ImageManager getIphone5xIpadFile: imageName]];
         image = [UIImage alloc];
         image = [image initWithContentsOfFile: file];
     }
@@ -28,7 +28,7 @@
 
 -(UIImage*) sky {
 	if (sky == nil) {
-        NSString *file = [[NSString alloc] initWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath], [UserContext getIphoneIpadFile: skyName]];		
+        NSString *file = [[NSString alloc] initWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath], [ImageManager getIphoneIpadFile: skyName]];		
         sky = [UIImage alloc];
         sky = [sky initWithContentsOfFile: file];
     }

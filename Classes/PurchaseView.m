@@ -86,9 +86,21 @@
     //[self showPromoCodeResult: p]; // Has to be called asyncronic from PromoCode
 }
 
+- (IBAction) facebookButton {
+    
+    //[FacebookManager facebookLogin];
+    //[FacebookManager requestForMe];
+    //[FacebookManager requestWritePermissions];
+    //[FacebookManager inviteAFriend];
+    //[FacebookManager loadListOfFriends];
+    [FacebookManager postFeedDialog: 0];
+
+}
+
+
 - (void) viewWillAppear:(BOOL)animated { 
 	[self refreshLevelInfo];
-    NSString* coverName = [UserContext getIphone5xIpadFile: @"background_purchase"];
+    NSString* coverName = [ImageManager getIphone5xIpadFile: @"background_purchase"];
     [backgroundView setImage: [UIImage imageNamed: coverName]];
 }
 

@@ -102,7 +102,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self shiftTrain: [UserContext getDeltaWidthIphone5]];
+    [self shiftTrain: [ImageManager getDeltaWidthIphone5]];
     [self shiftImageAndWordIphone5];
     
     // ************************
@@ -124,7 +124,7 @@
   
 	NSURL* soundUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"PageTurn" ofType:@"wav"]];
 	AudioServicesCreateSystemSoundID((__bridge   CFURLRef) soundUrl, &pageTurnSoundId);
-	
+	originalframeImageView = imageView.frame;
 }
 
 - (void) updateLevelSlider {
@@ -267,7 +267,7 @@
 - (void) refreshLevelInfo {
   
     NSString *coverName;
-    coverName = [UserContext getIphone5xIpadFile: @"empty-page-monsters"];
+    coverName = [ImageManager getIphone5xIpadFile: @"empty-page-monsters"];
     [backgroundView setImage: [UIImage imageNamed: coverName]];
   
 	levelText.text = [NSString stringWithFormat: @"%d", [UserContext getLevel]];
@@ -276,7 +276,7 @@
 	imageView.alpha = 0;
 	prevButton.alpha = page > 0 ? 1 : 0;
     // ******** change 400 words
-	nextButton.alpha = page < [Vocabulary countOfLevels] ? 1 : 0 ;
+	nextButton.alpha = page < ([Vocabulary countOfLevels] / 3) - 1 ? 1 : 0 ;
   
     // ******** change 400 words - Pending
     // Ya no aplica que cada p[agina corresponda a un tipo de moneda.
@@ -459,7 +459,9 @@
 	word = [Vocabulary getAWord];
     
 	if ((word != nil)) {
-		[imageView setImage: word.image];
+		//[imageView setImage: word.image];
+        imageView.frame = originalframeImageView;
+        [ImageManager fitImage: word.image inView: imageView];
 		wordNamelabel.text = word.translatedName;
         if (![wordNamelabel.text isEqualToString: word.localizationName])
            nativeWordNamelabel.text =  word.localizationName;
@@ -482,7 +484,7 @@
 }
 
 - (void) shiftImageAndWordIphone5 {
-    int delta = [UserContext getDeltaWidthIphone5];
+    int delta = [ImageManager getDeltaWidthIphone5];
 
 	CGRect frame = imageView.frame;
 	frame.origin.x = frame.origin.x + delta;

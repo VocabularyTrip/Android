@@ -126,7 +126,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [self refreshView];
     
-    NSString* coverName = [UserContext getIphone5xIpadFile: @"background_wizard"];
+    NSString* coverName = [ImageManager getIphone5xIpadFile: @"background_wizard"];
     [backgroundView setImage: [UIImage imageNamed: coverName]];
     [super viewWillAppear: animated];
         
@@ -144,7 +144,7 @@
         mailLabel.alpha = 1;
         mailDescriptionLabel.alpha = 1;
         [lockUnlockButton setTitle: @"Unlock" forState: UIControlStateNormal]; 
-        [lockUnlockButton setImage: [UIImage imageNamed: [UserContext getIphoneIpadFile: @"unlock"]] forState: UIControlStateNormal];
+        [lockUnlockButton setImage: [UIImage imageNamed: [ImageManager getIphoneIpadFile: @"unlock"]] forState: UIControlStateNormal];
     } else {
         password1TextField.alpha = 1;
         password2TextField.alpha = 1;
@@ -154,7 +154,7 @@
         mailLabel.alpha = 0;        
         mailDescriptionLabel.alpha = 0;        
         [lockUnlockButton setTitle: @"lock" forState: UIControlStateNormal]; 
-        [lockUnlockButton setImage: [UIImage imageNamed: [UserContext getIphoneIpadFile: @"lock"]] forState: UIControlStateNormal];
+        [lockUnlockButton setImage: [UIImage imageNamed: [ImageManager getIphoneIpadFile: @"lock"]] forState: UIControlStateNormal];
     }
 }
 

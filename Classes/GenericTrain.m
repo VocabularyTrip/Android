@@ -115,7 +115,7 @@
 - (IBAction)pauseClicked { 
 	NSString *imageFile;
 	if (gameStatus == cStatusGameIsOn) { 
-		imageFile = [UserContext getIphoneIpadFile: @"pause1"];		
+		imageFile = [ImageManager getIphoneIpadFile: @"pause1"];
 		[pauseButton setImage: [UIImage imageNamed: imageFile] forState: UIControlStateNormal];
 		gameStatus = cStatusGameIsPaused;
 		[self.trainSound pause];
@@ -129,7 +129,7 @@
         
         [self throbPauseButton];
 	} else	{
-		imageFile = [UserContext getIphoneIpadFile: @"pause2"];		
+		imageFile = [ImageManager getIphoneIpadFile: @"pause2"];
 		[pauseButton setImage: [UIImage imageNamed: imageFile] forState: UIControlStateNormal];
 		gameStatus = cStatusGameIsOn;
 		wordButton1.enabled = YES;
@@ -146,17 +146,17 @@
 	NSString *imageFile;
 	if ([UserContext imageWordGameMode] == cImageModeGame) {
         [UserContext setImageWordGameMode: cWordModeGame];
-		imageFile = [UserContext getIphoneIpadFile: @"wheel1"];
+		imageFile = [ImageManager getIphoneIpadFile: @"wheel1"];
 		[gameModeButton setImage: [UIImage imageNamed: imageFile] forState: UIControlStateNormal];
         [self setWordModeGame];
     } else if ([UserContext imageWordGameMode] == cWordModeGame) {
         [UserContext setImageWordGameMode: cImageAndWordModeGame];
-		imageFile = [UserContext getIphoneIpadFile: @"wheel2"];
+		imageFile = [ImageManager getIphoneIpadFile: @"wheel2"];
 		[gameModeButton setImage: [UIImage imageNamed: imageFile] forState: UIControlStateNormal];
         [self setImageAndWordModeGame];
     } else {
         [UserContext setImageWordGameMode: cImageModeGame];
-		imageFile = [UserContext getIphoneIpadFile: @"wheel3"];
+		imageFile = [ImageManager getIphoneIpadFile: @"wheel3"];
 		[gameModeButton setImage: [UIImage imageNamed: imageFile] forState: UIControlStateNormal];
         [self setImageModeGame];
     }
@@ -413,7 +413,7 @@
 	if (UserContext.soundEnabled) {
 		[self.trainSound play]; 
 	}	
-	[self shiftTrain: [UserContext windowWidth]];	
+	[self shiftTrain: [ImageManager windowWidth]];
 	
 	[UIView beginAnimations:@"TrainAnimation" context: (__bridge void *)(train)];
 	[UIView setAnimationDelegate:self];
@@ -421,7 +421,7 @@
 	[UIView setAnimationDuration: 3.5];
 	[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
 	
-	[self shiftTrain: -1 * [UserContext windowWidth] + [UserContext getDeltaWidthIphone5]];
+	[self shiftTrain: -1 * [ImageManager windowWidth] + [ImageManager getDeltaWidthIphone5]];
 	
 	[UIView commitAnimations];
 }
@@ -445,7 +445,7 @@
         [langView setImage: lang.image];
         
 		if (gameStatus == cStatusGameIsFinished) { 
-			[self shiftTrain: [UserContext windowWidth]];		
+			[self shiftTrain: [ImageManager windowWidth]];
 		}
 	}
 	[self moveLandscape];
@@ -512,7 +512,7 @@
 	[UIView setAnimationDuration: 5];
 	[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
 	
-	[self shiftTrain: -1 * [UserContext windowWidth]];	
+	[self shiftTrain: -1 * [ImageManager windowWidth]];
 	
 	[UIView commitAnimations];
 }
@@ -597,7 +597,7 @@
 - (void) refreshSoundButton {
 	NSString *soundImageFile;
 	soundImageFile = UserContext.soundEnabled == YES ? @"sound-on" : @"sound-of";
-    soundImageFile = [UserContext getIphoneIpadFile: soundImageFile];		
+    soundImageFile = [ImageManager getIphoneIpadFile: soundImageFile];
 	[soundButton setImage: [UIImage imageNamed: soundImageFile] forState: UIControlStateNormal];	
 	[self.view.layer removeAllAnimations];
 }
@@ -676,7 +676,7 @@
 	landscapeSky.image = l.sky;
 	
 	CGRect frame = landscape.frame;
-	frame.origin.x = [self getLandscapeOffset] + [UserContext windowWidth];
+	frame.origin.x = [self getLandscapeOffset] + [ImageManager windowWidth];
 	landscape.frame = frame;
 	
 	[UIView beginAnimations: @"LandscapeAnimation" context: (__bridge void *)(landscape)];
@@ -686,7 +686,7 @@
 	[UIView setAnimationRepeatCount: 20];
 	[UIView setAnimationCurve:UIViewAnimationCurveLinear];
 	frame = landscape.frame;
-	frame.origin.x = frame.origin.x - [self getLandscapeOffset] - [UserContext windowWidth];
+	frame.origin.x = frame.origin.x - [self getLandscapeOffset] - [ImageManager windowWidth];
 	landscape.frame = frame;
 	
 	[UIView commitAnimations];

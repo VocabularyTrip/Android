@@ -77,6 +77,8 @@
 - (void) addFlyWord: (int) i {
 	UIImage *word = [[words objectAtIndex: i] image];
 	UIImageView *imageView = [[UIImageView alloc] initWithImage: word];
+    [ImageManager resizeImage: imageView toSize: 111];
+    
 	CGRect frame = imageView.frame;
 	frame.origin.x = [self getXposOfFlyWords] - ([self distanceBetweenWords] * i);
 	frame.origin.y = [self getYposOfFlyWords];
@@ -104,17 +106,17 @@
 	flyWordsAreExit = YES;
 	UIImageView *imageView = [flyWords objectAtIndex:0];
 	CGRect frame = imageView.frame;
-	if (frame.origin.x < [UserContext windowWidth]) {
+	if (frame.origin.x < [ImageManager windowWidth]) {
 		flyWordsAreExit = NO;
 	} else {
 		imageView = [flyWords objectAtIndex:1];
 		frame = imageView.frame;
-		if (frame.origin.x < [UserContext windowWidth]) {
+		if (frame.origin.x < [ImageManager windowWidth]) {
 			flyWordsAreExit = NO;
 		} else {
 			imageView = [flyWords objectAtIndex:2];
 			frame = imageView.frame;
-			if (frame.origin.x < [UserContext windowWidth]) {
+			if (frame.origin.x < [ImageManager windowWidth]) {
 				flyWordsAreExit = NO;
 			}
 		}

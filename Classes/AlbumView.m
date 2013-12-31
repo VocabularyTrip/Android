@@ -205,7 +205,7 @@
     
     // Delta Iphone 5
 	CGRect frame = [self adjustFrame: imageView  toSize: fig.size];
-	frame.origin.x = fig.x - frame.size.width / 2 + [UserContext getDeltaWidthIphone5];
+	frame.origin.x = fig.x - frame.size.width / 2 + [ImageManager getDeltaWidthIphone5];
 	frame.origin.y = fig.y - frame.size.height / 2;
 	imageView.frame = frame;
 	[self.view addSubview: imageView];
@@ -220,7 +220,7 @@
 	else
 		coverName =  @"cover-monster";
 	
-    coverName = [UserContext getIphone5xIpadFile: coverName];
+    coverName = [ImageManager getIphone5xIpadFile: coverName];
 	[backgroundView setImage: [UIImage imageNamed: coverName]];
 	[self initializeTimer];
 }
@@ -278,7 +278,7 @@
 	else
 		backgroundName =  @"empty-page-monsters";
 	
-    backgroundName = [UserContext getIphone5xIpadFile: backgroundName];
+    backgroundName = [ImageManager getIphone5xIpadFile: backgroundName];
     
 	[backgroundView setImage: [UIImage imageNamed: backgroundName]];
 	[self refreshSoundButton];
@@ -310,7 +310,7 @@
 - (void) refreshSoundButton {
 	NSString *soundImageFile;
 	soundImageFile = UserContext.soundEnabled == YES ? @"sound-on" : @"sound-of";
-    soundImageFile = [UserContext getIphoneIpadFile: soundImageFile];	
+    soundImageFile = [ImageManager getIphoneIpadFile: soundImageFile];	
 	[soundButton setImage: [UIImage imageNamed: soundImageFile] forState: UIControlStateNormal];	
 	[self.view.layer removeAllAnimations];
 }
