@@ -35,7 +35,9 @@
 - (IBAction)done:(id)sender {
 	VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
 	[self removeCurrentPage];	
-	[vocTripDelegate popMainMenuFromAlbum];		
+	[theTimer invalidate];
+	theTimer = nil;
+	[vocTripDelegate popMainMenuFromAlbum];
 }
 
 - (void) selectAlbum1 {
@@ -225,10 +227,9 @@
 	[self initializeTimer];
 }
 
-
 - (void) initializeTimer {
 	if (theTimer == nil) {
-		theTimer = [CADisplayLink displayLinkWithTarget:self selector:@selector(initializePage)];
+		theTimer = [CADisplayLink displayLinkWithTarget:self selector:@selector(initializePageAndThenSoundLoop)];
 		theTimer.frameInterval = 160;
 		[theTimer addToRunLoop: [NSRunLoop currentRunLoop] forMode: NSDefaultRunLoopMode];
 	}
@@ -246,7 +247,7 @@
     
 	if (currentAlbum.actualPage < 0) { // Cover
 		// Once the cover is touched, we jump to the firts page
-		[self initializePage];
+		[self initializePageAndThenSoundLoop];
 	} else {
 		UITouch *touch = [[event allTouches] anyObject];
 		CGPoint touchLocation = [touch locationInView: touch.view];
@@ -260,17 +261,27 @@
 	}
 }
 
--(void) initializePage {
-    
+-(void) initializePageAndThenSoundLoop {
+
 	if (currentAlbum.actualPage == -2) {
 		currentAlbum.actualPage = -1;
-		return; // wait 2 second to the next loop. First call from theTimer is deprecated.
-	}
-	
-	[theTimer invalidate];
-	theTimer = nil;
+		return; // wait 2 second to the next loop.
+	} else if (currentAlbum.actualPage == -1) {
+        [self initializePage];
+        theTimer.frameInterval = 600;
+    } else {
+        if ([currentAlbum.xmlName isEqualToString: cAlbum1])
+            [Sentence playSpeaker: @"AlbumView-Loop-Album1"];	// Princess World
+        else if ([currentAlbum.xmlName isEqualToString: cAlbum2])
+            [Sentence playSpeaker: @"AlbumView-Loop-Album2"];	// Monster World
+        else
+            [Sentence playSpeaker: @"AlbumView-Loop-Album3"];	// Animals World
+    }
     
-	[self setToolbarAlpha: 1];
+}
+
+- (void) initializePage {
+    [self setToolbarAlpha: 1];
     
 	NSString* backgroundName;
 	if ([currentAlbum.xmlName isEqualToString: cAlbum1])
@@ -291,9 +302,7 @@
 	} else {
 		[self nextButtonClicked: nil];
 	}
-	
 }
-
 
 -(void) setToolbarAlpha: (int) aValue {
 	backButton.alpha = aValue;
@@ -325,7 +334,7 @@
 
     if (emptyF.fig.image) {
         int moveDelta = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 30 : 15;
-        int sizePreview = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 60 : 30;
+        int sizePreview = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 120 : 60;
         [previewView setImage: emptyF.fig.image];	
 	
         UIImageView *tempImageView = [[UIImageView alloc] initWithImage: emptyF.fig.image];
@@ -370,7 +379,7 @@
 }
 
 -(void) setAffordable: (UIButtonEmptyFigurine*) buttonEmptyFig to: (bool) aValue {
-	buttonEmptyFig.alpha = aValue ? 1 : 0.4;
+	buttonEmptyFig.alpha = aValue ? 1 : 0.7;
 	UIImage *imageEmpty = aValue ? [UIImage imageNamed: @"figu-empty.png"] : [UIImage imageNamed: @"figu-empty-no.png"];
 	[buttonEmptyFig setBackgroundImage: imageEmpty forState: UIControlStateNormal];
 }

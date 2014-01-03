@@ -35,10 +35,11 @@
 
 @property int number;
 @property (nonatomic, readonly) CGFloat horizontalPosition;
-@property (nonatomic, readonly) CGFloat verticalPosition;
+@property (nonatomic) CGFloat verticalPosition;
+//@property (nonatomic, readonly) CGFloat verticalOffset;
 @property (nonatomic, readonly) UIImageView *imageView;
 
-- (void)setImage:(UIImage *)newImage originalImageHeight:(CGFloat)imageHeight reflectionFraction:(CGFloat)reflectionFraction;
+- (void)setImage:(UIImage *)newImage verticalOffset: (CGFloat) verticalOffset originalImageHeight:(CGFloat)imageHeight reflectionFraction:(CGFloat)reflectionFraction;
 - (CGSize)calculateNewSize:(CGSize)originalImageSize boundingBox:(CGSize)boundingBox;
 
 + (int) getCoverSpacing;

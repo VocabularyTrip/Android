@@ -10,6 +10,7 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import "GenericTrain.h"
 #import "UserContext.h"
+#import "AnimatorHelper.h"
 
 #define cElapsedInactivity1 4 // Is used to repeat the target word each 4 seconds
 #define cElapsedInactivity2 16 // Is used to pause the application after 16 seconds with no clic.

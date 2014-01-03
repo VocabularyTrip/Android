@@ -72,24 +72,4 @@
 }
 
 
-/*+ (bool) checkConnectivity {
-
-    Reachability *r = [Reachability reachabilityWithHostName: @"www.google.com"];
-    return [r currentReachabilityStatus] != NotReachable*/
-    
-    /*Reachability *r = [Reachability reachabilityForInternetConnection];
-    NSLog(@"reachability %u", [r currentReachabilityStatus]);
-    return [r currentReachabilityStatus] != NotReachable;*/
-    
-    /*AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL: [NSURL URLWithString: @"www.google.com"]];
-    __block bool r;
-    [httpClient setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status){
-        r = !(status == AFNetworkReachabilityStatusNotReachable);
-    }];
-    
-    NSLog(@"Connected: %i", r);
-    return r;
-}*/
-
-
 @end

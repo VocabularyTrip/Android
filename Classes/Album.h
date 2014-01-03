@@ -30,5 +30,6 @@
 - (void) parserDidEndDocument:(NSXMLParser *)parser;
 - (void) resetAlbum: (NSString*) albumName;
 - (bool) checkAnyBought: (NSString*) albumName;
-    
+- (double) progress;
+
 @end

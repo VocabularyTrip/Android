@@ -13,8 +13,8 @@
 @implementation MainMenu
 
 @synthesize backgroundSound;
-@synthesize aNewLanguage;
 @synthesize backgroundView;
+@synthesize albumButton;
 
 - (void) initialize {
     [[PurchaseManager getSingleton] initializeObserver];
@@ -22,6 +22,16 @@
     [Vocabulary loadDataFromXML];
     [Sentence loadDataFromXML];
     [self initAudioSession];
+    albumId = 0;
+
+}
+
+- (void) initializeTimer {
+	if (theTimer == nil) {
+		theTimer = [CADisplayLink displayLinkWithTarget:self selector:@selector(albumFlipAnimation)];
+		theTimer.frameInterval = 400;
+		[theTimer addToRunLoop: [NSRunLoop currentRunLoop] forMode: NSDefaultRunLoopMode];
+	}
 }
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
@@ -34,6 +44,7 @@
 	}
 	@finally {
 	}
+    //[self initAlbums];
 }
 
 -(void) viewWillAppear:(BOOL)animated {
@@ -47,48 +58,11 @@
 
 -(void) viewDidAppear:(BOOL)animated {
 	[self.backgroundSound play]; // If soundEnabled is false the volumne is 0. This play prepare buffer and resourses to prevent delay in first word
-    
-    //if ([UserContext existUserData])
-    //    [self checkNewLanguage];
-}
 
--(void) checkNewLanguage {
-    
-    if ([UserContext getaNewLanguage]) {
-        NSLog(@"NewLanguage: %@", [UserContext getaNewLanguage]);
-        
-        // Alloc Image with full path
-        NSString *destPath = [Language checkIfDestinationPathExist];
-        NSString *file = [[NSString alloc ] initWithFormat:@"%@/%@", destPath, [UserContext getaNewLanguage]];		
-        UIImage *image = [UIImage alloc];
-        image = [image initWithContentsOfFile: file];
-        [aNewLanguage setImage: image]; 
-        
-        [UIView beginAnimations: @"NewLanguageAnimation" context: nil]; 
-        [UIView setAnimationDelegate: self]; 
-        [UIView setAnimationDuration: 4];
-        [UIView setAnimationTransition: UIViewAnimationTransitionFlipFromLeft forView: aNewLanguage cache: NO];
-        [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
-        [UIView setAnimationDidStopSelector: @selector(newLanguageEnded)];      
-        aNewLanguage.alpha = 1;
-        [UIView commitAnimations];
-    }
-        
-}
-
-- (void) newLanguageEnded {
-    
-    [UIView beginAnimations: @"NewLanguageAnimation" context: nil]; 
-    [UIView setAnimationDelegate: self]; 
-    [UIView setAnimationDuration: 4];
-    [UIView setAnimationTransition: UIViewAnimationTransitionFlipFromRight forView: aNewLanguage cache: NO];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
-    aNewLanguage.alpha = 0;
-    [UIView commitAnimations];
-    
-    [UserContext setaNewLanguage: nil]; // Remove new preventing showing again
+    [self initializeTimer];
 
 }
+
 
 - (AVAudioPlayer*) backgroundSound {
 	if (backgroundSound == nil) {
@@ -168,24 +142,53 @@
 	[vcDelegate pushTrainingTrain];
 }
 
-- (IBAction)album1ShowInfo:(id)sender {    
+- (IBAction)albumShowInfo:(id)sender {
 	[self stopBackgroundSound];
 	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
-	[vcDelegate.albumView selectAlbum1];
+//<<<<<<< HEAD
+//	[vcDelegate.albumView selectAlbum2];
+//	[vcDelegate pushAlbumView];
+//=======
 	[vcDelegate pushAlbumView];
-}
-
-- (IBAction)album2ShowInfo:(id)sender {    
-	[self stopBackgroundSound];
-	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
-	[vcDelegate.albumView selectAlbum2];
-	[vcDelegate pushAlbumView];
+//>>>>>>> newAlbumAriel
 }
 
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Return YES for supported orientations.
     return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft || interfaceOrientation == UIInterfaceOrientationLandscapeRight);
+}
+
+- (void) albumFlipAnimation {
+	// Hide Image
+	[UIView beginAnimations:@"AlbumFlipAnimationAnimation" context: nil];
+	[UIView setAnimationDelegate:self];
+	[UIView setAnimationDuration: 1];
+	[UIView setAnimationDidStopSelector: @selector(albumFlipAnimationDidStop:finished:context:)];
+	[UIView setAnimationCurve: UIViewAnimationCurveEaseInOut];
+    [UIView setAnimationTransition: UIViewAnimationTransitionCurlUp forView: albumButton cache:YES];
+
+    NSString *imageName;
+    if (albumId == 0)
+        imageName = [ImageManager getIphoneIpadFile: @"cover-monster"];
+    else if (albumId == 1)
+        imageName = [ImageManager getIphoneIpadFile: @"cover-animal"];
+    else
+        imageName = [ImageManager getIphoneIpadFile: @"cover-princess"];
+
+    [albumButton setImage: [UIImage imageNamed: imageName] forState: UIControlStateNormal];
+
+	[UIView commitAnimations];
+    
+    albumId++;
+    if (albumId > 2) albumId = 0;
+}
+
+- (void) albumFlipAnimationDidStop:(NSString *)theAnimation finished:(BOOL)flag context:(void *)context {
+}
+
+- (BOOL) prefersStatusBarHidden {
+    return YES;
 }
 
 -(NSUInteger) supportedInterfaceOrientations

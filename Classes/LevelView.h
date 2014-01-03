@@ -70,6 +70,7 @@
     
 	NSString *activeConfig;	
 	CADisplayLink *theTimer; 
+	CADisplayLink *theTimerAnimator;
 	SystemSoundID pageTurnSoundId;	// Page turn
 	
 	UIButton *__unsafe_unretained helpButton;

@@ -39,7 +39,7 @@
 
 //- (IBAction)done:(id)sender;
 - (IBAction) nextButtonPressed: (id)sender;
-
+- (CGSize) getSize;
 - (void) initUsers;
 - (IBAction) updateUserName;
 - (void) openFlowView:(AFOpenFlowView *)openFlowView selectionDidChange:(int)index;

@@ -33,13 +33,21 @@
     [super done: sender];
 }
 
+- (CGSize) getSize {
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+        return CGSizeMake(250, 350);
+    else
+        return CGSizeMake(125, 175);
+}
+
 - (void) initUsers {
     usersView.viewDelegate = self;
 
 	for (int i=0; i < [[UserContext getSingleton].users count]; i++) {
         User* u = [[UserContext getSingleton].users objectAtIndex: i];
         //NSLog(@"user i: %i, name: %@", i, u.userName);
-		[(AFOpenFlowView *)self.usersView setImage: u.image forIndex: i];
+        
+		[(AFOpenFlowView *)self.usersView setImage: [ImageManager imageWithImage: u.image scaledToSize: [self getSize]] forIndex: i];
 	}
     //NSLog(@"User Count: %i", [[UserContext getSingleton].users count]);
 	[(AFOpenFlowView *)self.usersView setNumberOfImages: [[UserContext getSingleton].users count]];
@@ -60,7 +68,8 @@
     // Update user name
     userNameText.text = user.userName;
     [self refreshLabels];
-}
+    //[AnimatorHelper avatarGreet: [openFlowView getSelectedCoverView].imageView];
+ }
 
 - (void) refreshLabels {
 	moneyBronzeLabel.text = [UserContext getMoney1AsText];	

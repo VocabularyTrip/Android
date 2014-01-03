@@ -25,7 +25,7 @@
 #import "AFOpenFlowView.h"
 #import "AFOpenFlowConstants.h"
 #import "AFUIImageReflection.h"
-
+#import "ImageManager.h"
 
 @interface AFOpenFlowView (hidden)
 
@@ -98,9 +98,9 @@ const static CGFloat kReflectionFraction = 0.85;
 	if (coverImage) {
 		NSNumber *coverImageHeightNumber = (NSNumber *)[coverImageHeights objectForKey:coverNumber];
 		if (coverImageHeightNumber)
-			[aCover setImage:coverImage originalImageHeight:[coverImageHeightNumber floatValue] reflectionFraction:kReflectionFraction];
+			[aCover setImage:coverImage verticalOffset: verticalOffset originalImageHeight:[coverImageHeightNumber floatValue] reflectionFraction:kReflectionFraction];
 	} else {
-		[aCover setImage:defaultImage originalImageHeight:defaultImageHeight reflectionFraction:kReflectionFraction];
+		[aCover setImage:defaultImage verticalOffset: verticalOffset originalImageHeight:defaultImageHeight reflectionFraction:kReflectionFraction];
 		[self.dataSource openFlowView:self requestImageForIndex:aCover.number];
 	}
 }
@@ -239,12 +239,13 @@ const static CGFloat kReflectionFraction = 0.85;
 	UIImage *imageWithReflection = [image addImageReflection:kReflectionFraction];
 	NSNumber *coverNumber = [NSNumber numberWithInt:index];
 	[coverImages setObject:imageWithReflection forKey:coverNumber];
+
 	[coverImageHeights setObject:[NSNumber numberWithFloat:image.size.height] forKey:coverNumber];
 	
 	// If this cover is onscreen, set its image and call layoutCover.
 	AFItemView *aCover = (AFItemView *)[onscreenCovers objectForKey:[NSNumber numberWithInt:index]];
 	if (aCover) {
-		[aCover setImage:imageWithReflection originalImageHeight:image.size.height reflectionFraction:kReflectionFraction];
+		[aCover setImage:imageWithReflection verticalOffset: verticalOffset originalImageHeight:image.size.height reflectionFraction:kReflectionFraction];
 		[self layoutCover:aCover selectedCover:selectedCoverView.number animated:NO];
 	}
 }
@@ -453,6 +454,14 @@ const static CGFloat kReflectionFraction = 0.85;
             [scrollView sendSubviewToBack: cover];
         }
 	}
+}
+
+/*-(void) setVerticalOffset:(CGFloat)newValue {
+    verticalOffset = newValue;
+}*/
+
+- (AFItemView*) getSelectedCoverView {
+    return selectedCoverView;
 }
 
 @end
