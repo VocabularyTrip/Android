@@ -88,13 +88,13 @@
 
 - (IBAction) facebookButton {
     
-    //[FacebookManager facebookLogin];
+    [FacebookManager initFacebookSession];
+    [FacebookManager facebookLogin];
     //[FacebookManager requestForMe];
     //[FacebookManager requestWritePermissions];
     //[FacebookManager inviteAFriend];
     //[FacebookManager loadListOfFriends];
     [FacebookManager postFeedDialog: 0];
-
 }
 
 

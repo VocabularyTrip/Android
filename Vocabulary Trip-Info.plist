@@ -35,8 +35,6 @@
 	<false/>
 	<key>NSMainNibFile</key>
 	<string>MainWindow</string>
-	<key>UIApplicationExitsOnSuspend</key>
-	<true/>
 	<key>UIStatusBarHidden</key>
 	<true/>
 	<key>UIViewControllerBasedStatusBarAppearance</key>

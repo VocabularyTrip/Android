@@ -150,8 +150,8 @@ FacebookManager *fbSingleton;
     // It will attemnt to use the Facebook Native Share dialog
     // If that's not supported we'll fall back to the web based dialog.
 
-    NSString *linkURL = [NSString stringWithFormat:@"https://www.vocabularytrip.com"];
-    NSString *pictureURL = @"http://www.vocabularytrip.com/images/iTunesArtworkEnglish103.png";
+    NSString *linkURL = [NSString stringWithFormat:@"https://itunes.apple.com/US/app/id683626437"];
+    NSString *pictureURL = @"http://www.vocabularytrip.com/IconsLogo/Icon@2x.png";
 
     // Prepare the native share dialog parameters
     FBShareDialogParams *shareParams = [[FBShareDialogParams alloc] init];
