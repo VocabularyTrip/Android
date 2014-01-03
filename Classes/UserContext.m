@@ -23,6 +23,7 @@ UserContext *userContextSingleton;
 @synthesize userSelected;
 @synthesize aNewLanguage;
 @synthesize imageWordGameMode;
+@synthesize levelGameMode;
 
 +(UserContext*) getSingleton {
 	if (userContextSingleton == nil)
@@ -55,6 +56,14 @@ UserContext *userContextSingleton;
 
 +(void) setSoundEnabled: (int) newVal {
 	[[UserContext getSingleton] setSoundEnabled: newVal];
+}
+
++ (int) levelGameMode {
+	return [[UserContext getSingleton] levelGameMode];
+}
+
++ (void) setLevelGameMode: (int) newVal {
+	[[UserContext getSingleton] setLevelGameMode: newVal];
 }
 
 + (void) setImageWordGameMode: (int) newVal {

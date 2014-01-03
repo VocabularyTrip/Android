@@ -43,7 +43,8 @@
 	// **********************************
 	// Toolbar **************************
 	UIButton *__unsafe_unretained pauseButton;
-	UIButton *__unsafe_unretained gameModeButton;
+	UIButton *__unsafe_unretained gameImageModeButton;
+	UIButton *__unsafe_unretained gameLevelModeButton;
 	UIButton *__unsafe_unretained helpButton;
 	UIButton *__unsafe_unretained backButton;
 	UIButton *__unsafe_unretained soundButton;
@@ -120,7 +121,8 @@
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *landscape;
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *landscapeSky;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *pauseButton;
-@property (nonatomic, unsafe_unretained) IBOutlet UIButton *gameModeButton;
+@property (nonatomic, unsafe_unretained) IBOutlet UIButton *gameImageModeButton;
+@property (nonatomic, unsafe_unretained) IBOutlet UIButton *gameLevelModeButton;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *helpButton;
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *loadingView;	
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *railView;	
@@ -160,6 +162,9 @@
 - (IBAction) pauseClicked;
 - (IBAction) soundClicked;
 - (IBAction) helpClicked;
+- (IBAction) gameImageModeClicked;
+- (IBAction) gameLevelModeClicked;
+
 //- (IBAction) jumpDownloadDictionary;
 
 - (void) hideAllViews;

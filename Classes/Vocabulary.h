@@ -47,7 +47,8 @@ extern Vocabulary *singletonVocabulary;
 
 + (void) loadDataFromXML; //
 + (void) parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict; //
-+ (Word*) getAWord; //
++ (Word*) getOrderedWord;
++ (Word*) getRandomWeightedWord; //
 + (void)parserDidEndDocument:(NSXMLParser *)parser;
 + (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError;
 + (void) initializeLevelUntil: (int) level; // Initialize all words form level 1 to the parameter  

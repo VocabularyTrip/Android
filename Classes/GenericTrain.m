@@ -22,7 +22,8 @@
 @implementation GenericTrain
 
 @synthesize pauseButton;
-@synthesize gameModeButton;
+@synthesize gameImageModeButton;
+@synthesize gameLevelModeButton;
 @synthesize helpButton;
 @synthesize train;
 @synthesize wagon1;
@@ -142,26 +143,39 @@
 	}
 }
 
-- (IBAction) gameModeClicked {
+- (IBAction) gameImageModeClicked {
 	NSString *imageFile;
 	if ([UserContext imageWordGameMode] == cImageModeGame) {
         [UserContext setImageWordGameMode: cWordModeGame];
 		imageFile = [ImageManager getIphoneIpadFile: @"wheel1"];
-		[gameModeButton setImage: [UIImage imageNamed: imageFile] forState: UIControlStateNormal];
+		[gameImageModeButton setImage: [UIImage imageNamed: imageFile] forState: UIControlStateNormal];
         [self setWordModeGame];
     } else if ([UserContext imageWordGameMode] == cWordModeGame) {
         [UserContext setImageWordGameMode: cImageAndWordModeGame];
 		imageFile = [ImageManager getIphoneIpadFile: @"wheel2"];
-		[gameModeButton setImage: [UIImage imageNamed: imageFile] forState: UIControlStateNormal];
+		[gameImageModeButton setImage: [UIImage imageNamed: imageFile] forState: UIControlStateNormal];
         [self setImageAndWordModeGame];
     } else {
         [UserContext setImageWordGameMode: cImageModeGame];
 		imageFile = [ImageManager getIphoneIpadFile: @"wheel3"];
-		[gameModeButton setImage: [UIImage imageNamed: imageFile] forState: UIControlStateNormal];
+		[gameImageModeButton setImage: [UIImage imageNamed: imageFile] forState: UIControlStateNormal];
         [self setImageModeGame];
     }
 }
 
+- (IBAction) gameLevelModeClicked {
+    NSString *imageFile;
+	if ([UserContext levelGameMode] == tLevelModeGame_cumulative) {
+        [UserContext setLevelGameMode: tLevelModeGame_currentLevel];
+		imageFile = [ImageManager getIphoneIpadFile: @"wheel1"];
+		[gameLevelModeButton setImage: [UIImage imageNamed: imageFile] forState: UIControlStateNormal];
+    } else {
+        [UserContext setLevelGameMode: tLevelModeGame_cumulative];
+		imageFile = [ImageManager getIphoneIpadFile: @"wheel2"];
+		[gameLevelModeButton setImage: [UIImage imageNamed: imageFile] forState: UIControlStateNormal];
+    }
+}
+    
 - (void) refreshGameMode {
 	if ([UserContext imageWordGameMode] == cImageModeGame) {
         [self setImageModeGame];
@@ -321,7 +335,7 @@
 }
 
 - (Word*) getNextWord {
-	return [Vocabulary getAWord];
+	return [Vocabulary getRandomWeightedWord];
 }
 
 // Show new Word
@@ -344,7 +358,7 @@
 		}
 		
 	} else {
-		NSLog(@"End game abnormally. getAWord return nil");
+		NSLog(@"End game abnormally. getRandomWeightedWord return nil");
 		[self endGame];
 	}
 	
@@ -469,7 +483,11 @@
 }
 
 - (void) initializeLevel {
-    [Vocabulary initializeLevelUntil: [UserContext getLevel]];
+    if ([UserContext levelGameMode] == tLevelModeGame_currentLevel)
+        [Vocabulary initializeLevelAt: [UserContext getLevel]];
+    else
+        [Vocabulary initializeLevelUntil: [UserContext getLevel]];
+        // default mode is tLevelModeGame_cumulative
 }
 
 - (void) viewDidAppear:(BOOL)animated {
@@ -800,17 +818,17 @@
 
 - (void) initWagons {
 	
-	Word *word = [Vocabulary getAWord];
+	Word *word = [Vocabulary getRandomWeightedWord];
 	[words addObject: word];
 	[wordButton1 setImage: word.image forState: UIControlStateNormal];
 	[wordButtonLabel1 setTitle: word.translatedName forState: UIControlStateNormal];
     
-	word = [Vocabulary getAWord];
+	word = [Vocabulary getRandomWeightedWord];
 	[words addObject: word];
 	[wordButton2 setImage: word.image forState: UIControlStateNormal];
 	[wordButtonLabel2 setTitle: word.translatedName forState: UIControlStateNormal];
     
-	word = [Vocabulary getAWord];
+	word = [Vocabulary getRandomWeightedWord];
 	[words addObject: word];
 	[wordButton3 setImage: word.image forState: UIControlStateNormal];
 	[wordButtonLabel3 setTitle: word.translatedName forState: UIControlStateNormal];

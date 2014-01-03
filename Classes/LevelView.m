@@ -491,7 +491,7 @@
 - (void) showAndSayWord {
   
 	Word *word;
-	word = [Vocabulary getAWord];
+	word = [Vocabulary getOrderedWord];
     
 	if ((word != nil)) {
 		//[imageView setImage: word.image];

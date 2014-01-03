@@ -203,19 +203,31 @@ Vocabulary *singletonVocabulary;
 	}
 }
 
-+ (Word*) getAWord {
++ (Word*) getOrderedWord {
+	if ([oneLevel count]>0) {
+		Word *w = [oneLevel objectAtIndex: 0];
+		[oneLevel removeObjectAtIndex: 0];
+		return w;
+	} else {
+		NSLog(@"Exception: getOrderedWord return nil");
+	}
+    
+	return nil;
+}
+
++ (Word*) getRandomWeightedWord {
 	if ([oneLevel count]>0) {
 		int i = arc4random() % [self getSumOfAllWeights];
 		i = [self getSelectedWordFrom: i];
 		if (i >= [oneLevel count]) {
-			NSLog(@"Exception: getAWord get an out of index: %i, %i", i, [oneLevel count]);			
+			NSLog(@"Exception: getRandomWeightedWord get an out of index: %i, %i", i, [oneLevel count]);
 			i=0;	
 		}
 		Word *w = [oneLevel objectAtIndex: i];
 		[oneLevel removeObjectAtIndex: i];
 		return w;
 	} else {
-		NSLog(@"Exception: getAWord return nil");
+		NSLog(@"Exception: getRandomWeightedWord return nil");
 	}
 
 	return nil;

@@ -57,13 +57,22 @@
 #define cIsLocked @"langSelectionIsLocked"
 
 
+enum {
+    tLevelModeGame_cumulative = 0, // default mode. If you are in the level 4, the game choose randomly words between words in level 1 to 4.
+    tLevelModeGame_currentLevel    = 1,    // choose words from the current level
+    tLevelModeGame_random    = 2,    // if you are in level 4, choose a level randomly up to level 4 and then get words from that level
+    tLevelModeGame_selectAdHoc     = 3 // Allow the user select the level.
+}; typedef NSUInteger tLevelModeGame;
+
+
 @interface UserContext : NSObject  {
     NSMutableArray *__strong users;
     User *__unsafe_unretained userSelected;
 	int maxLevel;
 	NSMutableArray *allLevels;
 	int soundEnabled;
-    int imageWordGameMode;
+    int imageWordGameMode; // This mode define is only the image is visible over each wagon, the image + the name, only the name, the name + translated name, etc.
+    tLevelModeGame levelGameMode;
     NSString* aNewLanguage;
 }
 
@@ -73,6 +82,7 @@ extern UserContext *userContextSingleton;
 @property (nonatomic) NSMutableArray *allLevels;
 @property (nonatomic, assign) int soundEnabled;
 @property (nonatomic, assign) int imageWordGameMode;
+@property (nonatomic, assign) tLevelModeGame levelGameMode;
 @property (nonatomic, strong) NSMutableArray *users;
 @property (nonatomic, unsafe_unretained) User *userSelected;
 @property (nonatomic, strong) NSString* aNewLanguage;
@@ -129,6 +139,9 @@ extern UserContext *userContextSingleton;
 
 + (int) imageWordGameMode;
 + (void) setImageWordGameMode: (int) newVal;
+
++ (int) levelGameMode;
++ (void) setLevelGameMode: (int) newVal;
 
 + (int) osVersion;
 + (NSString*) getUUID;

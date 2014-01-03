@@ -9,7 +9,8 @@
             <connections>
                 <outlet property="backButton" destination="14" id="19"/>
                 <outlet property="driverView" destination="131" id="132"/>
-                <outlet property="gameModeButton" destination="cl2-bU-ep0" id="3Ns-i4-Fs5"/>
+                <outlet property="gameImageModeButton" destination="cl2-bU-ep0" id="nMy-Es-rRB"/>
+                <outlet property="gameLevelModeButton" destination="hj9-hI-pgk" id="pZC-K0-dhh"/>
                 <outlet property="hand" destination="124" id="126"/>
                 <outlet property="helpButton" destination="125" id="127"/>
                 <outlet property="landscape" destination="12" id="22"/>
@@ -319,14 +320,25 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="cl2-bU-ep0" userLabel="ImageWordMode">
-                    <rect key="frame" x="0.0" y="40" width="50" height="46"/>
+                    <rect key="frame" x="0.0" y="39" width="50" height="46"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" image="wheel1.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="gameModeClicked" destination="-1" eventType="touchDown" id="Kr1-gA-1Yn"/>
+                        <action selector="gameImageModeClicked" destination="-1" eventType="touchDown" id="6th-Q5-091"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hj9-hI-pgk" userLabel="levelMode">
+                    <rect key="frame" x="42" y="39" width="50" height="46"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" image="wheel1.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="gameLevelModeClicked" destination="-1" eventType="touchDown" id="86X-0R-ihI"/>
                     </connections>
                 </button>
             </subviews>
@@ -339,11 +351,11 @@
         <image name="Menu1.png" width="106" height="43"/>
         <image name="avatar6.png" width="125" height="175"/>
         <image name="clicking.png" width="139" height="147"/>
-        <image name="firefighter.png" width="99" height="111"/>
+        <image name="firefighter.png" width="348" height="450"/>
         <image name="help.png" width="49" height="49"/>
         <image name="landscape1.png" width="2059" height="320"/>
         <image name="landscape1Sky.png" width="2076" height="113"/>
-        <image name="mouse.png" width="99" height="111"/>
+        <image name="mouse.png" width="400" height="258"/>
         <image name="one.png" width="99" height="111"/>
         <image name="pause2.png" width="50" height="50"/>
         <image name="rail.png" width="478" height="4"/>

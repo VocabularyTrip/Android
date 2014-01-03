@@ -453,7 +453,7 @@
         <image name="red.png" width="198" height="222"/>
         <image name="reset@ipad.png" width="60" height="56"/>
         <image name="token-bronze.png" width="33" height="33"/>
-        <image name="train.png" width="400" height="349"/>
+        <image name="train.png" width="175" height="169"/>
         <image name="wagon.png" width="93" height="43"/>
         <image name="wheel1.png" width="31" height="31"/>
         <image name="wheel3.png" width="31" height="31"/>
