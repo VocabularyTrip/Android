@@ -22,6 +22,7 @@ enum {
 
 + (void) fitImage: (UIImage*) imageView inView: (UIImageView*) aView;
 + (void) resizeImage: (UIImageView*) imageView toSize: (int) aSize;
++ (UIImage *) imageWithImage: (UIImage *) image scaledToSize: (CGSize) newSize;
 + (NSString*) getIphoneIpadFile: (NSString*) imageFile;
 + (NSString*) getIphoneIpadFile: (NSString*) imageFile ext: (NSString*) ext;
 + (NSString*) getIphone5xIpadFile: (NSString*) imageFile;

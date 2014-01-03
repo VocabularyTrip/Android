@@ -43,7 +43,7 @@
 }
 
 - (void)viewWillAppear: (BOOL)animated {
-    NSString* coverName = [UserContext getIphone5xIpadFile: @"background_wizard"];   // background_wizard"];
+    NSString* coverName = [ImageManager getIphone5xIpadFile: @"background_wizard"];   // background_wizard"];
     [backgroundView setImage: [UIImage imageNamed: coverName]];
     
     VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];

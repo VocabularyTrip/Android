@@ -481,6 +481,12 @@
 		B0A8B581187664A300245F48 /* avatar6.png in Resources */ = {isa = PBXBuildFile; fileRef = B0A8B533187664A300245F48 /* avatar6.png */; };
 		B0A8B582187664A300245F48 /* avatar6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B0A8B534187664A300245F48 /* avatar6@2x.png */; };
 		B0A8B583187664A300245F48 /* avatar6@ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B0A8B535187664A300245F48 /* avatar6@ipad.png */; };
+		B0A8B58518766F4B00245F48 /* AlbumView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0A8B58418766F4B00245F48 /* AlbumView.xib */; };
+		B0A8B58C18766F8600245F48 /* en_birds flap.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B0A8B58718766F8600245F48 /* en_birds flap.mp3 */; };
+		B0A8B58D18766F8600245F48 /* en_birds.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B0A8B58818766F8600245F48 /* en_birds.mp3 */; };
+		B0A8B58E18766F8600245F48 /* en_elephant.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B0A8B58918766F8600245F48 /* en_elephant.mp3 */; };
+		B0A8B58F18766F8600245F48 /* en_hen.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B0A8B58A18766F8600245F48 /* en_hen.mp3 */; };
+		B0A8B59018766F8600245F48 /* en_owl.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B0A8B58B18766F8600245F48 /* en_owl.mp3 */; };
 		B0BD2FC21754D02900226A38 /* en_User_Wizard_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B0BD2FBF1754D02900226A38 /* en_User_Wizard_1.mp3 */; };
 		B0BD2FC31754D02900226A38 /* en_User_Wizard_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B0BD2FC01754D02900226A38 /* en_User_Wizard_2.mp3 */; };
 		B0BD2FC41754D02900226A38 /* en_User_Wizard_3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B0BD2FC11754D02900226A38 /* en_User_Wizard_3.mp3 */; };
@@ -1459,6 +1465,12 @@
 		B0A8B533187664A300245F48 /* avatar6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar6.png; sourceTree = "<group>"; };
 		B0A8B534187664A300245F48 /* avatar6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "avatar6@2x.png"; sourceTree = "<group>"; };
 		B0A8B535187664A300245F48 /* avatar6@ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "avatar6@ipad.png"; sourceTree = "<group>"; };
+		B0A8B58418766F4B00245F48 /* AlbumView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlbumView.xib; sourceTree = "<group>"; };
+		B0A8B58718766F8600245F48 /* en_birds flap.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "en_birds flap.mp3"; sourceTree = "<group>"; };
+		B0A8B58818766F8600245F48 /* en_birds.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_birds.mp3; sourceTree = "<group>"; };
+		B0A8B58918766F8600245F48 /* en_elephant.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_elephant.mp3; sourceTree = "<group>"; };
+		B0A8B58A18766F8600245F48 /* en_hen.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_hen.mp3; sourceTree = "<group>"; };
+		B0A8B58B18766F8600245F48 /* en_owl.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_owl.mp3; sourceTree = "<group>"; };
 		B0BD2FBF1754D02900226A38 /* en_User_Wizard_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_User_Wizard_1.mp3; sourceTree = "<group>"; };
 		B0BD2FC01754D02900226A38 /* en_User_Wizard_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_User_Wizard_2.mp3; sourceTree = "<group>"; };
 		B0BD2FC11754D02900226A38 /* en_User_Wizard_3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_User_Wizard_3.mp3; sourceTree = "<group>"; };
@@ -2176,6 +2188,7 @@
 			children = (
 				CE719CB5141A307700723474 /* AlbumView.h */,
 				CE719CB6141A307700723474 /* AlbumView.m */,
+				B0A8B58418766F4B00245F48 /* AlbumView.xib */,
 				CECA9262146B151F00E0B741 /* AlbumView~ipad.xib */,
 				B0A8B4DB187663C700245F48 /* AlbumMenu.h */,
 				B0A8B4DC187663C700245F48 /* AlbumMenu.m */,
@@ -2183,6 +2196,18 @@
 				B0A8B4DE187663C700245F48 /* AlbumMenu~ipad.xib */,
 			);
 			name = Album;
+			sourceTree = "<group>";
+		};
+		B0A8B58618766F8600245F48 /* Animal Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				B0A8B58718766F8600245F48 /* en_birds flap.mp3 */,
+				B0A8B58818766F8600245F48 /* en_birds.mp3 */,
+				B0A8B58918766F8600245F48 /* en_elephant.mp3 */,
+				B0A8B58A18766F8600245F48 /* en_hen.mp3 */,
+				B0A8B58B18766F8600245F48 /* en_owl.mp3 */,
+			);
+			path = "Animal Sounds";
 			sourceTree = "<group>";
 		};
 		CE1627B31522531A00BFDE69 /* English */ = {
@@ -2234,6 +2259,7 @@
 		CE713A7114047933006E52B3 /* Sentences */ = {
 			isa = PBXGroup;
 			children = (
+				B0A8B58618766F8600245F48 /* Animal Sounds */,
 				CE1627B31522531A00BFDE69 /* English */,
 			);
 			path = Sentences;
@@ -3655,6 +3681,7 @@
 				CE72118F149675EC00D60184 /* monster68h.png in Resources */,
 				CE721190149675EC00D60184 /* monster69h.png in Resources */,
 				CE721191149675EC00D60184 /* monster6h.png in Resources */,
+				B0A8B59018766F8600245F48 /* en_owl.mp3 in Resources */,
 				B0A8B3E71872CC4F00245F48 /* dirty.png in Resources */,
 				CE721192149675EC00D60184 /* monster70h.png in Resources */,
 				B0A8B3AE1872CC4F00245F48 /* bathe.png in Resources */,
@@ -3811,6 +3838,7 @@
 				B0A8B4131872CC4F00245F48 /* goat.png in Resources */,
 				B0A8B3C01872CC4F00245F48 /* brown.png in Resources */,
 				B0A8B3E81872CC4F00245F48 /* dive.png in Resources */,
+				B0A8B58E18766F8600245F48 /* en_elephant.mp3 in Resources */,
 				B0A8B4C71872CC4F00245F48 /* winter.png in Resources */,
 				B0A8B4541872CC4F00245F48 /* pants.png in Resources */,
 				CE7211DF149675EC00D60184 /* pause2.png in Resources */,
@@ -3827,6 +3855,7 @@
 				CE7211E6149675EC00D60184 /* sound-on.png in Resources */,
 				CE7211E8149675EC00D60184 /* sound-on@2x.png in Resources */,
 				CE7211E9149675EC00D60184 /* token-bronze.png in Resources */,
+				B0A8B58D18766F8600245F48 /* en_birds.mp3 in Resources */,
 				CE7211EA149675EC00D60184 /* token-bronze@ipad.png in Resources */,
 				CE7211EB149675EC00D60184 /* token-bronze@2x.png in Resources */,
 				B0A8B579187664A300245F48 /* avatar6_arm2.png in Resources */,
@@ -4083,6 +4112,7 @@
 				CE4E93C516630086002A667A /* FrenchFlag@2x.png in Resources */,
 				B0A8B4461872CC4F00245F48 /* narrow.png in Resources */,
 				B0A8B55D187664A300245F48 /* avatar4_0.png in Resources */,
+				B0A8B58F18766F8600245F48 /* en_hen.mp3 in Resources */,
 				B0A8B542187664A300245F48 /* avatar1@ipad.png in Resources */,
 				CE4E93C616630086002A667A /* GermanFlag@2x.png in Resources */,
 				CE4E93C716630086002A667A /* ItalianFlag@2x.png in Resources */,
@@ -4095,6 +4125,7 @@
 				CE4E93CA16630086002A667A /* SpanishFlag@2x.png in Resources */,
 				B0A8B56E187664A300245F48 /* avatar5_arm4a.png in Resources */,
 				B0A8B54B187664A300245F48 /* avatar2_blink1.png in Resources */,
+				B0A8B58C18766F8600245F48 /* en_birds flap.mp3 in Resources */,
 				CE4E93CB16630086002A667A /* VietnameseFlag@2x.png in Resources */,
 				B0A8B4591872CC4F00245F48 /* pay.png in Resources */,
 				CE4E93CC16630086002A667A /* ChineseFlag@2x.png in Resources */,
@@ -4306,6 +4337,7 @@
 				899344AF17C064FC00197362 /* iTunesArtwork@2x.png in Resources */,
 				B0A8B53C187664A300245F48 /* avatar1_arm5a.png in Resources */,
 				B0A8B4471872CC4F00245F48 /* neck.png in Resources */,
+				B0A8B58518766F4B00245F48 /* AlbumView.xib in Resources */,
 				B0A8B4431872CC4F00245F48 /* mouth.png in Resources */,
 				B0A8B4661872CC4F00245F48 /* postoffice.png in Resources */,
 				B0A8B4551872CC4F00245F48 /* park.png in Resources */,
