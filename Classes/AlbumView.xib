@@ -166,7 +166,7 @@
     <resources>
         <image name="Menu1.png" width="106" height="43"/>
         <image name="clicking.png" width="139" height="147"/>
-        <image name="empty-page-animals.png" width="1024" height="768"/>
+        <image name="empty-page-animals.png" width="480" height="320"/>
         <image name="help.png" width="49" height="49"/>
         <image name="library.png" width="400" height="286"/>
         <image name="nav_back@ipad.png" width="94" height="94"/>

@@ -21,6 +21,7 @@
 #import "PurchaseView.h"
 #import "Reachability.h"
 #import "FacebookManager.h"
+#import "AlbumMenu.h"
 
 @class MainMenu;
 
@@ -36,7 +37,7 @@
 	LevelView *levelView;
 	AlbumView *albumView;
 	PurchaseView *purchaseView;
-    
+	AlbumMenu *albumMenu;
 	UINavigationController *navController;
     NSDate *startPlaying;
     
@@ -53,6 +54,7 @@
 @property (nonatomic) LevelView *levelView;
 @property (nonatomic) AlbumView *albumView;
 @property (nonatomic) PurchaseView *purchaseView;
+@property (nonatomic) AlbumMenu *albumMenu;
 @property (nonatomic) UINavigationController *navController;
 @property (nonatomic, strong) NSDate *startPlaying;
 @property (nonatomic) Reachability *internetReachable;
@@ -79,7 +81,8 @@
 - (void) popMainMenuFromTrainingTrain;
 - (void) popFromLockLanguageView;
 - (void) popMainMenuFromChangeLang;
-    
+- (void) pushAlbumMenu;
+- (void) popMainMenuFromAlbumMenu;
 - (void) responseToBuyAction;
 - (void) responseToCancelAction;
 - (void) checkIfaskToRate;

@@ -22,6 +22,7 @@
 @synthesize levelView;
 @synthesize purchaseView;
 @synthesize albumView;
+@synthesize albumMenu;
 @synthesize navController;
 @synthesize startPlaying;
 @synthesize internetReachable;
@@ -272,6 +273,16 @@
 	return albumView;
 }
 
+-(AlbumMenu*) albumMenu {
+	if ( albumMenu == nil) {
+		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+			albumMenu = [[AlbumMenu alloc] initWithNibName:@"AlbumMenu~ipad" bundle:nil];
+		else
+			albumMenu = [[AlbumMenu alloc] initWithNibName:@"AlbumMenu" bundle:nil];
+	}
+	return albumMenu;
+}
+
 -(TestTrain*) testTrain {
 	if (testTrain == nil) {
 		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
@@ -306,6 +317,10 @@
 
 - (void) pushAlbumView {
 	[navController pushViewController: self.albumView animated: YES];
+}
+
+- (void) pushAlbumMenu {
+	[navController pushViewController: self.albumMenu animated: YES];
 }
 
 - (void) pushLevelView {
@@ -365,6 +380,11 @@
 - (void) popMainMenuFromAlbum {
 	[self popMainMenu];
 	albumView = nil;
+}
+
+- (void) popMainMenuFromAlbumMenu {
+	[self popMainMenu];
+	albumMenu = nil;
 }
 
 - (void) popMainMenuFromTestTrain {
