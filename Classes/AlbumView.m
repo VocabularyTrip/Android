@@ -19,6 +19,7 @@
 @synthesize figurinesInPage;
 @synthesize album1;
 @synthesize album2;
+@synthesize album3;
 
 @synthesize backButton;
 @synthesize soundButton;
@@ -48,6 +49,10 @@
 	currentAlbum = self.album2;
 }
 
+- (void) selectAlbum3 {
+	currentAlbum = self.album3;
+}
+
 -(Album*) album1 {
 	if (album1 == nil) {
 		album1 = [Album alloc];
@@ -68,6 +73,16 @@
 	return album2;
 }
 
+-(Album*) album3 {
+	if (album3 == nil) {
+		album3 = [Album alloc];
+		album3.xmlName = cAlbum3;
+		[album3 loadDataFromXML: cAlbum3];
+	}
+	
+	return album3;
+}
+
 - (void) initialize {
     if (!figurinesInPage) {
         figurinesInPage = [[NSMutableArray alloc] init];
@@ -78,6 +93,7 @@
 - (void) reloadFigurines {
     [album1 reloadFigurines];
     [album2 reloadFigurines];    
+    [album3 reloadFigurines];
 }
 
 - (void) viewDidLoad {
@@ -97,8 +113,10 @@
 - (void) viewDidAppear:(BOOL)animated {
 	if ([currentAlbum.xmlName isEqualToString: cAlbum1])
 		[Sentence playSpeaker: @"AlbumView-ViewDidAppear-Album1Start"];	// Princess World
-	else
+	else if ([currentAlbum.xmlName isEqualToString: cAlbum2])
 		[Sentence playSpeaker: @"AlbumView-ViewDidAppear-Album2Start"];	// Monster World
+    else
+		[Sentence playSpeaker: @"AlbumView-ViewDidAppear-Album3Start"];	// Animals World
 }
 
 -(void) initMusicPlayer {
@@ -112,10 +130,8 @@
 	
 }
 
-- (IBAction)soundClicked {
-    [self takeScreenshot: nil]; // remove !!!!!!!!!!!!!!!!!!!
-    
-	if (UserContext.soundEnabled == YES) {
+- (IBAction)soundClicked { 
+	if (UserContext.soundEnabled == YES) { 
 		UserContext.soundEnabled = NO;
 	} else	{
 		UserContext.soundEnabled = YES;
@@ -150,16 +166,6 @@
 	[UIView setAnimationDuration:1];
 	[UIView setAnimationTransition: UIViewAnimationTransitionCurlUp forView: self.view cache: YES];
 	[UIView commitAnimations];
-}
-
-- (IBAction) takeScreenshot:(id)sender {
-    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
-    UIGraphicsBeginImageContext(window.bounds.size);
-    [window.layer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    NSData * data = UIImagePNGRepresentation(image);
-    [data writeToFile:@"foo.png" atomically:YES];
 }
 
 - (void) removeCurrentPage {
@@ -219,9 +225,11 @@
 	NSString* coverName;
 	if ([currentAlbum.xmlName isEqualToString: cAlbum1])
 		coverName =  @"cover-princess";
-	else
+	else if ([currentAlbum.xmlName isEqualToString: cAlbum2])
 		coverName =  @"cover-monster";
-	
+    else
+		coverName =  @"cover-animal";
+    
     coverName = [ImageManager getIphone5xIpadFile: coverName];
 	[backgroundView setImage: [UIImage imageNamed: coverName]];
 	[self initializeTimer];
@@ -286,8 +294,10 @@
 	NSString* backgroundName;
 	if ([currentAlbum.xmlName isEqualToString: cAlbum1])
 		backgroundName =  @"empty-page-princesses";
-	else
+	else if ([currentAlbum.xmlName isEqualToString: cAlbum2])
 		backgroundName =  @"empty-page-monsters";
+    else
+		backgroundName =  @"empty-page-animals";
 	
     backgroundName = [ImageManager getIphone5xIpadFile: backgroundName];
     
@@ -319,7 +329,7 @@
 - (void) refreshSoundButton {
 	NSString *soundImageFile;
 	soundImageFile = UserContext.soundEnabled == YES ? @"sound-on" : @"sound-of";
-    soundImageFile = [ImageManager getIphoneIpadFile: soundImageFile];	
+    soundImageFile = [ImageManager getIphoneIpadFile: soundImageFile];
 	[soundButton setImage: [UIImage imageNamed: soundImageFile] forState: UIControlStateNormal];	
 	[self.view.layer removeAllAnimations];
 }

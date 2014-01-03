@@ -48,7 +48,6 @@
 	[self addFlyWord: 0];
 	[self addFlyWord: 1];
 	[self addFlyWord: 2];
-	
 }
 
 -(int) distanceBetweenWords {
@@ -58,9 +57,7 @@
 		return cDistanceBetweenWords;	
 }
 
-
 - (int) getYposOfFlyWords {
-    
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 		return cYposOfFlyWords * 3;
 	else
@@ -77,7 +74,7 @@
 - (void) addFlyWord: (int) i {
 	UIImage *word = [[words objectAtIndex: i] image];
 	UIImageView *imageView = [[UIImageView alloc] initWithImage: word];
-    [ImageManager resizeImage: imageView toSize: 111];
+    [ImageManager resizeImage: imageView toSize: wordButton1.frame.size.width];
     
 	CGRect frame = imageView.frame;
 	frame.origin.x = [self getXposOfFlyWords] - ([self distanceBetweenWords] * i);

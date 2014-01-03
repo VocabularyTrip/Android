@@ -145,12 +145,7 @@
 - (IBAction)albumShowInfo:(id)sender {
 	[self stopBackgroundSound];
 	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
-//<<<<<<< HEAD
-//	[vcDelegate.albumView selectAlbum2];
-//	[vcDelegate pushAlbumView];
-//=======
-	[vcDelegate pushAlbumView];
-//>>>>>>> newAlbumAriel
+	[vcDelegate pushAlbumMenu];
 }
 
 // Override to allow orientations other than the default portrait orientation.

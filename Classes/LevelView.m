@@ -73,6 +73,9 @@
 	[vocTripDelegate popMainMenuFromLevel];
 	[theTimer invalidate];
 	theTimer = nil;
+	[theTimerAnimator invalidate];
+	theTimerAnimator = nil;
+
 	[self purgeLevel];
 
     [super done: sender];
@@ -98,7 +101,39 @@
     startWithHelpPurchase = 0;
     [super viewDidAppear: animated];
 
+    [self initializeTimerAnimator];
 }
+
+- (void) initializeTimerAnimator {
+	if (theTimerAnimator == nil) {
+		theTimerAnimator = [CADisplayLink displayLinkWithTarget:self selector:@selector(randomAvatarAnimation)];
+		theTimerAnimator.frameInterval = 400;
+		[theTimerAnimator addToRunLoop: [NSRunLoop currentRunLoop] forMode: NSDefaultRunLoopMode];
+	}
+}
+
+- (void) randomAvatarAnimation {
+    int i = arc4random() % 6;
+    switch (i) {
+        case 0:
+            [AnimatorHelper avatarGreet: driverView];
+            break;
+        case 1:
+            [AnimatorHelper avatarBlink: driverView];
+            //[self flutterAnimation];
+            break;
+        case 2:
+            [AnimatorHelper avatarOk: driverView];
+            break;
+        default:
+            [AnimatorHelper avatarBlink: driverView];
+            break;
+    }
+}
+
+
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];

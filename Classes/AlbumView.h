@@ -12,7 +12,6 @@
 #import "UIButtonEmptyFigurine.h"
 #import "UserContext.h"
 #import "ToolbarController.h"
-#import <QuartzCore/QuartzCore.h>
 
 #define cComeFromMenu 1
 #define cComeFromPlaying 2
@@ -44,6 +43,7 @@
 
 	Album *album1;			// Album Princess. this object hold all figurines
 	Album *album2;			// Album Monsters. this object hold all figurines
+	Album *album3;			// Album Animals. this object hold all figurines
 	Album *currentAlbum;	// This variable is a pionter to the Album viewed at the moment (the selected album)
 	NSMutableArray *figurinesInPage; // This array is used to draw the page
 
@@ -72,6 +72,7 @@
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *nextButton;
 @property (nonatomic) IBOutlet Album *album1;
 @property (nonatomic) IBOutlet Album *album2;
+@property (nonatomic) IBOutlet Album *album3;
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *hand;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *helpButton;
 
@@ -91,6 +92,7 @@
 - (void) hideToolbar;
 - (void) selectAlbum1;
 - (void) selectAlbum2;
+- (void) selectAlbum3;
 - (void) initializePage;
 - (void) initializePageAndThenSoundLoop;
 - (UIButtonEmptyFigurine*) getEmptyFig: (Figurine*) fig index: (int) anIndex;
