@@ -67,6 +67,8 @@
 @synthesize wordButtonLabel2;
 @synthesize wordButtonLabel3;
 
+@synthesize selectGameModeView;
+
 // ********************
 // **** IBActions *****
 // Return to Main Menu
@@ -96,21 +98,35 @@
 
 - (IBAction)wordButton1Clicked { 
 	//Implemented in TestTrain subclass
-	//PracticeTrain doesn´t has behaviour
+	//TrainingTrain doesn´t has behaviour
 }
 
 - (IBAction)wordButton2Clicked { 
 	//Implemented in TestTrain subclass
-	//PracticeTrain doesn´t has behaviour	
+	//TrainingTrain doesn´t has behaviour
 }
 
 - (IBAction)wordButton3Clicked { 
 	//Implemented in TestTrain subclass
-	//PracticeTrain doesn´t has behaviour
+	//TrainingTrain doesn´t has behaviour
 }
 
 - (IBAction) helpClicked {
 	// Implemented by subclass
+    
+    //selectGameModeView.frame = CGRectMake(50, 50, 0, 0);
+    [UIView animateWithDuration: 0.25 animations: ^ {
+        selectGameModeView.frame = CGRectMake(50, 50, 150, 150);
+    }];
+}
+
+- (IBAction) closeSelectGameModeButtonClicked {
+	// Implemented by subclass
+    
+    //selectGameModeView.frame = CGRectMake(50, 50, 150, 150);
+    [UIView animateWithDuration: 0.25 animations: ^ {
+        selectGameModeView.frame = CGRectMake(50, 50, 0, 0);
+    }];
 }
 
 - (IBAction)pauseClicked { 
@@ -201,15 +217,18 @@
 	[UIView setAnimationCurve: UIViewAnimationCurveLinear];
 
     CGRect frame = wordButton1.frame;
-	frame.origin.y = wagon1.frame.origin.y - wordButton1.frame.size.height;
+	originalframeWord1ButtonView.origin.y = wagon1.frame.origin.y - originalframeWord1ButtonView.size.height;
+    frame.origin.y = originalframeWord1ButtonView.origin.y;
 	wordButton1.frame = frame;
     
     frame = wordButton2.frame;
-	frame.origin.y = wagon2.frame.origin.y - wordButton2.frame.size.height;
+	originalframeWord2ButtonView.origin.y = wagon2.frame.origin.y - originalframeWord2ButtonView.size.height;
+    frame.origin.y = originalframeWord2ButtonView.origin.y;
 	wordButton2.frame = frame;
 
     frame = wordButton3.frame;
-	frame.origin.y = wagon3.frame.origin.y - wordButton3.frame.size.height;
+	originalframeWord3ButtonView.origin.y = wagon3.frame.origin.y - originalframeWord3ButtonView.size.height;
+    frame.origin.y = originalframeWord3ButtonView.origin.y;
 	wordButton3.frame = frame;
 	
     [UIView commitAnimations];
@@ -233,15 +252,18 @@
     wordButton3.alpha = 1;
 
     CGRect frame = wordButton1.frame;
-	frame.origin.y = wagon1.frame.origin.y - wordButtonLabel1.frame.size.height - wordButton1.frame.size.height;
+	originalframeWord1ButtonView.origin.y = wagon1.frame.origin.y - wordButtonLabel1.frame.size.height - originalframeWord1ButtonView.size.height;
+    frame.origin.y = originalframeWord1ButtonView.origin.y;
 	wordButton1.frame = frame;
     
     frame = wordButton2.frame;
-	frame.origin.y = wagon2.frame.origin.y - wordButtonLabel2.frame.size.height - wordButton2.frame.size.height;
+	originalframeWord2ButtonView.origin.y = wagon2.frame.origin.y - wordButtonLabel2.frame.size.height - originalframeWord2ButtonView.size.height;
+    frame.origin.y = originalframeWord2ButtonView.origin.y;
 	wordButton2.frame = frame;
     
     frame = wordButton3.frame;
-	frame.origin.y = wagon3.frame.origin.y - wordButtonLabel3.frame.size.height - wordButton3.frame.size.height;
+	originalframeWord3ButtonView.origin.y = wagon3.frame.origin.y - wordButtonLabel3.frame.size.height - originalframeWord3ButtonView.size.height;
+    frame.origin.y = originalframeWord3ButtonView.origin.y;
 	wordButton3.frame = frame;
 }
 
@@ -367,7 +389,13 @@
 - (void) showThisWord: (Word*) aWord id: (int) idButton button: (UIButton*) aWordButton buttonLabel: (UIButton*) aWordButtonLabel context:(void *)context {
     
 	NSMutableDictionary *parameters = (__bridge  NSMutableDictionary*) context; // *** ARC
-    [aWordButton setImage: aWord.image forState: UIControlStateNormal];
+    //[aWordButton setImage: aWord.image forState: UIControlStateNormal];
+    
+	if (idButton==0) aWordButton.frame = originalframeWord1ButtonView;
+	if (idButton==1) aWordButton.frame = originalframeWord2ButtonView;
+	if (idButton==2) aWordButton.frame = originalframeWord3ButtonView;
+
+    [ImageManager fitImage: aWord.image inButton: aWordButton];
     [aWordButtonLabel setTitle: aWord.translatedName forState: UIControlStateNormal];
     
     [words replaceObjectAtIndex: idButton withObject: aWord];
@@ -446,6 +474,9 @@
 
 - (void) viewWillAppear:(BOOL)animated { 
 	viewMode = 1;
+    
+    [self refreshGameMode];
+    
 	if (gameStatus != cStatusGameIsOn && gameStatus != cStatusGameIsPaused) {	
 		//[self hideAllViews];
         [self initializeLevel];
@@ -477,9 +508,6 @@
 	[wheel7 initialize];
 	[wheel8 initialize];
     [wheel9 initialize];
-    
-    [self refreshGameMode];
-	
 }
 
 - (void) initializeLevel {
@@ -511,6 +539,10 @@
     wordButtonLabel2.titleLabel.adjustsFontSizeToFitWidth = true;
     wordButtonLabel3.titleLabel.minimumFontSize = 9;
     wordButtonLabel3.titleLabel.adjustsFontSizeToFitWidth = true;
+    
+    originalframeWord1ButtonView = CGRectMake(wordButton1.frame.origin.x, wordButton1.frame.origin.y, wordButton1.frame.size.width, wordButton1.frame.size.height);
+    originalframeWord2ButtonView = CGRectMake(wordButton2.frame.origin.x, wordButton2.frame.origin.y, wordButton2.frame.size.width, wordButton2.frame.size.height);
+    originalframeWord3ButtonView = CGRectMake(wordButton3.frame.origin.x, wordButton3.frame.origin.y, wordButton3.frame.size.width, wordButton3.frame.size.height);
 }
 
 - (void) takeOutTrain { 
@@ -820,17 +852,20 @@
 	
 	Word *word = [Vocabulary getRandomWeightedWord];
 	[words addObject: word];
-	[wordButton1 setImage: word.image forState: UIControlStateNormal];
+	//[wordButton1 setImage: word.image forState: UIControlStateNormal];
+    [ImageManager fitImage: word.image inButton: wordButton1];
 	[wordButtonLabel1 setTitle: word.translatedName forState: UIControlStateNormal];
     
 	word = [Vocabulary getRandomWeightedWord];
 	[words addObject: word];
-	[wordButton2 setImage: word.image forState: UIControlStateNormal];
+	//[wordButton2 setImage: word.image forState: UIControlStateNormal];
+    [ImageManager fitImage: word.image inButton: wordButton2];
 	[wordButtonLabel2 setTitle: word.translatedName forState: UIControlStateNormal];
     
 	word = [Vocabulary getRandomWeightedWord];
 	[words addObject: word];
-	[wordButton3 setImage: word.image forState: UIControlStateNormal];
+	//[wordButton3 setImage: word.image forState: UIControlStateNormal];
+    [ImageManager fitImage: word.image inButton: wordButton3];
 	[wordButtonLabel3 setTitle: word.translatedName forState: UIControlStateNormal];
 	
 }
@@ -893,16 +928,19 @@
 	wagon3.frame = frame;	
 
 	frame = wordButton1.frame;
-	frame.origin.x = frame.origin.x + xPix; 
-	wordButton1.frame = frame;	
+	originalframeWord1ButtonView.origin.x = frame.origin.x + xPix;
+    frame.origin.x = originalframeWord1ButtonView.origin.x;
+	wordButton1.frame = frame;
 
 	frame = wordButton2.frame;
-	frame.origin.x = frame.origin.x + xPix; 
-	wordButton2.frame = frame;	
+	originalframeWord2ButtonView.origin.x = frame.origin.x + xPix;
+    frame.origin.x = originalframeWord2ButtonView.origin.x;
+	wordButton2.frame = frame;
 
 	frame = wordButton3.frame;
-	frame.origin.x = frame.origin.x + xPix; 
-	wordButton3.frame = frame;	
+	originalframeWord3ButtonView.origin.x = frame.origin.x + xPix;
+    frame.origin.x = originalframeWord3ButtonView.origin.x;
+	wordButton3.frame = frame;
 
     frame = wordButtonLabel1.frame;
 	frame.origin.x = frame.origin.x + xPix;

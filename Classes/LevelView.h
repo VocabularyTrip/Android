@@ -85,7 +85,12 @@
     startWithHelpPurchase, // when the View did show, the Purchase help is launched. When the user finish his purchase succesfully the user is redirected automatically to LevelView with purchase help
     startWithHelpDownload; // when the View did show, the Download help is launched. When the user is playing and a sound is not loaded from server, the user is redirected automatically to LevelView with download help
     float angle; // Used in help. The hand go round over some objetcs.
-    CGRect originalframeImageView; // is used to remember the frame. Since the frame is resized each time.
+    
+    // is used to remember the frame. Since the frame is resized each time.
+    CGRect originalframeImageView;
+    CGRect originalframeWord1ButtonView;
+    CGRect originalframeWord2ButtonView;
+    CGRect originalframeWord3ButtonView;
 }
 
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *backButton;
@@ -170,7 +175,8 @@
 //- (void) alertDownloadSoundsFinished;
 - (void) purgeLevel;
 - (void) shiftImageAndWordIphone5;
-	
+- (void) addBuyIcon: (CGPoint) pos;
+
 - (IBAction) helpClicked;
 - (void) helpAnimation1;
 - (void) helpAnimation2;

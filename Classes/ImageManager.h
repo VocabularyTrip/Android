@@ -20,8 +20,10 @@ enum {
 
 @interface ImageManager : NSObject
 
-+ (void) fitImage: (UIImage*) imageView inView: (UIImageView*) aView;
-+ (void) resizeImage: (UIImageView*) imageView toSize: (int) aSize;
++ (void) fitImage: (UIImage*) imageView inView: (UIView*) aView;
++ (void) fitImage: (UIImage*) imageView inImageView: (UIImageView*) aView;
++ (void) fitImage: (UIImage*) imageView inButton: (UIButton*) aButton;
+//+ (void) resizeImage: (UIImageView*) imageView toSize: (int) aSize;
 + (UIImage *) imageWithImage: (UIImage *) image scaledToSize: (CGSize) newSize;
 + (NSString*) getIphoneIpadFile: (NSString*) imageFile;
 + (NSString*) getIphoneIpadFile: (NSString*) imageFile ext: (NSString*) ext;

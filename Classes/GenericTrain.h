@@ -108,6 +108,13 @@
   	UIButton *__unsafe_unretained wordButtonLabel1;
    	UIButton *__unsafe_unretained wordButtonLabel2;
   	UIButton *__unsafe_unretained wordButtonLabel3;
+    
+    // is used to remember the frame. Since the frame is resized each time.
+    CGRect originalframeWord1ButtonView;
+    CGRect originalframeWord2ButtonView;
+    CGRect originalframeWord3ButtonView;
+    
+    UIView *__unsafe_unretained selectGameModeView;
 }
 
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *backButton;
@@ -155,6 +162,8 @@
 @property (nonatomic, strong) AVAudioPlayer *trainSound;
 //@property (nonatomic, unsafe_unretained) IBOutlet UIButton *alertDownloadSounds;
 
+@property (nonatomic, unsafe_unretained) IBOutlet UIView *selectGameModeView;
+
 - (IBAction) done:(id)sender;
 - (IBAction) wordButton1Clicked;
 - (IBAction) wordButton2Clicked;
@@ -164,7 +173,7 @@
 - (IBAction) helpClicked;
 - (IBAction) gameImageModeClicked;
 - (IBAction) gameLevelModeClicked;
-
+- (IBAction) closeSelectGameModeButtonClicked;
 //- (IBAction) jumpDownloadDictionary;
 
 - (void) hideAllViews;
