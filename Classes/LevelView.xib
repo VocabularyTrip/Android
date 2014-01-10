@@ -185,21 +185,21 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </imageView>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Numbers" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" minimumFontSize="10" adjustsFontSizeToFit="NO" id="210" userLabel="Word1Label">
-                            <rect key="frame" x="169" y="238" width="116" height="22"/>
+                            <rect key="frame" x="169" y="241" width="116" height="22"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </label>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Animals I" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="221" userLabel="Word2Label">
-                            <rect key="frame" x="277" y="238" width="99" height="22"/>
+                            <rect key="frame" x="277" y="241" width="99" height="22"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </label>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Numbers" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="220" userLabel="Word3Label">
-                            <rect key="frame" x="382" y="238" width="93" height="22"/>
+                            <rect key="frame" x="382" y="241" width="93" height="22"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -247,7 +247,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="203" userLabel="WordButton1">
-                            <rect key="frame" x="207" y="201" width="40" height="40"/>
+                            <rect key="frame" x="197" y="181" width="60" height="60"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                             <state key="normal" image="red.png">
@@ -262,10 +262,10 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="202" userLabel="WordButton2">
-                            <rect key="frame" x="306" y="201" width="40" height="40"/>
+                            <rect key="frame" x="296" y="181" width="60" height="60"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
-                            <state key="normal" image="animals1-buy.png">
+                            <state key="normal" image="bird.png">
                                 <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -277,10 +277,10 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="204" userLabel="WordButton3">
-                            <rect key="frame" x="408" y="201" width="40" height="40"/>
+                            <rect key="frame" x="398" y="181" width="60" height="60"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
-                            <state key="normal" image="numbers-buy.png">
+                            <state key="normal" image="frog.png">
                                 <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -292,7 +292,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="344" userLabel="WordHelpButton">
-                            <rect key="frame" x="408" y="201" width="40" height="40"/>
+                            <rect key="frame" x="408" y="198" width="40" height="40"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                             <state key="normal" image="numbers-buy.png">
@@ -376,15 +376,15 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_back.png" id="326" userLabel="ProgressBackView">
-                            <rect key="frame" x="181" y="188" width="93" height="13"/>
+                            <rect key="frame" x="181" y="183" width="93" height="13"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_fill.png" id="327" userLabel="ProgressFillView">
-                            <rect key="frame" x="181" y="188" width="93" height="13"/>
+                            <rect key="frame" x="181" y="183" width="93" height="13"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_back.png" id="328" userLabel="ProgressMaskView">
-                            <rect key="frame" x="181" y="188" width="93" height="13"/>
+                            <rect key="frame" x="181" y="183" width="93" height="13"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="335" userLabel="DownloadButton">
@@ -435,14 +435,15 @@
     <resources>
         <image name="EnglishFlag.png" width="125" height="85"/>
         <image name="Menu1.png" width="106" height="43"/>
-        <image name="animals1-buy.png" width="40" height="40"/>
         <image name="architect.png" width="400" height="400"/>
         <image name="avatar1.png" width="125" height="175"/>
         <image name="background_wizard.png" width="480" height="320"/>
+        <image name="bird.png" width="400" height="321"/>
         <image name="btn_download@ipad.png" width="165" height="56"/>
         <image name="btn_download_cancel@ipad.png" width="165" height="56"/>
         <image name="buyButton.png" width="49" height="49"/>
         <image name="clicking.png" width="139" height="147"/>
+        <image name="frog.png" width="400" height="351"/>
         <image name="help.png" width="49" height="49"/>
         <image name="nav_back@ipad.png" width="94" height="94"/>
         <image name="nav_next@ipad.png" width="94" height="94"/>

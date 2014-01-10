@@ -232,14 +232,15 @@ NSMutableArray *allLanguages = nil;
 }
 
 - (int) qWords {
-    if (qWords == 0) {
+/*    if (qWords == 0) {
         [self countOfWords];
         // ******** change 400 words - Pending
         // Se usa para validar si esta completo. No sirve lo leido
-        return 90; // count of words is asyncronic
+        return qWords; // count of words is asyncronic
     }
 
-    return qWords;
+    return qWords;*/
+    return 350;
 }
 
 @end

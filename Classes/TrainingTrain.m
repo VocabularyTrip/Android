@@ -74,12 +74,17 @@
 - (void) addFlyWord: (int) i {
 	UIImage *word = [[words objectAtIndex: i] image];
 	UIImageView *imageView = [[UIImageView alloc] initWithImage: word];
-    [ImageManager resizeImage: imageView toSize: wordButton1.frame.size.width];
+    
+//    [ImageManager resizeImage: imageView toSize: wordButton1.frame.size.width];
     
 	CGRect frame = imageView.frame;
 	frame.origin.x = [self getXposOfFlyWords] - ([self distanceBetweenWords] * i);
 	frame.origin.y = [self getYposOfFlyWords];
+    frame.size.width = originalframeWord1ButtonView.size.width;
+    frame.size.height = originalframeWord1ButtonView.size.height;
 	imageView.frame = frame;
+    [ImageManager fitImage: word inImageView: imageView];
+    
 	[flyWords addObject: imageView];
 	[self.view addSubview: imageView];
 	[self.view bringSubviewToFront: imageView];	
@@ -140,11 +145,15 @@
 
 - (void) changeImageTo: (int) i  with: (Word*) word {
 	UIImageView *imageView = [flyWords objectAtIndex: i];
-	[imageView setImage: word.image];
+//	[imageView setImage: word.image];
 	CGRect frame = imageView.frame;
 	frame.origin.x = [self calculateXposFromOtherImages: i] - [self distanceBetweenWords];
 	frame.origin.y = [self getYposOfFlyWords];
+    frame.size.height = originalframeWord1ButtonView.size.height;
+    frame.size.width = originalframeWord1ButtonView.size.width;
 	imageView.frame = frame;
+    [ImageManager fitImage: word.image inImageView: imageView];
+	//imageView.frame = frame;
 }
 
 - (int) calculateXposFromOtherImages: (int) i {

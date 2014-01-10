@@ -78,7 +78,7 @@ Vocabulary *singletonVocabulary;
 + (bool) isDownloadCompleted {
     Language *lang = [UserContext getLanguageSelected];
     if (!lang) return true;
-    //NSLog(@"In disk: %i, in cloud: %i", [self countOfFilesInLocalPath], lang.qWords);
+    NSLog(@"In disk: %i, in cloud: %i", [self countOfFilesInLocalPath], lang.qWords);
     return [self countOfFilesInLocalPath] >= lang.qWords;
     //([UserContext getMaxLevel] == 0 ? 1 : 
 }
@@ -123,8 +123,8 @@ Vocabulary *singletonVocabulary;
 			newLevel.levelName = [attributeDict objectForKey: @"name"];
 			newLevel.name = [attributeDict objectForKey: @"image"];
 
-			newLevel.imageLockedName = [attributeDict objectForKey: @"imageLocked"];
-			newLevel.imageNotAvailableName = [attributeDict objectForKey: @"imageNotAvailable"];
+			//newLevel.imageLockedName = [attributeDict objectForKey: @"imageLocked"];
+			//newLevel.imageNotAvailableName = [attributeDict objectForKey: @"imageNotAvailable"];
 			levelIndex++;
             
             

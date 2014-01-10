@@ -120,7 +120,6 @@
             break;
         case 1:
             [AnimatorHelper avatarBlink: driverView];
-            //[self flutterAnimation];
             break;
         case 2:
             [AnimatorHelper avatarOk: driverView];
@@ -159,7 +158,11 @@
   
 	NSURL* soundUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"PageTurn" ofType:@"wav"]];
 	AudioServicesCreateSystemSoundID((__bridge   CFURLRef) soundUrl, &pageTurnSoundId);
+    
 	originalframeImageView = imageView.frame;
+    originalframeWord1ButtonView = word1Button.frame;
+    originalframeWord2ButtonView = word2Button.frame;
+    originalframeWord3ButtonView = word3Button.frame;
 }
 
 - (void) updateLevelSlider {
@@ -336,24 +339,57 @@
   
 }
 
+// Hay que sacarlos.... din[amicamente. dejarlo para la reingenieria con mapa para ver que es mejor.
+-(void) addBuyIcon: (CGPoint) pos {
+    UIImage *image = [UIImage imageNamed: @"BuyButton.png"];
+    UIImageView *iconView = [[UIImageView alloc] initWithImage: image];
+
+    CGRect frame = iconView.frame;
+    frame.origin = pos;
+    frame.size.width = 50;
+    frame.size.height = 50;
+    iconView.frame = frame;
+    [ImageManager fitImage: image inImageView: iconView];
+
+    [self.view addSubview: iconView];
+    [self.view bringSubviewToFront: iconView];
+}
+
 - (void) setImageToButton: (int) i {
   
+    UIButton* wordButton;
+    UILabel *wordLabel;
+	if (i==0) {
+        wordButton = word1Button;
+        wordLabel = word1Label;
+        wordButton.frame = originalframeWord1ButtonView;
+    }
+    
+	if (i==1) {
+        wordButton = word2Button;
+        wordLabel = word2Label;
+        wordButton.frame = originalframeWord2ButtonView;
+    }
+	if (i==2) {
+        wordButton = word3Button;
+        wordLabel = word3Label;
+        wordButton.frame = originalframeWord3ButtonView;
+    }
+
 	int levelNumber = page * 3 + i;
 	Level* level = [UserContext getLevelAt: levelNumber];
-  
-	UIImage *aImage;
+    
 	if (levelNumber >= [UserContext getMaxLevel] && levelNumber != 0) {		// Buy - Hardcoded First level is free
-		aImage = level.imageNotAvailable;
+        // Add $$ image
+        [self addBuyIcon: wordButton.frame.origin];
 	} else if (levelNumber >= [UserContext getLevel] && levelNumber != 0) {	// Locked - Hardcoded First level is free
-		aImage = level.imageLocked;
-	} else {    // Unlocked
-		aImage = level.image;
+        // Add lock image
+        [self addBuyIcon: wordButton.frame.origin];
 	}
-  
-	if (i==0) { word1Label.text = level.levelName; [word1Button setImage: aImage forState: UIControlStateNormal]; }
-	if (i==1) { word2Label.text = level.levelName; [word2Button setImage: aImage forState: UIControlStateNormal]; }
-	if (i==2) { word3Label.text = level.levelName; [word3Button setImage: aImage forState: UIControlStateNormal]; }
-  
+    
+    wordLabel.text = level.levelName;
+    [ImageManager fitImage: level.image inButton: wordButton];
+
 }
 
 - (void) purgeLevel {
@@ -494,9 +530,8 @@
 	word = [Vocabulary getOrderedWord];
     
 	if ((word != nil)) {
-		//[imageView setImage: word.image];
         imageView.frame = originalframeImageView;
-        [ImageManager fitImage: word.image inView: imageView];
+        [ImageManager fitImage: word.image inImageView: imageView];
 		wordNamelabel.text = word.translatedName;
         if (![wordNamelabel.text isEqualToString: word.localizationName])
            nativeWordNamelabel.text =  word.localizationName;
@@ -712,7 +747,7 @@
   
     int levelNumber = page * 3 + 2; // Hardcoded help is the third button in the current page.
 	Level* level = [UserContext getLevelAt: levelNumber];
-    [wordHelpButton setImage: level.imageNotAvailable forState: UIControlStateNormal];
+    [wordHelpButton setImage: level.image forState: UIControlStateNormal];
 
     [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
     [UIImageView setAnimationDelegate: self];
@@ -804,7 +839,7 @@
     
     int levelNumber = page * 3 + 2; // Hardcoded help is the third button in the current page.
 	Level* level = [UserContext getLevelAt: levelNumber];
-    [wordHelpButton setImage: level.imageLocked forState: UIControlStateNormal];
+    [wordHelpButton setImage: level.image forState: UIControlStateNormal];
     [UIImageView commitAnimations];
 }
 

@@ -10,28 +10,36 @@
 
 @implementation ImageManager
 
-+ (void) fitImage: (UIImage*) imageView inView: (UIImageView*) aView  {
-    NSLog(@"Height: %f, Width: %f", imageView.size.height, imageView.size.width);
++ (void) fitImage: (UIImage*) imageView inView: (UIView*) aView  {
+    //NSLog(@"Height: %f, Width: %f", imageView.size.height, imageView.size.width);
+	CGRect frame = aView.frame;
+    
     if (imageView.size.width == 0) return;
     if (imageView.size.height == 0) return;
     
-	CGRect frame = aView.frame;
     if (imageView.size.height < imageView.size.width) {
         frame.size.height = imageView.size.height * aView.frame.size.width / imageView.size.width;
         frame.size.width = aView.frame.size.width;
-        frame.origin.y = frame.origin.y + (aView.frame.size.height - frame.size.height) / 2;
+        frame.origin.y = frame.origin.y + (aView.frame.size.height - frame.size.height);// / 2;
     } else {
         frame.size.width = imageView.size.width * aView.frame.size.height / imageView.size.height;
         frame.size.height = aView.frame.size.height;
         frame.origin.x = frame.origin.x + (aView.frame.size.width - frame.size.width) / 2;
     }
     aView.frame = frame;
-    NSLog(@"New Height: %f, Width: %f", frame.size.height, frame.size.width);
-    
+}
+
++ (void) fitImage: (UIImage*) imageView inImageView: (UIImageView*) aView  {
+    [self fitImage: imageView inView: aView];
     [aView setImage: imageView];
 }
 
-+ (void) resizeImage: (UIImageView*) imageView toSize: (int) aSize  {
++ (void) fitImage: (UIImage*) imageView inButton: (UIButton*) aButton  {
+    [self fitImage: imageView inView: aButton];
+    [aButton setImage: imageView forState: UIControlStateNormal];
+}
+
+/*+ (void) resizeImage: (UIImageView*) imageView toSize: (int) aSize  {
     if (aSize == 0) return;
     
 	CGRect frame = imageView.frame;
@@ -43,7 +51,7 @@
         frame.size.height = aSize;
     }
     imageView.frame = frame;
-}
+}*/
 
 + (UIImage *) imageWithImage: (UIImage *) image scaledToSize: (CGSize) newSize {
     UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);

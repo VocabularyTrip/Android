@@ -24,6 +24,7 @@
                 <outlet property="money3View" destination="114" id="120"/>
                 <outlet property="pauseButton" destination="92" id="93"/>
                 <outlet property="railView" destination="57" id="96"/>
+                <outlet property="selectGameModeView" destination="OeA-tW-GpV" id="5eP-UM-1n4"/>
                 <outlet property="smokeView" destination="122" id="123"/>
                 <outlet property="soundButton" destination="98" id="99"/>
                 <outlet property="train" destination="13" id="21"/>
@@ -70,10 +71,10 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="43" userLabel="WordButton1">
-                    <rect key="frame" x="178" y="125" width="99" height="111"/>
+                    <rect key="frame" x="181" y="144" width="90" height="90"/>
                     <autoresizingMask key="autoresizingMask"/>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
-                    <state key="normal" image="one.png">
+                    <state key="normal" image="orange.png">
                         <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -85,7 +86,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="44" userLabel="WordButton2">
-                    <rect key="frame" x="277" y="125" width="99" height="111"/>
+                    <rect key="frame" x="279" y="144" width="90" height="90"/>
                     <autoresizingMask key="autoresizingMask"/>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                     <state key="normal" image="firefighter.png">
@@ -100,7 +101,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="45" userLabel="WordButton3">
-                    <rect key="frame" x="379" y="125" width="99" height="111"/>
+                    <rect key="frame" x="383" y="144" width="90" height="90"/>
                     <autoresizingMask key="autoresizingMask"/>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                     <state key="normal" image="mouse.png">
@@ -341,6 +342,23 @@
                         <action selector="gameLevelModeClicked" destination="-1" eventType="touchDown" id="86X-0R-ihI"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" id="OeA-tW-GpV" userLabel="selectModeView">
+                    <rect key="frame" x="158" y="43" width="0.0" height="0.0"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0nF-8r-UfV">
+                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Button">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="closeSelectGameModeButtonClicked" destination="-1" eventType="touchDown" id="i1y-QI-fxR"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -356,7 +374,7 @@
         <image name="landscape1.png" width="2059" height="320"/>
         <image name="landscape1Sky.png" width="2076" height="113"/>
         <image name="mouse.png" width="400" height="258"/>
-        <image name="one.png" width="99" height="111"/>
+        <image name="orange.png" width="198" height="222"/>
         <image name="pause2.png" width="50" height="50"/>
         <image name="rail.png" width="478" height="4"/>
         <image name="smoke.png" width="66" height="44"/>
@@ -366,6 +384,12 @@
         <image name="token-silver.png" width="33" height="33"/>
         <image name="train.png" width="175" height="169"/>
         <image name="wagon.png" width="93" height="43"/>
+        <image name="wagon.png" width="93" height="43"/>
+        <image name="wagon.png" width="93" height="43"/>
+        <image name="wheel1.png" width="31" height="31"/>
+        <image name="wheel1.png" width="31" height="31"/>
+        <image name="wheel1.png" width="31" height="31"/>
+        <image name="wheel1.png" width="31" height="31"/>
         <image name="wheel1.png" width="31" height="31"/>
         <image name="wheel3.png" width="31" height="31"/>
         <image name="wheel4.png" width="31" height="31"/>

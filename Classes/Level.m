@@ -12,10 +12,10 @@
 
 @implementation Level
 
-@synthesize imageLocked;
-@synthesize imageNotAvailable;
-@synthesize imageLockedName;
-@synthesize imageNotAvailableName;
+//@synthesize imageLocked;
+//@synthesize imageNotAvailable;
+//@synthesize imageLockedName;
+//@synthesize imageNotAvailableName;
 @synthesize levelName;
 @synthesize size;
 
@@ -55,13 +55,7 @@
         [singletonVocabulary.delegate downloadFinishWidhError: result];
 }
 
-/*+ (void)requestFailed: (NSError *) error
-{
-    NSString *result = error.localizedDescription;
-    NSLog(@"%@", result);
-}*/
-
--(UIImage*) imageLocked {
+/*-(UIImage*) imageLocked {
 	if (imageLocked == nil) {
         NSString *file = [[NSString alloc ] initWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath], [ImageManager getIphoneIpadFile: imageLockedName]];
         imageLocked = [UIImage alloc];
@@ -82,7 +76,7 @@
 -(void) purge {
 	imageLocked = nil;
 	imageNotAvailable = nil;
-}
+}*/
 
 
 @end
