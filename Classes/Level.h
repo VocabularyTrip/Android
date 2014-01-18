@@ -23,6 +23,8 @@
 	//NSString *imageNotAvailableName;
 	NSString *levelName;
     int size;
+    CGPoint placeInMap;
+    int levelNumber;
 }
 
 //@property (nonatomic) UIImage *imageLocked;
@@ -31,6 +33,8 @@
 //@property (nonatomic, strong) NSString *imageNotAvailableName;
 @property (nonatomic, strong) NSString *levelName;
 @property (nonatomic) int size;
+@property (nonatomic) CGPoint placeInMap;
+@property (nonatomic) int levelNumber;
 
 + (void)loadDataFromSql: (int) levelId;
 + (void) connectionFinishSuccesfully: (NSDictionary*) response;

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "GenericTrain.h"
-#import "LevelView.h"
+#import "MapView.h"
 #import "AlbumView.h"
 #import "TestTrain.h"
 #import "TrainingTrain.h"

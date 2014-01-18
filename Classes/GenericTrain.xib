@@ -24,7 +24,6 @@
                 <outlet property="money3View" destination="114" id="120"/>
                 <outlet property="pauseButton" destination="92" id="93"/>
                 <outlet property="railView" destination="57" id="96"/>
-                <outlet property="selectGameModeView" destination="OeA-tW-GpV" id="5eP-UM-1n4"/>
                 <outlet property="smokeView" destination="122" id="123"/>
                 <outlet property="soundButton" destination="98" id="99"/>
                 <outlet property="train" destination="13" id="21"/>
@@ -342,23 +341,6 @@
                         <action selector="gameLevelModeClicked" destination="-1" eventType="touchDown" id="86X-0R-ihI"/>
                     </connections>
                 </button>
-                <view contentMode="scaleToFill" id="OeA-tW-GpV" userLabel="selectModeView">
-                    <rect key="frame" x="158" y="43" width="0.0" height="0.0"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0nF-8r-UfV">
-                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Button">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="closeSelectGameModeButtonClicked" destination="-1" eventType="touchDown" id="i1y-QI-fxR"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -384,12 +366,6 @@
         <image name="token-silver.png" width="33" height="33"/>
         <image name="train.png" width="175" height="169"/>
         <image name="wagon.png" width="93" height="43"/>
-        <image name="wagon.png" width="93" height="43"/>
-        <image name="wagon.png" width="93" height="43"/>
-        <image name="wheel1.png" width="31" height="31"/>
-        <image name="wheel1.png" width="31" height="31"/>
-        <image name="wheel1.png" width="31" height="31"/>
-        <image name="wheel1.png" width="31" height="31"/>
         <image name="wheel1.png" width="31" height="31"/>
         <image name="wheel3.png" width="31" height="31"/>
         <image name="wheel4.png" width="31" height="31"/>

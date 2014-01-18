@@ -11,7 +11,8 @@
 #import "ChangeUserView.h"
 #import "LockLanguageView.h"
 #import "GenericTrain.h"
-#import "LevelView.h"
+#import "MapView.h"
+#import "MapView.h"
 #import "AlbumView.h"
 #import "TestTrain.h"
 #import "TrainingTrain.h"
@@ -34,7 +35,7 @@
 	ChangeLangView *changeLangView;    
 	ChangeUserView *changeUserView;    
     LockLanguageView *lockLanguageView;
-	LevelView *levelView;
+	MapView *mapView;
 	AlbumView *albumView;
 	PurchaseView *purchaseView;
 	AlbumMenu *albumMenu;
@@ -51,7 +52,7 @@
 @property (nonatomic) ChangeLangView *changeLangView;
 @property (nonatomic) ChangeUserView *changeUserView;
 @property (nonatomic) LockLanguageView *lockLanguageView;
-@property (nonatomic) LevelView *levelView;
+@property (nonatomic) MapView *mapView;
 @property (nonatomic) AlbumView *albumView;
 @property (nonatomic) PurchaseView *purchaseView;
 @property (nonatomic) AlbumMenu *albumMenu;
@@ -67,7 +68,7 @@
 - (void) pushLockLanguageView;
 - (void) pushChangeLangView;
 - (void) pushChangeUserView;
-- (void) pushLevelView;
+- (void) pushMapView;
 - (void) pushLevelViewWithHelpPurchase;
 - (void) pushLevelViewWithHelpDownload;
 - (void) pushPurchaseView;

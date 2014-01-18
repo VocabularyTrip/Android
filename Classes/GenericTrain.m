@@ -17,6 +17,7 @@
 #import <AudioToolbox/AudioToolbox.h>	
 #import <QuartzCore/CADisplayLink.h>
 #import <AVFoundation/AVFoundation.h>
+
 @protocol GenericTrainDelegate;
 
 @implementation GenericTrain
@@ -48,12 +49,9 @@
 @synthesize loadingView;
 @synthesize railView;
 @synthesize smokeView;
-
 @synthesize closeSoundId;
 @synthesize viewMode;
 @synthesize trainSound;
-//@synthesize alertDownloadSounds;
-
 @synthesize backButton;
 @synthesize soundButton;
 @synthesize money1View;
@@ -67,10 +65,9 @@
 @synthesize wordButtonLabel2;
 @synthesize wordButtonLabel3;
 
-@synthesize selectGameModeView;
-
 // ********************
 // **** IBActions *****
+
 // Return to Main Menu
 - (IBAction)done:(id)sender {
 	
@@ -113,21 +110,8 @@
 
 - (IBAction) helpClicked {
 	// Implemented by subclass
-    
-    //selectGameModeView.frame = CGRectMake(50, 50, 0, 0);
-    [UIView animateWithDuration: 0.25 animations: ^ {
-        selectGameModeView.frame = CGRectMake(50, 50, 150, 150);
-    }];
 }
 
-- (IBAction) closeSelectGameModeButtonClicked {
-	// Implemented by subclass
-    
-    //selectGameModeView.frame = CGRectMake(50, 50, 150, 150);
-    [UIView animateWithDuration: 0.25 animations: ^ {
-        selectGameModeView.frame = CGRectMake(50, 50, 0, 0);
-    }];
-}
 
 - (IBAction)pauseClicked { 
 	NSString *imageFile;
@@ -160,7 +144,19 @@
 }
 
 - (IBAction) gameImageModeClicked {
-	NSString *imageFile;
+    if (!selectGameModeView) {
+        [self pauseClicked];
+        selectGameModeView = [[SelectGameMode alloc] initWithNibName: @"SelectGameModeView" bundle:[NSBundle mainBundle]];
+    
+        [self.view addSubview: selectGameModeView.view];
+        [selectGameModeView show];
+    } else {
+        [self pauseClicked];
+        [selectGameModeView closeClicked];
+        selectGameModeView = nil;
+    }
+    
+	/*NSString *imageFile;
 	if ([UserContext imageWordGameMode] == cImageModeGame) {
         [UserContext setImageWordGameMode: cWordModeGame];
 		imageFile = [ImageManager getIphoneIpadFile: @"wheel1"];
@@ -176,7 +172,7 @@
 		imageFile = [ImageManager getIphoneIpadFile: @"wheel3"];
 		[gameImageModeButton setImage: [UIImage imageNamed: imageFile] forState: UIControlStateNormal];
         [self setImageModeGame];
-    }
+    }*/
 }
 
 - (IBAction) gameLevelModeClicked {
@@ -682,7 +678,7 @@
 
 -(void) pushLevelWithHelpDownload {
     VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
-    vocTripDelegate.levelView.startWithHelpDownload = 1;
+//    vocTripDelegate.levelView.startWithHelpDownload = 1;
     [vocTripDelegate pushLevelViewWithHelpDownload];
 }
 

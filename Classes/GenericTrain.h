@@ -17,6 +17,7 @@
 #import "ToolbarController.h"
 #import "SmokeView.h"
 #import "ImageManager.h"
+#import "SelectGameMode.h"
 
 #define cStatusGameIsNone 0
 #define cStatusGameIsOn 1
@@ -31,9 +32,6 @@
 #define cLandscapeOffset -2059
 #define cLandscapeOffsetIpad -4813
 #define cHitsPerGame 7
-//#define cTouchesSimultaneously 3
-//#define cWordSizeWidth 99
-//#define cWordSizeHeight 111
 
 @protocol GenericTrainDelegate;
 
@@ -114,7 +112,7 @@
     CGRect originalframeWord2ButtonView;
     CGRect originalframeWord3ButtonView;
     
-    UIView *__unsafe_unretained selectGameModeView;
+    SelectGameMode *selectGameModeView;
 }
 
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *backButton;
@@ -156,13 +154,9 @@
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *wordButtonLabel1;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *wordButtonLabel2;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *wordButtonLabel3;
-
 @property (nonatomic, assign) SystemSoundID closeSoundId;
 @property (nonatomic, assign) int viewMode;
 @property (nonatomic, strong) AVAudioPlayer *trainSound;
-//@property (nonatomic, unsafe_unretained) IBOutlet UIButton *alertDownloadSounds;
-
-@property (nonatomic, unsafe_unretained) IBOutlet UIView *selectGameModeView;
 
 - (IBAction) done:(id)sender;
 - (IBAction) wordButton1Clicked;
@@ -173,14 +167,11 @@
 - (IBAction) helpClicked;
 - (IBAction) gameImageModeClicked;
 - (IBAction) gameLevelModeClicked;
-- (IBAction) closeSelectGameModeButtonClicked;
-//- (IBAction) jumpDownloadDictionary;
 
 - (void) hideAllViews;
 - (void) showAllViews;
 - (void) shiftTrain: (int) xPix;	
 - (void) introduceTrain;
-//- (int) windowWidth;
 - (void) cancelAllAnimations;
 - (void) trainAnimationDidStop:(NSString *)theAnimation finished:(BOOL)flag context:(void *)context;
 - (void) moveLandscape;
@@ -214,8 +205,6 @@
 - (void) moveWagon;
 - (void) initializeLevel;
 - (void) pushLevelWithHelpDownload;
-//- (void) showAlertDownloadSounds;
-//- (void) alertDownloadSoundsFinished;
 - (void) throbPauseButton;
 - (void) throbPauseButtonOff;
 - (void) setImageModeGame;

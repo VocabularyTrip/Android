@@ -125,7 +125,7 @@
 - (IBAction)levelShowInfo:(id)sender {
 	[self stopBackgroundSound];
 	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
-	[vcDelegate pushLevelView];
+	[vcDelegate pushMapView];
 }
 
 - (IBAction)challengeTrainShowInfo:(id)sender {    

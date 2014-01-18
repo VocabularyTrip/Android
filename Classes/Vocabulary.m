@@ -122,11 +122,12 @@ Vocabulary *singletonVocabulary;
 			newLevel = [Level alloc];
 			newLevel.levelName = [attributeDict objectForKey: @"name"];
 			newLevel.name = [attributeDict objectForKey: @"image"];
-
+            newLevel.placeInMap = CGPointMake([[attributeDict objectForKey: @"x"] intValue], [[attributeDict objectForKey: @"y"] intValue]);
+            newLevel.levelNumber = levelIndex;
+            
 			//newLevel.imageLockedName = [attributeDict objectForKey: @"imageLocked"];
 			//newLevel.imageNotAvailableName = [attributeDict objectForKey: @"imageNotAvailable"];
 			levelIndex++;
-            
             
 			[UserContext addLevel: newLevel];
 		}

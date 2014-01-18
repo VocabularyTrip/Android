@@ -19,7 +19,7 @@
 @synthesize changeLangView;
 @synthesize changeUserView;
 @synthesize lockLanguageView;
-@synthesize levelView;
+@synthesize mapView;
 @synthesize purchaseView;
 @synthesize albumView;
 @synthesize albumMenu;
@@ -212,14 +212,14 @@
 	}
 }
 
--(LevelView*) levelView {
-	if (levelView == nil) {	
+-(MapView*) mapView {
+	if (mapView == nil) {
 		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-			levelView = [[LevelView alloc] initWithNibName:@"LevelView~ipad" bundle:nil];
+			mapView = [[MapView alloc] initWithNibName:@"MapView~ipad" bundle: nil];
 		else
-			levelView = [[LevelView alloc] initWithNibName:@"LevelView" bundle:nil];
+			mapView = [[MapView alloc] initWithNibName:@"MapView" bundle: nil];
 	}
-	return levelView;
+	return mapView;
 }
 
 -(PurchaseView*) purchaseView {
@@ -323,20 +323,20 @@
 	[navController pushViewController: self.albumMenu animated: YES];
 }
 
-- (void) pushLevelView {
-	[navController pushViewController: self.levelView animated: YES];
+- (void) pushMapView {
+	[navController pushViewController: self.mapView animated: YES];
 }
 
 - (void) pushLevelViewWithHelpPurchase {
   	[navController popViewControllerAnimated: NO];
-    self.levelView.startWithHelpPurchase = 1;
-	[navController pushViewController: self.levelView animated: YES];
+//    self.mapView.startWithHelpPurchase = 1;
+	[navController pushViewController: self.mapView animated: YES];
 }
 
 - (void) pushLevelViewWithHelpDownload {
   	[navController popViewControllerAnimated: NO];
-    self.levelView.startWithHelpDownload = 1;
-	[navController pushViewController: self.levelView animated: YES];
+//    self.mapView.startWithHelpDownload = 1;
+	[navController pushViewController: self.mapView animated: YES];
 }
 
 
@@ -369,7 +369,7 @@
 
 - (void) popMainMenuFromLevel {
 	[self popMainMenu];
-	levelView = nil;
+	mapView = nil;
 }
 
 - (void) popMainMenuFromPurchase {
@@ -449,7 +449,7 @@
         default:
             // If the user confirme the purchase, the user has to be redirected to the LevelView to see the help
             [vcDelegate.mainMenu stopBackgroundSound];
-          	[navController pushViewController: self.levelView animated: NO];
+          	[navController pushViewController: self.mapView animated: NO];
             [vcDelegate pushPurchaseView];
             break;
     }	

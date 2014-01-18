@@ -18,6 +18,8 @@
 //@synthesize imageNotAvailableName;
 @synthesize levelName;
 @synthesize size;
+@synthesize placeInMap;
+@synthesize levelNumber;
 
 + (void)loadDataFromSql: (int) levelId {
     
