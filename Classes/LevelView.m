@@ -20,6 +20,8 @@
 @synthesize wordNamelabel;
 @synthesize nativeWordNamelabel;
 @synthesize pauseButton;
+@synthesize repeatButton;
+@synthesize backgroundView;
 
 - (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     
@@ -36,19 +38,22 @@
 - (void) showLevel: (Level*) aLevel at: (CGPoint) offset {
     level = aLevel;
     originalframeImageView = imageView.frame;
-    
     gameStatus = cStatusGameIsOn;
-    //imageFile = [ImageManager getIphoneIpadFile: @"pause2"];
-    //[pauseButton setImage: [UIImage imageNamed: imageFile] forState: UIControlStateNormal];
     
-    self.view.frame = CGRectMake(offset.x + 50, offset.y + 50, 0, 0);
+    self.view.frame = CGRectMake(offset.x, offset.y, 0, 0);
     self.view.alpha = 0;
     imageView.alpha = 0;
     wordNamelabel.alpha = 0;
     nativeWordNamelabel.alpha = 0;
     
+    //NSLog(@"width: %i, width: %f", [ImageManager windowWidth], backgroundView.frame.size.width);
+    int deltaX = 50; // ([ImageManager windowWidth] - backgroundView.frame.size.width) / 2;
+    int deltaY = 50; // backgroundView.frame.size.height;
     [UIView animateWithDuration: 0.50 animations: ^ {
-        self.view.frame = CGRectMake(offset.x + 10, offset.y + 10, 530, 270);
+        self.view.frame = CGRectMake(
+            offset.x + deltaX, offset.y + deltaY,
+            backgroundView.frame.size.width,
+            backgroundView.frame.size.height);
         self.view.alpha = 1;
     }];
     
@@ -70,6 +75,7 @@
 		imageFile = [ImageManager getIphoneIpadFile: @"pause1"];
 		[pauseButton setImage: [UIImage imageNamed: imageFile] forState: UIControlStateNormal];
 		gameStatus = cStatusGameIsPaused;
+        repeatButton.enabled = YES;
         [theTimer setPaused: YES];
         [self throbPauseButton];
 	} else	{
@@ -77,7 +83,12 @@
 		imageFile = [ImageManager getIphoneIpadFile: @"pause2"];
 		[pauseButton setImage: [UIImage imageNamed: imageFile] forState: UIControlStateNormal];
 		gameStatus = cStatusGameIsOn;
+        repeatButton.enabled = NO;
 	}
+}
+
+- (IBAction) repeatClicked {
+    [self showAndSayWord];
 }
 
 - (void) throbPauseButton {
@@ -124,36 +135,40 @@
 
 - (void) initializeTimer {
 	if (theTimer == nil) {
-		theTimer = [CADisplayLink displayLinkWithTarget:self selector:@selector(showAndSayWord)];
+		theTimer = [CADisplayLink displayLinkWithTarget:self selector:@selector(showAndSayNextWord)];
 		theTimer.frameInterval = 120;
 		[theTimer addToRunLoop: [NSRunLoop currentRunLoop] forMode: NSDefaultRunLoopMode];
 	}
 }
 
 - (void) showAndSayWord {
+    imageView.frame = originalframeImageView;
+    [ImageManager fitImage: word.image inImageView: imageView];
+    wordNamelabel.text = word.translatedName;
+    if (![wordNamelabel.text isEqualToString: word.localizationName])
+        nativeWordNamelabel.text =  word.localizationName;
+    else
+        nativeWordNamelabel.text = @"";
     
-	Word *word;
+    imageView.alpha = 1;
+    wordNamelabel.alpha = 1;
+    nativeWordNamelabel.alpha = 1;
+    
+    if (![word playSound] && !singletonVocabulary.isDownloading) {
+        //if (angle==0) {    // I want this help to start only if it is not running already. Not to start every time it tries to say a word that does not exist.
+        [[self mapView] helpDownload1];
+        //    angle = 1;
+        //}
+    }
+}
+
+- (void) showAndSayNextWord {
+    
+
 	word = [Vocabulary getOrderedWord];
     
 	if ((word != nil)) {
-        imageView.frame = originalframeImageView;
-        [ImageManager fitImage: word.image inImageView: imageView];
-		wordNamelabel.text = word.translatedName;
-        if (![wordNamelabel.text isEqualToString: word.localizationName])
-            nativeWordNamelabel.text =  word.localizationName;
-        else
-            nativeWordNamelabel.text = @"";
-        
-        imageView.alpha = 1;
-        wordNamelabel.alpha = 1;
-        nativeWordNamelabel.alpha = 1;
-        
-		if (![word playSound] && !singletonVocabulary.isDownloading) {
-            //if (angle==0) {    // I want this help to start only if it is not running already. Not to start every time it tries to say a word that does not exist.
-                [[self mapView] helpDownload1];
-            //    angle = 1;
-            //}
-        }
+        [self showAndSayWord];
 	} else {
 		[self cancelAnimation];
 		[self helpLevel];

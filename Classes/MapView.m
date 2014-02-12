@@ -40,6 +40,10 @@
 	[vocTripDelegate popMainMenuFromLevel];
 }
 
+- (IBAction) buyClicked {
+    VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
+    [vocTripDelegate pushPurchaseView];
+}
 
 - (IBAction) resetButtonClicked {
     

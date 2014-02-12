@@ -20,6 +20,10 @@
 @property (nonatomic, unsafe_unretained) IBOutlet UIScrollView *mapScrollView;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *helpButton;
 
+- (IBAction) done:(id)sender;
+- (IBAction) buyClicked;
+- (IBAction) resetButtonClicked;
+    
 - (void) initMap;
 - (void) drawAllLeveles;
 - (void) addImage: (UIImage*) image pos: (CGPoint) pos size: (int) size;

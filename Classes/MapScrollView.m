@@ -35,7 +35,6 @@
         [self addSubview: levelView.view];
 
     }
-    NSLog(@"offset: %f, %f: ", self.contentOffset.x, self.contentOffset.y);
     [levelView showLevel: level at: self.contentOffset];
 }
 

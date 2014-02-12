@@ -116,13 +116,8 @@
     UIScreen *mainScreen = [UIScreen mainScreen];
     CGFloat scale = ([mainScreen respondsToSelector:@selector(scale)] ? mainScreen.scale : 1.0f);
     CGFloat pixelHeight = (CGRectGetHeight(mainScreen.bounds) * scale);
-    //CGFloat pixelwidth = (CGRectGetWidth(mainScreen.bounds) * scale);
-    //NSLog(@"H: %f, W: %f", pixelHeight, pixelwidth);
     return pixelHeight;
-    /*	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-     return 1024;
-     else
-     return 480;*/
+
 }
 
 + (int) getDeltaWidthIphone5 {
