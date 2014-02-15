@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<list>
+	<gameSequence gameType="Training"  cumulative="No" includeImages="Yes" incwludeWords="No" readAbility="No"/>
+	<gameSequence gameType="Challenge" cumulative="No" includeImages="Yes" incwludeWords="No" readAbility="No"/>
+	<gameSequence gameType="Challenge" cumulative="Yes" includeImages="Yes" incwludeWords="No" readAbility="No"/>
+</list>

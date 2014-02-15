@@ -13,7 +13,7 @@
 @implementation VocabularyTrip2AppDelegate 
 
 @synthesize window;
-@synthesize mainMenu;
+//@synthesize mainMenu;
 @synthesize trainingTrain;
 @synthesize testTrain;
 @synthesize changeLangView;
@@ -194,22 +194,12 @@
 
 - (void) initAllControllers {
 	
-	[self initMainMenu];
+	[[self mapView] initializeGame];
 
-	navController = [[UINavigationController alloc ] initWithRootViewController: mainMenu];
+	navController = [[UINavigationController alloc ] initWithRootViewController: mapView];
 	[navController setNavigationBarHidden: YES];
 	[navController setDelegate: self];
 	
-}
-
--(void) initMainMenu {
-	if (mainMenu == nil) {
-		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)	
-			mainMenu = [[MainMenu alloc] initWithNibName: @"MainMenu~ipad" bundle: [NSBundle mainBundle]];
-		else
-			mainMenu = [[MainMenu alloc] initWithNibName: @"MainMenu" bundle: [NSBundle mainBundle]];
-		[mainMenu initialize];
-	}
 }
 
 -(MapView*) mapView {
@@ -323,9 +313,9 @@
 	[navController pushViewController: self.albumMenu animated: YES];
 }
 
-- (void) pushMapView {
+/*- (void) pushMapView {
 	[navController pushViewController: self.mapView animated: YES];
-}
+}*/
 
 - (void) pushLevelViewWithHelpPurchase {
   	[navController popViewControllerAnimated: NO];
@@ -400,7 +390,7 @@
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
-	[mainMenu.backgroundSound pause];
+	//[mainMenu.backgroundSound pause];
 }
 
 - (void) alertView: (UIAlertView*) alertView clickedButtonAtIndex: (NSInteger) buttonIndex {
@@ -448,7 +438,7 @@
             //	break;
         default:
             // If the user confirme the purchase, the user has to be redirected to the LevelView to see the help
-            [vcDelegate.mainMenu stopBackgroundSound];
+            //[vcDelegate.mainMenu stopBackgroundSound];
           	[navController pushViewController: self.mapView animated: NO];
             [vcDelegate pushPurchaseView];
             break;
@@ -508,8 +498,8 @@
 
 - (void) checkIfaskToRate {
     
-    bool noAskMeAgain = [[NSUserDefaults standardUserDefaults] boolForKey: cNoAskMeAgain];
-    if (noAskMeAgain || [self getAppId] == 0) return;
+    //bool noAskMeAgain = [[NSUserDefaults standardUserDefaults] boolForKey: cNoAskMeAgain];
+    //if (noAskMeAgain || [self getAppId] == 0) return;
     
 	int countExecutions = [[NSUserDefaults standardUserDefaults] integerForKey: cCountExecutions];
     

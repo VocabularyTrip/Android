@@ -154,7 +154,7 @@
 
 -(void) responseToBuyAction {
     
-    VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
+    //VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
 //    vocTripDelegate.mapView.startWithHelpPurchase = 1;
     [self done: nil];
     

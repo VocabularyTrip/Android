@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1280" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
@@ -7,86 +7,33 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapView">
             <connections>
-                <outlet property="mapScrollView" destination="Ycl-U6-2ce" id="3HH-hR-F4U"/>
-                <outlet property="playCurrentLevelButton" destination="cuC-rx-lhv" id="FKN-Eg-7Ge"/>
-                <outlet property="view" destination="1" id="PQj-cK-3g8"/>
+                <outlet property="helpButton" destination="g1W-9h-gG6" id="c3x-ka-k7N"/>
+                <outlet property="mapScrollView" destination="ns4-AB-LhT" id="aSy-Ad-6bz"/>
+                <outlet property="view" destination="1" id="p3F-sI-czw"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="1">
-            <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
-            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+            <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsVerticalScrollIndicator="NO" id="Ycl-U6-2ce" customClass="MapScrollView">
-                    <rect key="frame" x="0.0" y="0.0" width="570" height="320"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsVerticalScrollIndicator="NO" id="ns4-AB-LhT" customClass="MapScrollView">
+                    <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_purchase@ipad.png" id="JKV-Cb-XEC">
-                            <rect key="frame" x="0.0" y="0.0" width="1200" height="320"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_purchase@ipad.png" id="lYS-Tg-T4r">
+                            <rect key="frame" x="0.0" y="0.0" width="2600" height="768"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="cuC-rx-lhv" userLabel="PlayCurrentLevelButton">
-                            <rect key="frame" x="98" y="100" width="69" height="85"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" image="btn_challenge.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="playCurrentLevel:" destination="-1" eventType="touchDown" id="x2M-d9-4tg"/>
-                            </connections>
-                        </button>
                     </subviews>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </scrollView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="toolbar.png" id="piw-ty-frh" userLabel="Toolbar">
-                    <rect key="frame" x="0.0" y="0.0" width="568" height="65"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="toolbar.png" id="NQD-4l-K3q" userLabel="Toolbar">
+                    <rect key="frame" x="228" y="0.0" width="1024" height="80"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3o4-o4-qLG" userLabel="BuyButton">
-                    <rect key="frame" x="467" y="0.0" width="40" height="40"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
-                    <state key="normal" image="buyButton.png">
-                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <state key="highlighted">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="buyClicked" destination="-1" eventType="touchDown" id="eJ0-Q5-p9f"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="j3w-MX-XXF" userLabel="HelpButton">
-                    <rect key="frame" x="520" y="0.0" width="40" height="40"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
-                    <state key="normal" image="help.png">
-                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <state key="highlighted">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="P55-37-4MF">
-                    <rect key="frame" x="413" y="0.0" width="44" height="44"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="9"/>
-                    <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-33"/>
-                    <state key="normal" title="Reset" backgroundImage="reset@ipad.png">
-                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <state key="highlighted">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="resetButtonClicked" destination="-1" eventType="touchDown" id="i8I-HI-hTU"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Zze-F8-ZhE" userLabel="SoundButton">
-                    <rect key="frame" x="299" y="-1" width="50" height="46"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="AFC-Me-ej3" userLabel="SoundButton">
+                    <rect key="frame" x="465" y="0.0" width="56" height="55"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="9"/>
                     <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-33"/>
@@ -98,8 +45,62 @@
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="73R-9f-g0H" userLabel="UserButton">
-                    <rect key="frame" x="240" y="0.0" width="44" height="44"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0jr-3J-qnD" userLabel="BuyButton">
+                    <rect key="frame" x="870" y="6" width="40" height="40"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                    <state key="normal" image="buyButton.png">
+                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="highlighted">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="buyClicked" destination="-1" eventType="touchDown" id="wJE-76-IES"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="g1W-9h-gG6" userLabel="HelpButton">
+                    <rect key="frame" x="936" y="6" width="40" height="40"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                    <state key="normal" image="help.png">
+                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="highlighted">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="OnM-84-dIw">
+                    <rect key="frame" x="790" y="6" width="44" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="9"/>
+                    <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-33"/>
+                    <state key="normal" title="Reset" backgroundImage="reset@ipad.png">
+                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="highlighted">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="resetButtonClicked" destination="-1" eventType="touchDown" id="Egx-j1-Wt8"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="pYJ-Jh-Olw" userLabel="AlbumButton">
+                    <rect key="frame" x="268" y="6" width="88" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" image="cover-animal.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="albumShowInfo:" destination="-1" eventType="touchDown" id="wxR-jV-aWs"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KNo-aU-xxw" userLabel="UserButton">
+                    <rect key="frame" x="390" y="6" width="44" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="9"/>
                     <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-33"/>
@@ -111,11 +112,11 @@
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="changeUserShowInfo:" destination="-1" eventType="touchDown" id="8Hf-w4-U9p"/>
+                        <action selector="changeUserShowInfo:" destination="-1" eventType="touchDown" id="bp5-iZ-hxq"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="oPW-qY-1QK" userLabel="MailButton">
-                    <rect key="frame" x="350" y="0.0" width="44" height="44"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zmQ-zK-jxe" userLabel="MailButton">
+                    <rect key="frame" x="590" y="6" width="44" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="9"/>
                     <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-33"/>
@@ -127,29 +128,18 @@
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="mailButtonClicked:" destination="-1" eventType="touchDown" id="efP-t3-1TY"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Mnz-ou-GaD" userLabel="AlbumButton">
-                    <rect key="frame" x="116" y="1" width="88" height="44"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" image="cover-animal.png">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="albumShowInfo:" destination="-1" eventType="touchDown" id="RKO-sn-lYc"/>
+                        <action selector="mailButtonClicked:" destination="-1" eventType="touchDown" id="bq9-io-woz"/>
                     </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
     <resources>
         <image name="background_purchase@ipad.png" width="1024" height="748"/>
         <image name="btn_avatar_on.png" width="43" height="43"/>
-        <image name="btn_challenge.png" width="127" height="158"/>
         <image name="btn_info_on.png" width="49" height="49"/>
         <image name="buyButton.png" width="49" height="49"/>
         <image name="cover-animal.png" width="480" height="320"/>

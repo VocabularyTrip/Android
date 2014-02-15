@@ -85,6 +85,10 @@
 		B09A36341725C60500153E71 /* en_Congratulations12.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B09A362A1725C60500153E71 /* en_Congratulations12.mp3 */; };
 		B09A36351725C60500153E71 /* en_Congratulations13.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B09A362B1725C60500153E71 /* en_Congratulations13.mp3 */; };
 		B09A36361725C60500153E71 /* en_Congratulations14.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B09A362C1725C60500153E71 /* en_Congratulations14.mp3 */; };
+		B09D35B218AE406D00D21B9D /* MapView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B09D35B118AE406D00D21B9D /* MapView~ipad.xib */; };
+		B09D35B418AE62FD00D21B9D /* GameSequence.xml in Resources */ = {isa = PBXBuildFile; fileRef = B09D35B318AE62FD00D21B9D /* GameSequence.xml */; };
+		B09D35B718AE6DBC00D21B9D /* GameSequenceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B09D35B618AE6DBC00D21B9D /* GameSequenceManager.m */; };
+		B09D35BB18AE6E2400D21B9D /* GameSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = B09D35BA18AE6E2400D21B9D /* GameSequence.m */; };
 		B0A2944D1884A884000F6AB0 /* MapView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0A2944C1884A884000F6AB0 /* MapView.m */; };
 		B0A2944F1884A93B000F6AB0 /* MapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0A2944E1884A93B000F6AB0 /* MapView.xib */; };
 		B0A8B3981872CC4F00245F48 /* actress.png in Resources */ = {isa = PBXBuildFile; fileRef = B0A8B2611872CC4D00245F48 /* actress.png */; };
@@ -1203,6 +1207,12 @@
 		B09A362A1725C60500153E71 /* en_Congratulations12.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_Congratulations12.mp3; sourceTree = "<group>"; };
 		B09A362B1725C60500153E71 /* en_Congratulations13.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_Congratulations13.mp3; sourceTree = "<group>"; };
 		B09A362C1725C60500153E71 /* en_Congratulations14.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_Congratulations14.mp3; sourceTree = "<group>"; };
+		B09D35B118AE406D00D21B9D /* MapView~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "MapView~ipad.xib"; sourceTree = "<group>"; };
+		B09D35B318AE62FD00D21B9D /* GameSequence.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = GameSequence.xml; sourceTree = "<group>"; };
+		B09D35B518AE6DBC00D21B9D /* GameSequenceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSequenceManager.h; sourceTree = "<group>"; };
+		B09D35B618AE6DBC00D21B9D /* GameSequenceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSequenceManager.m; sourceTree = "<group>"; };
+		B09D35B918AE6E2400D21B9D /* GameSequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSequence.h; sourceTree = "<group>"; };
+		B09D35BA18AE6E2400D21B9D /* GameSequence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSequence.m; sourceTree = "<group>"; };
 		B0A2944B1884A884000F6AB0 /* MapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapView.h; sourceTree = "<group>"; };
 		B0A2944C1884A884000F6AB0 /* MapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapView.m; sourceTree = "<group>"; };
 		B0A2944E1884A93B000F6AB0 /* MapView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapView.xib; sourceTree = "<group>"; };
@@ -2451,6 +2461,17 @@
 			name = Managers;
 			sourceTree = "<group>";
 		};
+		B09D35B818AE6E0B00D21B9D /* GameSequence */ = {
+			isa = PBXGroup;
+			children = (
+				B09D35B518AE6DBC00D21B9D /* GameSequenceManager.h */,
+				B09D35B618AE6DBC00D21B9D /* GameSequenceManager.m */,
+				B09D35B918AE6E2400D21B9D /* GameSequence.h */,
+				B09D35BA18AE6E2400D21B9D /* GameSequence.m */,
+			);
+			name = GameSequence;
+			sourceTree = "<group>";
+		};
 		B0A8B4D41872F99500245F48 /* Facebook */ = {
 			isa = PBXGroup;
 			children = (
@@ -2594,6 +2615,7 @@
 				B0A2944B1884A884000F6AB0 /* MapView.h */,
 				B0A2944C1884A884000F6AB0 /* MapView.m */,
 				B0A2944E1884A93B000F6AB0 /* MapView.xib */,
+				B09D35B118AE406D00D21B9D /* MapView~ipad.xib */,
 				B0B0F40D1885D145007C1667 /* LevelView.h */,
 				B0B0F40E1885D145007C1667 /* LevelView.m */,
 				B0B0F4121885D210007C1667 /* LevelView.xib */,
@@ -2745,9 +2767,9 @@
 			isa = PBXGroup;
 			children = (
 				B0A8B591187671AE00245F48 /* cover-animal.png */,
+				B0A8B594187671AE00245F48 /* cover-animals.png */,
 				B0A8B592187671AE00245F48 /* cover-animal@2x.png */,
 				B0A8B593187671AE00245F48 /* cover-animal@ipad.png */,
-				B0A8B594187671AE00245F48 /* cover-animals.png */,
 				B0A8B595187671AE00245F48 /* cover-monster.png */,
 				B0A8B596187671AE00245F48 /* cover-monster@2x.png */,
 				B0A8B597187671AE00245F48 /* cover-monster@ipad.png */,
@@ -3714,6 +3736,7 @@
 				CE7C0B4E13F1E05C000FF07F /* Dictionary.xml */,
 				CE774D8B15C63B2500136BA9 /* Users.xml */,
 				CE7C0BB713F1E05C000FF07F /* Landscapes.xml */,
+				B09D35B318AE62FD00D21B9D /* GameSequence.xml */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -3840,6 +3863,7 @@
 		CEC234F613BD65CF00C179EB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B09D35B818AE6E0B00D21B9D /* GameSequence */,
 				B091F272183C02260047E4AD /* Managers */,
 				CE774D8A15C62B0F00136BA9 /* Landscape */,
 				CE774D8915C62AED00136BA9 /* Album */,
@@ -3989,6 +4013,7 @@
 				B0A8B3CF1872CC4F00245F48 /* chess.png in Resources */,
 				B0A8B49F1872CC4F00245F48 /* submarine.png in Resources */,
 				B0A8B573187664A300245F48 /* avatar5_blink2.png in Resources */,
+				B09D35B218AE406D00D21B9D /* MapView~ipad.xib in Resources */,
 				B0A8B3D11872CC4F00245F48 /* chocolate.png in Resources */,
 				B0A8B43C1872CC4F00245F48 /* mechanic.png in Resources */,
 				B0A8B7161876C33700245F48 /* iron.png in Resources */,
@@ -4801,6 +4826,7 @@
 				B0A8B4391872CC4F00245F48 /* listen.png in Resources */,
 				B0C4993F16EBBCC400971770 /* progress_fill@2x.png in Resources */,
 				B0A8B6FC1876C33700245F48 /* drums.png in Resources */,
+				B09D35B418AE62FD00D21B9D /* GameSequence.xml in Resources */,
 				B088D4DC16EE5A4C00F916DC /* menu_bg@2x.png in Resources */,
 				B0309DA217164C98003002D4 /* menu_bg@iphone5.png in Resources */,
 				B0309DA317164C98003002D4 /* cover-monster@iphone5.png in Resources */,
@@ -4971,6 +4997,7 @@
 				CE9BDEC815A291E5005C14B9 /* SBJsonStreamWriterState.m in Sources */,
 				CE9BDEC915A291E5005C14B9 /* SBJsonStreamWriterAccumulator.m in Sources */,
 				CE9BDECA15A291E5005C14B9 /* SBJsonStreamWriter.m in Sources */,
+				B09D35B718AE6DBC00D21B9D /* GameSequenceManager.m in Sources */,
 				CE9BDECB15A291E5005C14B9 /* SBJsonStreamParserState.m in Sources */,
 				CE9BDECC15A291E5005C14B9 /* SBJsonStreamParserAdapter.m in Sources */,
 				CE9BDECD15A291E5005C14B9 /* SBJsonStreamParserAccumulator.m in Sources */,
@@ -4995,6 +5022,7 @@
 				B0915DE916FB958D000F2C23 /* AFHTTPClient.m in Sources */,
 				B0915DEA16FB958D000F2C23 /* AFHTTPRequestOperation.m in Sources */,
 				B0915DEB16FB958D000F2C23 /* AFImageRequestOperation.m in Sources */,
+				B09D35BB18AE6E2400D21B9D /* GameSequence.m in Sources */,
 				B0915DEC16FB958D000F2C23 /* AFJSONRequestOperation.m in Sources */,
 				B0915DED16FB958D000F2C23 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				B0915DEE16FB958D000F2C23 /* AFPropertyListRequestOperation.m in Sources */,

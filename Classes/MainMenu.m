@@ -90,7 +90,7 @@
 		[mailCont setToRecipients:[NSArray arrayWithObject: cMailInfo]];
 		[mailCont setMessageBody:@"" isHTML:NO];
 		
-		[self presentModalViewController:mailCont animated:YES];
+		[self presentModalViewController: mailCont animated:YES];
 	} else {
 		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Cant Send Mail" 
                                                         message:@"All of your emails accounts are disabled or removed" 
@@ -122,11 +122,11 @@
 	}
 }
 
-- (IBAction)levelShowInfo:(id)sender {
+/*- (IBAction)levelShowInfo:(id)sender {
 	[self stopBackgroundSound];
 	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
 	[vcDelegate pushMapView];
-}
+}*/
 
 - (IBAction)challengeTrainShowInfo:(id)sender {    
 	[self stopBackgroundSound];

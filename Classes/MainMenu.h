@@ -34,7 +34,7 @@
 - (IBAction) mailButtonClicked:(id)sender;
 - (IBAction) trainingTrainShowInfo:(id)sender;
 - (IBAction) challengeTrainShowInfo:(id)sender;
-- (IBAction) levelShowInfo:(id)sender;
+//- (IBAction) levelShowInfo:(id)sender;
 - (IBAction) albumShowInfo:(id)sender;
 
 - (void) initialize;

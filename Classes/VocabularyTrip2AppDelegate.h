@@ -28,7 +28,7 @@
 
 @interface VocabularyTrip2AppDelegate : NSObject <UIApplicationDelegate, UINavigationControllerDelegate, UIAlertViewDelegate, PurchaseDelegate> {
     UIWindow *window;
-	MainMenu *mainMenu;
+	//MainMenu *mainMenu;
 	
 	TestTrain *testTrain;
 	TrainingTrain *trainingTrain;
@@ -46,7 +46,7 @@
 }
 
 @property (nonatomic, strong) IBOutlet UIWindow *window;
-@property (nonatomic) MainMenu *mainMenu;
+//@property (nonatomic) MainMenu *mainMenu;
 @property (nonatomic) TrainingTrain *trainingTrain;
 @property (nonatomic) TestTrain *testTrain;
 @property (nonatomic) ChangeLangView *changeLangView;
@@ -60,7 +60,6 @@
 @property (nonatomic, strong) NSDate *startPlaying;
 @property (nonatomic) Reachability *internetReachable;
 
-- (void) initMainMenu;
 - (void) initUsersDefaults;
 - (void) initAllControllers;
 
@@ -68,7 +67,7 @@
 - (void) pushLockLanguageView;
 - (void) pushChangeLangView;
 - (void) pushChangeUserView;
-- (void) pushMapView;
+//- (void) pushMapView;
 - (void) pushLevelViewWithHelpPurchase;
 - (void) pushLevelViewWithHelpDownload;
 - (void) pushPurchaseView;
