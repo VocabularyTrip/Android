@@ -18,8 +18,14 @@
 //@synthesize imageNotAvailableName;
 @synthesize levelName;
 @synthesize size;
-@synthesize placeInMap;
+@synthesize ipodPlaceInMap;
+@synthesize ipadPlaceInMap;
 @synthesize levelNumber;
+
+
+- (CGPoint) placeinMap {
+    return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? ipadPlaceInMap : ipodPlaceInMap;
+}
 
 + (void)loadDataFromSql: (int) levelId {
     
@@ -39,10 +45,15 @@
 
 // Response to getWordsforLevelAndLang
 + (void) connectionFinishSuccesfully: (NSDictionary*) response {
+    Word * aWord = [Word alloc];
     
     for (NSDictionary* value in response) {
         if (singletonVocabulary.wasErrorAtDownload == 0) {
             [Word download: [value objectForKey: @"word_name"]];
+
+            aWord.name = [value objectForKey: @"word_name"];
+            [aWord addTranslation: [value objectForKey: @"translation"] forKey: [value objectForKey: @"lang_name"]];
+            
         } else {
             NSLog(@"Word %@ aborted", [value objectForKey: @"word_name"]);
         }
@@ -56,29 +67,5 @@
     if (singletonVocabulary.isDownloadView)
         [singletonVocabulary.delegate downloadFinishWidhError: result];
 }
-
-/*-(UIImage*) imageLocked {
-	if (imageLocked == nil) {
-        NSString *file = [[NSString alloc ] initWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath], [ImageManager getIphoneIpadFile: imageLockedName]];
-        imageLocked = [UIImage alloc];
-        imageLocked = [imageLocked initWithContentsOfFile: file];
-    }
-	return imageLocked;
-}
-
--(UIImage*) imageNotAvailable {
-	if (imageNotAvailable == nil) {
-        NSString *file = [[NSString alloc ] initWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath], [ImageManager getIphoneIpadFile: imageNotAvailableName]];
-        imageNotAvailable = [UIImage alloc];
-        imageNotAvailable = [imageNotAvailable initWithContentsOfFile: file];
-    }
-	return imageNotAvailable;
-}
-
--(void) purge {
-	imageLocked = nil;
-	imageNotAvailable = nil;
-}*/
-
 
 @end

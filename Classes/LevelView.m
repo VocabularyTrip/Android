@@ -46,9 +46,8 @@
     wordNamelabel.alpha = 0;
     nativeWordNamelabel.alpha = 0;
     
-    //NSLog(@"width: %i, width: %f", [ImageManager windowWidth], backgroundView.frame.size.width);
-    int deltaX = 50; // ([ImageManager windowWidth] - backgroundView.frame.size.width) / 2;
-    int deltaY = 50; // backgroundView.frame.size.height;
+    int deltaX = [ImageManager levelViewDeltaXYCorner];
+    int deltaY = [ImageManager levelViewDeltaXYCorner];
     [UIView animateWithDuration: 0.50 animations: ^ {
         self.view.frame = CGRectMake(
             offset.x + deltaX, offset.y + deltaY,
@@ -177,11 +176,11 @@
 
 -(void) helpLevel {
     // the user reach the last level
-	if ([UserContext getLevel] >= cLimitLevelGold) return;
+	if ([UserContext getLevelNumber] >= cLimitLevelGold) return;
     
-	if ([UserContext getLevel] >= (level.levelNumber + 1))
+	if ([UserContext getLevelNumber] >= (level.levelNumber + 1))
 		[Sentence playSpeaker: @"LevelView-DidSelectRow-LearnThisLevel"];
-	else if ([UserContext getLevel] < (level.levelNumber + 1))
+	else if ([UserContext getLevelNumber] < (level.levelNumber + 1))
 		[Sentence playSpeaker: @"LevelView-DidSelectRow-UnlockLevel"];
 }
 

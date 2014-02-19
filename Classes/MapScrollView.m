@@ -17,11 +17,11 @@
 	UITouch *touch = [[event allTouches] anyObject];
 	CGPoint touchLocation = [touch locationInView: touch.view];
     
-    int imageSize = 60;
     Level *level;
-    for (int i=0; i< [[UserContext getSingleton] countOfLevels]; i++) {
+    for (int i=0; i< [Vocabulary countOfLevels]; i++) {
         level = [UserContext getLevelAt: i];
-        if (CGRectContainsPoint(CGRectMake(level.placeInMap.x, level.placeInMap.y, imageSize, imageSize), touchLocation)) {
+        
+        if (CGRectContainsPoint(CGRectMake([level placeinMap].x, [level placeinMap].y, [ImageManager getMapViewLevelSize], [ImageManager getMapViewLevelSize]), touchLocation)) {
             [self openLevelView: level];
             return;
         }

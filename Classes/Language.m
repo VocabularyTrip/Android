@@ -100,7 +100,9 @@ NSMutableArray *allLanguages = nil;
 }
 
 + (NSString*) iconImageName: (NSString*) fileName {
-    NSString *a = [ImageManager getIphoneIpadFile: [NSString stringWithFormat: @"%@Flag", fileName]];
+    //NSString *a = [ImageManager getIphoneIpadFile: [NSString stringWithFormat: @"%@Flag", fileName]];
+    NSString *a = [NSString stringWithFormat:@"%@.png", fileName];
+    
     return a;
 }
 
@@ -144,9 +146,9 @@ NSMutableArray *allLanguages = nil;
 }
 
 + (void) initLanguagesLocaly {
-    [[NSUserDefaults standardUserDefaults] setValue: cInitFirst10Languages forKey: cArrayLanguages];
+    [[NSUserDefaults standardUserDefaults] setValue: cInitFirstLanguages forKey: cArrayLanguages];
     
-    NSArray *tempLangs = [cInitFirst10Languages componentsSeparatedByString: @"-"];
+    NSArray *tempLangs = [cInitFirstLanguages componentsSeparatedByString: @"-"];
     NSArray *tempOneLang;
     NSString *langName;
     for (int i=0; i < tempLangs.count; i++) {
@@ -179,7 +181,8 @@ NSMutableArray *allLanguages = nil;
 }
 
 + (void) loadLanguagesLocaly {
-	NSString *langs = [[NSUserDefaults standardUserDefaults] stringForKey: cArrayLanguages];
+	NSString *langs = cInitFirstLanguages;
+    //[[NSUserDefaults standardUserDefaults] stringForKey: cArrayLanguages];
     NSArray *tempLangs = [langs componentsSeparatedByString: @"-"];
     NSArray *tempOneLang;
     allLanguages = [[NSMutableArray alloc] init];
@@ -204,6 +207,7 @@ NSMutableArray *allLanguages = nil;
                     //[UserContext getIphoneIpadFile: name]];              
                     [Language iconImageName: name]];	
             image = [image initWithContentsOfFile: file];
+            image = [ImageManager imageWithImage: image scaledToSize: [ImageManager getFlagSize]];
         }
     }
 	return image;

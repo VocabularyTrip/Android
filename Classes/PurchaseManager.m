@@ -225,13 +225,13 @@ PurchaseManager *purchaseManagerSingleton;
 // Reflotar las compras por segmento
     UserContext *user = [UserContext getSingleton];
 	if ([productIdentifier rangeOfString: cPurchaseAllLevels].location != NSNotFound)
-		[user setMaxLevel: cLastLevel];
+		[user setMaxLevel: [Vocabulary countOfLevels]];
 	else if ([productIdentifier rangeOfString: cPurchaseBronzeLevel].location != NSNotFound) {
         if ([user maxLevel] < cBronzeLevel) [user setMaxLevel: cBronzeLevel];
 	} else if ([productIdentifier rangeOfString: cPurchaseSilverLevel].location != NSNotFound) {
 		if ([user maxLevel] < cSilverLevel)  [user setMaxLevel: cSilverLevel];
 	} else if ([productIdentifier rangeOfString: cPurchaseGoldLevel].location != NSNotFound)
-		[user setMaxLevel: cLastLevel];
+		[user setMaxLevel: [Vocabulary countOfLevels]];
     
 	
     if (delegate) [delegate responseToBuyAction];

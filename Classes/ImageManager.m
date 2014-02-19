@@ -131,4 +131,47 @@
         return 0;
 }
 
+// ******************************************************************* //
+// ********************* IMAGE SIZE DEFINITION *********************** //
+
++ (int) getMapViewLevelSize {
+    return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 150 : 60;
+}
+
++ (CGSize) getFlagSize {
+    return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? CGSizeMake(400,400) : CGSizeMake(150,150);
+}
+
++ (CGSize) getMapViewSize {
+    return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? CGSizeMake(2600,768) : CGSizeMake(1700, 320);
+}
+
++ (int) albumMagnifierDeltaPos {
+    return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 30 : 15;
+}
+
++ (int) albumMagnifierSize {
+    return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 120 : 60;
+}
+
++ (CGSize) changeUserUserSize {
+	return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)?
+    CGSizeMake(250, 350) : CGSizeMake(125, 175);
+}
+
++ (CGRect) smokeViewInitRect {
+    return CGRectMake(
+       UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 86 : 45 + [ImageManager getDeltaWidthIphone5],
+       UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 480 : 175,
+       UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 40 : 20,
+       UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 40 : 20);
+}
+
++ (int) levelViewDeltaXYCorner {
+    return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 120 : 60;
+}
+
+// ********************* IMAGE SIZE DEFINITION *********************** //
+// ******************************************************************* //
+
 @end

@@ -13,15 +13,14 @@
 #define cDefaultLang 1
 
 // ******** change 400 words - Pending
-// Ya no son 9 niveles. Usar [Vocabulary countOfLevels]
-#define cLastLevel 9
+// Ya no son 9 niveles. Estas dos constantes quedan deprecated
 #define cSilverLevel 6
 #define cBronzeLevel 3
 
 #define cMaxLevelKey @"keyMaxLevel"
 #define cSoundKey @"keySound"
 
-#define cImageWordGameModeKey @"keyImageWordGameModeKey"
+
 #define cImageModeGame 1
 #define cWordModeGame 2
 #define cImageAndWordModeGame 3
@@ -52,7 +51,7 @@
 #define cUsernameServer @"pablj100000"
 #define cPasswordServer @"abdDEF123?"
 
-#define cUrlServer @"http://www.vocabularytrip.com/phpProd"
+#define cUrlServer @"http://www.vocabularytrip.com/phpTest"
 #define cUserPassword @"userPassword"
 #define cIsLocked @"langSelectionIsLocked"
 
@@ -71,7 +70,6 @@ enum {
 	int maxLevel;
 	NSMutableArray *allLevels;
 	int soundEnabled;
-    int imageWordGameMode; // This mode define is only the image is visible over each wagon, the image + the name, only the name, the name + translated name, etc.
     tLevelModeGame levelGameMode;
     NSString* aNewLanguage;
 }
@@ -81,7 +79,6 @@ extern UserContext *userContextSingleton;
 @property (nonatomic, assign) int maxLevel;
 @property (nonatomic) NSMutableArray *allLevels;
 @property (nonatomic, assign) int soundEnabled;
-@property (nonatomic, assign) int imageWordGameMode;
 @property (nonatomic, assign) tLevelModeGame levelGameMode;
 @property (nonatomic, strong) NSMutableArray *users;
 @property (nonatomic, unsafe_unretained) User *userSelected;
@@ -97,7 +94,9 @@ extern UserContext *userContextSingleton;
 // ******** Money & Level **********
 + (int)  getMaxLevel;
 + (void) addLevel: (Level*) aLevel;
-+ (int)  getLevel;
++ (int)  getLevelNumber;
++ (Level*) getLevelAt: (int) anIndex;
++ (Level*) getLevel;
 + (void) setaNewLanguage: (NSString*) aLang;
 + (NSString*) getaNewLanguage;
 + (int)  getMoney1;
@@ -110,7 +109,7 @@ extern UserContext *userContextSingleton;
 + (void) addMoney2: (float) aMoney;
 + (void) addMoney3: (float) aMoney;
 + (bool) nextLevel;
-+ (Level*) getLevelAt: (int) anIndex;
+
 + (void) resetLevelAndMoney;
 // ******** Money & Level **********
 // **************************************
@@ -137,9 +136,6 @@ extern UserContext *userContextSingleton;
 + (int) soundEnabled;
 + (void) setSoundEnabled: (int) newVal;
 
-+ (int) imageWordGameMode;
-+ (void) setImageWordGameMode: (int) newVal;
-
 + (int) levelGameMode;
 + (void) setLevelGameMode: (int) newVal;
 
@@ -148,7 +144,6 @@ extern UserContext *userContextSingleton;
 
 -(void) addThreeLevels; // deprecated?
 -(void) addLevel: (Level*) level;	
--(int)  countOfLevels;
 -(Level*) getLevelAt: (int) anIndex;
 -(void) resetGame;
 -(void) initGame;

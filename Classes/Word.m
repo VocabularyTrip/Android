@@ -19,6 +19,7 @@
 @synthesize sound;
 @synthesize weight;
 @synthesize theme;
+@synthesize order;
 
 + (NSString*) urlDownloadFrom {
     Language *lang = [UserContext getLanguageSelected];
@@ -174,6 +175,37 @@
         weight = [self loadWeight];
 	}
 	return weight;
+}
+
+- (NSString*) keyDictionary {
+    return [NSString stringWithFormat: @"%@%@", cKeyDictionary, name];
+}
+
+- (void) addTranslation: (NSString*) translation forKey: (NSString*) key {
+    [[self allTranslatedNames] setValue: translation forKey: key];
+    [allTranslatedNames writeToFile: [self pathToSaveTranslations] atomically: YES];
+}
+
+
+- (NSString*) pathToSaveTranslations {
+    return [[NSString alloc] initWithFormat:@"%@/%@",
+            [[NSBundle mainBundle] resourcePath], name];
+}
+
+
+- (NSMutableDictionary*) allTranslatedNames {
+    if (!allTranslatedNames) {
+        allTranslatedNames = [[NSMutableDictionary alloc] initWithContentsOfFile:
+                              [self pathToSaveTranslations]];
+        if (!allTranslatedNames)
+            allTranslatedNames = [[NSMutableDictionary alloc] init];
+    }
+    return allTranslatedNames;
+}
+
+- (void) setAllTranslatedNames: (NSMutableDictionary *) newAllTranslatedNames {
+    allTranslatedNames = newAllTranslatedNames;
+    [allTranslatedNames writeToFile: [self pathToSaveTranslations] atomically: YES];
 }
 
 - (NSString*) translatedName {

@@ -13,25 +13,28 @@
 #define cMaxWeight 16
 #define cLearnedWeight 7
 #define cStepWeight 3 
+#define cKeyDictionary @"keyDictionry"
 
 @interface Word : NSObject <AVAudioPlayerDelegate, NSURLConnectionDelegate> {
 	UIImage *image;
 	AVAudioPlayer * sound;	
 	NSString *name; // English name, sound name, image name
-    NSDictionary *allTranslatedNames; // if the app is Spanish --> Spanish name.
+    NSMutableDictionary *allTranslatedNames; // if the app is Spanish --> Spanish name.
     NSString *localizationName; // if localization is chinese --> chinese name. If the localization is other than spanish, chinese, farsi, french, etc. English name
 	int theme;
 	int weight;
+    int order;      
 }
 
+@property (nonatomic, assign) int order;
 @property (nonatomic) UIImage *image;
 @property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSDictionary *allTranslatedNames;
+@property (nonatomic, strong) NSMutableDictionary *allTranslatedNames;
 @property (nonatomic, strong) NSString *localizationName;
 @property (nonatomic, strong) AVAudioPlayer *sound;
 @property (nonatomic, assign) int weight;
 @property (nonatomic, assign) int theme;
-@property (nonatomic, strong) NSString *translatedName; // Instance did't exist. Got value fromallTranslatedNames
+@property (nonatomic, strong) NSString *translatedName; // Instance did't exist. Got value from allTranslatedNames
 
 + (void) download: (NSString*) wordName;
 + (NSString*) urlDownloadFrom;
@@ -46,5 +49,11 @@
 - (void) purge;
 - (bool) playSound;
 - (NSString*) weightKeyUserLang;
-	
+- (NSString*) keyDictionary;
+- (void) addTranslation: (NSString*) translation forKey: (NSString*) key;
+- (NSString*) pathToSaveTranslations;
+
+
+
+
 @end

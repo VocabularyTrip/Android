@@ -343,16 +343,14 @@
 - (void) showMagnifier: (UIButtonEmptyFigurine*) emptyF at: (CGPoint) touchLocation {
 
     if (emptyF.fig.image) {
-        int moveDelta = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 30 : 15;
-        int sizePreview = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 120 : 60;
         [previewView setImage: emptyF.fig.image];	
-	
+
         UIImageView *tempImageView = [[UIImageView alloc] initWithImage: emptyF.fig.image];
-        CGRect frame = [self adjustFrame: tempImageView toSize: sizePreview];
+        CGRect frame = [self adjustFrame: tempImageView toSize: [ImageManager albumMagnifierSize]];
         tempImageView = nil;
 	
-        frame.origin.x = touchLocation.x + moveDelta; // 30 = size of the magnifier
-        frame.origin.y = touchLocation.y + moveDelta; // 31 shift. otherwise the finger cover the magnifier
+        frame.origin.x = touchLocation.x + [ImageManager albumMagnifierDeltaPos];
+        frame.origin.y = touchLocation.y + [ImageManager albumMagnifierDeltaPos];
         previewView.frame = frame;	
 
         previewView.alpha = 1; 
@@ -603,7 +601,7 @@
     
     CGRect frame = hand.frame;
     frame.size.width = frame.size.width * .9;
-    frame.size.height = frame.size.height *.9;
+    frame.size.height = frame.size.height * .9;
 	hand.frame = frame;
     
     [UIImageView commitAnimations];

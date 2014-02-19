@@ -82,7 +82,7 @@ AVAudioPlayer *currentAudio = nil;
     currentAudio = nil;
 	@try {
 		if ([next isEqualToString: @"NumCurrentLevel"]) {
-			NSString *l = [[NSString alloc] initWithFormat: @"%d", [UserContext getLevel]];
+			NSString *l = [[NSString alloc] initWithFormat: @"%d", [UserContext getLevelNumber]];
 			[Sentence playSpeaker: l];
 			//[delegate takeOutTrain]; 
 		} else if (next != nil) {

@@ -21,8 +21,8 @@
                     <rect key="frame" x="0.0" y="0.0" width="570" height="320"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_purchase@ipad.png" id="JKV-Cb-XEC">
-                            <rect key="frame" x="0.0" y="0.0" width="1200" height="320"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map1.png" id="JKV-Cb-XEC">
+                            <rect key="frame" x="0.0" y="0.0" width="1700" height="320"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="cuC-rx-lhv" userLabel="PlayCurrentLevelButton">
@@ -132,7 +132,7 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Mnz-ou-GaD" userLabel="AlbumButton">
                     <rect key="frame" x="116" y="1" width="88" height="44"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                     <state key="normal" image="cover-animal.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -147,13 +147,13 @@
         </view>
     </objects>
     <resources>
-        <image name="background_purchase@ipad.png" width="1024" height="748"/>
         <image name="btn_avatar_on.png" width="43" height="43"/>
         <image name="btn_challenge.png" width="127" height="158"/>
         <image name="btn_info_on.png" width="49" height="49"/>
         <image name="buyButton.png" width="49" height="49"/>
         <image name="cover-animal.png" width="480" height="320"/>
         <image name="help.png" width="49" height="49"/>
+        <image name="map1.png" width="1700" height="320"/>
         <image name="reset@ipad.png" width="60" height="56"/>
         <image name="sound-of.png" width="50" height="46"/>
         <image name="toolbar.png" width="480" height="27"/>

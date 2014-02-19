@@ -252,7 +252,7 @@
             button = wordButton3;
             buttonLabel = wordButtonLabel3;
         }
-        buttonToCheckArrival = [UserContext imageWordGameMode] == cWordModeGame ? buttonLabel : button;
+        buttonToCheckArrival = [GameSequenceManager getCurrentGameSequence].includeImages ? button : buttonLabel;
 		if (CGRectContainsPoint(buttonToCheckArrival.frame, touchLocation)) {
 			int tempWordFlying = wordFlying;	// Prevent Recursive entry.
 			wordFlying = -1;

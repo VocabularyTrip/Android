@@ -151,7 +151,7 @@
 
 - (void) evaluateGetIntoNextLevel {
 	// The limit of the game. There are no more levels over cLimitLevelGold	
-	if ([UserContext getLevel] >= cLimitLevelGold) {
+	if ([UserContext getLevelNumber] >= cLimitLevelGold) {
 		[self takeOutTrain];
 		return; 
 	}
@@ -168,7 +168,7 @@
 
 -(void) goToNextLevel {
 	gameStatus = cStatusGameIsGoingToNextLevel;
-	if ([UserContext getLevel] >= [UserContext getMaxLevel]) {
+	if ([UserContext getLevelNumber] >= [UserContext getMaxLevel]) {
 		[self askToBuyNewLevels];
 	} else {
 		if (viewMode == 1 && [UserContext nextLevel]) {

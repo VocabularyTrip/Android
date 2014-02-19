@@ -28,7 +28,7 @@
 
 	if (CGRectContainsPoint(frame2View, touchLocation) ||
 		CGRectContainsPoint(frame2Label, touchLocation)) { 
-		if ([UserContext getLevel] <= cLimitLevelBronze) 
+		if ([UserContext getLevelNumber] <= cLimitLevelBronze) 
 			[Sentence playSpeaker: @"Toolbar-saySentence-NotInSilverSection"];
 		else 
 			[Sentence playSpeaker: @"Toolbar-saySentence-BronzeToolbar"];
@@ -36,7 +36,7 @@
 
 	if (CGRectContainsPoint(frame3View, touchLocation) ||
 		CGRectContainsPoint(frame3Label, touchLocation) ) { 
-		if ([UserContext getLevel] <= cLimitLevelSilver) 		
+		if ([UserContext getLevelNumber] <= cLimitLevelSilver) 		
 			[Sentence playSpeaker: @"Toolbar-saySentence-NotInGoldSection"];
 		else 
 			[Sentence playSpeaker: @"Toolbar-saySentence-BronzeToolbar"];

@@ -56,4 +56,9 @@ int qtyAllGameSequence, currentGameSequence = 0;
 	return [allGameSequence objectAtIndex: currentGameSequence];
 }
 
++ (void) nextSequence {
+    currentGameSequence++;
+    if (currentGameSequence >= qtyAllGameSequence) currentGameSequence = 0;
+}
+
 @end

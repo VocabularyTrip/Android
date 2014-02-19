@@ -88,8 +88,8 @@
 
 -(bool) userLevelIsInCoinType {
 	return
-	([UserContext getLevel] > cLimitLevelSilver && [self typeIsGold]) || 
-	([UserContext getLevel] > cLimitLevelBronze && [self typeIsSilver]) ||	
+	([UserContext getLevelNumber] > cLimitLevelSilver && [self typeIsGold]) || 
+	([UserContext getLevelNumber] > cLimitLevelBronze && [self typeIsSilver]) ||	
 	([self typeIsBronze]);
 }
 

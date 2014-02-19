@@ -22,7 +22,7 @@ UserContext *userContextSingleton;
 @synthesize users;
 @synthesize userSelected;
 @synthesize aNewLanguage;
-@synthesize imageWordGameMode;
+
 @synthesize levelGameMode;
 
 +(UserContext*) getSingleton {
@@ -50,10 +50,6 @@ UserContext *userContextSingleton;
 	return [[UserContext getSingleton] soundEnabled];
 }
 
-+ (int) imageWordGameMode {
-	return [[UserContext getSingleton] imageWordGameMode];
-}
-
 +(void) setSoundEnabled: (int) newVal {
 	[[UserContext getSingleton] setSoundEnabled: newVal];
 }
@@ -66,11 +62,7 @@ UserContext *userContextSingleton;
 	[[UserContext getSingleton] setLevelGameMode: newVal];
 }
 
-+ (void) setImageWordGameMode: (int) newVal {
-	[[UserContext getSingleton] setImageWordGameMode: newVal];
-}
-
-+(int) getLevel {
++(int) getLevelNumber {
     User *user = [self getUserSelected];
 	return user.level;
 }
@@ -85,6 +77,10 @@ UserContext *userContextSingleton;
 
 +(Level*) getLevelAt: (int) anIndex {
 	return [[UserContext getSingleton] getLevelAt: anIndex];
+}
+
++(Level*) getLevel {
+	return [[UserContext getSingleton] getLevelAt: [self getLevelNumber]];
 }
 
 +(void) setaNewLanguage: (NSString*) aLang {
@@ -194,7 +190,6 @@ UserContext *userContextSingleton;
 -(id) init { 
     if (self=[super init]) {    
         soundEnabled = -1;
-        imageWordGameMode = -1;
     }
 	return self;
 }
@@ -218,13 +213,6 @@ UserContext *userContextSingleton;
 
 }
 
--(int) imageWordGameMode {
-	if (imageWordGameMode == -1) {
-		imageWordGameMode = [[NSUserDefaults standardUserDefaults] integerForKey: cImageWordGameModeKey];
-	}
-	return imageWordGameMode;
-}
-
 - (User *) userSelected {
     if (!userSelected) {
         int i=0;
@@ -241,11 +229,6 @@ UserContext *userContextSingleton;
 - (void) setSoundEnabled: (int) newVal {
 	soundEnabled = newVal;
 	[[NSUserDefaults standardUserDefaults] setInteger:soundEnabled forKey: cSoundKey];
-}
-
-- (void) setImageWordGameMode: (int) newVal {
-	imageWordGameMode = newVal;
-	[[NSUserDefaults standardUserDefaults] setInteger: imageWordGameMode forKey: cImageWordGameModeKey];
 }
 
 -(int) maxLevel {
@@ -277,7 +260,6 @@ UserContext *userContextSingleton;
     [UserContext setHelpSelectLang: YES];
     [UserContext setHelpSelectUser: YES];
 	UserContext.soundEnabled = YES;
-    UserContext.imageWordGameMode = cImageModeGame;
 	[[UserContext getSingleton] setMaxLevel: 0];
 }
 
@@ -289,6 +271,9 @@ UserContext *userContextSingleton;
     
 	albumTemp = [Album alloc];
 	[albumTemp resetAlbum: cAlbum2];
+    
+    albumTemp = [Album alloc];
+	[albumTemp resetAlbum: cAlbum3];
 
 }
 
@@ -376,12 +361,12 @@ UserContext *userContextSingleton;
 	[allLevels addObject: aLevel];
 }
 
--(int) countOfLevels {
-	return [allLevels count];
-}
-
 -(Level*) getLevelAt: (int) anIndex {
-	return [allLevels objectAtIndex: anIndex];
+	//return [allLevels objectAtIndex: anIndex];
+    NSPredicate* predicate = [NSPredicate predicateWithFormat: @"order = %i", anIndex];
+    NSArray* r = [allLevels filteredArrayUsingPredicate: predicate];
+    if ([r count] > 0) return [r firstObject];
+    return nil;
 }
 
 

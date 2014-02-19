@@ -18,5 +18,6 @@ extern int qtyAllGameSequence, currentGameSequence;
 + (void) loadDataFromXML;
 + (void) parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName: (NSString *) qualifiedName attributes: (NSDictionary *) attributeDict;
 + (GameSequence*) getCurrentGameSequence;
++ (void) nextSequence;
 
 @end

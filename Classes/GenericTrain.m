@@ -23,8 +23,6 @@
 @implementation GenericTrain
 
 @synthesize pauseButton;
-@synthesize gameImageModeButton;
-@synthesize gameLevelModeButton;
 @synthesize helpButton;
 @synthesize train;
 @synthesize wagon1;
@@ -143,68 +141,35 @@
 	}
 }
 
-- (IBAction) gameImageModeClicked {
-    if (!selectGameModeView) {
-        [self pauseClicked];
-        selectGameModeView = [[SelectGameMode alloc] initWithNibName: @"SelectGameModeView" bundle:[NSBundle mainBundle]];
-    
-        [self.view addSubview: selectGameModeView.view];
-        [selectGameModeView show];
-    } else {
-        [self pauseClicked];
-        [selectGameModeView closeClicked];
-        selectGameModeView = nil;
-    }
-    
-	/*NSString *imageFile;
-	if ([UserContext imageWordGameMode] == cImageModeGame) {
-        [UserContext setImageWordGameMode: cWordModeGame];
-		imageFile = [ImageManager getIphoneIpadFile: @"wheel1"];
-		[gameImageModeButton setImage: [UIImage imageNamed: imageFile] forState: UIControlStateNormal];
-        [self setWordModeGame];
-    } else if ([UserContext imageWordGameMode] == cWordModeGame) {
-        [UserContext setImageWordGameMode: cImageAndWordModeGame];
-		imageFile = [ImageManager getIphoneIpadFile: @"wheel2"];
-		[gameImageModeButton setImage: [UIImage imageNamed: imageFile] forState: UIControlStateNormal];
-        [self setImageAndWordModeGame];
-    } else {
-        [UserContext setImageWordGameMode: cImageModeGame];
-		imageFile = [ImageManager getIphoneIpadFile: @"wheel3"];
-		[gameImageModeButton setImage: [UIImage imageNamed: imageFile] forState: UIControlStateNormal];
-        [self setImageModeGame];
-    }*/
-}
-
-- (IBAction) gameLevelModeClicked {
-    NSString *imageFile;
-	if ([UserContext levelGameMode] == tLevelModeGame_cumulative) {
-        [UserContext setLevelGameMode: tLevelModeGame_currentLevel];
-		imageFile = [ImageManager getIphoneIpadFile: @"wheel1"];
-		[gameLevelModeButton setImage: [UIImage imageNamed: imageFile] forState: UIControlStateNormal];
-    } else {
-        [UserContext setLevelGameMode: tLevelModeGame_cumulative];
-		imageFile = [ImageManager getIphoneIpadFile: @"wheel2"];
-		[gameLevelModeButton setImage: [UIImage imageNamed: imageFile] forState: UIControlStateNormal];
-    }
-}
-    
 - (void) refreshGameMode {
-	if ([UserContext imageWordGameMode] == cImageModeGame) {
-        [self setImageModeGame];
-    } else if ([UserContext imageWordGameMode] == cWordModeGame) {
-        [self setWordModeGame];
-    } else {
-        [self setImageAndWordModeGame];
-    }
-}
+    
+    
+    ([GameSequenceManager getCurrentGameSequence].cumulative) ?
+        [UserContext setLevelGameMode: tLevelModeGame_cumulative] :
+        [UserContext setLevelGameMode: tLevelModeGame_currentLevel];
 
-- (void) setImageModeGame {
-    wordButtonLabel1.alpha = 0;
-    wordButtonLabel2.alpha = 0;
-    wordButtonLabel3.alpha = 0;
-    wordButton1.alpha = 1;
-    wordButton2.alpha = 1;
-    wordButton3.alpha = 1;
+    if ([GameSequenceManager getCurrentGameSequence].includeImages) {
+        wordButton1.alpha = 1;
+        wordButton2.alpha = 1;
+        wordButton3.alpha = 1;
+    } else {
+        wordButton1.alpha = 0;
+        wordButton2.alpha = 0;
+        wordButton3.alpha = 0;
+    }
+    
+    if ([GameSequenceManager getCurrentGameSequence].includeWords) {
+        wordButtonLabel1.alpha = 1;
+        wordButtonLabel2.alpha = 1;
+        wordButtonLabel3.alpha = 1;
+    } else {
+        wordButtonLabel1.alpha = 0;
+        wordButtonLabel2.alpha = 0;
+        wordButtonLabel3.alpha = 0;
+    }
+    
+    int deltaY = [GameSequenceManager getCurrentGameSequence].includeWords &&
+    [GameSequenceManager getCurrentGameSequence].includeImages ? wordButtonLabel1.frame.size.height : 0;
     
 	[UIView beginAnimations: @"MoveButtons" context: nil];
 	[UIView setAnimationDelegate: self];
@@ -213,55 +178,27 @@
 	[UIView setAnimationCurve: UIViewAnimationCurveLinear];
 
     CGRect frame = wordButton1.frame;
-	originalframeWord1ButtonView.origin.y = wagon1.frame.origin.y - originalframeWord1ButtonView.size.height;
+    originalframeWord1ButtonView.origin.y =
+    wagon1.frame.origin.y - deltaY - originalframeWord1ButtonView.size.height;
     frame.origin.y = originalframeWord1ButtonView.origin.y;
+   
 	wordButton1.frame = frame;
     
     frame = wordButton2.frame;
-	originalframeWord2ButtonView.origin.y = wagon2.frame.origin.y - originalframeWord2ButtonView.size.height;
+	originalframeWord2ButtonView.origin.y =
+        wagon2.frame.origin.y - deltaY - originalframeWord2ButtonView.size.height;
     frame.origin.y = originalframeWord2ButtonView.origin.y;
 	wordButton2.frame = frame;
 
     frame = wordButton3.frame;
-	originalframeWord3ButtonView.origin.y = wagon3.frame.origin.y - originalframeWord3ButtonView.size.height;
+	originalframeWord3ButtonView.origin.y =
+        wagon3.frame.origin.y - deltaY - originalframeWord3ButtonView.size.height;
     frame.origin.y = originalframeWord3ButtonView.origin.y;
 	wordButton3.frame = frame;
 	
     [UIView commitAnimations];
 }
 
-- (void) setWordModeGame {
-    wordButtonLabel1.alpha = 1;
-    wordButtonLabel2.alpha = 1;
-    wordButtonLabel3.alpha = 1;
-    wordButton1.alpha = 0;
-    wordButton2.alpha = 0;
-    wordButton3.alpha = 0;
-}
-
-- (void) setImageAndWordModeGame {
-    wordButtonLabel1.alpha = 1;
-    wordButtonLabel2.alpha = 1;
-    wordButtonLabel3.alpha = 1;
-    wordButton1.alpha = 1;
-    wordButton2.alpha = 1;
-    wordButton3.alpha = 1;
-
-    CGRect frame = wordButton1.frame;
-	originalframeWord1ButtonView.origin.y = wagon1.frame.origin.y - wordButtonLabel1.frame.size.height - originalframeWord1ButtonView.size.height;
-    frame.origin.y = originalframeWord1ButtonView.origin.y;
-	wordButton1.frame = frame;
-    
-    frame = wordButton2.frame;
-	originalframeWord2ButtonView.origin.y = wagon2.frame.origin.y - wordButtonLabel2.frame.size.height - originalframeWord2ButtonView.size.height;
-    frame.origin.y = originalframeWord2ButtonView.origin.y;
-	wordButton2.frame = frame;
-    
-    frame = wordButton3.frame;
-	originalframeWord3ButtonView.origin.y = wagon3.frame.origin.y - wordButtonLabel3.frame.size.height - originalframeWord3ButtonView.size.height;
-    frame.origin.y = originalframeWord3ButtonView.origin.y;
-	wordButton3.frame = frame;
-}
 
 - (void) throbPauseButton {
     if (gameStatus != cStatusGameIsPaused) {
@@ -338,15 +275,10 @@
 	[UIView setAnimationDidStopSelector: @selector(hideWordAnimationDidStop:finished:context:)]; 	
 	[UIView setAnimationCurve: UIViewAnimationCurveLinear];
 
-    if ([UserContext imageWordGameMode] == cImageModeGame) {
-        aWordButton.alpha = 0;
-    } else if ([UserContext imageWordGameMode] == cWordModeGame) {
-        aWordButtonLabel.alpha = 0;
-    } else { // cImageAndWordModeGame
-        aWordButton.alpha = 0;
-        aWordButtonLabel.alpha = 0;
-    }
     
+    if ([GameSequenceManager getCurrentGameSequence].includeWords) aWordButtonLabel.alpha = 0;
+    if ([GameSequenceManager getCurrentGameSequence].includeImages) aWordButton.alpha = 0;
+
 	[UIView commitAnimations];
 
 	return word;
@@ -403,14 +335,8 @@
     [UIView setAnimationDuration: 0.5];
     [UIView setAnimationCurve: UIViewAnimationCurveLinear];
 
-    if ([UserContext imageWordGameMode] == cImageModeGame) {
-        aWordButton.alpha = 1;
-    } else if ([UserContext imageWordGameMode] == cWordModeGame) {
-        aWordButtonLabel.alpha = 1;
-    } else { // cImageAndWordModeGame
-        aWordButton.alpha = 1;
-        aWordButtonLabel.alpha = 1;
-    }
+    if ([GameSequenceManager getCurrentGameSequence].includeWords) aWordButtonLabel.alpha = 1;
+    if ([GameSequenceManager getCurrentGameSequence].includeImages) aWordButton.alpha = 1;
     
     [UIView commitAnimations];
     qOfImagesRemaining--;
@@ -433,7 +359,8 @@
 	[smokeView startAnimation];
 }
 
-- (void) endGame { 
+- (void) endGame {
+    [GameSequenceManager nextSequence];
 }
 
 // Train animation
@@ -508,16 +435,19 @@
 
 - (void) initializeLevel {
     if ([UserContext levelGameMode] == tLevelModeGame_currentLevel)
-        [Vocabulary initializeLevelAt: [UserContext getLevel]];
+        [Vocabulary initializeLevelAt: [UserContext getLevelNumber]];
     else
-        [Vocabulary initializeLevelUntil: [UserContext getLevel]];
+        [Vocabulary initializeLevelUntil: [UserContext getLevelNumber]];
         // default mode is tLevelModeGame_cumulative
 }
 
 - (void) viewDidAppear:(BOOL)animated {
 	if (gameStatus != cStatusGameIsOn && gameStatus != cStatusGameIsPaused) {
 		[self showAllViews];
-		[self introduceTrain];
+        [gameNotifierView show];
+        gameNotifierView.parentView = self;
+
+		//[self introduceTrain];
 	}
 	[self refreshSoundButton];
 }
@@ -539,9 +469,13 @@
     originalframeWord1ButtonView = CGRectMake(wordButton1.frame.origin.x, wordButton1.frame.origin.y, wordButton1.frame.size.width, wordButton1.frame.size.height);
     originalframeWord2ButtonView = CGRectMake(wordButton2.frame.origin.x, wordButton2.frame.origin.y, wordButton2.frame.size.width, wordButton2.frame.size.height);
     originalframeWord3ButtonView = CGRectMake(wordButton3.frame.origin.x, wordButton3.frame.origin.y, wordButton3.frame.size.width, wordButton3.frame.size.height);
+    
+    gameNotifierView = [[GameNotifierView alloc] initWithNibName: @"GameNotifierView" bundle:[NSBundle mainBundle]];
+    [self.view addSubview: gameNotifierView.view];
+    gameNotifierView.view.alpha = 0;
 }
 
-- (void) takeOutTrain { 
+- (void) takeOutTrain {
 	[smokeView endAnimation];
 	
 	gameStatus = cStatusGameIsTakeoutTrain;
@@ -677,9 +611,10 @@
 }
 
 -(void) pushLevelWithHelpDownload {
-    VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
+// Se comenta a efectos de prueba porque el diccionario est[a muy incompleto y falla muy a menudo.
+    //VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
 //    vocTripDelegate.levelView.startWithHelpDownload = 1;
-    [vocTripDelegate pushLevelViewWithHelpDownload];
+    //[vocTripDelegate pushLevelViewWithHelpDownload];
 }
 
 /*-(void) showAlertDownloadSounds {

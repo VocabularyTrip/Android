@@ -31,4 +31,19 @@ typedef enum {
 + (int) getDeltaWidthIphone5;
 + (int) windowWidth;
 
+// ******************************************************************* //
+// ********************* IMAGE SIZE DEFINITION *********************** //
+
++ (int) getMapViewLevelSize;
++ (CGSize) getFlagSize;
++ (CGSize) getMapViewSize;
++ (int) albumMagnifierDeltaPos;
++ (int) albumMagnifierSize;
++ (CGSize) changeUserUserSize;
++ (CGRect) smokeViewInitRect;
++ (int) levelViewDeltaXYCorner;
+
+// ********************* IMAGE SIZE DEFINITION *********************** //
+// ******************************************************************* //
+
 @end

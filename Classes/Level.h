@@ -17,30 +17,24 @@
 #define cLimitLevelGold 9
 
 @interface Level : Word <NSURLConnectionDelegate> {
-	//UIImage *imageLocked;
-	//NSString *imageLockedName;
-	//UIImage *imageNotAvailable;
-	//NSString *imageNotAvailableName;
 	NSString *levelName;
     int size;
-    CGPoint placeInMap;
+    CGPoint ipodPlaceInMap;
+    CGPoint ipadPlaceInMap;
     int levelNumber;
+  
 }
 
-//@property (nonatomic) UIImage *imageLocked;
-//@property (nonatomic) UIImage *imageNotAvailable;
-//@property (nonatomic, strong) NSString *imageLockedName;
-//@property (nonatomic, strong) NSString *imageNotAvailableName;
 @property (nonatomic, strong) NSString *levelName;
 @property (nonatomic) int size;
-@property (nonatomic) CGPoint placeInMap;
+@property (nonatomic) CGPoint ipodPlaceInMap;
+@property (nonatomic) CGPoint ipadPlaceInMap;
 @property (nonatomic) int levelNumber;
 
+
+- (CGPoint) placeinMap;
 + (void)loadDataFromSql: (int) levelId;
 + (void) connectionFinishSuccesfully: (NSDictionary*) response;
 + (void) connectionFinishWidhError:(NSError *) error;
-//- (UIImage*) imageLocked;
-//- (UIImage*) imageNotAvailable;
-//- (void) purge;
 
 @end

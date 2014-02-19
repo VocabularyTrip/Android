@@ -17,8 +17,6 @@
 
 #define cPercentageLearnd 0.8
 #define cPercentageCloseToLearnd 0.65
-// ******** change 400 words ---OK
-// #define cSizeOfEachLevel 10	// Quantity of Words in each level
 
 extern NSMutableArray *allWords;
 extern NSMutableArray *oneLevel; 

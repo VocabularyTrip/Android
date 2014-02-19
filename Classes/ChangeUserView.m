@@ -33,12 +33,7 @@
     [super done: sender];
 }
 
-- (CGSize) getSize {
-	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-        return CGSizeMake(250, 350);
-    else
-        return CGSizeMake(125, 175);
-}
+
 
 - (void) initUsers {
     usersView.viewDelegate = self;
@@ -47,7 +42,7 @@
         User* u = [[UserContext getSingleton].users objectAtIndex: i];
         //NSLog(@"user i: %i, name: %@", i, u.userName);
         
-		[(AFOpenFlowView *)self.usersView setImage: [ImageManager imageWithImage: u.image scaledToSize: [self getSize]] forIndex: i];
+		[(AFOpenFlowView *)self.usersView setImage: [ImageManager imageWithImage: u.image scaledToSize: [ImageManager changeUserUserSize]] forIndex: i];
 	}
     //NSLog(@"User Count: %i", [[UserContext getSingleton].users count]);
 	[(AFOpenFlowView *)self.usersView setNumberOfImages: [[UserContext getSingleton].users count]];

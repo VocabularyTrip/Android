@@ -143,7 +143,7 @@
     double wasLearnedResult = [Vocabulary wasLearned];
     // Check Download complete only if advance to level 2 is unlock and at least is close to level 2
     if (!([UserContext getMaxLevel] >= 6) ||
-        (wasLearnedResult < cPercentageCloseToLearnd && [UserContext getLevel] == 1)
+        (wasLearnedResult < cPercentageCloseToLearnd && [UserContext getLevelNumber] == 1)
         ) return;
     
     if (![Vocabulary isDownloadCompleted]) {
@@ -195,7 +195,8 @@
 - (void) initAllControllers {
 	
 	[[self mapView] initializeGame];
-
+    [self mapView].flagFirstShowInSession = YES;
+    
 	navController = [[UINavigationController alloc ] initWithRootViewController: mapView];
 	[navController setNavigationBarHidden: YES];
 	[navController setDelegate: self];
@@ -326,7 +327,7 @@
 - (void) pushLevelViewWithHelpDownload {
   	[navController popViewControllerAnimated: NO];
 //    self.mapView.startWithHelpDownload = 1;
-	[navController pushViewController: self.mapView animated: YES];
+	//[navController pushViewController: self.mapView animated: YES];
 }
 
 

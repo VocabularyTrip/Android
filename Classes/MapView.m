@@ -14,6 +14,7 @@
 @synthesize  mapScrollView;
 @synthesize helpButton;
 @synthesize playCurrentLevelButton;
+@synthesize flagFirstShowInSession;
 
 - (void) viewDidLoad {
     [self initializeGame];
@@ -55,16 +56,34 @@
 	}
 }
 
-- (void) viewWillAppear:(BOOL)animated {
-    int offset=240;
-    Level *level = [UserContext getLevelAt: [UserContext getLevel]];
-    int newX = level.placeInMap.x > offset ? level.placeInMap.x-offset : 0;
-    CGPoint newPlace = CGPointMake(newX, 0);
-    [mapScrollView setContentOffset: newPlace animated: YES];
+- (void) viewDidAppear:(BOOL)animated {
+    UserContext *aUserC = [UserContext getSingleton];
+    if (flagFirstShowInSession && aUserC.userSelected) {
 
-    NSLog(@"place in map: %f, %f", level.placeInMap.x, level.placeInMap.y);
-    playCurrentLevelButton.center = CGPointMake(level.placeInMap.x, level.placeInMap.y);
-    
+        Level *level = [UserContext getLevel];
+        flagFirstShowInSession = NO;
+            
+        [mapScrollView setContentOffset: CGPointMake(
+            [ImageManager getMapViewSize].width - [ImageManager windowWidth], 0) animated: NO];
+            
+        [UIView beginAnimations:@"ShowMapAndPositionInCurrentLevel" context: nil];
+        [UIView setAnimationDelegate: self];
+        [UIView setAnimationDuration: 5];
+        [UIView setAnimationCurve: UIViewAnimationCurveEaseOut];
+            
+        int offset = [ImageManager windowWidth] / 2;
+        int newX = [level placeinMap].x > offset ? [level placeinMap].x - offset : 0;
+        CGPoint newPlace = CGPointMake(newX, 0);
+        mapScrollView.contentOffset = newPlace;
+            
+        [UIView commitAnimations];
+            
+        playCurrentLevelButton.center = [level placeinMap];
+    }
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+
     UserContext *aUserC = [UserContext getSingleton];
     if (!aUserC.userSelected)
         [self changeUserShowInfo: nil];
@@ -80,7 +99,6 @@
 	//[self stopBackgroundSound];
 	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
 	Sentence.delegate = vcDelegate.testTrain;
-    [vcDelegate.testTrain setWordModeGame];
 	[vcDelegate pushTestTrain];
 }
 
@@ -88,7 +106,6 @@
 	//[self stopBackgroundSound];
 	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
 	Sentence.delegate = vcDelegate.trainingTrain;
-    [vcDelegate.trainingTrain setWordModeGame];
 	[vcDelegate pushTrainingTrain];
 }
 
@@ -111,10 +128,10 @@
 		[self presentModalViewController: mailCont animated:YES];
 	} else {
 		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Cant Send Mail"
-                                                        message:@"All of your emails accounts are disabled or removed"
-                                                       delegate:self
-                                              cancelButtonTitle: @"OK"
-                                              otherButtonTitles:nil];
+           message:@"All of your emails accounts are disabled or removed"
+           delegate:self
+           cancelButtonTitle: @"OK"
+           otherButtonTitles:nil];
 		[alert show];
 	}
 }
@@ -141,7 +158,7 @@
 
 - (void) initMap {
     // Configurar el ancho del mapa
-    [mapScrollView setContentSize: CGSizeMake(1200, 320)];
+    [mapScrollView setContentSize: [ImageManager getMapViewSize]];
 }
 
 - (IBAction) buyClicked {
@@ -183,17 +200,14 @@
 }
 
 - (void) drawAllLeveles {
-    int imageSize = 60;
     Level *level;
-    for (int i=0; i< [[UserContext getSingleton] countOfLevels]; i++) {
+    for (int i=1; i<= [Vocabulary countOfLevels]; i++) {
         level = [UserContext getLevelAt: i];
-        [self addImage: level.image pos: level.placeInMap size: imageSize];
+        [self addImage: level.image
+                  pos: [level placeinMap]
+                  size: [ImageManager getMapViewLevelSize]];
      
-        CGPoint newPlace = CGPointMake(level.placeInMap.x+imageSize*0.7, level.placeInMap.y+imageSize*0.7);
-        if (i >= [UserContext getMaxLevel] && i != 0)
-            [self addImage: [UIImage imageNamed:@"BuyButton.png"] pos: newPlace size: imageSize*0.4];
-        else if (i >= [UserContext getLevel] && i != 0)
-            [self addImage: [UIImage imageNamed:@"token-bronze.png"] pos: newPlace size: imageSize*0.4];
+        [self addAccessibleIconToLevel: level];
     }
 }
 
@@ -209,6 +223,21 @@
     
     [mapScrollView addSubview: imageView];
     [mapScrollView bringSubviewToFront: imageView];
+}
+
+- (void) addAccessibleIconToLevel: (Level*) level {
+    // To each level is added:
+    //     * Nothing if the level is accessible
+    //     * Lock icon if the user didn't reach this level
+    //     * Buy icon if the user has to buy to unlock the level
+    
+    CGPoint newPlace = CGPointMake([level placeinMap].x + [ImageManager getMapViewLevelSize] * 0.7, [level placeinMap].y + [ImageManager getMapViewLevelSize] * 0.7);
+ 
+    // Level.order = 1. The first level hardcoded is free. No purchase needed and is unlocked from de beginning
+    if (level.order >= [UserContext getMaxLevel] && level.order != 1)
+        [self addImage: [UIImage imageNamed:@"BuyButton.png"] pos: newPlace size: [ImageManager getMapViewLevelSize] * 0.4];
+    else if (level.order >= [UserContext getLevelNumber] && level.order != 1)
+        [self addImage: [UIImage imageNamed:@"token-bronze.png"] pos: newPlace size: [ImageManager getMapViewLevelSize] * 0.4];
 }
 
 - (void) helpAnimation1 {

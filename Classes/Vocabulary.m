@@ -112,7 +112,8 @@ Vocabulary *singletonVocabulary;
 		if ([elementName isEqualToString: @"level"]) {
 
             if (levelIndex!=0) {
-                Level* lastLevel = [UserContext getLevelAt: levelIndex-1];
+                //Level* lastLevel = [UserContext getLevelAt: levelIndex-1];
+                Level* lastLevel = [[UserContext getSingleton].allLevels objectAtIndex: levelIndex-1];
                 lastLevel.size = [oneLevel count];
 				[allWords addObject: [oneLevel copy]];
 				[oneLevel removeAllObjects];
@@ -122,11 +123,11 @@ Vocabulary *singletonVocabulary;
 			newLevel = [Level alloc];
 			newLevel.levelName = [attributeDict objectForKey: @"name"];
 			newLevel.name = [attributeDict objectForKey: @"image"];
-            newLevel.placeInMap = CGPointMake([[attributeDict objectForKey: @"x"] intValue], [[attributeDict objectForKey: @"y"] intValue]);
+            newLevel.ipodPlaceInMap = CGPointMake([[attributeDict objectForKey: @"ipodX"] intValue], [[attributeDict objectForKey: @"ipodY"] intValue]);
+            newLevel.ipadPlaceInMap = CGPointMake([[attributeDict objectForKey: @"ipodX"] intValue], [[attributeDict objectForKey: @"ipadY"] intValue]);
+            newLevel.order = [[attributeDict objectForKey: @"LevelOrder"] intValue];
             newLevel.levelNumber = levelIndex;
             
-			//newLevel.imageLockedName = [attributeDict objectForKey: @"imageLocked"];
-			//newLevel.imageNotAvailableName = [attributeDict objectForKey: @"imageNotAvailable"];
 			levelIndex++;
             
 			[UserContext addLevel: newLevel];
@@ -136,9 +137,10 @@ Vocabulary *singletonVocabulary;
 			NSString *wordName = [attributeDict objectForKey: @"name"]; 
 			Word *newWord = [Word alloc];
 			newWord.name = wordName;
-            newWord.allTranslatedNames = attributeDict;
-            newWord.localizationName = [self getNativeNameFromLocalization: attributeDict];
+            //newWord.allTranslatedNames = attributeDict;
+            //newWord.localizationName = [self getNativeNameFromLocalization: attributeDict];
 			newWord.theme = levelIndex;
+            newWord.order = [[attributeDict objectForKey: @"order"] intValue];
 			[oneLevel addObject: newWord];
 		}
 	}
@@ -258,7 +260,7 @@ Vocabulary *singletonVocabulary;
     // Loadweight depends on UserSelected.
     // When the user is changed, the weight has to be reloaded.
 	Word *w;
-	for (int i=0; i< [Vocabulary countOfLevels]; i++) { // cLastLevel
+	for (int i=0; i< [Vocabulary countOfLevels]; i++) {
 		for (w in [allWords objectAtIndex:i]) {
 			[w loadWeight];
 		}
@@ -268,7 +270,7 @@ Vocabulary *singletonVocabulary;
 + (void) resetAllWeigths {
 	@try {
 		Word *w;
-		for (int i=0; i< [Vocabulary countOfLevels]; i++) { // cLastLevel
+		for (int i=0; i< [Vocabulary countOfLevels]; i++) {
 			for (w in [allWords objectAtIndex:i]) {
 				[w resetWeight];
 			}
@@ -283,7 +285,7 @@ Vocabulary *singletonVocabulary;
 
 + (void) testAllSounds {
 	Word *w;
-	for (int i=0; i< [Vocabulary countOfLevels]; i++) { // cLastLevel
+	for (int i=0; i< [Vocabulary countOfLevels]; i++) {
 		for (w in [allWords objectAtIndex:i]) {
 			[w.sound play];
 		}
@@ -295,7 +297,7 @@ Vocabulary *singletonVocabulary;
 	Word *w;
 	//NSLog(@"******** Was Learned Started");
 	
-	for (int i=0; i<[UserContext getLevel]; i++) {
+	for (int i=0; i<[UserContext getLevelNumber]; i++) {
 		for (w in [allWords objectAtIndex:i]) {
 			if (w.weight <= cLearnedWeight) r++; 
 			//NSLog(@"Word: %@ Weight: %i Retain: %i", w.name, w.weight, [w retainCount]);
@@ -311,7 +313,7 @@ Vocabulary *singletonVocabulary;
 	int r = 0, total = 0;
 	Word *w;
 	
-    for (w in [allWords objectAtIndex: [UserContext getLevel] - 1]) {
+    for (w in [allWords objectAtIndex: [UserContext getLevelNumber] - 1]) {
 		if (w.weight <= cLearnedWeight) r++;
 		total ++;
 	}
@@ -321,17 +323,5 @@ Vocabulary *singletonVocabulary;
     progress = progress >= cPercentageLearnd ? 1 : progress / cPercentageLearnd;
 	return progress;
 }
-
-/*+ (double) progressIndividualLevel {
-    // ******** change 400 words -- ok
-    // This forma works if all Levels are cSizeOfEachLevel
-    double progress = 0;
-    
-    double hitsOneLevel = [self wasLearned] * [UserContext getLevel] * cSizeOfEachLevel;
-    progress = (hitsOneLevel - ([UserContext getLevel] - 1) * cSizeOfEachLevel)/10;
-    progress = progress >= cPercentageLearnd ? 1 : progress / cPercentageLearnd;
-    if (progress <= 0) progress = 0.03;
-    return progress;
-}*/
 
 @end

@@ -17,7 +17,7 @@
 #import "ToolbarController.h"
 #import "SmokeView.h"
 #import "ImageManager.h"
-#import "SelectGameMode.h"
+#import "GameNotifierView.h"
 
 #define cStatusGameIsNone 0
 #define cStatusGameIsOn 1
@@ -41,8 +41,6 @@
 	// **********************************
 	// Toolbar **************************
 	UIButton *__unsafe_unretained pauseButton;
-	UIButton *__unsafe_unretained gameImageModeButton;
-	UIButton *__unsafe_unretained gameLevelModeButton;
 	UIButton *__unsafe_unretained helpButton;
 	UIButton *__unsafe_unretained backButton;
 	UIButton *__unsafe_unretained soundButton;
@@ -91,6 +89,7 @@
     //UIButton *__unsafe_unretained alertDownloadSounds;
     
 	int gameStatus;
+    
 	int viewMode; // 1 when the View is visible, and 0 when is not.
 	int qOfImagesRemaining;
 
@@ -112,7 +111,7 @@
     CGRect originalframeWord2ButtonView;
     CGRect originalframeWord3ButtonView;
     
-    SelectGameMode *selectGameModeView;
+    GameNotifierView* gameNotifierView;
 }
 
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *backButton;
@@ -126,8 +125,6 @@
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *landscape;
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *landscapeSky;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *pauseButton;
-@property (nonatomic, unsafe_unretained) IBOutlet UIButton *gameImageModeButton;
-@property (nonatomic, unsafe_unretained) IBOutlet UIButton *gameLevelModeButton;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *helpButton;
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *loadingView;	
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *railView;	
@@ -165,8 +162,6 @@
 - (IBAction) pauseClicked;
 - (IBAction) soundClicked;
 - (IBAction) helpClicked;
-- (IBAction) gameImageModeClicked;
-- (IBAction) gameLevelModeClicked;
 
 - (void) hideAllViews;
 - (void) showAllViews;
@@ -207,9 +202,6 @@
 - (void) pushLevelWithHelpDownload;
 - (void) throbPauseButton;
 - (void) throbPauseButtonOff;
-- (void) setImageModeGame;
-- (void) setWordModeGame;
-- (void) setImageAndWordModeGame;
 - (void) refreshGameMode;
 
 @end
