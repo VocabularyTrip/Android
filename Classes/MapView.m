@@ -59,7 +59,7 @@
     flagFirstShowInSession = NO;
     
     [mapScrollView setContentOffset: CGPointMake(
-                                                 [ImageManager getMapViewSize].width - [ImageManager windowWidth], 0) animated: NO];
+        [ImageManager getMapViewSize].width - [ImageManager windowWidth], 0) animated: NO];
     
     [UIView beginAnimations:@"ShowMapAndPositionInCurrentLevel" context: nil];
     [UIView setAnimationDelegate: self];

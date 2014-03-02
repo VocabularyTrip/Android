@@ -50,32 +50,44 @@
 
 + (void) download: (NSString*) fileName {
     
+    NSFileManager *fm = [NSFileManager defaultManager];
+    BOOL isDir;
     // Set Source & Destination
     NSString *fullUrl =
     [NSString stringWithFormat: @"%@%@%@", [self urlDownloadFrom], fileName, @".mp3"];
-    NSLog(@"full path: %@", fullUrl);
+
     NSString *destPath = [self checkIfDestinationPathExist];
     destPath = [NSString stringWithFormat: @"%@%@%@", destPath, fileName, @".mp3"];
+    if (![fm fileExistsAtPath: destPath isDirectory: &isDir]) {
     
-    // Start Download
-    NSURL *url = [NSURL URLWithString: fullUrl];
-    NSLog(@"URL: %@, DestPath: %@", url, destPath);
-    AFHTTPRequestOperation* operation = [AFProxy prepareDownload: url destination: destPath delegate:self];
+        // Start Download
+        NSLog(@"full path: %@", fullUrl);
+        NSURL *url = [NSURL URLWithString: fullUrl];
+        NSLog(@"URL: %@, DestPath: %@", url, destPath);
+        AFHTTPRequestOperation* operation = [AFProxy prepareDownload: url destination: destPath delegate:self];
 
-    [operation start];
+        [operation start];
+    } else {
+        singletonVocabulary.qWordsLoaded++;
+        [self refreshProgress];
+    }
 }
 
-// Response to Download Word
-+ (void) connectionFinishSuccesfully: (NSDictionary*) response {
-    NSLog(@"Word Downloaded");
-    singletonVocabulary.qWordsLoaded++;
++ (void) refreshProgress {
     Language *lang = [UserContext getLanguageSelected];
     float progress =  (float) singletonVocabulary.qWordsLoaded / (float) lang.qWords;
-        
+    
     if (singletonVocabulary.isDownloading && singletonVocabulary.isDownloadView)
         [singletonVocabulary.delegate addProgress: progress];
     
     if (progress >= 1) singletonVocabulary.isDownloading = NO;
+}
+
+// Response to Download Word
++ (void) connectionFinishSuccesfully: (NSDictionary*) response {
+    //NSLog(@"Word Downloaded");
+    singletonVocabulary.qWordsLoaded++;
+    [self refreshProgress];
 }
 
 + (void) connectionFinishWidhError:(NSError *) error url: (NSURL *) url {
@@ -184,9 +196,7 @@
 
 - (void) addTranslation: (NSString*) translation forKey: (NSString*) key {
     [[self allTranslatedNames] setValue: translation forKey: key];
-    if ([allTranslatedNames writeToFile: [self pathToSaveTranslations] atomically: YES])
-        NSLog(@"Saved File: %@", name);
-    else
+    if (![allTranslatedNames writeToFile: [self pathToSaveTranslations] atomically: YES])
         NSLog(@"Failed faving File: %@", name);
 }
 
