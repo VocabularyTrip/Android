@@ -14,7 +14,7 @@
 
 @implementation GenericDownloadViewController
 
-@synthesize confirmUserLangButton;
+@synthesize downloadButton;
 @synthesize cancelDownloadButton;
 @synthesize downloadProgressView;
 
@@ -63,14 +63,14 @@
 	if (isDownloading) {
         cancelDownloadButton.alpha = 0;
         downloadProgressView.alpha = 1;
-        confirmUserLangButton.alpha = 1;
-        confirmUserLangButton.enabled = NO;
+        downloadButton.alpha = 1;
+        downloadButton.enabled = NO;
 		[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	} else {
         downloadProgressView.alpha = 0;
-        confirmUserLangButton.enabled = YES;
-        confirmUserLangButton.alpha = [Vocabulary isDownloadCompleted] ? 0 : 1;
-        NSLog(@"Confirm Download alpha: %f", confirmUserLangButton.alpha);
+        downloadButton.enabled = YES;
+        downloadButton.alpha = [Vocabulary isDownloadCompleted] ? 0 : 1;
+        NSLog(@"Confirm Download alpha: %f", downloadButton.alpha);
 	}
 }
 
@@ -85,7 +85,7 @@
     singletonVocabulary.isDownloadView = YES;
     singletonVocabulary.delegate = self;
 
-    confirmUserLangButton.alpha = 1;
+    downloadButton.alpha = 1;
     [self refreshSearchingModeEnabled: singletonVocabulary.isDownloading];
 }
 

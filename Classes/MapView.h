@@ -8,19 +8,25 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "GenericDownloadViewController.h"
 #include "Vocabulary.h"
 #import "ImageManager.h"
 #include "UserContext.h"
 #import <MessageUI/MessageUI.h>
 #import "GameSequenceManager.h"
+#import "MapScrollView.h"
 
 #define cMailInfo @"info@vocabularyTrip.com"
 
-@interface MapView : UIViewController <UIAlertViewDelegate, MFMailComposeViewControllerDelegate> {
-  	UIScrollView *__unsafe_unretained mapScrollView;
+@interface MapView : GenericDownloadViewController <UIAlertViewDelegate, MFMailComposeViewControllerDelegate> {
+  	MapScrollView *__unsafe_unretained mapScrollView;
     UIButton *__unsafe_unretained helpButton;
     UIButton *__unsafe_unretained playCurrentLevelButton;
     bool flagFirstShowInSession;
+    
+    int startWithHelpPurchase, // when the View did show, the Purchase help is launched. When the user finish his purchase succesfully the user is redirected automatically to LevelView with purchase help
+    startWithHelpDownload; // when the View did show, the Download help is launched. When the user is playing and a sound is not loaded from server, the user is redirected automatically to LevelView with download help
+
 }
 
 @property (nonatomic, unsafe_unretained) IBOutlet UIScrollView *mapScrollView;
@@ -47,5 +53,6 @@
 - (IBAction) playCurrentLevel: (id) sender;
 - (void) playChallengeTrain;
 - (void) playTrainingTrain;
-    
+- (void) showAllMapInFirstSession;
+
 @end

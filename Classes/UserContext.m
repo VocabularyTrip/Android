@@ -362,11 +362,11 @@ UserContext *userContextSingleton;
 }
 
 -(Level*) getLevelAt: (int) anIndex {
-	//return [allLevels objectAtIndex: anIndex];
-    NSPredicate* predicate = [NSPredicate predicateWithFormat: @"order = %i", anIndex];
+	return [allLevels objectAtIndex: anIndex];
+    /*NSPredicate* predicate = [NSPredicate predicateWithFormat: @"order = %i", anIndex];
     NSArray* r = [allLevels filteredArrayUsingPredicate: predicate];
     if ([r count] > 0) return [r firstObject];
-    return nil;
+    return nil;*/
 }
 
 

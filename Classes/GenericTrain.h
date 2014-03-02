@@ -67,6 +67,9 @@
 	UIButton *__unsafe_unretained wordButton1;
 	UIButton *__unsafe_unretained wordButton2;
 	UIButton *__unsafe_unretained wordButton3;
+  	UIButton *__unsafe_unretained wordButtonLabel1;
+   	UIButton *__unsafe_unretained wordButtonLabel2;
+  	UIButton *__unsafe_unretained wordButtonLabel3;
 	UIImageView *__unsafe_unretained driverView;
     UIImageView *__unsafe_unretained langView;
     
@@ -102,9 +105,7 @@
 	int hitsOfLevel3;		
 	// **********************************
     
-  	UIButton *__unsafe_unretained wordButtonLabel1;
-   	UIButton *__unsafe_unretained wordButtonLabel2;
-  	UIButton *__unsafe_unretained wordButtonLabel3;
+
     
     // is used to remember the frame. Since the frame is resized each time.
     CGRect originalframeWord1ButtonView;

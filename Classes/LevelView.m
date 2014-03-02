@@ -23,21 +23,19 @@
 @synthesize repeatButton;
 @synthesize backgroundView;
 
-- (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    
-    if ((self = [super initWithNibName: nibNameOrNil bundle: nibBundleOrNil])) {
-    }
-    return self;
-}
-
 - (MapView*) mapView {
     VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
     return vocTripDelegate.mapView;
 }
 
+- (void) viewDidLoad {
+    originalframeImageView = imageView.frame;
+}
+
+
 - (void) showLevel: (Level*) aLevel at: (CGPoint) offset {
     level = aLevel;
-    originalframeImageView = imageView.frame;
+
     gameStatus = cStatusGameIsOn;
     
     self.view.frame = CGRectMake(offset.x, offset.y, 0, 0);
@@ -45,9 +43,12 @@
     imageView.alpha = 0;
     wordNamelabel.alpha = 0;
     nativeWordNamelabel.alpha = 0;
+
+    int deltaX = ([ImageManager windowWidthXIB] - backgroundView.frame.size.width) / 2;
+    // [ImageManager levelViewDeltaXYCorner];
+    int deltaY = ([ImageManager windowHeightXIB] - backgroundView.frame.size.height) / 2;
     
-    int deltaX = [ImageManager levelViewDeltaXYCorner];
-    int deltaY = [ImageManager levelViewDeltaXYCorner];
+    NSLog(@"x final es: %f, %f, %i", offset.x + deltaX, offset.x, deltaX);
     [UIView animateWithDuration: 0.50 animations: ^ {
         self.view.frame = CGRectMake(
             offset.x + deltaX, offset.y + deltaY,
@@ -144,11 +145,7 @@
     imageView.frame = originalframeImageView;
     [ImageManager fitImage: word.image inImageView: imageView];
     wordNamelabel.text = word.translatedName;
-    if (![wordNamelabel.text isEqualToString: word.localizationName])
-        nativeWordNamelabel.text =  word.localizationName;
-    else
-        nativeWordNamelabel.text = @"";
-    
+    nativeWordNamelabel.text =  word.localizationName;
     imageView.alpha = 1;
     wordNamelabel.alpha = 1;
     nativeWordNamelabel.alpha = 1;

@@ -122,9 +122,10 @@ Vocabulary *singletonVocabulary;
 			Level *newLevel;
 			newLevel = [Level alloc];
 			newLevel.levelName = [attributeDict objectForKey: @"name"];
-			newLevel.name = [attributeDict objectForKey: @"image"];
-            newLevel.ipodPlaceInMap = CGPointMake([[attributeDict objectForKey: @"ipodX"] intValue], [[attributeDict objectForKey: @"ipodY"] intValue]);
-            newLevel.ipadPlaceInMap = CGPointMake([[attributeDict objectForKey: @"ipodX"] intValue], [[attributeDict objectForKey: @"ipadY"] intValue]);
+			newLevel.name = [attributeDict objectForKey: @"name"];
+            newLevel.fileName = [attributeDict objectForKey: @"image"];
+            newLevel.ipodPlaceInMap = CGPointMake([[attributeDict objectForKey: @"ipodx"] intValue], [[attributeDict objectForKey: @"ipody"] intValue]);
+            newLevel.ipadPlaceInMap = CGPointMake([[attributeDict objectForKey: @"ipadx"] intValue], [[attributeDict objectForKey: @"ipady"] intValue]);
             newLevel.order = [[attributeDict objectForKey: @"LevelOrder"] intValue];
             newLevel.levelNumber = levelIndex;
             
@@ -134,13 +135,13 @@ Vocabulary *singletonVocabulary;
 		}
 		
 		if ([elementName isEqualToString: @"word"]) {
-			NSString *wordName = [attributeDict objectForKey: @"name"]; 
 			Word *newWord = [Word alloc];
-			newWord.name = wordName;
-            //newWord.allTranslatedNames = attributeDict;
-            //newWord.localizationName = [self getNativeNameFromLocalization: attributeDict];
+			newWord.name = [attributeDict objectForKey: @"name"];
+			newWord.fileName = [attributeDict objectForKey: @"fileName"];
+            newWord.order = [[attributeDict objectForKey: @"wordOrder"] intValue];
 			newWord.theme = levelIndex;
-            newWord.order = [[attributeDict objectForKey: @"order"] intValue];
+            newWord.allTranslatedNames = nil;
+            //newWord.localizationName = [self getNativeNameFromLocalization: attributeDict];
 			[oneLevel addObject: newWord];
 		}
 	}
@@ -155,35 +156,12 @@ Vocabulary *singletonVocabulary;
     return levelIndex;
 }
 
-+(NSString*) getNativeNameFromLocalization: (NSDictionary *) attributeDict {  
-    
-    // ******** change 400 words - Pending
-    NSString *loc = [UserContext getPreferredLanguage];
-
-    if ([loc isEqualToString: @"zh-Hant"]) return [attributeDict objectForKey: @"Chinese"];
-    if ([loc isEqualToString: @"fr"]) return [attributeDict objectForKey: @"French"];
-    if ([loc isEqualToString: @"es"]) return [attributeDict objectForKey: @"Spanish"];          
-    if ([loc isEqualToString: @"fa"]) return [attributeDict objectForKey: @"Farsi"];          
-    if ([loc isEqualToString: @"de"]) return [attributeDict objectForKey: @"German"];
-    if ([loc isEqualToString: @"de"]) return [attributeDict objectForKey: @"Italian"];
-    if ([loc isEqualToString: @"pt"]) return [attributeDict objectForKey: @"Portuguese"];
-    if ([loc isEqualToString: @"ar"]) return [attributeDict objectForKey: @"Arabic"];
-    if ([loc isEqualToString: @"he"]) return [attributeDict objectForKey: @"Hebrew"];    
-    if ([loc isEqualToString: @"hi"]) return [attributeDict objectForKey: @"Hindi"];   
-    if ([loc isEqualToString: @"ja"]) return [attributeDict objectForKey: @"Japanese"];   
-    if ([loc isEqualToString: @"ko"]) return [attributeDict objectForKey: @"Korean"];   
-    if ([loc isEqualToString: @"ru"]) return [attributeDict objectForKey: @"Russian"];   
-    if ([loc isEqualToString: @"ms"]) return [attributeDict objectForKey: @"Malaysian"];   
-    if ([loc isEqualToString: @"vi"]) return [attributeDict objectForKey: @"Vietnamese"];   
-    
-    return [attributeDict objectForKey: @"English"];
-}
-
 + (void)parserDidEndDocument:(NSXMLParser *)parser {
 	[allWords addObject: [oneLevel copy]]; 
-	[oneLevel removeAllObjects];	
+	[oneLevel removeAllObjects];
 }
-	
+
+
 + (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
 	NSLog(@"Vocabulary. Error Parsing at line: %i, column: %i", parser.lineNumber, parser.columnNumber);	
 }
@@ -205,6 +183,20 @@ Vocabulary *singletonVocabulary;
 		[oneLevel addObject: w ];
 	}
 }
+
+
++ (Word*) getRandomWordFromLevel: (int) levelNumber {
+
+    if (levelNumber < [allWords count]) {
+        NSMutableArray* aLevel = [allWords objectAtIndex: levelNumber];
+        int i = arc4random() % [aLevel count];
+        return [aLevel objectAtIndex: i];
+    } else {
+		NSLog(@"Exception: getOrderedWord return nil");
+    }
+	return nil;
+}
+
 
 + (Word*) getOrderedWord {
 	if ([oneLevel count]>0) {

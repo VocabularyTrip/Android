@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="helpButton" destination="g1W-9h-gG6" id="c3x-ka-k7N"/>
                 <outlet property="mapScrollView" destination="ns4-AB-LhT" id="aSy-Ad-6bz"/>
+                <outlet property="playCurrentLevelButton" destination="E4V-Su-mpc" id="NSs-h2-Bp1"/>
                 <outlet property="view" destination="1" id="p3F-sI-czw"/>
             </connections>
         </placeholder>
@@ -25,6 +26,16 @@
                             <rect key="frame" x="0.0" y="0.0" width="2600" height="768"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="E4V-Su-mpc" userLabel="PlayCurrentLevelButton">
+                            <rect key="frame" x="448" y="305" width="250" height="320"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" image="btn_challenge@ipad.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="playCurrentLevel:" destination="-1" eventType="touchDown" id="pPf-Ye-hhx"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </scrollView>
@@ -140,6 +151,7 @@
     <resources>
         <image name="background_purchase@ipad.png" width="1024" height="748"/>
         <image name="btn_avatar_on.png" width="43" height="43"/>
+        <image name="btn_challenge@ipad.png" width="282" height="342"/>
         <image name="btn_info_on.png" width="49" height="49"/>
         <image name="buyButton.png" width="49" height="49"/>
         <image name="cover-animal.png" width="480" height="320"/>

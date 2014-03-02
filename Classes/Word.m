@@ -14,6 +14,7 @@
 
 @synthesize image;
 @synthesize name;
+@synthesize fileName;
 @synthesize allTranslatedNames;
 @synthesize localizationName;
 @synthesize sound;
@@ -23,7 +24,7 @@
 
 + (NSString*) urlDownloadFrom {
     Language *lang = [UserContext getLanguageSelected];
-    return [NSString stringWithFormat: @"%@%@%@", @"http://www.vocabularytrip.com/Sounds/", lang.name, @"/"];
+    return [NSString stringWithFormat: @"%@%@%@", @"http://www.vocabularytrip.com/DictionarySounds/", lang.name, @"/"];
 }
 
 + (NSString*) downloadDestinationPath {
@@ -47,26 +48,26 @@
     return destPath;
 }
 
-+ (void) download: (NSString*) wordName {
++ (void) download: (NSString*) fileName {
     
     // Set Source & Destination
     NSString *fullUrl =
-    [NSString stringWithFormat: @"%@%@%@", [self urlDownloadFrom], wordName, @".mp3"];
+    [NSString stringWithFormat: @"%@%@%@", [self urlDownloadFrom], fileName, @".mp3"];
+    NSLog(@"full path: %@", fullUrl);
     NSString *destPath = [self checkIfDestinationPathExist];
-    destPath = [NSString stringWithFormat: @"%@%@%@", destPath, wordName, @".mp3"];
+    destPath = [NSString stringWithFormat: @"%@%@%@", destPath, fileName, @".mp3"];
     
     // Start Download
     NSURL *url = [NSURL URLWithString: fullUrl];
-    //NSLog(@"URL: %@, DestPath: %@", url, destPath);
+    NSLog(@"URL: %@, DestPath: %@", url, destPath);
     AFHTTPRequestOperation* operation = [AFProxy prepareDownload: url destination: destPath delegate:self];
 
     [operation start];
-
 }
 
 // Response to Download Word
 + (void) connectionFinishSuccesfully: (NSDictionary*) response {
-    //NSLog(@"Word Downloaded");
+    NSLog(@"Word Downloaded");
     singletonVocabulary.qWordsLoaded++;
     Language *lang = [UserContext getLanguageSelected];
     float progress =  (float) singletonVocabulary.qWordsLoaded / (float) lang.qWords;
@@ -90,7 +91,7 @@
 
 -(UIImage*) image {
 	if (image == nil) {
-        NSString *file = [[NSString alloc ] initWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath], [NSString stringWithFormat: @"%@.png", name]]; // [UserContext getIphoneIpadFile: name]];
+        NSString *file = [[NSString alloc ] initWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath], [NSString stringWithFormat: @"%@.png", fileName]]; // [UserContext getIphoneIpadFile: name]];
         image = [UIImage alloc];
         image = [image initWithContentsOfFile: file];
     }
@@ -103,7 +104,7 @@
             if (theme == 1) {
                 // Colors are stored ad-hoc and are not downloaded
                 Language *lang = [UserContext getLanguageSelected];
-                sound = [Sentence getAudioPlayer: name dir: lang.name]; 
+                sound = [Sentence getAudioPlayer: fileName dir: lang.name];
             } else
                 // Other words are downloaded and the path is relative
                 sound = [Sentence getAudioPlayerRelPath: name]; 
@@ -183,15 +184,16 @@
 
 - (void) addTranslation: (NSString*) translation forKey: (NSString*) key {
     [[self allTranslatedNames] setValue: translation forKey: key];
-    [allTranslatedNames writeToFile: [self pathToSaveTranslations] atomically: YES];
+    if ([allTranslatedNames writeToFile: [self pathToSaveTranslations] atomically: YES])
+        NSLog(@"Saved File: %@", name);
+    else
+        NSLog(@"Failed faving File: %@", name);
 }
-
 
 - (NSString*) pathToSaveTranslations {
     return [[NSString alloc] initWithFormat:@"%@/%@",
             [[NSBundle mainBundle] resourcePath], name];
 }
-
 
 - (NSMutableDictionary*) allTranslatedNames {
     if (!allTranslatedNames) {
@@ -204,16 +206,54 @@
 }
 
 - (void) setAllTranslatedNames: (NSMutableDictionary *) newAllTranslatedNames {
-    allTranslatedNames = newAllTranslatedNames;
-    [allTranslatedNames writeToFile: [self pathToSaveTranslations] atomically: YES];
+    if (allTranslatedNames ) {
+        allTranslatedNames = newAllTranslatedNames;
+        [allTranslatedNames writeToFile: [self pathToSaveTranslations] atomically: YES];
+    }
+}
+
+- (NSString*) getTranslatedNameForLang: (NSString*) langName {
+    return [[self allTranslatedNames] objectForKey: langName];
 }
 
 - (NSString*) translatedName {
     Language *lang = [UserContext getLanguageSelected];
-    NSString *translated = [allTranslatedNames objectForKey: lang.name];
+    NSString *translated = [self getTranslatedNameForLang: lang.name];
     if ([translated isEqualToString: @""]) // If language doesnt exist, use English.
         translated = [allTranslatedNames objectForKey: @"English"];
     return translated;
+}
+
+- (NSString*) localizationName {
+
+    localizationName = [self getTranslatedNameForLang: [self getLocalization]];
+    if ([[self translatedName] isEqualToString: localizationName])
+        localizationName = @"";
+    return localizationName;
+}
+
+
+-(NSString*) getLocalization {
+    
+    NSString *loc = [UserContext getPreferredLanguage];
+    
+    if ([loc isEqualToString: @"zh-Hant"]) return @"Chinese";
+    if ([loc isEqualToString: @"fr"]) return @"French";
+    if ([loc isEqualToString: @"es"]) return @"Spanish";
+    if ([loc isEqualToString: @"fa"]) return @"Farsi";
+    if ([loc isEqualToString: @"de"]) return @"German";
+    if ([loc isEqualToString: @"de"]) return @"Italian";
+    if ([loc isEqualToString: @"pt"]) return @"Portuguese";
+    if ([loc isEqualToString: @"ar"]) return @"Arabic";
+    if ([loc isEqualToString: @"he"]) return @"Hebrew";
+    if ([loc isEqualToString: @"hi"]) return @"Hindi";
+    if ([loc isEqualToString: @"ja"]) return @"Japanese";
+    if ([loc isEqualToString: @"ko"]) return @"Korean";
+    if ([loc isEqualToString: @"ru"]) return @"Russian";
+    if ([loc isEqualToString: @"ms"]) return @"Malaysian";
+    if ([loc isEqualToString: @"vi"]) return @"Vietnamese";
+    
+    return @"English";
 }
 
 -(void) dealloc {

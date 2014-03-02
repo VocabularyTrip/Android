@@ -34,56 +34,50 @@
     [self initAudioSession];
 }
 
-- (void) initAudioSession {
-	NSError* audio_session_error = nil;
-	BOOL is_success = YES;
-	
-	// Set the category
-	is_success = [[AVAudioSession sharedInstance] setCategory: AVAudioSessionCategoryAmbient error:&audio_session_error];
-	
-	if(!is_success || audio_session_error)
-	{
-		NSLog(@"Error setting Audio Session category: %@", [audio_session_error localizedDescription]);
-	}
-	
-	// Make this class the delegate so we can receive the interruption messages
-	[[AVAudioSession sharedInstance] setDelegate:self];
-	audio_session_error = nil;
-	// Make the Audio Session active
-	is_success = [[AVAudioSession sharedInstance] setActive:YES error:&audio_session_error];
-	if(!is_success || audio_session_error) {
-		NSLog(@"Error setting Audio Session active: %@", [audio_session_error localizedDescription]);
-	}
-}
-
 - (void) viewDidAppear:(BOOL)animated {
     UserContext *aUserC = [UserContext getSingleton];
-    if (flagFirstShowInSession && aUserC.userSelected) {
 
-        Level *level = [UserContext getLevel];
-        flagFirstShowInSession = NO;
-            
-        [mapScrollView setContentOffset: CGPointMake(
-            [ImageManager getMapViewSize].width - [ImageManager windowWidth], 0) animated: NO];
-            
-        [UIView beginAnimations:@"ShowMapAndPositionInCurrentLevel" context: nil];
-        [UIView setAnimationDelegate: self];
-        [UIView setAnimationDuration: 5];
-        [UIView setAnimationCurve: UIViewAnimationCurveEaseOut];
-            
-        int offset = [ImageManager windowWidth] / 2;
-        int newX = [level placeinMap].x > offset ? [level placeinMap].x - offset : 0;
-        CGPoint newPlace = CGPointMake(newX, 0);
-        mapScrollView.contentOffset = newPlace;
-            
-        [UIView commitAnimations];
-            
-        playCurrentLevelButton.center = [level placeinMap];
-    }
+    if (flagFirstShowInSession && aUserC.userSelected)
+        [self showAllMapInFirstSession];
+
+    // playCurrentLevelButton in the correct level
+    Level *level = [UserContext getLevel];
+    playCurrentLevelButton.center = [level placeinMap];
+    [self.view bringSubviewToFront: playCurrentLevelButton];
+    
+    if ([UserContext getHelpLevel] || startWithHelpPurchase) [self helpAnimation1];
+    if (startWithHelpPurchase && ![Vocabulary isDownloadCompleted]) [self startLoading];
+    if (startWithHelpDownload) [self helpDownload1];
+    startWithHelpDownload = 0;
+    startWithHelpPurchase = 0;
+    
+}
+
+- (void) showAllMapInFirstSession {
+    Level *level = [UserContext getLevel];
+    
+    flagFirstShowInSession = NO;
+    
+    [mapScrollView setContentOffset: CGPointMake(
+                                                 [ImageManager getMapViewSize].width - [ImageManager windowWidth], 0) animated: NO];
+    
+    [UIView beginAnimations:@"ShowMapAndPositionInCurrentLevel" context: nil];
+    [UIView setAnimationDelegate: self];
+    [UIView setAnimationDuration: 5];
+    [UIView setAnimationCurve: UIViewAnimationCurveEaseOut];
+    
+    int offset = [ImageManager windowWidth] / 2;
+    int newX = [level placeinMap].x > offset ? [level placeinMap].x - offset : 0;
+    CGPoint newPlace = CGPointMake(newX, 0);
+    mapScrollView.contentOffset = newPlace;
+    
+    [UIView commitAnimations];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
 
+    [super viewWillAppear: animated];
+    
     UserContext *aUserC = [UserContext getSingleton];
     if (!aUserC.userSelected)
         [self changeUserShowInfo: nil];
@@ -142,10 +136,10 @@
     [self dismissModalViewControllerAnimated:YES];
 	if (result==MFMailComposeResultFailed) {
 		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message Failed"
-                                                        message:@"Your mail has failed to sent"
-                                                       delegate:self
-                                              cancelButtonTitle: @"Dismiss"
-                                              otherButtonTitles:nil];
+              message:@"Your mail has failed to sent"
+              delegate:self
+              cancelButtonTitle: @"Dismiss"
+              otherButtonTitles:nil];
 		[alert show];
 	}
 }
@@ -159,6 +153,7 @@
 - (void) initMap {
     // Configurar el ancho del mapa
     [mapScrollView setContentSize: [ImageManager getMapViewSize]];
+    //[mapScrollView initialize];
 }
 
 - (IBAction) buyClicked {
@@ -193,7 +188,6 @@
 - (void) reloadAllLevels {
     for (int i=1; i<mapScrollView.subviews.count; i++) {
         UIView *aView = [mapScrollView.subviews objectAtIndex:i];
-    //for (UIView* aView in mapScrollView.subviews)
         [aView removeFromSuperview];
     }
     [self drawAllLeveles];
@@ -201,7 +195,7 @@
 
 - (void) drawAllLeveles {
     Level *level;
-    for (int i=1; i<= [Vocabulary countOfLevels]; i++) {
+    for (int i=0; i< [Vocabulary countOfLevels]; i++) {
         level = [UserContext getLevelAt: i];
         [self addImage: level.image
                   pos: [level placeinMap]
@@ -244,6 +238,28 @@
 }
 
 - (void) helpDownload1 {
+}
+
+- (void) initAudioSession {
+	NSError* audio_session_error = nil;
+	BOOL is_success = YES;
+	
+	// Set the category
+	is_success = [[AVAudioSession sharedInstance] setCategory: AVAudioSessionCategoryAmbient error:&audio_session_error];
+	
+	if(!is_success || audio_session_error)
+	{
+		NSLog(@"Error setting Audio Session category: %@", [audio_session_error localizedDescription]);
+	}
+	
+	// Make this class the delegate so we can receive the interruption messages
+	[[AVAudioSession sharedInstance] setDelegate:self];
+	audio_session_error = nil;
+	// Make the Audio Session active
+	is_success = [[AVAudioSession sharedInstance] setActive:YES error:&audio_session_error];
+	if(!is_success || audio_session_error) {
+		NSLog(@"Error setting Audio Session active: %@", [audio_session_error localizedDescription]);
+	}
 }
 
 @end

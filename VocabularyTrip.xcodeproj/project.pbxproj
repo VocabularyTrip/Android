@@ -116,8 +116,8 @@
 		B09D362218AFC0CD00D21B9D /* farmer.png in Resources */ = {isa = PBXBuildFile; fileRef = B09D35D418AFC0CC00D21B9D /* farmer.png */; };
 		B09D362318AFC0CD00D21B9D /* flip_flops.png in Resources */ = {isa = PBXBuildFile; fileRef = B09D35D518AFC0CC00D21B9D /* flip_flops.png */; };
 		B09D362418AFC0CD00D21B9D /* forward.png in Resources */ = {isa = PBXBuildFile; fileRef = B09D35D618AFC0CC00D21B9D /* forward.png */; };
-		B09D362518AFC0CD00D21B9D /* grand_daugther.png in Resources */ = {isa = PBXBuildFile; fileRef = B09D35D718AFC0CC00D21B9D /* grand_daugther.png */; };
-		B09D362618AFC0CD00D21B9D /* grand_san.png in Resources */ = {isa = PBXBuildFile; fileRef = B09D35D818AFC0CC00D21B9D /* grand_san.png */; };
+		B09D362518AFC0CD00D21B9D /* granddaugther.png in Resources */ = {isa = PBXBuildFile; fileRef = B09D35D718AFC0CC00D21B9D /* granddaugther.png */; };
+		B09D362618AFC0CD00D21B9D /* grandsan.png in Resources */ = {isa = PBXBuildFile; fileRef = B09D35D818AFC0CC00D21B9D /* grandsan.png */; };
 		B09D362718AFC0CD00D21B9D /* green_beans.png in Resources */ = {isa = PBXBuildFile; fileRef = B09D35D918AFC0CC00D21B9D /* green_beans.png */; };
 		B09D362818AFC0CD00D21B9D /* happy.png in Resources */ = {isa = PBXBuildFile; fileRef = B09D35DA18AFC0CC00D21B9D /* happy.png */; };
 		B09D362918AFC0CD00D21B9D /* hat.png in Resources */ = {isa = PBXBuildFile; fileRef = B09D35DB18AFC0CC00D21B9D /* hat.png */; };
@@ -189,6 +189,10 @@
 		B09D367F18B4D86600D21B9D /* map1.png in Resources */ = {isa = PBXBuildFile; fileRef = B09D367E18B4D86600D21B9D /* map1.png */; };
 		B09D368218B5280400D21B9D /* AlbumAnimals.xml in Resources */ = {isa = PBXBuildFile; fileRef = B09D368018B5280400D21B9D /* AlbumAnimals.xml */; };
 		B09D368318B5280400D21B9D /* AlbumAnimals~ipad.xml in Resources */ = {isa = PBXBuildFile; fileRef = B09D368118B5280400D21B9D /* AlbumAnimals~ipad.xml */; };
+		B09D368618BBC4D800D21B9D /* cover-animal@iphone5.png in Resources */ = {isa = PBXBuildFile; fileRef = B09D368418BBC4D800D21B9D /* cover-animal@iphone5.png */; };
+		B09D368718BBC4D800D21B9D /* empty-page-animals@iphone5.png in Resources */ = {isa = PBXBuildFile; fileRef = B09D368518BBC4D800D21B9D /* empty-page-animals@iphone5.png */; };
+		B09D368918BC92D900D21B9D /* GameNotifierView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B09D368818BC92D900D21B9D /* GameNotifierView~ipad.xib */; };
+		B09D368B18BCFEFE00D21B9D /* Dictionary OLD 2.xml in Resources */ = {isa = PBXBuildFile; fileRef = B09D368A18BCFEFE00D21B9D /* Dictionary OLD 2.xml */; };
 		B0A2944D1884A884000F6AB0 /* MapView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0A2944C1884A884000F6AB0 /* MapView.m */; };
 		B0A2944F1884A93B000F6AB0 /* MapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0A2944E1884A93B000F6AB0 /* MapView.xib */; };
 		B0A8B3981872CC4F00245F48 /* actress.png in Resources */ = {isa = PBXBuildFile; fileRef = B0A8B2611872CC4D00245F48 /* actress.png */; };
@@ -563,10 +567,9 @@
 		B0A8B58E18766F8600245F48 /* en_elephant.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B0A8B58918766F8600245F48 /* en_elephant.mp3 */; };
 		B0A8B58F18766F8600245F48 /* en_hen.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B0A8B58A18766F8600245F48 /* en_hen.mp3 */; };
 		B0A8B59018766F8600245F48 /* en_owl.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B0A8B58B18766F8600245F48 /* en_owl.mp3 */; };
-		B0A8B5A7187671AE00245F48 /* cover-animal.png in Resources */ = {isa = PBXBuildFile; fileRef = B0A8B591187671AE00245F48 /* cover-animal.png */; };
 		B0A8B5A8187671AE00245F48 /* cover-animal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B0A8B592187671AE00245F48 /* cover-animal@2x.png */; };
 		B0A8B5A9187671AE00245F48 /* cover-animal@ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B0A8B593187671AE00245F48 /* cover-animal@ipad.png */; };
-		B0A8B5AA187671AE00245F48 /* cover-animals.png in Resources */ = {isa = PBXBuildFile; fileRef = B0A8B594187671AE00245F48 /* cover-animals.png */; };
+		B0A8B5AA187671AE00245F48 /* cover-animal.png in Resources */ = {isa = PBXBuildFile; fileRef = B0A8B594187671AE00245F48 /* cover-animal.png */; };
 		B0A8B5AB187671AE00245F48 /* cover-monster.png in Resources */ = {isa = PBXBuildFile; fileRef = B0A8B595187671AE00245F48 /* cover-monster.png */; };
 		B0A8B5AC187671AE00245F48 /* cover-monster@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B0A8B596187671AE00245F48 /* cover-monster@2x.png */; };
 		B0A8B5AD187671AE00245F48 /* cover-monster@ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B0A8B597187671AE00245F48 /* cover-monster@ipad.png */; };
@@ -1304,8 +1307,8 @@
 		B09D35D418AFC0CC00D21B9D /* farmer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = farmer.png; sourceTree = "<group>"; };
 		B09D35D518AFC0CC00D21B9D /* flip_flops.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flip_flops.png; sourceTree = "<group>"; };
 		B09D35D618AFC0CC00D21B9D /* forward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forward.png; sourceTree = "<group>"; };
-		B09D35D718AFC0CC00D21B9D /* grand_daugther.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grand_daugther.png; sourceTree = "<group>"; };
-		B09D35D818AFC0CC00D21B9D /* grand_san.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grand_san.png; sourceTree = "<group>"; };
+		B09D35D718AFC0CC00D21B9D /* granddaugther.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = granddaugther.png; sourceTree = "<group>"; };
+		B09D35D818AFC0CC00D21B9D /* grandsan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grandsan.png; sourceTree = "<group>"; };
 		B09D35D918AFC0CC00D21B9D /* green_beans.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green_beans.png; sourceTree = "<group>"; };
 		B09D35DA18AFC0CC00D21B9D /* happy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = happy.png; sourceTree = "<group>"; };
 		B09D35DB18AFC0CC00D21B9D /* hat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hat.png; sourceTree = "<group>"; };
@@ -1377,6 +1380,10 @@
 		B09D367E18B4D86600D21B9D /* map1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map1.png; sourceTree = "<group>"; };
 		B09D368018B5280400D21B9D /* AlbumAnimals.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = AlbumAnimals.xml; sourceTree = "<group>"; };
 		B09D368118B5280400D21B9D /* AlbumAnimals~ipad.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "AlbumAnimals~ipad.xml"; sourceTree = "<group>"; };
+		B09D368418BBC4D800D21B9D /* cover-animal@iphone5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cover-animal@iphone5.png"; sourceTree = "<group>"; };
+		B09D368518BBC4D800D21B9D /* empty-page-animals@iphone5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "empty-page-animals@iphone5.png"; sourceTree = "<group>"; };
+		B09D368818BC92D900D21B9D /* GameNotifierView~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "GameNotifierView~ipad.xib"; sourceTree = "<group>"; };
+		B09D368A18BCFEFE00D21B9D /* Dictionary OLD 2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Dictionary OLD 2.xml"; sourceTree = "<group>"; };
 		B0A2944B1884A884000F6AB0 /* MapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapView.h; sourceTree = "<group>"; };
 		B0A2944C1884A884000F6AB0 /* MapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapView.m; sourceTree = "<group>"; };
 		B0A2944E1884A93B000F6AB0 /* MapView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapView.xib; sourceTree = "<group>"; };
@@ -1754,10 +1761,9 @@
 		B0A8B58918766F8600245F48 /* en_elephant.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_elephant.mp3; sourceTree = "<group>"; };
 		B0A8B58A18766F8600245F48 /* en_hen.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_hen.mp3; sourceTree = "<group>"; };
 		B0A8B58B18766F8600245F48 /* en_owl.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_owl.mp3; sourceTree = "<group>"; };
-		B0A8B591187671AE00245F48 /* cover-animal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cover-animal.png"; sourceTree = "<group>"; };
 		B0A8B592187671AE00245F48 /* cover-animal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cover-animal@2x.png"; sourceTree = "<group>"; };
 		B0A8B593187671AE00245F48 /* cover-animal@ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cover-animal@ipad.png"; sourceTree = "<group>"; };
-		B0A8B594187671AE00245F48 /* cover-animals.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cover-animals.png"; sourceTree = "<group>"; };
+		B0A8B594187671AE00245F48 /* cover-animal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cover-animal.png"; sourceTree = "<group>"; };
 		B0A8B595187671AE00245F48 /* cover-monster.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cover-monster.png"; sourceTree = "<group>"; };
 		B0A8B596187671AE00245F48 /* cover-monster@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cover-monster@2x.png"; sourceTree = "<group>"; };
 		B0A8B597187671AE00245F48 /* cover-monster@ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cover-monster@ipad.png"; sourceTree = "<group>"; };
@@ -2528,9 +2534,11 @@
 				B09A360B1722B7BF00153E71 /* background_purchase@iphone5.png */,
 				B09A360C1722B7BF00153E71 /* background_wizard@iphone5.png */,
 				B0309D9817164C98003002D4 /* menu_bg@iphone5.png */,
+				B09D368418BBC4D800D21B9D /* cover-animal@iphone5.png */,
 				B0309D9917164C98003002D4 /* cover-monster@iphone5.png */,
 				B0309D9A17164C98003002D4 /* cover-princess@iphone5.png */,
 				B0309D9C17164C98003002D4 /* empty-page-monsters@iphone5.png */,
+				B09D368518BBC4D800D21B9D /* empty-page-animals@iphone5.png */,
 				B0309D9D17164C98003002D4 /* empty-page-princesses@iphone5.png */,
 				B0309D9E17164C98003002D4 /* landscape1@iphone5.png */,
 				B0309D9F17164C98003002D4 /* landscape2@iphone5.png */,
@@ -2756,6 +2764,8 @@
 		B0B0F41B188795B2007C1667 /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				B08ECE39178C79E400ECE303 /* GenericViewController.h */,
+				B08ECE3A178C79E400ECE303 /* GenericViewController.m */,
 				CE7C404816DFE7EA002DA556 /* PurchaseView.h */,
 				CE7C404916DFE7EA002DA556 /* PurchaseView.m */,
 				CE7C404A16DFE7EA002DA556 /* PurchaseView~ipad.xib */,
@@ -2766,8 +2776,6 @@
 				CE7740791465C1A900A4D2DA /* MainMenu~ipad.xib */,
 				CE77DD4F14589E8000FBDFC9 /* ToolbarController.h */,
 				CE77DD5014589E8000FBDFC9 /* ToolbarController.m */,
-				B08ECE39178C79E400ECE303 /* GenericViewController.h */,
-				B08ECE3A178C79E400ECE303 /* GenericViewController.m */,
 			);
 			name = Others;
 			sourceTree = "<group>";
@@ -2893,8 +2901,7 @@
 		CE720F28149675EC00D60184 /* Album */ = {
 			isa = PBXGroup;
 			children = (
-				B0A8B591187671AE00245F48 /* cover-animal.png */,
-				B0A8B594187671AE00245F48 /* cover-animals.png */,
+				B0A8B594187671AE00245F48 /* cover-animal.png */,
 				B0A8B592187671AE00245F48 /* cover-animal@2x.png */,
 				B0A8B593187671AE00245F48 /* cover-animal@ipad.png */,
 				B0A8B595187671AE00245F48 /* cover-monster.png */,
@@ -2949,8 +2956,8 @@
 				B09D35D418AFC0CC00D21B9D /* farmer.png */,
 				B09D35D518AFC0CC00D21B9D /* flip_flops.png */,
 				B09D35D618AFC0CC00D21B9D /* forward.png */,
-				B09D35D718AFC0CC00D21B9D /* grand_daugther.png */,
-				B09D35D818AFC0CC00D21B9D /* grand_san.png */,
+				B09D35D718AFC0CC00D21B9D /* granddaugther.png */,
+				B09D35D818AFC0CC00D21B9D /* grandsan.png */,
 				B09D35D918AFC0CC00D21B9D /* green_beans.png */,
 				B09D35DA18AFC0CC00D21B9D /* happy.png */,
 				B09D35DB18AFC0CC00D21B9D /* hat.png */,
@@ -3857,6 +3864,7 @@
 				CE72C75613DFA5BD0001F7AF /* TrainingTrain.h */,
 				CE72C75713DFA5BD0001F7AF /* TrainingTrain.m */,
 				B0A8B752187AD62C00245F48 /* GameNotifierView.xib */,
+				B09D368818BC92D900D21B9D /* GameNotifierView~ipad.xib */,
 				B0A8B754187B15A100245F48 /* GameNotifierView.h */,
 				B0A8B755187B15A100245F48 /* GameNotifierView.m */,
 			);
@@ -3916,6 +3924,7 @@
 				B09D368118B5280400D21B9D /* AlbumAnimals~ipad.xml */,
 				CEE766211402D6E700138F7D /* Sentences.xml */,
 				CE7C0B4E13F1E05C000FF07F /* Dictionary OLD.xml */,
+				B09D368A18BCFEFE00D21B9D /* Dictionary OLD 2.xml */,
 				B09D365818B2660500D21B9D /* Dictionary.xml */,
 				CE774D8B15C63B2500136BA9 /* Users.xml */,
 				CE7C0BB713F1E05C000FF07F /* Landscapes.xml */,
@@ -4316,7 +4325,7 @@
 				CE721175149675EC00D60184 /* monster44wA3.png in Resources */,
 				CE721176149675EC00D60184 /* monster45wA4.png in Resources */,
 				CE721177149675EC00D60184 /* monster46.png in Resources */,
-				B09D362618AFC0CD00D21B9D /* grand_san.png in Resources */,
+				B09D362618AFC0CD00D21B9D /* grandsan.png in Resources */,
 				B0A8B3B01872CC4F00245F48 /* bee.png in Resources */,
 				B0A8B6F11876C33700245F48 /* chair.png in Resources */,
 				B0A8B4BF1872CC4F00245F48 /* water.png in Resources */,
@@ -4469,6 +4478,7 @@
 				B0A8B53D187664A300245F48 /* avatar1_arm5b.png in Resources */,
 				B0A8B7351876C33700245F48 /* short1.png in Resources */,
 				B0A8B4E3187663C700245F48 /* AlbumMenu.xib in Resources */,
+				B09D368618BBC4D800D21B9D /* cover-animal@iphone5.png in Resources */,
 				B0A8B6FE1876C33700245F48 /* fan.png in Resources */,
 				B0A8B4361872CC4F00245F48 /* lettuce.png in Resources */,
 				B0A8B569187664A300245F48 /* avatar4@ipad.png in Resources */,
@@ -4492,7 +4502,7 @@
 				B0A8B6E71876C33700245F48 /* baby.png in Resources */,
 				CE7211BA149675EC00D60184 /* fairy9h.png in Resources */,
 				B09D364E18AFC0CD00D21B9D /* smell.png in Resources */,
-				B0A8B5AA187671AE00245F48 /* cover-animals.png in Resources */,
+				B0A8B5AA187671AE00245F48 /* cover-animal.png in Resources */,
 				B0A8B7421876C33700245F48 /* tambourine.png in Resources */,
 				B09D364C18AFC0CD00D21B9D /* sick.png in Resources */,
 				CE7211BB149675EC00D60184 /* other1.png in Resources */,
@@ -4562,7 +4572,7 @@
 				B0A8B6ED1876C33700245F48 /* boots.png in Resources */,
 				B0A8B3F01872CC4F00245F48 /* dress.png in Resources */,
 				CE7211D9149675EC00D60184 /* witch3.png in Resources */,
-				B09D362518AFC0CD00D21B9D /* grand_daugther.png in Resources */,
+				B09D362518AFC0CD00D21B9D /* granddaugther.png in Resources */,
 				B0A8B4141872CC4F00245F48 /* golf.png in Resources */,
 				B0A8B563187664A300245F48 /* avatar4_arm5a.png in Resources */,
 				B0A8B3FA1872CC4F00245F48 /* eggs.png in Resources */,
@@ -4703,6 +4713,7 @@
 				B0A8B4111872CC4F00245F48 /* gloves.png in Resources */,
 				CE721217149675EC00D60184 /* wheel8@ipad.png in Resources */,
 				B0A8B3F61872CC4F00245F48 /* eagle.png in Resources */,
+				B09D368B18BCFEFE00D21B9D /* Dictionary OLD 2.xml in Resources */,
 				B0A8B3A71872CC4F00245F48 /* bakery.png in Resources */,
 				CEA806F9149961A700349746 /* AlbumMonsters.xml in Resources */,
 				B0A8B4301872CC4F00245F48 /* knee.png in Resources */,
@@ -4910,6 +4921,7 @@
 				B09D361618AFC0CD00D21B9D /* camera.png in Resources */,
 				B0A8B4B61872CC4F00245F48 /* tricycle.png in Resources */,
 				B09D365318AFC0CD00D21B9D /* tangerine.png in Resources */,
+				B09D368718BBC4D800D21B9D /* empty-page-animals@iphone5.png in Resources */,
 				B0A2944F1884A93B000F6AB0 /* MapView.xib in Resources */,
 				B0A8B4861872CC4F00245F48 /* secretary.png in Resources */,
 				B0A8B72C1876C33700245F48 /* ping_pong.png in Resources */,
@@ -4992,6 +5004,7 @@
 				B0A8B3AF1872CC4F00245F48 /* bear.png in Resources */,
 				B0A8B71B1876C33700245F48 /* lamp.png in Resources */,
 				B0A8B46F1872CC4F00245F48 /* rainbow.png in Resources */,
+				B09D368918BC92D900D21B9D /* GameNotifierView~ipad.xib in Resources */,
 				CE7C404D16DFE7EA002DA556 /* PurchaseView~ipad.xib in Resources */,
 				CE7C404E16DFE7EA002DA556 /* PurchaseView.xib in Resources */,
 				CE7C405816DFFDFD002DA556 /* Buy All.png in Resources */,
@@ -5024,7 +5037,6 @@
 				B0A8B3BB1872CC4F00245F48 /* boat.png in Resources */,
 				B0A8B4791872CC4F00245F48 /* run.png in Resources */,
 				CE7C407E16E138E5002DA556 /* label@ipad.png in Resources */,
-				B0A8B5A7187671AE00245F48 /* cover-animal.png in Resources */,
 				B0A8B57F187664A300245F48 /* avatar6_blink1.png in Resources */,
 				CE7C408016E138E5002DA556 /* btn_download@ipad.png in Resources */,
 				CE7C408116E138E5002DA556 /* btn_download_on@ipad.png in Resources */,

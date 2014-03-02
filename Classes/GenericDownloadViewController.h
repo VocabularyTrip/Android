@@ -12,7 +12,7 @@
 #import "GenericViewController.h"
 
 @interface GenericDownloadViewController : GenericViewController <UIAlertViewDelegate, DownloadDelegate> {
-    UIButton *__unsafe_unretained confirmUserLangButton;
+    UIButton *__unsafe_unretained downloadButton;
     UIButton *__unsafe_unretained cancelDownloadButton;
     UIProgressView *__unsafe_unretained downloadProgressView;
 
@@ -21,7 +21,7 @@
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *backButton; // Implemented in subclass
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *cancelDownloadButton;
 @property (nonatomic, unsafe_unretained) IBOutlet UIProgressView *downloadProgressView;
-@property (nonatomic, unsafe_unretained) IBOutlet UIButton *confirmUserLangButton;
+@property (nonatomic, unsafe_unretained) IBOutlet UIButton *downloadButton;
 
 - (IBAction) cancelDownload:(id)sender;
 - (IBAction) startLoading;

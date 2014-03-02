@@ -287,9 +287,9 @@
 -(TrainingTrain*) trainingTrain {
 	if (trainingTrain == nil) {
 		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)		
-			trainingTrain = [[TrainingTrain alloc] initWithNibName:@"GenericTrain~ipad" bundle:nil];
+			trainingTrain = [[TrainingTrain alloc] initWithNibName:@"GenericTrain~ipad" bundle: nil];
 		else
-			trainingTrain = [[TrainingTrain alloc] initWithNibName:@"GenericTrain" bundle:nil];
+			trainingTrain = [[TrainingTrain alloc] initWithNibName:@"GenericTrain" bundle: nil];
 		}
 	return trainingTrain;
 }

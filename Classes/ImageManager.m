@@ -112,7 +112,22 @@
     return resolution;
 }
 
++ (int) windowHeightXIB {
+    // This size correspond to XIB design and return the same number on iphone 5, iphone 4
+    // windowWidth return the real size and is diferent on iphone 5, iphone 5
+    return [[UIScreen mainScreen] bounds].size.width;
+}
+
++ (int) windowWidthXIB {
+    // This size correspond to XIB design and return the same number on iphone 5, iphone 4
+    // windowWidth return the real size and is diferent on iphone 5, iphone 5
+    return [[UIScreen mainScreen] bounds].size.height;
+}
+
 + (int) windowWidth {
+    // This size correspond real size and is diferent on iphone 5, iphone 5
+    // windowWidthXIB return the same size as XIB design. Return the same number on iphone 5, iphone 4
+
     UIScreen *mainScreen = [UIScreen mainScreen];
     CGFloat scale = ([mainScreen respondsToSelector:@selector(scale)] ? mainScreen.scale : 1.0f);
     CGFloat pixelHeight = (CGRectGetHeight(mainScreen.bounds) * scale);

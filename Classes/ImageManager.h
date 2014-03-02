@@ -30,6 +30,8 @@ typedef enum {
 + (UIDeviceResolution)resolution;
 + (int) getDeltaWidthIphone5;
 + (int) windowWidth;
++ (int) windowWidthXIB;
++ (int) windowHeightXIB;
 
 // ******************************************************************* //
 // ********************* IMAGE SIZE DEFINITION *********************** //

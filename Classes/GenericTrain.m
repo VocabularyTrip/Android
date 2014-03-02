@@ -470,7 +470,11 @@
     originalframeWord2ButtonView = CGRectMake(wordButton2.frame.origin.x, wordButton2.frame.origin.y, wordButton2.frame.size.width, wordButton2.frame.size.height);
     originalframeWord3ButtonView = CGRectMake(wordButton3.frame.origin.x, wordButton3.frame.origin.y, wordButton3.frame.size.width, wordButton3.frame.size.height);
     
-    gameNotifierView = [[GameNotifierView alloc] initWithNibName: @"GameNotifierView" bundle:[NSBundle mainBundle]];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        gameNotifierView = [[GameNotifierView alloc] initWithNibName: @"GameNotifierView~ipad" bundle:[NSBundle mainBundle]];
+    } else {
+        gameNotifierView = [[GameNotifierView alloc] initWithNibName: @"GameNotifierView" bundle:[NSBundle mainBundle]];
+    }
     [self.view addSubview: gameNotifierView.view];
     gameNotifierView.view.alpha = 0;
 }

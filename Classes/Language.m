@@ -244,7 +244,7 @@ NSMutableArray *allLanguages = nil;
     }
 
     return qWords;*/
-    return 350;
+    return 506;
 }
 
 @end

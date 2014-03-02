@@ -19,6 +19,7 @@
 	UIImage *image;
 	AVAudioPlayer * sound;	
 	NSString *name; // English name, sound name, image name
+	NSString *fileName; // for image the fileName + ".png", and for sounds is the fileName + ".mp3"
     NSMutableDictionary *allTranslatedNames; // if the app is Spanish --> Spanish name.
     NSString *localizationName; // if localization is chinese --> chinese name. If the localization is other than spanish, chinese, farsi, french, etc. English name
 	int theme;
@@ -29,6 +30,7 @@
 @property (nonatomic, assign) int order;
 @property (nonatomic) UIImage *image;
 @property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *fileName;
 @property (nonatomic, strong) NSMutableDictionary *allTranslatedNames;
 @property (nonatomic, strong) NSString *localizationName;
 @property (nonatomic, strong) AVAudioPlayer *sound;
@@ -52,8 +54,7 @@
 - (NSString*) keyDictionary;
 - (void) addTranslation: (NSString*) translation forKey: (NSString*) key;
 - (NSString*) pathToSaveTranslations;
-
-
-
+- (NSString*) getTranslatedNameForLang: (NSString*) langName;
+- (NSString*) getLocalization;
 
 @end

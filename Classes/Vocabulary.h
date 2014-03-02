@@ -47,6 +47,7 @@ extern Vocabulary *singletonVocabulary;
 + (void) parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict; //
 + (Word*) getOrderedWord;
 + (Word*) getRandomWeightedWord; //
++ (Word*) getRandomWordFromLevel: (int) levelNumber;
 + (void)parserDidEndDocument:(NSXMLParser *)parser;
 + (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError;
 + (void) initializeLevelUntil: (int) level; // Initialize all words form level 1 to the parameter  
@@ -59,7 +60,7 @@ extern Vocabulary *singletonVocabulary;
 + (double) wasLearned; //
 + (double) progressIndividualLevel;
 //+ (NSString*) getTranslatedName: (NSDictionary *) attributeDict;
-+ (NSString*) getNativeNameFromLocalization: (NSDictionary *) attributeDict;  //
+
 //+ (void) setDelegate: (id<DownloadDelegate>) delegate;
 
 + (void) loadDataFromSql; //

@@ -45,13 +45,13 @@
 
 // Response to getWordsforLevelAndLang
 + (void) connectionFinishSuccesfully: (NSDictionary*) response {
-    Word * aWord = [Word alloc];
+    Word *aWord = [Word alloc];
     
     for (NSDictionary* value in response) {
         if (singletonVocabulary.wasErrorAtDownload == 0) {
-            [Word download: [value objectForKey: @"word_name"]];
-
+            [Word download: [value objectForKey: @"file_name"]];
             aWord.name = [value objectForKey: @"word_name"];
+            aWord.allTranslatedNames = nil;
             [aWord addTranslation: [value objectForKey: @"translation"] forKey: [value objectForKey: @"lang_name"]];
             
         } else {

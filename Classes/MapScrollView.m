@@ -28,14 +28,29 @@
     }
 }
 
-- (void) openLevelView: (Level*) level {
+- (LevelView*) levelView {
     if (!levelView) {
-        levelView = [[LevelView alloc] initWithNibName: @"LevelView" bundle:[NSBundle mainBundle]];
-        
-        [self addSubview: levelView.view];
-
+      	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            levelView = [[LevelView alloc] initWithNibName: @"LevelView~ipad" bundle:[NSBundle mainBundle]];
+        } else {
+            levelView = [[LevelView alloc] initWithNibName: @"LevelView" bundle:[NSBundle mainBundle]];
+        }
     }
+    return levelView;
+}
+
+- (void) openLevelView: (Level*) level {
+    
+    //if (!levelView) {
+    //    levelView = [[LevelView alloc] initWithNibName: @"LevelView" bundle:[NSBundle mainBundle]];
+        [self addSubview: [self levelView].view];
+    //}
     [levelView showLevel: level at: self.contentOffset];
 }
+
+
+/*- (void) initialize {
+    [[self levelView] initialize];
+}*/
 
 @end

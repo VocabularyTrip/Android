@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #include "LevelView.h"
-#include "UserContext.h"
+#import "UserContext.h"
 
 @interface MapScrollView : UIScrollView {
     LevelView *levelView;
 }
 
 - (void) openLevelView: (Level*) level;
+//- (void) initialize;
 
 @end

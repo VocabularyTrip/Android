@@ -11,10 +11,16 @@
 #import "SBJSON.h"
 #import "Word.h"
 
-
+// Repensar estas constantes - no aplican mas
 #define cLimitLevelBronze 3
 #define cLimitLevelSilver 6
 #define cLimitLevelGold 9
+
+#define cLimitLevelStage1 9
+#define cLimitLevelStage2 18
+#define cLimitLevelStage3 27
+#define cLimitLevelStage4 36
+#define cLimitLevelStage5 46
 
 @interface Level : Word <NSURLConnectionDelegate> {
 	NSString *levelName;
