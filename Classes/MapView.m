@@ -15,14 +15,17 @@
 @synthesize helpButton;
 @synthesize playCurrentLevelButton;
 @synthesize flagFirstShowInSession;
+@synthesize configButton;
+@synthesize langButton;
 
 - (void) viewDidLoad {
     [self initializeGame];
     [self initMap];
     [self drawAllLeveles];
 
-    self.view.layer.shouldRasterize = YES;
-    self.view.layer.rasterizationScale = [[UIScreen mainScreen] scale];
+    //self.view.layer.shouldRasterize = YES;
+    //self.view.layer.rasterizationScale = [[UIScreen mainScreen] scale];
+    
 }
 
 - (void) initializeGame {
@@ -38,7 +41,7 @@
     UserContext *aUserC = [UserContext getSingleton];
 
     if (flagFirstShowInSession && aUserC.userSelected)
-        [self showAllMapInFirstSession];
+       [self showAllMapInFirstSession];
 
     // playCurrentLevelButton in the correct level
     Level *level = [UserContext getLevel];
@@ -81,6 +84,11 @@
     UserContext *aUserC = [UserContext getSingleton];
     if (!aUserC.userSelected)
         [self changeUserShowInfo: nil];
+    
+    [configView close];
+    
+    Language* l = [UserContext getLanguageSelected];
+    [langButton setImage: l.image forState: UIControlStateNormal];
 }
 
 - (IBAction) playCurrentLevel:(id)sender {
@@ -109,26 +117,13 @@
 	[vcDelegate pushChangeUserView];
 }
 
-- (IBAction) mailButtonClicked:(id)sender {
-  	//[self stopBackgroundSound];
-	if([MFMailComposeViewController canSendMail]) {
-		MFMailComposeViewController *mailCont = [[MFMailComposeViewController alloc] init];
-		mailCont.mailComposeDelegate = self;
-		
-		[mailCont setSubject:@""];
-		[mailCont setToRecipients:[NSArray arrayWithObject: cMailInfo]];
-		[mailCont setMessageBody:@"" isHTML:NO];
-		
-		[self presentModalViewController: mailCont animated:YES];
-	} else {
-		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Cant Send Mail"
-           message:@"All of your emails accounts are disabled or removed"
-           delegate:self
-           cancelButtonTitle: @"OK"
-           otherButtonTitles:nil];
-		[alert show];
-	}
+- (IBAction) changeLang:(id)sender {
+	//[self stopBackgroundSound];
+	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
+	[vcDelegate pushChangeLangView];
 }
+
+
 
 - (void) mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error {
     
@@ -144,7 +139,7 @@
 	}
 }
 
-- (IBAction)albumShowInfo:(id)sender {
+- (IBAction) albumShowInfo:(id)sender {
 	//[self stopBackgroundSound];
 	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
 	[vcDelegate pushAlbumMenu];
@@ -156,21 +151,7 @@
     //[mapScrollView initialize];
 }
 
-- (IBAction) buyClicked {
-    VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
-    [vocTripDelegate pushPurchaseView];
-}
 
-- (IBAction) resetButtonClicked {
-    
-	UIAlertView *alert = [[UIAlertView alloc]
-                          initWithTitle: @"WORNING!"
-                          message: @"By reseting, all coins, levels and sticker information about this user will be lost. Are you sure you want to reset?"
-                          delegate: self
-                          cancelButtonTitle: @"No"
-                          otherButtonTitles: @"Yes", nil];
-	[alert show];
-}
 
 - (void) alertView: (UIAlertView*) alertView clickedButtonAtIndex: (NSInteger) aButtonIndex {
 	switch (aButtonIndex) {
@@ -232,6 +213,24 @@
         [self addImage: [UIImage imageNamed:@"BuyButton.png"] pos: newPlace size: [ImageManager getMapViewLevelSize] * 0.4];
     else if (level.order >= [UserContext getLevelNumber] && level.order != 1)
         [self addImage: [UIImage imageNamed:@"token-bronze.png"] pos: newPlace size: [ImageManager getMapViewLevelSize] * 0.4];
+}
+
+- (ConfigView*) configView {
+    if (!configView) {
+      	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            configView = [[ConfigView alloc] initWithNibName: @"ConfigView~ipad" bundle:[NSBundle mainBundle]];
+        } else {
+            configView = [[ConfigView alloc] initWithNibName: @"ConfigView" bundle:[NSBundle mainBundle]];
+        }
+    }
+    return configView;
+}
+
+- (IBAction) openConfigView {
+    [self.mapScrollView addSubview: [self configView].view];
+    //configView.view.alpha = 1;
+    configView.parentView = self;
+    [configView show];
 }
 
 - (void) helpAnimation1 {

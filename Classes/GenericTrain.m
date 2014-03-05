@@ -168,20 +168,15 @@
         wordButtonLabel3.alpha = 0;
     }
     
+    
+    // Depending if words are visible or not, the images has to be moved down to replace the word labels places
     int deltaY = [GameSequenceManager getCurrentGameSequence].includeWords &&
     [GameSequenceManager getCurrentGameSequence].includeImages ? wordButtonLabel1.frame.size.height : 0;
-    
-	[UIView beginAnimations: @"MoveButtons" context: nil];
-	[UIView setAnimationDelegate: self];
-	[UIView setAnimationDidStopSelector: nil];
-	[UIView setAnimationDuration: .4];
-	[UIView setAnimationCurve: UIViewAnimationCurveLinear];
 
     CGRect frame = wordButton1.frame;
     originalframeWord1ButtonView.origin.y =
     wagon1.frame.origin.y - deltaY - originalframeWord1ButtonView.size.height;
     frame.origin.y = originalframeWord1ButtonView.origin.y;
-   
 	wordButton1.frame = frame;
     
     frame = wordButton2.frame;
@@ -196,7 +191,7 @@
     frame.origin.y = originalframeWord3ButtonView.origin.y;
 	wordButton3.frame = frame;
 	
-    [UIView commitAnimations];
+
 }
 
 
@@ -363,22 +358,28 @@
     [GameSequenceManager nextSequence];
 }
 
-// Train animation
-- (void)introduceTrain { 
-	gameStatus = cStatusGameIsIntroducingTrain;
+- (void) prepareIntroduceTrain {
+    gameStatus = cStatusGameIsIntroducingTrain;
 	pauseButton.alpha = 0;
-	helpButton.alpha = 0;	
-	qOfImagesRemaining = [self hitsPerGame]; 
-
+	helpButton.alpha = 0;
+	qOfImagesRemaining = [self hitsPerGame];
+    
 	hitsOfLevel1 = 0; // hits corresponding of cooper coins
 	hitsOfLevel2 = 0; // hits corresponding to silver coins
 	hitsOfLevel3 = 0; // hits corresponding to gold coins
 	money = 0;  // Is used to refresh the moneyLabel one by one. Is used just in the method refreshMoneyLabels
+	[self shiftTrain: [ImageManager windowWidth]];
+}
 
+// Train animation
+- (void)introduceTrain { 
+
+    // This behaviour was moved before open the NotifierView
+    // [self prepareIntroduceTrain];
+    
 	if (UserContext.soundEnabled) {
 		[self.trainSound play]; 
-	}	
-	[self shiftTrain: [ImageManager windowWidth]];
+	}
 	
 	[UIView beginAnimations:@"TrainAnimation" context: (__bridge void *)(train)];
 	[UIView setAnimationDelegate:self];
@@ -415,7 +416,9 @@
 		if (gameStatus == cStatusGameIsFinished) { 
 			[self shiftTrain: [ImageManager windowWidth]];
 		}
+        [self prepareIntroduceTrain];
 	}
+    
 	[self moveLandscape];
 	money1Label.text = [UserContext getMoney1AsText];
 	money2Label.text = [UserContext getMoney2AsText];
@@ -443,9 +446,9 @@
 
 - (void) viewDidAppear:(BOOL)animated {
 	if (gameStatus != cStatusGameIsOn && gameStatus != cStatusGameIsPaused) {
-		[self showAllViews];
-        [gameNotifierView show];
-        gameNotifierView.parentView = self;
+
+        gameStartView.parentView = self;
+        [gameStartView show];
 
 		//[self introduceTrain];
 	}
@@ -471,12 +474,21 @@
     originalframeWord3ButtonView = CGRectMake(wordButton3.frame.origin.x, wordButton3.frame.origin.y, wordButton3.frame.size.width, wordButton3.frame.size.height);
     
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        gameNotifierView = [[GameNotifierView alloc] initWithNibName: @"GameNotifierView~ipad" bundle:[NSBundle mainBundle]];
+        gameStartView = [[GameStartView alloc] initWithNibName: @"GameStartView~ipad" bundle:[NSBundle mainBundle]];
     } else {
-        gameNotifierView = [[GameNotifierView alloc] initWithNibName: @"GameNotifierView" bundle:[NSBundle mainBundle]];
+        gameStartView = [[GameStartView alloc] initWithNibName: @"GameStartView" bundle:[NSBundle mainBundle]];
     }
-    [self.view addSubview: gameNotifierView.view];
-    gameNotifierView.view.alpha = 0;
+    [self.view addSubview: gameStartView.view];
+    gameStartView.view.alpha = 0;
+
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        gameEndView = [[GameEndView alloc] initWithNibName: @"GameEndView~ipad" bundle:[NSBundle mainBundle]];
+    } else {
+        gameEndView = [[GameEndView alloc] initWithNibName: @"GameEndView" bundle:[NSBundle mainBundle]];
+    }
+    [self.view addSubview: gameEndView.view];
+    gameEndView.view.alpha = 0;
+
 }
 
 - (void) takeOutTrain {
@@ -503,8 +515,12 @@
 
 - (void)takeoutTrainAnimationDidStop:(NSString *)theAnimation finished:(BOOL)flag context:(void *)context {
 	[self.trainSound pause];	// 
-	gameStatus = cStatusGameIsFinished;		
-	[self done: nil];			// Return to main menu
+	gameStatus = cStatusGameIsFinished;
+    
+    gameEndView.parentView = self;
+    [gameEndView show];
+    
+	//[self done: nil];			// Return to main menu
 }
 
 - (int) hitRate {
@@ -808,20 +824,6 @@
 -(void) hideAllViews {	
     [self.view bringSubviewToFront:loadingView];
 	loadingView.alpha = 1;	
-}
-
--(void) showAllViews {
-    /*CGRect frame = loadingView.frame;
-    
-	[UIView beginAnimations: @"LandscapeAnimation" context: landscape]; 
-	[UIView setAnimationDelegate: self]; 
-	[UIView setAnimationDuration: .2];
-	[UIView setAnimationCurve:UIViewAnimationCurveLinear];
-    frame.origin.x = frame.origin.x - [self windowWidth];
- 
-    loadingView.frame = frame;
-	[UIView commitAnimations];*/
-
 }
 
 -(void) initMusicPlayer {

@@ -14,5 +14,6 @@
 + (void) shakeView: (UIView*)itemView;
 + (void) avatarGreet: (UIImageView*) avatarView;
 + (void) avatarOk: (UIImageView*) avatarView;
++ (void) testI:(UIView*) itemView;
 
 @end

@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GameNotifierView">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GameStartView">
             <connections>
                 <outlet property="backgroundView" destination="2nc-Mr-L8e" id="z2r-4H-9vG"/>
                 <outlet property="cumulativeLabel" destination="Un4-UA-idK" id="2yr-uv-q7e"/>

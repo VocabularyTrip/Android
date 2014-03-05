@@ -7,14 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
-#include "LevelView.h"
-#import "UserContext.h"
+#import "LevelView.h"
+
 
 @interface MapScrollView : UIScrollView {
     LevelView *levelView;
+    bool enabledInteraction;
+
 }
 
+@property (nonatomic, unsafe_unretained) bool enabledInteraction;
+
 - (void) openLevelView: (Level*) level;
-//- (void) initialize;
 
 @end
+
+
+
+
+
+
+
+

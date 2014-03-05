@@ -22,6 +22,7 @@
 @synthesize pauseButton;
 @synthesize repeatButton;
 @synthesize backgroundView;
+@synthesize parentView;
 
 - (MapView*) mapView {
     VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
@@ -32,6 +33,10 @@
     originalframeImageView = imageView.frame;
 }
 
+- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    // This empty method is intended to overwrite the MapScrollView method.
+    // the idea is not scrolling when Level is visible
+}
 
 - (void) showLevel: (Level*) aLevel at: (CGPoint) offset {
     level = aLevel;
@@ -48,7 +53,6 @@
     // [ImageManager levelViewDeltaXYCorner];
     int deltaY = ([ImageManager windowHeightXIB] - backgroundView.frame.size.height) / 2;
     
-    NSLog(@"x final es: %f, %f, %i", offset.x + deltaX, offset.x, deltaX);
     [UIView animateWithDuration: 0.50 animations: ^ {
         self.view.frame = CGRectMake(
             offset.x + deltaX, offset.y + deltaY,
@@ -61,12 +65,15 @@
 }
 
 - (IBAction) close {
+    [parentView setEnabledInteraction: YES];
+
     [UIView animateWithDuration: 0.50 animations: ^ {
         self.view.frame = CGRectMake(0, 0, 0, 0);
         self.view.alpha = 0;
     }];
     [theTimer invalidate];
 	theTimer = nil;
+    
 }
 
 - (IBAction) pauseClicked {

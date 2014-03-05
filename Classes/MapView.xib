@@ -8,8 +8,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapView">
             <connections>
                 <outlet property="cancelDownloadButton" destination="FlI-6I-wue" id="JVw-g9-xds"/>
+                <outlet property="configButton" destination="w1c-n7-1Qt" id="aKP-Bj-YU5"/>
                 <outlet property="downloadButton" destination="t2R-nf-8fE" id="w9J-OY-ohv"/>
                 <outlet property="downloadProgressView" destination="Wcl-Yu-olm" id="jT4-Uf-3mL"/>
+                <outlet property="langButton" destination="4np-6s-XoI" id="DN3-Nq-xj3"/>
                 <outlet property="mapScrollView" destination="Ycl-U6-2ce" id="3HH-hR-F4U"/>
                 <outlet property="playCurrentLevelButton" destination="cuC-rx-lhv" id="FKN-Eg-7Ge"/>
                 <outlet property="view" destination="1" id="PQj-cK-3g8"/>
@@ -24,8 +26,12 @@
                     <rect key="frame" x="0.0" y="0.0" width="570" height="320"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map1.png" id="JKV-Cb-XEC">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map.png" id="JKV-Cb-XEC">
                             <rect key="frame" x="0.0" y="0.0" width="1700" height="320"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trainPath.png" id="Qm0-sc-qFd">
+                            <rect key="frame" x="25" y="50" width="1700" height="270"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="cuC-rx-lhv" userLabel="PlayCurrentLevelButton">
@@ -45,12 +51,23 @@
                     <rect key="frame" x="0.0" y="0.0" width="568" height="65"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="4np-6s-XoI" userLabel="LangSelectedButton">
+                    <rect key="frame" x="56" y="0.0" width="44" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" backgroundImage="English.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="changeLang:" destination="-1" eventType="touchDown" id="kRS-hg-pjh"/>
+                    </connections>
+                </button>
                 <progressView opaque="NO" alpha="0.0" contentMode="scaleToFill" id="Wcl-Yu-olm" userLabel="DownloadProgressView">
-                    <rect key="frame" x="14" y="38" width="73" height="2"/>
+                    <rect key="frame" x="112" y="37" width="73" height="2"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                 </progressView>
                 <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="t2R-nf-8fE" userLabel="DownloadButton">
-                    <rect key="frame" x="12" y="8" width="77" height="29"/>
+                    <rect key="frame" x="110" y="7" width="77" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <state key="normal" title="Button" image="btn_download@ipad.png">
@@ -65,7 +82,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="FlI-6I-wue" userLabel="CancelDownloadButton">
-                    <rect key="frame" x="12" y="8" width="77" height="29"/>
+                    <rect key="frame" x="110" y="7" width="77" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <state key="normal" image="btn_download_cancel@ipad.png">
@@ -79,19 +96,15 @@
                         <action selector="cancelDownload:" destination="-1" eventType="touchDown" id="jk5-Ih-vgb"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3o4-o4-qLG" userLabel="BuyButton">
-                    <rect key="frame" x="467" y="0.0" width="40" height="40"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
-                    <state key="normal" image="buyButton.png">
-                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="w1c-n7-1Qt" userLabel="ConfigButton">
+                    <rect key="frame" x="472" y="0.0" width="40" height="40"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" image="help.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <state key="highlighted">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
                     <connections>
-                        <action selector="buyClicked" destination="-1" eventType="touchDown" id="eJ0-Q5-p9f"/>
+                        <action selector="openConfigView" destination="-1" eventType="touchDown" id="82U-rW-V7t"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="j3w-MX-XXF" userLabel="HelpButton">
@@ -106,37 +119,8 @@
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="P55-37-4MF">
-                    <rect key="frame" x="413" y="0.0" width="44" height="44"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="9"/>
-                    <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-33"/>
-                    <state key="normal" title="Reset" backgroundImage="reset@ipad.png">
-                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <state key="highlighted">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="resetButtonClicked" destination="-1" eventType="touchDown" id="i8I-HI-hTU"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Zze-F8-ZhE" userLabel="SoundButton">
-                    <rect key="frame" x="299" y="-1" width="50" height="46"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="9"/>
-                    <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-33"/>
-                    <state key="normal" backgroundImage="sound-of.png">
-                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <state key="highlighted">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="73R-9f-g0H" userLabel="UserButton">
-                    <rect key="frame" x="240" y="0.0" width="44" height="44"/>
+                    <rect key="frame" x="6" y="0.0" width="44" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="9"/>
                     <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-33"/>
@@ -151,24 +135,8 @@
                         <action selector="changeUserShowInfo:" destination="-1" eventType="touchDown" id="8Hf-w4-U9p"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="oPW-qY-1QK" userLabel="MailButton">
-                    <rect key="frame" x="350" y="0.0" width="44" height="44"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="9"/>
-                    <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-33"/>
-                    <state key="normal" backgroundImage="btn_info_on.png">
-                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <state key="highlighted">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="mailButtonClicked:" destination="-1" eventType="touchDown" id="efP-t3-1TY"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Mnz-ou-GaD" userLabel="AlbumButton">
-                    <rect key="frame" x="116" y="1" width="88" height="44"/>
+                    <rect key="frame" x="233" y="1" width="96" height="57"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                     <state key="normal" image="cover-animal.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -184,17 +152,15 @@
         </view>
     </objects>
     <resources>
+        <image name="English.png" width="256" height="256"/>
         <image name="btn_avatar_on.png" width="43" height="43"/>
         <image name="btn_challenge.png" width="127" height="158"/>
         <image name="btn_download@ipad.png" width="165" height="56"/>
         <image name="btn_download_cancel@ipad.png" width="165" height="56"/>
-        <image name="btn_info_on.png" width="49" height="49"/>
-        <image name="buyButton.png" width="49" height="49"/>
         <image name="cover-animal.png" width="480" height="320"/>
         <image name="help.png" width="49" height="49"/>
-        <image name="map1.png" width="1700" height="320"/>
-        <image name="reset@ipad.png" width="60" height="56"/>
-        <image name="sound-of.png" width="50" height="46"/>
+        <image name="map.png" width="1700" height="320"/>
         <image name="toolbar.png" width="480" height="27"/>
+        <image name="trainPath.png" width="1700" height="270"/>
     </resources>
 </document>

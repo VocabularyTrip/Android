@@ -74,8 +74,7 @@
     
 }
 
-+ (void)shakeView:(UIView*)itemView
-{
++ (void)shakeView:(UIView*)itemView {
     //AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
     
     CGFloat t = 3.0;
@@ -86,13 +85,32 @@
     itemView.transform = leftQuake;  // starting point
     
     [UIView beginAnimations:@"shake" context: (__bridge void *)(itemView)];
-    [UIView setAnimationRepeatAutoreverses:YES]; // important
+    [UIView setAnimationRepeatAutoreverses:YES];
     [UIView setAnimationRepeatCount:3];
     [UIView setAnimationDuration:0.06];
     [UIView setAnimationDelegate:self];
     [UIView setAnimationDidStopSelector:@selector(shakeViewEnded:finished:context:)];
     
     itemView.transform = rightQuake; // end here & auto-reverse
+    
+    [UIView commitAnimations];
+}
+
++ (void) testI:(UIView*)itemView {
+    //AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+    
+    //CGAffineTransform st1  = CGAffineTransformTranslate(CGAffineTransformIdentity, 0, -100);
+    //CGAffineTransform st2  = CGAffineTransformTranslate(CGAffineTransformIdentity, 0, 0);
+    
+    //itemView.transform = st1;  // starting point
+    itemView.transform = CGAffineTransformMakeScale(0, 0); // end here & auto-reverse
+    
+    [UIView beginAnimations: @"move" context: (__bridge void *)(itemView)];
+    [UIView setAnimationRepeatAutoreverses: NO];
+    [UIView setAnimationDuration: 0.6];
+    [UIView setAnimationDelegate: self];
+    
+    itemView.transform = CGAffineTransformMakeScale(1, 1); // end here & auto-reverse
     
     [UIView commitAnimations];
 }

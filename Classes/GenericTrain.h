@@ -17,7 +17,8 @@
 #import "ToolbarController.h"
 #import "SmokeView.h"
 #import "ImageManager.h"
-#import "GameNotifierView.h"
+#import "GameStartView.h"
+#import "GameEndView.h"
 
 #define cStatusGameIsNone 0
 #define cStatusGameIsOn 1
@@ -105,14 +106,13 @@
 	int hitsOfLevel3;		
 	// **********************************
     
-
-    
     // is used to remember the frame. Since the frame is resized each time.
     CGRect originalframeWord1ButtonView;
     CGRect originalframeWord2ButtonView;
     CGRect originalframeWord3ButtonView;
     
-    GameNotifierView* gameNotifierView;
+    GameStartView* gameStartView;
+    GameEndView* gameEndView;
 }
 
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *backButton;
@@ -165,7 +165,7 @@
 - (IBAction) helpClicked;
 
 - (void) hideAllViews;
-- (void) showAllViews;
+
 - (void) shiftTrain: (int) xPix;	
 - (void) introduceTrain;
 - (void) cancelAllAnimations;

@@ -126,7 +126,7 @@ Vocabulary *singletonVocabulary;
             newLevel.fileName = [attributeDict objectForKey: @"image"];
             newLevel.ipodPlaceInMap = CGPointMake([[attributeDict objectForKey: @"ipodx"] intValue], [[attributeDict objectForKey: @"ipody"] intValue]);
             newLevel.ipadPlaceInMap = CGPointMake([[attributeDict objectForKey: @"ipadx"] intValue], [[attributeDict objectForKey: @"ipady"] intValue]);
-            newLevel.order = [[attributeDict objectForKey: @"LevelOrder"] intValue];
+            newLevel.order = [[attributeDict objectForKey: @"levelOrder"] intValue];
             newLevel.levelNumber = levelIndex;
             
 			levelIndex++;
@@ -140,7 +140,10 @@ Vocabulary *singletonVocabulary;
 			newWord.fileName = [attributeDict objectForKey: @"fileName"];
             newWord.order = [[attributeDict objectForKey: @"wordOrder"] intValue];
 			newWord.theme = levelIndex;
-            newWord.allTranslatedNames = nil;
+            //NSLog(@"Word: %@, translations: %i", newWord.name, [newWord.allTranslatedNames count]);
+            if ([newWord.allTranslatedNames count] < [attributeDict count] - 4) // First 4 attr are not translations
+                [newWord setAllTranslatedNames: [attributeDict mutableCopy]];
+            
             //newWord.localizationName = [self getNativeNameFromLocalization: attributeDict];
 			[oneLevel addObject: newWord];
 		}
@@ -169,7 +172,7 @@ Vocabulary *singletonVocabulary;
 + (void)initializeLevelUntil: (int) level {
 	Word *w;
 	[oneLevel removeAllObjects];
-	for (int i=0; i<level; i++) {
+	for (int i=0; i<=level; i++) {
 		for (w in [allWords objectAtIndex:i]) {
 			[oneLevel addObject: w ];
 		}

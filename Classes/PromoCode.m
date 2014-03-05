@@ -27,6 +27,14 @@ PromoCode *promoCodeSingleton;
 	return promoCodeSingleton;
 }
 
+// This method is called by facebook post. No promo code required
++ (void) giveAccessForOneDay {
+    NSDate *oneDay = [[NSDate alloc] init];
+    oneDay = [oneDay dateByAddingTimeInterval: 60*60*24]; // 1 day
+    [[NSUserDefaults standardUserDefaults] setObject: oneDay forKey: cPromoCodeExpireDate];
+    [[PurchaseManager getSingleton] provideContent: cPurchaseAllLevels]; // Provide Content !!!!!
+}
+
 + (void) checkAPromoCodeForUUID {
     if ([UserContext getMaxLevel] >= 6) return;
     
@@ -171,7 +179,6 @@ PromoCode *promoCodeSingleton;
 }
 
 + (void) claimPromoCode: (PromoCode*) aPromoCode {
- 
     
     if (aPromoCode.expireDate != (id)[NSNull null] && aPromoCode.expireDate != nil) {
         //if ([aPromoCode.expireDate compare: [NSDate date]] == NSOrderedDescending) {

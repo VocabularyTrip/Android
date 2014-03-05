@@ -144,7 +144,7 @@ FacebookManager *fbSingleton;
      ];
 }
 
-+ (void) postFeedDialog: (int) playerFBID {
++ (tfacebookResult) postFeedDialog: (int) playerFBID {
 
     // This function will invoke the Feed Dialog to post to a user's Timeline and News Feed
     // It will attemnt to use the Facebook Native Share dialog
@@ -163,20 +163,26 @@ FacebookManager *fbSingleton;
     [NSString stringWithFormat:@"It's the perfecto tool to..."];
 
     if ([FBDialogs canPresentShareDialogWithParams: shareParams]) {
-        NSLog(@"Use of FBDialgos");
         [FBDialogs presentShareDialogWithParams: shareParams
             clientState: nil
             handler:^(FBAppCall *call, NSDictionary *results, NSError *error) {
                 if (error) {
-                    NSLog(@"Error publishing story.");
+                    //NSLog(@"Error publishing story.");
                 } else if (results[@"completionGesture"] && [results[@"completionGesture"] isEqualToString:@"cancel"]) {
-                    NSLog(@"User canceled story publishing.");
+                    //NSLog(@"User canceled story publishing.");
                 } else {
-                    NSLog(@"Story published.");
+                    //NSLog(@"Story published.");
+                    [PromoCode giveAccessForOneDay];
                 }
             }
          ];
+        return tFacebookSuccessful;
     } else {
+        return tFacebookNotFacebookApp;
+        // We not use web dialog because is imposible to guarantee if the user made the post
+        // We should give access just invoking
+        
+        /*
         NSLog(@"Use of FBWebDialogs");
         // Prepare the web dialog parameters
         NSDictionary *params = @{
@@ -191,7 +197,7 @@ FacebookManager *fbSingleton;
         [FBWebDialogs presentFeedDialogModallyWithSession:nil
               parameters:params
               handler: [self getStandardResultHandler]
-        ];
+        ];*/
     }
 }
 

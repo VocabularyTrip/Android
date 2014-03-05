@@ -22,9 +22,12 @@
 	UILabel *__unsafe_unretained nativeWordNamelabel;
 	UIButton *__unsafe_unretained pauseButton;
     UIButton *__unsafe_unretained repeatButton;
+    
 	CADisplayLink *theTimer;
     CGRect originalframeImageView;
     int gameStatus;
+    
+    id __unsafe_unretained parentView;
 }
 
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *backgroundView;
@@ -33,6 +36,7 @@
 @property (nonatomic, unsafe_unretained) IBOutlet UILabel *nativeWordNamelabel;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *pauseButton;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *repeatButton;
+@property (nonatomic, unsafe_unretained) id parentView;
 
 - (void) cancelAnimation;
 - (void) showAndSayDictionary;

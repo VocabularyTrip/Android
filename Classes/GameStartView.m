@@ -6,10 +6,10 @@
 //
 //
 
-#import "GameNotifierView.h"
+#import "GameStartView.h"
 #import "GenericTrain.h"
 
-@implementation GameNotifierView
+@implementation GameStartView
 
 @synthesize backgroundView;
 @synthesize gameTypelabel;
@@ -98,6 +98,7 @@
         self.view.alpha = 1;
     }];
     
+    [AnimatorHelper testI: wagon1];
 }
 
 - (IBAction) hide {

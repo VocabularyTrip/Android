@@ -61,21 +61,21 @@
 }
 
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if ([alertView.title isEqualToString: @"Parental Gate Result"]) return;
-    
-    NSString *value = [[alertView textFieldAtIndex: 0] text];
-    if (resultParentalGate == [value intValue]) {
-        [PurchaseManager getSingleton].delegate = self;
-        [PurchaseManager buyAllLevels];
-    } else {
-        [self refreshLevelInfo];
-        UIAlertView *alert = [[UIAlertView alloc]
-                              initWithTitle: @"Parental Gate Result"
-                              message: @"Ask an adult to unlock purchase"
-                              delegate: self
-                              cancelButtonTitle: @"OK"
-                              otherButtonTitles: nil];
-        [alert show];
+    if ([alertView.title isEqualToString: @""]) {
+        NSString *value = [[alertView textFieldAtIndex: 0] text];
+        if (resultParentalGate == [value intValue]) {
+            [PurchaseManager getSingleton].delegate = self;
+            [PurchaseManager buyAllLevels];
+        } else {
+            [self refreshLevelInfo];
+            UIAlertView *alert = [[UIAlertView alloc]
+                                  initWithTitle: @"Parental Gate Result"
+                                  message: @"Ask an adult to unlock purchase"
+                                  delegate: self
+                                  cancelButtonTitle: @"OK"
+                                  otherButtonTitles: nil];
+            [alert show];
+        }
     }
 }
 
@@ -89,12 +89,20 @@
 - (IBAction) facebookButton {
     
     [FacebookManager initFacebookSession];
-    [FacebookManager facebookLogin];
+    //[FacebookManager facebookLogin];
     //[FacebookManager requestForMe];
     //[FacebookManager requestWritePermissions];
     //[FacebookManager inviteAFriend];
     //[FacebookManager loadListOfFriends];
-    [FacebookManager postFeedDialog: 0];
+    if ([FacebookManager postFeedDialog: 0] == tFacebookNotFacebookApp) {
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle: @"Facebook Result"
+                              message: @"Facebook app has to be installed"
+                              delegate: self
+                              cancelButtonTitle: @"OK"
+                              otherButtonTitles: nil];
+        [alert show];
+    };
 }
 
 

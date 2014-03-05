@@ -8,8 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import <FacebookSDK/FacebookSDK.h>
+#import "PromoCode.h"
 
 #define APP_HANDLED_URL @"APP_HANDLED_URL"
+
+enum {
+    tFacebookSuccessful = 0, // d
+    tFacebookError    = 1,    //
+    tFacebookAborted    = 2,    //
+    tFacebookNotFacebookApp     = 3 // Facebook App is not present in the device.
+}; typedef NSUInteger tfacebookResult;
+
 
 @interface FacebookManager : NSObject {
     NSArray* listOfFriends;
@@ -27,6 +36,6 @@ extern FacebookManager *fbSingleton;
 + (void) requestWritePermissions;
 + (FBWebDialogHandler) getStandardResultHandler;
 + (void) inviteAFriend; //
-+ (void) postFeedDialog: (int) m_uPlayerFBID;
++ (tfacebookResult) postFeedDialog: (int) playerFBID;
 
 @end

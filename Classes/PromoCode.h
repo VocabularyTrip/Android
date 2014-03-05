@@ -49,6 +49,8 @@ extern PromoCode *promoCodeSingleton;
 @property (nonatomic, unsafe_unretained) NSString* uuid;
 @property (nonatomic, unsafe_unretained) NSString* sentTo;
 
++ (void) giveAccessForOneDay; // Made by facebook
+    
 + (void) checkAPromoCodeForUUID;
 + (void) checkAPromoCodeForUUIDFinishSuccesfully: (NSDictionary*) response;
 + (void) checkAPromoCodeForUUIDFinishWidhError:(NSError *) error;

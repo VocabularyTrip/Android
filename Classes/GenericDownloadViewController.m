@@ -61,13 +61,14 @@
     singletonVocabulary.isDownloading = isDownloading;
 	//when network action, toggle network indicator and activity indicator
 	if (isDownloading) {
-        cancelDownloadButton.alpha = 0;
+        cancelDownloadButton.alpha = 1;
         downloadProgressView.alpha = 1;
-        downloadButton.alpha = 1;
+        downloadButton.alpha = 0;
         downloadButton.enabled = NO;
 		[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	} else {
         downloadProgressView.alpha = 0;
+        cancelDownloadButton.alpha = 0;
         downloadButton.enabled = YES;
         downloadButton.alpha = [Vocabulary isDownloadCompleted] ? 0 : 1;
         NSLog(@"Confirm Download alpha: %f", downloadButton.alpha);

@@ -7,11 +7,16 @@
 //
 
 #import "MapScrollView.h"
+#import "UserContext.h"
 
 @implementation MapScrollView
 
+@synthesize enabledInteraction;
+
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    if (levelView.view.frame.origin.x>0) return;
+    if ([self levelView].view.frame.origin.x > 0) return;
+    if (!enabledInteraction) return;
+    
 	[super touchesBegan: touches withEvent: event];
     
 	UITouch *touch = [[event allTouches] anyObject];
@@ -35,22 +40,23 @@
         } else {
             levelView = [[LevelView alloc] initWithNibName: @"LevelView" bundle:[NSBundle mainBundle]];
         }
+        levelView.view.alpha = 0;
+        enabledInteraction = YES;
+        [self addSubview: levelView.view];
+        levelView.parentView = self;
     }
+    
     return levelView;
 }
 
 - (void) openLevelView: (Level*) level {
-    
-    //if (!levelView) {
-    //    levelView = [[LevelView alloc] initWithNibName: @"LevelView" bundle:[NSBundle mainBundle]];
-        [self addSubview: [self levelView].view];
-    //}
+    [self setEnabledInteraction: NO];
     [levelView showLevel: level at: self.contentOffset];
 }
 
-
-/*- (void) initialize {
-    [[self levelView] initialize];
-}*/
+- (void) setEnabledInteraction: (bool) value {
+    self.scrollEnabled = value;
+    enabledInteraction = value;
+}
 
 @end

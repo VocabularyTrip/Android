@@ -61,9 +61,9 @@
     if (![fm fileExistsAtPath: destPath isDirectory: &isDir]) {
     
         // Start Download
-        NSLog(@"full path: %@", fullUrl);
+        //NSLog(@"full path: %@", fullUrl);
         NSURL *url = [NSURL URLWithString: fullUrl];
-        NSLog(@"URL: %@, DestPath: %@", url, destPath);
+        //NSLog(@"URL: %@, DestPath: %@", url, destPath);
         AFHTTPRequestOperation* operation = [AFProxy prepareDownload: url destination: destPath delegate:self];
 
         [operation start];
