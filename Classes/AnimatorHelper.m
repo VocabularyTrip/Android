@@ -108,7 +108,7 @@
     
     [UIView beginAnimations: @"move" context: (__bridge void *)(itemView)];
     [UIView setAnimationDuration: 4];
-    [UIView setAnimationDidStopSelector:@selector(shakeViewEnded:finished:context:)];
+    //[UIView setAnimationDidStopSelector:@selector(shakeViewEnded:finished:context:)];
     [UIView setAnimationDelegate: self];
     
     itemView.transform = CGAffineTransformMakeScale(p2.x, p2.y); // end here & auto-reverse

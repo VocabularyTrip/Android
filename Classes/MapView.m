@@ -37,16 +37,39 @@
     [self initAudioSession];
 }
 
+
+- (void) viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear: animated];
+    
+    // First execution jump to wizard to select user and lang
+    UserContext *aUserC = [UserContext getSingleton];
+    if (!aUserC.userSelected)
+        [self changeUserShowInfo: nil];
+    
+    [configView close];
+    
+    Language* l = [UserContext getLanguageSelected];
+    [langButton setImage: l.image forState: UIControlStateNormal];
+    
+    // playCurrentLevelButton in the correct level
+    Level *level = [UserContext getLevel];
+    playCurrentLevelButton.center = [level placeinMap];
+    [self.view bringSubviewToFront: playCurrentLevelButton];
+
+    // First move map to the end. viewDidAppear implement showAllMapInFirstSession
+    if (flagFirstShowInSession)
+        [mapScrollView setContentOffset: CGPointMake(
+            [ImageManager getMapViewSize].width - [ImageManager windowWidth], 0) animated: NO];
+    
+}
+
 - (void) viewDidAppear:(BOOL)animated {
     UserContext *aUserC = [UserContext getSingleton];
 
     if (flagFirstShowInSession && aUserC.userSelected)
        [self showAllMapInFirstSession];
 
-    // playCurrentLevelButton in the correct level
-    Level *level = [UserContext getLevel];
-    playCurrentLevelButton.center = [level placeinMap];
-    [self.view bringSubviewToFront: playCurrentLevelButton];
     
     if ([UserContext getHelpLevel] || startWithHelpPurchase) [self helpAnimation1];
     if (startWithHelpPurchase && ![Vocabulary isDownloadCompleted]) [self startLoading];
@@ -61,8 +84,8 @@
     
     flagFirstShowInSession = NO;
     
-    [mapScrollView setContentOffset: CGPointMake(
-        [ImageManager getMapViewSize].width - [ImageManager windowWidth], 0) animated: NO];
+//    [mapScrollView setContentOffset: CGPointMake(
+//        [ImageManager getMapViewSize].width - [ImageManager windowWidth], 0) animated: NO];
     
     [UIView beginAnimations:@"ShowMapAndPositionInCurrentLevel" context: nil];
     [UIView setAnimationDelegate: self];
@@ -77,19 +100,6 @@
     [UIView commitAnimations];
 }
 
-- (void) viewWillAppear:(BOOL)animated {
-
-    [super viewWillAppear: animated];
-    
-    UserContext *aUserC = [UserContext getSingleton];
-    if (!aUserC.userSelected)
-        [self changeUserShowInfo: nil];
-    
-    [configView close];
-    
-    Language* l = [UserContext getLanguageSelected];
-    [langButton setImage: l.image forState: UIControlStateNormal];
-}
 
 - (IBAction) playCurrentLevel:(id)sender {
     GameSequence *s = [GameSequenceManager getCurrentGameSequence];

@@ -447,9 +447,9 @@
 - (void) viewDidAppear:(BOOL)animated {
 	if (gameStatus != cStatusGameIsOn && gameStatus != cStatusGameIsPaused) {
 
-        gameEndView.parentView = self;
+        gameStartView.parentView = self;
         gameEndView.progressBeforePlay = [Vocabulary progressIndividualLevel];
-        [gameEndView show];
+        [gameStartView show];
         
 		//[self introduceTrain];
 	}

@@ -98,6 +98,7 @@
         self.view.alpha = 1;
     }];
     
+    self.view.alpha = 1;
 }
 
 - (IBAction) hide {

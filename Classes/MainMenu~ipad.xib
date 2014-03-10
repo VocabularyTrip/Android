@@ -122,7 +122,7 @@
         <image name="btn_info_on@ipad.png" width="97" height="97"/>
         <image name="btn_level@ipad.png" width="282" height="342"/>
         <image name="btn_training@ipad.png" width="282" height="342"/>
-        <image name="cover-princess@iphone5.png" width="1136" height="640"/>
+        <image name="cover-princess@iphone5.png" width="1135" height="640"/>
         <image name="menu_bg@ipad.png" width="1024" height="748"/>
     </resources>
 </document>
