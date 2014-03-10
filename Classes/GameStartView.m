@@ -98,7 +98,6 @@
         self.view.alpha = 1;
     }];
     
-    [AnimatorHelper testI: wagon1];
 }
 
 - (IBAction) hide {

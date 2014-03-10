@@ -14,6 +14,6 @@
 + (void) shakeView: (UIView*)itemView;
 + (void) avatarGreet: (UIImageView*) avatarView;
 + (void) avatarOk: (UIImageView*) avatarView;
-+ (void) testI:(UIView*) itemView;
++ (void) scale: (UIView*) itemView from: (CGPoint) p1 to: (CGPoint) p2;
 
 @end

@@ -96,21 +96,22 @@
     [UIView commitAnimations];
 }
 
-+ (void) testI:(UIView*)itemView {
++ (void) scale: (UIView*) itemView from: (CGPoint) p1 to: (CGPoint) p2 {
     //AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
     
     //CGAffineTransform st1  = CGAffineTransformTranslate(CGAffineTransformIdentity, 0, -100);
     //CGAffineTransform st2  = CGAffineTransformTranslate(CGAffineTransformIdentity, 0, 0);
     
     //itemView.transform = st1;  // starting point
-    itemView.transform = CGAffineTransformMakeScale(0, 0); // end here & auto-reverse
+    itemView.layer.anchorPoint = CGPointMake(0, 0);
+    itemView.transform = CGAffineTransformMakeScale(p1.x, p1.y); // end here & auto-reverse
     
     [UIView beginAnimations: @"move" context: (__bridge void *)(itemView)];
-    [UIView setAnimationRepeatAutoreverses: NO];
-    [UIView setAnimationDuration: 0.6];
+    [UIView setAnimationDuration: 4];
+    [UIView setAnimationDidStopSelector:@selector(shakeViewEnded:finished:context:)];
     [UIView setAnimationDelegate: self];
     
-    itemView.transform = CGAffineTransformMakeScale(1, 1); // end here & auto-reverse
+    itemView.transform = CGAffineTransformMakeScale(p2.x, p2.y); // end here & auto-reverse
     
     [UIView commitAnimations];
 }

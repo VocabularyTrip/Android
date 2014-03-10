@@ -14,14 +14,24 @@
 @interface GameEndView : UIViewController {
 
    	UIImageView *__unsafe_unretained backgroundView;
-    id __unsafe_unretained parentView;
+    UIImageView *__unsafe_unretained progressView;
+    UIImageView *__unsafe_unretained progressBarFillView;
     
+    id __unsafe_unretained parentView;
+  	CAEmitterLayer *mortor; // fireworks animation
+    float progressBeforePlay;
 }
 
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView* backgroundView;
+@property (nonatomic, unsafe_unretained) IBOutlet UIImageView *progressView;
+@property (nonatomic, unsafe_unretained) IBOutlet UIImageView *progressBarFillView;
+@property (nonatomic, unsafe_unretained) float progressBeforePlay;
+
 @property (nonatomic, unsafe_unretained) id parentView;
 
 - (void) show;
 - (IBAction) hide;
+- (void)addParticlesWithPoint: (CGPoint)point;
+- (IBAction) updateLevelSlider;
 
 @end

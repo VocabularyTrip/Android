@@ -6,6 +6,8 @@
 //
 //
 
+#define cCurrentGameSequence @"currentGameSequence"
+
 #import "GameSequenceManager.h"
 
 NSMutableArray *allGameSequence = nil;
@@ -21,7 +23,9 @@ int qtyAllGameSequence, currentGameSequence = 0;
 		NSXMLParser* parser = [[NSXMLParser alloc] initWithData: data];
 		
 		allGameSequence = [[NSMutableArray alloc] init];
-		currentGameSequence = 0;
+        
+        currentGameSequence = [[NSUserDefaults standardUserDefaults] integerForKey: cCurrentGameSequence];
+        
 		qtyAllGameSequence = 0;
 		
 		[parser setDelegate: self];
@@ -59,6 +63,11 @@ int qtyAllGameSequence, currentGameSequence = 0;
 + (void) nextSequence {
     currentGameSequence++;
     if (currentGameSequence >= qtyAllGameSequence) currentGameSequence = 0;
+
+    [[NSUserDefaults standardUserDefaults]
+     setInteger: currentGameSequence
+     forKey: cCurrentGameSequence];
+    
 }
 
 @end

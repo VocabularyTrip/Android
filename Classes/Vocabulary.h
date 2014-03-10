@@ -59,6 +59,8 @@ extern Vocabulary *singletonVocabulary;
 + (void) testAllSounds; //
 + (double) wasLearned; //
 + (double) progressIndividualLevel;
++ (CGRect) resizeProgressFrame: (CGRect) progressFrame toNewProgress: (double) progress progressFill: (CGRect) progressBarFillFrame;
+
 //+ (NSString*) getTranslatedName: (NSDictionary *) attributeDict;
 
 //+ (void) setDelegate: (id<DownloadDelegate>) delegate;

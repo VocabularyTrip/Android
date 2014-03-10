@@ -72,8 +72,11 @@
 
 - (void) updateLevelSlider {
     
+    double progress = [Vocabulary progressIndividualLevel];
+    progressView.frame = [Vocabulary resizeProgressFrame: progressView.frame toNewProgress: progress progressFill: progressBarFillView.frame];
+
     
-    // Original is widh: 434, x: 295
+/*    // Original is widh: 434, x: 295
     float progress = [Vocabulary wasLearned] / 1;
     //NSLog(@"General Progress: %f", progress);
     
@@ -88,7 +91,7 @@
     
 	frame.size.width = deltaWidth * (1-progress);
     frame.origin.x = deltaX + (deltaWidth * progress);
-    progressView.frame = frame;    
+    progressView.frame = frame;    */
    
 }
 

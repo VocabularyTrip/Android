@@ -319,4 +319,13 @@ Vocabulary *singletonVocabulary;
 	return progress;
 }
 
++ (CGRect) resizeProgressFrame: (CGRect) progressFrame toNewProgress: (double) progress progressFill: (CGRect) progressBarFillFrame {
+
+    int deltaWidth = progressBarFillFrame.size.width;
+    int deltaX = progressBarFillFrame.origin.x;
+    progressFrame.size.width = deltaWidth * (1-progress);
+    progressFrame.origin.x = deltaX + (deltaWidth * progress);
+    return progressFrame;
+}
+
 @end

@@ -816,6 +816,7 @@
 		B0CCF04A18C79E71008F5A11 /* GameEndView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0CCF04718C79E71008F5A11 /* GameEndView.m */; };
 		B0CCF04B18C79E71008F5A11 /* GameEndView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0CCF04818C79E71008F5A11 /* GameEndView.xib */; };
 		B0CCF04C18C79E71008F5A11 /* GameEndView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0CCF04918C79E71008F5A11 /* GameEndView~ipad.xib */; };
+		B0CCF04E18C7AAFF008F5A11 /* tspark.png in Resources */ = {isa = PBXBuildFile; fileRef = B0CCF04D18C7AAFF008F5A11 /* tspark.png */; };
 		CE1627D21522531A00BFDE69 /* en_Advanced to next level.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE1627B41522531A00BFDE69 /* en_Advanced to next level.mp3 */; };
 		CE1627D61522531A00BFDE69 /* en_Album help 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE1627B51522531A00BFDE69 /* en_Album help 1.mp3 */; };
 		CE1627DA1522531A00BFDE69 /* en_Album help 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE1627B61522531A00BFDE69 /* en_Album help 2.mp3 */; };
@@ -2026,6 +2027,7 @@
 		B0CCF04718C79E71008F5A11 /* GameEndView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameEndView.m; sourceTree = "<group>"; };
 		B0CCF04818C79E71008F5A11 /* GameEndView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameEndView.xib; sourceTree = "<group>"; };
 		B0CCF04918C79E71008F5A11 /* GameEndView~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "GameEndView~ipad.xib"; sourceTree = "<group>"; };
+		B0CCF04D18C7AAFF008F5A11 /* tspark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tspark.png; path = Assets/Images/tspark.png; sourceTree = SOURCE_ROOT; };
 		CE1627B41522531A00BFDE69 /* en_Advanced to next level.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "en_Advanced to next level.mp3"; sourceTree = "<group>"; };
 		CE1627B51522531A00BFDE69 /* en_Album help 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "en_Album help 1.mp3"; sourceTree = "<group>"; };
 		CE1627B61522531A00BFDE69 /* en_Album help 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "en_Album help 2.mp3"; sourceTree = "<group>"; };
@@ -3678,6 +3680,7 @@
 		CE721079149675EC00D60184 /* Train */ = {
 			isa = PBXGroup;
 			children = (
+				B0CCF04D18C7AAFF008F5A11 /* tspark.png */,
 				CE81A2E616C1AD2400CD7535 /* wagon.png */,
 				CE8C734416D9735F0046CCBD /* wagon@2x.png */,
 				CE8C734516D973600046CCBD /* wagon@ipad.png */,
@@ -5154,6 +5157,7 @@
 				B09A36171722B7D600153E71 /* buy all@2x.png in Resources */,
 				B0A8B4101872CC4F00245F48 /* glasses.png in Resources */,
 				B09A36181722B7D600153E71 /* restoreButton@2x.png in Resources */,
+				B0CCF04E18C7AAFF008F5A11 /* tspark.png in Resources */,
 				B0A8B4881872CC4F00245F48 /* seed.png in Resources */,
 				B09A361E1722B7F500153E71 /* background_wizard.png in Resources */,
 				B09D366C18B4B54D00D21B9D /* Chinese.png in Resources */,
