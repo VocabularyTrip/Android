@@ -30,8 +30,12 @@
 
 - (IBAction) nextButtonPressed:(id)sender {
     
-    VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
+    /*VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
     [vocTripDelegate popMainMenuFromChangeLang];
+    [super done: sender];*/
+    
+    VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
+	[vocTripDelegate pushSetGameModeView];
     [super done: sender];
     
     bool connectivity = ([vocTripDelegate.internetReachable currentReachabilityStatus] != NotReachable);

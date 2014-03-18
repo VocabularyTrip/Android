@@ -22,6 +22,10 @@
 @property (nonatomic) bool readAbility;
 @property (nonatomic) bool cumulative;
 
+- (bool) gameTypeIsTraining;
+- (bool) gameTypeIsChallenge;
+- (bool) gameTypeIsMemory;
+
 @end
 
 

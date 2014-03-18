@@ -15,6 +15,7 @@
 
 @synthesize backButton;
 @synthesize buyAllButton;
+@synthesize buyOneSetofLevelesButton;
 @synthesize restorePurchaseButton;
 @synthesize promoCodeText;
 @synthesize promoCodeStatus;
@@ -35,10 +36,13 @@
 }
 
 - (IBAction) buyAllLevels {
+    flagBuyAllLevels = YES;
     [self implementParentalGate];
-	/*[PurchaseManager getSingleton].delegate = self;
-	[PurchaseManager buyAllLevels];
-	[self disableBuyButtons];*/
+}
+
+- (IBAction) buyOneSetOfLevels {
+    flagBuyAllLevels = NO;
+    [self implementParentalGate];
 }
 
 - (void) implementParentalGate {
@@ -65,7 +69,10 @@
         NSString *value = [[alertView textFieldAtIndex: 0] text];
         if (resultParentalGate == [value intValue]) {
             [PurchaseManager getSingleton].delegate = self;
-            [PurchaseManager buyAllLevels];
+            if (flagBuyAllLevels)
+                [PurchaseManager buyAllLevels];
+            else
+                [PurchaseManager buyNextSetOfLevel];
         } else {
             [self refreshLevelInfo];
             UIAlertView *alert = [[UIAlertView alloc]
@@ -110,7 +117,9 @@
 	[self refreshLevelInfo];
     NSString* coverName = [ImageManager getIphone5xIpadFile: @"background_purchase"];
     [backgroundView setImage: [UIImage imageNamed: coverName]];
+    
 }
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -131,12 +140,14 @@
 
 - (void) refreshLevelInfo {
 
-	buyAllButton.enabled = [UserContext getMaxLevel] < 6 ? 1 : 0;
-	restorePurchaseButton.enabled = [UserContext getMaxLevel] < 6 ? 1 : 0;
-    promoCodeText.enabled = [UserContext getMaxLevel] < 6 ? 1 : 0;
+	restorePurchaseButton.enabled = [UserContext getMaxLevel] <= cSet2OfLevels ? 1 : 0;
+    promoCodeText.enabled = [UserContext getMaxLevel] <= cSet2OfLevels ? 1 : 0;
+    buyOneSetofLevelesButton.alpha  = [UserContext getMaxLevel] <= cSet2OfLevels ? 1 : 0;
+    buyAllButton.enabled = [UserContext getMaxLevel] < [Vocabulary countOfLevels] ? 1 : 0;
 
+    
     [buyAllButton 
-       setTitle: [self getPriceOf: [PurchaseManager getCompletePurchaseIdentier: cPurchaseAllLevels]] 
+       setTitle: [self getPriceOf: [PurchaseManager getCompletePurchaseIdentier: cPurchaseSet1to4]]
        forState: UIControlStateNormal]; 
     
 }

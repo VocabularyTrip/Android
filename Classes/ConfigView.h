@@ -23,7 +23,6 @@
 - (IBAction) buyClicked;
 - (IBAction) resetButtonClicked;
 - (IBAction) close;
-- (void) closeAnimationStoped;
 - (CGRect) frameOpened;
 - (CGRect) frameClosed;
 - (bool) frameIsClosed;

@@ -102,12 +102,16 @@
 		int hitRate = [self hitRate];
 		if (hitRate < 5) {
 			[Sentence playSpeaker: @"Test-EndGame-PracticeMore"];
+            [GameSequenceManager nextSequence: @"Training"];
 		} else if (hitRate < 7) {
 			[Sentence playSpeaker: @"Test-EndGame-GoodJob"];
+            [GameSequenceManager nextSequence];
 		} else if (hitRate < 9) {
 			[Sentence playSpeaker: @"Test-EndGame-GreatJob"];
+            [GameSequenceManager nextSequence: @"Challenge"];
 		} else {
 			[Sentence playSpeaker: @"Test-EndGame-Amazing"];
+            [GameSequenceManager nextSequence: @"Challenge"];
 		}
 	}
 //	[self refreshMoneyLabels];
@@ -137,7 +141,7 @@
 
 - (bool) shortInactivity {
 	return 
-	gameStatus == cStatusGameIsOn && 
+	//gameStatus == cStatusGameIsOn &&
 	viewMode == 1 && 
 	CFAbsoluteTimeGetCurrent() - inactivity1 > cElapsedInactivity1;
 }

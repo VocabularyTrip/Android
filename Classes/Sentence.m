@@ -157,7 +157,7 @@ AVAudioPlayer *currentAudio = nil;
 }
 
 + (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
-	NSLog(@"Sentence. Error Parsing at line: %i, column: %i", parser.lineNumber, parser.columnNumber);	
+	NSLog(@"Sentence. Error Parsing at line: %li, column: %li", (long)parser.lineNumber, (long)parser.columnNumber);	
 }
 
 + (AVAudioPlayer*) getAudioPlayer: (NSString*) fileName {

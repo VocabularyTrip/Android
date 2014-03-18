@@ -355,7 +355,7 @@
 }
 
 - (void) endGame {
-    [GameSequenceManager nextSequence];
+    //[GameSequenceManager nextSequence];
 }
 
 - (void) prepareIntroduceTrain {

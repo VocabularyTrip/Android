@@ -11,10 +11,18 @@
 #import "PurchaseProtocol.h"
 #import "UserContext.h"
 
-#define cPurchaseBronzeLevel @"BronzeLevel"
+#define cPurchaseSet1 @"PurchaseSet1"
+#define cPurchaseSet2 @"PurchaseSet2"
+#define cPurchaseSet3 @"PurchaseSet3"
+#define cPurchaseSet4 @"PurchaseSet4"
+#define cPurchaseSet1to4 @"PurchaseSet1to4"
+#define cPurchaseSet2to4 @"PurchaseSet2to4"
+
+/*#define cPurchaseBronzeLevel @"BronzeLevel"
 #define cPurchaseSilverLevel @"SilverLevel"
 #define cPurchaseGoldLevel @"GoldLevel"
-#define cPurchaseAllLevels @"BSG"
+#define cPurchaseAllLevels @"BSG"*/
+
 #define cInAppPurchaseManagerProductsFetchedNotification @"kInAppPurchaseManagerProductsFetchedNotification" 
 
 #define cLanguage @"Language"
@@ -33,22 +41,25 @@ extern PurchaseManager *purchaseManagerSingleton;
 
 + (PurchaseManager*) getSingleton;
 + (NSString*) getCompletePurchaseIdentier: (NSString*) inAppPurchase;
-+ (void) buyDictionary;
-+ (void) buyBronzeLevel;
+//+ (void) buyDictionary;
+/*+ (void) buyBronzeLevel;
 + (void) buySilverLevel;
-+ (void) buyGoldLevel;
++ (void) buyGoldLevel;*/
++ (void) buyNextSetOfLevel; // Buy Set 1, Set 2, Set 3 depending the context
 + (void) buyAllLevels;
-+ (void) buy: (NSString*) inAppPurchase;
++ (void) buy: (SKProduct*) anSKProduct;
++ (SKProduct*) getProductoFromIdentifier: (NSString*) productIdentifier;
 - (void) initializeObserver;
 - (void) paymentQueue: (SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions;
 - (void) completeTransaction: (SKPaymentTransaction*) transaction;
 - (void) faildTransaction: (SKPaymentTransaction*) transaction;
 - (void) restoreTransaction: (SKPaymentTransaction*) transaction;
 - (void) recordTransaction: (SKPaymentTransaction*) transaction;
-- (void) provideContent: (NSString*) productIdentifier;
+- (void) provideContent: (SKProduct*) anSKProduct;
 - (void) requestProUpgradeProductData;
 - (void) productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response;
 - (IBAction) showErrorMessage: (NSString*) aMessage;
 - (void) checkPurchasedItems;
 
+    
 @end

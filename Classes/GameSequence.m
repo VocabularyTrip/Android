@@ -16,4 +16,16 @@
 @synthesize cumulative;
 @synthesize readAbility;
 
+- (bool) gameTypeIsTraining {
+    return [gameType isEqualToString: @"Training"];
+}
+
+- (bool) gameTypeIsChallenge {
+    return [gameType isEqualToString: @"Challenge"];
+}
+
+- (bool) gameTypeIsMemory {
+    return [gameType isEqualToString: @"Memory"];
+}
+
 @end

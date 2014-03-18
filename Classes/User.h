@@ -25,6 +25,7 @@
     Language* __unsafe_unretained langSelected;
     NSString *userName;
     UIImage *image;
+    bool readAbility; // true indicate that the user wants to play with words name. Enable all GameSequence where readAbility is true
 }
 
 @property (nonatomic, assign) int level;
@@ -35,6 +36,7 @@
 @property (nonatomic, assign) int userId;
 @property (nonatomic, strong) NSString* userName;
 @property (nonatomic, strong) UIImage* image;
+@property (nonatomic) bool readAbility;
 
 + (void)loadDataFromXML;
 + (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict;

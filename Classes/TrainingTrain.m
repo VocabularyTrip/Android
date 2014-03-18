@@ -288,6 +288,7 @@
 
 - (void) endGame { 
 	[super endGame];
+    [GameSequenceManager nextSequence];
 	[self refreshMoneyLabels];
 }	
 

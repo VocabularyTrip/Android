@@ -279,7 +279,7 @@ static inline BOOL AFStateTransitionIsValid(AFOperationState fromState, AFOperat
 - (void)setShouldExecuteAsBackgroundTaskWithExpirationHandler:(void (^)(void))handler {
     [self.lock lock];
     if (!self.backgroundTaskIdentifier) {
-        UIApplication *application = [UIApplication sharedApplication];
+        //UIApplication *application = [UIApplication sharedApplication];
         //___unsafe_unretained __typeof(&*self)weakSelf = self;
         //self.backgroundTaskIdentifier = [application beginBackgroundTaskWithExpirationHandler:^{
         //    __strong __typeof(&*weakSelf)strongSelf = weakSelf;

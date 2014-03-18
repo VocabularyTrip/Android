@@ -32,7 +32,8 @@ PromoCode *promoCodeSingleton;
     NSDate *oneDay = [[NSDate alloc] init];
     oneDay = [oneDay dateByAddingTimeInterval: 60*60*24]; // 1 day
     [[NSUserDefaults standardUserDefaults] setObject: oneDay forKey: cPromoCodeExpireDate];
-    [[PurchaseManager getSingleton] provideContent: cPurchaseAllLevels]; // Provide Content !!!!!
+    [[PurchaseManager getSingleton] provideContent:
+     [PurchaseManager getProductoFromIdentifier: cPurchaseSet1to4]]; // Provide Content !!!!!
 }
 
 + (void) checkAPromoCodeForUUID {
@@ -240,7 +241,7 @@ PromoCode *promoCodeSingleton;
         [[NSUserDefaults standardUserDefaults] setObject: cPromoCodeStatusActive forKey: cPromoCodeStatus];
         [[NSUserDefaults standardUserDefaults] setObject: [response objectForKey: @"promoCode"] forKey: cPromoCode];
         
-        [[PurchaseManager getSingleton] provideContent: cPurchaseAllLevels]; // Provide Content !!!!!
+        [[PurchaseManager getSingleton] provideContent: [PurchaseManager getProductoFromIdentifier: cPurchaseSet1to4]]; // Provide Content !!!!!
         //if (promoCodeSingleton.delegate) [promoCodeSingleton.delegate responseToBuyAction];
         [self answerPromoCodeResult: @"Promo Code Registered Successfully"];        
     }

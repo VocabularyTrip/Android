@@ -14,8 +14,12 @@
 
 // ******** change 400 words - Pending
 // Ya no son 9 niveles. Estas dos constantes quedan deprecated
-#define cSilverLevel 6
-#define cBronzeLevel 3
+//#define cSilverLevel 6
+//#define cBronzeLevel 3
+#define cSet1OfLevels 12
+#define cSet2OfLevels 24
+#define cSet3OfLevels 36
+#define cSet4OfLevels 50
 
 #define cMaxLevelKey @"keyMaxLevel"
 #define cSoundKey @"keySound"

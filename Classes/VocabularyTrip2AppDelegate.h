@@ -10,12 +10,14 @@
 #import "ChangeLangView.h"
 #import "ChangeUserView.h"
 #import "LockLanguageView.h"
+#import "SetGameModeView.h"
 #import "GenericTrain.h"
 #import "MapView.h"
 #import "MapView.h"
 #import "AlbumView.h"
 #import "TestTrain.h"
 #import "TrainingTrain.h"
+#import "MemoryTrain.h"
 #import "PurchaseProtocol.h"
 #import "Language.h"
 #import "PromoCode.h"
@@ -32,9 +34,11 @@
 	
 	TestTrain *testTrain;
 	TrainingTrain *trainingTrain;
-	ChangeLangView *changeLangView;    
+	MemoryTrain *memoryTrain;
+	ChangeLangView *changeLangView;
 	ChangeUserView *changeUserView;    
     LockLanguageView *lockLanguageView;
+    SetGameModeView *gameModeView;
 	MapView *mapView;
 	AlbumView *albumView;
 	PurchaseView *purchaseView;
@@ -49,9 +53,11 @@
 //@property (nonatomic) MainMenu *mainMenu;
 @property (nonatomic) TrainingTrain *trainingTrain;
 @property (nonatomic) TestTrain *testTrain;
+@property (nonatomic) MemoryTrain *memoryTrain;
 @property (nonatomic) ChangeLangView *changeLangView;
 @property (nonatomic) ChangeUserView *changeUserView;
 @property (nonatomic) LockLanguageView *lockLanguageView;
+@property (nonatomic) SetGameModeView *gameModeView;
 @property (nonatomic) MapView *mapView;
 @property (nonatomic) AlbumView *albumView;
 @property (nonatomic) PurchaseView *purchaseView;
@@ -67,20 +73,24 @@
 - (void) pushLockLanguageView;
 - (void) pushChangeLangView;
 - (void) pushChangeUserView;
+- (void) pushSetGameModeView;
 //- (void) pushMapView;
 - (void) pushLevelViewWithHelpPurchase;
 - (void) pushLevelViewWithHelpDownload;
 - (void) pushPurchaseView;
 - (void) pushTestTrain;
+- (void) pushMemoryTrain;
 - (void) pushAlbumView;
 - (void) pushTrainingTrain;
 - (void) popMainMenuFromLevel;
 - (void) popMainMenuFromPurchase;
 - (void) popMainMenuFromAlbum;
 - (void) popMainMenuFromTestTrain;
+- (void) popMainMenuFromMemoryTrain;
 - (void) popMainMenuFromTrainingTrain;
 - (void) popFromLockLanguageView;
 - (void) popMainMenuFromChangeLang;
+- (void) popMainMenuFromSetGameMode;
 - (void) pushAlbumMenu;
 - (void) popMainMenuFromAlbumMenu;
 - (void) responseToBuyAction;

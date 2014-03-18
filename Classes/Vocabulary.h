@@ -21,7 +21,6 @@
 extern NSMutableArray *allWords;
 extern NSMutableArray *oneLevel; 
 extern int levelIndex;	
-
 extern id <DownloadDelegate> downloadDelegate;
 
 @interface Vocabulary : NSObject <NSXMLParserDelegate, NSURLConnectionDelegate> {
@@ -33,6 +32,11 @@ extern id <DownloadDelegate> downloadDelegate;
     bool isDownloading; // is true when download is active. is false when an error is detected or 90 words al allready downloaded
     bool isDownloadView; // is true if LevelView is visible and the downloadButton and progressBar exists
         // Is flase when the user press back button and the download continue in background.
+
+    NSMutableArray *responseWithLevelsToDownload;
+    
+    CADisplayLink *theTimerToDownloadLevels;
+
 }
 
 extern Vocabulary *singletonVocabulary;
@@ -42,6 +46,8 @@ extern Vocabulary *singletonVocabulary;
 @property (nonatomic, assign) bool isDownloading;
 @property (nonatomic, assign) bool isDownloadView;
 @property (nonatomic, assign) int qWordsLoaded;
+@property (nonatomic, retain) NSMutableArray *responseWithLevelsToDownload;
+@property (nonatomic, retain) CADisplayLink *theTimerToDownloadLevels;
 
 + (void) loadDataFromXML; //
 + (void) parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict; //
@@ -67,6 +73,8 @@ extern Vocabulary *singletonVocabulary;
 
 + (void) loadDataFromSql; //
 + (void) connectionFinishSuccesfully: (NSDictionary*) response;
+- (void) startDownload;
+- (void) downlloadOneLevel;
 + (void) connectionFinishWidhError:(NSError *) error;
 
 + (void) setProgress: (float) progress; //

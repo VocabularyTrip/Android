@@ -17,7 +17,7 @@ PurchaseManager *purchaseManagerSingleton;
 @synthesize delegate;
 @synthesize products;
 
-+(PurchaseManager*) getSingleton {
++ (PurchaseManager*) getSingleton {
 	if (purchaseManagerSingleton == nil)
 		purchaseManagerSingleton = [[PurchaseManager alloc] init];
 	return purchaseManagerSingleton;
@@ -26,36 +26,39 @@ PurchaseManager *purchaseManagerSingleton;
 // **************************************
 // ******** Purchase Framework **********
 
-+ (void) buyDictionary {
-	switch ([UserContext getMaxLevel]) {
-		case 0 ... 2:
-			[self buyBronzeLevel];
-			break;
-		case 3 ... 5:
-			[self buySilverLevel];			
-			break;
-		case 6 ... 8:
-			[self buyGoldLevel];			
-			break;
-		default:
-			break;
-	}
++ (SKProduct*) getProductoFromIdentifier: (NSString*) productIdentifier {
+    NSMutableArray *allProducts = [self getSingleton].products;
+    SKProduct *p;
+    for (int i=0; i< [allProducts count]; i++) {
+        p = [allProducts objectAtIndex: i];
+        if ([p.productIdentifier rangeOfString: productIdentifier].location != NSNotFound)
+            return p;
+    }
+    return nil;
 }
 
-+ (void) buyBronzeLevel {
-	[self buy: cPurchaseBronzeLevel];
-}
++ (void) buyNextSetOfLevel {
+    
+    if ([UserContext getMaxLevel] <= cSet1OfLevels) {
+        [self buy: [self getProductoFromIdentifier: cPurchaseSet1]];
+    } else if ([UserContext getMaxLevel] <= cSet2OfLevels) {
+        [self buy: [self getProductoFromIdentifier: cPurchaseSet2]];
+    } else if ([UserContext getMaxLevel] <= cSet3OfLevels) {
+        [self buy: [self getProductoFromIdentifier: cPurchaseSet3]];
+    } else if ([UserContext getMaxLevel] <= cSet4OfLevels)
+        [self buy: [self getProductoFromIdentifier: cPurchaseSet4]];
 
-+ (void) buySilverLevel {
-	[self buy: cPurchaseSilverLevel];
-}
-
-+ (void) buyGoldLevel {
-	[self buy: cPurchaseGoldLevel];
 }
 
 + (void) buyAllLevels {
-	[self buy: cPurchaseAllLevels];
+	switch ([UserContext getMaxLevel]) {
+		case 0 ... 120:
+           [self buy: [self getProductoFromIdentifier: cPurchaseSet1to4]];
+			break;
+		default:
+           [self buy: [self getProductoFromIdentifier: cPurchaseSet2to4]];
+			break;
+    }
 }
 
 + (NSString*) getCompletePurchaseIdentier: (NSString*) inAppPurchase {
@@ -63,22 +66,24 @@ PurchaseManager *purchaseManagerSingleton;
 	return [NSString stringWithFormat: @"KLVocabulary_%@", inAppPurchase];
 }
 
-+ (void) buy: (NSString*) inAppPurchase {
-    [TraceWS register: @"User request buy" valueStr: inAppPurchase valueNum: [NSNumber numberWithInt: 0]];    
+   
++ (void) buy: (SKProduct*) anSKProduct {
+    [TraceWS register: @"User request buy" valueStr: anSKProduct.productIdentifier valueNum: [NSNumber numberWithInt: 0]];
     
 	NSString *activeConfig = [[NSBundle mainBundle] objectForInfoDictionaryKey: cActiveConfiguration];
 	
-	NSString *p = [self getCompletePurchaseIdentier: inAppPurchase];
+	//NSString *p = [self getCompletePurchaseIdentier: inAppPurchase];
 	
 	if ([activeConfig isEqualToString: @"Debug"]) {
-		[[PurchaseManager getSingleton] provideContent: p];
+		[[PurchaseManager getSingleton] provideContent: anSKProduct];
 		return;
 	}
 	
 	if ([SKPaymentQueue canMakePayments])
 	{
-		SKPayment *payment = [SKPayment paymentWithProductIdentifier: p];
-		[[SKPaymentQueue defaultQueue] addPayment:payment];		
+		//SKPayment *payment = [SKPayment paymentWithProductIdentifier: p];
+		SKPayment *payment = [SKPayment paymentWithProduct: anSKProduct];
+		[[SKPaymentQueue defaultQueue] addPayment:payment];
 	}
 	else
 	{
@@ -103,11 +108,13 @@ PurchaseManager *purchaseManagerSingleton;
 	//NSString *l = [[NSBundle mainBundle] objectForInfoDictionaryKey: cLanguage];
 	
     NSSet *productIdentifiers = [NSSet setWithObjects: 
-            //[PurchaseManager getCompletePurchaseIdentier: cPurchaseBronzeLevel],
-            //[PurchaseManager getCompletePurchaseIdentier: cPurchaseSilverLevel],
-            //[PurchaseManager getCompletePurchaseIdentier: cPurchaseGoldLevel],
-                                 [PurchaseManager getCompletePurchaseIdentier: cPurchaseAllLevels],                                 
-								 nil];
+            [PurchaseManager getCompletePurchaseIdentier: cPurchaseSet1],
+            [PurchaseManager getCompletePurchaseIdentier: cPurchaseSet2],
+            [PurchaseManager getCompletePurchaseIdentier: cPurchaseSet3],
+            [PurchaseManager getCompletePurchaseIdentier: cPurchaseSet4],
+            [PurchaseManager getCompletePurchaseIdentier: cPurchaseSet1to4],
+            [PurchaseManager getCompletePurchaseIdentier: cPurchaseSet2to4],
+			nil];
     productsRequest = [[SKProductsRequest alloc] initWithProductIdentifiers: productIdentifiers];
     productsRequest.delegate = self;
     [productsRequest start];
@@ -134,6 +141,10 @@ PurchaseManager *purchaseManagerSingleton;
     [[NSNotificationCenter defaultCenter] postNotificationName: cInAppPurchaseManagerProductsFetchedNotification object:self userInfo:nil];
 } 
 
+- (void)request:(SKProductsRequest *)request didFailWithError:(NSError *)error {
+    NSLog(@"SKProductRequest error: %@", error.description);
+}
+
 - (void)paymentQueue: (SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions {
 	for (SKPaymentTransaction *transaction in transactions) {
 		switch (transaction.transactionState) {
@@ -156,7 +167,8 @@ PurchaseManager *purchaseManagerSingleton;
 -(void) completeTransaction: (SKPaymentTransaction*) transaction {
   	NSLog(@"Complete Transaction");  
 	[self recordTransaction: transaction];
-	[self provideContent: transaction.payment.productIdentifier];
+	[self provideContent: [PurchaseManager getProductoFromIdentifier:
+                           transaction.payment.productIdentifier]];
 	// Remove the transaction from the payment queue.
 	[[SKPaymentQueue defaultQueue] finishTransaction: transaction];
 }
@@ -189,7 +201,8 @@ PurchaseManager *purchaseManagerSingleton;
 
 -(void) restoreTransaction: (SKPaymentTransaction*) transaction {
 	[self recordTransaction: transaction];
-	[self provideContent: transaction.originalTransaction.payment.productIdentifier];
+	[self provideContent: [PurchaseManager getProductoFromIdentifier:
+                           transaction.payment.productIdentifier]];
 	// Remove the transaction from the payment queue.
 	[[SKPaymentQueue defaultQueue] finishTransaction: transaction];
 }
@@ -211,8 +224,9 @@ PurchaseManager *purchaseManagerSingleton;
     //NSLog(@"received restored transactions: %i", queue.transactions.count);
     for (SKPaymentTransaction *transaction in queue.transactions)
     {
-        NSString *productID = transaction.payment.productIdentifier;
-        [self provideContent: productID];
+        //NSString *productID = transaction.payment.productIdentifier;
+        [self provideContent: [PurchaseManager getProductoFromIdentifier:
+                               transaction.payment.productIdentifier]];
         //[purchasedItemIDs addObject:productID];
     }
     
@@ -220,22 +234,25 @@ PurchaseManager *purchaseManagerSingleton;
     
 }
 
--(void) provideContent: (NSString*) productIdentifier {
-// ******** change 400 words - Pending
-// Reflotar las compras por segmento
-    UserContext *user = [UserContext getSingleton];
-	if ([productIdentifier rangeOfString: cPurchaseAllLevels].location != NSNotFound)
-		[user setMaxLevel: [Vocabulary countOfLevels]];
-	else if ([productIdentifier rangeOfString: cPurchaseBronzeLevel].location != NSNotFound) {
-        if ([user maxLevel] < cBronzeLevel) [user setMaxLevel: cBronzeLevel];
-	} else if ([productIdentifier rangeOfString: cPurchaseSilverLevel].location != NSNotFound) {
-		if ([user maxLevel] < cSilverLevel)  [user setMaxLevel: cSilverLevel];
-	} else if ([productIdentifier rangeOfString: cPurchaseGoldLevel].location != NSNotFound)
-		[user setMaxLevel: [Vocabulary countOfLevels]];
+-(void) provideContent: (SKProduct*) anSKProduct {
     
-	
+    UserContext *user = [UserContext getSingleton];
+	if ([anSKProduct.productIdentifier rangeOfString: cPurchaseSet1to4].location != NSNotFound) {
+        [user setMaxLevel: [Vocabulary countOfLevels]];
+    } else if ([anSKProduct.productIdentifier rangeOfString: cPurchaseSet2to4].location != NSNotFound) {
+		[user setMaxLevel: [Vocabulary countOfLevels]];
+	} else if ([anSKProduct.productIdentifier rangeOfString: cPurchaseSet1].location != NSNotFound) {
+        if ([user maxLevel] < cSet1OfLevels) [user setMaxLevel: cSet1OfLevels];
+	} else if ([anSKProduct.productIdentifier rangeOfString: cPurchaseSet2].location != NSNotFound) {
+		if ([user maxLevel] < cSet2OfLevels)  [user setMaxLevel: cSet2OfLevels];
+	} else if ([anSKProduct.productIdentifier rangeOfString: cPurchaseSet3].location != NSNotFound) {
+		if ([user maxLevel] < cSet3OfLevels)  [user setMaxLevel: cSet3OfLevels];
+	} else if ([anSKProduct.productIdentifier rangeOfString: cPurchaseSet4].location != NSNotFound)
+		if ([user maxLevel] < cSet4OfLevels)  [user setMaxLevel: cSet4OfLevels];
+    
     if (delegate) [delegate responseToBuyAction];
-	//if ([UserContext nextLevel]) 	
+	
+    //if ([UserContext nextLevel])
 	//	[Sentence playSpeaker: @"AppDelegate-ResponseToBuyAction-NextLevel"];
 
     /*if ([UserContext getSingleton].userSelected) {

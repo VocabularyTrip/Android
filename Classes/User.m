@@ -20,6 +20,7 @@
 @synthesize userId;
 @synthesize userName;
 @synthesize image;
+@synthesize readAbility;
 
 +(void)loadDataFromXML {
 	
@@ -48,7 +49,7 @@
 }
 
 + (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
-	NSLog(@"Users. Error Parsing at line: %i, column: %i", parser.lineNumber, parser.columnNumber);	
+	NSLog(@"Users. Error Parsing at line: %li, column: %li", (long)parser.lineNumber, (long)parser.columnNumber);	
 }
 
 -(id) init { 
@@ -108,12 +109,21 @@
     [[NSUserDefaults standardUserDefaults] setValue: aName forKey: keyName];
 }
 
+-(bool) readAbility {
+    NSString *readAbilityKey = [NSString stringWithFormat: @"user%iName", userId];
+    return [[NSUserDefaults standardUserDefaults] boolForKey: readAbilityKey];
+}
+
+-(void) setReadAbility: (bool) newReadAbility {
+    readAbility = newReadAbility;
+    NSString *readAbilityKey = [NSString stringWithFormat: @"user%iName", userId];
+    [[NSUserDefaults standardUserDefaults] setBool: readAbility forKey: readAbilityKey];
+}
+
 -(int) level {
 	if (level == 0) {
 		level = [self getLevel];
-		if (level == 0) {
-			level = 1;
-		}
+		// if (level == 0) level = 1;
 	}
 	return level;
 }

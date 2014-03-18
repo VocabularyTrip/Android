@@ -16,9 +16,11 @@
 //@synthesize mainMenu;
 @synthesize trainingTrain;
 @synthesize testTrain;
+@synthesize memoryTrain;
 @synthesize changeLangView;
 @synthesize changeUserView;
 @synthesize lockLanguageView;
+@synthesize gameModeView;
 @synthesize mapView;
 @synthesize purchaseView;
 @synthesize albumView;
@@ -139,7 +141,6 @@
 
 - (void) checkDownloadCompleted {
     
-    
     double wasLearnedResult = [Vocabulary wasLearned];
     // Check Download complete only if advance to level 2 is unlock and at least is close to level 2
     if (!([UserContext getMaxLevel] >= 6) ||
@@ -253,6 +254,16 @@
 	return lockLanguageView;
 }
 
+-(SetGameModeView*) gameModeView {
+	if (gameModeView == nil) {
+		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+			gameModeView = [[SetGameModeView alloc] initWithNibName:@"SetGameModeView~ipad" bundle:nil];
+		else
+			gameModeView = [[SetGameModeView alloc] initWithNibName:@"SetGameModeView" bundle:nil];
+	}
+	return gameModeView;
+}
+
 -(AlbumView*) albumView {
 	if ( albumView == nil) {
 		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
@@ -284,6 +295,16 @@
 	return testTrain;
 }
 
+-(MemoryTrain*) memoryTrain {
+	if (memoryTrain == nil) {
+		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+			memoryTrain = [[MemoryTrain alloc] initWithNibName:@"GenericTrain~ipad" bundle:nil];
+		else
+			memoryTrain = [[MemoryTrain alloc] initWithNibName:@"GenericTrain" bundle:nil];
+	}
+	return memoryTrain;
+}
+
 -(TrainingTrain*) trainingTrain {
 	if (trainingTrain == nil) {
 		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)		
@@ -304,6 +325,10 @@
 
 - (void) pushLockLanguageView {
 	[navController pushViewController: self.lockLanguageView animated: YES];
+}
+
+- (void) pushSetGameModeView {
+	[navController pushViewController: self.gameModeView animated: YES];
 }
 
 - (void) pushAlbumView {
@@ -339,6 +364,10 @@
 	[navController pushViewController: self.testTrain animated: NO];
 }
 
+- (void) pushMemoryTrain {
+	[navController pushViewController: self.memoryTrain animated: NO];
+}
+
 - (void) pushTrainingTrain {
 	[navController pushViewController: self.trainingTrain animated: NO];
 }
@@ -349,7 +378,7 @@
 
 - (void) popMainMenuFromChangeLang {
   	[navController popViewControllerAnimated: NO];
-	[self popMainMenu];
+	[self popMainMenu]; // Pop Select User
 	changeLangView = nil;
 }
 
@@ -357,6 +386,14 @@
   	[navController popViewControllerAnimated: NO];
 	lockLanguageView = nil;
 }
+
+- (void) popMainMenuFromSetGameMode {
+  	[navController popViewControllerAnimated: NO];
+	[self popMainMenu]; // Pop Select Lang
+    [self popMainMenu]; // Pop Select User
+	gameModeView = nil;
+}
+
 
 - (void) popMainMenuFromLevel {
 	[self popMainMenu];
@@ -382,6 +419,12 @@
 	[self popMainMenu];
 	Sentence.delegate = nil;
 	testTrain = nil;
+}
+
+- (void) popMainMenuFromMemoryTrain {
+	[self popMainMenu];
+	Sentence.delegate = nil;
+	memoryTrain = nil;
 }
 
 - (void) popMainMenuFromTrainingTrain {

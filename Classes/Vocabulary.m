@@ -14,8 +14,8 @@
 
 
 NSMutableArray *allWords = nil;
-NSMutableArray *oneLevel = nil; 
-int levelIndex=0;	
+NSMutableArray *oneLevel = nil;
+int levelIndex=0;
 
 Vocabulary *singletonVocabulary;
 
@@ -26,6 +26,8 @@ Vocabulary *singletonVocabulary;
 @synthesize isDownloading;
 @synthesize isDownloadView;
 @synthesize qWordsLoaded;
+@synthesize responseWithLevelsToDownload;
+@synthesize theTimerToDownloadLevels;
 
 // ****************************************************************
 // Load from Server. The first time is loaded and save localy
@@ -56,10 +58,33 @@ Vocabulary *singletonVocabulary;
 // Response to getLevelsForLang
 + (void) connectionFinishSuccesfully: (NSDictionary*) response {
     
-    for (NSDictionary* value in response) {
-        [Level loadDataFromSql: [[value objectForKey: @"level_id"] intValue]];
-    }
+    singletonVocabulary.responseWithLevelsToDownload = [((NSArray*) response) mutableCopy];
+    //for (NSDictionary* value in response) {
+    //    [Level loadDataFromSql: [[value objectForKey: @"level_id"] intValue]];
+    //}
+    [singletonVocabulary startDownload];
+}
+
+- (void) startDownload {
+    // The download is launched each 1.5 second. Otherwize 506 downloads are enqued and after aprox 300 downloads got time out.
+    if (theTimerToDownloadLevels == nil) {
+		theTimerToDownloadLevels = [CADisplayLink displayLinkWithTarget:self selector:@selector(downlloadOneLevel)];
+		theTimerToDownloadLevels.frameInterval = 90;
+		[theTimerToDownloadLevels addToRunLoop: [NSRunLoop currentRunLoop] forMode: NSDefaultRunLoopMode];
+	}
+}
+
+- (void) downlloadOneLevel {
     
+    if ([responseWithLevelsToDownload count] > 0) {
+        NSDictionary* value = [responseWithLevelsToDownload lastObject];
+        NSLog(@"Download level: %i", [[value objectForKey: @"level_id"] intValue]);
+        [Level loadDataFromSql: [[value objectForKey: @"level_id"] intValue]];
+        [responseWithLevelsToDownload removeLastObject];
+    } else {
+        [theTimerToDownloadLevels invalidate];
+        theTimerToDownloadLevels = nil;
+    }
 }
 
 + (void) connectionFinishWidhError:(NSError *) error {
@@ -141,7 +166,8 @@ Vocabulary *singletonVocabulary;
             newWord.order = [[attributeDict objectForKey: @"wordOrder"] intValue];
 			newWord.theme = levelIndex;
             //NSLog(@"Word: %@, translations: %i", newWord.name, [newWord.allTranslatedNames count]);
-            if ([newWord.allTranslatedNames count] < [attributeDict count] - 4) // First 4 attr are not translations
+            //if ([newWord.allTranslatedNames count] < [attributeDict count] - 4) // First 4 attr are not translations
+            if (levelIndex == 1) // Hardcoded first level, the translations are loaded from XML
                 [newWord setAllTranslatedNames: [attributeDict mutableCopy]];
             
             //newWord.localizationName = [self getNativeNameFromLocalization: attributeDict];
@@ -166,7 +192,7 @@ Vocabulary *singletonVocabulary;
 
 
 + (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
-	NSLog(@"Vocabulary. Error Parsing at line: %i, column: %i", parser.lineNumber, parser.columnNumber);	
+	NSLog(@"Vocabulary. Error Parsing at line: %li, column: %li", (long)parser.lineNumber, (long)parser.columnNumber);	
 }
 
 + (void)initializeLevelUntil: (int) level {
@@ -218,7 +244,7 @@ Vocabulary *singletonVocabulary;
 		int i = arc4random() % [self getSumOfAllWeights];
 		i = [self getSelectedWordFrom: i];
 		if (i >= [oneLevel count]) {
-			NSLog(@"Exception: getRandomWeightedWord get an out of index: %i, %i", i, [oneLevel count]);
+			NSLog(@"Exception: getRandomWeightedWord get an out of index: %i, %lu", i, (unsigned long)[oneLevel count]);
 			i=0;	
 		}
 		Word *w = [oneLevel objectAtIndex: i];
@@ -308,7 +334,7 @@ Vocabulary *singletonVocabulary;
 	int r = 0, total = 0;
 	Word *w;
 	
-    for (w in [allWords objectAtIndex: [UserContext getLevelNumber] - 1]) {
+    for (w in [allWords objectAtIndex: [UserContext getLevelNumber]]) {
 		if (w.weight <= cLearnedWeight) r++;
 		total ++;
 	}

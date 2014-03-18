@@ -47,6 +47,8 @@
 		B0309DA817164C98003002D4 /* landscape1@iphone5.png in Resources */ = {isa = PBXBuildFile; fileRef = B0309D9E17164C98003002D4 /* landscape1@iphone5.png */; };
 		B0309DA917164C98003002D4 /* landscape2@iphone5.png in Resources */ = {isa = PBXBuildFile; fileRef = B0309D9F17164C98003002D4 /* landscape2@iphone5.png */; };
 		B0309DAA17164C98003002D4 /* landscape3@iphone5.png in Resources */ = {isa = PBXBuildFile; fileRef = B0309DA017164C98003002D4 /* landscape3@iphone5.png */; };
+		B049C86218D75A7900D53E4D /* MemoryTrain.m in Sources */ = {isa = PBXBuildFile; fileRef = B049C86118D75A7900D53E4D /* MemoryTrain.m */; };
+		B049C86418D7B2FA00D53E4D /* PokerCard.png in Resources */ = {isa = PBXBuildFile; fileRef = B049C86318D7B2FA00D53E4D /* PokerCard.png */; };
 		B06C86FA178CC75500E2A1E8 /* GenericDownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B06C86F9178CC75500E2A1E8 /* GenericDownloadViewController.m */; };
 		B080D20B179104D10021F113 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B080D20A179104D10021F113 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B086B395171F29FA00C714B9 /* btn_download_cancel@ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B086B394171F29FA00C714B9 /* btn_download_cancel@ipad.png */; };
@@ -64,6 +66,9 @@
 		B0915DF216FB958D000F2C23 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = B0915DE816FB958D000F2C23 /* UIImageView+AFNetworking.m */; };
 		B091F271183B19AB0047E4AD /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B091F270183B19AB0047E4AD /* FacebookSDK.framework */; };
 		B091F275183C02500047E4AD /* FacebookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B091F274183C02500047E4AD /* FacebookManager.m */; };
+		B094FBBE18D356A20053EEBE /* SetGameModeView.m in Sources */ = {isa = PBXBuildFile; fileRef = B094FBBB18D356A20053EEBE /* SetGameModeView.m */; };
+		B094FBBF18D356A20053EEBE /* SetGameModeView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B094FBBC18D356A20053EEBE /* SetGameModeView~ipad.xib */; };
+		B094FBC018D356A20053EEBE /* SetGameModeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B094FBBD18D356A20053EEBE /* SetGameModeView.xib */; };
 		B095BBC71747A5D8006D2944 /* btn_avatar_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B095BBC41747A5D8006D2944 /* btn_avatar_on@2x.png */; };
 		B095BBC81747A5D8006D2944 /* btn_challenge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B095BBC51747A5D8006D2944 /* btn_challenge@2x.png */; };
 		B095BBC91747A5D8006D2944 /* btn_info_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B095BBC61747A5D8006D2944 /* btn_info_on@2x.png */; };
@@ -1288,6 +1293,9 @@
 		B0309D9E17164C98003002D4 /* landscape1@iphone5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "landscape1@iphone5.png"; sourceTree = "<group>"; };
 		B0309D9F17164C98003002D4 /* landscape2@iphone5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "landscape2@iphone5.png"; sourceTree = "<group>"; };
 		B0309DA017164C98003002D4 /* landscape3@iphone5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "landscape3@iphone5.png"; sourceTree = "<group>"; };
+		B049C86018D75A7900D53E4D /* MemoryTrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryTrain.h; sourceTree = "<group>"; };
+		B049C86118D75A7900D53E4D /* MemoryTrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemoryTrain.m; sourceTree = "<group>"; };
+		B049C86318D7B2FA00D53E4D /* PokerCard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PokerCard.png; sourceTree = "<group>"; };
 		B06C86F8178CC75500E2A1E8 /* GenericDownloadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenericDownloadViewController.h; sourceTree = "<group>"; };
 		B06C86F9178CC75500E2A1E8 /* GenericDownloadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenericDownloadViewController.m; sourceTree = "<group>"; };
 		B080D209179104D10021F113 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
@@ -1321,6 +1329,10 @@
 		B091F270183B19AB0047E4AD /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		B091F273183C02500047E4AD /* FacebookManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookManager.h; sourceTree = "<group>"; };
 		B091F274183C02500047E4AD /* FacebookManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookManager.m; sourceTree = "<group>"; };
+		B094FBBA18D356A20053EEBE /* SetGameModeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetGameModeView.h; sourceTree = "<group>"; };
+		B094FBBB18D356A20053EEBE /* SetGameModeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetGameModeView.m; sourceTree = "<group>"; };
+		B094FBBC18D356A20053EEBE /* SetGameModeView~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "SetGameModeView~ipad.xib"; sourceTree = "<group>"; };
+		B094FBBD18D356A20053EEBE /* SetGameModeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetGameModeView.xib; sourceTree = "<group>"; };
 		B095BBC41747A5D8006D2944 /* btn_avatar_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_avatar_on@2x.png"; sourceTree = "<group>"; };
 		B095BBC51747A5D8006D2944 /* btn_challenge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_challenge@2x.png"; sourceTree = "<group>"; };
 		B095BBC61747A5D8006D2944 /* btn_info_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_info_on@2x.png"; sourceTree = "<group>"; };
@@ -3848,6 +3860,7 @@
 		CE721079149675EC00D60184 /* Train */ = {
 			isa = PBXGroup;
 			children = (
+				B049C86318D7B2FA00D53E4D /* PokerCard.png */,
 				B0CCF04D18C7AAFF008F5A11 /* tspark.png */,
 				CE81A2E616C1AD2400CD7535 /* wagon.png */,
 				CE8C734416D9735F0046CCBD /* wagon@2x.png */,
@@ -4059,6 +4072,8 @@
 				CE7740A11465D9A900A4D2DA /* GenericTrain~ipad.xib */,
 				CE7C82B213CFD8B20086D5BB /* TestTrain.h */,
 				CE7C82B313CFD8B20086D5BB /* TestTrain.m */,
+				B049C86018D75A7900D53E4D /* MemoryTrain.h */,
+				B049C86118D75A7900D53E4D /* MemoryTrain.m */,
 				CE72C75613DFA5BD0001F7AF /* TrainingTrain.h */,
 				CE72C75713DFA5BD0001F7AF /* TrainingTrain.m */,
 				B0A8B752187AD62C00245F48 /* GameStartView.xib */,
@@ -4178,6 +4193,10 @@
 		CE7C916F165D96A90016F2F7 /* WizardUserLang */ = {
 			isa = PBXGroup;
 			children = (
+				B094FBBA18D356A20053EEBE /* SetGameModeView.h */,
+				B094FBBB18D356A20053EEBE /* SetGameModeView.m */,
+				B094FBBC18D356A20053EEBE /* SetGameModeView~ipad.xib */,
+				B094FBBD18D356A20053EEBE /* SetGameModeView.xib */,
 				B06C86F8178CC75500E2A1E8 /* GenericDownloadViewController.h */,
 				B06C86F9178CC75500E2A1E8 /* GenericDownloadViewController.m */,
 				CE71CD751648A8C1009E6E61 /* ChangeUserView.h */,
@@ -4409,6 +4428,7 @@
 				B0A8B4571872CC4F00245F48 /* pasta.png in Resources */,
 				B0A8B547187664A300245F48 /* avatar2_arm4a.png in Resources */,
 				CE721131149675EC00D60184 /* landscape3Sky.png in Resources */,
+				B094FBBF18D356A20053EEBE /* SetGameModeView~ipad.xib in Resources */,
 				CE721132149675EC00D60184 /* landscape3Sky@2x.png in Resources */,
 				B0A8B3CD1872CC4F00245F48 /* checkers.png in Resources */,
 				B0A8B74C1876C33700245F48 /* TV.png in Resources */,
@@ -5161,6 +5181,7 @@
 				B0A8B58C18766F8600245F48 /* en_birds flap.mp3 in Resources */,
 				B0A8B4591872CC4F00245F48 /* pay.png in Resources */,
 				B098F48A18CE49DD006B190B /* photographs.png in Resources */,
+				B049C86418D7B2FA00D53E4D /* PokerCard.png in Resources */,
 				B09D361718AFC0CD00D21B9D /* cheese.png in Resources */,
 				B09D362A18AFC0CD00D21B9D /* house.png in Resources */,
 				B0A8B7431876C33700245F48 /* telephone.png in Resources */,
@@ -5311,6 +5332,7 @@
 				B0A8B64F187671B800245F48 /* animal52.png in Resources */,
 				B0A8B72D1876C33700245F48 /* plant.png in Resources */,
 				B0A8B6F41876C33700245F48 /* clean_verb.png in Resources */,
+				B094FBC018D356A20053EEBE /* SetGameModeView.xib in Resources */,
 				B0A8B5AF187671AE00245F48 /* cover-princess@2x.png in Resources */,
 				B09D364518AFC0CD00D21B9D /* sad.png in Resources */,
 				B0A8B3C21872CC4F00245F48 /* butterfly.png in Resources */,
@@ -5512,6 +5534,7 @@
 				CE7FB314141E65D0008C0456 /* Figurine.m in Sources */,
 				CE7E9016141FA616000BB719 /* Album.m in Sources */,
 				CE6F7A661422968B00F03599 /* UIButtonEmptyFigurine.m in Sources */,
+				B049C86218D75A7900D53E4D /* MemoryTrain.m in Sources */,
 				B0CCF04A18C79E71008F5A11 /* GameEndView.m in Sources */,
 				CE77DD5114589E8000FBDFC9 /* ToolbarController.m in Sources */,
 				CE5BA78D1489768E000A63F2 /* AudioPlayerProxy.m in Sources */,
@@ -5535,6 +5558,7 @@
 				CE8071B415AD0F6900509D30 /* Language.m in Sources */,
 				CE78F3FE15C30C770031EAA7 /* TraceWS.m in Sources */,
 				CE774D8415C4628600136BA9 /* PurchaseManager.m in Sources */,
+				B094FBBE18D356A20053EEBE /* SetGameModeView.m in Sources */,
 				CE774D8715C57EC000136BA9 /* User.m in Sources */,
 				CE762B88160178DA0057479E /* AFItemView.m in Sources */,
 				B0A8B4E2187663C700245F48 /* AlbumMenu.m in Sources */,

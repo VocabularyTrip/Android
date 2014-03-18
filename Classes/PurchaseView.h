@@ -19,6 +19,7 @@
 
 	UIButton *__unsafe_unretained backButton;
 	UIButton *__unsafe_unretained buyAllButton;
+	UIButton *__unsafe_unretained buyOneSetofLevelesButton;
 	UIButton *__unsafe_unretained restorePurchaseButton;
 	UITextField *__unsafe_unretained promoCodeText;
     UILabel *__unsafe_unretained promoCodeStatus;
@@ -26,10 +27,12 @@
     UIImageView *__unsafe_unretained backgroundView;
 
     int resultParentalGate;
+    bool flagBuyAllLevels; // indicate if the requirements is buy all levels. YES --> All Level, NO --> next set of levels.
 }
 
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *backButton;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *buyAllButton;
+@property (nonatomic, unsafe_unretained) IBOutlet UIButton *buyOneSetofLevelesButton;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *restorePurchaseButton;
 @property (nonatomic, unsafe_unretained) IBOutlet UITextField *promoCodeText;
 @property (nonatomic, unsafe_unretained) IBOutlet UILabel *promoCodeStatus;
@@ -40,6 +43,7 @@
 - (IBAction) done:(id)sender;
 - (IBAction) restorePurchase:(id)sender;
 - (IBAction) buyAllLevels;
+- (IBAction) buyOneSetOfLevels;
 - (IBAction) registerPromoCode;
 - (IBAction) facebookButton;
 

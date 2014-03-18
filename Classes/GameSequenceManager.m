@@ -9,6 +9,7 @@
 #define cCurrentGameSequence @"currentGameSequence"
 
 #import "GameSequenceManager.h"
+#import "UserContext.h"
 
 NSMutableArray *allGameSequence = nil;
 int qtyAllGameSequence, currentGameSequence = 0;
@@ -53,21 +54,37 @@ int qtyAllGameSequence, currentGameSequence = 0;
 }
 
 + (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
-	NSLog(@"LandscapeManager. Error Parsing at line: %i, column: %i", parser.lineNumber, parser.columnNumber);
+	NSLog(@"LandscapeManager. Error Parsing at line: %li, column: %li", (long)parser.lineNumber, (long)parser.columnNumber);
 }
 
 + (GameSequence *) getCurrentGameSequence {
 	return [allGameSequence objectAtIndex: currentGameSequence];
 }
 
-+ (void) nextSequence {
++ (void) nextSequence: (NSString*) gameType {
     currentGameSequence++;
     if (currentGameSequence >= qtyAllGameSequence) currentGameSequence = 0;
-
+    NSLog(@"%i", !gameType);
+    while (
+           // Skip games with readAbility and user selected noReadAbility
+           ([self getCurrentGameSequence].readAbility
+           && ![UserContext getUserSelected].readAbility)
+           ||
+           // If gameType is specified, go for selection
+           (![[self getCurrentGameSequence].gameType isEqualToString: gameType]
+           && gameType)
+    ) {
+        currentGameSequence++;
+        if (currentGameSequence >= qtyAllGameSequence) currentGameSequence = 0;
+    }
+    
     [[NSUserDefaults standardUserDefaults]
      setInteger: currentGameSequence
      forKey: cCurrentGameSequence];
-    
+}
+
++ (void) nextSequence {
+    [self nextSequence: nil];
 }
 
 @end

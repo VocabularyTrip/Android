@@ -196,7 +196,7 @@
     nextButton.alpha = currentAlbum.actualPage == [currentAlbum.pages count] - 1 ? 0 : 1;	
     prevButton.alpha = currentAlbum.actualPage == 0 ? 0 : 1;	
     pageLabel.alpha = 1;	
-	pageLabel.text = [NSString stringWithFormat:@"Page %i / %i", currentAlbum.actualPage + 1, [currentAlbum.pages count]];
+	pageLabel.text = [NSString stringWithFormat:@"Page %i / %lu", currentAlbum.actualPage + 1, (unsigned long)[currentAlbum.pages count]];
 }
 
 - (void) refreshEmptyFigs {

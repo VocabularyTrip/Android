@@ -8,7 +8,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PurchaseView">
             <connections>
                 <outlet property="backButton" destination="22" id="31"/>
+                <outlet property="backgroundView" destination="76" id="hgV-LR-jYa"/>
                 <outlet property="buyAllButton" destination="217" id="303"/>
+                <outlet property="buyOneSetofLevelesButton" destination="EK8-xH-Sp5" id="swp-UU-QiV"/>
                 <outlet property="promoCodeLabel" destination="295" id="304"/>
                 <outlet property="promoCodeStatus" destination="307" id="308"/>
                 <outlet property="promoCodeText" destination="287" id="305"/>
@@ -88,7 +90,7 @@
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
-                                <action selector="buyAllLevels" destination="-1" eventType="touchDown" id="OJR-SQ-Vns"/>
+                                <action selector="buyOneSetOfLevels" destination="-1" eventType="touchDown" id="dzd-10-mo6"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="clip" id="283" userLabel="RestorePurchaseButton">

@@ -61,7 +61,7 @@
     if (![fm fileExistsAtPath: destPath isDirectory: &isDir]) {
     
         // Start Download
-        //NSLog(@"full path: %@", fullUrl);
+        NSLog(@"Request download full path: %@", fullUrl);
         NSURL *url = [NSURL URLWithString: fullUrl];
         //NSLog(@"URL: %@, DestPath: %@", url, destPath);
         AFHTTPRequestOperation* operation = [AFProxy prepareDownload: url destination: destPath delegate:self];
@@ -85,7 +85,7 @@
 
 // Response to Download Word
 + (void) connectionFinishSuccesfully: (NSDictionary*) response {
-    //NSLog(@"Word Downloaded");
+    NSLog(@"Word Downloaded");
     singletonVocabulary.qWordsLoaded++;
     [self refreshProgress];
 }
@@ -197,12 +197,15 @@
 - (void) addTranslation: (NSString*) translation forKey: (NSString*) key {
     [[self allTranslatedNames] setValue: translation forKey: key];
     if (![allTranslatedNames writeToFile: [self pathToSaveTranslations] atomically: YES])
-        NSLog(@"Failed faving File: %@", name);
+        NSLog(@"Failed saving File: %@, path: %@", name, [self pathToSaveTranslations]);
 }
 
 - (NSString*) pathToSaveTranslations {
-    return [[NSString alloc] initWithFormat:@"%@/%@",
-            [[NSBundle mainBundle] resourcePath], name];
+  
+    NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    return [NSString stringWithFormat: @"%@/%@", [path objectAtIndex: 0], name];
+//    return [[NSString alloc] initWithFormat:@"%@/%@/%@",
+//            [[NSBundle mainBundle] resourcePath], @"Dict", name];
 }
 
 - (NSMutableDictionary*) allTranslatedNames {

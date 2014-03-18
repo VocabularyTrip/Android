@@ -11,7 +11,7 @@
 
 @implementation MapView
 
-@synthesize  mapScrollView;
+@synthesize mapScrollView;
 @synthesize helpButton;
 @synthesize playCurrentLevelButton;
 @synthesize flagFirstShowInSession;
@@ -103,8 +103,9 @@
 
 - (IBAction) playCurrentLevel:(id)sender {
     GameSequence *s = [GameSequenceManager getCurrentGameSequence];
-    if ([s.gameType isEqualToString: @"Challenge"]) [self playChallengeTrain];
-    if ([s.gameType isEqualToString: @"Training"]) [self playTrainingTrain];
+    if ([s gameTypeIsChallenge]) [self playChallengeTrain];
+    if ([s gameTypeIsTraining]) [self playTrainingTrain];
+    if ([s gameTypeIsMemory]) [self playMemoryTrain];
 }
 
 - (void) playChallengeTrain {
@@ -119,6 +120,13 @@
 	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
 	Sentence.delegate = vcDelegate.trainingTrain;
 	[vcDelegate pushTrainingTrain];
+}
+
+- (void) playMemoryTrain {
+	//[self stopBackgroundSound];
+	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
+	Sentence.delegate = vcDelegate.memoryTrain;
+	[vcDelegate pushMemoryTrain];
 }
 
 - (IBAction)changeUserShowInfo:(id)sender {
