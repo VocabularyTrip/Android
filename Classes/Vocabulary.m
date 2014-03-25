@@ -48,7 +48,6 @@ Vocabulary *singletonVocabulary;
     
     [operation start];
     
-
 }
 
 + (void) setProgress: (float) progress {

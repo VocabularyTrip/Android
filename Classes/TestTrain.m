@@ -154,8 +154,8 @@
 }
 
 - (void) evaluateGetIntoNextLevel {
-	// The limit of the game. There are no more levels over cLimitLevelGold	
-	if ([UserContext getLevelNumber] >= cLimitLevelGold) {
+	// The limit of the game. There are no more levels over cLimitLevel
+	if ([UserContext getLevelNumber] >= cLimitLevel) {
 		[self takeOutTrain];
 		return; 
 	}

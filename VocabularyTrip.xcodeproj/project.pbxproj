@@ -871,6 +871,7 @@
 		B0C4993D16EBBCC400971770 /* progress_empty@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B0C4993716EBBCC400971770 /* progress_empty@2x.png */; };
 		B0C4993E16EBBCC400971770 /* progress_fill.png in Resources */ = {isa = PBXBuildFile; fileRef = B0C4993816EBBCC400971770 /* progress_fill.png */; };
 		B0C4993F16EBBCC400971770 /* progress_fill@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B0C4993916EBBCC400971770 /* progress_fill@2x.png */; };
+		B0C6E19118D8155C00A2801E /* SimonTrain.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C6E19018D8155C00A2801E /* SimonTrain.m */; };
 		B0CCF04118C73BE4008F5A11 /* Dictionary.xml in Resources */ = {isa = PBXBuildFile; fileRef = B0CCF04018C73BE4008F5A11 /* Dictionary.xml */; };
 		B0CCF04418C77917008F5A11 /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = B0CCF04218C77917008F5A11 /* map.png */; };
 		B0CCF04518C77917008F5A11 /* trainPath.png in Resources */ = {isa = PBXBuildFile; fileRef = B0CCF04318C77917008F5A11 /* trainPath.png */; };
@@ -898,7 +899,6 @@
 		CE5BA78D1489768E000A63F2 /* AudioPlayerProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5BA78C1489768E000A63F2 /* AudioPlayerProxy.m */; };
 		CE5C232D1609517D00CB7814 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CE5C232C1609517D00CB7814 /* libz.dylib */; };
 		CE5C23421609580600CB7814 /* libSystem.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CE5C23411609580600CB7814 /* libSystem.dylib */; settings = {ATTRIBUTES = (Weak, ); }; };
-		CE60F82C13B2D8C300D1AB1D /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = CE60F82A13B2D8C300D1AB1D /* MainMenu.m */; };
 		CE6F7A661422968B00F03599 /* UIButtonEmptyFigurine.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6F7A651422968B00F03599 /* UIButtonEmptyFigurine.m */; };
 		CE707C7B149BDB2100598B9A /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE707C7A149BDB2100598B9A /* MediaPlayer.framework */; };
 		CE71604C16D707D300517DFD /* lock.png in Resources */ = {isa = PBXBuildFile; fileRef = CE71604A16D707D300517DFD /* lock.png */; };
@@ -1123,7 +1123,6 @@
 		CE762B89160178DA0057479E /* AFOpenFlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE762B85160178DA0057479E /* AFOpenFlowView.m */; };
 		CE762B8A160178DA0057479E /* AFUIImageReflection.m in Sources */ = {isa = PBXBuildFile; fileRef = CE762B87160178DA0057479E /* AFUIImageReflection.m */; };
 		CE76A9F9149D742B00AE9AD9 /* sound-on@ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CE76A9F8149D742B00AE9AD9 /* sound-on@ipad.png */; };
-		CE77407A1465C1A900A4D2DA /* MainMenu~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE7740791465C1A900A4D2DA /* MainMenu~ipad.xib */; };
 		CE7740A21465D9A900A4D2DA /* GenericTrain~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE7740A11465D9A900A4D2DA /* GenericTrain~ipad.xib */; };
 		CE774D8415C4628600136BA9 /* PurchaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE774D8315C4628500136BA9 /* PurchaseManager.m */; };
 		CE774D8715C57EC000136BA9 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = CE774D8615C57EC000136BA9 /* User.m */; };
@@ -1174,7 +1173,6 @@
 		CE7C82B513CFD8B20086D5BB /* TestTrain.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7C82B313CFD8B20086D5BB /* TestTrain.m */; };
 		CE7DEE2A1603D8D200CD0088 /* ChangeLangView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE7DEE291603D8D200CD0088 /* ChangeLangView.xib */; };
 		CE7E9016141FA616000BB719 /* Album.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7E9015141FA616000BB719 /* Album.m */; };
-		CE7EB2151603C40C006E4296 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE7EB2141603C40C006E4296 /* MainMenu.xib */; };
 		CE7EB82B13D0EEDA00F8D74F /* UIWheelView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7EB82A13D0EEDA00F8D74F /* UIWheelView.m */; };
 		CE7EB98713D31EA900F8D74F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7EB98613D31EA900F8D74F /* AudioToolbox.framework */; };
 		CE7FB314141E65D0008C0456 /* Figurine.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7FB313141E65D0008C0456 /* Figurine.m */; };
@@ -2144,6 +2142,8 @@
 		B0C4993716EBBCC400971770 /* progress_empty@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "progress_empty@2x.png"; sourceTree = "<group>"; };
 		B0C4993816EBBCC400971770 /* progress_fill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = progress_fill.png; sourceTree = "<group>"; };
 		B0C4993916EBBCC400971770 /* progress_fill@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "progress_fill@2x.png"; sourceTree = "<group>"; };
+		B0C6E18F18D8155C00A2801E /* SimonTrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimonTrain.h; sourceTree = "<group>"; };
+		B0C6E19018D8155C00A2801E /* SimonTrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimonTrain.m; sourceTree = "<group>"; };
 		B0CCF04018C73BE4008F5A11 /* Dictionary.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Dictionary.xml; sourceTree = "<group>"; };
 		B0CCF04218C77917008F5A11 /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map.png; sourceTree = "<group>"; };
 		B0CCF04318C77917008F5A11 /* trainPath.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trainPath.png; sourceTree = "<group>"; };
@@ -2175,8 +2175,6 @@
 		CE5C232C1609517D00CB7814 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		CE5C232E1609518800CB7814 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		CE5C23411609580600CB7814 /* libSystem.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libSystem.dylib; path = usr/lib/libSystem.dylib; sourceTree = SDKROOT; };
-		CE60F82913B2D8C300D1AB1D /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
-		CE60F82A13B2D8C300D1AB1D /* MainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
 		CE6F7A641422968B00F03599 /* UIButtonEmptyFigurine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIButtonEmptyFigurine.h; sourceTree = "<group>"; };
 		CE6F7A651422968B00F03599 /* UIButtonEmptyFigurine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIButtonEmptyFigurine.m; sourceTree = "<group>"; };
 		CE707C7A149BDB2100598B9A /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
@@ -2415,7 +2413,6 @@
 		CE762B87160178DA0057479E /* AFUIImageReflection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFUIImageReflection.m; sourceTree = "<group>"; };
 		CE76804E143CF1D700AA53A1 /* AlbumMonsters.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = AlbumMonsters.xml; sourceTree = "<group>"; };
 		CE76A9F8149D742B00AE9AD9 /* sound-on@ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sound-on@ipad.png"; sourceTree = "<group>"; };
-		CE7740791465C1A900A4D2DA /* MainMenu~ipad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "MainMenu~ipad.xib"; sourceTree = "<group>"; };
 		CE7740A11465D9A900A4D2DA /* GenericTrain~ipad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "GenericTrain~ipad.xib"; sourceTree = "<group>"; };
 		CE774D8215C4628500136BA9 /* PurchaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PurchaseManager.h; sourceTree = "<group>"; };
 		CE774D8315C4628500136BA9 /* PurchaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PurchaseManager.m; sourceTree = "<group>"; };
@@ -2475,7 +2472,6 @@
 		CE7DEE291603D8D200CD0088 /* ChangeLangView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangeLangView.xib; sourceTree = "<group>"; };
 		CE7E9014141FA616000BB719 /* Album.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Album.h; sourceTree = "<group>"; };
 		CE7E9015141FA616000BB719 /* Album.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Album.m; sourceTree = "<group>"; };
-		CE7EB2141603C40C006E4296 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		CE7EB82913D0EEDA00F8D74F /* UIWheelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIWheelView.h; sourceTree = "<group>"; };
 		CE7EB82A13D0EEDA00F8D74F /* UIWheelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIWheelView.m; sourceTree = "<group>"; };
 		CE7EB98613D31EA900F8D74F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -2920,10 +2916,6 @@
 				CE7C404916DFE7EA002DA556 /* PurchaseView.m */,
 				CE7C404A16DFE7EA002DA556 /* PurchaseView~ipad.xib */,
 				CE7C404B16DFE7EA002DA556 /* PurchaseView.xib */,
-				CE60F82913B2D8C300D1AB1D /* MainMenu.h */,
-				CE60F82A13B2D8C300D1AB1D /* MainMenu.m */,
-				CE7EB2141603C40C006E4296 /* MainMenu.xib */,
-				CE7740791465C1A900A4D2DA /* MainMenu~ipad.xib */,
 				CE77DD4F14589E8000FBDFC9 /* ToolbarController.h */,
 				CE77DD5014589E8000FBDFC9 /* ToolbarController.m */,
 			);
@@ -4074,6 +4066,8 @@
 				CE7C82B313CFD8B20086D5BB /* TestTrain.m */,
 				B049C86018D75A7900D53E4D /* MemoryTrain.h */,
 				B049C86118D75A7900D53E4D /* MemoryTrain.m */,
+				B0C6E18F18D8155C00A2801E /* SimonTrain.h */,
+				B0C6E19018D8155C00A2801E /* SimonTrain.m */,
 				CE72C75613DFA5BD0001F7AF /* TrainingTrain.h */,
 				CE72C75713DFA5BD0001F7AF /* TrainingTrain.m */,
 				B0A8B752187AD62C00245F48 /* GameStartView.xib */,
@@ -4390,7 +4384,6 @@
 				B0A8B537187664A300245F48 /* avatar1_arm1.png in Resources */,
 				B0A8B4BD1872CC4F00245F48 /* wallet.png in Resources */,
 				CE7A8AD9143511250043479A /* keepTrying.mp3 in Resources */,
-				CE77407A1465C1A900A4D2DA /* MainMenu~ipad.xib in Resources */,
 				CE7740A21465D9A900A4D2DA /* GenericTrain~ipad.xib in Resources */,
 				CECA9263146B151F00E0B741 /* AlbumView~ipad.xib in Resources */,
 				B09D362418AFC0CD00D21B9D /* forward.png in Resources */,
@@ -5114,7 +5107,6 @@
 				CE946A6115BDDC4800A5A069 /* Chinese in Resources */,
 				B0A8B4C51872CC4F00245F48 /* wind.png in Resources */,
 				CE774D8C15C63B2500136BA9 /* Users.xml in Resources */,
-				CE7EB2151603C40C006E4296 /* MainMenu.xib in Resources */,
 				B0A8B4B31872CC4F00245F48 /* tractor.png in Resources */,
 				B0A8B55F187664A300245F48 /* avatar4_arm2.png in Resources */,
 				CE7DEE2A1603D8D200CD0088 /* ChangeLangView.xib in Resources */,
@@ -5514,7 +5506,6 @@
 				CE7C404C16DFE7EA002DA556 /* PurchaseView.m in Sources */,
 				1D3623260D0F684500981E51 /* VocabularyTrip2AppDelegate.m in Sources */,
 				B0B0F41918878702007C1667 /* MapScrollView.m in Sources */,
-				CE60F82C13B2D8C300D1AB1D /* MainMenu.m in Sources */,
 				CE34E5F913B82FBD007147DA /* GenericTrain.m in Sources */,
 				CEC2351213BD66E600C179EB /* Vocabulary.m in Sources */,
 				CE725EC713C69334000DC882 /* Word.m in Sources */,
@@ -5556,6 +5547,7 @@
 				CE9BDED015A291E5005C14B9 /* NSObject+SBJson.m in Sources */,
 				CEEF06FB15A3EFC7006FE284 /* ChangeLangView.m in Sources */,
 				CE8071B415AD0F6900509D30 /* Language.m in Sources */,
+				B0C6E19118D8155C00A2801E /* SimonTrain.m in Sources */,
 				CE78F3FE15C30C770031EAA7 /* TraceWS.m in Sources */,
 				CE774D8415C4628600136BA9 /* PurchaseManager.m in Sources */,
 				B094FBBE18D356A20053EEBE /* SetGameModeView.m in Sources */,

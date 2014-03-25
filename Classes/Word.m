@@ -134,10 +134,14 @@
 	sound = nil;
 }
 
--(bool) playSound {
-	self.sound.delegate = self;
+-(bool) playSoundWithDelegate: (id) delegate {
+	self.sound.delegate = delegate;
 	[sound play];
     return (sound != nil);
+}
+
+-(bool) playSound {
+    return [self playSoundWithDelegate: self];
 }
 
 - (void) audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {

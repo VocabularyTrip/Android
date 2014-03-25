@@ -1,9 +1,13 @@
 <?xml version="1.0"?>
 
 <list>
-    <gameSequence gameType="Memory" cumulative="Yes" includeImages="Yes" includeWords="No" readAbility="No"/>
-    <gameSequence gameType="Training"  cumulative="No" includeImages="Yes" includeWords="No" readAbility="No"/>
-    <gameSequence gameType="Challenge" cumulative="No" includeImages="Yes" includeWords="No" readAbility="No"/>
-    <gameSequence gameType="Challenge" cumulative="Yes" includeImages="Yes" includeWords="No" readAbility="No"/>
-	<gameSequence gameType="Training"  cumulative="No" includeImages="No" includeWords="Yes" readAbility="Yes"/>
+    <gameSequence gameName="Simon" gameType = "Training" cumulative="Yes" includeImages="Yes" includeWords="No" readAbility="No"/>
+    <gameSequence gameName="Memory" gameType="Challenge" cumulative="Yes" includeImages="Yes" includeWords="No" readAbility="No"/>
 </list>
+
+<!--
+<gameSequence gameName="Training" gameType = "Training" cumulative="No" includeImages="Yes" includeWords="No" readAbility="No"/>
+<gameSequence gameName="Challenge"  gameType="Challenge" cumulative="No" includeImages="Yes" includeWords="No" readAbility="No"/>
+<gameSequence gameName="Challenge" gameType="Challenge" cumulative="Yes" includeImages="Yes" includeWords="No" readAbility="No"/>
+<gameSequence gameName="Training" gameType = "Training" cumulative="No" includeImages="No" includeWords="Yes" readAbility="Yes"/>
+-->

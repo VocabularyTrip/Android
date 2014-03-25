@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5053" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1280" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SetGameModeView">
@@ -12,6 +12,8 @@
                 <outlet property="hand" destination="69" id="70"/>
                 <outlet property="helpButton" destination="71" id="72"/>
                 <outlet property="nextButton" destination="51" id="74"/>
+                <outlet property="noReadAbilityButton" destination="boF-OC-Sig" id="rd5-et-erm"/>
+                <outlet property="readAbilityButton" destination="Hrj-hv-4nc" id="sLJ-Sq-lZi"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -92,6 +94,34 @@
                     <rect key="frame" x="10" y="48" width="92" height="108"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
+                <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="Hrj-hv-4nc" userLabel="ReadAbilityButton">
+                    <rect key="frame" x="575" y="194" width="402" height="429"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" backgroundImage="animal01.png">
+                        <attributedString key="attributedTitle">
+                            <fragment content="Read ability. Recommended for children over 8 years old">
+                                <attributes>
+                                    <font key="NSFont" size="15" name="MarkerFelt-Thin"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="3"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                    </state>
+                    <connections>
+                        <action selector="readAbilityClicked" destination="-1" eventType="touchDown" id="geX-e5-zqY"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="boF-OC-Sig" userLabel="NoReadAbilityButton">
+                    <rect key="frame" x="108" y="194" width="402" height="429"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="30"/>
+                    <state key="normal" title="No read ability. Recommended for children under 8 years" backgroundImage="animal10.png">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="noReadAbilityClicked" destination="-1" eventType="touchDown" id="fRs-0L-TBx"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -99,6 +129,8 @@
     </objects>
     <resources>
         <image name="Menu1@ipad.png" width="209" height="80"/>
+        <image name="animal01.png" width="500" height="533"/>
+        <image name="animal10.png" width="598" height="500"/>
         <image name="background_wizard@ipad.png" width="1024" height="683"/>
         <image name="clicking.png" width="139" height="147"/>
         <image name="help@ipad.png" width="97" height="97"/>

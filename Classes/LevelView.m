@@ -180,7 +180,7 @@
 
 -(void) helpLevel {
     // the user reach the last level
-	if ([UserContext getLevelNumber] >= cLimitLevelGold) return;
+	if ([UserContext getLevelNumber] >= cLimitLevel) return;
     
 	if ([UserContext getLevelNumber] >= (level.levelNumber + 1))
 		[Sentence playSpeaker: @"LevelView-DidSelectRow-LearnThisLevel"];

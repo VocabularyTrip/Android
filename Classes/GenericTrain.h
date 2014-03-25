@@ -32,7 +32,7 @@
 
 #define cLandscapeOffset -2059
 #define cLandscapeOffsetIpad -4813
-#define cHitsPerGame 7
+#define cHitsPerGame 9
 
 @protocol GenericTrainDelegate;
 

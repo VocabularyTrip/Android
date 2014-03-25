@@ -74,7 +74,7 @@
     
 }
 
-+ (void)shakeView:(UIView*)itemView {
++ (void) shakeView: (UIView*) itemView delegate: (id) delegate {
     //AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
     
     CGFloat t = 3.0;
@@ -88,12 +88,25 @@
     [UIView setAnimationRepeatAutoreverses:YES];
     [UIView setAnimationRepeatCount:3];
     [UIView setAnimationDuration:0.06];
-    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDelegate: delegate];
     [UIView setAnimationDidStopSelector:@selector(shakeViewEnded:finished:context:)];
     
     itemView.transform = rightQuake; // end here & auto-reverse
     
     [UIView commitAnimations];
+}
+
++ (void)shakeView:(UIView*)itemView {
+    [self shakeView: itemView delegate: self];
+}
+
++ (void)shakeViewEnded:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context
+{
+    if ([finished boolValue])
+    {
+        UIView* item = (__bridge UIView *)context;
+        item.transform = CGAffineTransformIdentity;
+    }
 }
 
 + (void) scale: (UIView*) itemView from: (CGPoint) p1 to: (CGPoint) p2 {
@@ -116,13 +129,14 @@
     [UIView commitAnimations];
 }
 
-+ (void)shakeViewEnded:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context
-{
-    if ([finished boolValue])
-    {
-        UIView* item = (__bridge UIView *)context;
-        item.transform = CGAffineTransformIdentity;
-    }
++ (void) rotateView: (UIView*) itemView {
+
+    [UIView beginAnimations:@"rotate" context: (__bridge void *)(itemView)];
+    [UIView setAnimationDuration: 1];
+    itemView.layer.transform =
+        CATransform3DScale(CATransform3DMakeRotation(M_PI, 0, 0, 1), -1, 1, 1);
+    
+    [UIView commitAnimations];
 }
 
 @end

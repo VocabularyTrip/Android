@@ -17,6 +17,7 @@
 @synthesize flagFirstShowInSession;
 @synthesize configButton;
 @synthesize langButton;
+@synthesize backgroundSound;
 
 - (void) viewDidLoad {
     [self initializeGame];
@@ -44,24 +45,66 @@
     
     // First execution jump to wizard to select user and lang
     UserContext *aUserC = [UserContext getSingleton];
-    if (!aUserC.userSelected)
+    if (!aUserC.userSelected) {
         [self changeUserShowInfo: nil];
-    
+        return;
+    }
+
     [configView close];
     
     Language* l = [UserContext getLanguageSelected];
     [langButton setImage: l.image forState: UIControlStateNormal];
     
-    // playCurrentLevelButton in the correct level
-    Level *level = [UserContext getLevel];
-    playCurrentLevelButton.center = [level placeinMap];
-    [self.view bringSubviewToFront: playCurrentLevelButton];
-
     // First move map to the end. viewDidAppear implement showAllMapInFirstSession
-    if (flagFirstShowInSession)
+    if (flagFirstShowInSession) {
+        [self.backgroundSound play]; // If soundEnabled is false the volumne is 0. This play prepare buffer and resourses to prevent delay in first word
         [mapScrollView setContentOffset: CGPointMake(
             [ImageManager getMapViewSize].width - [ImageManager windowWidth], 0) animated: NO];
+
+        Level *level = [UserContext getLevel];
+        playCurrentLevelButton.center = [level placeinMap];
+        [self.view bringSubviewToFront: playCurrentLevelButton];
+        currentLevelNumber = level.levelNumber;
+    }
+    [self initializeTimeoutToPlayBackgroundSound];
+}
+
+- (AVAudioPlayer*) backgroundSound {
+	if (backgroundSound == nil) {
+		backgroundSound = [Sentence getAudioPlayer: @"keepTrying"];
+		backgroundSound.numberOfLoops = -1;
+		//[backgroundSound autorelease];
+	}
+    backgroundSound.volume = UserContext.soundEnabled == YES ? 1 : 0;
+	return backgroundSound;
+}
+
+-(void) stopBackgroundSound {
+	if (backgroundSound) {
+		[backgroundSound stop];
+		backgroundSound = nil;
+	}
     
+    [timerToPlayBackgroundSound invalidate];
+    timerToPlayBackgroundSound = nil;
+}
+
+- (void) initializeTimeoutToPlayBackgroundSound {
+	if (timerToPlayBackgroundSound == nil) {
+		timerToPlayBackgroundSound = [CADisplayLink displayLinkWithTarget:self selector:@selector(startPlayBackgroundSound)];
+		timerToPlayBackgroundSound.frameInterval = 800;
+		[timerToPlayBackgroundSound addToRunLoop: [NSRunLoop currentRunLoop] forMode: NSDefaultRunLoopMode];
+	}
+}
+
+- (void) startPlayBackgroundSound {
+// No funciona porque el timer llama a la funcion ni bien se la crea y no luego de los 8 segundos
+//    Hay que crear un flag para que ignore la primera ejecucion o hacer que el timer funcione bien.
+    
+    /*if (flagFirstShowInSession)
+        flagFirstShowInSession = NO;
+    else
+        [self.backgroundSound play];*/
 }
 
 - (void) viewDidAppear:(BOOL)animated {
@@ -69,20 +112,34 @@
 
     if (flagFirstShowInSession && aUserC.userSelected)
        [self showAllMapInFirstSession];
-
     
     if ([UserContext getHelpLevel] || startWithHelpPurchase) [self helpAnimation1];
     if (startWithHelpPurchase && ![Vocabulary isDownloadCompleted]) [self startLoading];
     if (startWithHelpDownload) [self helpDownload1];
     startWithHelpDownload = 0;
     startWithHelpPurchase = 0;
+ 
+    if ([UserContext getLevel].levelNumber != currentLevelNumber) {
+        // Move the train from the previous level to the next level
+        Level *level = [UserContext getLevel];
+        
+        [UIView beginAnimations: @"Move User" context: nil];
+        [UIView setAnimationDuration: 1];
+        [UIView setAnimationDelegate: self];
+        [UIView setAnimationCurve: UIViewAnimationCurveEaseInOut];
+        
+        playCurrentLevelButton.center = [level placeinMap];
+        [self.view bringSubviewToFront: playCurrentLevelButton];
+ 
+        [UIView commitAnimations];
+    }
     
 }
 
 - (void) showAllMapInFirstSession {
     Level *level = [UserContext getLevel];
     
-    flagFirstShowInSession = NO;
+    //flagFirstShowInSession = NO;
     
 //    [mapScrollView setContentOffset: CGPointMake(
 //        [ImageManager getMapViewSize].width - [ImageManager windowWidth], 0) animated: NO];
@@ -103,40 +160,48 @@
 
 - (IBAction) playCurrentLevel:(id)sender {
     GameSequence *s = [GameSequenceManager getCurrentGameSequence];
-    if ([s gameTypeIsChallenge]) [self playChallengeTrain];
-    if ([s gameTypeIsTraining]) [self playTrainingTrain];
-    if ([s gameTypeIsMemory]) [self playMemoryTrain];
+    if ([s gameIsChallenge]) [self playChallengeTrain];
+    if ([s gameIsTraining]) [self playTrainingTrain];
+    if ([s gameIsMemory]) [self playMemoryTrain];
+    if ([s gameIsSimon]) [self playSimonTrain];
 }
 
 - (void) playChallengeTrain {
-	//[self stopBackgroundSound];
+	[self stopBackgroundSound];
 	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
 	Sentence.delegate = vcDelegate.testTrain;
 	[vcDelegate pushTestTrain];
 }
 
 - (void) playTrainingTrain {
-	//[self stopBackgroundSound];
+	[self stopBackgroundSound];
 	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
 	Sentence.delegate = vcDelegate.trainingTrain;
 	[vcDelegate pushTrainingTrain];
 }
 
 - (void) playMemoryTrain {
-	//[self stopBackgroundSound];
+	[self stopBackgroundSound];
 	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
 	Sentence.delegate = vcDelegate.memoryTrain;
 	[vcDelegate pushMemoryTrain];
 }
 
+- (void) playSimonTrain {
+	[self stopBackgroundSound];
+	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
+	Sentence.delegate = vcDelegate.simonTrain;
+	[vcDelegate pushSimonTrain];
+}
+
 - (IBAction)changeUserShowInfo:(id)sender {
-	//[self stopBackgroundSound];
+	[self stopBackgroundSound];
 	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
 	[vcDelegate pushChangeUserView];
 }
 
 - (IBAction) changeLang:(id)sender {
-	//[self stopBackgroundSound];
+	[self stopBackgroundSound];
 	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
 	[vcDelegate pushChangeLangView];
 }
@@ -145,7 +210,6 @@
 
 - (void) mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error {
     
-    //[self.backgroundSound play];
     [self dismissModalViewControllerAnimated:YES];
 	if (result==MFMailComposeResultFailed) {
 		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message Failed"
@@ -158,7 +222,7 @@
 }
 
 - (IBAction) albumShowInfo:(id)sender {
-	//[self stopBackgroundSound];
+	[self stopBackgroundSound];
 	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
 	[vcDelegate pushAlbumMenu];
 }

@@ -17,6 +17,7 @@
 @synthesize trainingTrain;
 @synthesize testTrain;
 @synthesize memoryTrain;
+@synthesize simonTrain;
 @synthesize changeLangView;
 @synthesize changeUserView;
 @synthesize lockLanguageView;
@@ -305,6 +306,17 @@
 	return memoryTrain;
 }
 
+-(SimonTrain*) simonTrain {
+	if (simonTrain == nil) {
+		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+			simonTrain = [[SimonTrain alloc] initWithNibName:@"GenericTrain~ipad" bundle:nil];
+		else
+			simonTrain = [[SimonTrain alloc] initWithNibName:@"GenericTrain" bundle:nil];
+	}
+	return simonTrain;
+}
+
+
 -(TrainingTrain*) trainingTrain {
 	if (trainingTrain == nil) {
 		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)		
@@ -368,6 +380,10 @@
 	[navController pushViewController: self.memoryTrain animated: NO];
 }
 
+- (void) pushSimonTrain {
+	[navController pushViewController: self.simonTrain animated: NO];
+}
+
 - (void) pushTrainingTrain {
 	[navController pushViewController: self.trainingTrain animated: NO];
 }
@@ -425,6 +441,12 @@
 	[self popMainMenu];
 	Sentence.delegate = nil;
 	memoryTrain = nil;
+}
+
+- (void) popMainMenuFromSimonTrain {
+	[self popMainMenu];
+	Sentence.delegate = nil;
+	simonTrain = nil;
 }
 
 - (void) popMainMenuFromTrainingTrain {

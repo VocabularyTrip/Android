@@ -35,20 +35,23 @@
 
 - (void) show {
     
-    gameTypelabel.text = [GameSequenceManager getCurrentGameSequence].gameType;
+    gameTypelabel.text = [GameSequenceManager getCurrentGameSequence].gameName;
     
-    if ([GameSequenceManager getCurrentGameSequence].cumulative) {
+    if ([GameSequenceManager getCurrentGameSequence].cumulative && [UserContext getLevelNumber] > 1) {
         cumulativeLabel.text = @"Cumulative";
         Word* aWord = [Vocabulary getRandomWordFromLevel: [UserContext getLevelNumber]];
         [ImageManager fitImage: aWord.image inButton: wordButton1];
-        aWord = [Vocabulary getRandomWordFromLevel: [UserContext getLevelNumber]-1];
+        aWord = [Vocabulary getRandomWordFromLevel: [UserContext getLevelNumber] - 1];
         [ImageManager fitImage: aWord.image inButton: wordButton2];
     } else {
         cumulativeLabel.text = @"Current Level";
-        Word* aWord = [Vocabulary getRandomWordFromLevel: [UserContext getLevelNumber]];
-        [ImageManager fitImage: aWord.image inButton: wordButton1];
-        aWord = [Vocabulary getRandomWordFromLevel: [UserContext getLevelNumber]];
-        [ImageManager fitImage: aWord.image inButton: wordButton2];
+        Word* aWord1 = [Vocabulary getRandomWordFromLevel: [UserContext getLevelNumber]];
+        [ImageManager fitImage: aWord1.image inButton: wordButton1];
+        Word* aWord2 = [Vocabulary getRandomWordFromLevel: [UserContext getLevelNumber]];
+        while ([aWord1.name isEqualToString:aWord2.name]) {
+            aWord2 = [Vocabulary getRandomWordFromLevel: [UserContext getLevelNumber]];
+        }
+        [ImageManager fitImage: aWord2.image inButton: wordButton2];
         
     }
 

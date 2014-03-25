@@ -7,6 +7,7 @@
 //
 
 #import "PromoCode.h"
+#import "VocabularyTrip2AppDelegate.h"
 
 PromoCode *promoCodeSingleton;
 
@@ -273,6 +274,11 @@ PromoCode *promoCodeSingleton;
             [pref removeObjectForKey: cPromoCodeExpireDate];
             [pref synchronize];
             message = cPromoCodeStatusFinished;
+            
+            VocabularyTrip2AppDelegate *vcDelegate;
+            vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
+            [vcDelegate pushPurchaseView];
+            
         } else {
             NSDate *today = [self dateOnly: [NSDate date]];
             int days = [date timeIntervalSinceDate: today] / 86400;
@@ -281,13 +287,13 @@ PromoCode *promoCodeSingleton;
         }
         [pref setObject: message forKey: cPromoCodeStatus];
         
-        UIAlertView *alert = [[UIAlertView alloc]
+        /*UIAlertView *alert = [[UIAlertView alloc]
                               initWithTitle: cNotifyToPromoCodeLimited
                               message: message
                               delegate: self
                               cancelButtonTitle: @"OK"
                               otherButtonTitles: nil];
-        [alert show];
+        [alert show];*/
     }
 }
 

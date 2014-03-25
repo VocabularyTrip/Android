@@ -699,6 +699,10 @@
 }
 
 - (void) trainLoop {
+	[self moveWagon];
+}
+
+- (void) moveWagon {
 	[wheel1 wheelLoop];
 	[wheel2 wheelLoop];
 	[wheel3 wheelLoop];
@@ -709,10 +713,6 @@
 	[wheel8 wheelLoop];
 	[wheel9 wheelLoop];
     
-	[self moveWagon];
-}
-
-- (void) moveWagon {
 	int maxDeltaY = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 4 : 2;
 	int trainY = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 410 : 152;
 	int wheelY = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 680 : 285;

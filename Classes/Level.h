@@ -14,7 +14,7 @@
 // Repensar estas constantes - no aplican mas
 #define cLimitLevelBronze 3
 #define cLimitLevelSilver 6
-#define cLimitLevelGold 9
+#define cLimitLevel 46
 
 #define cLimitLevelStage1 9
 #define cLimitLevelStage2 18

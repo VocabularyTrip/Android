@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5053" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1280" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GameStartView">
@@ -158,7 +158,7 @@
         <image name="callout1.png" width="512" height="412"/>
         <image name="callout2.png" width="512" height="412"/>
         <image name="firefighter.png" width="348" height="450"/>
-        <image name="orange.png" width="198" height="222"/>
+        <image name="orange.png" width="400" height="449"/>
         <image name="progress_back.png" width="201" height="25"/>
         <image name="wagon.png" width="93" height="43"/>
         <image name="wheel1.png" width="31" height="31"/>

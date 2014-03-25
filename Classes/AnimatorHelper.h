@@ -12,8 +12,10 @@
 
 + (void) avatarBlink: (UIImageView*) avatar;
 + (void) shakeView: (UIView*)itemView;
++ (void) shakeView: (UIView*) itemView delegate: (id) delegate;
 + (void) avatarGreet: (UIImageView*) avatarView;
 + (void) avatarOk: (UIImageView*) avatarView;
 + (void) scale: (UIView*) itemView from: (CGPoint) p1 to: (CGPoint) p2;
++ (void) rotateView: (UIView*) itemView;
 
 @end

@@ -18,6 +18,7 @@
 #import "TestTrain.h"
 #import "TrainingTrain.h"
 #import "MemoryTrain.h"
+#import "SimonTrain.h"
 #import "PurchaseProtocol.h"
 #import "Language.h"
 #import "PromoCode.h"
@@ -35,6 +36,7 @@
 	TestTrain *testTrain;
 	TrainingTrain *trainingTrain;
 	MemoryTrain *memoryTrain;
+	SimonTrain *simonTrain;
 	ChangeLangView *changeLangView;
 	ChangeUserView *changeUserView;    
     LockLanguageView *lockLanguageView;
@@ -54,6 +56,7 @@
 @property (nonatomic) TrainingTrain *trainingTrain;
 @property (nonatomic) TestTrain *testTrain;
 @property (nonatomic) MemoryTrain *memoryTrain;
+@property (nonatomic) SimonTrain *simonTrain;
 @property (nonatomic) ChangeLangView *changeLangView;
 @property (nonatomic) ChangeUserView *changeUserView;
 @property (nonatomic) LockLanguageView *lockLanguageView;
@@ -80,6 +83,7 @@
 - (void) pushPurchaseView;
 - (void) pushTestTrain;
 - (void) pushMemoryTrain;
+- (void) pushSimonTrain;
 - (void) pushAlbumView;
 - (void) pushTrainingTrain;
 - (void) popMainMenuFromLevel;
@@ -87,6 +91,7 @@
 - (void) popMainMenuFromAlbum;
 - (void) popMainMenuFromTestTrain;
 - (void) popMainMenuFromMemoryTrain;
+- (void) popMainMenuFromSimonTrain;
 - (void) popMainMenuFromTrainingTrain;
 - (void) popFromLockLanguageView;
 - (void) popMainMenuFromChangeLang;

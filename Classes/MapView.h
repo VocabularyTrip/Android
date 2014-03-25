@@ -21,6 +21,9 @@
 #define cMailInfo @"info@vocabularyTrip.com"
 
 @interface MapView : GenericDownloadViewController <UIAlertViewDelegate, MFMailComposeViewControllerDelegate> {
+    
+    AVAudioPlayer* backgroundSound;
+    CADisplayLink *timerToPlayBackgroundSound;
   	MapScrollView *__unsafe_unretained mapScrollView;
     UIButton *__unsafe_unretained helpButton;
     UIButton *__unsafe_unretained playCurrentLevelButton;
@@ -28,12 +31,13 @@
     UIButton *__unsafe_unretained langButton;
     ConfigView *configView;
 
-
     bool flagFirstShowInSession;
     int startWithHelpPurchase, // when the View did show, the Purchase help is launched. When the user finish his purchase succesfully the user is redirected automatically to LevelView with purchase help
-    startWithHelpDownload; // when the View did show, the Download help is launched. When the user is playing and a sound is not loaded from server, the user is redirected automatically to LevelView with download help
+    startWithHelpDownload; // when the View did show, the Download help is launched. When the user is playiinng and a sound is not loaded from server, the user is redirected automatically to LevelView with download help
+    int currentLevelNumber; // Is used to compare if the user getLevel hasChanged --> do animation to advance to next level
 }
 
+@property (nonatomic, strong) AVAudioPlayer *backgroundSound;
 @property (nonatomic, unsafe_unretained) IBOutlet UIScrollView *mapScrollView;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *helpButton;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *playCurrentLevelButton;
@@ -53,9 +57,14 @@
 - (void) reloadAllLevels;
 - (void) initializeGame;
 - (void) initAudioSession;
+- (void) stopBackgroundSound;
+- (void) startPlayBackgroundSound;
 
 - (void) playChallengeTrain;
 - (void) playTrainingTrain;
+- (void) playMemoryTrain;
+- (void) playSimonTrain;
+
 - (void) showAllMapInFirstSession;
 - (void) helpAnimation1;
 - (void) helpDownload1;

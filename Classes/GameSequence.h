@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface GameSequence : NSObject {
+    NSString* gameName;
     NSString* gameType;
     bool includeWords;
     bool includeImages;
@@ -16,15 +17,17 @@
     bool cumulative;
 }
 
+@property (nonatomic, strong) NSString* gameName;
 @property (nonatomic, strong) NSString* gameType;
 @property (nonatomic) bool includeWords;
 @property (nonatomic) bool includeImages;
 @property (nonatomic) bool readAbility;
 @property (nonatomic) bool cumulative;
 
-- (bool) gameTypeIsTraining;
-- (bool) gameTypeIsChallenge;
-- (bool) gameTypeIsMemory;
+- (bool) gameIsTraining;
+- (bool) gameIsChallenge;
+- (bool) gameIsMemory;
+- (bool) gameIsSimon;
 
 @end
 

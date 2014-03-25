@@ -38,7 +38,8 @@ int qtyAllGameSequence, currentGameSequence = 0;
 	
    	if ([elementName isEqualToString:@"gameSequence"]) {
         GameSequence *gameSequence = [GameSequence alloc];
-        
+
+        gameSequence.gameName = [attributeDict objectForKey:@"gameName"];
         gameSequence.gameType = [attributeDict objectForKey:@"gameType"];
         gameSequence.includeWords = [[attributeDict objectForKey:@"includeWords"] boolValue];
         gameSequence.includeImages = [[attributeDict objectForKey:@"includeImages"] boolValue];
@@ -64,7 +65,6 @@ int qtyAllGameSequence, currentGameSequence = 0;
 + (void) nextSequence: (NSString*) gameType {
     currentGameSequence++;
     if (currentGameSequence >= qtyAllGameSequence) currentGameSequence = 0;
-    NSLog(@"%i", !gameType);
     while (
            // Skip games with readAbility and user selected noReadAbility
            ([self getCurrentGameSequence].readAbility

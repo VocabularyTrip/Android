@@ -10,6 +10,13 @@
 
 #import "TestTrain.h"
 
-@interface MemoryTrain : TestTrain
+@interface MemoryTrain : TestTrain {
+	CADisplayLink *theTimerToShowCard;
+    int i; // Is used as a flag. See
+    UIButton *wordButtonToHide;
+}
+
+- (void) hideImagesAndShowPokerCard;
+- (void) initializeTimer: (int) timer;
 
 @end
