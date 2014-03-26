@@ -33,6 +33,7 @@
 		899344AA17C064FC00197362 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8993449E17C064FC00197362 /* Icon.png */; };
 		899344AE17C064FC00197362 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 899344A217C064FC00197362 /* iTunesArtwork.png */; };
 		899344AF17C064FC00197362 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 899344A317C064FC00197362 /* iTunesArtwork@2x.png */; };
+		89A6DF6D18E27F6100B3B518 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89A6DF6C18E27F6100B3B518 /* FacebookSDK.framework */; };
 		89F82D7717C06BCD003C1DBB /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89F82D7617C06BCD003C1DBB /* Icon-Small@2x.png */; };
 		B012605518C4C4820033200C /* callout1.png in Resources */ = {isa = PBXBuildFile; fileRef = B012605318C4C4820033200C /* callout1.png */; };
 		B012605618C4C4820033200C /* callout2.png in Resources */ = {isa = PBXBuildFile; fileRef = B012605418C4C4820033200C /* callout2.png */; };
@@ -64,7 +65,6 @@
 		B0915DF016FB958D000F2C23 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = B0915DE416FB958D000F2C23 /* AFURLConnectionOperation.m */; };
 		B0915DF116FB958D000F2C23 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = B0915DE616FB958D000F2C23 /* AFXMLRequestOperation.m */; };
 		B0915DF216FB958D000F2C23 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = B0915DE816FB958D000F2C23 /* UIImageView+AFNetworking.m */; };
-		B091F271183B19AB0047E4AD /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B091F270183B19AB0047E4AD /* FacebookSDK.framework */; };
 		B091F275183C02500047E4AD /* FacebookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B091F274183C02500047E4AD /* FacebookManager.m */; };
 		B094FBBE18D356A20053EEBE /* SetGameModeView.m in Sources */ = {isa = PBXBuildFile; fileRef = B094FBBB18D356A20053EEBE /* SetGameModeView.m */; };
 		B094FBBF18D356A20053EEBE /* SetGameModeView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B094FBBC18D356A20053EEBE /* SetGameModeView~ipad.xib */; };
@@ -1275,6 +1275,7 @@
 		8993449E17C064FC00197362 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		899344A217C064FC00197362 /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
 		899344A317C064FC00197362 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
+		89A6DF6C18E27F6100B3B518 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		89F82D7617C06BCD003C1DBB /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Vocabulary Trip-Info.plist */ = {isa = PBXFileReference; explicitFileType = text.plist.xml; fileEncoding = 4; path = "Vocabulary Trip-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		B012605318C4C4820033200C /* callout1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = callout1.png; sourceTree = "<group>"; };
@@ -1324,7 +1325,6 @@
 		B0915DE716FB958D000F2C23 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		B0915DE816FB958D000F2C23 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		B0915DF316FB997A000F2C23 /* ConnectionProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionProtocol.h; sourceTree = "<group>"; };
-		B091F270183B19AB0047E4AD /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		B091F273183C02500047E4AD /* FacebookManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookManager.h; sourceTree = "<group>"; };
 		B091F274183C02500047E4AD /* FacebookManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookManager.m; sourceTree = "<group>"; };
 		B094FBBA18D356A20053EEBE /* SetGameModeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetGameModeView.h; sourceTree = "<group>"; };
@@ -2575,6 +2575,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89A6DF6D18E27F6100B3B518 /* FacebookSDK.framework in Frameworks */,
 				CE5C23421609580600CB7814 /* libSystem.dylib in Frameworks */,
 				CE5C232D1609517D00CB7814 /* libz.dylib in Frameworks */,
 				CEB32C0615A3EB79008AB0C9 /* SystemConfiguration.framework in Frameworks */,
@@ -2586,7 +2587,6 @@
 				CE34E61113BC013E007147DA /* QuartzCore.framework in Frameworks */,
 				CE7EB98713D31EA900F8D74F /* AudioToolbox.framework in Frameworks */,
 				CE76158813D6F226008FB39A /* AVFoundation.framework in Frameworks */,
-				B091F271183B19AB0047E4AD /* FacebookSDK.framework in Frameworks */,
 				CE792FF31401337100D1CEA2 /* MessageUI.framework in Frameworks */,
 				CE84D691140F1956009119FD /* StoreKit.framework in Frameworks */,
 				CE707C7B149BDB2100598B9A /* MediaPlayer.framework in Frameworks */,
@@ -2652,8 +2652,8 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				89A6DF6C18E27F6100B3B518 /* FacebookSDK.framework */,
 				CE5C232E1609518800CB7814 /* libz.dylib */,
-				B091F270183B19AB0047E4AD /* FacebookSDK.framework */,
 				CEB32C0515A3EB79008AB0C9 /* SystemConfiguration.framework */,
 				CEB32C0315A3EB55008AB0C9 /* MobileCoreServices.framework */,
 				CEB32C0115A3EB0B008AB0C9 /* CFNetwork.framework */,
@@ -5612,6 +5612,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/ariel/Documents/FacebookSDK,
+					"$(PROJECT_DIR)",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -5639,6 +5640,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/ariel/Documents/FacebookSDK,
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = VocabularyTrip_Prefix.pch;
@@ -5703,6 +5705,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/ariel/Documents/FacebookSDK,
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = VocabularyTrip_Prefix.pch;
