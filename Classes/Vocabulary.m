@@ -315,17 +315,17 @@ Vocabulary *singletonVocabulary;
 + (double) wasLearned {
 	int r = 0, total = 0;
 	Word *w;
-	//NSLog(@"******** Was Learned Started");
+	NSLog(@"******** Was Learned Started: %i", [UserContext getLevelNumber]);
 	
-	for (int i=0; i<[UserContext getLevelNumber]; i++) {
+	for (int i=0; i<=[UserContext getLevelNumber]; i++) {
 		for (w in [allWords objectAtIndex:i]) {
 			if (w.weight <= cLearnedWeight) r++; 
-			//NSLog(@"Word: %@ Weight: %i Retain: %i", w.name, w.weight, [w retainCount]);
+			NSLog(@"Word: %@ Weight: %i", w.name, w.weight);
 			total ++;
 		}
 	}
 	if (total == 0) return NO;
-	//NSLog(@"Words Learned: %@ Total: %@", [NSString stringWithFormat:@"%i", r], [NSString stringWithFormat:@"%i",total]);	
+	NSLog(@"Words Learned: %@ Total: %@", [NSString stringWithFormat:@"%i", r], [NSString stringWithFormat:@"%i",total]);
 	return ((double) r / (double) total);
 }
 
@@ -338,7 +338,7 @@ Vocabulary *singletonVocabulary;
 		total ++;
 	}
 	if (total == 0) return NO;
-	//NSLog(@"Words Learned: %@ Total: %@", [NSString stringWithFormat:@"%i", r], [NSString stringWithFormat:@"%i",total]);
+	NSLog(@"Individual Words Learned: %@ Total: %@", [NSString stringWithFormat:@"%i", r], [NSString stringWithFormat:@"%i",total]);
     double progress = ((double) r / (double) total);
     progress = progress >= cPercentageLearnd ? 1 : progress / cPercentageLearnd;
 	return progress;

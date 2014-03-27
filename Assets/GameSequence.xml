@@ -1,13 +1,15 @@
 <?xml version="1.0"?>
 
 <list>
-    <gameSequence gameName="Simon" gameType = "Training" cumulative="Yes" includeImages="Yes" includeWords="No" readAbility="No"/>
-    <gameSequence gameName="Memory" gameType="Challenge" cumulative="Yes" includeImages="Yes" includeWords="No" readAbility="No"/>
+    <gameSequence gameName="Training" gameType = "Training" cumulative="No" includeImages="Yes" includeWords="No" readAbility="No"/>
+    <gameSequence gameName="Challenge"  gameType="Challenge" cumulative="No" includeImages="Yes" includeWords="No" readAbility="No"/>
+    <gameSequence gameName="Challenge" gameType="Challenge" cumulative="Yes" includeImages="Yes" includeWords="No" readAbility="No"/>
+    <gameSequence gameName="Training" gameType = "Training" cumulative="No" includeImages="No" includeWords="Yes" readAbility="Yes"/>
+    <gameSequence gameName="Challenge" gameType = "Challenge" cumulative="Yes" includeImages="No" includeWords="Yes" readAbility="Yes"/>
+
 </list>
 
 <!--
-<gameSequence gameName="Training" gameType = "Training" cumulative="No" includeImages="Yes" includeWords="No" readAbility="No"/>
-<gameSequence gameName="Challenge"  gameType="Challenge" cumulative="No" includeImages="Yes" includeWords="No" readAbility="No"/>
-<gameSequence gameName="Challenge" gameType="Challenge" cumulative="Yes" includeImages="Yes" includeWords="No" readAbility="No"/>
-<gameSequence gameName="Training" gameType = "Training" cumulative="No" includeImages="No" includeWords="Yes" readAbility="Yes"/>
+ <gameSequence gameName="Simon" gameType = "Training" cumulative="Yes" includeImages="Yes" includeWords="No" readAbility="No"/>
+ <gameSequence gameName="Memory" gameType="Challenge" cumulative="Yes" includeImages="Yes" includeWords="No" readAbility="No"/>
 -->

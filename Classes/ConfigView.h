@@ -13,10 +13,12 @@
     
     UIImageView *__unsafe_unretained backgroundView;
     id __unsafe_unretained parentView;
+  	UIButton *__unsafe_unretained soundButton;
 }
 
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *backgroundView;
 @property (nonatomic, unsafe_unretained) id parentView;
+@property (nonatomic, unsafe_unretained) IBOutlet UIButton *soundButton;;
 
 - (void) show;
 - (IBAction) mailButtonClicked: (id) sender;
@@ -27,7 +29,9 @@
 - (CGRect) frameClosed;
 - (bool) frameIsClosed;
 - (void) setParentMode: (bool) value;
-
+- (IBAction) soundClicked;
+- (void) refreshSoundButton;
+    
 @end
 
 

@@ -17,8 +17,8 @@
 #import "ToolbarController.h"
 #import "SmokeView.h"
 #import "ImageManager.h"
-#import "GameStartView.h"
-#import "GameEndView.h"
+//#import "GameStartView.h"
+//#import "GameEndView.h"
 
 #define cStatusGameIsNone 0
 #define cStatusGameIsOn 1
@@ -111,8 +111,8 @@
     CGRect originalframeWord2ButtonView;
     CGRect originalframeWord3ButtonView;
     
-    GameStartView* gameStartView;
-    GameEndView* gameEndView;
+    //GameStartView* gameStartView;
+    //GameEndView* gameEndView;
 }
 
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *backButton;

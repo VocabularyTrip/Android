@@ -35,6 +35,8 @@
     int startWithHelpPurchase, // when the View did show, the Purchase help is launched. When the user finish his purchase succesfully the user is redirected automatically to LevelView with purchase help
     startWithHelpDownload; // when the View did show, the Download help is launched. When the user is playiinng and a sound is not loaded from server, the user is redirected automatically to LevelView with download help
     int currentLevelNumber; // Is used to compare if the user getLevel hasChanged --> do animation to advance to next level
+    
+    bool flagTimeoutStartMusic; // theTimer call immediate. This flat is used to omit it.
 }
 
 @property (nonatomic, strong) AVAudioPlayer *backgroundSound;
@@ -44,6 +46,7 @@
 @property (nonatomic, unsafe_unretained) bool flagFirstShowInSession;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *configButton;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *langButton;
+@property (nonatomic, unsafe_unretained) int startWithHelpDownload;
 
 - (IBAction) changeUserShowInfo: (id) sender;
 - (IBAction) albumShowInfo: (id) sender;
@@ -70,5 +73,6 @@
 - (void) helpDownload1;
 
 - (IBAction) openConfigView;
+- (void) initializeTimeoutToPlayBackgroundSound;
 
 @end

@@ -20,5 +20,6 @@ extern int qtyAllGameSequence, currentGameSequence;
 + (GameSequence*) getCurrentGameSequence;
 + (void) nextSequence;
 + (void) nextSequence: (NSString*) gameType;
++ (void) resetSequence;
 
 @end

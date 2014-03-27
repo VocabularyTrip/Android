@@ -62,6 +62,11 @@ int qtyAllGameSequence, currentGameSequence = 0;
 	return [allGameSequence objectAtIndex: currentGameSequence];
 }
 
+
++ (void) resetSequence {
+    currentGameSequence = 0;
+}
+    
 + (void) nextSequence: (NSString*) gameType {
     currentGameSequence++;
     if (currentGameSequence >= qtyAllGameSequence) currentGameSequence = 0;

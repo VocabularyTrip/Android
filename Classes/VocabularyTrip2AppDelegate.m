@@ -355,15 +355,15 @@
 	[navController pushViewController: self.mapView animated: YES];
 }*/
 
-- (void) pushLevelViewWithHelpPurchase {
-  	[navController popViewControllerAnimated: NO];
+- (void) pushMapViewWithHelpPurchase {
 //    self.mapView.startWithHelpPurchase = 1;
-	[navController pushViewController: self.mapView animated: YES];
+  	[navController popViewControllerAnimated: NO];
+	//[navController pushViewController: self.mapView animated: YES];
 }
 
-- (void) pushLevelViewWithHelpDownload {
+- (void) pushMapViewWithHelpDownload {
+    self.mapView.startWithHelpDownload = 1;
   	[navController popViewControllerAnimated: NO];
-//    self.mapView.startWithHelpDownload = 1;
 	//[navController pushViewController: self.mapView animated: YES];
 }
 
@@ -518,7 +518,7 @@
         case 1:  { // Download
             VocabularyTrip2AppDelegate *vcDelegate;
             vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
-            [vcDelegate pushLevelViewWithHelpDownload];
+            [vcDelegate pushMapViewWithHelpDownload];
             break;
         }            
         default: 

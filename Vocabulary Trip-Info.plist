@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Active Configuration</key>
-	<string>Release</string>
+	<string>Debug</string>
 	<key>Application Id</key>
 	<string>683626437</string>
 	<key>CFBundleDevelopmentRegion</key>

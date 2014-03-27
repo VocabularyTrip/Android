@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ConfigView">
             <connections>
                 <outlet property="backgroundView" destination="RvO-D9-0wg" id="ivw-UH-aG3"/>
+                <outlet property="soundButton" destination="TiA-24-cWu" id="i8G-la-2Of"/>
                 <outlet property="view" destination="2" id="odT-Ny-NcS"/>
             </connections>
         </placeholder>
@@ -30,12 +31,12 @@
                         <action selector="close" destination="-1" eventType="touchDown" id="oME-1V-BM9"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tCv-jT-lnc" userLabel="RepeatButton">
+                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tCv-jT-lnc" userLabel="ResetButton">
                     <rect key="frame" x="22" y="147" width="77" height="77"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="17"/>
                     <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-57"/>
-                    <state key="normal" title="Repet" backgroundImage="reset@ipad.png">
+                    <state key="normal" title="Reset" backgroundImage="reset@ipad.png">
                         <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -62,7 +63,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="TiA-24-cWu" userLabel="SoundButton">
-                    <rect key="frame" x="35" y="237" width="132" height="77"/>
+                    <rect key="frame" x="35" y="237" width="158" height="77"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="9"/>
                     <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-33"/>
@@ -73,6 +74,9 @@
                     <state key="highlighted">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="soundClicked" destination="-1" eventType="touchDown" id="I31-Dg-G2Z"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="RAJ-Yq-gvP" userLabel="MailButton">
                     <rect key="frame" x="22" y="328" width="77" height="77"/>

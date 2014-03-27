@@ -101,7 +101,7 @@
 
 - (void) endGame {
 	//[super endGame];
-    [GameSequenceManager nextSequence];
+    //[GameSequenceManager nextSequence];
 	[self refreshMoneyLabels];
 }
 

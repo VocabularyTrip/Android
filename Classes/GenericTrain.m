@@ -447,11 +447,11 @@
 - (void) viewDidAppear:(BOOL)animated {
 	if (gameStatus != cStatusGameIsOn && gameStatus != cStatusGameIsPaused) {
 
-        gameStartView.parentView = self;
+        /*gameStartView.parentView = self;
         gameEndView.progressBeforePlay = [Vocabulary progressIndividualLevel];
-        [gameStartView show];
+        [gameStartView show];*/
         
-		//[self introduceTrain];
+		[self introduceTrain];
 	}
 	[self refreshSoundButton];
 }
@@ -474,7 +474,7 @@
     originalframeWord2ButtonView = CGRectMake(wordButton2.frame.origin.x, wordButton2.frame.origin.y, wordButton2.frame.size.width, wordButton2.frame.size.height);
     originalframeWord3ButtonView = CGRectMake(wordButton3.frame.origin.x, wordButton3.frame.origin.y, wordButton3.frame.size.width, wordButton3.frame.size.height);
     
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+    /*if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         gameStartView = [[GameStartView alloc] initWithNibName: @"GameStartView~ipad" bundle:[NSBundle mainBundle]];
     } else {
         gameStartView = [[GameStartView alloc] initWithNibName: @"GameStartView" bundle:[NSBundle mainBundle]];
@@ -488,7 +488,7 @@
         gameEndView = [[GameEndView alloc] initWithNibName: @"GameEndView" bundle:[NSBundle mainBundle]];
     }
     [self.view addSubview: gameEndView.view];
-    gameEndView.view.alpha = 0;
+    gameEndView.view.alpha = 0;*/
 
 }
 
@@ -518,10 +518,10 @@
 	[self.trainSound pause];	// 
 	gameStatus = cStatusGameIsFinished;
     
-    gameEndView.parentView = self;
-    [gameEndView show];
+    //gameEndView.parentView = self;
+    //[gameEndView show];
     
-	//[self done: nil];			// Return to main menu
+	[self done: nil];			// Return to main menu
 }
 
 - (int) hitRate {
@@ -632,10 +632,9 @@
 }
 
 -(void) pushLevelWithHelpDownload {
-// Se comenta a efectos de prueba porque el diccionario est[a muy incompleto y falla muy a menudo.
-    //VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
-//    vocTripDelegate.levelView.startWithHelpDownload = 1;
-    //[vocTripDelegate pushLevelViewWithHelpDownload];
+    VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
+    //vocTripDelegate.mapView.startWithHelpDownload = 1;
+    [vocTripDelegate pushMapViewWithHelpDownload];
 }
 
 /*-(void) showAlertDownloadSounds {
@@ -842,7 +841,8 @@
 - (void) shiftTrain: (int) xPix {
 
 	CGRect frame = train.frame;
-	frame.origin.x = frame.origin.x + xPix; 
+	frame.origin.x = frame.origin.x + xPix;
+    NSLog(@"Train.frame.x : %f", frame.origin.x);
 	train.frame = frame;	
 
 	frame = driverView.frame;

@@ -33,8 +33,6 @@
     [super done: sender];
 }
 
-
-
 - (void) initUsers {
     usersView.viewDelegate = self;
 

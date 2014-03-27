@@ -18,6 +18,7 @@
 
 @synthesize backgroundView;
 @synthesize parentView;
+@synthesize soundButton;
 
 - (void) viewDidLoad {
     //self.view.layer.shouldRasterize = YES;
@@ -68,6 +69,7 @@
     
     [self setParentMode: NO];
     self.view.frame = [self frameClosed];
+	[self refreshSoundButton];
     
     [UIView beginAnimations: @"move" context: (__bridge void *)(self.view)];
     [UIView setAnimationRepeatAutoreverses: NO];
@@ -137,6 +139,23 @@
                           cancelButtonTitle: @"No"
                           otherButtonTitles: @"Yes", nil];
 	[alert show];
+}
+
+- (IBAction)soundClicked {
+	if (UserContext.soundEnabled == YES) {
+		UserContext.soundEnabled = NO;
+	} else	{
+		UserContext.soundEnabled = YES;
+	}
+	[self refreshSoundButton];
+}
+
+- (void) refreshSoundButton {
+	NSString *soundImageFile;
+	soundImageFile = UserContext.soundEnabled == YES ? @"sound-on" : @"sound-of";
+    soundImageFile = [ImageManager getIphoneIpadFile: soundImageFile];
+	[soundButton setImage: [UIImage imageNamed: soundImageFile] forState: UIControlStateNormal];
+	[self.view.layer removeAllAnimations];
 }
 
 @end

@@ -139,6 +139,7 @@ UserContext *userContextSingleton;
 
 +(bool) nextLevel {
     User *user = [self getUserSelected];
+    [GameSequenceManager resetSequence];
 	return [user nextLevel];
 }
 

@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ConfigView">
             <connections>
                 <outlet property="backgroundView" destination="lex-dP-IOg" id="mcJ-ab-gAG"/>
+                <outlet property="soundButton" destination="puw-Sd-HiS" id="vwX-FN-5MB"/>
                 <outlet property="view" destination="1" id="7vY-px-z7l"/>
             </connections>
         </placeholder>
@@ -73,6 +74,9 @@
                     <state key="highlighted">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="soundClicked" destination="-1" eventType="touchDown" id="khl-ao-hro"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yOi-Eh-IW0" userLabel="MailButton">
                     <rect key="frame" x="3" y="132" width="44" height="44"/>

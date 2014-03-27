@@ -78,8 +78,8 @@
 - (void) pushChangeUserView;
 - (void) pushSetGameModeView;
 //- (void) pushMapView;
-- (void) pushLevelViewWithHelpPurchase;
-- (void) pushLevelViewWithHelpDownload;
+- (void) pushMapViewWithHelpPurchase;
+- (void) pushMapViewWithHelpDownload;
 - (void) pushPurchaseView;
 - (void) pushTestTrain;
 - (void) pushMemoryTrain;

@@ -39,8 +39,11 @@
 }
 
 - (void) showLevel: (Level*) aLevel at: (CGPoint) offset {
+    VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
+    [vcDelegate.mapView stopBackgroundSound];
     level = aLevel;
 
+    
     gameStatus = cStatusGameIsOn;
     
     self.view.frame = CGRectMake(offset.x, offset.y, 0, 0);
@@ -51,7 +54,10 @@
 
     int deltaX = ([ImageManager windowWidthXIB] - backgroundView.frame.size.width) / 2;
     // [ImageManager levelViewDeltaXYCorner];
-    int deltaY = ([ImageManager windowHeightXIB] - backgroundView.frame.size.height) / 2;
+
+    NSLog(@"%f, %f", vcDelegate.mapView.langButton.frame.size.height, ([ImageManager windowHeightXIB] - backgroundView.frame.size.height) / 2);
+    int deltaY = vcDelegate.mapView.langButton.frame.size.height + ([ImageManager windowHeightXIB] - backgroundView.frame.size.height - vcDelegate.mapView.langButton.frame.size.height) / 2;
+    NSLog(@"delta :%i", deltaY);
     
     [UIView animateWithDuration: 0.50 animations: ^ {
         self.view.frame = CGRectMake(
@@ -73,7 +79,8 @@
     }];
     [theTimer invalidate];
 	theTimer = nil;
-    
+    VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
+    [vcDelegate.mapView initializeTimeoutToPlayBackgroundSound];
 }
 
 - (IBAction) pauseClicked {

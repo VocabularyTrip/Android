@@ -49,6 +49,11 @@
 	if ([UserContext getHelpTest]) [self helpAnimation1];
 }
 
+- (void)takeoutTrainAnimationDidStop:(NSString *)theAnimation finished:(BOOL)flag context:(void *)context {
+    [super takeoutTrainAnimationDidStop: theAnimation finished: flag  context: context];
+	[self evaluateGetIntoNextLevel];
+}
+
 - (void) showWordAnimationDidStop:(NSString *)theAnimation finished:(BOOL)flag context:(void *)context {
 	@try {
 		if (qOfImagesRemaining > 0)
@@ -92,7 +97,8 @@
 }
 
 - (void) refreshMoneyLabelsFinished {
-	[self evaluateGetIntoNextLevel];
+	//[self evaluateGetIntoNextLevel];
+    [self takeOutTrain];
 }
 
 - (void) endGame { 
@@ -156,7 +162,7 @@
 - (void) evaluateGetIntoNextLevel {
 	// The limit of the game. There are no more levels over cLimitLevel
 	if ([UserContext getLevelNumber] >= cLimitLevel) {
-		[self takeOutTrain];
+		//[self takeOutTrain];
 		return; 
 	}
 	
@@ -167,7 +173,7 @@
 		if (viewMode == 1) [Sentence playSpeaker: @"Test-EvaluateGetIntoNextLevel-CloseToLearned"];
 	}
 	
-	[self takeOutTrain];
+	//[self takeOutTrain];
 }
 
 -(void) goToNextLevel {
@@ -175,7 +181,7 @@
 	if ([UserContext getLevelNumber] >= [UserContext getMaxLevel]) {
 		[self askToBuyNewLevels];
 	} else {
-		if (viewMode == 1 && [UserContext nextLevel]) {
+		if ([UserContext nextLevel]) {
 			[Sentence playSpeaker: @"Test-EvaluateGetIntoNextLevel-NextLevel"];
 		}
 	}
@@ -186,14 +192,16 @@
 	VocabularyTrip2AppDelegate *vcDelegate;
 	vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
 	
-	UIAlertView *alert = [[UIAlertView alloc] 
+	/*UIAlertView *alert = [[UIAlertView alloc]
 						  initWithTitle: @"Buy New Level" 
 						  message: @"To advance to the next level, you need to buy more words"
 						  delegate: vcDelegate 
 						  cancelButtonTitle: @"OK"
 						  otherButtonTitles: nil];	
-	[alert show];
-	[self takeOutTrain];
+	[alert show];*/
+	//[self takeOutTrain];
+    [vcDelegate pushPurchaseView];
+
 }
 
 

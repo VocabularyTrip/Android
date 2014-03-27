@@ -18,6 +18,7 @@
 @synthesize configButton;
 @synthesize langButton;
 @synthesize backgroundSound;
+@synthesize startWithHelpDownload;
 
 - (void) viewDidLoad {
     [self initializeGame];
@@ -50,7 +51,8 @@
         return;
     }
 
-    [configView close];
+    configView.view.frame = [configView frameClosed];
+    //[configView close];
     
     Language* l = [UserContext getLanguageSelected];
     [langButton setImage: l.image forState: UIControlStateNormal];
@@ -91,6 +93,7 @@
 
 - (void) initializeTimeoutToPlayBackgroundSound {
 	if (timerToPlayBackgroundSound == nil) {
+        flagTimeoutStartMusic = NO;
 		timerToPlayBackgroundSound = [CADisplayLink displayLinkWithTarget:self selector:@selector(startPlayBackgroundSound)];
 		timerToPlayBackgroundSound.frameInterval = 800;
 		[timerToPlayBackgroundSound addToRunLoop: [NSRunLoop currentRunLoop] forMode: NSDefaultRunLoopMode];
@@ -98,13 +101,11 @@
 }
 
 - (void) startPlayBackgroundSound {
-// No funciona porque el timer llama a la funcion ni bien se la crea y no luego de los 8 segundos
-//    Hay que crear un flag para que ignore la primera ejecucion o hacer que el timer funcione bien.
     
-    /*if (flagFirstShowInSession)
-        flagFirstShowInSession = NO;
+    if (!flagTimeoutStartMusic)
+        flagTimeoutStartMusic = YES;
     else
-        [self.backgroundSound play];*/
+        [self.backgroundSound play];
 }
 
 - (void) viewDidAppear:(BOOL)animated {
@@ -118,28 +119,56 @@
     if (startWithHelpDownload) [self helpDownload1];
     startWithHelpDownload = 0;
     startWithHelpPurchase = 0;
- 
-    if ([UserContext getLevel].levelNumber != currentLevelNumber) {
+
+    [self moveUser];
+}
+
+- (void) moveUser {
+    Level *level = [UserContext getLevel];
+    if (level.levelNumber != currentLevelNumber) {
         // Move the train from the previous level to the next level
-        Level *level = [UserContext getLevel];
         
-        [UIView beginAnimations: @"Move User" context: nil];
-        [UIView setAnimationDuration: 1];
-        [UIView setAnimationDelegate: self];
-        [UIView setAnimationCurve: UIViewAnimationCurveEaseInOut];
+        int offset = [ImageManager windowWidth] / 2;
+        int newX = [level placeinMap].x > offset ? [level placeinMap].x - offset : 0;
+        CGPoint newPlace = CGPointMake(newX, 0);
+        mapScrollView.contentOffset = newPlace;
         
-        playCurrentLevelButton.center = [level placeinMap];
-        [self.view bringSubviewToFront: playCurrentLevelButton];
- 
-        [UIView commitAnimations];
+        if (abs(level.levelNumber - currentLevelNumber) == 0) {
+            return;
+        } else if (abs(level.levelNumber - currentLevelNumber) == 1) {
+            [UIView beginAnimations: @"Move User" context: nil];
+            [UIView setAnimationDuration: 3];
+            [UIView setAnimationDelegate: self];
+            [UIView setAnimationCurve: UIViewAnimationCurveEaseOut];
+            
+            playCurrentLevelButton.center = [level placeinMap];
+            [self.view bringSubviewToFront: playCurrentLevelButton];
+            
+            [UIView commitAnimations];
+            currentLevelNumber = level.levelNumber;
+        } else {
+            currentLevelNumber = level.levelNumber < currentLevelNumber ? currentLevelNumber-1 : currentLevelNumber+1;
+            [UIView beginAnimations: @"Move User" context: nil];
+            [UIView setAnimationDuration: 0.5];
+            [UIView setAnimationDelegate: self];
+            [UIImageView setAnimationDidStopSelector: @selector(moveUserEnded)];//
+            [UIView setAnimationCurve: UIViewAnimationCurveLinear];
+            playCurrentLevelButton.center = [[UserContext getLevelAt: currentLevelNumber] placeinMap];
+            [self.view bringSubviewToFront: playCurrentLevelButton];
+            [UIView commitAnimations];
+        }
+        
     }
-    
+}
+
+- (void) moveUserEnded {
+    [self moveUser];
 }
 
 - (void) showAllMapInFirstSession {
     Level *level = [UserContext getLevel];
     
-    //flagFirstShowInSession = NO;
+    flagFirstShowInSession = NO;
     
 //    [mapScrollView setContentOffset: CGPointMake(
 //        [ImageManager getMapViewSize].width - [ImageManager windowWidth], 0) animated: NO];
