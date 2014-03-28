@@ -57,12 +57,16 @@
 - (IBAction) noReadAbilityClicked {
     noReadAbilityButton.alpha = 1;
     readAbilityButton.alpha = 0.5;
+    if ([UserContext getUserSelected].readAbility)
+        [GameSequenceManager resetSequence];
     [UserContext getUserSelected].readAbility = NO;
 }
 
 - (IBAction) readAbilityClicked {
     noReadAbilityButton.alpha = 0.5;
     readAbilityButton.alpha = 1;
+    if (![UserContext getUserSelected].readAbility)
+        [GameSequenceManager resetSequence];
     [UserContext getUserSelected].readAbility = YES;
 }
 

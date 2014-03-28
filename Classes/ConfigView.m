@@ -34,10 +34,21 @@
 
     CGPoint offset = [parentView mapScrollView].contentOffset;
     CGRect configButtonFrame = [parentView configButton].frame;
-    return CGRectMake(
+    
+    int configButtonFrameX;
 
-               configButtonFrame.origin.x + configButtonFrame.size.width
-                      - backgroundView.frame.size.width + offset.x,
+    if ([ImageManager resolution] == UIDeviceResolution_iPhoneRetina5) {
+        configButtonFrameX = configButtonFrame.origin.x + configButtonFrame.size.width - backgroundView.frame.size.width + offset.x;
+    } else {
+        configButtonFrameX = [ImageManager windowWidthXIB] - backgroundView.frame.size.width;
+    }
+    
+    NSLog(@"ConfigButtomFrameX: %f, ConfigButtomFrameWidth: %f, backgroundViewWidth: %f, offset: %f, result: %f", configButtonFrame.origin.x, configButtonFrame.size.width
+        , backgroundView.frame.size.width, offset.x,configButtonFrame.origin.x + configButtonFrame.size.width
+          - backgroundView.frame.size.width + offset.x);
+    
+    return CGRectMake(
+               configButtonFrameX,
                configButtonFrame.origin.y + configButtonFrame.size.height,
                backgroundView.frame.size.width,
                backgroundView.frame.size.height);
@@ -144,6 +155,7 @@
 - (IBAction)soundClicked {
 	if (UserContext.soundEnabled == YES) {
 		UserContext.soundEnabled = NO;
+        [[self parentView] stopBackgroundSound];
 	} else	{
 		UserContext.soundEnabled = YES;
 	}
@@ -155,7 +167,7 @@
 	soundImageFile = UserContext.soundEnabled == YES ? @"sound-on" : @"sound-of";
     soundImageFile = [ImageManager getIphoneIpadFile: soundImageFile];
 	[soundButton setImage: [UIImage imageNamed: soundImageFile] forState: UIControlStateNormal];
-	[self.view.layer removeAllAnimations];
+	//[self.view.layer removeAllAnimations];
 }
 
 @end

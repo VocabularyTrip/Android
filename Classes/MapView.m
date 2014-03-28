@@ -52,7 +52,6 @@
     }
 
     configView.view.frame = [configView frameClosed];
-    //[configView close];
     
     Language* l = [UserContext getLanguageSelected];
     [langButton setImage: l.image forState: UIControlStateNormal];
@@ -75,7 +74,6 @@
 	if (backgroundSound == nil) {
 		backgroundSound = [Sentence getAudioPlayer: @"keepTrying"];
 		backgroundSound.numberOfLoops = -1;
-		//[backgroundSound autorelease];
 	}
     backgroundSound.volume = UserContext.soundEnabled == YES ? 1 : 0;
 	return backgroundSound;
@@ -101,7 +99,6 @@
 }
 
 - (void) startPlayBackgroundSound {
-    
     if (!flagTimeoutStartMusic)
         flagTimeoutStartMusic = YES;
     else
@@ -170,11 +167,13 @@
     
     flagFirstShowInSession = NO;
     
-//    [mapScrollView setContentOffset: CGPointMake(
-//        [ImageManager getMapViewSize].width - [ImageManager windowWidth], 0) animated: NO];
+    configButton.userInteractionEnabled = NO;
+    langButton.userInteractionEnabled = NO;
+    helpButton.userInteractionEnabled = NO;
     
     [UIView beginAnimations:@"ShowMapAndPositionInCurrentLevel" context: nil];
     [UIView setAnimationDelegate: self];
+    [UIImageView setAnimationDidStopSelector: @selector(showAllMapFinished)];
     [UIView setAnimationDuration: 5];
     [UIView setAnimationCurve: UIViewAnimationCurveEaseOut];
     
@@ -186,6 +185,11 @@
     [UIView commitAnimations];
 }
 
+- (void) showAllMapFinished {
+    configButton.userInteractionEnabled = YES;
+    langButton.userInteractionEnabled = YES;
+    helpButton.userInteractionEnabled = YES;
+}
 
 - (IBAction) playCurrentLevel:(id)sender {
     GameSequence *s = [GameSequenceManager getCurrentGameSequence];
@@ -339,7 +343,6 @@
 
 - (IBAction) openConfigView {
     [self.mapScrollView addSubview: [self configView].view];
-    //configView.view.alpha = 1;
     configView.parentView = self;
     [configView show];
 }

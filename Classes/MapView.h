@@ -69,6 +69,7 @@
 - (void) playSimonTrain;
 
 - (void) showAllMapInFirstSession;
+- (void) showAllMapFinished;
 - (void) helpAnimation1;
 - (void) helpDownload1;
 
