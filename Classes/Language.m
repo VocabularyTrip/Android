@@ -198,17 +198,11 @@ NSMutableArray *allLanguages = nil;
 
 -(UIImage*) image {
 	if (image == nil) {
-        NSString *file = [NSString stringWithFormat:@"%@/%@", [Language downloadDestinationPath], [Language iconImageName: name]];
         image = [UIImage alloc];
-        if (![image initWithContentsOfFile: file]) {
-            // Reload from assets
-            image = [UIImage alloc];            
-            file = [[NSString alloc ] initWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath],
-                    //[UserContext getIphoneIpadFile: name]];              
-                    [Language iconImageName: name]];	
-            image = [image initWithContentsOfFile: file];
-            image = [ImageManager imageWithImage: image scaledToSize: [ImageManager getFlagSize]];
-        }
+        NSString* file = [[NSString alloc ] initWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath],
+                 [Language iconImageName: name]];
+        image = [image initWithContentsOfFile: file];
+        image = [ImageManager imageWithImage: image scaledToSize: [ImageManager getFlagSize]];
     }
 	return image;
 }

@@ -20,6 +20,15 @@
 @synthesize backgroundSound;
 @synthesize startWithHelpDownload;
 
+
+/*-  (NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationLandscapeLeft;
+}*/
+
+/*- (bool) shouldAutorotateToInterfaceOrientation: (UIInterfaceOrientation) toInterfaceOrientation {
+    return UIInterfaceOrientationLandscapeLeft;
+}*/
+
 - (void) viewDidLoad {
     [self initializeGame];
     [self initMap];

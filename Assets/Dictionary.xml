@@ -498,7 +498,7 @@
 	<word name="glass" fileName="glass" wordOrder="" type="noun"> </word>
 	<word name="iron" fileName="iron" wordOrder="" type="noun"> </word>
 	<word name="kettle" fileName="kettle" wordOrder="" type="noun"> </word>
-	<word name="keys" fileName="keys" wordOrder="" type="noun"> </word>
+	<word name="key" fileName="key" wordOrder="" type="noun"> </word>
 	<word name="knife" fileName="knife" wordOrder="" type="noun"> </word>
 	<word name="lamp" fileName="lamp" wordOrder="" type="noun"> </word>
 	<word name="mug" fileName="mug" wordOrder="" type="noun"> </word>
