@@ -61,7 +61,7 @@
             total++;
 		}
 	}
-    NSLog(@"Progress: %f", (double) qWasBought / (double) total);
+    //NSLog(@"Progress: %f", (double) qWasBought / (double) total);
   	return ((double) qWasBought / (double) total);
 }
 

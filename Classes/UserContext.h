@@ -44,7 +44,7 @@
 #define cCountExecutions @"countExecutions"
 #define cAskRateEachTimes 6
 #define cAskToReviewTitle @"Review App"
-#define cAskToRedownloadTitle @"Download all words"
+//#define cAskToRedownloadTitle @"Download all words"
 #define cNotifyToPromoCodeDetected @"Promo Code Detected !" 
 #define cNotifyToPromoCodeLimited @"Promo Code !" 
 

@@ -65,7 +65,7 @@ Vocabulary *singletonVocabulary;
 }
 
 - (void) startDownload {
-    // The download is launched each 1.5 second. Otherwize 506 downloads are enqued and after aprox 300 downloads got time out.
+    // The download is launched each 1.5 second. Otherwize 506 downloads are enqued and after aprox 300 downloads get time out.
     if (theTimerToDownloadLevels == nil) {
 		theTimerToDownloadLevels = [CADisplayLink displayLinkWithTarget:self selector:@selector(downlloadOneLevel)];
 		theTimerToDownloadLevels.frameInterval = 90;
@@ -77,7 +77,9 @@ Vocabulary *singletonVocabulary;
     
     if ([responseWithLevelsToDownload count] > 0) {
         NSDictionary* value = [responseWithLevelsToDownload lastObject];
-        NSLog(@"Download level: %i", [[value objectForKey: @"level_id"] intValue]);
+        NSLog(@"Download level: %i, order: %i"
+              , [[value objectForKey: @"level_id"] intValue]
+              , [[value objectForKey: @"level_order"] intValue]);
         [Level loadDataFromSql: [[value objectForKey: @"level_id"] intValue]];
         [responseWithLevelsToDownload removeLastObject];
     } else {
@@ -320,12 +322,12 @@ Vocabulary *singletonVocabulary;
 	for (int i=0; i<=[UserContext getLevelNumber]; i++) {
 		for (w in [allWords objectAtIndex:i]) {
 			if (w.weight <= cLearnedWeight) r++; 
-			NSLog(@"Word: %@ Weight: %i", w.name, w.weight);
+			//NSLog(@"Word: %@ Weight: %i", w.name, w.weight);
 			total ++;
 		}
 	}
 	if (total == 0) return NO;
-	NSLog(@"Words Learned: %@ Total: %@", [NSString stringWithFormat:@"%i", r], [NSString stringWithFormat:@"%i",total]);
+	//NSLog(@"Words Learned: %@ Total: %@", [NSString stringWithFormat:@"%i", r], [NSString stringWithFormat:@"%i",total]);
 	return ((double) r / (double) total);
 }
 
@@ -338,7 +340,7 @@ Vocabulary *singletonVocabulary;
 		total ++;
 	}
 	if (total == 0) return NO;
-	NSLog(@"Individual Words Learned: %@ Total: %@", [NSString stringWithFormat:@"%i", r], [NSString stringWithFormat:@"%i",total]);
+	//NSLog(@"Individual Words Learned: %@ Total: %@", [NSString stringWithFormat:@"%i", r], [NSString stringWithFormat:@"%i",total]);
     double progress = ((double) r / (double) total);
     progress = progress >= cPercentageLearnd ? 1 : progress / cPercentageLearnd;
 	return progress;

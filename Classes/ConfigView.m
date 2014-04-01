@@ -43,9 +43,7 @@
         configButtonFrameX = [ImageManager windowWidthXIB] - backgroundView.frame.size.width;
     }
     
-    NSLog(@"ConfigButtomFrameX: %f, ConfigButtomFrameWidth: %f, backgroundViewWidth: %f, offset: %f, result: %f", configButtonFrame.origin.x, configButtonFrame.size.width
-        , backgroundView.frame.size.width, offset.x,configButtonFrame.origin.x + configButtonFrame.size.width
-          - backgroundView.frame.size.width + offset.x);
+    //NSLog(@"ConfigButtomFrameX: %f, ConfigButtomFrameWidth: %f, backgroundViewWidth: %f, offset: %f, result: %f", configButtonFrame.origin.x, configButtonFrame.size.width, backgroundView.frame.size.width, offset.x,configButtonFrame.origin.x + configButtonFrame.size.width - backgroundView.frame.size.width + offset.x);
     
     return CGRectMake(
                configButtonFrameX,

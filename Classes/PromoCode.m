@@ -38,7 +38,7 @@ PromoCode *promoCodeSingleton;
 }
 
 + (void) checkAPromoCodeForUUID {
-    if ([UserContext getMaxLevel] >= 6) return;
+    if ([UserContext getMaxLevel] >= cSet3OfLevels) return;
     
     NSURL *url = [NSURL URLWithString: [NSString stringWithFormat: @"%@/db_promo_code.php?rquest=getPromoCodeForUUID", cUrlServer]];
     NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:
@@ -117,7 +117,7 @@ PromoCode *promoCodeSingleton;
 + (void) alertView: (UIAlertView*) alertView clickedButtonAtIndex: (NSInteger) buttonIndex {
     switch (buttonIndex) {
         case 0: // OK
-            if (promoCodeSingleton.delegate && [UserContext getMaxLevel] >= 6)
+            if (promoCodeSingleton.delegate && [UserContext getMaxLevel] >= cSet3OfLevels)
                 [promoCodeSingleton.delegate responseToBuyAction];
             break;
         default:

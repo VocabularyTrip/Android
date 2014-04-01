@@ -106,7 +106,7 @@
 - (void) checkDownloadCompleted;
 - (void) alertAskToReview: (UIAlertView*) alertView clickedButtonAtIndex: (NSInteger) buttonIndex;
 - (void) alertBuyNewLevel: (UIAlertView*) alertView clickedButtonAtIndex: (NSInteger) buttonIndex;
-- (void) alertDownloadLang: (UIAlertView*) alertView clickedButtonAtIndex: (NSInteger) buttonIndex;
+//- (void) alertDownloadLang: (UIAlertView*) alertView clickedButtonAtIndex: (NSInteger) buttonIndex;
 - (void) checkPromoCodeDueDate;
 - (void) checkAPromoCodeForUUID;
 - (void) saveTimePlayedInDB;

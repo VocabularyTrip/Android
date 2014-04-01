@@ -13,7 +13,7 @@
 
 @interface LevelView : UIViewController {
 	
-    Level* level;
+    Level* level; // Selected level in mapView
 	Word *word; // current selected word to show and say
     
     UIImageView *__unsafe_unretained backgroundView;

@@ -41,6 +41,9 @@
     [[UserContext getSingleton] userSelected]; // force load the user selected
     [[UserContext getLanguageSelected] countOfWords]; // start request to the server
 
+    if (!singletonVocabulary) // Initialize singletonVocabulary
+        singletonVocabulary = [Vocabulary alloc];
+    
     //[Language requestAllLanguages];
     [self initUsersDefaults];
 	[self initAllControllers];	
@@ -50,10 +53,7 @@
     [self checkDownloadCompleted];
     [self initializeInternetReachabilityNotifier];
     
-    [FacebookManager initFacebookSession];
-    
-    if (!singletonVocabulary) // Initialize singletonVocabulary
-        singletonVocabulary = [Vocabulary alloc];
+    [FacebookManager initFacebookSession];    
     
 	UIView *aView = [self.navController view];
 	[window addSubview: aView];
@@ -142,15 +142,21 @@
 
 - (void) checkDownloadCompleted {
     
-    double wasLearnedResult = [Vocabulary wasLearned];
+    //double wasLearnedResult = [Vocabulary wasLearned];
     // Check Download complete only if advance to level 2 is unlock and at least is close to level 2
-    if (!([UserContext getMaxLevel] >= 6) ||
-        (wasLearnedResult < cPercentageCloseToLearnd && [UserContext getLevelNumber] == 1)
-        ) return;
+    //if (!([UserContext getMaxLevel] >= 6) ||
+    //    (wasLearnedResult < cPercentageCloseToLearnd && [UserContext getLevelNumber] == 1)
+    //    ) return;
     
     if (![Vocabulary isDownloadCompleted]) {
 
-        Language *lang = [UserContext getLanguageSelected];
+        //singletonVocabulary.delegate = nil;
+        //singletonVocabulary.isDownloadView = NO;
+        singletonVocabulary.isDownloading = YES;
+        //NSLog(@"IsDownloading: %i", singletonVocabulary.isDownloading);
+        [Vocabulary loadDataFromSql];
+        
+        /*Language *lang = [UserContext getLanguageSelected];
         NSString *message = [NSString stringWithFormat: @"Downloading %@ did not complete. Do you want to restart it?", lang.name];
         UIAlertView *alert = [[UIAlertView alloc] 
                               initWithTitle: cAskToRedownloadTitle
@@ -158,7 +164,7 @@
                               delegate:self 
                               cancelButtonTitle: @"NO" 
                               otherButtonTitles: @"YES", nil];
-        [alert show];
+        [alert show];*/
     }
 }
 
@@ -462,8 +468,8 @@
 - (void) alertView: (UIAlertView*) alertView clickedButtonAtIndex: (NSInteger) buttonIndex {
     if ([alertView.title isEqualToString: cAskToReviewTitle]) {
         [self alertAskToReview: alertView clickedButtonAtIndex: buttonIndex];
-    } else if ([alertView.title isEqualToString: cAskToRedownloadTitle]) {
-        [self alertDownloadLang: alertView clickedButtonAtIndex: buttonIndex];
+    //} else if ([alertView.title isEqualToString: cAskToRedownloadTitle]) {
+    //    [self alertDownloadLang: alertView clickedButtonAtIndex: buttonIndex];
     } else if ([alertView.title isEqualToString: cNotifyToPromoCodeDetected]) {        
     } else if ([alertView.title isEqualToString: cNotifyToPromoCodeLimited]) {        
     } else {
@@ -511,7 +517,7 @@
     }	
 }
 
-- (void) alertDownloadLang: (UIAlertView*) alertView clickedButtonAtIndex: (NSInteger) buttonIndex {
+/*- (void) alertDownloadLang: (UIAlertView*) alertView clickedButtonAtIndex: (NSInteger) buttonIndex {
     switch (buttonIndex) {
         case 0: // Don't Download !
             break;
@@ -524,7 +530,7 @@
         default: 
             break;
     }
-}
+}*/
 
 - (int) getAppId {
     NSString *appId = [[NSBundle mainBundle] objectForInfoDictionaryKey: @"Application Id"];

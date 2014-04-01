@@ -55,7 +55,7 @@ int qtyAllGameSequence, currentGameSequence = 0;
 }
 
 + (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
-	NSLog(@"LandscapeManager. Error Parsing at line: %li, column: %li", (long)parser.lineNumber, (long)parser.columnNumber);
+	NSLog(@"GameSequenceManager. Error Parsing at line: %li, column: %li", (long)parser.lineNumber, (long)parser.columnNumber);
 }
 
 + (GameSequence *) getCurrentGameSequence {

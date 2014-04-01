@@ -120,7 +120,6 @@
     
 }
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     promoCodeStatus.text = [[NSUserDefaults standardUserDefaults] objectForKey: cPromoCodeStatus];
@@ -140,16 +139,22 @@
 
 - (void) refreshLevelInfo {
 
-	restorePurchaseButton.enabled = [UserContext getMaxLevel] <= cSet2OfLevels ? 1 : 0;
+	restorePurchaseButton.enabled = [UserContext getMaxLevel] >= cSet1OfLevels ? 1 : 0;
     promoCodeText.enabled = [UserContext getMaxLevel] <= cSet2OfLevels ? 1 : 0;
     buyOneSetofLevelesButton.alpha  = [UserContext getMaxLevel] <= cSet2OfLevels ? 1 : 0;
     buyAllButton.enabled = [UserContext getMaxLevel] < [Vocabulary countOfLevels] ? 1 : 0;
 
+    NSString *title = @"";
+    if ([UserContext getMaxLevel] <= cSet1OfLevels) {
+        title = [self getPriceOf: [PurchaseManager getCompletePurchaseIdentier: cPurchaseSet1]];
+    } else if ([UserContext getMaxLevel] <= cSet2OfLevels) {
+        title = [self getPriceOf: [PurchaseManager getCompletePurchaseIdentier: cPurchaseSet2]];
+    }
     
-    [buyAllButton 
-       setTitle: [self getPriceOf: [PurchaseManager getCompletePurchaseIdentier: cPurchaseSet1to4]]
-       forState: UIControlStateNormal]; 
-    
+    [buyOneSetofLevelesButton setTitle: title forState: UIControlStateNormal];
+    [buyAllButton
+     setTitle: [self getPriceOf: [PurchaseManager getCompletePurchaseIdentier: cPurchaseSet1to4]]
+     forState: UIControlStateNormal];
 }
 
 -(BOOL) textFieldShouldBeginEditing:(UITextField *)textField {
@@ -167,7 +172,8 @@
 }
 
 -(void) disableBuyButtons {
-	buyAllButton.enabled = NO; 
+	buyAllButton.enabled = NO;
+    buyOneSetofLevelesButton.enabled = NO;
     restorePurchaseButton.enabled = NO;
 }
 

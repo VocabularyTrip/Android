@@ -55,10 +55,8 @@
     int deltaX = ([ImageManager windowWidthXIB] - backgroundView.frame.size.width) / 2;
     // [ImageManager levelViewDeltaXYCorner];
 
-    NSLog(@"%f, %f", vcDelegate.mapView.langButton.frame.size.height, ([ImageManager windowHeightXIB] - backgroundView.frame.size.height) / 2);
     int deltaY = vcDelegate.mapView.langButton.frame.size.height + ([ImageManager windowHeightXIB] - backgroundView.frame.size.height - vcDelegate.mapView.langButton.frame.size.height) / 2;
-    NSLog(@"delta :%i", deltaY);
-    
+     
     [UIView animateWithDuration: 0.50 animations: ^ {
         self.view.frame = CGRectMake(
             offset.x + deltaX, offset.y + deltaY,
@@ -189,9 +187,9 @@
     // the user reach the last level
 	if ([UserContext getLevelNumber] >= cLimitLevel) return;
     
-	if ([UserContext getLevelNumber] >= (level.levelNumber + 1))
+	if ([UserContext getLevelNumber] == (level.levelNumber))
 		[Sentence playSpeaker: @"LevelView-DidSelectRow-LearnThisLevel"];
-	else if ([UserContext getLevelNumber] < (level.levelNumber + 1))
+	else if ([UserContext getLevelNumber] < (level.levelNumber))
 		[Sentence playSpeaker: @"LevelView-DidSelectRow-UnlockLevel"];
 }
 

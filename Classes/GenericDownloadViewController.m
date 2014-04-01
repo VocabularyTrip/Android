@@ -71,7 +71,6 @@
         cancelDownloadButton.alpha = 0;
         downloadButton.enabled = YES;
         downloadButton.alpha = [Vocabulary isDownloadCompleted] ? 0 : 1;
-        NSLog(@"Confirm Download alpha: %f", downloadButton.alpha);
 	}
 }
 
@@ -85,7 +84,7 @@
 - (void) viewWillAppear:(BOOL)animated {
     singletonVocabulary.isDownloadView = YES;
     singletonVocabulary.delegate = self;
-
+    //NSLog(@"IsDownloading: %i", singletonVocabulary.isDownloading);
     downloadButton.alpha = 1;
     [self refreshSearchingModeEnabled: singletonVocabulary.isDownloading];
 }

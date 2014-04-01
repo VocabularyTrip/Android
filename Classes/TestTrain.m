@@ -16,6 +16,8 @@
 
 - (IBAction) done:(id)sender {
 	[super done: sender];
+
+    [self evaluateGetIntoNextLevel];
 	VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
 	[vocTripDelegate popMainMenuFromTestTrain];
 }
@@ -51,7 +53,6 @@
 
 - (void)takeoutTrainAnimationDidStop:(NSString *)theAnimation finished:(BOOL)flag context:(void *)context {
     [super takeoutTrainAnimationDidStop: theAnimation finished: flag  context: context];
-	[self evaluateGetIntoNextLevel];
 }
 
 - (void) showWordAnimationDidStop:(NSString *)theAnimation finished:(BOOL)flag context:(void *)context {

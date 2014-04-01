@@ -63,7 +63,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="34"/>
                             <inset key="contentEdgeInsets" minX="159" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="$ 1.98" backgroundImage="Buy All@ipad.png">
+                            <state key="normal" title="U$S 9.98" backgroundImage="Buy All.png">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -78,9 +78,9 @@
                             <rect key="frame" x="7" y="519" width="307" height="108"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <accessibility key="accessibilityConfiguration" label="aa"/>
-                            <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="13"/>
-                            <inset key="contentEdgeInsets" minX="72" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="U$S 3.99" backgroundImage="Buy All@ipad.png">
+                            <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="34"/>
+                            <inset key="contentEdgeInsets" minX="159" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="U$S 3.99" backgroundImage="buy one.png">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -156,11 +156,12 @@
         </view>
     </objects>
     <resources>
-        <image name="Buy All@ipad.png" width="254" height="95"/>
+        <image name="Buy All.png" width="254" height="95"/>
         <image name="FB-f-Logo__blue_512.png" width="512" height="512"/>
         <image name="Menu1@ipad.png" width="209" height="80"/>
         <image name="background_purchase@ipad.png" width="1024" height="748"/>
         <image name="bg_user@ipad.png" width="496" height="490"/>
+        <image name="buy one.png" width="254" height="95"/>
         <image name="restoreButton@ipad.png" width="254" height="67"/>
     </resources>
 </document>

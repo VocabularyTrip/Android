@@ -20,30 +20,22 @@
 @synthesize backgroundSound;
 @synthesize startWithHelpDownload;
 
-<<<<<<< HEAD
+- (BOOL)shouldAutorotate{
+    //if([[UIDevice currentDevice] orientation] == UIInterfaceOrientationLandscapeLeft ||[[UIDevice currentDevice] orientation] == UIInterfaceOrientationLandscapeRight)
+//        return YES;
+//    else
+        return NO;
+}
 
-/*-  (NSUInteger)supportedInterfaceOrientations {
-    return UIInterfaceOrientationLandscapeLeft;
-}*/
-
-/*- (bool) shouldAutorotateToInterfaceOrientation: (UIInterfaceOrientation) toInterfaceOrientation {
-    return UIInterfaceOrientationLandscapeLeft;
-}*/
-=======
 -(NSUInteger)supportedInterfaceOrientations{
     return UIInterfaceOrientationLandscapeLeft;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
-    if (UIInterfaceOrientationLandscapeLeft) {
-        return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft);
-    }
-    if (UIInterfaceOrientationLandscapeRight) {
-        return (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
-    }
+    if (UIInterfaceOrientationLandscapeLeft) return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft);
+    if (UIInterfaceOrientationLandscapeRight) return (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
     return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft);
 }
->>>>>>> 2bb1a47ab26839c959fb065b464ce4ed5692c93b
 
 - (void) viewDidLoad {
     [self initializeGame];
@@ -349,9 +341,10 @@
     CGPoint newPlace = CGPointMake([level placeinMap].x + [ImageManager getMapViewLevelSize] * 0.7, [level placeinMap].y + [ImageManager getMapViewLevelSize] * 0.7);
  
     // Level.order = 1. The first level hardcoded is free. No purchase needed and is unlocked from de beginning
-    if (level.order >= [UserContext getMaxLevel] && level.order != 1)
-        [self addImage: [UIImage imageNamed:@"BuyButton.png"] pos: newPlace size: [ImageManager getMapViewLevelSize] * 0.4];
-    else if (level.order >= [UserContext getLevelNumber] && level.order != 1)
+    NSLog(@"Order: %d, MaxLevel: %d, level: %d", level.order, [UserContext getMaxLevel], [UserContext getLevelNumber]);
+    if (level.order > [UserContext getMaxLevel] && level.order != 1)
+        [self addImage: [UIImage imageNamed:@"buyButton.png"] pos: newPlace size: [ImageManager getMapViewLevelSize] * 0.4];
+    else if (level.order > [UserContext getLevelNumber] && level.order != 1)
         [self addImage: [UIImage imageNamed:@"token-bronze.png"] pos: newPlace size: [ImageManager getMapViewLevelSize] * 0.4];
 }
 

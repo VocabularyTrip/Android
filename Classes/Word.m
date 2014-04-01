@@ -119,7 +119,7 @@
                 sound = [Sentence getAudioPlayer: fileName dir: lang.name];
             } else
                 // Other words are downloaded and the path is relative
-                sound = [Sentence getAudioPlayerRelPath: name]; 
+                sound = [Sentence getAudioPlayerRelPath: fileName];
 		} @catch (NSException * e) {
 			NSLog(@"Can't load sound %@", name);
 		}

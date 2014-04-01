@@ -842,8 +842,7 @@
 
 	CGRect frame = train.frame;
 	frame.origin.x = frame.origin.x + xPix;
-    NSLog(@"Train.frame.x : %f", frame.origin.x);
-	train.frame = frame;	
+	train.frame = frame;
 
 	frame = driverView.frame;
 	frame.origin.x = frame.origin.x + xPix;
