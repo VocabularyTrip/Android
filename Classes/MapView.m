@@ -16,7 +16,6 @@
 @synthesize playCurrentLevelButton;
 @synthesize flagFirstShowInSession;
 @synthesize configButton;
-@synthesize langButton;
 @synthesize backgroundSound;
 @synthesize startWithHelpDownload;
 
@@ -40,11 +39,18 @@
 - (void) viewDidLoad {
     [self initializeGame];
     [self initMap];
-    [self drawAllLeveles];
+    [mapScrollView init];
+    //[self drawAllLeveles];
 
     //self.view.layer.shouldRasterize = YES;
     //self.view.layer.rasterizationScale = [[UIScreen mainScreen] scale];
     
+    
+    for (int i=1; i<mapScrollView.subviews.count; i++) {
+        UIView *aView = [mapScrollView.subviews objectAtIndex:i];
+        [aView setTag: 999]; // Tag 999 means dont remove in reloadAllLevels method. Since this method remove all subviews.
+    }
+
 }
 
 - (void) initializeGame {
@@ -64,27 +70,28 @@
     // First execution jump to wizard to select user and lang
     UserContext *aUserC = [UserContext getSingleton];
     if (!aUserC.userSelected) {
-        [self changeUserShowInfo: nil];
+        [configView changeUserShowInfo: nil];
         return;
     }
 
     configView.view.frame = [configView frameClosed];
     
-    Language* l = [UserContext getLanguageSelected];
-    [langButton setImage: l.image forState: UIControlStateNormal];
-    
     // First move map to the end. viewDidAppear implement showAllMapInFirstSession
     if (flagFirstShowInSession) {
         [self.backgroundSound play]; // If soundEnabled is false the volumne is 0. This play prepare buffer and resourses to prevent delay in first word
-        [mapScrollView setContentOffset: CGPointMake(
-            [ImageManager getMapViewSize].width - [ImageManager windowWidth], 0) animated: NO];
 
+        [mapScrollView setContentOffset: CGPointMake(
+           [ImageManager getMapViewSize].width - [ImageManager windowWidth], 0) animated: NO];
+        
         Level *level = [UserContext getLevel];
         playCurrentLevelButton.center = [level placeinMap];
         [self.view bringSubviewToFront: playCurrentLevelButton];
         currentLevelNumber = level.levelNumber;
     }
     [self initializeTimeoutToPlayBackgroundSound];
+    
+    [self reloadAllLevels];
+    [mapScrollView bringSubviewToFront: mapScrollView.levelView.view];
 }
 
 - (AVAudioPlayer*) backgroundSound {
@@ -123,10 +130,10 @@
 }
 
 - (void) viewDidAppear:(BOOL)animated {
-    UserContext *aUserC = [UserContext getSingleton];
+    //UserContext *aUserC = [UserContext getSingleton];
 
-    if (flagFirstShowInSession && aUserC.userSelected)
-       [self showAllMapInFirstSession];
+    //if (flagFirstShowInSession && aUserC.userSelected)
+    [self showAllMapInFirstSession];
     
     if ([UserContext getHelpLevel] || startWithHelpPurchase) [self helpAnimation1];
     if (startWithHelpPurchase && ![Vocabulary isDownloadCompleted]) [self startLoading];
@@ -184,9 +191,9 @@
     
     flagFirstShowInSession = NO;
     
-    configButton.userInteractionEnabled = NO;
-    langButton.userInteractionEnabled = NO;
-    helpButton.userInteractionEnabled = NO;
+    configButton.alpha = 0;
+    //langButton.alpha = 0;
+    helpButton.alpha = 0;
     
     [UIView beginAnimations:@"ShowMapAndPositionInCurrentLevel" context: nil];
     [UIView setAnimationDelegate: self];
@@ -195,7 +202,7 @@
     [UIView setAnimationCurve: UIViewAnimationCurveEaseOut];
     
     int offset = [ImageManager windowWidth] / 2;
-    int newX = [level placeinMap].x > offset ? [level placeinMap].x - offset : 0;
+    int newX = [level placeinMap].x > offset ? [level placeinMap].x / 2 : 0;
     CGPoint newPlace = CGPointMake(newX, 0);
     mapScrollView.contentOffset = newPlace;
     
@@ -203,17 +210,17 @@
 }
 
 - (void) showAllMapFinished {
-    configButton.userInteractionEnabled = YES;
-    langButton.userInteractionEnabled = YES;
-    helpButton.userInteractionEnabled = YES;
+    configButton.alpha = 1;
+    //langButton.alpha = 1;
+    helpButton.alpha = 1;
 }
 
 - (IBAction) playCurrentLevel:(id)sender {
     GameSequence *s = [GameSequenceManager getCurrentGameSequence];
     if ([s gameIsChallenge]) [self playChallengeTrain];
     if ([s gameIsTraining]) [self playTrainingTrain];
-    if ([s gameIsMemory]) [self playMemoryTrain];
-    if ([s gameIsSimon]) [self playSimonTrain];
+    //if ([s gameIsMemory]) [self playMemoryTrain];
+    //if ([s gameIsSimon]) [self playSimonTrain];
 }
 
 - (void) playChallengeTrain {
@@ -230,7 +237,7 @@
 	[vcDelegate pushTrainingTrain];
 }
 
-- (void) playMemoryTrain {
+/*- (void) playMemoryTrain {
 	[self stopBackgroundSound];
 	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
 	Sentence.delegate = vcDelegate.memoryTrain;
@@ -242,34 +249,7 @@
 	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
 	Sentence.delegate = vcDelegate.simonTrain;
 	[vcDelegate pushSimonTrain];
-}
-
-- (IBAction)changeUserShowInfo:(id)sender {
-	[self stopBackgroundSound];
-	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
-	[vcDelegate pushChangeUserView];
-}
-
-- (IBAction) changeLang:(id)sender {
-	[self stopBackgroundSound];
-	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
-	[vcDelegate pushChangeLangView];
-}
-
-
-
-- (void) mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error {
-    
-    [self dismissModalViewControllerAnimated:YES];
-	if (result==MFMailComposeResultFailed) {
-		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message Failed"
-              message:@"Your mail has failed to sent"
-              delegate:self
-              cancelButtonTitle: @"Dismiss"
-              otherButtonTitles:nil];
-		[alert show];
-	}
-}
+}*/
 
 - (IBAction) albumShowInfo:(id)sender {
 	[self stopBackgroundSound];
@@ -283,42 +263,37 @@
     //[mapScrollView initialize];
 }
 
-
-
-- (void) alertView: (UIAlertView*) alertView clickedButtonAtIndex: (NSInteger) aButtonIndex {
-	switch (aButtonIndex) {
-		case 0:
-			break;
-		case 1:
-			[[UserContext getSingleton] resetGame];
-			[self reloadAllLevels];
-			break;
-		default:
-			break;
-	}
+- (void) reloadAllLevels {
+    [self removeAllLevels];
+    [self drawAllLeveles];
 }
 
-- (void) reloadAllLevels {
-    for (int i=1; i<mapScrollView.subviews.count; i++) {
-        UIView *aView = [mapScrollView.subviews objectAtIndex:i];
-        [aView removeFromSuperview];
+- (void) removeAllLevels {
+    int i = 0;
+    while (mapScrollView.subviews.count > i) {
+        UIView *aView = [mapScrollView.subviews objectAtIndex: i];
+        if (aView.tag < 100) { // Three UIViews are fixed with tag 999. The rest of views belong to levels and icons. Will be added in drawAllLevels
+            [aView removeFromSuperview];
+        } else {
+            i++;
+        }
     }
-    [self drawAllLeveles];
 }
 
 - (void) drawAllLeveles {
     Level *level;
+    UIImageView* image;
     for (int i=0; i< [Vocabulary countOfLevels]; i++) {
         level = [UserContext getLevelAt: i];
-        [self addImage: level.image
+        image = [self addImage: level.image
                   pos: [level placeinMap]
                   size: [ImageManager getMapViewLevelSize]];
-     
+        //image.tag = 1000 + level.levelNumber;
         [self addAccessibleIconToLevel: level];
     }
 }
 
--(void) addImage: (UIImage*) image pos: (CGPoint) pos size: (int) size {
+-(UIImageView*) addImage: (UIImage*) image pos: (CGPoint) pos size: (int) size {
     UIImageView *imageView = [[UIImageView alloc] initWithImage: image];
     
     CGRect frame = imageView.frame;
@@ -330,6 +305,7 @@
     
     [mapScrollView addSubview: imageView];
     [mapScrollView bringSubviewToFront: imageView];
+    return imageView;
 }
 
 - (void) addAccessibleIconToLevel: (Level*) level {
@@ -341,11 +317,16 @@
     CGPoint newPlace = CGPointMake([level placeinMap].x + [ImageManager getMapViewLevelSize] * 0.7, [level placeinMap].y + [ImageManager getMapViewLevelSize] * 0.7);
  
     // Level.order = 1. The first level hardcoded is free. No purchase needed and is unlocked from de beginning
-    NSLog(@"Order: %d, MaxLevel: %d, level: %d", level.order, [UserContext getMaxLevel], [UserContext getLevelNumber]);
-    if (level.order > [UserContext getMaxLevel] && level.order != 1)
+    // NSLog(@"level.order: %i, levelNumber: %i, MaxLevel: %i", level.order, [UserContext getLevelNumber] + 1, [UserContext getMaxLevel]);
+    //UIImageView* image;
+    if (level.order > [UserContext getMaxLevel] && level.order != 1) {
         [self addImage: [UIImage imageNamed:@"buyButton.png"] pos: newPlace size: [ImageManager getMapViewLevelSize] * 0.4];
-    else if (level.order > [UserContext getLevelNumber] && level.order != 1)
+        //image.tag = 10000 + level.levelNumber;
+    } else if (level.order > ([UserContext getLevelNumber]+1) && level.order != 1) {
         [self addImage: [UIImage imageNamed:@"token-bronze.png"] pos: newPlace size: [ImageManager getMapViewLevelSize] * 0.4];
+        //image.tag = 10000 + level.levelNumber;
+    }
+
 }
 
 - (ConfigView*) configView {
@@ -355,12 +336,13 @@
         } else {
             configView = [[ConfigView alloc] initWithNibName: @"ConfigView" bundle:[NSBundle mainBundle]];
         }
+        //configView.view.tag = 999;
     }
     return configView;
 }
 
 - (IBAction) openConfigView {
-    [self.mapScrollView addSubview: [self configView].view];
+    [self.view addSubview: [self configView].view];
     configView.parentView = self;
     [configView show];
 }

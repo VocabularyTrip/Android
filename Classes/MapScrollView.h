@@ -13,10 +13,10 @@
 @interface MapScrollView : UIScrollView {
     LevelView *levelView;
     bool enabledInteraction;
-
 }
 
 @property (nonatomic, unsafe_unretained) bool enabledInteraction;
+@property (nonatomic) LevelView *levelView;
 
 - (void) openLevelView: (Level*) level;
 

@@ -31,6 +31,7 @@
 
 - (void) viewDidLoad {
     originalframeImageView = imageView.frame;
+    [parentView setEnabledInteraction: YES];
 }
 
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -42,7 +43,6 @@
     VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
     [vcDelegate.mapView stopBackgroundSound];
     level = aLevel;
-
     
     gameStatus = cStatusGameIsOn;
     
@@ -55,8 +55,10 @@
     int deltaX = ([ImageManager windowWidthXIB] - backgroundView.frame.size.width) / 2;
     // [ImageManager levelViewDeltaXYCorner];
 
-    int deltaY = vcDelegate.mapView.langButton.frame.size.height + ([ImageManager windowHeightXIB] - backgroundView.frame.size.height - vcDelegate.mapView.langButton.frame.size.height) / 2;
-     
+    //int deltaY = vcDelegate.mapView.langButton.frame.size.height + ([ImageManager windowHeightXIB] - backgroundView.frame.size.height - vcDelegate.mapView.langButton.frame.size.height) / 2;
+
+    int deltaY = ([ImageManager windowHeightXIB] - backgroundView.frame.size.height) / 2;
+    
     [UIView animateWithDuration: 0.50 animations: ^ {
         self.view.frame = CGRectMake(
             offset.x + deltaX, offset.y + deltaY,

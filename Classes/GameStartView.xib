@@ -157,8 +157,8 @@
     <resources>
         <image name="callout1.png" width="512" height="412"/>
         <image name="callout2.png" width="512" height="412"/>
-        <image name="firefighter.png" width="348" height="450"/>
-        <image name="orange.png" width="400" height="449"/>
+        <image name="firefighter.png" width="231" height="300"/>
+        <image name="orange.png" width="300" height="274"/>
         <image name="progress_back.png" width="201" height="25"/>
         <image name="wagon.png" width="93" height="43"/>
         <image name="wheel1.png" width="31" height="31"/>

@@ -19,6 +19,7 @@
 @synthesize backgroundView;
 @synthesize parentView;
 @synthesize soundButton;
+@synthesize langButton;
 
 - (void) viewDidLoad {
     //self.view.layer.shouldRasterize = YES;
@@ -32,29 +33,30 @@
 
 - (CGRect) frameOpened {
 
-    CGPoint offset = [parentView mapScrollView].contentOffset;
-    CGRect configButtonFrame = [parentView configButton].frame;
+    //CGPoint offset = [parentView mapScrollView].contentOffset;
+    //CGRect configButtonFrame = [parentView configButton].frame;
     
     int configButtonFrameX;
 
-    if ([ImageManager resolution] == UIDeviceResolution_iPhoneRetina5) {
-        configButtonFrameX = configButtonFrame.origin.x + configButtonFrame.size.width - backgroundView.frame.size.width + offset.x;
-    } else {
+    //if ([ImageManager resolution] == UIDeviceResolution_iPhoneRetina5) {
+    //    configButtonFrameX = configButtonFrame.size.width - backgroundView.frame.size.width + offset.x;
+    //} else {
         configButtonFrameX = [ImageManager windowWidthXIB] - backgroundView.frame.size.width;
-    }
+    //}
     
     //NSLog(@"ConfigButtomFrameX: %f, ConfigButtomFrameWidth: %f, backgroundViewWidth: %f, offset: %f, result: %f", configButtonFrame.origin.x, configButtonFrame.size.width, backgroundView.frame.size.width, offset.x,configButtonFrame.origin.x + configButtonFrame.size.width - backgroundView.frame.size.width + offset.x);
     
     return CGRectMake(
                configButtonFrameX,
-               configButtonFrame.origin.y + configButtonFrame.size.height,
+               0, // configButtonFrame.origin.y + configButtonFrame.size.height,
                backgroundView.frame.size.width,
                backgroundView.frame.size.height);
 }
 
 - (CGRect) frameClosed {
     CGRect frame = [self frameOpened];
-    frame.origin.y = frame.origin.y - backgroundView.frame.size.height;
+    //frame.origin.y = frame.origin.y - backgroundView.frame.size.height;
+    frame.origin.x = frame.origin.x  + backgroundView.frame.size.width;
     return frame;
 }
 
@@ -68,7 +70,6 @@
     MapScrollView *scroll = [parentView mapScrollView];
     //scroll.scrollEnabled = value;
     [scroll setEnabledInteraction: value];
-    //value = YES ? scroll.alpha = 1 : scroll.alpha = 0;
 }
 
 - (void) show {
@@ -76,7 +77,10 @@
     //[[parentView mapScrollView] setUserInteractionEnabled: NO];
     //[self.view setUserInteractionEnabled: YES];
     
-    [self setParentMode: NO];
+    Language* l = [UserContext getLanguageSelected];
+    [langButton setImage: l.image forState: UIControlStateNormal];
+
+    //[self setParentMode: NO];
     self.view.frame = [self frameClosed];
 	[self refreshSoundButton];
     
@@ -92,7 +96,7 @@
 
 - (bool) frameIsClosed {
     CGRect frameClosed = [self frameClosed];
-    return (self.view.frame.origin.y == frameClosed.origin.y);
+    return (self.view.frame.origin.x == frameClosed.origin.x);
 }
 
 - (IBAction) close {
@@ -113,6 +117,18 @@
     [UIView commitAnimations];
 }
 
+- (IBAction)changeUserShowInfo:(id)sender {
+	//[parentView stopBackgroundSound];
+	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
+	[vcDelegate pushChangeUserView];
+}
+
+- (IBAction) changeLang:(id)sender {
+	//[parentView stopBackgroundSound];
+	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
+	[vcDelegate pushChangeLangView];
+}
+
 - (IBAction) mailButtonClicked:(id)sender {
   	//[self stopBackgroundSound];
 	if([MFMailComposeViewController canSendMail]) {
@@ -123,12 +139,25 @@
 		[mailCont setToRecipients:[NSArray arrayWithObject: cMailInfo]];
 		[mailCont setMessageBody:@"" isHTML:NO];
 		
-		[self presentModalViewController: mailCont animated:YES];
+		[parentView presentModalViewController: mailCont animated:YES];
 	} else {
 		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Cant Send Mail"
                                                         message:@"All of your emails accounts are disabled or removed"
                                                        delegate:self
                                               cancelButtonTitle: @"OK"
+                                              otherButtonTitles:nil];
+		[alert show];
+	}
+}
+
+- (void) mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error {
+    
+    [parentView dismissModalViewControllerAnimated:YES];
+	if (result==MFMailComposeResultFailed) {
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message Failed"
+                                                        message:@"Your mail has failed to sent"
+                                                       delegate:self
+                                              cancelButtonTitle: @"Dismiss"
                                               otherButtonTitles:nil];
 		[alert show];
 	}
@@ -148,6 +177,20 @@
                           cancelButtonTitle: @"No"
                           otherButtonTitles: @"Yes", nil];
 	[alert show];
+}
+
+- (void) alertView: (UIAlertView*) alertView clickedButtonAtIndex: (NSInteger) aButtonIndex {
+	switch (aButtonIndex) {
+		case 0:
+			break;
+		case 1:
+			[[UserContext getSingleton] resetGame];
+			[parentView reloadAllLevels];
+            [parentView moveUser];
+			break;
+		default:
+			break;
+	}
 }
 
 - (IBAction)soundClicked {

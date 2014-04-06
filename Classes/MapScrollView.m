@@ -11,11 +11,25 @@
 
 @implementation MapScrollView
 
+@synthesize levelView;
 @synthesize enabledInteraction;
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        enabledInteraction = YES;
+        levelView.view.tag = 998;
+    }
+    return self;
+}
+
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    if ([self levelView].view.frame.origin.x > 0) return;
+    Level *level1 = [UserContext getLevel];
+    NSLog(@"offset: %f, levelPLaceInMap: %f, windowWith: %i", self.contentOffset.x, [level1 placeinMap].x, [ImageManager windowWidth]);
+    
     if (!enabledInteraction) return;
+    if ([self levelView].view.frame.origin.x > 0) return;
     
 	[super touchesBegan: touches withEvent: event];
     
@@ -41,7 +55,6 @@
             levelView = [[LevelView alloc] initWithNibName: @"LevelView" bundle:[NSBundle mainBundle]];
         }
         levelView.view.alpha = 0;
-        enabledInteraction = YES;
         [self addSubview: levelView.view];
         levelView.parentView = self;
     }

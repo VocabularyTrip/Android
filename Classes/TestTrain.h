@@ -15,9 +15,9 @@
 #define cElapsedInactivity1 4 // Is used to repeat the target word each 4 seconds
 #define cElapsedInactivity2 16 // Is used to pause the application after 16 seconds with no clic.
 
-#define cBronzeHitPrice 3 // Each hit is rewarded with money. This is the amount of money to win in each hit
-#define cSilverHitPrice 4 // Each hit is rewarded with money. This is the amount of money to win in each hit
-#define cGoldHitPrice 5 // Each hit is rewarded with money. This is the amount of money to win in each hit
+#define cBronzeHitPrice 2 // Each hit is rewarded with money. This is the amount of money to win in each hit
+#define cSilverHitPrice 2 // Each hit is rewarded with money. This is the amount of money to win in each hit
+#define cGoldHitPrice 2 // Each hit is rewarded with money. This is the amount of money to win in each hit
 
 @interface TestTrain : GenericTrain  {
 	int targetId; // From three words over wagons, one is selected as a target. This target is said allowd each 2 second until the user clic in the corresponding wagon. 

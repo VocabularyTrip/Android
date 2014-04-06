@@ -2668,6 +2668,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B022716B18EB3AEC00DBF3AC /* Unused */ = {
+			isa = PBXGroup;
+			children = (
+				B0A8B752187AD62C00245F48 /* GameStartView.xib */,
+				B09D368818BC92D900D21B9D /* GameStartView~ipad.xib */,
+				B0A8B754187B15A100245F48 /* GameStartView.h */,
+				B0A8B755187B15A100245F48 /* GameStartView.m */,
+				B0CCF04618C79E71008F5A11 /* GameEndView.h */,
+				B0CCF04718C79E71008F5A11 /* GameEndView.m */,
+				B0CCF04818C79E71008F5A11 /* GameEndView.xib */,
+				B0CCF04918C79E71008F5A11 /* GameEndView~ipad.xib */,
+				B049C86018D75A7900D53E4D /* MemoryTrain.h */,
+				B049C86118D75A7900D53E4D /* MemoryTrain.m */,
+				B0C6E18F18D8155C00A2801E /* SimonTrain.h */,
+				B0C6E19018D8155C00A2801E /* SimonTrain.m */,
+			);
+			name = Unused;
+			sourceTree = "<group>";
+		};
 		B0309D9717164C98003002D4 /* iphone5 */ = {
 			isa = PBXGroup;
 			children = (
@@ -4062,20 +4081,8 @@
 				CE7740A11465D9A900A4D2DA /* GenericTrain~ipad.xib */,
 				CE7C82B213CFD8B20086D5BB /* TestTrain.h */,
 				CE7C82B313CFD8B20086D5BB /* TestTrain.m */,
-				B049C86018D75A7900D53E4D /* MemoryTrain.h */,
-				B049C86118D75A7900D53E4D /* MemoryTrain.m */,
-				B0C6E18F18D8155C00A2801E /* SimonTrain.h */,
-				B0C6E19018D8155C00A2801E /* SimonTrain.m */,
 				CE72C75613DFA5BD0001F7AF /* TrainingTrain.h */,
 				CE72C75713DFA5BD0001F7AF /* TrainingTrain.m */,
-				B0A8B752187AD62C00245F48 /* GameStartView.xib */,
-				B09D368818BC92D900D21B9D /* GameStartView~ipad.xib */,
-				B0A8B754187B15A100245F48 /* GameStartView.h */,
-				B0A8B755187B15A100245F48 /* GameStartView.m */,
-				B0CCF04618C79E71008F5A11 /* GameEndView.h */,
-				B0CCF04718C79E71008F5A11 /* GameEndView.m */,
-				B0CCF04818C79E71008F5A11 /* GameEndView.xib */,
-				B0CCF04918C79E71008F5A11 /* GameEndView~ipad.xib */,
 			);
 			name = Train;
 			sourceTree = "<group>";
@@ -4279,6 +4286,7 @@
 		CEC234F713BD65DD00C179EB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B022716B18EB3AEC00DBF3AC /* Unused */,
 				B0B0F41A1887876A007C1667 /* MapView */,
 				B0A8B4E7187663D900245F48 /* Album */,
 				CE78DC0616DC1462007400FF /* Train */,

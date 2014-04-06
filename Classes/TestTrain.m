@@ -17,9 +17,9 @@
 - (IBAction) done:(id)sender {
 	[super done: sender];
 
-    [self evaluateGetIntoNextLevel];
 	VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
 	[vocTripDelegate popMainMenuFromTestTrain];
+    [self evaluateGetIntoNextLevel];    
 }
 
 - (void) viewDidAppear:(BOOL)animated {
@@ -179,7 +179,8 @@
 
 -(void) goToNextLevel {
 	gameStatus = cStatusGameIsGoingToNextLevel;
-	if ([UserContext getLevelNumber] >= [UserContext getMaxLevel]) {
+    //NSLog(@"LevelNumber: %i, level: %i", [UserContext getLevelNumber], [UserContext getMaxLevel]);
+	if (([UserContext getLevelNumber]+1) >= [UserContext getMaxLevel]) {
 		[self askToBuyNewLevels];
 	} else {
 		if ([UserContext nextLevel]) {
@@ -201,6 +202,7 @@
 						  otherButtonTitles: nil];	
 	[alert show];*/
 	//[self takeOutTrain];
+    
     [vcDelegate pushPurchaseView];
 
 }

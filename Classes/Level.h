@@ -12,8 +12,8 @@
 #import "Word.h"
 
 // Repensar estas constantes - no aplican mas
-#define cLimitLevelBronze 3
-#define cLimitLevelSilver 6
+#define cLimitLevelBronze 6
+#define cLimitLevelSilver 15
 #define cLimitLevel 46
 
 #define cLimitLevelStage1 9

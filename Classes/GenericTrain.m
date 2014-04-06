@@ -194,7 +194,6 @@
 
 }
 
-
 - (void) throbPauseButton {
     if (gameStatus != cStatusGameIsPaused) {
         pauseButton.alpha = 1;
@@ -245,9 +244,20 @@
 // **** Core Business *****
 
 - (void) incrementHitAtLevel: (int) aLevel {
+/*    int range;
+	if (aLevel <= cLimitLevelBronze) range = 1;
+	if (aLevel > cLimitLevelBronze && aLevel <= cLimitLevelSilver) range = 2;
+	if (aLevel > cLimitLevelSilver) range = 3;
+	
+  	int hit = arc4random() % range;
+	if (hit == 0) hitsOfLevel1++;
+	if (hit == 1) hitsOfLevel2++;
+	if (hit == 2) hitsOfLevel3++;*/
+    
 	if (aLevel <= cLimitLevelBronze) hitsOfLevel1++;
 	if (aLevel > cLimitLevelBronze && aLevel <= cLimitLevelSilver) hitsOfLevel2++;
-	if (aLevel > cLimitLevelSilver) hitsOfLevel3++;		
+	if (aLevel > cLimitLevelSilver) hitsOfLevel3++;
+    
 }
 
 // Hide the Word Clicked.
@@ -350,12 +360,13 @@
 	[self.trainSound stop];
 	pauseButton.alpha = 1;
 	helpButton.alpha = 1;
+    backButton.alpha = 1;
 	gameStatus = cStatusGameIsOn;
 	[smokeView startAnimation];
 }
 
 - (void) endGame {
-    //[GameSequenceManager nextSequence];
+    // [GameSequenceManager nextSequence];
 }
 
 - (void) prepareIntroduceTrain {
@@ -498,7 +509,8 @@
 	gameStatus = cStatusGameIsTakeoutTrain;
 	pauseButton.alpha = 0;
 	helpButton.alpha = 0;
-	
+	backButton.alpha = 0;
+    
 	if (UserContext.soundEnabled) {
 		[self.trainSound play]; 
 	}

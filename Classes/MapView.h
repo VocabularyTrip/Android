@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import <MessageUI/MessageUI.h>
 #import "GenericDownloadViewController.h"
 #import "Vocabulary.h"
 #import "ImageManager.h"
@@ -20,7 +19,7 @@
 
 #define cMailInfo @"info@vocabularyTrip.com"
 
-@interface MapView : GenericDownloadViewController <UIAlertViewDelegate, MFMailComposeViewControllerDelegate> {
+@interface MapView : GenericDownloadViewController <UIAlertViewDelegate> {
     
     AVAudioPlayer* backgroundSound;
     CADisplayLink *timerToPlayBackgroundSound;
@@ -28,7 +27,6 @@
     UIButton *__unsafe_unretained helpButton;
     UIButton *__unsafe_unretained playCurrentLevelButton;
     UIButton *__unsafe_unretained configButton;
-    UIButton *__unsafe_unretained langButton;
     ConfigView *configView;
 
     bool flagFirstShowInSession;
@@ -45,19 +43,19 @@
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *playCurrentLevelButton;
 @property (nonatomic, unsafe_unretained) bool flagFirstShowInSession;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *configButton;
-@property (nonatomic, unsafe_unretained) IBOutlet UIButton *langButton;
 @property (nonatomic, unsafe_unretained) int startWithHelpDownload;
 
-- (IBAction) changeUserShowInfo: (id) sender;
-- (IBAction) albumShowInfo: (id) sender;
-- (IBAction) changeLang: (id) sender;
 - (IBAction) playCurrentLevel: (id) sender;
+- (IBAction) albumShowInfo: (id) sender;
+
 
 - (void) initMap;
-- (void) drawAllLeveles;
-- (void) addImage: (UIImage*) image pos: (CGPoint) pos size: (int) size;
-- (void) addAccessibleIconToLevel: (Level*) level;
 - (void) reloadAllLevels;
+- (void) drawAllLeveles;
+- (void) removeAllLevels;
+- (void) moveUser;
+- (UIImageView*) addImage: (UIImage*) image pos: (CGPoint) pos size: (int) size;
+- (void) addAccessibleIconToLevel: (Level*) level;
 - (void) initializeGame;
 - (void) initAudioSession;
 - (void) stopBackgroundSound;
@@ -65,8 +63,8 @@
 
 - (void) playChallengeTrain;
 - (void) playTrainingTrain;
-- (void) playMemoryTrain;
-- (void) playSimonTrain;
+//- (void) playMemoryTrain;
+//- (void) playSimonTrain;
 
 - (void) showAllMapInFirstSession;
 - (void) showAllMapFinished;
