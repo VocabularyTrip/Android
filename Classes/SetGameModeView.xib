@@ -94,37 +94,20 @@
                     <rect key="frame" x="217" y="123" width="46" height="54"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="R2U-7K-yXE" userLabel="NoReadAbilityButton">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="R2U-7K-yXE" userLabel="NoReadAbilityButton">
                     <rect key="frame" x="29" y="51" width="202" height="229"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" backgroundImage="animal10.png">
-                        <attributedString key="attributedTitle">
-                            <fragment content="No read ability. Recommended for children under 8 years">
-                                <attributes>
-                                    <font key="NSFont" size="15" name="MarkerFelt-Thin"/>
-                                    <font key="NSOriginalFont" size="15" name="MarkerFelt-Thin"/>
-                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="3"/>
-                                </attributes>
-                            </fragment>
-                        </attributedString>
-                    </state>
+                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="15"/>
+                    <state key="normal" title="No read ability. Recommended for children under 8 years" backgroundImage="animal10.png"/>
                     <connections>
                         <action selector="noReadAbilityClicked" destination="-1" eventType="touchDown" id="dQU-dQ-SHu"/>
                     </connections>
                 </button>
-                <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="gvj-RQ-UdM" userLabel="ReadAbilityButton">
+                <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="gvj-RQ-UdM" userLabel="ReadAbilityButton">
                     <rect key="frame" x="249" y="51" width="202" height="229"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" backgroundImage="animal01.png">
-                        <attributedString key="attributedTitle">
-                            <fragment content="Read ability. Recommended for children over 9 years old">
-                                <attributes>
-                                    <font key="NSFont" size="15" name="MarkerFelt-Thin"/>
-                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="3"/>
-                                </attributes>
-                            </fragment>
-                        </attributedString>
-                    </state>
+                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="15"/>
+                    <state key="normal" title="Read ability. Recommended for children over 9 years old" backgroundImage="animal01.png"/>
                     <connections>
                         <action selector="readAbilityClicked" destination="-1" eventType="touchDown" id="a4v-yS-IAw"/>
                     </connections>

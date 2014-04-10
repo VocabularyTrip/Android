@@ -38,7 +38,7 @@
 }
 
 @property (nonatomic, strong) AVAudioPlayer *backgroundSound;
-@property (nonatomic, unsafe_unretained) IBOutlet UIScrollView *mapScrollView;
+@property (nonatomic, unsafe_unretained) IBOutlet MapScrollView *mapScrollView;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *helpButton;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *playCurrentLevelButton;
 @property (nonatomic, unsafe_unretained) bool flagFirstShowInSession;

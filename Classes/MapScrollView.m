@@ -19,7 +19,7 @@
     self = [super init];
     if (self) {
         enabledInteraction = YES;
-        levelView.view.tag = 998;
+        levelView.view.tag = 999;
     }
     return self;
 }

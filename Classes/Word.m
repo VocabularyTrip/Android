@@ -223,7 +223,7 @@
 }
 
 - (void) setAllTranslatedNames: (NSMutableDictionary *) newAllTranslatedNames {
-    if (allTranslatedNames ) {
+    if (!allTranslatedNames ) {
         allTranslatedNames = newAllTranslatedNames;
         [allTranslatedNames writeToFile: [self pathToSaveTranslations] atomically: YES];
     }

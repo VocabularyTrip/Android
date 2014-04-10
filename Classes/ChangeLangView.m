@@ -132,7 +132,7 @@
     if (langSelected.key >= 6)
         [langsView setSelectedCover: 6];
     
-    [langsView setSelectedCover: langSelected.key - 1];
+    [langsView setSelectedCover: langSelected.langOrder];
     [langsView centerOnSelectedCover: YES];
     
     [super viewWillAppear: animated];
@@ -186,6 +186,9 @@
     langSelected = [UserContext getLanguageSelected];
     int langKey = langSelected.key;
     int dir=1; // if we are in the last flag, the hand has to move to the left.
+    
+    // La comparaci[on est[a mal !!!!!
+    // el key no corresponde con el indice
     if (langKey == [[Language getAllLanguages] count]) dir = -1;
     
     CGRect langsFrame = langsView.frame;

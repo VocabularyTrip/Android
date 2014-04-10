@@ -150,7 +150,6 @@
 		B09A36321725C60500153E71 /* en_Congratulations6.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B09A36281725C60500153E71 /* en_Congratulations6.mp3 */; };
 		B09A36331725C60500153E71 /* en_Congratulations11.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B09A36291725C60500153E71 /* en_Congratulations11.mp3 */; };
 		B09A36341725C60500153E71 /* en_Congratulations12.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B09A362A1725C60500153E71 /* en_Congratulations12.mp3 */; };
-		B09A36351725C60500153E71 /* en_Congratulations13.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B09A362B1725C60500153E71 /* en_Congratulations13.mp3 */; };
 		B09A36361725C60500153E71 /* en_Congratulations14.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B09A362C1725C60500153E71 /* en_Congratulations14.mp3 */; };
 		B09D35B218AE406D00D21B9D /* MapView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B09D35B118AE406D00D21B9D /* MapView~ipad.xib */; };
 		B09D35B418AE62FD00D21B9D /* GameSequence.xml in Resources */ = {isa = PBXBuildFile; fileRef = B09D35B318AE62FD00D21B9D /* GameSequence.xml */; };
@@ -865,6 +864,7 @@
 		B0BD2FC31754D02900226A38 /* en_User_Wizard_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B0BD2FC01754D02900226A38 /* en_User_Wizard_2.mp3 */; };
 		B0BD2FC41754D02900226A38 /* en_User_Wizard_3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B0BD2FC11754D02900226A38 /* en_User_Wizard_3.mp3 */; };
 		B0BD2FC61754D3BF00226A38 /* en_Language_Wizard_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B0BD2FC51754D3BE00226A38 /* en_Language_Wizard_1.mp3 */; };
+		B0C1046318F337EB003C2517 /* en_Congratulations1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B0C1046218F337EB003C2517 /* en_Congratulations1.mp3 */; };
 		B0C22D9818E8BAE500A13593 /* buy one.png in Resources */ = {isa = PBXBuildFile; fileRef = B0C22D9718E8BAE500A13593 /* buy one.png */; };
 		B0C4993A16EBBCC400971770 /* progress_back.png in Resources */ = {isa = PBXBuildFile; fileRef = B0C4993416EBBCC300971770 /* progress_back.png */; };
 		B0C4993B16EBBCC400971770 /* progress_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B0C4993516EBBCC300971770 /* progress_back@2x.png */; };
@@ -1410,7 +1410,6 @@
 		B09A36281725C60500153E71 /* en_Congratulations6.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_Congratulations6.mp3; sourceTree = "<group>"; };
 		B09A36291725C60500153E71 /* en_Congratulations11.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_Congratulations11.mp3; sourceTree = "<group>"; };
 		B09A362A1725C60500153E71 /* en_Congratulations12.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_Congratulations12.mp3; sourceTree = "<group>"; };
-		B09A362B1725C60500153E71 /* en_Congratulations13.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_Congratulations13.mp3; sourceTree = "<group>"; };
 		B09A362C1725C60500153E71 /* en_Congratulations14.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_Congratulations14.mp3; sourceTree = "<group>"; };
 		B09D35B118AE406D00D21B9D /* MapView~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "MapView~ipad.xib"; sourceTree = "<group>"; };
 		B09D35B318AE62FD00D21B9D /* GameSequence.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = GameSequence.xml; sourceTree = "<group>"; };
@@ -2134,6 +2133,7 @@
 		B0BD2FC01754D02900226A38 /* en_User_Wizard_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_User_Wizard_2.mp3; sourceTree = "<group>"; };
 		B0BD2FC11754D02900226A38 /* en_User_Wizard_3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_User_Wizard_3.mp3; sourceTree = "<group>"; };
 		B0BD2FC51754D3BE00226A38 /* en_Language_Wizard_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_Language_Wizard_1.mp3; sourceTree = "<group>"; };
+		B0C1046218F337EB003C2517 /* en_Congratulations1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_Congratulations1.mp3; sourceTree = "<group>"; };
 		B0C22D9718E8BAE500A13593 /* buy one.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buy one.png"; sourceTree = "<group>"; };
 		B0C4993216EBA49E00971770 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../../Default-568h@2x.png"; sourceTree = "<group>"; };
 		B0C4993416EBBCC300971770 /* progress_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = progress_back.png; sourceTree = "<group>"; };
@@ -2961,13 +2961,13 @@
 		CE1627B31522531A00BFDE69 /* English */ = {
 			isa = PBXGroup;
 			children = (
+				B0C1046218F337EB003C2517 /* en_Congratulations1.mp3 */,
 				CE1627B41522531A00BFDE69 /* en_Advanced to next level.mp3 */,
 				CE1627B51522531A00BFDE69 /* en_Album help 1.mp3 */,
 				CE1627B61522531A00BFDE69 /* en_Album help 2.mp3 */,
 				CEBFCCF2156C96BB006E9E8F /* en_Congratulations10.mp3 */,
 				B09A36291725C60500153E71 /* en_Congratulations11.mp3 */,
 				B09A362A1725C60500153E71 /* en_Congratulations12.mp3 */,
-				B09A362B1725C60500153E71 /* en_Congratulations13.mp3 */,
 				B09A362C1725C60500153E71 /* en_Congratulations14.mp3 */,
 				B09A36251725C60500153E71 /* en_Congratulations2.mp3 */,
 				B09A36261725C60500153E71 /* en_Congratulations3.mp3 */,
@@ -5306,6 +5306,7 @@
 				B0A8B4791872CC4F00245F48 /* run.png in Resources */,
 				CE7C407E16E138E5002DA556 /* label@ipad.png in Resources */,
 				B0A8B57F187664A300245F48 /* avatar6_blink1.png in Resources */,
+				B0C1046318F337EB003C2517 /* en_Congratulations1.mp3 in Resources */,
 				CE7C408016E138E5002DA556 /* btn_download@ipad.png in Resources */,
 				CE7C408116E138E5002DA556 /* btn_download_on@ipad.png in Resources */,
 				CE7C408216E138E5002DA556 /* bg_user@ipad.png in Resources */,
@@ -5417,7 +5418,6 @@
 				B09A36331725C60500153E71 /* en_Congratulations11.mp3 in Resources */,
 				B098F46818CE49DD006B190B /* balcony.png in Resources */,
 				B09A36341725C60500153E71 /* en_Congratulations12.mp3 in Resources */,
-				B09A36351725C60500153E71 /* en_Congratulations13.mp3 in Resources */,
 				B09A36361725C60500153E71 /* en_Congratulations14.mp3 in Resources */,
 				B0A8B65F187671B800245F48 /* animal68.png in Resources */,
 				B098F49918CE49DD006B190B /* two.png in Resources */,

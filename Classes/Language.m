@@ -19,6 +19,7 @@ NSMutableArray *allLanguages = nil;
 @synthesize code;
 @synthesize qWords;
 @synthesize image;
+@synthesize langOrder;
 
 + (NSMutableArray*) getAllLanguages {
     if (allLanguages == nil)
@@ -28,14 +29,22 @@ NSMutableArray *allLanguages = nil;
     return allLanguages;
 }
 
-+ (Language*) getLanguageAt: (int) key {
-    return [[self getAllLanguages] objectAtIndex: key - 1];
++ (Language*) getLanguageAt: (int) i {
+    return [[self getAllLanguages] objectAtIndex: i];
 }
 
 + (Language*) getLanguageforLocalization: (NSString*) loc {
     for (int i=0; i < [[self getAllLanguages] count]; i++) {
         Language *l = [allLanguages objectAtIndex: i];
         if ([l.code isEqualToString: loc]) return l;
+    }
+    return nil;
+}
+
++ (Language*) getLanguageforKey: (int) key {
+    for (int i=0; i < [[self getAllLanguages] count]; i++) {
+        Language *l = [allLanguages objectAtIndex: i];
+        if (l.key == key) return l;
     }
     return nil;
 }
@@ -192,6 +201,7 @@ NSMutableArray *allLanguages = nil;
         Language *lang = [Language alloc];
         lang.key = [[tempOneLang objectAtIndex: 0] intValue];
         lang.name = [tempOneLang objectAtIndex: 1];
+        lang.langOrder = i;
         [allLanguages addObject: lang];
     }
 }

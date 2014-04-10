@@ -149,11 +149,11 @@
         if (langId == 0) {
             NSString *loc = [UserContext getPreferredLanguage];
             Language *newVal = [Language getLanguageforLocalization: loc];
-            if (newVal == nil) newVal = [Language getLanguageAt: 1];   
+            if (newVal == nil) newVal = [Language getLanguageAt: 0];
             [self setLangSelected: newVal];
             langSelected = newVal;
         } else
-            langSelected = [Language getLanguageAt: langId];
+            langSelected = [Language getLanguageforKey: langId];
 	}
 	return langSelected;
 }

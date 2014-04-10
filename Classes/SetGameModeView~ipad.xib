@@ -94,19 +94,11 @@
                     <rect key="frame" x="10" y="48" width="92" height="108"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="Hrj-hv-4nc" userLabel="ReadAbilityButton">
+                <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="Hrj-hv-4nc" userLabel="ReadAbilityButton">
                     <rect key="frame" x="575" y="194" width="402" height="429"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" backgroundImage="animal01.png">
-                        <attributedString key="attributedTitle">
-                            <fragment content="Read ability. Recommended for children over 8 years old">
-                                <attributes>
-                                    <font key="NSFont" size="15" name="MarkerFelt-Thin"/>
-                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="3"/>
-                                </attributes>
-                            </fragment>
-                        </attributedString>
-                    </state>
+                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="30"/>
+                    <state key="normal" title="Read ability. Recommended for children over 8 years old" backgroundImage="animal01.png"/>
                     <connections>
                         <action selector="readAbilityClicked" destination="-1" eventType="touchDown" id="geX-e5-zqY"/>
                     </connections>

@@ -24,7 +24,6 @@
 #define cMaxLevelKey @"keyMaxLevel"
 #define cSoundKey @"keySound"
 
-
 #define cImageModeGame 1
 #define cWordModeGame 2
 #define cImageAndWordModeGame 3

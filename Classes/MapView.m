@@ -70,7 +70,7 @@
     // First execution jump to wizard to select user and lang
     UserContext *aUserC = [UserContext getSingleton];
     if (!aUserC.userSelected) {
-        [configView changeUserShowInfo: nil];
+        [self.configView changeUserShowInfo: nil];
         return;
     }
 

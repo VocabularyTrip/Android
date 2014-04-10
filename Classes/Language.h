@@ -11,7 +11,9 @@
 #import "SBJSON.h"
 
 #define cArrayLanguages @"arrayOfLanguages"
-#define cInitFirstLanguages @"1|English-2|Chinese-3|Spanish-4|French-5|Farsi-6|German-7|Portuguese-8|Italian-9|Arabic-10|Egyptian-11|Hebrew-12|Hindi-13|Japanese-14|Russian-15|Malay-16|Vietnamese-17|Korean"
+#define cInitFirstLanguages @"1|English-2|Chinese-3|Spanish-4|French-5|Farsi-6|German-8|Italian-9|Arabic-10|Egyptian-15|Malay-16|Vietnamese-17|Korean"
+
+//#define cInitFirstLanguages @"1|English-2|Chinese-3|Spanish-4|French-5|Farsi-6|German-7|Portuguese-8|Italian-9|Arabic-10|Egyptian-11|Hebrew-12|Hindi-13|Japanese-14|Russian-15|Malay-16|Vietnamese-17|Korean"
 
 extern NSMutableArray *allLanguages;
 
@@ -20,7 +22,8 @@ extern NSMutableArray *allLanguages;
     NSString* name;
     NSString* code;
     int qWords;
-	UIImage *image; 
+	UIImage *image;
+    int langOrder;
 }
 
 @property (nonatomic, assign) int key;
@@ -28,9 +31,11 @@ extern NSMutableArray *allLanguages;
 @property (nonatomic, strong) NSString* code;
 @property (nonatomic, assign) int qWords;
 @property (nonatomic, strong) UIImage *image;
+@property (nonatomic, assign) int langOrder;
 
 + (Language*) getLanguageAt: (int) key;
 + (Language*) getLanguageforLocalization: (NSString*) loc;
++ (Language*) getLanguageforKey: (int) key;
 + (NSMutableArray*) getAllLanguages;
 + (void) loadLanguagesLocaly;
 + (void) saveLanguagesLocaly;
