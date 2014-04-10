@@ -77,9 +77,9 @@ Vocabulary *singletonVocabulary;
     
     if ([responseWithLevelsToDownload count] > 0) {
         NSDictionary* value = [responseWithLevelsToDownload lastObject];
-        NSLog(@"Download level: %i, order: %i"
-              , [[value objectForKey: @"level_id"] intValue]
-              , [[value objectForKey: @"level_order"] intValue]);
+        //NSLog(@"Download level: %i, order: %i"
+        //      , [[value objectForKey: @"level_id"] intValue]
+        //      , [[value objectForKey: @"level_order"] intValue]);
         [Level loadDataFromSql: [[value objectForKey: @"level_id"] intValue]];
         [responseWithLevelsToDownload removeLastObject];
     } else {
@@ -194,6 +194,14 @@ Vocabulary *singletonVocabulary;
 
 + (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
 	NSLog(@"Vocabulary. Error Parsing at line: %li, column: %li", (long)parser.lineNumber, (long)parser.columnNumber);	
+}
+
++ (Word*) getWord: (NSString*) name inLevel: (int) level {
+    Word *w;
+    for (w in [allWords objectAtIndex: level - 1]) {
+        if ([w.name isEqualToString: name]) return w;
+    }
+	return nil;
 }
 
 + (void)initializeLevelUntil: (int) level {

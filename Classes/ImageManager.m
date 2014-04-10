@@ -150,7 +150,7 @@
 // ********************* IMAGE SIZE DEFINITION *********************** //
 
 + (int) getMapViewLevelSize {
-    return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 150 : 60;
+    return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 120 : 60;
 }
 
 + (CGSize) getFlagSize {

@@ -160,6 +160,7 @@
     [ImageManager fitImage: word.image inImageView: imageView];
     wordNamelabel.text = word.translatedName;
     nativeWordNamelabel.text =  word.localizationName;
+    NSLog(@"Word: %@, Translated: %@, Loc: %@", word.name, word.translatedName, word.localizationName);
     imageView.alpha = 1;
     wordNamelabel.alpha = 1;
     nativeWordNamelabel.alpha = 1;

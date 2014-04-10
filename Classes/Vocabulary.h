@@ -81,5 +81,6 @@ extern Vocabulary *singletonVocabulary;
 + (int) countOfFilesInLocalPath; //
 + (bool) isDownloadCompleted; //
 + (int) countOfLevels;
++ (Word*) getWord: (NSString*) name inLevel: (int) level;
 
 @end

@@ -45,15 +45,13 @@
 
 // Response to getWordsforLevelAndLang
 + (void) connectionFinishSuccesfully: (NSDictionary*) response {
-    Word *aWord = [Word alloc];
+
     
     for (NSDictionary* value in response) {
         if (singletonVocabulary.wasErrorAtDownload == 0) {
-            [Word download: [value objectForKey: @"file_name"]];
-            aWord.name = [value objectForKey: @"word_name"];
-            aWord.allTranslatedNames = nil;
+            Word *aWord = [Vocabulary getWord: [value objectForKey: @"word_name"] inLevel: [[value objectForKey: @"level_order"] intValue]];
+            [Word download: [value objectForKey: @"file_name"]]; // Request download sound (mp3)
             [aWord addTranslation: [value objectForKey: @"translation"] forKey: [value objectForKey: @"lang_name"]];
-            
         } else {
             NSLog(@"Word %@ aborted", [value objectForKey: @"word_name"]);
         }

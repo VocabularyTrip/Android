@@ -9,6 +9,7 @@
 #import "ConfigView.h"
 #include "VocabularyTrip2AppDelegate.h"
 #include "MapView.h"
+#import "Vocabulary.h"
 
 @interface ConfigView ()
 
@@ -92,6 +93,9 @@
     self.view.frame = [self frameOpened];
     
     [UIView commitAnimations];
+    
+    langButton.enabled = !singletonVocabulary.isDownloading;
+
 }
 
 - (bool) frameIsClosed {
