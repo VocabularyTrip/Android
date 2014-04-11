@@ -39,7 +39,7 @@
 - (void) viewDidLoad {
     [self initializeGame];
     [self initMap];
-    [mapScrollView init];
+    //[mapScrollView init];
     //[self drawAllLeveles];
 
     //self.view.layer.shouldRasterize = YES;
@@ -91,7 +91,7 @@
     [self initializeTimeoutToPlayBackgroundSound];
     
     [self reloadAllLevels];
-    [mapScrollView bringSubviewToFront: mapScrollView.levelView.view];
+    //[mapScrollView bringSubviewToFront: mapScrollView.levelView.view];
 }
 
 - (AVAudioPlayer*) backgroundSound {
@@ -290,6 +290,7 @@
                   size: [ImageManager getMapViewLevelSize]];
         //image.tag = 1000 + level.levelNumber;
         [self addAccessibleIconToLevel: level];
+        [self addProgressLevel: level];
     }
 }
 
@@ -316,17 +317,22 @@
     
     CGPoint newPlace = CGPointMake([level placeinMap].x + [ImageManager getMapViewLevelSize] * 0.7, [level placeinMap].y + [ImageManager getMapViewLevelSize] * 0.7);
  
-    // Level.order = 1. The first level hardcoded is free. No purchase needed and is unlocked from de beginning
-    // NSLog(@"level.order: %i, levelNumber: %i, MaxLevel: %i", level.order, [UserContext getLevelNumber] + 1, [UserContext getMaxLevel]);
-    //UIImageView* image;
     if (level.order > [UserContext getMaxLevel] && level.order != 1) {
         [self addImage: [UIImage imageNamed:@"buyButton.png"] pos: newPlace size: [ImageManager getMapViewLevelSize] * 0.4];
-        //image.tag = 10000 + level.levelNumber;
     } else if (level.order > ([UserContext getLevelNumber]+1) && level.order != 1) {
         [self addImage: [UIImage imageNamed:@"token-bronze.png"] pos: newPlace size: [ImageManager getMapViewLevelSize] * 0.4];
-        //image.tag = 10000 + level.levelNumber;
     }
 
+}
+
+- (void) addProgressLevel: (Level*) level {
+    CGPoint newPlace = CGPointMake([level placeinMap].x, [level placeinMap].y + [ImageManager getMapViewLevelSize] * 0.7);
+    
+    if (level.order < [UserContext getLevelNumber] || level.order == 1) {
+        [self addImage: [UIImage imageNamed:@"progress_fill.png"] pos: newPlace size: [ImageManager getMapViewLevelSize] * 0.5];
+        [self addImage: [UIImage imageNamed:@"progress_mask.png"] pos: newPlace size: [ImageManager getMapViewLevelSize] * 0.5];
+        
+    }
 }
 
 - (ConfigView*) configView {

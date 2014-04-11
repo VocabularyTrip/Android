@@ -7,18 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ChangeLangView.h"
+
 #import "ChangeUserView.h"
+#import "ChangeLangView.h"
 #import "LockLanguageView.h"
 #import "SetGameModeView.h"
+
+#import "MapView.h"
+#import "LevelView.h"
+
 #import "GenericTrain.h"
-#import "MapView.h"
-#import "MapView.h"
-#import "AlbumView.h"
 #import "TestTrain.h"
 #import "TrainingTrain.h"
-#import "MemoryTrain.h"
-#import "SimonTrain.h"
+
+#import "AlbumView.h"
+//#import "MemoryTrain.h"
+//#import "SimonTrain.h"
 #import "PurchaseProtocol.h"
 #import "Language.h"
 #import "PromoCode.h"
@@ -35,8 +39,9 @@
 	
 	TestTrain *testTrain;
 	TrainingTrain *trainingTrain;
-	MemoryTrain *memoryTrain;
-	SimonTrain *simonTrain;
+	//MemoryTrain *memoryTrain;
+	//SimonTrain *simonTrain;
+    LevelView *levelView;
 	ChangeLangView *changeLangView;
 	ChangeUserView *changeUserView;    
     LockLanguageView *lockLanguageView;
@@ -55,8 +60,9 @@
 //@property (nonatomic) MainMenu *mainMenu;
 @property (nonatomic) TrainingTrain *trainingTrain;
 @property (nonatomic) TestTrain *testTrain;
-@property (nonatomic) MemoryTrain *memoryTrain;
-@property (nonatomic) SimonTrain *simonTrain;
+//@property (nonatomic) MemoryTrain *memoryTrain;
+//@property (nonatomic) SimonTrain *simonTrain;
+@property (nonatomic) LevelView *levelView;
 @property (nonatomic) ChangeLangView *changeLangView;
 @property (nonatomic) ChangeUserView *changeUserView;
 @property (nonatomic) LockLanguageView *lockLanguageView;
@@ -82,16 +88,17 @@
 - (void) pushMapViewWithHelpDownload;
 - (void) pushPurchaseView;
 - (void) pushTestTrain;
-- (void) pushMemoryTrain;
-- (void) pushSimonTrain;
+//- (void) pushMemoryTrain;
+//- (void) pushSimonTrain;
+- (void) pushLevelView;
 - (void) pushAlbumView;
 - (void) pushTrainingTrain;
 - (void) popMainMenuFromLevel;
 - (void) popMainMenuFromPurchase;
 - (void) popMainMenuFromAlbum;
 - (void) popMainMenuFromTestTrain;
-- (void) popMainMenuFromMemoryTrain;
-- (void) popMainMenuFromSimonTrain;
+//- (void) popMainMenuFromMemoryTrain;
+//- (void) popMainMenuFromSimonTrain;
 - (void) popMainMenuFromTrainingTrain;
 - (void) popFromLockLanguageView;
 - (void) popMainMenuFromChangeLang;

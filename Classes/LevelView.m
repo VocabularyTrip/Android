@@ -23,18 +23,42 @@
 @synthesize repeatButton;
 @synthesize backgroundView;
 @synthesize parentView;
+@synthesize level;
+
+- (IBAction) done:(id)sender {
+    [theTimer invalidate];
+	theTimer = nil;
+
+    VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
+    [vocTripDelegate popMainMenuFromChangeLang];
+    [vocTripDelegate.mapView initializeTimeoutToPlayBackgroundSound];
+}
 
 - (MapView*) mapView {
     VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
     return vocTripDelegate.mapView;
 }
 
-- (void) viewDidLoad {
-    originalframeImageView = imageView.frame;
-    [parentView setEnabledInteraction: YES];
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear: animated];
+
+    imageView.alpha = 0;
+	wordNamelabel.alpha = 0;
+	nativeWordNamelabel.alpha = 0;
 }
 
-- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+- (void) viewDidAppear:(BOOL)animated {
+    [super viewDidAppear: animated];
+
+    [self showAndSayDictionary];
+}
+
+- (void) viewDidLoad {
+    originalframeImageView = imageView.frame;
+    //[parentView setEnabledInteraction: YES];
+}
+
+/*- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     // This empty method is intended to overwrite the MapScrollView method.
     // the idea is not scrolling when Level is visible
 }
@@ -81,7 +105,7 @@
 	theTimer = nil;
     VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
     [vcDelegate.mapView initializeTimeoutToPlayBackgroundSound];
-}
+}*/
 
 - (IBAction) pauseClicked {
 	NSString *imageFile;
@@ -138,12 +162,12 @@
 
 - (void) showAndSayDictionary {
     
-    MapView* mapView = [self mapView];
+    //MapView* mapView = [self mapView];
     
     //if (i > 0 && [UserContext getMaxLevel] == 0) return;
     //if (mapView.helpButton.enabled == NO) [self cancelAnimation];
 	[Vocabulary initializeLevelAt: level.levelNumber];
-	mapView.helpButton.enabled = NO;
+	//mapView.helpButton.enabled = NO;
 	[self initializeTimer];
 }
 
@@ -160,7 +184,12 @@
     [ImageManager fitImage: word.image inImageView: imageView];
     wordNamelabel.text = word.translatedName;
     nativeWordNamelabel.text =  word.localizationName;
-    NSLog(@"Word: %@, Translated: %@, Loc: %@", word.name, word.translatedName, word.localizationName);
+
+    imageView.alpha = 1;
+	wordNamelabel.alpha = 1;
+	nativeWordNamelabel.alpha = 1;
+    
+    //NSLog(@"Word: %@, Translated: %@, Loc: %@", word.name, word.translatedName, word.localizationName);
     imageView.alpha = 1;
     wordNamelabel.alpha = 1;
     nativeWordNamelabel.alpha = 1;
@@ -203,7 +232,8 @@
 	//helpButton.enabled = YES;
 	if (theTimer) [theTimer invalidate];
 	theTimer = nil;
-    [self close];
+    
+    [self done: nil];
 }
 
 @end

@@ -16,8 +16,9 @@
 //@synthesize mainMenu;
 @synthesize trainingTrain;
 @synthesize testTrain;
-@synthesize memoryTrain;
-@synthesize simonTrain;
+//@synthesize memoryTrain;
+//@synthesize simonTrain;
+@synthesize levelView;
 @synthesize changeLangView;
 @synthesize changeUserView;
 @synthesize lockLanguageView;
@@ -302,7 +303,17 @@
 	return testTrain;
 }
 
--(MemoryTrain*) memoryTrain {
+-(LevelView*) levelView {
+    if (levelView == nil) {
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+            levelView = [[LevelView alloc] initWithNibName:@"LevelView~ipad" bundle:nil];
+        else
+            levelView = [[LevelView alloc] initWithNibName:@"LevelView" bundle:nil];
+    }
+    return levelView;
+}
+ 
+/*-(MemoryTrain*) memoryTrain {
 	if (memoryTrain == nil) {
 		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 			memoryTrain = [[MemoryTrain alloc] initWithNibName:@"GenericTrain~ipad" bundle:nil];
@@ -320,7 +331,7 @@
 			simonTrain = [[SimonTrain alloc] initWithNibName:@"GenericTrain" bundle:nil];
 	}
 	return simonTrain;
-}
+}*/
 
 
 -(TrainingTrain*) trainingTrain {
@@ -382,13 +393,17 @@
 	[navController pushViewController: self.testTrain animated: NO];
 }
 
-- (void) pushMemoryTrain {
+- (void) pushLevelView {
+ [navController pushViewController: self.levelView animated: YES];
+}
+
+/*- (void) pushMemoryTrain {
 	[navController pushViewController: self.memoryTrain animated: NO];
 }
 
 - (void) pushSimonTrain {
 	[navController pushViewController: self.simonTrain animated: NO];
-}
+}*/
 
 - (void) pushTrainingTrain {
 	[navController pushViewController: self.trainingTrain animated: NO];
@@ -443,7 +458,7 @@
 	testTrain = nil;
 }
 
-- (void) popMainMenuFromMemoryTrain {
+/*- (void) popMainMenuFromMemoryTrain {
 	[self popMainMenu];
 	Sentence.delegate = nil;
 	memoryTrain = nil;
@@ -453,7 +468,7 @@
 	[self popMainMenu];
 	Sentence.delegate = nil;
 	simonTrain = nil;
-}
+}*/
 
 - (void) popMainMenuFromTrainingTrain {
 	[self popMainMenu];

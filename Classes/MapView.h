@@ -56,6 +56,7 @@
 - (void) moveUser;
 - (UIImageView*) addImage: (UIImage*) image pos: (CGPoint) pos size: (int) size;
 - (void) addAccessibleIconToLevel: (Level*) level;
+- (void) addProgressLevel: (Level*) level;
 - (void) initializeGame;
 - (void) initAudioSession;
 - (void) stopBackgroundSound;

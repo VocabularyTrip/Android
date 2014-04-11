@@ -37,16 +37,17 @@
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *pauseButton;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *repeatButton;
 @property (nonatomic, unsafe_unretained) id parentView;
+@property (nonatomic) Level* level;
 
+- (IBAction) done:(id)sender;
 - (void) cancelAnimation;
 - (void) showAndSayDictionary;
 - (void) initializeTimer;
 - (void) showAndSayWord;
 - (void) showAndSayNextWord;
 - (void) helpLevel;
-- (void) showLevel: (Level*) aLevel at: (CGPoint) offset;
-
-- (IBAction) close;
+//- (void) showLevel: (Level*) aLevel at: (CGPoint) offset;
+//- (IBAction) close;
 - (IBAction) pauseClicked;
 - (IBAction) repeatClicked;
     

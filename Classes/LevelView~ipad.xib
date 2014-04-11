@@ -22,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty-page-princesses.png" id="RvO-D9-0wg" userLabel="Background">
-                    <rect key="frame" x="0.0" y="0.0" width="900" height="650"/>
+                    <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MfF-en-A6j" userLabel="BackButton">
@@ -32,11 +32,11 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="close" destination="-1" eventType="touchDown" id="qFH-aS-B8B"/>
+                        <action selector="done:" destination="-1" eventType="touchDown" id="Cbd-60-zVL"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tCv-jT-lnc" userLabel="RepeatButton">
-                    <rect key="frame" x="700" y="-7" width="77" height="77"/>
+                    <rect key="frame" x="853" y="0.0" width="77" height="77"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="17"/>
                     <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-57"/>
@@ -51,7 +51,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3S7-FL-4Y6" userLabel="PauseButton">
-                    <rect key="frame" x="796" y="0.0" width="68" height="68"/>
+                    <rect key="frame" x="949" y="7" width="68" height="68"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" image="pause2@ipad.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -61,18 +61,18 @@
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="architect.png" id="BW4-Dd-Y8c" userLabel="ImageView">
-                    <rect key="frame" x="20" y="140" width="400" height="400"/>
+                    <rect key="frame" x="129" y="140" width="400" height="400"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" minimumFontSize="10" id="jSi-3K-8hQ" userLabel="WordNameLabelSecondLang">
-                    <rect key="frame" x="420" y="400" width="900" height="83"/>
+                    <rect key="frame" x="529" y="400" width="900" height="83"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="40"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="The Name" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumFontSize="9" id="Hew-Ji-d8A" userLabel="WordNameLabel">
-                    <rect key="frame" x="420" y="275" width="900" height="155"/>
+                    <rect key="frame" x="529" y="275" width="900" height="155"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="69"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -85,7 +85,7 @@
     </objects>
     <resources>
         <image name="Menu1@ipad.png" width="209" height="80"/>
-        <image name="architect.png" width="400" height="400"/>
+        <image name="architect.png" width="267" height="300"/>
         <image name="empty-page-princesses.png" width="480" height="320"/>
         <image name="pause2@ipad.png" width="97" height="97"/>
         <image name="reset@ipad.png" width="60" height="56"/>

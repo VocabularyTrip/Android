@@ -8,28 +8,29 @@
 
 #import "MapScrollView.h"
 #import "UserContext.h"
+#import "VocabularyTrip2AppDelegate.h"
 
 @implementation MapScrollView
 
-@synthesize levelView;
-@synthesize enabledInteraction;
+//@synthesize levelView;
+//@synthesize enabledInteraction;
 
-- (instancetype)init
+/*- (instancetype)init
 {
     self = [super init];
     if (self) {
         enabledInteraction = YES;
-        levelView.view.tag = 999;
+//        levelView.view.tag = 999;
     }
     return self;
-}
+}*/
 
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    Level *level1 = [UserContext getLevel];
-    NSLog(@"offset: %f, levelPLaceInMap: %f, windowWith: %i", self.contentOffset.x, [level1 placeinMap].x, [ImageManager windowWidth]);
+    //Level *level1 = [UserContext getLevel];
+    //NSLog(@"offset: %f, levelPLaceInMap: %f, windowWith: %i", self.contentOffset.x, [level1 placeinMap].x, [ImageManager windowWidth]);
     
-    if (!enabledInteraction) return;
-    if ([self levelView].view.frame.origin.x > 0) return;
+    //if (!enabledInteraction) return;
+    //if ([self levelView].view.frame.origin.x > 0) return;
     
 	[super touchesBegan: touches withEvent: event];
     
@@ -47,7 +48,7 @@
     }
 }
 
-- (LevelView*) levelView {
+/*- (LevelView*) levelView {
     if (!levelView) {
       	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
             levelView = [[LevelView alloc] initWithNibName: @"LevelView~ipad" bundle:[NSBundle mainBundle]];
@@ -60,16 +61,22 @@
     }
     
     return levelView;
-}
+}*/
 
 - (void) openLevelView: (Level*) level {
-    [self setEnabledInteraction: NO];
-    [levelView showLevel: level at: self.contentOffset];
+    //[self setEnabledInteraction: NO];
+    //[levelView showLevel: level at: self.contentOffset];
+
+	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
+    [vcDelegate.mapView stopBackgroundSound];
+    vcDelegate.levelView.level = level;
+	[vcDelegate pushLevelView];
+    
 }
 
-- (void) setEnabledInteraction: (bool) value {
+/*- (void) setEnabledInteraction: (bool) value {
     self.scrollEnabled = value;
     enabledInteraction = value;
-}
+}*/
 
 @end
