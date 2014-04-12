@@ -339,6 +339,21 @@ Vocabulary *singletonVocabulary;
 	return ((double) r / (double) total);
 }
 
++ (double) progressLevel: (int) aLevel  {
+	int r = 0, total = 0;
+	Word *w;
+	
+    for (w in [allWords objectAtIndex: aLevel]) {
+		if (w.weight <= cLearnedWeight) r++;
+		total ++;
+	}
+	if (total == 0) return NO;
+    double progress = ((double) r / (double) total);
+    //progress = progress >= cPercentageLearnd ? 1 : progress / cPercentageLearnd;
+	NSLog(@"Level %i Learned: %i Total: %i, Progress: %f", aLevel, r, total, progress);
+	return progress;
+}
+
 + (double) progressIndividualLevel {
 	int r = 0, total = 0;
 	Word *w;

@@ -16,9 +16,9 @@
 @synthesize langsView;
 @synthesize langLabel;
 @synthesize lockUnlockButton;
-@synthesize progressView;
+//@synthesize progressView;
 @synthesize backgroundView;
-@synthesize progressBarFillView;
+//@synthesize progressBarFillView;
 @synthesize hand;
 @synthesize helpButton;
 
@@ -71,16 +71,16 @@
     user.langSelected = l;
     //[l countOfWords]; // Start request to the server to check how much words should be downloaded.
     
-    [self updateLevelSlider];
+    //[self updateLevelSlider];
 }
 
-- (void) updateLevelSlider {
+/*- (void) updateLevelSlider {
     
     double progress = [Vocabulary progressIndividualLevel];
     progressView.frame = [Vocabulary resizeProgressFrame: progressView.frame toNewProgress: progress progressFill: progressBarFillView.frame];
 
     
-/*    // Original is widh: 434, x: 295
+    // Original is widh: 434, x: 295
     float progress = [Vocabulary wasLearned] / 1;
     //NSLog(@"General Progress: %f", progress);
     
@@ -95,9 +95,9 @@
     
 	frame.size.width = deltaWidth * (1-progress);
     frame.origin.x = deltaX + (deltaWidth * progress);
-    progressView.frame = frame;    */
+    progressView.frame = frame;
    
-}
+}*/
 
 #pragma mark - View lifecycle
 
@@ -127,7 +127,7 @@
         langsView.userInteractionEnabled = YES;
         [lockUnlockButton setImage: [UIImage imageNamed: [ImageManager getIphoneIpadFile: @"lock"]] forState: UIControlStateNormal];
     }
-    [self updateLevelSlider];
+    //[self updateLevelSlider];
     
     if (langSelected.key >= 6)
         [langsView setSelectedCover: 6];

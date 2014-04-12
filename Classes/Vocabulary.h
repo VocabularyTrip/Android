@@ -65,6 +65,7 @@ extern Vocabulary *singletonVocabulary;
 + (void) testAllSounds; //
 + (double) wasLearned; //
 + (double) progressIndividualLevel;
++ (double) progressLevel: (int) aLevel;
 + (CGRect) resizeProgressFrame: (CGRect) progressFrame toNewProgress: (double) progress progressFill: (CGRect) progressBarFillFrame;
 
 //+ (NSString*) getTranslatedName: (NSDictionary *) attributeDict;

@@ -18,7 +18,8 @@
 @synthesize allTranslatedNames;
 @synthesize localizationName;
 @synthesize sound;
-@synthesize weight;
+@synthesize weightImage;
+@synthesize weightWord;
 @synthesize theme;
 @synthesize order;
 
@@ -152,46 +153,96 @@
 }
 
 -(void) incWeight {
-	if (weight < cMaxWeight) weight += cStepWeight;
-	[self saveWeight];
+    if ([GameSequenceManager getCurrentGameSequence].readAbility) {
+        if (weightWord < cMaxWeight) weightWord += cStepWeight;
+        [self saveWeightWord];
+    } else {
+        if (weightImage < cMaxWeight) weightImage += cStepWeight;
+        [self saveWeightImage];
+	}
+
 }
 
 -(void) decWeight {
-	if (weight > 1) weight -= cStepWeight;
-	[self saveWeight];
+    if ([GameSequenceManager getCurrentGameSequence].readAbility) {
+        if (weightWord > 1) weightWord -= cStepWeight;
+        [self saveWeightWord];
+    } else {
+        if (weightImage > 1) weightImage-= cStepWeight;
+        [self saveWeightImage];
+    }
 }
 
--(NSString*) weightKeyUserLang {
+-(NSString*) weightImageKeyUserLang {
     User *u = [UserContext getUserSelected];
     Language *l = [u langSelected];
-    return [NSString stringWithFormat: @"%@-%i-%i", name, u.userId, l.key];
+    return [NSString stringWithFormat: @"image%@-%i-%i", name, u.userId, l.key];
 }
 
--(void) saveWeight { 
-    NSString *key = [self weightKeyUserLang];
-	[[NSUserDefaults standardUserDefaults] setInteger: weight forKey: key];
+-(NSString*) weightWordKeyUserLang {
+    User *u = [UserContext getUserSelected];
+    Language *l = [u langSelected];
+    return [NSString stringWithFormat: @"word%@-%i-%i", name, u.userId, l.key];
 }
 
--(int) loadWeight {
-    NSString *key = [self weightKeyUserLang];
-    weight = [[NSUserDefaults standardUserDefaults] integerForKey: key];
-	if (weight == 0) {
-		weight = cInitialWeight;
-		[self saveWeight];
+-(void) saveWeightWord {
+    NSString *key = [self weightWordKeyUserLang];
+    [[NSUserDefaults standardUserDefaults] setInteger: weightWord forKey: key];
+}
+
+-(void) saveWeightImage {
+    NSString *key = [self weightImageKeyUserLang];
+    [[NSUserDefaults standardUserDefaults] setInteger: weightImage forKey: key];
+}
+
+-(void) loadWeight {
+    [self loadWeightWord];
+    [self loadWeightImage];
+}
+
+-(int) loadWeightImage {
+    NSString *key = [self weightImageKeyUserLang];
+    weightImage = [[NSUserDefaults standardUserDefaults] integerForKey: key];
+	if (weightImage == 0) {
+		weightImage = cInitialWeight;
+		[self saveWeightImage];
 	}
-	return weight;
+	return weightImage;
+}
+
+-(int) loadWeightWord {
+    NSString *key = [self weightWordKeyUserLang];
+    weightWord = [[NSUserDefaults standardUserDefaults] integerForKey: key];
+	if (weightWord == 0) {
+		weightWord = cInitialWeight;
+		[self saveWeightWord];
+	}
+	return weightWord;
 }
 
 -(void) resetWeight { 
-	weight = cInitialWeight;
-	[self saveWeight];
+	weightImage = cInitialWeight;
+	[self saveWeightImage];
+	weightWord = cInitialWeight;
+	[self saveWeightWord];
 }
 
 -(int) weight {
-	if (weight == 0) {
-        weight = [self loadWeight];
+    return (self.weightWord + self.weightImage) / 2;
+}
+
+-(int) weightImage {
+	if (weightImage == 0) {
+        weightImage = [self loadWeightImage];
 	}
-	return weight;
+	return weightImage;
+}
+
+-(int) weightWord {
+	if (weightWord == 0) {
+        weightWord = [self loadWeightWord];
+	}
+	return weightWord;
 }
 
 - (NSString*) keyDictionary {

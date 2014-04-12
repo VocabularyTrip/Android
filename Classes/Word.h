@@ -23,8 +23,9 @@
     NSMutableDictionary *allTranslatedNames; // if the app is Spanish --> Spanish name.
     NSString *localizationName; // if localization is chinese --> chinese name. If the localization is other than spanish, chinese, farsi, french, etc. English name
 	int theme;
-	int weight;
-    int order;      
+	int weightImage; // Value from 1 to 10 measure if recognize the sound with the image
+	int weightWord; // Similar to weightImage but measure if the user could read the sound. Is used in the mode. Is used if User.readAbility is true
+    int order;
 }
 
 @property (nonatomic, assign) int order;
@@ -34,7 +35,8 @@
 @property (nonatomic, strong) NSMutableDictionary *allTranslatedNames;
 @property (nonatomic, strong) NSString *localizationName;
 @property (nonatomic, strong) AVAudioPlayer *sound;
-@property (nonatomic, assign) int weight;
+@property (nonatomic, assign) int weightImage;
+@property (nonatomic, assign) int weightWord;
 @property (nonatomic, assign) int theme;
 @property (nonatomic, strong) NSString *translatedName; // Instance did't exist. Got value from allTranslatedNames
 
@@ -43,11 +45,15 @@
 + (NSString*) downloadDestinationPath;
 + (NSString*) checkIfDestinationPathExist;
 
+- (void) loadWeight; // load boath imageWeight and wordWeight
+- (int) weight; // Avg between weightWord and weightImage
 - (void) incWeight;
 - (void) decWeight;
-- (void) saveWeight; 
-- (int) loadWeight;
-- (void) resetWeight; 
+- (void) saveWeightImage;
+- (void) saveWeightWord;
+- (int) loadWeightImage;
+- (int) loadWeightWord;
+- (void) resetWeight;
 - (void) purge;
 - (bool) playSound;
 - (bool) playSoundWithDelegate: (id) delegate;

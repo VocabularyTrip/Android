@@ -326,12 +326,14 @@
 }
 
 - (void) addProgressLevel: (Level*) level {
-    CGPoint newPlace = CGPointMake([level placeinMap].x, [level placeinMap].y + [ImageManager getMapViewLevelSize] * 0.7);
+    CGPoint newPlace = CGPointMake([level placeinMap].x + [ImageManager getMapViewLevelSize] * 0, [level placeinMap].y + [ImageManager getMapViewLevelSize] * 0);
     
-    if (level.order < [UserContext getLevelNumber] || level.order == 1) {
-        [self addImage: [UIImage imageNamed:@"progress_fill.png"] pos: newPlace size: [ImageManager getMapViewLevelSize] * 0.5];
-        [self addImage: [UIImage imageNamed:@"progress_mask.png"] pos: newPlace size: [ImageManager getMapViewLevelSize] * 0.5];
+    if (level.order <= ([UserContext getLevelNumber]+1)|| level.order == 1) {
+        UIImageView *progressFillView = [self addImage: [UIImage imageNamed:@"progress_fill.png"] pos: newPlace size: [ImageManager getMapViewLevelSize]];
+        UIImageView *progressView = [self addImage: [UIImage imageNamed:@"progress_back.png"] pos: newPlace size: [ImageManager getMapViewLevelSize] ];
         
+        double progress = [Vocabulary progressLevel: level.levelNumber];
+        progressView.frame = [Vocabulary resizeProgressFrame: progressView.frame toNewProgress: progress progressFill: progressFillView.frame];
     }
 }
 

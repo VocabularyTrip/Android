@@ -15,8 +15,6 @@
                 <outlet property="langsView" destination="22" id="32"/>
                 <outlet property="lockUnlockButton" destination="46" id="47"/>
                 <outlet property="nextButton" destination="35" id="62"/>
-                <outlet property="progressBarFillView" destination="49" id="54"/>
-                <outlet property="progressView" destination="51" id="52"/>
                 <outlet property="view" destination="1" id="21"/>
             </connections>
         </placeholder>
@@ -46,13 +44,6 @@
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Progress to Next Level" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="7" id="38" userLabel="LevelLabel">
-                            <rect key="frame" x="143" y="265" width="193" height="23"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="14"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="59" userLabel="HelpButton">
@@ -88,18 +79,6 @@
                         <action selector="lockLangPressed:" destination="-1" eventType="touchDown" id="48"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_back@ipad.png" id="50" userLabel="ProgressBarBacklView">
-                    <rect key="frame" x="139" y="285" width="201" height="25"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_fill@ipad.png" id="49" userLabel="ProgressBarFillView">
-                    <rect key="frame" x="139" y="285" width="201" height="25"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_empty@ipad.png" id="51" userLabel="ProgressBarMaskView">
-                    <rect key="frame" x="189" y="285" width="151" height="25"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
                 <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="12" userLabel="BackButton">
                     <rect key="frame" x="0.0" y="2" width="100" height="46"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -163,9 +142,6 @@
         <image name="lock.png" width="49" height="49"/>
         <image name="nav_back@ipad.png" width="94" height="94"/>
         <image name="nav_next@ipad.png" width="94" height="94"/>
-        <image name="progress_back@ipad.png" width="434" height="61"/>
-        <image name="progress_empty@ipad.png" width="434" height="61"/>
-        <image name="progress_fill@ipad.png" width="434" height="61"/>
         <image name="toolbar.png" width="480" height="27"/>
     </resources>
 </document>

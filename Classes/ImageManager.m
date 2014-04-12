@@ -154,7 +154,7 @@
 }
 
 + (CGSize) getFlagSize {
-    return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? CGSizeMake(400,400) : CGSizeMake(150,150);
+    return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? CGSizeMake(300,300) : CGSizeMake(150,150);
 }
 
 + (CGSize) getMapViewSize {

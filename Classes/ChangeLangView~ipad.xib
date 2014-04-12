@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5053" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1280" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChangeLangView">
@@ -14,8 +14,6 @@
                 <outlet property="langsView" destination="39" id="50"/>
                 <outlet property="lockUnlockButton" destination="55" id="57"/>
                 <outlet property="nextButton" destination="51" id="74"/>
-                <outlet property="progressBarFillView" destination="63" id="66"/>
-                <outlet property="progressView" destination="64" id="65"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -45,25 +43,6 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="48"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_back@ipad.png" id="61" userLabel="ProgressBackView">
-                            <rect key="frame" x="295" y="659" width="434" height="61"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_fill@ipad.png" id="63" userLabel="ProgressFillView">
-                            <rect key="frame" x="295" y="659" width="434" height="61"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_empty@ipad.png" id="64" userLabel="ProgressEmptyView">
-                            <rect key="frame" x="295" y="659" width="434" height="61"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Progress to Next Level" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="59">
-                            <rect key="frame" x="386" y="635" width="253" height="28"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="71" userLabel="HelpButton">
@@ -162,9 +141,6 @@
         <image name="lock@ipad.png" width="97" height="97"/>
         <image name="nav_back@ipad.png" width="94" height="94"/>
         <image name="nav_next@ipad.png" width="94" height="94"/>
-        <image name="progress_back@ipad.png" width="434" height="61"/>
-        <image name="progress_empty@ipad.png" width="434" height="61"/>
-        <image name="progress_fill@ipad.png" width="434" height="61"/>
         <image name="toolbar.png" width="480" height="27"/>
     </resources>
 </document>

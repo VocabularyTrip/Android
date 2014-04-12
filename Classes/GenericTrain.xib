@@ -277,8 +277,8 @@
                         <action selector="helpClicked" destination="-1" eventType="touchDown" id="128"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="EnglishFlag.png" id="135" userLabel="FlagView">
-                    <rect key="frame" x="87" y="152" width="50" height="34"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="English.png" id="135" userLabel="FlagView">
+                    <rect key="frame" x="86" y="142" width="34" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qbd-Ry-ka3" userLabel="WordButtonLabel1">
@@ -323,16 +323,16 @@
         </view>
     </objects>
     <resources>
-        <image name="EnglishFlag.png" width="125" height="85"/>
+        <image name="English.png" width="256" height="256"/>
         <image name="Menu1.png" width="106" height="43"/>
         <image name="avatar6.png" width="125" height="175"/>
         <image name="clicking.png" width="139" height="147"/>
-        <image name="firefighter.png" width="348" height="450"/>
+        <image name="firefighter.png" width="231" height="300"/>
         <image name="help.png" width="49" height="49"/>
         <image name="landscape1.png" width="2059" height="320"/>
         <image name="landscape1Sky.png" width="2076" height="113"/>
-        <image name="mouse.png" width="400" height="258"/>
-        <image name="orange.png" width="400" height="449"/>
+        <image name="mouse.png" width="300" height="192"/>
+        <image name="orange.png" width="300" height="274"/>
         <image name="pause2.png" width="50" height="50"/>
         <image name="rail.png" width="478" height="4"/>
         <image name="smoke.png" width="66" height="44"/>
