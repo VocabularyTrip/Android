@@ -3,17 +3,34 @@
 <plist version="1.0">
 <dict>
 	<key>Active Configuration</key>
-	<string>Debug</string>
+	<string>Release</string>
 	<key>Application Id</key>
 	<string>683626437</string>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>en_US</string>
+	<string>English</string>
 	<key>CFBundleDisplayName</key>
 	<string>KL Vocabulary</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFiles</key>
 	<array>
+		<string>icono-80</string>
+		<string>Icon-Small</string>
+		<string>icono-120</string>
+		<string>Icon.png</string>
+		<string>Icon@2x.png</string>
+		<string>Icon-72.png</string>
+		<string>Icon-72@2x.png</string>
+	</array>
+	<key>CFBundleIconFiles~ipad</key>
+	<array>
+		<string>Icon-Small</string>
+		<string>icono-80</string>
+		<string>icono-40</string>
+		<string>Icon-Small-50</string>
+		<string>icono-152</string>
+		<string>icono-76</string>
+		<string>icono-120</string>
 		<string>Icon.png</string>
 		<string>Icon@2x.png</string>
 		<string>Icon-72.png</string>
@@ -30,32 +47,21 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>2</string>
+	<string>1.1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<false/>
 	<key>NSMainNibFile</key>
 	<string>MainWindow</string>
+	<key>UIApplicationExitsOnSuspend</key>
+	<true/>
 	<key>UIStatusBarHidden</key>
 	<true/>
-	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>FacebookAppID</key>
-	<string>287583974661887</string>
-	<key>FacebookDisplayName</key>
-	<string>Kids Learn Vocabulary</string>
-	<key>CFBundleURLTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>fb287583974661887</string>
-			</array>
-		</dict>
-	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>
