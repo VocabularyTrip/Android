@@ -39,21 +39,27 @@
                           nil];
     
     AFJSONRequestOperation *operation = [AFProxy preparePostRequest: url param: dict delegate: self];
-    
     [operation start];
 }
 
 // Response to getWordsforLevelAndLang
 + (void) connectionFinishSuccesfully: (NSDictionary*) response {
 
-    
     for (NSDictionary* value in response) {
         if (singletonVocabulary.wasErrorAtDownload == 0) {
             Word *aWord = [Vocabulary getWord: [value objectForKey: @"word_name"] inLevel: [[value objectForKey: @"level_order"] intValue]];
+            
+            Language *lang = [UserContext getLanguageSelected]; // Para el Log
+            if (!singletonVocabulary.isDownloading) {
+                NSLog(@"Cancel download for Lang: %@", lang.name);
+                return;
+            }; // Break download since the user canceled or did error network
+            NSLog(@"Download lang: %@, word: %@", lang.name, aWord.name);
+            
             [Word download: [value objectForKey: @"file_name"]]; // Request download sound (mp3)
             [aWord addTranslation: [value objectForKey: @"translation"] forKey: [value objectForKey: @"lang_name"]];
         } else {
-            NSLog(@"Word %@ aborted", [value objectForKey: @"word_name"]);
+            //NSLog(@"Word %@ aborted", [value objectForKey: @"word_name"]);
         }
     }
 }

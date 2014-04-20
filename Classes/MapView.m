@@ -117,7 +117,7 @@
 	if (timerToPlayBackgroundSound == nil) {
         flagTimeoutStartMusic = NO;
 		timerToPlayBackgroundSound = [CADisplayLink displayLinkWithTarget:self selector:@selector(startPlayBackgroundSound)];
-		timerToPlayBackgroundSound.frameInterval = 800;
+		timerToPlayBackgroundSound.frameInterval = 1200;
 		[timerToPlayBackgroundSound addToRunLoop: [NSRunLoop currentRunLoop] forMode: NSDefaultRunLoopMode];
 	}
 }
@@ -136,7 +136,7 @@
     [self showAllMapInFirstSession];
     
     if ([UserContext getHelpLevel] || startWithHelpPurchase) [self helpAnimation1];
-    if (startWithHelpPurchase && ![Vocabulary isDownloadCompleted]) [self startLoading];
+    if (startWithHelpPurchase && ![Vocabulary isDownloadCompleted]) [configView startLoading];
     if (startWithHelpDownload) [self helpDownload1];
     startWithHelpDownload = 0;
     startWithHelpPurchase = 0;

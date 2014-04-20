@@ -96,11 +96,13 @@
 - (IBAction) facebookButton {
     
     [FacebookManager initFacebookSession];
-    //[FacebookManager facebookLogin];
+    [FacebookManager facebookLogin];
     //[FacebookManager requestForMe];
     //[FacebookManager requestWritePermissions];
     //[FacebookManager inviteAFriend];
     //[FacebookManager loadListOfFriends];
+    [FacebookManager requestWritePermissions];
+    
     if ([FacebookManager postFeedDialog: 0] == tFacebookNotFacebookApp) {
         UIAlertView *alert = [[UIAlertView alloc]
                               initWithTitle: @"Facebook Result"

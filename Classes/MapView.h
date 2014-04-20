@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "GenericDownloadViewController.h"
 #import "Vocabulary.h"
 #import "ImageManager.h"
 #import "UserContext.h"
@@ -17,9 +16,9 @@
 #import "ConfigView.h"
 
 
-#define cMailInfo @"info@vocabularyTrip.com"
+#define cMailInfo @"" // @"info@vocabularyTrip.com"
 
-@interface MapView : GenericDownloadViewController <UIAlertViewDelegate> {
+@interface MapView : UIViewController <UIAlertViewDelegate> {
     
     AVAudioPlayer* backgroundSound;
     CADisplayLink *timerToPlayBackgroundSound;
@@ -47,7 +46,7 @@
 
 - (IBAction) playCurrentLevel: (id) sender;
 - (IBAction) albumShowInfo: (id) sender;
-
+- (ConfigView*) configView;
 
 - (void) initMap;
 - (void) reloadAllLevels;

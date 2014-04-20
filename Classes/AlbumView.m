@@ -122,12 +122,15 @@
 -(void) initMusicPlayer {
 	
 	// Page turn Sound
-	NSURL* soundUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"PageTurn" ofType:@"wav"]];
-	AudioServicesCreateSystemSoundID((__bridge CFURLRef) soundUrl, &pageTurnSoundId);
+	//NSURL* soundUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"PageTurn" ofType:@"wav"]];
+	//AudioServicesCreateSystemSoundID((__bridge CFURLRef) soundUrl, &pageTurnSoundId);
 	
-	soundUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"TillWithBell" ofType:@"wav"]];
-	AudioServicesCreateSystemSoundID((__bridge CFURLRef) soundUrl, &tillSoundId);
-	
+	//soundUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"TillWithBell" ofType:@"wav"]];
+	//AudioServicesCreateSystemSoundID((__bridge CFURLRef) soundUrl, &tillSoundId);
+
+    pageTurnSoundId = [Sentence getAudioPlayer: @"PageTurn"];
+    tillSoundId = [Sentence getAudioPlayer: @"TillWithBell"];
+    
 }
 
 - (IBAction)soundClicked { 
@@ -145,8 +148,9 @@
 	[self removeCurrentPage];
 	currentAlbum.actualPage--;
 	[self drawCurrentPage];
-	AudioServicesPlaySystemSound(pageTurnSoundId);	
-
+	//AudioServicesPlaySystemSound(pageTurnSoundId);
+    [pageTurnSoundId play];
+    
 	[UIView beginAnimations: @"Turn Page Left" context: nil]; 
 	[UIView setAnimationDuration:1];
 	[UIView setAnimationTransition: UIViewAnimationTransitionCurlDown forView: self.view cache: YES];
@@ -160,8 +164,9 @@
 	[self removeCurrentPage];
 	currentAlbum.actualPage++;
 	[self drawCurrentPage];
-	AudioServicesPlaySystemSound(pageTurnSoundId);
-	
+	//AudioServicesPlaySystemSound(pageTurnSoundId);
+	[pageTurnSoundId play];
+    
 	[UIView beginAnimations: @"Turn Page Right" context: nil]; 
 	[UIView setAnimationDuration:1];
 	[UIView setAnimationTransition: UIViewAnimationTransitionCurlUp forView: self.view cache: YES];
@@ -432,8 +437,9 @@
 }
 
 - (void) buyNewFigurine: (UIButtonEmptyFigurine *) buttonEmptyfig {
-	AudioServicesPlaySystemSound(tillSoundId);	
-	
+//	AudioServicesPlaySystemSound(tillSoundId);
+	[tillSoundId play];
+    
 	buttonEmptyfig.fig.wasBought = YES;
 	// Remove the EmtpyFig image
 	UIView *oldView = [figurinesInPage objectAtIndex: buttonEmptyfig.index];
@@ -481,8 +487,8 @@
 }
 
 - (void)dealloc {
-	AudioServicesDisposeSystemSoundID(tillSoundId);
-	AudioServicesDisposeSystemSoundID(pageTurnSoundId);
+	//AudioServicesDisposeSystemSoundID(tillSoundId);
+	//AudioServicesDisposeSystemSoundID(pageTurnSoundId);
 }
 
 
@@ -553,8 +559,9 @@
     prevButton.alpha = 1;
 	pageLabel.text = @"Help Page";
 	
-	AudioServicesPlaySystemSound(pageTurnSoundId);
-	
+	//AudioServicesPlaySystemSound(pageTurnSoundId);
+	[pageTurnSoundId play];
+    
 	[UIView beginAnimations: @"Turn Page Right" context: nil]; 
 	[UIView setAnimationDuration: 1];
 	[UIView setAnimationTransition: UIViewAnimationTransitionCurlUp forView: self.view cache: YES];
@@ -686,8 +693,9 @@
     if ([figurinesInPage count] == 0) return;
 
 	UIButtonEmptyFigurine* buttonEmptyfig = (UIButtonEmptyFigurine*) [figurinesInPage objectAtIndex: 2];
-	AudioServicesPlaySystemSound(tillSoundId);	
-	
+	//AudioServicesPlaySystemSound(tillSoundId);
+	[tillSoundId play];
+    
 	//buttonEmptyfig.fig.wasBought = YES;
 	// Remove the EmtpyFig image
 	UIView *oldView = [figurinesInPage objectAtIndex: buttonEmptyfig.index];
@@ -751,7 +759,9 @@
 	[self removeCurrentPage];
 	[self drawCurrentPage];
 
-	AudioServicesPlaySystemSound(pageTurnSoundId);	
+	//AudioServicesPlaySystemSound(pageTurnSoundId);
+    [pageTurnSoundId play];
+    
     hand.alpha = 0;
     CGRect frame = hand.frame;
     frame.origin.x = 100;

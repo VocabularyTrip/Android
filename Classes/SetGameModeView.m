@@ -57,17 +57,24 @@
 - (IBAction) noReadAbilityClicked {
     noReadAbilityButton.alpha = 1;
     readAbilityButton.alpha = 0.5;
-    if ([UserContext getUserSelected].readAbility)
-        [GameSequenceManager resetSequence];
+//    if ([UserContext getUserSelected].readAbility)
+//        [[UserContext getUserSelected] resetSequence];
+    
     [UserContext getUserSelected].readAbility = NO;
+    [[UserContext getUserSelected] reloadLevel];
+    //[[UserContext getUserSelected] reloadGameSequenceNumer];
+    
 }
 
 - (IBAction) readAbilityClicked {
     noReadAbilityButton.alpha = 0.5;
     readAbilityButton.alpha = 1;
-    if (![UserContext getUserSelected].readAbility)
-        [GameSequenceManager resetSequence];
+//    if (![UserContext getUserSelected].readAbility)
+//        [[UserContext getUserSelected] resetSequence];
+    
     [UserContext getUserSelected].readAbility = YES;
+    [[UserContext getUserSelected] reloadLevel]; // Force read the level corresponding with read ability
+    //[[UserContext getUserSelected] reloadGameSequenceNumer];
 }
 
 -(void) helpClicked {

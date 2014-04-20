@@ -7,10 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapView">
             <connections>
-                <outlet property="cancelDownloadButton" destination="hSD-Ia-e0H" id="ar8-in-GLI"/>
                 <outlet property="configButton" destination="e8i-1N-68i" id="8ua-Vk-Ock"/>
-                <outlet property="downloadButton" destination="c29-PB-tHR" id="rJf-GJ-aZ2"/>
-                <outlet property="downloadProgressView" destination="1j8-vS-s8E" id="pzb-BJ-lnW"/>
                 <outlet property="helpButton" destination="g1W-9h-gG6" id="c3x-ka-k7N"/>
                 <outlet property="mapScrollView" destination="ns4-AB-LhT" id="aSy-Ad-6bz"/>
                 <outlet property="playCurrentLevelButton" destination="E4V-Su-mpc" id="NSs-h2-Bp1"/>
@@ -81,40 +78,6 @@
                         <action selector="openConfigView" destination="-1" eventType="touchDown" id="Rgy-ah-edR"/>
                     </connections>
                 </button>
-                <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="c29-PB-tHR" userLabel="DownloadButton">
-                    <rect key="frame" x="660" y="13" width="150" height="60"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                    <state key="normal" title="Button" image="btn_download@ipad.png">
-                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <state key="highlighted">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="startLoading" destination="-1" eventType="touchDown" id="gff-SL-1dz"/>
-                    </connections>
-                </button>
-                <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hSD-Ia-e0H" userLabel="CancelDownloadButton">
-                    <rect key="frame" x="660" y="13" width="150" height="60"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                    <state key="normal" image="btn_download_cancel@ipad.png">
-                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <state key="highlighted">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="cancelDownload:" destination="-1" eventType="touchDown" id="2fO-bK-1tA"/>
-                    </connections>
-                </button>
-                <progressView opaque="NO" alpha="0.0" contentMode="scaleToFill" id="1j8-vS-s8E" userLabel="DownloadProgressView">
-                    <rect key="frame" x="662" y="83" width="150" height="2"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </progressView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
@@ -123,8 +86,6 @@
     </objects>
     <resources>
         <image name="btn_challenge@ipad.png" width="282" height="342"/>
-        <image name="btn_download@ipad.png" width="165" height="56"/>
-        <image name="btn_download_cancel@ipad.png" width="165" height="56"/>
         <image name="cover-animal.png" width="480" height="320"/>
         <image name="help@ipad.png" width="97" height="97"/>
         <image name="trainPath.png" width="1700" height="270"/>

@@ -19,8 +19,20 @@
 
 	VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
 	[vocTripDelegate popMainMenuFromTestTrain];
-    [self evaluateGetIntoNextLevel];    
+    //[self evaluateGetIntoNextLevel];
 }
+
+/*- (IBAction) playAgainButtonClicked:(id)sender {
+    [super done: nil];
+	VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
+	[vocTripDelegate popMainMenuFromTestTrain];
+    
+    NSUInteger result = [self evaluateGetIntoNextLevel];
+    // If the result is nextLevel or buyRequired, the play again is ignored. The user is forwarded to map or purchase view.
+    if (result == tResultEvaluateNextLevel_none ||
+        result == tResultEvaluateNextLevel_closeToNextLevel)
+        [vocTripDelegate.mapView playCurrentLevel: nil];
+}*/
 
 - (void) viewDidAppear:(BOOL)animated {
 	[super viewDidAppear: animated];
@@ -98,7 +110,6 @@
 }
 
 - (void) refreshMoneyLabelsFinished {
-	//[self evaluateGetIntoNextLevel];
     [self takeOutTrain];
 }
 
@@ -109,16 +120,16 @@
 		int hitRate = [self hitRate];
 		if (hitRate < 5) {
 			[Sentence playSpeaker: @"Test-EndGame-PracticeMore"];
-            [GameSequenceManager nextSequence: @"Training"];
+            [[UserContext getUserSelected] nextSequence: @"Training"];
 		} else if (hitRate < 7) {
 			[Sentence playSpeaker: @"Test-EndGame-GoodJob"];
-            [GameSequenceManager nextSequence];
+            [[UserContext getUserSelected] nextSequence];
 		} else if (hitRate < 9) {
 			[Sentence playSpeaker: @"Test-EndGame-GreatJob"];
-            [GameSequenceManager nextSequence: @"Challenge"];
+            [[UserContext getUserSelected] nextSequence: @"Challenge"];
 		} else {
 			[Sentence playSpeaker: @"Test-EndGame-Amazing"];
-            [GameSequenceManager nextSequence: @"Challenge"];
+            [[UserContext getUserSelected] nextSequence: @"Challenge"];
 		}
 	}
 //	[self refreshMoneyLabels];
@@ -160,33 +171,38 @@
 	CFAbsoluteTimeGetCurrent() - inactivity2 > cElapsedInactivity2;
 }
 
-- (void) evaluateGetIntoNextLevel {
+- (tResultEvaluateNextLevel) evaluateGetIntoNextLevel {
 	// The limit of the game. There are no more levels over cLimitLevel
 	if ([UserContext getLevelNumber] >= cLimitLevel) {
 		//[self takeOutTrain];
-		return; 
+		return tResultEvaluateNextLevel_none;
 	}
 	
 	double wasLearnedResult = [Vocabulary wasLearned];
 	if (wasLearnedResult >= cPercentageLearnd && [self hitRate] >= 5) {
-		[self goToNextLevel];
+		return [self goToNextLevel];
 	} else if (wasLearnedResult >= cPercentageCloseToLearnd && [self hitRate] >= 5) {
 		if (viewMode == 1) [Sentence playSpeaker: @"Test-EvaluateGetIntoNextLevel-CloseToLearned"];
+		return tResultEvaluateNextLevel_closeToNextLevel;
 	}
-	
+    
+    return tResultEvaluateNextLevel_none;
 	//[self takeOutTrain];
 }
 
--(void) goToNextLevel {
+-(tResultEvaluateNextLevel) goToNextLevel {
 	gameStatus = cStatusGameIsGoingToNextLevel;
     //NSLog(@"LevelNumber: %i, level: %i", [UserContext getLevelNumber], [UserContext getMaxLevel]);
 	if (([UserContext getLevelNumber]+1) >= [UserContext getMaxLevel]) {
-		[self askToBuyNewLevels];
+		//[self askToBuyNewLevels];
+        return tResultEvaluateNextLevel_BuyRequired;
 	} else {
 		if ([UserContext nextLevel]) {
 			[Sentence playSpeaker: @"Test-EvaluateGetIntoNextLevel-NextLevel"];
+            return tResultEvaluateNextLevel_NextLevel;
 		}
 	}
+    return tResultEvaluateNextLevel_none;
 }
 
 - (IBAction) askToBuyNewLevels {
@@ -256,7 +272,8 @@
 		} else {
 			flagFaild = YES;
 			[w incWeight];
-			AudioServicesPlayAlertSound(errorSoundId);
+			//AudioServicesPlaySystemSound(errorSoundId);
+            [errorSoundId play];
             [AnimatorHelper shakeView: aButton];
 		}
 	} @catch (NSException * e) {
@@ -273,9 +290,9 @@
 	[super initMusicPlayer];
 
 	// Error Sound
-	NSURL* soundUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"ErrorSound" ofType:@"wav"]];
-	AudioServicesCreateSystemSoundID((__bridge CFURLRef) soundUrl, &errorSoundId);
-	
+	//NSURL* soundUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"ErrorSound" ofType:@"wav"]];
+	//AudioServicesCreateSystemSoundID((__bridge CFURLRef) soundUrl, &errorSoundId);
+    errorSoundId = [Sentence getAudioPlayer: @"ErrorSound"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -429,8 +446,9 @@
 // *****************************
 
 - (void)dealloc {
-	AudioServicesDisposeSystemSoundID(errorSoundId);
+	//AudioServicesDisposeSystemSoundID(errorSoundId);
 }
+
 @end
 
 

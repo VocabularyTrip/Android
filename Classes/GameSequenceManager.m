@@ -6,13 +6,11 @@
 //
 //
 
-#define cCurrentGameSequence @"currentGameSequence"
-
 #import "GameSequenceManager.h"
 #import "UserContext.h"
 
 NSMutableArray *allGameSequence = nil;
-int qtyAllGameSequence, currentGameSequence = 0;
+int qtyAllGameSequence = 0; // , currentGameSequence
 
 @implementation GameSequenceManager
 
@@ -25,7 +23,7 @@ int qtyAllGameSequence, currentGameSequence = 0;
 		
 		allGameSequence = [[NSMutableArray alloc] init];
         
-        currentGameSequence = [[NSUserDefaults standardUserDefaults] integerForKey: cCurrentGameSequence];
+        //currentGameSequence = [[NSUserDefaults standardUserDefaults] integerForKey: cCurrentGameSequence];
         
 		qtyAllGameSequence = 0;
 		
@@ -58,38 +56,14 @@ int qtyAllGameSequence, currentGameSequence = 0;
 	NSLog(@"GameSequenceManager. Error Parsing at line: %li, column: %li", (long)parser.lineNumber, (long)parser.columnNumber);
 }
 
+
++ (GameSequence *) getGameSequenceAt: (int) gameSeqNumber {
+	return [allGameSequence objectAtIndex: gameSeqNumber];
+}
+
 + (GameSequence *) getCurrentGameSequence {
-	return [allGameSequence objectAtIndex: currentGameSequence];
-}
-
-
-+ (void) resetSequence {
-    currentGameSequence = 0;
-}
-    
-+ (void) nextSequence: (NSString*) gameType {
-    currentGameSequence++;
-    if (currentGameSequence >= qtyAllGameSequence) currentGameSequence = 0;
-    while (
-           // Skip games with readAbility and user selected noReadAbility
-           ([self getCurrentGameSequence].readAbility
-           && ![UserContext getUserSelected].readAbility)
-           ||
-           // If gameType is specified, go for selection
-           (![[self getCurrentGameSequence].gameType isEqualToString: gameType]
-           && gameType)
-    ) {
-        currentGameSequence++;
-        if (currentGameSequence >= qtyAllGameSequence) currentGameSequence = 0;
-    }
-    
-    [[NSUserDefaults standardUserDefaults]
-     setInteger: currentGameSequence
-     forKey: cCurrentGameSequence];
-}
-
-+ (void) nextSequence {
-    [self nextSequence: nil];
+    User *user = [[UserContext getSingleton] userSelected];
+	return [allGameSequence objectAtIndex: [user gameSequenceNumber]];
 }
 
 @end

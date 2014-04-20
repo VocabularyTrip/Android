@@ -34,6 +34,13 @@
 #define cLandscapeOffsetIpad -4813
 #define cHitsPerGame 7
 
+enum {
+    tResultEvaluateNextLevel_none = 0,
+    tResultEvaluateNextLevel_closeToNextLevel = 1,
+    tResultEvaluateNextLevel_NextLevel = 2,
+    tResultEvaluateNextLevel_BuyRequired = 3
+}; typedef NSUInteger tResultEvaluateNextLevel;
+
 @protocol GenericTrainDelegate;
 
 @interface GenericTrain : UIViewController <AVAudioSessionDelegate, AVAudioPlayerDelegate> {
@@ -53,8 +60,14 @@
 	UILabel *__unsafe_unretained money3Label;	
 	UIImageView *__unsafe_unretained hand;
 	// **********************************	
-	
-	UIImageView *__unsafe_unretained loadingView;	
+
+    // ***** Buttons enabled at the end of each play
+	UIButton *__unsafe_unretained playAgainButton;
+	UIButton *__unsafe_unretained returnMapButton;
+	UIButton *__unsafe_unretained purchaseButton;
+    
+    // Landscape
+	//UIImageView *__unsafe_unretained loadingView;
 	UIImageView *__unsafe_unretained landscape;
 	UIImageView *__unsafe_unretained landscapeSky;
 	
@@ -88,12 +101,11 @@
 	// The Train ************************
 	// **********************************
 
-	SystemSoundID closeSoundId;
-	AVAudioPlayer* trainSound;
+	AVAudioPlayer *closeSoundId;
+	AVAudioPlayer *trainSound;
     //UIButton *__unsafe_unretained alertDownloadSounds;
     
 	int gameStatus;
-    
 	int viewMode; // 1 when the View is visible, and 0 when is not.
 	int qOfImagesRemaining;
 
@@ -127,7 +139,7 @@
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *landscapeSky;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *pauseButton;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *helpButton;
-@property (nonatomic, unsafe_unretained) IBOutlet UIImageView *loadingView;	
+//@property (nonatomic, unsafe_unretained) IBOutlet UIImageView *loadingView;
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *railView;	
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *soundButton;
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *train;
@@ -152,7 +164,11 @@
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *wordButtonLabel1;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *wordButtonLabel2;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *wordButtonLabel3;
-@property (nonatomic, assign) SystemSoundID closeSoundId;
+@property (nonatomic, unsafe_unretained) IBOutlet UIButton *playAgainButton;
+@property (nonatomic, unsafe_unretained) IBOutlet UIButton *returnMapButton;
+@property (nonatomic, unsafe_unretained) IBOutlet UIButton *purchaseButton;
+
+//@property (nonatomic, assign) AVAudioPlayer* closeSoundId;
 @property (nonatomic, assign) int viewMode;
 @property (nonatomic, strong) AVAudioPlayer *trainSound;
 
@@ -163,8 +179,10 @@
 - (IBAction) pauseClicked;
 - (IBAction) soundClicked;
 - (IBAction) helpClicked;
+- (IBAction) playAgainButtonClicked:(id)sender;
+- (IBAction) purchaseButtonClicked:(id)sender;
 
-- (void) hideAllViews;
+//- (void) hideAllViews;
 
 - (void) shiftTrain: (int) xPix;	
 - (void) introduceTrain;
@@ -204,6 +222,8 @@
 - (void) throbPauseButton;
 - (void) throbPauseButtonOff;
 - (void) refreshGameMode;
+- (void) showButtonsPlayAgainAndReturnToMap;
+- (tResultEvaluateNextLevel) evaluateGetIntoNextLevel;
 
 @end
 

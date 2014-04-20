@@ -53,7 +53,6 @@
     [self checkPromoCodeDueDate];
     [self checkDownloadCompleted];
     [self initializeInternetReachabilityNotifier];
-    
     [FacebookManager initFacebookSession];    
     
 	UIView *aView = [self.navController view];
@@ -153,7 +152,6 @@
 
         //singletonVocabulary.delegate = nil;
         //singletonVocabulary.isDownloadView = NO;
-        singletonVocabulary.isDownloading = YES;
         //NSLog(@"IsDownloading: %i", singletonVocabulary.isDownloading);
         [Vocabulary loadDataFromSql];
         
@@ -410,7 +408,9 @@
 }
 
 - (void) popMainMenu {
-	[navController popViewControllerAnimated: NO];
+	// [navController popViewControllerAnimated: NO];
+    NSLog(@"%@", self.navController.viewControllers);
+    [navController popToRootViewControllerAnimated: NO];
 }
 
 - (void) popMainMenuFromChangeLang {
@@ -428,6 +428,7 @@
   	[navController popViewControllerAnimated: NO];
 	[self popMainMenu]; // Pop Select Lang
     [self popMainMenu]; // Pop Select User
+    [[mapView configView] refreshSearchingModeEnabled: singletonVocabulary.isDownloading];
 	gameModeView = nil;
 }
 

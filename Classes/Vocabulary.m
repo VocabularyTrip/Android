@@ -34,6 +34,7 @@ Vocabulary *singletonVocabulary;
 // Second time is loaded from xml file
 + (void)loadDataFromSql {
 
+    singletonVocabulary.isDownloading = YES;
     singletonVocabulary.qWordsLoaded = 0;
     singletonVocabulary.wasErrorAtDownload = 0;
 
@@ -75,7 +76,7 @@ Vocabulary *singletonVocabulary;
 
 - (void) downlloadOneLevel {
     
-    if ([responseWithLevelsToDownload count] > 0) {
+    if ([responseWithLevelsToDownload count] > 0 && singletonVocabulary.isDownloading) {
         NSDictionary* value = [responseWithLevelsToDownload lastObject];
         //NSLog(@"Download level: %i, order: %i"
         //      , [[value objectForKey: @"level_id"] intValue]
@@ -325,7 +326,7 @@ Vocabulary *singletonVocabulary;
 + (double) wasLearned {
 	int r = 0, total = 0;
 	Word *w;
-	NSLog(@"******** Was Learned Started: %i", [UserContext getLevelNumber]);
+	//NSLog(@"******** Was Learned Started: %i", [UserContext getLevelNumber]);
 	
 	for (int i=0; i<=[UserContext getLevelNumber]; i++) {
 		for (w in [allWords objectAtIndex:i]) {
@@ -350,7 +351,7 @@ Vocabulary *singletonVocabulary;
 	if (total == 0) return NO;
     double progress = ((double) r / (double) total);
     //progress = progress >= cPercentageLearnd ? 1 : progress / cPercentageLearnd;
-	NSLog(@"Level %i Learned: %i Total: %i, Progress: %f", aLevel, r, total, progress);
+	//NSLog(@"Level %i Learned: %i Total: %i, Progress: %f", aLevel, r, total, progress);
 	return progress;
 }
 

@@ -44,10 +44,10 @@
 @synthesize wheel7;
 @synthesize wheel8;
 @synthesize wheel9;
-@synthesize loadingView;
+//@synthesize loadingView;
 @synthesize railView;
 @synthesize smokeView;
-@synthesize closeSoundId;
+//@synthesize closeSoundId;
 @synthesize viewMode;
 @synthesize trainSound;
 @synthesize backButton;
@@ -62,6 +62,9 @@
 @synthesize wordButtonLabel1;
 @synthesize wordButtonLabel2;
 @synthesize wordButtonLabel3;
+@synthesize playAgainButton;
+@synthesize returnMapButton;
+@synthesize purchaseButton;
 
 // ********************
 // **** IBActions *****
@@ -142,7 +145,6 @@
 }
 
 - (void) refreshGameMode {
-    
     
     ([GameSequenceManager getCurrentGameSequence].cumulative) ?
         [UserContext setLevelGameMode: tLevelModeGame_cumulative] :
@@ -263,8 +265,9 @@
 // Hide the Word Clicked.
 - (Word*) changeImageOn: (UIButton *) aWordButton wordButtonLabel: (UIButton *) aWordButtonLabel id: (int) idButton {
 
-	AudioServicesPlaySystemSound(self.closeSoundId);
-
+	//AudioServicesPlaySystemSound(self.closeSoundId);
+    [closeSoundId play];
+    
 	Word *word = [self getNextWord];
 	NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
 
@@ -351,8 +354,9 @@
 }
 
 - (void)showWordAnimationDidStop:(NSString *)theAnimation finished:(BOOL)flag context:(void *)context {
-	//NSMutableDictionary *parameters = (__bridge  NSMutableDictionary*) context;
-	//UIButton *aWordButton = (UIButton*) [parameters objectForKey: @"button"];
+	NSMutableDictionary *parameters = (__bridge  NSMutableDictionary*) context;
+	UIButton *aWordButton = (UIButton*) [parameters objectForKey: @"button"];
+    NSLog(@"Origin.x: %f, size.width: %f", aWordButton.frame.origin.x, aWordButton.frame.size.width);
 }
 
 // When the train animation stop, the Game Start...
@@ -409,6 +413,10 @@
 
 - (void) viewWillAppear:(BOOL)animated { 
 	viewMode = 1;
+    
+    returnMapButton.alpha = 0;
+    playAgainButton.alpha = 0;
+    purchaseButton.alpha = 0;
     
     [self refreshGameMode];
     
@@ -474,11 +482,11 @@
 	[self initializeTimer];
 	[self initMusicPlayer];
     
-    wordButtonLabel1.titleLabel.minimumFontSize = 9;
+    wordButtonLabel1.titleLabel.minimumFontSize = 8;
     wordButtonLabel1.titleLabel.adjustsFontSizeToFitWidth = true;
-    wordButtonLabel2.titleLabel.minimumFontSize = 9;
+    wordButtonLabel2.titleLabel.minimumFontSize = 8;
     wordButtonLabel2.titleLabel.adjustsFontSizeToFitWidth = true;
-    wordButtonLabel3.titleLabel.minimumFontSize = 9;
+    wordButtonLabel3.titleLabel.minimumFontSize = 8;
     wordButtonLabel3.titleLabel.adjustsFontSizeToFitWidth = true;
     
     originalframeWord1ButtonView = CGRectMake(wordButton1.frame.origin.x, wordButton1.frame.origin.y, wordButton1.frame.size.width, wordButton1.frame.size.height);
@@ -533,12 +541,41 @@
     //gameEndView.parentView = self;
     //[gameEndView show];
     
-	[self done: nil];			// Return to main menu
+	// [self done: nil];			// Return to main menu
+    [self showButtonsPlayAgainAndReturnToMap];
+}
+
+- (tResultEvaluateNextLevel) evaluateGetIntoNextLevel {
+    // This method is implemented by TestTrain. Others not measure learning and never improve the ranking
+    return  tResultEvaluateNextLevel_none;
+}
+
+- (void) showButtonsPlayAgainAndReturnToMap {
+    NSUInteger result = [self evaluateGetIntoNextLevel];
+    // If the result is nextLevel or buyRequired, the play again is ignored. The user is forwarded to map or purchase view.
+    if (result == tResultEvaluateNextLevel_NextLevel) {
+        [self done: nil];
+    } else {
+        returnMapButton.alpha = 1;
+        playAgainButton.alpha = 1;
+        if (result == tResultEvaluateNextLevel_BuyRequired)
+            purchaseButton.alpha = 1;
+    }
+}
+
+- (IBAction) playAgainButtonClicked:(id)sender {
+    [self done: nil];
+	VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
+	[vocTripDelegate.mapView playCurrentLevel: nil];
+}
+
+- (IBAction) purchaseButtonClicked:(id)sender {
+    [self done: nil];
+	VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
+	[vocTripDelegate pushPurchaseView];
 }
 
 - (int) hitRate {
-    // ******** change 400 words - Revisar
-    // Validar si el hitsPerGame se deja fijo o variable. El 10 est[a ok
 	return (hitsOfLevel1 + hitsOfLevel2 + hitsOfLevel3) * 10 / [self hitsPerGame];
 }
 
@@ -575,8 +612,9 @@
 		return;
 	}	
 	
-	AudioServicesPlaySystemSound(self.closeSoundId);
-	
+	//AudioServicesPlaySystemSound(self.closeSoundId);
+	[closeSoundId play];
+    
 	[self addMoney];
 	
 	money1Label.text = [UserContext getMoney1AsText];
@@ -833,19 +871,20 @@
 	
 }
 
--(void) hideAllViews {	
+/*-(void) hideAllViews {
     [self.view bringSubviewToFront:loadingView];
 	loadingView.alpha = 1;	
-}
+}*/
 
 -(void) initMusicPlayer {
 	
 	// Close Sound
-	NSURL* closeSoundUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"Finished" ofType:@"wav"]];
+	//NSURL* closeSoundUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"Finished" ofType:@"wav"]];
     //NSLog(@"%@", closeSoundUrl);
     
-	AudioServicesCreateSystemSoundID((__bridge CFURLRef) closeSoundUrl, &closeSoundId);
-	
+	//AudioServicesCreateSystemSoundID((__bridge CFURLRef) closeSoundUrl, &closeSoundId);
+    closeSoundId = [Sentence getAudioPlayer: @"Finished"];
+    
 	self.trainSound = [Sentence getAudioPlayer: @"ToyTrain"];
 	self.trainSound.delegate = self; 
 }
@@ -877,18 +916,18 @@
 	wagon3.frame = frame;	
 
 	frame = wordButton1.frame;
-	originalframeWord1ButtonView.origin.x = frame.origin.x + xPix;
-    frame.origin.x = originalframeWord1ButtonView.origin.x;
+	originalframeWord1ButtonView.origin.x = originalframeWord1ButtonView.origin.x + xPix;
+    frame.origin.x = frame.origin.x + xPix;
 	wordButton1.frame = frame;
 
 	frame = wordButton2.frame;
-	originalframeWord2ButtonView.origin.x = frame.origin.x + xPix;
-    frame.origin.x = originalframeWord2ButtonView.origin.x;
+	originalframeWord2ButtonView.origin.x = originalframeWord2ButtonView.origin.x + xPix;
+    frame.origin.x = frame.origin.x + xPix;
 	wordButton2.frame = frame;
 
 	frame = wordButton3.frame;
-	originalframeWord3ButtonView.origin.x = frame.origin.x + xPix;
-    frame.origin.x = originalframeWord3ButtonView.origin.x;
+	originalframeWord3ButtonView.origin.x = originalframeWord3ButtonView.origin.x + xPix;
+    frame.origin.x = frame.origin.x + xPix;
 	wordButton3.frame = frame;
 
     frame = wordButtonLabel1.frame;
@@ -959,7 +998,7 @@
 	[words removeAllObjects];
 	trainSound.delegate = nil;
 	
-	AudioServicesDisposeSystemSoundID(closeSoundId);
+	//AudioServicesDisposeSystemSoundID(closeSoundId);
 	
 }
 

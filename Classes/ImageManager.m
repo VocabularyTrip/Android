@@ -20,11 +20,12 @@
     if (imageView.size.height < imageView.size.width) {
         frame.size.height = imageView.size.height * aView.frame.size.width / imageView.size.width;
         frame.size.width = aView.frame.size.width;
-        frame.origin.y = frame.origin.y + (aView.frame.size.height - frame.size.height);// / 2;
+        frame.origin.y = frame.origin.y + (aView.frame.size.height - frame.size.height);
     } else {
         frame.size.width = imageView.size.width * aView.frame.size.height / imageView.size.height;
         frame.size.height = aView.frame.size.height;
         frame.origin.x = frame.origin.x + (aView.frame.size.width - frame.size.width) / 2;
+        //NSLog(@"Word.x: %f, Width Original: %f, width: %f", frame.origin.x, aView.frame.size.width, frame.size.width);
     }
     aView.frame = frame;
 }

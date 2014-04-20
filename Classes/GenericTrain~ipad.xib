@@ -21,7 +21,10 @@
                 <outlet property="money3Label" destination="112" id="119"/>
                 <outlet property="money3View" destination="114" id="120"/>
                 <outlet property="pauseButton" destination="92" id="93"/>
+                <outlet property="playAgainButton" destination="oHl-X7-JWh" id="R3J-oZ-M3L"/>
+                <outlet property="purchaseButton" destination="WHm-XN-wvz" id="nei-rD-v88"/>
                 <outlet property="railView" destination="57" id="96"/>
+                <outlet property="returnMapButton" destination="p1V-9y-4TU" id="5qe-uB-wW7"/>
                 <outlet property="smokeView" destination="121" id="122"/>
                 <outlet property="soundButton" destination="98" id="99"/>
                 <outlet property="train" destination="13" id="21"/>
@@ -308,6 +311,42 @@
                         <action selector="wordButton3Clicked" destination="-1" eventType="touchDown" id="r8e-eu-SWQ"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="oHl-X7-JWh" userLabel="PlayAgainButton">
+                    <rect key="frame" x="254" y="388" width="245" height="60"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="36"/>
+                    <state key="normal" title="Play Again" image="reset@ipad.png">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="playAgainButtonClicked:" destination="-1" eventType="touchDown" id="bpm-RU-RAs"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="p1V-9y-4TU" userLabel="ReturnToMapButton">
+                    <rect key="frame" x="552" y="396" width="409" height="43"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="36"/>
+                    <state key="normal" title="Return to Map" image="Menu1.png">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="done:" destination="-1" eventType="touchDown" id="ZAr-9p-jWe"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="WHm-XN-wvz" userLabel="PurchaseButton">
+                    <rect key="frame" x="274" y="474" width="701" height="49"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="36"/>
+                    <state key="normal" title="Unlock to go to Next Level" image="unlock.png">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="purchaseButtonClicked:" destination="-1" eventType="touchDown" id="hfQ-x0-oW4"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -315,6 +354,7 @@
     </objects>
     <resources>
         <image name="English.png" width="256" height="256"/>
+        <image name="Menu1.png" width="106" height="43"/>
         <image name="Menu1@ipad.png" width="209" height="80"/>
         <image name="airplane.png" width="300" height="218"/>
         <image name="avatar6@ipad.png" width="250" height="350"/>
@@ -326,12 +366,14 @@
         <image name="landscape2Sky@ipad.png" width="1000" height="248"/>
         <image name="pause2@ipad.png" width="97" height="97"/>
         <image name="rail-768.png" width="4830" height="9"/>
+        <image name="reset@ipad.png" width="60" height="56"/>
         <image name="smoke.png" width="66" height="44"/>
         <image name="sound-on@ipad.png" width="210" height="110"/>
         <image name="token-bronze@ipad.png" width="66" height="66"/>
         <image name="token-gold@ipad.png" width="66" height="66"/>
         <image name="token-silver@ipad.png" width="66" height="66"/>
         <image name="train@ipad.png" width="394" height="379"/>
+        <image name="unlock.png" width="49" height="49"/>
         <image name="wagon@ipad.png" width="210" height="96"/>
         <image name="wheel1@ipad.png" width="61" height="61"/>
         <image name="wheel3@ipad.png" width="61" height="61"/>

@@ -40,6 +40,8 @@
     
     bool connectivity = ([vocTripDelegate.internetReachable currentReachabilityStatus] != NotReachable);
     if (![Vocabulary isDownloadCompleted] && connectivity) {
+        
+//        if (singletonVocabulary.isDownloading) Cancel current download?
         singletonVocabulary.delegate = nil;
         singletonVocabulary.isDownloadView = NO;
         singletonVocabulary.isDownloading = YES;

@@ -49,10 +49,10 @@
 
 	IBOutlet UIImageView *previewView; // the content of the magnifier. Is dynamic the image is replaced when the magnifier is over an emptu page
 	
-	SystemSoundID pageTurnSoundId;	// Page turn
-	SystemSoundID tillSoundId;		// Till (cash machine)
-	
-	UIColor *emptyFigColor;	
+	AVAudioPlayer* pageTurnSoundId;	// Page turn
+	AVAudioPlayer* tillSoundId;		// Till (cash machine)
+
+	UIColor *emptyFigColor;
 	UIFont *emptyFigFont;
 	CADisplayLink *theTimer; 	
 }

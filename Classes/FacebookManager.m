@@ -26,8 +26,6 @@ FacebookManager *fbSingleton;
     [FBSession setActiveSession: session];
 }
 
-
-
 + (void) facebookLogin {
     NSArray *permissions = [[NSArray alloc] initWithObjects: @"email", nil];
     
@@ -167,11 +165,11 @@ FacebookManager *fbSingleton;
             clientState: nil
             handler:^(FBAppCall *call, NSDictionary *results, NSError *error) {
                 if (error) {
-                    //NSLog(@"Error publishing story.");
+                    NSLog(@"Error publishing story.");
                 } else if (results[@"completionGesture"] && [results[@"completionGesture"] isEqualToString:@"cancel"]) {
-                    //NSLog(@"User canceled story publishing.");
+                    NSLog(@"User canceled story publishing.");
                 } else {
-                    //NSLog(@"Story published.");
+                    NSLog(@"Story published.");
                     [PromoCode giveAccessForOneDay];
                 }
             }

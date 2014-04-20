@@ -9,6 +9,7 @@
 #import "User.h"
 #import "UserContext.h"
 #import "ImageManager.h"
+#import "GameSequenceManager.h"
 
 @implementation User
 
@@ -21,7 +22,7 @@
 @synthesize userName;
 @synthesize image;
 @synthesize readAbility;
-
+@synthesize gameSequenceNumber;
 +(void)loadDataFromXML {
 	
 	NSString* path = [[NSBundle mainBundle] pathForResource: @"Users" ofType: @"xml"];
@@ -56,20 +57,75 @@
     if (self=[super init]) {    
         money1 = -1;
         money2 = -1;
-        money3 = -1;	
+        money3 = -1;
+        gameSequenceNumber = 0;
     }
 	return self;
 }
 
+- (void) reloadGameSequenceNumer {
+    Language *l = [self langSelected];
+    NSString *realKey = [NSString stringWithFormat: @"%i-%i-%i-%@", userId, l.key, self.readAbility, cGameSequenceKey];
+    gameSequenceNumber = [[NSUserDefaults standardUserDefaults] integerForKey: realKey];
+}
+
+-(int) gameSequenceNumber {
+    if (gameSequenceNumber == 0) {
+        [self reloadGameSequenceNumer];
+        if (gameSequenceNumber == 0)
+            [self nextSequence];
+        //NSLog(@"CurrentGameSeq: %i", gameSequenceNumber);
+    }
+    return gameSequenceNumber;
+}
+
+-(void) setGameSequenceNumber: (int) value {
+    Language *l = [self langSelected];
+    NSString *realKey = [NSString stringWithFormat: @"%i-%i-%i-%@", userId, l.key, readAbility, cGameSequenceKey];
+	[[NSUserDefaults standardUserDefaults] setInteger: value forKey: realKey];
+    gameSequenceNumber = value;
+}
+
+- (void) resetSequence {
+    [self setGameSequenceNumber: 0];
+}
+
+- (void) nextSequence: (NSString*) gameType {
+    gameSequenceNumber++;
+    if (gameSequenceNumber >= qtyAllGameSequence) gameSequenceNumber = 1;
+    GameSequence *gameSeq = [GameSequenceManager getGameSequenceAt: gameSequenceNumber];
+    while (
+           // Skip games with readAbility and user selected noReadAbility
+           (gameSeq.readAbility != [UserContext getUserSelected].readAbility)
+           ||
+           // If gameType is specified, go for selection
+           (![gameSeq.gameType isEqualToString: gameType]
+            && gameType)
+           ) {
+        gameSequenceNumber++;
+        if (gameSequenceNumber >= qtyAllGameSequence) gameSequenceNumber = 1;
+        gameSeq = [GameSequenceManager getGameSequenceAt: gameSequenceNumber];
+    }
+    
+    [self setGameSequenceNumber: gameSequenceNumber];
+}
+
+- (void) nextSequence {
+    [self nextSequence: nil];
+}
+
 -(void) saveLevel: (int) value {
     Language *l = [self langSelected];
-    NSString *realKey = [NSString stringWithFormat: @"%i-%i-%@", userId, l.key, cLevelKey];
+    NSString *realKey = [NSString stringWithFormat: @"%i-%i-%i-%@", userId, l.key, readAbility, cLevelKey];
+    //NSLog(@"realKey: %@, value: %i", realKey, value);
 	[[NSUserDefaults standardUserDefaults] setInteger: value forKey: realKey];
+    [self reloadGameSequenceNumer];
 }
 
 -(int) getLevel {
     Language *l = [self langSelected];
-    NSString *realKey = [NSString stringWithFormat: @"%i-%i-%@", userId, l.key, cLevelKey];
+    NSString *realKey = [NSString stringWithFormat: @"%i-%i-%i-%@", userId, l.key, self.readAbility, cLevelKey];
+    //NSLog(@"realKey: %@, value: %i", realKey, [[NSUserDefaults standardUserDefaults] integerForKey: realKey]);
     return [[NSUserDefaults standardUserDefaults] integerForKey: realKey];
 }
 
@@ -87,11 +143,12 @@
 	level = 0;
 	money1 = 0;
 	money2 = 0;
-	money3 = 0;	
+	money3 = 0;
     [self saveInt: money1 forKey: cMoney1Key];
     [self saveInt: money2 forKey: cMoney2Key];
     [self saveInt: money3 forKey: cMoney3Key];
-    [self saveLevel: level];    
+    [self saveLevel: level];
+    [self setGameSequenceNumber: 0]; // Ver si no requiere hacer un nextSequence
 }
 
 -(NSString*) userName {
@@ -118,6 +175,7 @@
     readAbility = newReadAbility;
     NSString *readAbilityKey = [NSString stringWithFormat: @"user%iName", userId];
     [[NSUserDefaults standardUserDefaults] setBool: readAbility forKey: readAbilityKey];
+    [self reloadGameSequenceNumer];
 }
 
 -(int) level {
@@ -131,6 +189,11 @@
 -(void) setLevel: (int) aLevel {
 	level = aLevel;
     [self saveLevel: level];
+}
+
+// Is used to force change the level. When the game mode change, the level has to change.
+-(void) reloadLevel {
+    [self setLevel: [self getLevel]];
 }
 
 -(bool) nextLevel {
@@ -162,7 +225,8 @@
 	langSelected = newVal;
     [self saveInt: langSelected.key forKey: cLangSelected];
     level = [self getLevel]; // Reload since level depends on Language.
-    [Vocabulary reloadAllWeigths]; 
+    [Vocabulary reloadAllWeigths];
+    [self reloadGameSequenceNumer];
 }
 
 -(int) money1 {

@@ -21,7 +21,10 @@
                 <outlet property="money3Label" destination="112" id="119"/>
                 <outlet property="money3View" destination="114" id="120"/>
                 <outlet property="pauseButton" destination="92" id="93"/>
+                <outlet property="playAgainButton" destination="i6z-st-JxC" id="z6X-Jq-mgU"/>
+                <outlet property="purchaseButton" destination="SRI-3J-XYs" id="o1j-Oc-k1c"/>
                 <outlet property="railView" destination="57" id="96"/>
+                <outlet property="returnMapButton" destination="0EP-OC-MeE" id="TfE-T5-diF"/>
                 <outlet property="smokeView" destination="122" id="123"/>
                 <outlet property="soundButton" destination="98" id="99"/>
                 <outlet property="train" destination="13" id="21"/>
@@ -282,7 +285,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qbd-Ry-ka3" userLabel="WordButtonLabel1">
-                    <rect key="frame" x="181" y="231" width="94" height="31"/>
+                    <rect key="frame" x="173" y="231" width="108" height="31"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="21"/>
                     <state key="normal" title="One">
@@ -294,7 +297,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" id="92a-Qa-X7B" userLabel="WordButtonLabel2">
-                    <rect key="frame" x="274" y="231" width="102" height="31"/>
+                    <rect key="frame" x="269" y="231" width="113" height="31"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="21"/>
                     <state key="normal" title="Fire Fighter">
@@ -304,17 +307,53 @@
                         <action selector="wordButton2Clicked" destination="-1" eventType="touchDown" id="574-gp-PB2"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" id="Ae7-mP-Kjl" userLabel="WordButtonLabel3">
-                    <rect key="frame" x="379" y="231" width="99" height="31"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ae7-mP-Kjl" userLabel="WordButtonLabel3">
+                    <rect key="frame" x="377" y="231" width="101" height="31"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="21"/>
                     <color key="tintColor" red="0.96862745100000003" green="0.61651347075468899" blue="0.17477019972154401" alpha="1" colorSpace="calibratedRGB"/>
-                    <state key="normal" title="Mouse">
+                    <state key="normal" title="Measuring Tape">
                         <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
                         <action selector="wordButton3Clicked" destination="-1" eventType="touchDown" id="HIi-41-ARv"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="i6z-st-JxC" userLabel="PlayAgainButton">
+                    <rect key="frame" x="147" y="97" width="201" height="60"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
+                    <state key="normal" title="Play Again" image="reset@ipad.png">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="playAgainButtonClicked:" destination="-1" eventType="touchDown" id="ZsR-AH-HJu"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0EP-OC-MeE" userLabel="ReturnToMapButton">
+                    <rect key="frame" x="130" y="160" width="223" height="43"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
+                    <state key="normal" title="Return to Map" image="Menu1.png">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="done:" destination="-1" eventType="touchDown" id="fMd-F3-4Nv"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="SRI-3J-XYs" userLabel="PurchaseButton">
+                    <rect key="frame" x="63" y="180" width="492" height="95"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
+                    <state key="normal" title="Unlock to go to Next Level" image="unlock.png">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="purchaseButtonClicked:" destination="-1" eventType="touchDown" id="bn3-Xq-ZHn"/>
                     </connections>
                 </button>
             </subviews>
@@ -335,12 +374,14 @@
         <image name="orange.png" width="300" height="274"/>
         <image name="pause2.png" width="50" height="50"/>
         <image name="rail.png" width="478" height="4"/>
+        <image name="reset@ipad.png" width="60" height="56"/>
         <image name="smoke.png" width="66" height="44"/>
         <image name="sound-on.png" width="50" height="46"/>
         <image name="token-bronze.png" width="33" height="33"/>
         <image name="token-gold.png" width="33" height="33"/>
         <image name="token-silver.png" width="33" height="33"/>
         <image name="train.png" width="175" height="169"/>
+        <image name="unlock.png" width="49" height="49"/>
         <image name="wagon.png" width="93" height="43"/>
         <image name="wheel1.png" width="31" height="31"/>
         <image name="wheel3.png" width="31" height="31"/>

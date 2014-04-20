@@ -10,16 +10,14 @@
 #import "GameSequence.h"
 
 extern NSMutableArray *allGameSequence;
-extern int qtyAllGameSequence, currentGameSequence;
+extern int qtyAllGameSequence; //, currentGameSequence;
 
 @interface GameSequenceManager : NSObject <NSXMLParserDelegate> {
 }
 
 + (void) loadDataFromXML;
 + (void) parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName: (NSString *) qualifiedName attributes: (NSDictionary *) attributeDict;
++ (GameSequence *) getGameSequenceAt: (int) gameSeqNumber;
 + (GameSequence*) getCurrentGameSequence;
-+ (void) nextSequence;
-+ (void) nextSequence: (NSString*) gameType;
-+ (void) resetSequence;
 
 @end

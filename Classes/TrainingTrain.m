@@ -288,7 +288,7 @@
 
 - (void) endGame { 
 	[super endGame];
-    [GameSequenceManager nextSequence];
+    [[UserContext getUserSelected] nextSequence];
 	[self refreshMoneyLabels];
 }	
 

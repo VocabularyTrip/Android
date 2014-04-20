@@ -1,12 +1,18 @@
 <?xml version="1.0"?>
 
 <list>
+    <!-- Sequence 0 is ignored. The attribute user.gameSequenceNumber is initialized in 0 and should be ignored by nextSequence method-->
+    <gameSequence gameName="Ignore"/>
+    
+<!-- Sequence for NO read ability-->
     <gameSequence gameName="Training" gameType = "Training" cumulative="No" includeImages="Yes" includeWords="No" readAbility="No"/>
     <gameSequence gameName="Challenge"  gameType="Challenge" cumulative="No" includeImages="Yes" includeWords="No" readAbility="No"/>
     <gameSequence gameName="Challenge" gameType="Challenge" cumulative="Yes" includeImages="Yes" includeWords="No" readAbility="No"/>
-    <gameSequence gameName="Training" gameType = "Training" cumulative="No" includeImages="No" includeWords="Yes" readAbility="Yes"/>
-    <gameSequence gameName="Challenge" gameType = "Challenge" cumulative="Yes" includeImages="No" includeWords="Yes" readAbility="Yes"/>
 
+<!-- Sequence for read ability-->
+    <gameSequence gameName="Training" gameType = "Training" cumulative="No" includeImages="Yes" includeWords="Yes" readAbility="Yes"/>
+    <gameSequence gameName="Challenge"  gameType="Challenge" cumulative="No" includeImages="No" includeWords="Yes" readAbility="Yes"/>
+    <gameSequence gameName="Challenge" gameType="Challenge" cumulative="Yes" includeImages="No" includeWords="Yes" readAbility="Yes"/>
 </list>
 
 <!--

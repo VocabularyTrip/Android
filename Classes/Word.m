@@ -62,7 +62,7 @@
     if (![fm fileExistsAtPath: destPath isDirectory: &isDir]) {
     
         // Start Download
-        NSLog(@"Request download full path: %@", fullUrl);
+        //NSLog(@"Request download full path: %@", fullUrl);
         NSURL *url = [NSURL URLWithString: fullUrl];
         //NSLog(@"URL: %@, DestPath: %@", url, destPath);
         AFHTTPRequestOperation* operation = [AFProxy prepareDownload: url destination: destPath delegate:self];
@@ -86,7 +86,6 @@
 
 // Response to Download Word
 + (void) connectionFinishSuccesfully: (NSDictionary*) response {
-    NSLog(@"Word Downloaded");
     singletonVocabulary.qWordsLoaded++;
     [self refreshProgress];
 }
@@ -173,6 +172,13 @@
     }
 }
 
+-(int) weight {
+    if ([GameSequenceManager getCurrentGameSequence].readAbility)
+        return self.weightWord;
+    else
+        return self.weightImage;
+}
+
 -(NSString*) weightImageKeyUserLang {
     User *u = [UserContext getUserSelected];
     Language *l = [u langSelected];
@@ -225,10 +231,6 @@
 	[self saveWeightImage];
 	weightWord = cInitialWeight;
 	[self saveWeightWord];
-}
-
--(int) weight {
-    return (self.weightWord + self.weightImage) / 2;
 }
 
 -(int) weightImage {

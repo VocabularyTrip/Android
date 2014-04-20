@@ -8,6 +8,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ConfigView">
             <connections>
                 <outlet property="backgroundView" destination="lex-dP-IOg" id="mcJ-ab-gAG"/>
+                <outlet property="cancelDownloadButton" destination="LvE-ap-e6H" id="3qX-U7-Pzc"/>
+                <outlet property="downloadButton" destination="I1f-98-j1x" id="yi1-vT-h08"/>
+                <outlet property="downloadProgressView" destination="JKy-72-7KA" id="naa-b6-6Ss"/>
                 <outlet property="langButton" destination="mRB-Mf-0Yu" id="Lar-Ek-isF"/>
                 <outlet property="soundButton" destination="puw-Sd-HiS" id="vwX-FN-5MB"/>
                 <outlet property="view" destination="1" id="7vY-px-z7l"/>
@@ -23,7 +26,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="VcY-zx-dmG" userLabel="BackButton">
-                    <rect key="frame" x="13" y="0.0" width="79" height="43"/>
+                    <rect key="frame" x="49" y="0.0" width="55" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" image="Menu1.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -33,7 +36,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5AM-oX-KOK" userLabel="BuyButton">
-                    <rect key="frame" x="29" y="131" width="44" height="44"/>
+                    <rect key="frame" x="29" y="115" width="44" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                     <state key="normal" image="buyButton.png">
@@ -48,7 +51,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="AsB-21-LPk">
-                    <rect key="frame" x="29" y="217" width="44" height="44"/>
+                    <rect key="frame" x="29" y="200" width="44" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="9"/>
                     <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-33"/>
@@ -64,7 +67,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="puw-Sd-HiS" userLabel="SoundButton">
-                    <rect key="frame" x="29" y="173" width="50" height="46"/>
+                    <rect key="frame" x="29" y="155" width="50" height="46"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="9"/>
                     <state key="normal" image="sound-of.png">
@@ -79,7 +82,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yOi-Eh-IW0" userLabel="MailButton">
-                    <rect key="frame" x="29" y="268" width="44" height="44"/>
+                    <rect key="frame" x="29" y="246" width="44" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="9"/>
                     <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-33"/>
@@ -95,7 +98,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="c29-Iy-zJP" userLabel="UserButton">
-                    <rect key="frame" x="29" y="44" width="44" height="44"/>
+                    <rect key="frame" x="29" y="30" width="44" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="9"/>
                     <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-33"/>
@@ -111,7 +114,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="mRB-Mf-0Yu" userLabel="LangSelectedButton">
-                    <rect key="frame" x="29" y="91" width="44" height="44"/>
+                    <rect key="frame" x="29" y="75" width="44" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" backgroundImage="English.png">
@@ -119,6 +122,40 @@
                     </state>
                     <connections>
                         <action selector="changeLang:" destination="-1" eventType="touchDown" id="ueP-oe-7bN"/>
+                    </connections>
+                </button>
+                <progressView opaque="NO" alpha="0.0" contentMode="scaleToFill" id="JKy-72-7KA" userLabel="DownloadProgressView">
+                    <rect key="frame" x="15" y="316" width="73" height="2"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </progressView>
+                <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="I1f-98-j1x" userLabel="DownloadButton">
+                    <rect key="frame" x="13" y="288" width="77" height="29"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <state key="normal" title="Button" image="btn_download@ipad.png">
+                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="highlighted">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="startLoading" destination="-1" eventType="touchDown" id="idC-C2-Ezd"/>
+                    </connections>
+                </button>
+                <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="LvE-ap-e6H" userLabel="CancelDownloadButton">
+                    <rect key="frame" x="13" y="288" width="77" height="29"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <state key="normal" image="btn_download_cancel@ipad.png">
+                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="highlighted">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="cancelDownload:" destination="-1" eventType="touchDown" id="FhE-BR-NSC"/>
                     </connections>
                 </button>
             </subviews>
@@ -131,6 +168,8 @@
         <image name="English.png" width="256" height="256"/>
         <image name="Menu1.png" width="106" height="43"/>
         <image name="btn_avatar_on.png" width="43" height="43"/>
+        <image name="btn_download@ipad.png" width="165" height="56"/>
+        <image name="btn_download_cancel@ipad.png" width="165" height="56"/>
         <image name="btn_info_on.png" width="49" height="49"/>
         <image name="buyButton.png" width="49" height="49"/>
         <image name="empty-page-princesses.png" width="480" height="320"/>

@@ -24,7 +24,7 @@
 	int flagFaild; 
 	CFTimeInterval inactivity1;
 	CFTimeInterval inactivity2;
-	SystemSoundID errorSoundId;
+	AVAudioPlayer* errorSoundId;
 }
 
 - (IBAction) wordButton1Clicked;
@@ -35,8 +35,8 @@
 - (void) selectNextTarget;
 - (void) sayTargetWord;
 - (void) wordButton: (UIButton*) aButton buttonLabel: (UIButton*) aButtonLabel clicked: (int) i;
-- (void) evaluateGetIntoNextLevel;
-- (void) goToNextLevel;
+- (tResultEvaluateNextLevel) evaluateGetIntoNextLevel;
+- (tResultEvaluateNextLevel) goToNextLevel;
 - (IBAction) askToBuyNewLevels;
 
 - (void) helpAnimation1;

@@ -34,6 +34,7 @@
 
 - (CGRect) frameOpened {
 
+    [super viewWillAppear: NO];
     //CGPoint offset = [parentView mapScrollView].contentOffset;
     //CGRect configButtonFrame = [parentView configButton].frame;
     
@@ -52,6 +53,8 @@
                0, // configButtonFrame.origin.y + configButtonFrame.size.height,
                backgroundView.frame.size.width,
                backgroundView.frame.size.height);
+
+
 }
 
 - (CGRect) frameClosed {
@@ -94,7 +97,7 @@
     
     [UIView commitAnimations];
     
-    langButton.enabled = !singletonVocabulary.isDownloading;
+    //langButton.enabled = !singletonVocabulary.isDownloading;
 
 }
 
@@ -123,11 +126,13 @@
 
 - (IBAction)changeUserShowInfo:(id)sender {
 	//[parentView stopBackgroundSound];
+    [[self parentView] stopBackgroundSound];
 	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
 	[vcDelegate pushChangeUserView];
 }
 
 - (IBAction) changeLang:(id)sender {
+    [[self parentView] stopBackgroundSound];
 	//[parentView stopBackgroundSound];
 	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
 	[vcDelegate pushChangeLangView];
@@ -139,9 +144,9 @@
 		MFMailComposeViewController *mailCont = [[MFMailComposeViewController alloc] init];
 		mailCont.mailComposeDelegate = self;
 		
-		[mailCont setSubject:@""];
+		[mailCont setSubject:@"Awesome app: Kids Learn Vocabulary !"];
 		[mailCont setToRecipients:[NSArray arrayWithObject: cMailInfo]];
-		[mailCont setMessageBody:@"" isHTML:NO];
+		[mailCont setMessageBody:@"I'm using this app and I found ..." isHTML:NO];
 		
 		[parentView presentModalViewController: mailCont animated:YES];
 	} else {

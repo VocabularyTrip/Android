@@ -139,7 +139,7 @@ UserContext *userContextSingleton;
 
 +(bool) nextLevel {
     User *user = [self getUserSelected];
-    [GameSequenceManager resetSequence];
+    [[UserContext getUserSelected] resetSequence];
 	return [user nextLevel];
 }
 
@@ -209,7 +209,6 @@ UserContext *userContextSingleton;
 
 - (void) setUserSelected: (User *) aUser {
     userSelected = aUser;
-    NSLog(@"UserId %i", userSelected.userId);
 	[[NSUserDefaults standardUserDefaults] setInteger: userSelected.userId forKey: cUserselected];
 
 }

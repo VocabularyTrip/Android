@@ -73,7 +73,8 @@
     NSLog(@"Remaining: %i", qOfImagesRemaining);
     qOfImagesRemaining--;
     if ([[sequence objectAtIndex: currentSeq] intValue] == i) {
-        AudioServicesPlaySystemSound(self.closeSoundId);
+        //AudioServicesPlaySystemSound(self.closeSoundId);
+        [closeSoundId play];
         /*Word *word = [words objectAtIndex: i];
         if (![word playSound])
             [self pushLevelWithHelpDownload];*/

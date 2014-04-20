@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>
 #import "ImageManager.h"
+#import "GenericDownloadViewController.h"
 
-@interface ConfigView : UIViewController <UIAlertViewDelegate, MFMailComposeViewControllerDelegate> {
+
+@interface ConfigView : GenericDownloadViewController <UIAlertViewDelegate, MFMailComposeViewControllerDelegate> {
     
     UIImageView *__unsafe_unretained backgroundView;
     id __unsafe_unretained parentView;

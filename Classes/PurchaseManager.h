@@ -11,7 +11,7 @@
 #import "PurchaseProtocol.h"
 #import "UserContext.h"
 
-#define cPurchaseSet1 @"PurchaseSet1"
+#define cPurchaseSet1 @"BSG" // The set 1 is the old Bronze, Silver, Gold. If the user has bought BSG, is going to be able to play with first 120 words.
 #define cPurchaseSet2 @"PurchaseSet2"
 #define cPurchaseSet3 @"PurchaseSet3"
 #define cPurchaseSet4 @"PurchaseSet4"
