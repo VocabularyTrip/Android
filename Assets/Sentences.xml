@@ -65,10 +65,8 @@
   <Sentence Method="Level_helpC" name="Level_helpC" type="always"></Sentence> <!-- ok -->
   <Sentence Method="Level_helpD" name="Level_helpD" type="always"></Sentence> <!-- ok -->
   <Sentence Method="Level_helpE" name="Level_helpE" type="always"></Sentence> <!-- ok -->
-  <Sentence Method="Level_helpF" name="Level_helpF" type="always"></Sentence> <!-- ok -->
-  <Sentence Method="LevelView-DidSelectRow-UnlockLevel" name="Level_helpF" type="always"> <!-- ok -->
-    <Alternative name= "keep playing to advance to that level"></Alternative>
-    <Alternative name= "To unlock this level you first"></Alternative></Sentence>
+  <Sentence Method="LevelView-DidSelectRow-UnlockLevel" name="To unlock this level you first" type="always"> <!-- ok -->
+    <Alternative name= "keep playing to advance to that level"></Alternative></Sentence>
   <Sentence Method="LevelView-DidSelectRow-LearnThisLevel" name="Once you know these words you Advance" type="always"></Sentence> <!-- ok -->
   
   <!-- User Wizard -->

@@ -19,7 +19,6 @@
 		893AF8DF153BAD6900EA0BF1 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 893AF8DE153BAD6900EA0BF1 /* Default-Landscape~ipad.png */; };
 		895BB77F1777AB9C00E7540C /* en_Download_Help_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 895BB7781777AB9C00E7540C /* en_Download_Help_1.mp3 */; };
 		895BB7801777AB9C00E7540C /* en_Level_helpA.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 895BB7791777AB9C00E7540C /* en_Level_helpA.mp3 */; };
-		895BB7811777AB9C00E7540C /* en_Level_helpF.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 895BB77A1777AB9C00E7540C /* en_Level_helpF.mp3 */; };
 		895BB7821777AB9C00E7540C /* en_Level_helpE.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 895BB77B1777AB9C00E7540C /* en_Level_helpE.mp3 */; };
 		895BB7831777AB9C00E7540C /* en_Level_helpD.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 895BB77C1777AB9C00E7540C /* en_Level_helpD.mp3 */; };
 		895BB7841777AB9C00E7540C /* en_Level_helpC.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 895BB77D1777AB9C00E7540C /* en_Level_helpC.mp3 */; };
@@ -1258,7 +1257,6 @@
 		893AF8DE153BAD6900EA0BF1 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape~ipad.png"; path = "../../Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		895BB7781777AB9C00E7540C /* en_Download_Help_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_Download_Help_1.mp3; sourceTree = "<group>"; };
 		895BB7791777AB9C00E7540C /* en_Level_helpA.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_Level_helpA.mp3; sourceTree = "<group>"; };
-		895BB77A1777AB9C00E7540C /* en_Level_helpF.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_Level_helpF.mp3; sourceTree = "<group>"; };
 		895BB77B1777AB9C00E7540C /* en_Level_helpE.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_Level_helpE.mp3; sourceTree = "<group>"; };
 		895BB77C1777AB9C00E7540C /* en_Level_helpD.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_Level_helpD.mp3; sourceTree = "<group>"; };
 		895BB77D1777AB9C00E7540C /* en_Level_helpC.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_Level_helpC.mp3; sourceTree = "<group>"; };
@@ -2982,7 +2980,6 @@
 				895BB77D1777AB9C00E7540C /* en_Level_helpC.mp3 */,
 				895BB77C1777AB9C00E7540C /* en_Level_helpD.mp3 */,
 				895BB77B1777AB9C00E7540C /* en_Level_helpE.mp3 */,
-				895BB77A1777AB9C00E7540C /* en_Level_helpF.mp3 */,
 				CE1627BF1522531A00BFDE69 /* en_Once you know these words you Advance.mp3 */,
 				CE1627C61522531A00BFDE69 /* en_Test help.mp3 */,
 				CE1627C91522531A00BFDE69 /* en_The more correct the more coins.mp3 */,
@@ -5437,7 +5434,6 @@
 				B0A8B621187671B800245F48 /* animal06.png in Resources */,
 				B0A8B676187671B800245F48 /* cover-monster@ipad.jpg in Resources */,
 				B0A8B5AE187671AE00245F48 /* cover-princess.png in Resources */,
-				895BB7811777AB9C00E7540C /* en_Level_helpF.mp3 in Resources */,
 				B0A8B3DA1872CC4F00245F48 /* cook.png in Resources */,
 				895BB7821777AB9C00E7540C /* en_Level_helpE.mp3 in Resources */,
 				B0A8B538187664A300245F48 /* avatar1_arm2.png in Resources */,
