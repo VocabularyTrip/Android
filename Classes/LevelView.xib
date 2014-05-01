@@ -21,7 +21,7 @@
             <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty-page-princesses.png" id="lex-dP-IOg" userLabel="Background">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_wizard.png" id="lex-dP-IOg" userLabel="Background">
                     <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
@@ -87,7 +87,7 @@
     <resources>
         <image name="Menu1.png" width="106" height="43"/>
         <image name="architect.png" width="267" height="300"/>
-        <image name="empty-page-princesses.png" width="480" height="320"/>
+        <image name="background_wizard.png" width="480" height="320"/>
         <image name="pause2.png" width="50" height="50"/>
         <image name="reset@ipad.png" width="60" height="56"/>
     </resources>

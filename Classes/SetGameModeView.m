@@ -16,8 +16,22 @@
 @synthesize backgroundView;
 @synthesize hand;
 @synthesize helpButton;
+
 @synthesize noReadAbilityButton;
+@synthesize noReadAbilityImageButton;
+@synthesize noReadAbilityLabel;
+@synthesize noReadAbilityWagonView;
+@synthesize noReadAbilityWheel1View;
+@synthesize noReadAbilityWheel2View;
+
+// ReadAbility
 @synthesize readAbilityButton;
+@synthesize readAbilityImageButton;
+@synthesize readAbilityLabel;
+@synthesize readAbilityWagonView;
+@synthesize readAbilityWheel1View;
+@synthesize readAbilityWheel2View;
+
 
 - (IBAction) prevButtonPressed:(id)sender {
 	VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
@@ -40,8 +54,7 @@
 
     [super viewWillAppear: animated];
     
-    noReadAbilityButton.alpha = [UserContext getUserSelected].readAbility ? 0.5 : 1;
-    readAbilityButton.alpha = [UserContext getUserSelected].readAbility ? 1 : 0.5;
+    [self setAlphaToReadAbility];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -54,27 +67,39 @@
     return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft || interfaceOrientation == UIInterfaceOrientationLandscapeRight);
 }
 
-- (IBAction) noReadAbilityClicked {
-    noReadAbilityButton.alpha = 1;
-    readAbilityButton.alpha = 0.5;
-//    if ([UserContext getUserSelected].readAbility)
-//        [[UserContext getUserSelected] resetSequence];
+- (void) setAlphaToReadAbility {
+    float alphaReadAbility, alphaNoReadAbility;
     
+    alphaReadAbility = [UserContext getUserSelected].readAbility ? 1 : 0.5;
+    alphaNoReadAbility = [UserContext getUserSelected].readAbility ? 0.5 : 1;
+ 
+    // No ReadAbility
+    noReadAbilityButton.alpha = alphaNoReadAbility;
+    noReadAbilityImageButton.alpha = alphaNoReadAbility;
+    noReadAbilityLabel.alpha = alphaNoReadAbility;
+    noReadAbilityWagonView.alpha = alphaNoReadAbility;
+    noReadAbilityWheel1View.alpha = alphaNoReadAbility;
+    noReadAbilityWheel2View.alpha = alphaNoReadAbility;
+    
+    // ReadAbility
+    readAbilityButton.alpha = alphaReadAbility;
+    readAbilityImageButton.alpha = alphaReadAbility;
+    readAbilityLabel.alpha = alphaReadAbility;
+    readAbilityWagonView.alpha = alphaReadAbility;
+    readAbilityWheel1View.alpha = alphaReadAbility;
+    readAbilityWheel2View.alpha = alphaReadAbility;
+}
+
+- (IBAction) noReadAbilityClicked {
     [UserContext getUserSelected].readAbility = NO;
     [[UserContext getUserSelected] reloadLevel];
-    //[[UserContext getUserSelected] reloadGameSequenceNumer];
-    
+    [self setAlphaToReadAbility];
 }
 
 - (IBAction) readAbilityClicked {
-    noReadAbilityButton.alpha = 0.5;
-    readAbilityButton.alpha = 1;
-//    if (![UserContext getUserSelected].readAbility)
-//        [[UserContext getUserSelected] resetSequence];
-    
     [UserContext getUserSelected].readAbility = YES;
     [[UserContext getUserSelected] reloadLevel]; // Force read the level corresponding with read ability
-    //[[UserContext getUserSelected] reloadGameSequenceNumer];
+    [self setAlphaToReadAbility];
 }
 
 -(void) helpClicked {
@@ -82,18 +107,3 @@
 }
 
 @end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
