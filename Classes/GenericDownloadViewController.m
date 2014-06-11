@@ -59,7 +59,7 @@
 
 -(void) refreshSearchingModeEnabled:(BOOL)isDownloading {
     singletonVocabulary.isDownloading = isDownloading;
-	//when network action, toggle network indicator and activity indicator
+	
 	if (isDownloading) {
         cancelDownloadButton.alpha = 1;
         downloadProgressView.alpha = 1;

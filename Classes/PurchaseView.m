@@ -21,6 +21,10 @@
 @synthesize promoCodeStatus;
 @synthesize promoCodeLabel;
 @synthesize backgroundView;
+@synthesize buyAllDescLabel;
+@synthesize buyOneSetDescLabel;
+@synthesize facebookButton;
+@synthesize noReachabilityButton;
 
 - (IBAction)done:(id)sender {
 	VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
@@ -93,7 +97,7 @@
     //[self showPromoCodeResult: p]; // Has to be called asyncronic from PromoCode
 }
 
-- (IBAction) facebookButton {
+- (IBAction) facebookButtonClicked {
     
     [FacebookManager initFacebookSession];
     [FacebookManager facebookLogin];
@@ -119,7 +123,6 @@
 	[self refreshLevelInfo];
     NSString* coverName = [ImageManager getIphone5xIpadFile: @"background_purchase"];
     [backgroundView setImage: [UIImage imageNamed: coverName]];
-    
 }
 
 - (void)viewDidLoad {
@@ -128,35 +131,57 @@
     promoCodeText.text = [[NSUserDefaults standardUserDefaults] objectForKey: cPromoCode];
 }
 
-- (NSString*) getPriceOf: (NSString*) purchase {
-    for (SKProduct *oneProduct in [PurchaseManager getSingleton].products)
-        if ([oneProduct.productIdentifier isEqualToString: purchase]) {
-            NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-            [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
-            [formatter setLocale: oneProduct.priceLocale];
-            return [formatter stringFromNumber: oneProduct.price];
-        }    
-    return @"";
-}
 
 - (void) refreshLevelInfo {
-
+    SKProduct* aProduct;
 	restorePurchaseButton.enabled = [UserContext getMaxLevel] >= cSet1OfLevels ? 1 : 0;
     promoCodeText.enabled = [UserContext getMaxLevel] <= cSet2OfLevels ? 1 : 0;
-    buyOneSetofLevelesButton.alpha  = [UserContext getMaxLevel] <= cSet2OfLevels ? 1 : 0;
-    buyAllButton.enabled = [UserContext getMaxLevel] < [Vocabulary countOfLevels] ? 1 : 0;
+    facebookButton.enabled = [[UserContext getSingleton] qPostInFacebook] < cMaxPostInFasebook ? 1 : 0;
+    noReachabilityButton.alpha = 0;
 
-    NSString *title = @"";
-    if ([UserContext getMaxLevel] <= cSet1OfLevels) {
-        title = [self getPriceOf: [PurchaseManager getCompletePurchaseIdentier: cPurchaseSet1]];
-    } else if ([UserContext getMaxLevel] <= cSet2OfLevels) {
-        title = [self getPriceOf: [PurchaseManager getCompletePurchaseIdentier: cPurchaseSet2]];
-    }
-    
-    [buyOneSetofLevelesButton setTitle: title forState: UIControlStateNormal];
-    [buyAllButton
-     setTitle: [self getPriceOf: [PurchaseManager getCompletePurchaseIdentier: cPurchaseSet1to4]]
+    aProduct = [PurchaseManager getProductoFromIdentifier: [PurchaseManager getPurchaseOneSet]];
+    [buyOneSetofLevelesButton
+     setTitle: [PurchaseManager getPriceAsText: aProduct]
      forState: UIControlStateNormal];
+    
+    if ([UserContext getMaxLevel] < [Vocabulary countOfLevels]) {
+        buyOneSetofLevelesButton.enabled  =  1;
+        if (!aProduct) {
+            noReachabilityButton.alpha = 1;
+            buyOneSetDescLabel.alpha = 0;
+        } else {
+            noReachabilityButton.alpha = 0;
+            buyOneSetDescLabel.alpha = 1;
+            buyOneSetDescLabel.text = aProduct.localizedDescription;
+        }
+    } else {
+        buyOneSetofLevelesButton.enabled  =  0;
+        //[buyOneSetofLevelesButton setTitle: @"" forState: UIControlStateNormal];
+        buyOneSetDescLabel.text = @"";
+    }
+
+    aProduct = [PurchaseManager getProductoFromIdentifier: [PurchaseManager getPurchaseAllSet]];
+    [buyAllButton
+     setTitle: [PurchaseManager getPriceAsText: aProduct]
+     forState: UIControlStateNormal];
+    
+    if ([UserContext getMaxLevel] < cSet2OfLevels) {
+        buyAllButton.enabled =  1;
+        if (!aProduct) {
+            noReachabilityButton.alpha = 1;
+            buyAllDescLabel.alpha = 0;
+        } else {
+            noReachabilityButton.alpha = 0;
+            buyAllDescLabel.alpha = 1;
+            buyAllDescLabel.text = aProduct.localizedDescription;
+        }
+    } else {
+        buyAllButton.enabled =  0;
+        //[buyAllButton setTitle: @"" forState: UIControlStateNormal];
+        buyAllDescLabel.text = @"";
+    }
+
+
 }
 
 -(BOOL) textFieldShouldBeginEditing:(UITextField *)textField {

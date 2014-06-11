@@ -17,6 +17,7 @@
 #import "ToolbarController.h"
 #import "SmokeView.h"
 #import "ImageManager.h"
+#import "UICountingLabel.h"
 //#import "GameStartView.h"
 //#import "GameEndView.h"
 
@@ -53,11 +54,11 @@ enum {
 	UIButton *__unsafe_unretained backButton;
 	UIButton *__unsafe_unretained soundButton;
 	UIView *__unsafe_unretained money1View;
-	UILabel *money1Label;	
+	UICountingLabel *__unsafe_unretained money1Label;
 	UIView *__unsafe_unretained money2View;
-	UILabel *__unsafe_unretained money2Label;	
+	UICountingLabel *__unsafe_unretained money2Label;
 	UIView *__unsafe_unretained money3View;
-	UILabel *__unsafe_unretained money3Label;	
+	UICountingLabel *__unsafe_unretained money3Label;
 	UIImageView *__unsafe_unretained hand;
 	// **********************************	
 
@@ -112,7 +113,7 @@ enum {
 	// **********************************
 	// hitsOfLevel1 corresponds to images in level 1 to 3. hits 2 from level 4 to 6, and hits 3 from level 7 to 9
 	// money is used to refresh moneyLabel one by one. Are used just in refreshMoneyLabels
-	int money;
+	//int money;
 	int hitsOfLevel1;
 	int hitsOfLevel2;
 	int hitsOfLevel3;		
@@ -129,11 +130,11 @@ enum {
 
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *backButton;
 @property (nonatomic, unsafe_unretained) IBOutlet UIView *money1View;
-@property (nonatomic, strong) IBOutlet UILabel *money1Label;
+@property (nonatomic, unsafe_unretained) IBOutlet UICountingLabel *money1Label;
 @property (nonatomic, unsafe_unretained) IBOutlet UIView *money2View;
-@property (nonatomic, unsafe_unretained) IBOutlet UILabel *money2Label;
+@property (nonatomic, unsafe_unretained) IBOutlet UICountingLabel *money2Label;
 @property (nonatomic, unsafe_unretained) IBOutlet UIView *money3View;
-@property (nonatomic, unsafe_unretained) IBOutlet UILabel *money3Label;
+@property (nonatomic, unsafe_unretained) IBOutlet UICountingLabel *money3Label;
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *hand;
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *landscape;
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *landscapeSky;
@@ -206,11 +207,11 @@ enum {
 - (void) showThisWord: (Word*) aWord id: (int) idButton button: (UIButton*) aWordButton buttonLabel: (UIButton*) aWordButtonLabel context:(void *)context;
 - (void) refreshSoundButton;
 - (int) hitRate;
-- (void) refreshMoneyViews: (NSString*) moneyType;
+//- (void) refreshMoneyViews: (NSString*) moneyType;
 - (void) refreshMoneyLabels;
-- (void) goldAnimationDidStop:(NSString *)theAnimation finished:(BOOL)flag context:(void *)context;
-- (void) refreshMoneyLabelsFinished;
-- (void) addMoney;
+//- (void) goldAnimationDidStop:(NSString *)theAnimation finished:(BOOL)flag context:(void *)context;
+//- (void) refreshMoneyLabelsFinished;
+//- (void) addMoney;
 - (void) incrementHitAtLevel: (int) aLevel;
 - (void) setToolbarAlpha: (int) aValue;
 - (void) refreshSoundButton;

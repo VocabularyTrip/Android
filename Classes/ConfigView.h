@@ -18,12 +18,17 @@
     id __unsafe_unretained parentView;
   	UIButton *__unsafe_unretained soundButton;
     UIButton *__unsafe_unretained langButton;
+    UIButton *__unsafe_unretained helpButton;
+    UIImageView *__unsafe_unretained handHelpView;
+   
 }
 
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *backgroundView;
 @property (nonatomic, unsafe_unretained) id parentView;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *soundButton;;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *langButton;
+@property (nonatomic, unsafe_unretained) IBOutlet UIButton *helpButton;
+@property (nonatomic, unsafe_unretained) IBOutlet UIImageView *handHelpView;
 
 - (IBAction) mailButtonClicked: (id) sender;
 - (IBAction) buyClicked;
@@ -38,7 +43,8 @@
 - (bool) frameIsClosed;
 - (void) setParentMode: (bool) value;
 - (void) refreshSoundButton;
-    
+- (void) helpDownload1;
+
 @end
 
 

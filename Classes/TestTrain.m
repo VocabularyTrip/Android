@@ -96,7 +96,7 @@
 	flagFaild = NO;
 }
 
-- (void) addMoney { 
+/*- (void) addMoney {
 	if (money <= hitsOfLevel1) {
 		[UserContext addMoney1: cBronzeHitPrice];
 		[self refreshMoneyViews: cBronzeType];
@@ -111,7 +111,7 @@
 
 - (void) refreshMoneyLabelsFinished {
     [self takeOutTrain];
-}
+}*/
 
 - (void) endGame { 
 	[super endGame];

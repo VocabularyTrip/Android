@@ -269,7 +269,7 @@
 	return NO;
 }
 
-- (void) addMoney { 
+/*- (void) addMoney {
 	if (money <= hitsOfLevel1) {
 		[UserContext addMoney1: 1];
 		[self refreshMoneyViews: cBronzeType];
@@ -284,7 +284,7 @@
 
 - (void) refreshMoneyLabelsFinished {
 	[self takeOutTrain];
-}
+}*/
 
 - (void) endGame { 
 	[super endGame];

@@ -49,8 +49,6 @@
 - (void) addMoney1: (float) aMoney;
 - (void) addMoney2: (float) aMoney;
 - (void) addMoney3: (float) aMoney;
-- (NSString*) getMoneyAsText: (NSDecimalNumber*) money;
-- (NSString*) getMoneyIntAsText: (int) money;
 - (NSString*) getMoney1AsText;
 - (NSString*) getMoney2AsText;
 - (NSString*) getMoney3AsText;

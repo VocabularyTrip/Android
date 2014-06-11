@@ -37,28 +37,73 @@ PurchaseManager *purchaseManagerSingleton;
     return nil;
 }
 
-+ (void) buyNextSetOfLevel {
-    
-    if ([UserContext getMaxLevel] <= cSet1OfLevels) {
-        [self buy: [self getProductoFromIdentifier: cPurchaseSet1]];
-    } else if ([UserContext getMaxLevel] <= cSet2OfLevels) {
-        [self buy: [self getProductoFromIdentifier: cPurchaseSet2]];
-    } else if ([UserContext getMaxLevel] <= cSet3OfLevels) {
-        [self buy: [self getProductoFromIdentifier: cPurchaseSet3]];
-    } else if ([UserContext getMaxLevel] <= cSet4OfLevels)
-        [self buy: [self getProductoFromIdentifier: cPurchaseSet4]];
++ (NSString*) getPriceAsText: (SKProduct*) p {
+    if (!p) return  @"---";
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    [formatter setLocale: p.priceLocale];
+    return [formatter stringFromNumber: p.price];
+}
 
+/* + (NSString*) priceAsString: (NSNumber*) price {
+   NSString * cPurchase = [self getCompletePurchaseIdentier: purchase];
+    for (SKProduct *oneProduct in [PurchaseManager getSingleton].products) {
+        NSLog(@"Product: %@, %@, %@, %@", oneProduct.productIdentifier, oneProduct.description, oneProduct.localizedDescription, oneProduct.localizedTitle);
+
+        if ([oneProduct.productIdentifier isEqualToString: cPurchase]) {
+            NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+            [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+            [formatter setLocale: oneProduct.priceLocale];
+            return [formatter stringFromNumber: oneProduct.price];
+        }
+    }
+    return @"";
+    
+}*/
+
++ (NSString*) getPurchaseOneSet {
+    if ([UserContext getMaxLevel] < cSet1OfLevels) {
+        return cPurchaseSet1;
+    } else if ([UserContext getMaxLevel] < cSet2OfLevels) {
+        return cPurchaseSet2;
+    } else if ([UserContext getMaxLevel] < cSet3OfLevels) {
+        return cPurchaseSet3;
+    } else if ([UserContext getMaxLevel] < cSet4OfLevels)
+        return cPurchaseSet4;
+    return @"Error"; // Error
+}
+
++ (NSString*) getPurchaseAllSet {
+    if ([UserContext getMaxLevel] < cSet1OfLevels) {
+        return cPurchaseSet1to4;
+    } else if ([UserContext getMaxLevel] < cSet2OfLevels)
+        return cPurchaseSet2to4;
+    return @"Error"; // Error
+}
+
++ (void) buyNextSetOfLevel {
+    /*
+     #define cSet1OfLevels 12
+     #define cSet2OfLevels 24
+     #define cSet3OfLevels 36
+     #define cSet4OfLevels 50*/
+    //NSLog(@"MaxLevel: %i", [UserContext getMaxLevel]);
+    
+    [self buy: [self getProductoFromIdentifier: [self getPurchaseOneSet]]];
 }
 
 + (void) buyAllLevels {
-	switch ([UserContext getMaxLevel]) {
+    
+    [self buy: [self getProductoFromIdentifier: [self getPurchaseAllSet]]];
+    
+/*	switch ([UserContext getMaxLevel]) {
 		case 0 ... 120:
            [self buy: [self getProductoFromIdentifier: cPurchaseSet1to4]];
 			break;
 		default:
            [self buy: [self getProductoFromIdentifier: cPurchaseSet2to4]];
 			break;
-    }
+    }*/
 }
 
 + (NSString*) getCompletePurchaseIdentier: (NSString*) inAppPurchase {
@@ -165,7 +210,7 @@ PurchaseManager *purchaseManagerSingleton;
 }
 
 -(void) completeTransaction: (SKPaymentTransaction*) transaction {
-  	NSLog(@"Complete Transaction");  
+  	//NSLog(@"Complete Transaction");
 	[self recordTransaction: transaction];
 	[self provideContent: [PurchaseManager getProductoFromIdentifier:
                            transaction.payment.productIdentifier]];

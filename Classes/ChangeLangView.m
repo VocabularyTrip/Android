@@ -30,23 +30,16 @@
 
 - (IBAction) nextButtonPressed:(id)sender {
     
-    /*VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
+    VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
     [vocTripDelegate popMainMenuFromChangeLang];
+    [super done: sender];
+
+    // this code enable the step 3 to select modes (images / words)
+    /*VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
+	[vocTripDelegate pushSetGameModeView];
     [super done: sender];*/
     
-    VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
-	[vocTripDelegate pushSetGameModeView];
-    [super done: sender];
-    
-    bool connectivity = ([vocTripDelegate.internetReachable currentReachabilityStatus] != NotReachable);
-    if (![Vocabulary isDownloadCompleted] && connectivity) {
-        
-//        if (singletonVocabulary.isDownloading) Cancel current download?
-        singletonVocabulary.delegate = nil;
-        singletonVocabulary.isDownloadView = NO;
-        singletonVocabulary.isDownloading = YES;
-        [Vocabulary loadDataFromSql];
-    }
+    [vocTripDelegate checkAndStartDownload];
 }
 
 - (IBAction) lockLangPressed:(id)sender {
@@ -287,7 +280,6 @@
     if (flagCancelAllSounds) return;    
     CGPoint center = hand.center;
 
-    //NSLog(@"angle is: %g", angle);
     [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
     [UIImageView setAnimationDelegate: self];
     [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];

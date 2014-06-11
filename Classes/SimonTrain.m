@@ -35,7 +35,7 @@
 
 - (void) showSequence {
 
-    NSLog(@"Remaining: %i", qOfImagesRemaining);
+    //NSLog(@"Remaining: %i", qOfImagesRemaining);
     
     if (currentSeq < [sequence count]) {
         int wordIndex = [[sequence objectAtIndex: currentSeq] intValue];
@@ -43,7 +43,7 @@
         if (![word playSoundWithDelegate: self])
             [self pushLevelWithHelpDownload];
 
-        NSLog(@"Seg: %i, value: %i", currentSeq, wordIndex);
+        //NSLog(@"Seg: %i, value: %i", currentSeq, wordIndex);
         if (wordIndex == 0)
             [AnimatorHelper shakeView: wordButton1];
         else if (wordIndex == 1)
@@ -70,7 +70,7 @@
 
 - (void) wordButton: (UIButton*) aButton buttonLabel: (UIButton*) aButtonLabel clicked: (int) i {
     if (gameIsShowingTargetSequence) return;
-    NSLog(@"Remaining: %i", qOfImagesRemaining);
+    //NSLog(@"Remaining: %i", qOfImagesRemaining);
     qOfImagesRemaining--;
     if ([[sequence objectAtIndex: currentSeq] intValue] == i) {
         //AudioServicesPlaySystemSound(self.closeSoundId);

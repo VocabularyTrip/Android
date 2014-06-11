@@ -11,6 +11,7 @@
                 <outlet property="cancelDownloadButton" destination="LvE-ap-e6H" id="3qX-U7-Pzc"/>
                 <outlet property="downloadButton" destination="I1f-98-j1x" id="yi1-vT-h08"/>
                 <outlet property="downloadProgressView" destination="JKy-72-7KA" id="naa-b6-6Ss"/>
+                <outlet property="handHelpView" destination="7bw-3F-s5j" id="04T-D7-zIn"/>
                 <outlet property="langButton" destination="mRB-Mf-0Yu" id="Lar-Ek-isF"/>
                 <outlet property="soundButton" destination="puw-Sd-HiS" id="vwX-FN-5MB"/>
                 <outlet property="view" destination="1" id="7vY-px-z7l"/>
@@ -158,6 +159,10 @@
                         <action selector="cancelDownload:" destination="-1" eventType="touchDown" id="FhE-BR-NSC"/>
                     </connections>
                 </button>
+                <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clicking.png" id="7bw-3F-s5j" userLabel="HandHelp">
+                    <rect key="frame" x="0.0" y="72" width="70" height="75"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -172,6 +177,7 @@
         <image name="btn_download_cancel@ipad.png" width="165" height="56"/>
         <image name="btn_info_on.png" width="49" height="49"/>
         <image name="buyButton.png" width="49" height="49"/>
+        <image name="clicking.png" width="139" height="147"/>
         <image name="empty-page-princesses.png" width="480" height="320"/>
         <image name="reset@ipad.png" width="60" height="56"/>
         <image name="sound-of.png" width="50" height="46"/>

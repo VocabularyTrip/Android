@@ -48,7 +48,11 @@ extern PurchaseManager *purchaseManagerSingleton;
 + (void) buyNextSetOfLevel; // Buy Set 1, Set 2, Set 3 depending the context
 + (void) buyAllLevels;
 + (void) buy: (SKProduct*) anSKProduct;
++ (NSString*) getPurchaseOneSet;
++ (NSString*) getPurchaseAllSet;
 + (SKProduct*) getProductoFromIdentifier: (NSString*) productIdentifier;
+//+ (NSString*) getPriceOf: (NSString*) purchase;
++ (NSString*) getPriceAsText: (SKProduct*) p;
 - (void) initializeObserver;
 - (void) paymentQueue: (SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions;
 - (void) completeTransaction: (SKPaymentTransaction*) transaction;

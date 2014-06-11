@@ -270,7 +270,7 @@ PromoCode *promoCodeSingleton;
         
         NSString *message;
         if (date && [self isExpired: date]) {
-            [[UserContext getSingleton] setMaxLevel: 0];
+            [[UserContext getSingleton] setMaxLevel: cSetLevelsFree];
             [pref removeObjectForKey: cPromoCodeExpireDate];
             [pref synchronize];
             message = cPromoCodeStatusFinished;

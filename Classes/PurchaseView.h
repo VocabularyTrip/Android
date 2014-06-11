@@ -21,11 +21,15 @@
 	UIButton *__unsafe_unretained buyAllButton;
 	UIButton *__unsafe_unretained buyOneSetofLevelesButton;
 	UIButton *__unsafe_unretained restorePurchaseButton;
+	UIButton *__unsafe_unretained facebookButton;
+	UIButton *__unsafe_unretained noReachabilityButton;
 	UITextField *__unsafe_unretained promoCodeText;
     UILabel *__unsafe_unretained promoCodeStatus;
     UILabel *__unsafe_unretained promoCodeLabel;
     UIImageView *__unsafe_unretained backgroundView;
-
+    UILabel *__unsafe_unretained buyAllDescLabel;
+    UILabel *__unsafe_unretained buyOneSetDescLabel;
+    
     int resultParentalGate;
     bool flagBuyAllLevels; // indicate if the requirements is buy all levels. YES --> All Level, NO --> next set of levels.
 }
@@ -34,10 +38,14 @@
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *buyAllButton;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *buyOneSetofLevelesButton;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *restorePurchaseButton;
+@property (nonatomic, unsafe_unretained) IBOutlet UIButton *facebookButton;
+@property (nonatomic, unsafe_unretained) IBOutlet UIButton *noReachabilityButton;
 @property (nonatomic, unsafe_unretained) IBOutlet UITextField *promoCodeText;
 @property (nonatomic, unsafe_unretained) IBOutlet UILabel *promoCodeStatus;
 @property (nonatomic, unsafe_unretained) IBOutlet UILabel *promoCodeLabel;
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *backgroundView;
+@property (nonatomic, unsafe_unretained) IBOutlet UILabel *buyAllDescLabel;
+@property (nonatomic, unsafe_unretained) IBOutlet UILabel *buyOneSetDescLabel;
 
 
 - (IBAction) done:(id)sender;
@@ -45,13 +53,13 @@
 - (IBAction) buyAllLevels;
 - (IBAction) buyOneSetOfLevels;
 - (IBAction) registerPromoCode;
-- (IBAction) facebookButton;
+- (IBAction) facebookButtonClicked;
 
 - (BOOL) textFieldShouldBeginEditing:(UITextField *)textField;
 - (BOOL) textFieldShouldReturn: (UITextField*) textField;
 - (void) textFieldDidEndEditing:(UITextField *)textField;
 - (void) disableBuyButtons;
-- (NSString*) getPriceOf: (NSString*) purchase;
+
 //- (void) showPromoCodeResult: (PromoCodeResult) promoCodeResult;
 - (void) refreshLevelInfo;
     

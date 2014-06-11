@@ -16,6 +16,7 @@
 // Ya no son 9 niveles. Estas dos constantes quedan deprecated
 //#define cSilverLevel 6
 //#define cBronzeLevel 3
+#define cSetLevelsFree 2
 #define cSet1OfLevels 12
 #define cSet2OfLevels 24
 #define cSet3OfLevels 36
@@ -58,6 +59,8 @@
 #define cUserPassword @"userPassword"
 #define cIsLocked @"langSelectionIsLocked"
 
+#define cqPostInFasebook @"qPostInFacebook"
+#define cMaxPostInFasebook 20
 
 enum {
     tLevelModeGame_cumulative = 0, // default mode. If you are in the level 4, the game choose randomly words between words in level 1 to 4.
@@ -75,6 +78,7 @@ enum {
 	int soundEnabled;
     tLevelModeGame levelGameMode;
     NSString* aNewLanguage;
+    int qPostInFacebook;
 }
 
 extern UserContext *userContextSingleton;
@@ -86,6 +90,7 @@ extern UserContext *userContextSingleton;
 @property (nonatomic, strong) NSMutableArray *users;
 @property (nonatomic, unsafe_unretained) User *userSelected;
 @property (nonatomic, strong) NSString* aNewLanguage;
+@property (nonatomic, assign) int qPostInFacebook;
 
 + (UserContext*) getSingleton;
 + (User*) getUserSelected;
@@ -102,6 +107,9 @@ extern UserContext *userContextSingleton;
 + (Level*) getLevel;
 + (void) setaNewLanguage: (NSString*) aLang;
 + (NSString*) getaNewLanguage;
++ (NSString*) getMoneyAsText: (NSDecimalNumber*) money;
++ (NSString*) getMoneyIntAsText: (int) money;
+
 + (int)  getMoney1;
 + (int)  getMoney2;
 + (int)  getMoney3;
@@ -150,6 +158,7 @@ extern UserContext *userContextSingleton;
 -(Level*) getLevelAt: (int) anIndex;
 -(void) resetGame;
 -(void) initGame;
+-(void) addPostInFacebook;
 +(void) reloadContext;
     
 @end

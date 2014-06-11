@@ -246,7 +246,7 @@
 // **** Core Business *****
 
 - (void) incrementHitAtLevel: (int) aLevel {
-/*    int range;
+    int range;
 	if (aLevel <= cLimitLevelBronze) range = 1;
 	if (aLevel > cLimitLevelBronze && aLevel <= cLimitLevelSilver) range = 2;
 	if (aLevel > cLimitLevelSilver) range = 3;
@@ -254,11 +254,11 @@
   	int hit = arc4random() % range;
 	if (hit == 0) hitsOfLevel1++;
 	if (hit == 1) hitsOfLevel2++;
-	if (hit == 2) hitsOfLevel3++;*/
+	if (hit == 2) hitsOfLevel3++;
     
-	if (aLevel <= cLimitLevelBronze) hitsOfLevel1++;
+	/*if (aLevel <= cLimitLevelBronze) hitsOfLevel1++;
 	if (aLevel > cLimitLevelBronze && aLevel <= cLimitLevelSilver) hitsOfLevel2++;
-	if (aLevel > cLimitLevelSilver) hitsOfLevel3++;
+	if (aLevel > cLimitLevelSilver) hitsOfLevel3++;*/
     
 }
 
@@ -356,7 +356,7 @@
 - (void)showWordAnimationDidStop:(NSString *)theAnimation finished:(BOOL)flag context:(void *)context {
 	NSMutableDictionary *parameters = (__bridge  NSMutableDictionary*) context;
 	UIButton *aWordButton = (UIButton*) [parameters objectForKey: @"button"];
-    NSLog(@"Origin.x: %f, size.width: %f", aWordButton.frame.origin.x, aWordButton.frame.size.width);
+    //NSLog(@"Origin.x: %f, size.width: %f", aWordButton.frame.origin.x, aWordButton.frame.size.width);
 }
 
 // When the train animation stop, the Game Start...
@@ -382,7 +382,7 @@
 	hitsOfLevel1 = 0; // hits corresponding of cooper coins
 	hitsOfLevel2 = 0; // hits corresponding to silver coins
 	hitsOfLevel3 = 0; // hits corresponding to gold coins
-	money = 0;  // Is used to refresh the moneyLabel one by one. Is used just in the method refreshMoneyLabels
+	//money = 0;  // Is used to refresh the moneyLabel one by one. Is used just in the method refreshMoneyLabels
 	[self shiftTrain: [ImageManager windowWidth]];
 }
 
@@ -583,7 +583,7 @@
 	return cHitsPerGame;
 }
 
-- (void) refreshMoneyViews: (NSString*) moneyType {
+/*- (void) refreshMoneyViews: (NSString*) moneyType {
 	gameStatus = cStatusGameIsMoneyCount;
 	
 	[self alphaByType: moneyType];
@@ -602,9 +602,34 @@
 
 - (void)goldAnimationDidStop:(NSString *)theAnimation finished:(BOOL)flag context:(void *)context {
 	[self refreshMoneyLabels];	
-}
+}*/
 
 - (void) refreshMoneyLabels {
+    money1Label.method = UILabelCountingMethodLinear;
+    money1Label.format = @"%d";
+    [money1Label countFrom: [UserContext getMoney1]
+                        to: [UserContext getMoney1] + hitsOfLevel1 * cBronzeHitPrice
+                        withDuration: 3.0];
+    [UserContext addMoney1: hitsOfLevel1 * cBronzeHitPrice];
+    
+    money2Label.method = UILabelCountingMethodLinear;
+    money2Label.format = @"%d";
+    [money2Label countFrom: [UserContext getMoney2]
+                        to: [UserContext getMoney2] + hitsOfLevel2 * cSilverHitPrice
+              withDuration: 3.0];
+    [UserContext addMoney2: hitsOfLevel2 * cBronzeHitPrice];
+    
+    money3Label.method = UILabelCountingMethodLinear;
+    money3Label.format = @"%d";
+    [money3Label countFrom: [UserContext getMoney3]
+                        to: [UserContext getMoney3] + hitsOfLevel3 * cGoldHitPrice
+              withDuration: 3.0];
+    [UserContext addMoney3: hitsOfLevel3 * cBronzeHitPrice];
+    
+    [self takeOutTrain];
+}
+
+/*- (void) refreshMoneyLabels {
 	money++;
 	
 	if (money > hitsOfLevel1 + hitsOfLevel2 + hitsOfLevel3) {
@@ -620,16 +645,16 @@
 	money1Label.text = [UserContext getMoney1AsText];
 	money2Label.text = [UserContext getMoney2AsText];
 	money3Label.text = [UserContext getMoney3AsText];	
-}
+}*/
 
 // Implemented by subclass
-- (void) refreshMoneyLabelsFinished { 
+/*- (void) refreshMoneyLabelsFinished {
 }
 
 
 // Implemented by subclass
 - (void) addMoney { 
-}
+}*/
 
 // **** Core Business *****
 // ************************
@@ -683,7 +708,7 @@
 
 -(void) pushLevelWithHelpDownload {
     VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
-    //vocTripDelegate.mapView.startWithHelpDownload = 1;
+    vocTripDelegate.mapView.startWithHelpDownload = 1;
     [vocTripDelegate pushMapViewWithHelpDownload];
 }
 

@@ -54,7 +54,7 @@
                 NSLog(@"Cancel download for Lang: %@", lang.name);
                 return;
             }; // Break download since the user canceled or did error network
-            NSLog(@"Download lang: %@, word: %@", lang.name, aWord.name);
+            //NSLog(@"Download lang: %@, word: %@", lang.name, aWord.name);
             
             [Word download: [value objectForKey: @"file_name"]]; // Request download sound (mp3)
             [aWord addTranslation: [value objectForKey: @"translation"] forKey: [value objectForKey: @"lang_name"]];

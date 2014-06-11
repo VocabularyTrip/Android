@@ -69,7 +69,7 @@
 - (void) showAllMapInFirstSession;
 - (void) showAllMapFinished;
 - (void) helpAnimation1;
-- (void) helpDownload1;
+//- (IBAction) helpDownload;
 
 - (IBAction) openConfigView;
 - (void) initializeTimeoutToPlayBackgroundSound;

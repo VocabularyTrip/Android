@@ -11,6 +11,7 @@
                 <outlet property="backgroundView" destination="76" id="kSm-zq-65b"/>
                 <outlet property="buyAllButton" destination="117" id="120"/>
                 <outlet property="buyOneSetofLevelesButton" destination="lmm-LU-rwO" id="BQS-LB-YrU"/>
+                <outlet property="facebookButton" destination="cHH-Fp-oCQ" id="TMo-Cg-eR7"/>
                 <outlet property="promoCodeLabel" destination="210" id="212"/>
                 <outlet property="promoCodeStatus" destination="211" id="213"/>
                 <outlet property="promoCodeText" destination="202" id="203"/>
@@ -145,7 +146,7 @@
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
-                                <action selector="facebookButton" destination="-1" eventType="touchDown" id="itj-QN-gRZ"/>
+                                <action selector="facebookButtonClicked" destination="-1" eventType="touchDown" id="nXL-R9-alE"/>
                             </connections>
                         </button>
                     </subviews>

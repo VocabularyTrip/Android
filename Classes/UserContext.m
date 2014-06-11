@@ -22,7 +22,7 @@ UserContext *userContextSingleton;
 @synthesize users;
 @synthesize userSelected;
 @synthesize aNewLanguage;
-
+@synthesize qPostInFacebook;
 @synthesize levelGameMode;
 
 +(UserContext*) getSingleton {
@@ -89,6 +89,24 @@ UserContext *userContextSingleton;
 
 +(NSString*) getaNewLanguage {
     return [UserContext getSingleton].aNewLanguage;
+}
+
++ (NSString*) getMoneyAsText: (NSDecimalNumber*) money {
+	NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
+	f.numberStyle = NSNumberFormatterCurrencyStyle;
+	f.maximumFractionDigits = 2;
+	NSString *r = [f stringFromNumber: money];
+	f = nil;
+	return r;
+}
+
++ (NSString*) getMoneyIntAsText: (int) money {
+	NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
+	f.numberStyle = NSNumberFormatterCurrencyStyle;
+	f.maximumFractionDigits = 0;
+	NSString *r = [f stringFromNumber: [NSNumber numberWithInt: money]];
+	f = nil;
+	return r;
 }
 
 +(int)  getMoney1 {
@@ -225,7 +243,6 @@ UserContext *userContextSingleton;
     return userSelected;
 }
 
-
 - (void) setSoundEnabled: (int) newVal {
 	soundEnabled = newVal;
 	[[NSUserDefaults standardUserDefaults] setInteger:soundEnabled forKey: cSoundKey];
@@ -239,6 +256,22 @@ UserContext *userContextSingleton;
 -(void) setMaxLevel: (int) aLevel {
 	[[NSUserDefaults standardUserDefaults] setInteger: aLevel forKey: cMaxLevelKey];
 }
+
+-(int) qPostInFacebook {
+	qPostInFacebook = [[NSUserDefaults standardUserDefaults] integerForKey: cqPostInFasebook];
+	return qPostInFacebook;
+}
+
+-(void) setQPostInFacebook: (int) aQPostInFacebook {
+    qPostInFacebook =  aQPostInFacebook;
+	[[NSUserDefaults standardUserDefaults] setInteger: aQPostInFacebook forKey: cqPostInFasebook];
+}
+
+-(void) addPostInFacebook {
+    qPostInFacebook++;
+	[[NSUserDefaults standardUserDefaults] setInteger: qPostInFacebook forKey: cqPostInFasebook];
+}
+
 
 -(void) addThreeLevels {
 	maxLevel += 3;
@@ -260,7 +293,7 @@ UserContext *userContextSingleton;
     [UserContext setHelpSelectLang: YES];
     [UserContext setHelpSelectUser: YES];
 	UserContext.soundEnabled = YES;
-	[[UserContext getSingleton] setMaxLevel: 0];
+	[[UserContext getSingleton] setMaxLevel: cSetLevelsFree];
 }
 
 -(void) resetGame {	

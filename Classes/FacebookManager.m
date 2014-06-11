@@ -170,6 +170,7 @@ FacebookManager *fbSingleton;
                     NSLog(@"User canceled story publishing.");
                 } else {
                     NSLog(@"Story published.");
+                    [[UserContext getSingleton] addPostInFacebook];
                     [PromoCode giveAccessForOneDay];
                 }
             }

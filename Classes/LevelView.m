@@ -193,12 +193,10 @@
     imageView.alpha = 1;
     wordNamelabel.alpha = 1;
     nativeWordNamelabel.alpha = 1;
-    
-    if (![word playSound] && !singletonVocabulary.isDownloading) {
-        //if (angle==0) {    // I want this help to start only if it is not running already. Not to start every time it tries to say a word that does not exist.
-        [[self mapView] helpDownload1];
-        //    angle = 1;
-        //}
+    //NSLog(@"is downloading: %i", singletonVocabulary.isDownloading);
+    if (![word playSound]) { // && !singletonVocabulary.isDownloading
+        [self mapView].startWithHelpDownload = 1;
+        [self done: nil];
     }
 }
 

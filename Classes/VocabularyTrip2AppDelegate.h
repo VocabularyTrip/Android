@@ -117,7 +117,7 @@
 - (void) checkPromoCodeDueDate;
 - (void) checkAPromoCodeForUUID;
 - (void) saveTimePlayedInDB;
-
+- (bool) checkAndStartDownload;
 - (void) initializeInternetReachabilityNotifier;
 - (void)checkNetworkStatus:(NSNotification *)notice;
 

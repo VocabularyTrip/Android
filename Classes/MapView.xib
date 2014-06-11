@@ -52,7 +52,7 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="openConfigView" destination="-1" eventType="touchDown" id="82U-rW-V7t"/>
+                        <action selector="openConfigView" destination="-1" eventType="touchDown" id="9pA-NJ-dDJ"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Mnz-ou-GaD" userLabel="AlbumButton">

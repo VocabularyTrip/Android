@@ -197,7 +197,7 @@
 }
 
 -(bool) nextLevel {
-	if (level <[UserContext getMaxLevel]) {
+	if (level < [UserContext getMaxLevel]) {
 		level++;
         [self saveLevel: level];
 		return YES;
@@ -289,35 +289,16 @@
     [self saveInt: money3 forKey: cMoney3Key];    
 }
 
--(NSString*) getMoneyAsText: (NSDecimalNumber*) money {
-	NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
-	f.numberStyle = NSNumberFormatterCurrencyStyle;
-	f.maximumFractionDigits = 2;
-	NSString *r = [f stringFromNumber: money];
-	f = nil;
-	return r;
-}
-
--(NSString*) getMoneyIntAsText: (int) money {
-	NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
-	f.numberStyle = NSNumberFormatterCurrencyStyle;
-	f.maximumFractionDigits = 0;
-	NSString *r = [f stringFromNumber: [NSNumber numberWithInt: money]];
-	f = nil;
-	return r;
-}
-
-
 -(NSString*) getMoney1AsText {
-	return [self getMoneyIntAsText: [self money1]];
+	return [UserContext getMoneyIntAsText: [self money1]];
 }
 
 -(NSString*) getMoney2AsText {
-	return [self getMoneyIntAsText: [self money2]];
+	return [UserContext getMoneyIntAsText: [self money2]];
 }
 
 -(NSString*) getMoney3AsText {
-	return [self getMoneyIntAsText: [self money3]];
+	return [UserContext getMoneyIntAsText: [self money3]];
 }
 
 -(UIImage*) image {

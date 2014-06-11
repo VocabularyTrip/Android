@@ -62,9 +62,9 @@
     frame.origin.x = frame.origin.x - frame.size.width * newProgress;
     progressView.frame = frame;
 
-    NSLog(@"progressView %f, %f", newProgress, progressBeforePlay);
+    //NSLog(@"progressView %f, %f", newProgress, progressBeforePlay);
     
-    NSLog(@"progressView %f, %f, %f, %f", progressView.frame.origin.x, progressView.frame.origin.y, progressView.frame.size.width, progressView.frame.size.height);
+    //NSLog(@"progressView %f, %f, %f, %f", progressView.frame.origin.x, progressView.frame.origin.y, progressView.frame.size.width, progressView.frame.size.height);
 
     CGPoint p1 = CGPointMake(progressBeforePlay, 1);
     CGPoint p2 = CGPointMake(newProgress, 1);

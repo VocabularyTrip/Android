@@ -19,6 +19,7 @@
 @synthesize backgroundSound;
 @synthesize startWithHelpDownload;
 
+
 - (BOOL)shouldAutorotate{
     //if([[UIDevice currentDevice] orientation] == UIInterfaceOrientationLandscapeLeft ||[[UIDevice currentDevice] orientation] == UIInterfaceOrientationLandscapeRight)
 //        return YES;
@@ -85,13 +86,13 @@
         
         Level *level = [UserContext getLevel];
         playCurrentLevelButton.center = [level placeinMap];
-        [self.view bringSubviewToFront: playCurrentLevelButton];
+        //[mapScrollView bringSubviewToFront: playCurrentLevelButton];
         currentLevelNumber = level.levelNumber;
     }
     [self initializeTimeoutToPlayBackgroundSound];
     
     [self reloadAllLevels];
-    //[mapScrollView bringSubviewToFront: mapScrollView.levelView.view];
+    [mapScrollView bringSubviewToFront: playCurrentLevelButton];
 }
 
 - (AVAudioPlayer*) backgroundSound {
@@ -134,14 +135,14 @@
 
     //if (flagFirstShowInSession && aUserC.userSelected)
     [self showAllMapInFirstSession];
+    [self moveUser];
     
     if ([UserContext getHelpLevel] || startWithHelpPurchase) [self helpAnimation1];
-    if (startWithHelpPurchase && ![Vocabulary isDownloadCompleted]) [configView startLoading];
-    if (startWithHelpDownload) [self helpDownload1];
+    
+    if (!singletonVocabulary.isDownloading && ![Vocabulary isDownloadCompleted]) [configView startLoading];
+    if (startWithHelpDownload) [self openConfigView];
     startWithHelpDownload = 0;
     startWithHelpPurchase = 0;
-
-    [self moveUser];
 }
 
 - (void) moveUser {
@@ -150,7 +151,7 @@
         // Move the train from the previous level to the next level
         
         int offset = [ImageManager windowWidth] / 2;
-        int newX = [level placeinMap].x > offset ? [level placeinMap].x - offset : 0;
+        int newX = [level placeinMap].x > offset ? [level placeinMap].x / 2 : 0;
         CGPoint newPlace = CGPointMake(newX, 0);
         mapScrollView.contentOffset = newPlace;
         
@@ -163,7 +164,7 @@
             [UIView setAnimationCurve: UIViewAnimationCurveEaseOut];
             
             playCurrentLevelButton.center = [level placeinMap];
-            [self.view bringSubviewToFront: playCurrentLevelButton];
+            //[self.view bringSubviewToFront: playCurrentLevelButton];
             
             [UIView commitAnimations];
             currentLevelNumber = level.levelNumber;
@@ -172,10 +173,10 @@
             [UIView beginAnimations: @"Move User" context: nil];
             [UIView setAnimationDuration: 0.5];
             [UIView setAnimationDelegate: self];
-            [UIImageView setAnimationDidStopSelector: @selector(moveUserEnded)];//
+            [UIImageView setAnimationDidStopSelector: @selector(moveUserEnded)];
             [UIView setAnimationCurve: UIViewAnimationCurveLinear];
             playCurrentLevelButton.center = [[UserContext getLevelAt: currentLevelNumber] placeinMap];
-            [self.view bringSubviewToFront: playCurrentLevelButton];
+            //[self.view bringSubviewToFront: playCurrentLevelButton];
             [UIView commitAnimations];
         }
         
@@ -317,11 +318,11 @@
     
     CGPoint newPlace = CGPointMake([level placeinMap].x + [ImageManager getMapViewLevelSize] * 0.7, [level placeinMap].y + [ImageManager getMapViewLevelSize] * 0.7);
  
-    if (level.order > [UserContext getMaxLevel] && level.order != 1) {
+    if (level.order > [UserContext getMaxLevel] && level.order > cSetLevelsFree) {
         [self addImage: [UIImage imageNamed:@"buyButton.png"] pos: newPlace size: [ImageManager getMapViewLevelSize] * 0.4];
-    } else if (level.order > ([UserContext getLevelNumber]+1) && level.order != 1) {
+    }/* else if (level.order > ([UserContext getLevelNumber]+1) && level.order != 1) {
         [self addImage: [UIImage imageNamed:@"token-bronze.png"] pos: newPlace size: [ImageManager getMapViewLevelSize] * 0.4];
-    }
+    }*/
 
 }
 
@@ -358,8 +359,12 @@
 - (void) helpAnimation1 {
 }
 
-- (void) helpDownload1 {
-}
+/*- (IBAction) helpDownload {
+    
+    [self openConfigView];
+    [configView helpDownload1];
+
+}*/
 
 - (void) initAudioSession {
 	NSError* audio_session_error = nil;

@@ -51,7 +51,7 @@
 	[self checkIfaskToRate];
     [self checkAPromoCodeForUUID];
     [self checkPromoCodeDueDate];
-    [self checkDownloadCompleted];
+    //[self checkDownloadCompleted];
     [self initializeInternetReachabilityNotifier];
     [FacebookManager initFacebookSession];    
     
@@ -110,7 +110,6 @@
         }
         case ReachableViaWiFi:
         {
-            
             NSLog(@"The internet is working via WIFI");
             break;
         }
@@ -120,6 +119,20 @@
             break;
         }
     }
+}
+
+- (bool) checkAndStartDownload {
+    bool connectivity = ([internetReachable currentReachabilityStatus] != NotReachable);
+    if (![Vocabulary isDownloadCompleted] && connectivity) {
+        if (!singletonVocabulary.isDownloading) {
+            singletonVocabulary.delegate = nil;
+            singletonVocabulary.isDownloadView = NO;
+            singletonVocabulary.isDownloading = YES;
+            [Vocabulary loadDataFromSql];
+            return true;
+        }
+    }
+    return false;
 }
 
 - (void) saveTimePlayedInDB {
@@ -142,18 +155,20 @@
 
 - (void) checkDownloadCompleted {
     
+    //[self checkAndStartDownload];
+    
     //double wasLearnedResult = [Vocabulary wasLearned];
     // Check Download complete only if advance to level 2 is unlock and at least is close to level 2
     //if (!([UserContext getMaxLevel] >= 6) ||
     //    (wasLearnedResult < cPercentageCloseToLearnd && [UserContext getLevelNumber] == 1)
     //    ) return;
     
-    if (![Vocabulary isDownloadCompleted]) {
+    //if (![Vocabulary isDownloadCompleted]) {
 
         //singletonVocabulary.delegate = nil;
         //singletonVocabulary.isDownloadView = NO;
         //NSLog(@"IsDownloading: %i", singletonVocabulary.isDownloading);
-        [Vocabulary loadDataFromSql];
+        //[Vocabulary loadDataFromSql];
         
         /*Language *lang = [UserContext getLanguageSelected];
         NSString *message = [NSString stringWithFormat: @"Downloading %@ did not complete. Do you want to restart it?", lang.name];
@@ -164,7 +179,7 @@
                               cancelButtonTitle: @"NO" 
                               otherButtonTitles: @"YES", nil];
         [alert show];*/
-    }
+    //}
 }
 
 - (void) initUsersDefaults {
@@ -409,7 +424,7 @@
 
 - (void) popMainMenu {
 	// [navController popViewControllerAnimated: NO];
-    NSLog(@"%@", self.navController.viewControllers);
+    // NSLog(@"%@", self.navController.viewControllers);
     [navController popToRootViewControllerAnimated: NO];
 }
 
@@ -495,7 +510,8 @@
 
 - (void) alertAskToReview: (UIAlertView*) alertView clickedButtonAtIndex: (NSInteger) buttonIndex {
     switch (buttonIndex) {
-        case 0: // Remind me later
+        case 0: // Don't ask again
+            [[NSUserDefaults standardUserDefaults] setBool: YES forKey: cNoAskMeAgain];
             break;
         case 1: { // Rate It
             int appId = [self getAppId];
@@ -510,8 +526,7 @@
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString: url]];
             [[NSUserDefaults standardUserDefaults] setBool: YES forKey: cNoAskMeAgain];
             break;
-        }  default: // Don't ask again
-            //[[NSUserDefaults standardUserDefaults] setBool: YES forKey: cNoAskMeAgain];
+        }  default: // Remind me later
             break;
     }
 }
@@ -586,14 +601,14 @@
 
 - (void) checkIfaskToRate {
     
-    //bool noAskMeAgain = [[NSUserDefaults standardUserDefaults] boolForKey: cNoAskMeAgain];
-    //if (noAskMeAgain || [self getAppId] == 0) return;
+    bool noAskMeAgain = [[NSUserDefaults standardUserDefaults] boolForKey: cNoAskMeAgain];
+    if (noAskMeAgain || [self getAppId] == 0) return;
     
 	int countExecutions = [[NSUserDefaults standardUserDefaults] integerForKey: cCountExecutions];
     
     int delta = (countExecutions / cAskRateEachTimes);
     delta = countExecutions - (delta * cAskRateEachTimes);
-    if (delta == cAskRateEachTimes - 1) 
+    if (delta == cAskRateEachTimes - 1)
         [self askToRate];
 
     countExecutions++;
@@ -611,8 +626,8 @@
         initWithTitle: cAskToReviewTitle 
         message: message
         delegate:self 
-        cancelButtonTitle: @"Ramind me later" 
-                          otherButtonTitles: @"Yes, Rate It!", nil]; //, @"Don't ask again", nil];
+        cancelButtonTitle: @"Don't ask again"
+                          otherButtonTitles: @"Yes, Rate It!", @"Ramind me later", nil];
     [alert show];
 }
 
