@@ -33,8 +33,9 @@ PromoCode *promoCodeSingleton;
     NSDate *oneDay = [[NSDate alloc] init];
     oneDay = [oneDay dateByAddingTimeInterval: 60*60*24]; // 1 day
     [[NSUserDefaults standardUserDefaults] setObject: oneDay forKey: cPromoCodeExpireDate];
-    [[PurchaseManager getSingleton] provideContent:
-     [PurchaseManager getProductoFromIdentifier: cPurchaseSet1to4]]; // Provide Content !!!!!
+    [UserContext getSingleton].isTemporalGameUnlocked = true;
+    //[[PurchaseManager getSingleton] provideContent:
+    // [PurchaseManager getProductoFromIdentifier: cPurchaseSet1to4]]; // Provide Content !!!!!
 }
 
 + (void) checkAPromoCodeForUUID {
@@ -270,10 +271,10 @@ PromoCode *promoCodeSingleton;
         
         NSString *message;
         if (date && [self isExpired: date]) {
-            [[UserContext getSingleton] setMaxLevel: cSetLevelsFree];
             [pref removeObjectForKey: cPromoCodeExpireDate];
-            [pref synchronize];
             message = cPromoCodeStatusFinished;
+            [UserContext getSingleton].isTemporalGameUnlocked = false;
+            [pref synchronize];
             
             VocabularyTrip2AppDelegate *vcDelegate;
             vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];

@@ -318,7 +318,7 @@
     
     CGPoint newPlace = CGPointMake([level placeinMap].x + [ImageManager getMapViewLevelSize] * 0.7, [level placeinMap].y + [ImageManager getMapViewLevelSize] * 0.7);
  
-    if (level.order > [UserContext getMaxLevel] && level.order > cSetLevelsFree) {
+    if (level.order > [UserContext getTemporalMaxLevel] && level.order > cSetLevelsFree) {
         [self addImage: [UIImage imageNamed:@"buyButton.png"] pos: newPlace size: [ImageManager getMapViewLevelSize] * 0.4];
     }/* else if (level.order > ([UserContext getLevelNumber]+1) && level.order != 1) {
         [self addImage: [UIImage imageNamed:@"token-bronze.png"] pos: newPlace size: [ImageManager getMapViewLevelSize] * 0.4];
@@ -327,14 +327,37 @@
 }
 
 - (void) addProgressLevel: (Level*) level {
-    CGPoint newPlace = CGPointMake([level placeinMap].x + [ImageManager getMapViewLevelSize] * 0, [level placeinMap].y + [ImageManager getMapViewLevelSize] * 0);
     
-    if (level.order <= ([UserContext getLevelNumber]+1)|| level.order == 1) {
-        UIImageView *progressFillView = [self addImage: [UIImage imageNamed:@"progress_fill.png"] pos: newPlace size: [ImageManager getMapViewLevelSize]];
-        UIImageView *progressView = [self addImage: [UIImage imageNamed:@"progress_back.png"] pos: newPlace size: [ImageManager getMapViewLevelSize] ];
+    if (level.order <= ([UserContext getLevelNumber]+1) || level.order == 1) {
+        int starSize = [ImageManager getMapViewLevelSize] / 2 * 0.95;
+        CGPoint newPlace = CGPointMake(
+            [level placeinMap].x - starSize / 2,
+            [level placeinMap].y + [ImageManager getMapViewLevelSize] * 0.9);
         
         double progress = [Vocabulary progressLevel: level.levelNumber];
-        progressView.frame = [Vocabulary resizeProgressFrame: progressView.frame toNewProgress: progress progressFill: progressFillView.frame];
+        UIImage *star1, *star2, *star3;
+
+        star1 = progress > cThresholdStar1 ? [UIImage imageNamed:@"star1.png"] : [UIImage imageNamed:@"star2.png"];
+        star2 = progress > cThresholdStar2 ? [UIImage imageNamed:@"star1.png"] : [UIImage imageNamed:@"star2.png"];
+        star3 = progress > cThresholdStar3 ? [UIImage imageNamed:@"star1.png"] : [UIImage imageNamed:@"star2.png"];
+
+        [self addImage: star1
+              pos: (CGPoint) {newPlace.x, newPlace.y}
+              size: starSize];
+
+        [self addImage: star2
+              pos: (CGPoint) {newPlace.x + starSize, newPlace.y + starSize * 0.3}
+              size: starSize];
+
+        [self addImage: star3
+              pos: (CGPoint) { newPlace.x + starSize * 2, newPlace.y}
+              size: starSize];
+        
+        /*UIImageView *progressFillView = [self addImage: [UIImage imageNamed:@"progress_fill.png"] pos: newPlace size: [ImageManager getMapViewLevelSize]];
+        UIImageView *progressView = [self addImage: [UIImage imageNamed:@"progress_back.png"] pos: newPlace size: [ImageManager getMapViewLevelSize] ];
+        
+
+        progressView.frame = [Vocabulary resizeProgressFrame: progressView.frame toNewProgress: progress progressFill: progressFillView.frame];*/
     }
 }
 

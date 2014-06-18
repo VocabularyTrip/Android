@@ -17,6 +17,9 @@
 
 #define cPercentageLearnd 0.8
 #define cPercentageCloseToLearnd 0.65
+#define cThresholdStar1 0.3
+#define cThresholdStar2 0.55
+#define cThresholdStar3 0.8
 
 extern NSMutableArray *allWords;
 extern NSMutableArray *oneLevel; 

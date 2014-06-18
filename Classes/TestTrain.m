@@ -193,7 +193,7 @@
 -(tResultEvaluateNextLevel) goToNextLevel {
 	gameStatus = cStatusGameIsGoingToNextLevel;
     //NSLog(@"LevelNumber: %i, level: %i", [UserContext getLevelNumber], [UserContext getMaxLevel]);
-	if (([UserContext getLevelNumber]+1) >= [UserContext getMaxLevel]) {
+	if (([UserContext getLevelNumber]+1) >= [UserContext getTemporalMaxLevel]) {
 		//[self askToBuyNewLevels];
         return tResultEvaluateNextLevel_BuyRequired;
 	} else {

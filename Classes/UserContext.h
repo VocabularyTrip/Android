@@ -22,6 +22,7 @@
 #define cSet3OfLevels 36
 #define cSet4OfLevels 50
 
+#define cIsTemporalGameUnlockedKey @"TemporalGameUnlocked"
 #define cMaxLevelKey @"keyMaxLevel"
 #define cSoundKey @"keySound"
 
@@ -74,6 +75,7 @@ enum {
     NSMutableArray *__strong users;
     User *__unsafe_unretained userSelected;
 	int maxLevel;
+    bool isTemporalGameUnlocked; // The game could be unlocked by 1 day from facebook or promocodes
 	NSMutableArray *allLevels;
 	int soundEnabled;
     tLevelModeGame levelGameMode;
@@ -91,6 +93,7 @@ extern UserContext *userContextSingleton;
 @property (nonatomic, unsafe_unretained) User *userSelected;
 @property (nonatomic, strong) NSString* aNewLanguage;
 @property (nonatomic, assign) int qPostInFacebook;
+@property (nonatomic, assign) bool isTemporalGameUnlocked;
 
 + (UserContext*) getSingleton;
 + (User*) getUserSelected;
@@ -101,6 +104,7 @@ extern UserContext *userContextSingleton;
 // **************************************
 // ******** Money & Level **********
 + (int)  getMaxLevel;
++ (int) getTemporalMaxLevel; //this method return getMaxLevel or cSet40Level if isTemporalGameUnlocked
 + (void) addLevel: (Level*) aLevel;
 + (int)  getLevelNumber;
 + (Level*) getLevelAt: (int) anIndex;
@@ -153,7 +157,6 @@ extern UserContext *userContextSingleton;
 + (int) osVersion;
 + (NSString*) getUUID;
 
--(void) addThreeLevels; // deprecated?
 -(void) addLevel: (Level*) level;	
 -(Level*) getLevelAt: (int) anIndex;
 -(void) resetGame;

@@ -96,7 +96,7 @@
                             <rect key="frame" x="10" y="635" width="300" height="60"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="25"/>
-                            <state key="normal" backgroundImage="restoreButton@ipad.png">
+                            <state key="normal" title="Restore Purchase" backgroundImage="restoreButton.png">
                                 <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -163,6 +163,6 @@
         <image name="background_purchase@ipad.png" width="1024" height="748"/>
         <image name="bg_user@ipad.png" width="496" height="490"/>
         <image name="buy one.png" width="254" height="95"/>
-        <image name="restoreButton@ipad.png" width="254" height="67"/>
+        <image name="restoreButton.png" width="254" height="67"/>
     </resources>
 </document>

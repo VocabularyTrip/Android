@@ -162,12 +162,7 @@
 
 - (void) showAndSayDictionary {
     
-    //MapView* mapView = [self mapView];
-    
-    //if (i > 0 && [UserContext getMaxLevel] == 0) return;
-    //if (mapView.helpButton.enabled == NO) [self cancelAnimation];
 	[Vocabulary initializeLevelAt: level.levelNumber];
-	//mapView.helpButton.enabled = NO;
 	[self initializeTimer];
 }
 

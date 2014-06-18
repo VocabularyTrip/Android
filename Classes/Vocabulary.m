@@ -107,7 +107,6 @@ Vocabulary *singletonVocabulary;
     if (!lang) return true;
     NSLog(@"In disk: %i, in cloud: %i", [self countOfFilesInLocalPath], lang.qWords);
     return [self countOfFilesInLocalPath] >= lang.qWords;
-    //([UserContext getMaxLevel] == 0 ? 1 : 
 }
     
 + (int) countOfFilesInLocalPath {

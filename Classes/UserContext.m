@@ -24,6 +24,7 @@ UserContext *userContextSingleton;
 @synthesize aNewLanguage;
 @synthesize qPostInFacebook;
 @synthesize levelGameMode;
+@synthesize isTemporalGameUnlocked;
 
 +(UserContext*) getSingleton {
 	if (userContextSingleton == nil)
@@ -73,6 +74,15 @@ UserContext *userContextSingleton;
 
 +(int) getMaxLevel {
 	return [[UserContext getSingleton] maxLevel];
+}
+
++(int) getTemporalMaxLevel { // This method return
+    UserContext *userc = [UserContext getSingleton];
+
+    if (userc.isTemporalGameUnlocked)
+        return cSet4OfLevels;
+    else
+        return [userc maxLevel];
 }
 
 +(Level*) getLevelAt: (int) anIndex {
@@ -257,6 +267,16 @@ UserContext *userContextSingleton;
 	[[NSUserDefaults standardUserDefaults] setInteger: aLevel forKey: cMaxLevelKey];
 }
 
+-(bool) isTemporalGameUnlocked {
+    isTemporalGameUnlocked = [[NSUserDefaults standardUserDefaults] integerForKey: cIsTemporalGameUnlockedKey];
+	return isTemporalGameUnlocked;
+}
+
+-(void) setIsTemporalGameUnlocked: (bool) value {
+    isTemporalGameUnlocked = value;
+	[[NSUserDefaults standardUserDefaults] setInteger: value forKey: cIsTemporalGameUnlockedKey];
+}
+
 -(int) qPostInFacebook {
 	qPostInFacebook = [[NSUserDefaults standardUserDefaults] integerForKey: cqPostInFasebook];
 	return qPostInFacebook;
@@ -270,12 +290,6 @@ UserContext *userContextSingleton;
 -(void) addPostInFacebook {
     qPostInFacebook++;
 	[[NSUserDefaults standardUserDefaults] setInteger: qPostInFacebook forKey: cqPostInFasebook];
-}
-
-
--(void) addThreeLevels {
-	maxLevel += 3;
-	[[NSUserDefaults standardUserDefaults] setInteger: maxLevel forKey: cMaxLevelKey];
 }
 
 -(void) initGame {

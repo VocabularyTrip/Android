@@ -197,7 +197,7 @@
 }
 
 -(bool) nextLevel {
-	if (level < [UserContext getMaxLevel]) {
+	if (level < [UserContext getTemporalMaxLevel]) {
 		level++;
         [self saveLevel: level];
 		return YES;

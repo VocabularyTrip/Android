@@ -11,6 +11,7 @@
                 <outlet property="cancelDownloadButton" destination="BG1-59-0mO" id="xst-06-Ede"/>
                 <outlet property="downloadButton" destination="CCf-U6-viN" id="T4P-4n-NBb"/>
                 <outlet property="downloadProgressView" destination="8Ad-ZT-pWf" id="6cI-Ou-52R"/>
+                <outlet property="handHelpView" destination="w2Z-Hg-XA9" id="fp7-Zd-hU1"/>
                 <outlet property="langButton" destination="wip-yf-0uN" id="EZJ-h9-xLu"/>
                 <outlet property="soundButton" destination="TiA-24-cWu" id="i8G-la-2Of"/>
                 <outlet property="view" destination="2" id="odT-Ny-NcS"/>
@@ -157,6 +158,10 @@
                     <rect key="frame" x="34" y="679" width="150" height="2"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </progressView>
+                <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clicking.png" id="w2Z-Hg-XA9" userLabel="HandHelp">
+                    <rect key="frame" x="48" y="122" width="70" height="75"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -170,6 +175,7 @@
         <image name="btn_download_cancel@ipad.png" width="165" height="56"/>
         <image name="btn_info_on@ipad.png" width="97" height="97"/>
         <image name="buyButton@ipad.png" width="97" height="97"/>
+        <image name="clicking.png" width="139" height="147"/>
         <image name="empty-page-princesses.png" width="480" height="320"/>
         <image name="reset@ipad.png" width="60" height="56"/>
         <image name="sound-of@ipad.png" width="210" height="95"/>

@@ -8,6 +8,8 @@
     <gameSequence gameName="Training" gameType = "Training" cumulative="No" includeImages="Yes" includeWords="No" readAbility="No"/>
     <gameSequence gameName="Challenge"  gameType="Challenge" cumulative="No" includeImages="Yes" includeWords="No" readAbility="No"/>
     <gameSequence gameName="Challenge" gameType="Challenge" cumulative="Yes" includeImages="Yes" includeWords="No" readAbility="No"/>
+    <gameSequence gameName="Challenge" gameType="Challenge" cumulative="Yes" includeImages="Yes" includeWords="No" readAbility="No"/>
+
 
 <!-- Sequence for read ability-->
     <gameSequence gameName="Training" gameType = "Training" cumulative="No" includeImages="Yes" includeWords="Yes" readAbility="Yes"/>
