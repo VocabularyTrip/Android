@@ -121,6 +121,8 @@
     self.view.frame = [self frameClosed];
     
     [UIView commitAnimations];
+    
+    [super done: nil];
 }
 
 - (IBAction)changeUserShowInfo:(id)sender {

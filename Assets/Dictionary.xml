@@ -158,15 +158,18 @@
 	<word name="table" fileName="table" wordOrder="" type="noun"> </word>
 </level>
 
+
+
+
 <level name="Opposites I" image="thin" levelId="27" levelOrder="12" ipodx="400" ipody="50" ipadx="700" ipady="100">
 	<word name="big" fileName="big" wordOrder="3" type="adjective"> </word>
 	<word name="small" fileName="small" wordOrder="3" type="adjective"> </word>
 	<word name="boy" fileName="boy" wordOrder="4" type="noun"> </word>
 	<word name="girl" fileName="girl" wordOrder="5" type="noun"> </word>
-	<word name="close" fileName="close" wordOrder="14" type="adjective"> </word>
 	<word name="open" fileName="open" wordOrder="15" type="adjective"> </word>
-	<word name="far" fileName="far" wordOrder="14" type="adverb"> </word>
 	<word name="closed" fileName="closed" wordOrder="15" type="adjective"> </word>
+    <word name="down" fileName="down" wordOrder="20" type="adverb"> </word>
+    <word name="up" fileName="up" wordOrder="21" type="adverb"> </word>
 	<word name="fat" fileName="fat" wordOrder="29" type="adjective"> </word>
 	<word name="thin" fileName="thin" wordOrder="30" type="adjective"> </word>
 	<word name="long" fileName="long" wordOrder="37" type="adjective"> </word>
@@ -364,10 +367,10 @@
 	<word name="awake" fileName="awake" wordOrder="2" type="adjective"> </word>
 	<word name="clean" fileName="clean" wordOrder="6" type="adjective"> </word>
 	<word name="dirty" fileName="dirty" wordOrder="7" type="adjective"> </word>
+    <word name="close" fileName="close" wordOrder="14" type="adjective"> </word>
+    <word name="far" fileName="far" wordOrder="14" type="adverb"> </word>
 	<word name="day" fileName="day" wordOrder="18" type="noun"> </word>
 	<word name="night" fileName="night" wordOrder="19" type="noun"> </word>
-	<word name="down" fileName="down" wordOrder="20" type="adverb"> </word>
-	<word name="up" fileName="up" wordOrder="21" type="adverb"> </word>
 	<word name="dry" fileName="dry" wordOrder="22" type="adjective"> </word>
 	<word name="wet" fileName="wet" wordOrder="23" type="adjective"> </word>
 	<word name="left" fileName="left" wordOrder="39" type="adjective"> </word>

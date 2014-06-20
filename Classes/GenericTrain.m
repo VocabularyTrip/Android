@@ -457,7 +457,8 @@
 
 - (void) initializeLevel {
     if ([UserContext levelGameMode] == tLevelModeGame_currentLevel)
-        [Vocabulary initializeLevelAt: [UserContext getLevelNumber]];
+        [Vocabulary initializeLevelAt: [Vocabulary getLevelLessLearned]];
+    // [UserContext getLevelNumber]];
     else
         [Vocabulary initializeLevelUntil: [UserContext getLevelNumber]];
         // default mode is tLevelModeGame_cumulative

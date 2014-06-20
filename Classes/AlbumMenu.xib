@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5053" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
-        <deployment defaultVersion="1072" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <deployment defaultVersion="1280" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AlbumMenu">
@@ -71,40 +71,40 @@
                         <action selector="done:" destination="-1" eventType="touchDown" id="PtN-1K-dEu"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_back@ipad.png" id="vnQ-eH-Ali" userLabel="Progress1BarBacklView">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_back.png" id="vnQ-eH-Ali" userLabel="Progress1BarBacklView">
                     <rect key="frame" x="430" y="301" width="100" height="12"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_fill@ipad.png" id="2Yb-OK-zHG" userLabel="Progress1BarFillView">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_fill.png" id="2Yb-OK-zHG" userLabel="Progress1BarFillView">
                     <rect key="frame" x="430" y="301" width="100" height="12"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_empty@ipad.png" id="1Fz-4J-cMP" userLabel="Progress1BarMaskView">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_empty.png" id="1Fz-4J-cMP" userLabel="Progress1BarMaskView">
                     <rect key="frame" x="430" y="301" width="100" height="12"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_back@ipad.png" id="Ri4-vO-TeZ" userLabel="Progress2BarBacklView">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_back.png" id="Ri4-vO-TeZ" userLabel="Progress2BarBacklView">
                     <rect key="frame" x="37" y="301" width="100" height="12"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_fill@ipad.png" id="hIQ-fZ-RQ7" userLabel="Progress2BarFillView">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_fill.png" id="hIQ-fZ-RQ7" userLabel="Progress2BarFillView">
                     <rect key="frame" x="37" y="301" width="100" height="12"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_empty@ipad.png" id="H5s-sB-hGA" userLabel="Progress2BarMaskView">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_empty.png" id="H5s-sB-hGA" userLabel="Progress2BarMaskView">
                     <rect key="frame" x="37" y="301" width="100" height="12"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_back@ipad.png" id="GRw-sa-Yk0" userLabel="Progress3BarBacklView">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_back.png" id="GRw-sa-Yk0" userLabel="Progress3BarBacklView">
                     <rect key="frame" x="234" y="301" width="100" height="12"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_fill@ipad.png" id="PKG-G9-van" userLabel="Progress3BarFillView">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_fill.png" id="PKG-G9-van" userLabel="Progress3BarFillView">
                     <rect key="frame" x="234" y="301" width="100" height="12"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_empty@ipad.png" id="YMN-E9-uxp" userLabel="Progress3BarMaskView">
-                    <rect key="frame" x="246" y="301" width="76" height="12"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_empty.png" id="YMN-E9-uxp" userLabel="Progress3BarMaskView">
+                    <rect key="frame" x="234" y="301" width="100" height="12"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar1.png" id="c4z-d0-MOD">
@@ -125,8 +125,8 @@
         <image name="cover-animal.png" width="480" height="320"/>
         <image name="cover-monster.png" width="480" height="320"/>
         <image name="cover-princess.png" width="480" height="320"/>
-        <image name="progress_back@ipad.png" width="434" height="61"/>
-        <image name="progress_empty@ipad.png" width="434" height="61"/>
-        <image name="progress_fill@ipad.png" width="434" height="61"/>
+        <image name="progress_back.png" width="434" height="61"/>
+        <image name="progress_empty.png" width="434" height="61"/>
+        <image name="progress_fill.png" width="434" height="61"/>
     </resources>
 </document>

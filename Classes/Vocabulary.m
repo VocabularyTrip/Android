@@ -322,6 +322,20 @@ Vocabulary *singletonVocabulary;
 	}
 }
 
++ (int) getLevelLessLearned {
+	double progress;
+    double lessProgress = 10000; // progress is between 0 to 1. Init with 1 should be fine.
+    int levelSelected;
+	for (int i=0; i <= [UserContext getLevelNumber]; i++) {
+        progress = [self progressLevel: i];
+        if (progress < lessProgress) {
+            lessProgress = progress;
+            levelSelected = i;
+        }
+	}
+	return levelSelected;
+}
+
 + (double) wasLearned {
 	int r = 0, total = 0;
 	Word *w;

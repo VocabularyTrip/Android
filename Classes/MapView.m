@@ -86,7 +86,7 @@
         
         Level *level = [UserContext getLevel];
         playCurrentLevelButton.center = [level placeinMap];
-        //[mapScrollView bringSubviewToFront: playCurrentLevelButton];
+        playCurrentLevelButton.center = (CGPoint) {playCurrentLevelButton.center.x - 20, playCurrentLevelButton.center.y };
         currentLevelNumber = level.levelNumber;
     }
     [self initializeTimeoutToPlayBackgroundSound];

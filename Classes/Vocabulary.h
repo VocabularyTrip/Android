@@ -67,6 +67,7 @@ extern Vocabulary *singletonVocabulary;
 + (void) reloadAllWeigths; //
 + (void) testAllSounds; //
 + (double) wasLearned; //
++ (int) getLevelLessLearned;
 + (double) progressIndividualLevel;
 + (double) progressLevel: (int) aLevel;
 + (CGRect) resizeProgressFrame: (CGRect) progressFrame toNewProgress: (double) progress progressFill: (CGRect) progressBarFillFrame;

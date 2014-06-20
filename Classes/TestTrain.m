@@ -179,6 +179,7 @@
 	}
 	
 	double wasLearnedResult = [Vocabulary wasLearned];
+    NSLog(@"wasLearnedResult: %f, cPercentageCloseToLearnd: %f, viewMode: %i", wasLearnedResult, cPercentageCloseToLearnd, viewMode);
 	if (wasLearnedResult >= cPercentageLearnd && [self hitRate] >= 5) {
 		return [self goToNextLevel];
 	} else if (wasLearnedResult >= cPercentageCloseToLearnd && [self hitRate] >= 5) {

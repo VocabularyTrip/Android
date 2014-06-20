@@ -282,7 +282,7 @@
 	} else if (currentAlbum.actualPage == -1) {
         [self initializePage];
         theTimer.frameInterval = 600;
-    } else {
+    } else if (![UserContext getHelpAlbum]) {
         if ([currentAlbum.xmlName isEqualToString: cAlbum1])
             [Sentence playSpeaker: @"AlbumView-Loop-Album1"];	// Princess World
         else if ([currentAlbum.xmlName isEqualToString: cAlbum2])
