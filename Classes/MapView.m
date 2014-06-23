@@ -145,21 +145,25 @@
     startWithHelpPurchase = 0;
 }
 
+- (void) moveOffsetToSeeUser: (Level*) aLevel {
+    int offset = [ImageManager windowWidthXIB] / 2;
+    int newX = [aLevel placeinMap].x > offset ? [aLevel placeinMap].x - offset : 0;
+    CGPoint newPlace = CGPointMake(newX, 0);
+    mapScrollView.contentOffset = newPlace;
+}
+
 - (void) moveUser {
     Level *level = [UserContext getLevel];
     if (level.levelNumber != currentLevelNumber) {
         // Move the train from the previous level to the next level
-        
-        int offset = [ImageManager windowWidth] / 2;
-        int newX = [level placeinMap].x > offset ? [level placeinMap].x / 2 : 0;
-        CGPoint newPlace = CGPointMake(newX, 0);
-        mapScrollView.contentOffset = newPlace;
+        [self moveOffsetToSeeUser: level];
         
         if (abs(level.levelNumber - currentLevelNumber) == 0) {
             return;
         } else if (abs(level.levelNumber - currentLevelNumber) == 1) {
+
             [UIView beginAnimations: @"Move User" context: nil];
-            [UIView setAnimationDuration: 3];
+            [UIView setAnimationDuration: 1];
             [UIView setAnimationDelegate: self];
             [UIView setAnimationCurve: UIViewAnimationCurveEaseOut];
             
@@ -169,13 +173,19 @@
             [UIView commitAnimations];
             currentLevelNumber = level.levelNumber;
         } else {
-            currentLevelNumber = level.levelNumber < currentLevelNumber ? currentLevelNumber-1 : currentLevelNumber+1;
+
+            int delta = abs(level.levelNumber - currentLevelNumber) > 10 ? 5 : 1;
+            
+            currentLevelNumber = level.levelNumber < currentLevelNumber ? currentLevelNumber-delta : currentLevelNumber+delta;
+            Level * currentLevel = [UserContext getLevelAt: currentLevelNumber];
+            //[self moveOffsetToSeeUser: currentLevel];
+            
             [UIView beginAnimations: @"Move User" context: nil];
             [UIView setAnimationDuration: 0.5];
             [UIView setAnimationDelegate: self];
             [UIImageView setAnimationDidStopSelector: @selector(moveUserEnded)];
             [UIView setAnimationCurve: UIViewAnimationCurveLinear];
-            playCurrentLevelButton.center = [[UserContext getLevelAt: currentLevelNumber] placeinMap];
+            playCurrentLevelButton.center = [currentLevel placeinMap];
             //[self.view bringSubviewToFront: playCurrentLevelButton];
             [UIView commitAnimations];
         }
@@ -202,10 +212,7 @@
     [UIView setAnimationDuration: 5];
     [UIView setAnimationCurve: UIViewAnimationCurveEaseOut];
     
-    int offset = [ImageManager windowWidth] / 2;
-    int newX = [level placeinMap].x > offset ? [level placeinMap].x / 2 : 0;
-    CGPoint newPlace = CGPointMake(newX, 0);
-    mapScrollView.contentOffset = newPlace;
+    [self moveOffsetToSeeUser: level];
     
     [UIView commitAnimations];
 }

@@ -336,12 +336,24 @@ Vocabulary *singletonVocabulary;
 	return levelSelected;
 }
 
++ (double) wasLearnedLast5Levels {
+    int levelFrom = 0;
+    if ([UserContext getLevelNumber] > 5) levelFrom = [UserContext getLevelNumber] - 5;
+    // include las5 5 levels
+    return [self wasLearnedFrom: levelFrom];
+}
+
 + (double) wasLearned {
+    // include all levels played from colors to current level
+    return [self wasLearnedFrom: 0];
+}
+
++ (double) wasLearnedFrom: (int) startLevel {
 	int r = 0, total = 0;
 	Word *w;
 	//NSLog(@"******** Was Learned Started: %i", [UserContext getLevelNumber]);
 	
-	for (int i=0; i<=[UserContext getLevelNumber]; i++) {
+	for (int i=startLevel; i<=[UserContext getLevelNumber]; i++) {
 		for (w in [allWords objectAtIndex:i]) {
 			if (w.weight <= cLearnedWeight) r++; 
 			//NSLog(@"Word: %@ Weight: %i", w.name, w.weight);
@@ -363,12 +375,10 @@ Vocabulary *singletonVocabulary;
 	}
 	if (total == 0) return NO;
     double progress = ((double) r / (double) total);
-    //progress = progress >= cPercentageLearnd ? 1 : progress / cPercentageLearnd;
-	//NSLog(@"Level %i Learned: %i Total: %i, Progress: %f", aLevel, r, total, progress);
 	return progress;
 }
 
-+ (double) progressIndividualLevel {
+/*+ (double) progressIndividualLevel {
 	int r = 0, total = 0;
 	Word *w;
 	
@@ -381,7 +391,7 @@ Vocabulary *singletonVocabulary;
     double progress = ((double) r / (double) total);
     progress = progress >= cPercentageLearnd ? 1 : progress / cPercentageLearnd;
 	return progress;
-}
+}*/
 
 + (CGRect) resizeProgressFrame: (CGRect) progressFrame toNewProgress: (double) progress progressFill: (CGRect) progressBarFillFrame {
 

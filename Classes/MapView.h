@@ -66,6 +66,7 @@
 //- (void) playMemoryTrain;
 //- (void) playSimonTrain;
 
+- (void) moveOffsetToSeeUser: (Level*) aLevel;
 - (void) showAllMapInFirstSession;
 - (void) showAllMapFinished;
 - (void) helpAnimation1;

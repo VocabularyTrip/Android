@@ -53,7 +53,7 @@
 
 - (IBAction) updateLevelSlider {
     
-    double newProgress = [Vocabulary progressIndividualLevel];
+    double newProgress = [Vocabulary wasLearned];
     //progressBeforePlay = arc4random() % 2;
     //[Vocabulary progressIndividualLevel];
 //    = progressBeforePlay;

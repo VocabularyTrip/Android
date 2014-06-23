@@ -179,8 +179,11 @@
 	}
 	
 	double wasLearnedResult = [Vocabulary wasLearned];
-    NSLog(@"wasLearnedResult: %f, cPercentageCloseToLearnd: %f, viewMode: %i", wasLearnedResult, cPercentageCloseToLearnd, viewMode);
-	if (wasLearnedResult >= cPercentageLearnd && [self hitRate] >= 5) {
+    double wasLearned5LastLevelsResult = [Vocabulary wasLearnedLast5Levels];
+    NSLog(@"wasLearnedResult: %f, wasLearned5LastLevelsResult: %f, cPercentageCloseToLearnd: %f, viewMode: %i", wasLearnedResult, wasLearned5LastLevelsResult, cPercentageCloseToLearnd, viewMode);
+    
+	if (wasLearnedResult >= cPercentageLearnd &&
+        wasLearned5LastLevelsResult >= cPercentageLearnd && [self hitRate] >= 5) {
 		return [self goToNextLevel];
 	} else if (wasLearnedResult >= cPercentageCloseToLearnd && [self hitRate] >= 5) {
 		if (viewMode == 1) [Sentence playSpeaker: @"Test-EvaluateGetIntoNextLevel-CloseToLearned"];

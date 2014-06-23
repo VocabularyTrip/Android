@@ -320,7 +320,7 @@
     if ([loc isEqualToString: @"ja"]) return @"Japanese";
     if ([loc isEqualToString: @"ko"]) return @"Korean";
     if ([loc isEqualToString: @"ru"]) return @"Russian";
-    if ([loc isEqualToString: @"ms"]) return @"Malaysian";
+    if ([loc isEqualToString: @"ms"]) return @"Malay";
     if ([loc isEqualToString: @"vi"]) return @"Vietnamese";
     
     return @"English";

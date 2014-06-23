@@ -46,7 +46,7 @@
 + (NSString*) checkIfDestinationPathExist;
 
 - (void) loadWeight; // load boath imageWeight and wordWeight
-- (int) weight; // Avg between weightWord and weightImage
+- (int) weight; // weightWord or weightImage
 - (void) incWeight;
 - (void) decWeight;
 - (void) saveWeightImage;
