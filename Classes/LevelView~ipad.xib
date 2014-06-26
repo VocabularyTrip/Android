@@ -65,14 +65,14 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" minimumFontSize="10" id="jSi-3K-8hQ" userLabel="WordNameLabelSecondLang">
-                    <rect key="frame" x="529" y="400" width="900" height="83"/>
+                    <rect key="frame" x="558" y="400" width="900" height="83"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="40"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="The Name" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumFontSize="9" id="Hew-Ji-d8A" userLabel="WordNameLabel">
-                    <rect key="frame" x="529" y="275" width="900" height="155"/>
+                    <rect key="frame" x="558" y="275" width="900" height="155"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="69"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>

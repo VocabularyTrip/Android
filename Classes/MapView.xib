@@ -32,9 +32,9 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="cuC-rx-lhv" userLabel="PlayCurrentLevelButton">
-                            <rect key="frame" x="98" y="100" width="52" height="66"/>
+                            <rect key="frame" x="68" y="100" width="58" height="77"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" image="btn_challenge.png">
+                            <state key="normal" image="avatar1.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -84,7 +84,7 @@
         </view>
     </objects>
     <resources>
-        <image name="btn_challenge.png" width="127" height="158"/>
+        <image name="avatar1.png" width="125" height="175"/>
         <image name="cover-animal.png" width="480" height="320"/>
         <image name="help.png" width="49" height="49"/>
         <image name="map.png" width="1700" height="320"/>

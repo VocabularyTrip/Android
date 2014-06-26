@@ -14,7 +14,7 @@
 #import "GameSequenceManager.h"
 #import "MapScrollView.h"
 #import "ConfigView.h"
-
+#import "AnimatorHelper.h"
 
 #define cMailInfo @"" // @"info@vocabularyTrip.com"
 
@@ -34,6 +34,9 @@
     int currentLevelNumber; // Is used to compare if the user getLevel hasChanged --> do animation to advance to next level
     
     bool flagTimeoutStartMusic; // theTimer call immediate. This flat is used to omit it.
+
+    CADisplayLink *theTimer; // Used for avatar animation
+    int avatarAnimationSeq; 
 }
 
 @property (nonatomic, strong) AVAudioPlayer *backgroundSound;
@@ -74,5 +77,8 @@
 
 - (IBAction) openConfigView;
 - (void) initializeTimeoutToPlayBackgroundSound;
-
+- (void) initAvatarAnimation;
+- (void) initializeTimer;
+- (void) randomAvatarAnimation;
+    
 @end

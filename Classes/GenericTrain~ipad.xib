@@ -122,7 +122,7 @@
                         <action selector="soundClicked" destination="-1" eventType="touchDown" id="100"/>
                     </connections>
                 </button>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="$ 0" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="79" userLabel="Money1Label">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="$ 0" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="79" userLabel="Money1Label" customClass="UICountingLabel">
                     <rect key="frame" x="493" y="17" width="66" height="66"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <accessibility key="accessibilityConfiguration" label="Money">
@@ -132,7 +132,7 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <color key="highlightedColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="$ 0" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="111" userLabel="Money2Label">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="$ 0" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="111" userLabel="Money2Label" customClass="UICountingLabel">
                     <rect key="frame" x="630" y="18" width="66" height="66"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="26"/>
@@ -154,7 +154,7 @@
                         <action selector="helpClicked" destination="-1" eventType="touchDown" id="126"/>
                     </connections>
                 </button>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="$ 0" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="112" userLabel="Money3Label">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="$ 0" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="112" userLabel="Money3Label" customClass="UICountingLabel">
                     <rect key="frame" x="763" y="18" width="72" height="66"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="26"/>

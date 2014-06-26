@@ -69,7 +69,7 @@
 
 - (void) showWordAnimationDidStop:(NSString *)theAnimation finished:(BOOL)flag context:(void *)context {
 	@try {
-		if (qOfImagesRemaining > 0)
+		if (qOfImagesRemaining > 0 && gameStatus == cStatusGameIsOn)
 			[self sayTargetWord];
 
 		NSMutableDictionary *parameters = (__bridge NSMutableDictionary*) context;
@@ -444,6 +444,7 @@
 	[UserContext setHelpTest: NO];
 	helpButton.enabled = YES;	
 	[self pauseClicked];
+  	gameStatus = cStatusGameIsOn;
 }
 
 // ***** Help Animation

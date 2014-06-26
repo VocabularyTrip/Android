@@ -36,12 +36,14 @@
 - (IBAction) changeUserShowInfo: (id) sender;
 - (IBAction) changeLang: (id) sender;
 - (IBAction) soundClicked;
-- (IBAction) close;
+- (IBAction) closeOpenClicked;
+- (void) close;
 - (void) show;
+
 - (CGRect) frameOpened;
 - (CGRect) frameClosed;
 - (bool) frameIsClosed;
-- (void) setParentMode: (bool) value;
+//- (void) setParentMode: (bool) value;
 - (void) refreshSoundButton;
 - (void) helpDownload1;
 

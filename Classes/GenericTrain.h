@@ -169,7 +169,7 @@ enum {
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *returnMapButton;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *purchaseButton;
 
-//@property (nonatomic, assign) AVAudioPlayer* closeSoundId;
+@property (nonatomic, strong) AVAudioPlayer* closeSoundId;
 @property (nonatomic, assign) int viewMode;
 @property (nonatomic, strong) AVAudioPlayer *trainSound;
 

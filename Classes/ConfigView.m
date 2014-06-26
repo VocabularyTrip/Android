@@ -24,79 +24,57 @@
 @synthesize handHelpView;
 @synthesize helpButton;
 
-- (void) viewDidLoad {
-    //self.view.layer.shouldRasterize = YES;
-    //self.view.layer.rasterizationScale = [[UIScreen mainScreen] scale];
-}
-
 - (MapView*) mapView {
     VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
     return vocTripDelegate.mapView;
 }
 
 - (CGRect) frameOpened {
-
-    //[super viewWillAppear: NO];
-    //CGPoint offset = [parentView mapScrollView].contentOffset;
-    //CGRect configButtonFrame = [parentView configButton].frame;
-    
-    int configButtonFrameX;
-
-    //if ([ImageManager resolution] == UIDeviceResolution_iPhoneRetina5) {
-    //    configButtonFrameX = configButtonFrame.size.width - backgroundView.frame.size.width + offset.x;
-    //} else {
-        configButtonFrameX = [ImageManager windowWidthXIB] - backgroundView.frame.size.width;
-    //}
-    
-    //NSLog(@"ConfigButtomFrameX: %f, ConfigButtomFrameWidth: %f, backgroundViewWidth: %f, offset: %f, result: %f", configButtonFrame.origin.x, configButtonFrame.size.width, backgroundView.frame.size.width, offset.x,configButtonFrame.origin.x + configButtonFrame.size.width - backgroundView.frame.size.width + offset.x);
-    
+    int configButtonFrameX = [ImageManager windowWidthXIB] - backgroundView.frame.size.width;
     return CGRectMake(
                configButtonFrameX,
                0, // configButtonFrame.origin.y + configButtonFrame.size.height,
                backgroundView.frame.size.width,
                backgroundView.frame.size.height);
-
-
 }
 
 - (CGRect) frameClosed {
     CGRect frame = [self frameOpened];
-    //frame.origin.y = frame.origin.y - backgroundView.frame.size.height;
-    frame.origin.x = frame.origin.x  + backgroundView.frame.size.width;
+    frame.origin.x = frame.origin.x  + backgroundView.frame.size.width - 20;
     return frame;
 }
 
-
-- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    // This empty method is intended to overwrite the MapScrollView method.
-    // the idea is not scrolling when Level is visible
-}
-
-- (void) setParentMode: (bool) value {
+/*- (void) setParentMode: (bool) value {
     MapScrollView *scroll = [parentView mapScrollView];
     //scroll.scrollEnabled = value;
     [scroll setEnabledInteraction: value];
+}*/
+
+
+- (IBAction) closeOpenClicked {
+    if ([self frameIsClosed])
+        [self show];
+    else
+        [self close];
 }
 
 - (void) show {
-    
+
+    // Refresh buttons
     Language* l = [UserContext getLanguageSelected];
     [langButton setImage: l.image forState: UIControlStateNormal];
-
-    self.view.frame = [self frameClosed];
 	[self refreshSoundButton];
     
+    self.view.frame = [self frameClosed];
     [UIView beginAnimations: @"move" context: (__bridge void *)(self.view)];
     [UIView setAnimationRepeatAutoreverses: NO];
     [UIView setAnimationDuration: 1];
     [UIView setAnimationDelegate: self];
-
     self.view.frame = [self frameOpened];
-    
     [UIView commitAnimations];
 
     [self viewWillAppear: YES];
-    NSLog(@"Completed: %i, isDownloading: %i", [Vocabulary isDownloadCompleted], singletonVocabulary.isDownloading);
+    flagCancelAllSounds = 0;
     if (![Vocabulary isDownloadCompleted] && !singletonVocabulary.isDownloading) [self helpDownload1];
 }
 
@@ -105,21 +83,14 @@
     return (self.view.frame.origin.x == frameClosed.origin.x);
 }
 
-- (IBAction) close {
-    
-    //[[parentView mapScrollView] setUserInteractionEnabled: YES];
-    if ([self frameIsClosed]) return;
-    
-    [self setParentMode: YES];
+- (void) close {
+    //[self setParentMode: YES];
     self.view.frame = [self frameOpened];
-    
     [UIView beginAnimations: @"move" context: (__bridge void *)(self.view)];
     [UIView setAnimationRepeatAutoreverses: NO];
     [UIView setAnimationDuration: 1];
     [UIView setAnimationDelegate: self];
-    
     self.view.frame = [self frameClosed];
-    
     [UIView commitAnimations];
     
     [super done: nil];
@@ -223,9 +194,12 @@
 
 -(void) helpDownload1{
     
+   	[parentView stopBackgroundSound];
+    
     // Make clicking hand visible
-    //if (flagCancelAllSounds) return;
+    if (flagCancelAllSounds) return;
     helpButton.enabled = NO;
+    handHelpView.alpha = 0;
     handHelpView.center = soundButton.center;
     [self.view bringSubviewToFront: handHelpView];
     
@@ -241,7 +215,7 @@
 
 -(void) helpDownload2 {
     // bring clicking hand onto Download button
-    //if (flagCancelAllSounds) return;
+    if (flagCancelAllSounds) return;
     [Sentence playSpeaker: @"Download_Help_1"];
     
     [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
@@ -262,7 +236,7 @@
 
 - (void) helpDownload3 {
     // click down
-    //if (flagCancelAllSounds) return;
+    if (flagCancelAllSounds) return;
     [Sentence playSpeaker: @"Download_Help_2"];
 	CGRect frame = handHelpView.frame;
     
@@ -281,7 +255,7 @@
 
 - (void) helpDownload4 {
     // release click
-    //if (flagCancelAllSounds) return;
+    if (flagCancelAllSounds) return;
 	CGRect frame = handHelpView.frame;
     
 	[UIImageView beginAnimations: @"helpAnimation" context: nil];
@@ -299,7 +273,7 @@
 
 - (void) helpDownload5 {
     // Wait before restarting this help
-    //if (flagCancelAllSounds) return;
+    if (flagCancelAllSounds) return;
 	[UIImageView beginAnimations: @"helpAnimation" context: nil];
 	[UIImageView setAnimationDelegate: self];
 	[UIImageView setAnimationDidStopSelector: @selector(helpDownload6)];
@@ -316,7 +290,7 @@
 
 - (void) helpDownload6 {
     // Wait before restarting this help
-    //if (flagCancelAllSounds) return;
+    if (flagCancelAllSounds) return;
 	[UIImageView beginAnimations: @"helpAnimation" context: nil];
 	[UIImageView setAnimationDelegate: self];
 	[UIImageView setAnimationDidStopSelector: @selector(helpEnd1)];

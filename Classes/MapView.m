@@ -52,6 +52,7 @@
         [aView setTag: 999]; // Tag 999 means dont remove in reloadAllLevels method. Since this method remove all subviews.
     }
 
+    [self initAvatarAnimation];
 }
 
 - (void) initializeGame {
@@ -75,7 +76,7 @@
         return;
     }
 
-    configView.view.frame = [configView frameClosed];
+    configView.view.frame = [[self configView] frameClosed];
     
     // First move map to the end. viewDidAppear implement showAllMapInFirstSession
     if (flagFirstShowInSession) {
@@ -87,6 +88,7 @@
         Level *level = [UserContext getLevel];
         playCurrentLevelButton.center = [level placeinMap];
         playCurrentLevelButton.center = (CGPoint) {playCurrentLevelButton.center.x - 20, playCurrentLevelButton.center.y };
+        
         currentLevelNumber = level.levelNumber;
     }
     [self initializeTimeoutToPlayBackgroundSound];
@@ -131,9 +133,9 @@
 }
 
 - (void) viewDidAppear:(BOOL)animated {
-    //UserContext *aUserC = [UserContext getSingleton];
+    User *user = [UserContext getUserSelected];
+    [playCurrentLevelButton.imageView setImage: user.image];
 
-    //if (flagFirstShowInSession && aUserC.userSelected)
     [self showAllMapInFirstSession];
     [self moveUser];
     
@@ -384,6 +386,39 @@
     [self.view addSubview: [self configView].view];
     configView.parentView = self;
     [configView show];
+}
+
+
+- (void)initAvatarAnimation {
+    avatarAnimationSeq = 0;
+    [self initializeTimer];
+}
+
+- (void) initializeTimer {
+	if (theTimer == nil) {
+		theTimer = [CADisplayLink displayLinkWithTarget:self selector:@selector(randomAvatarAnimation)];
+		theTimer.frameInterval = 200;
+		[theTimer addToRunLoop: [NSRunLoop currentRunLoop] forMode: NSDefaultRunLoopMode];
+	}
+}
+
+- (void) randomAvatarAnimation {
+    switch (avatarAnimationSeq) {
+        case 0:
+            [AnimatorHelper avatarGreet: playCurrentLevelButton.imageView];
+            break;
+        case 1:
+            [AnimatorHelper avatarBlink: playCurrentLevelButton.imageView];
+            break;
+        case 2:
+//            [AnimatorHelper shakeView: album1Button];
+            break;
+        default:
+            [AnimatorHelper avatarBlink: playCurrentLevelButton.imageView];
+            break;
+    }
+    avatarAnimationSeq++;
+    if (avatarAnimationSeq > 3) avatarAnimationSeq = 0;
 }
 
 - (void) helpAnimation1 {
