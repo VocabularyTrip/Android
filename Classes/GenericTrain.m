@@ -47,7 +47,7 @@
 //@synthesize loadingView;
 @synthesize railView;
 @synthesize smokeView;
-//@synthesize closeSoundId;
+@synthesize closeSoundId;
 @synthesize viewMode;
 @synthesize trainSound;
 @synthesize backButton;

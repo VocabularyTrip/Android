@@ -57,7 +57,7 @@
 - (void) purge;
 - (bool) playSound;
 - (bool) playSoundWithDelegate: (id) delegate;
-- (NSString*) weightKeyUserLang;
+//- (NSString*) weightKeyUserLang;
 - (NSString*) keyDictionary;
 - (void) addTranslation: (NSString*) translation forKey: (NSString*) key;
 - (NSString*) pathToSaveTranslations;

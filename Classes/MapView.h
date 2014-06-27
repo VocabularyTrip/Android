@@ -25,7 +25,7 @@
   	MapScrollView *__unsafe_unretained mapScrollView;
     UIButton *__unsafe_unretained helpButton;
     UIButton *__unsafe_unretained playCurrentLevelButton;
-    UIButton *__unsafe_unretained configButton;
+    //UIButton *__unsafe_unretained configButton;
     ConfigView *configView;
 
     bool flagFirstShowInSession;
@@ -44,7 +44,7 @@
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *helpButton;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *playCurrentLevelButton;
 @property (nonatomic, unsafe_unretained) bool flagFirstShowInSession;
-@property (nonatomic, unsafe_unretained) IBOutlet UIButton *configButton;
+//@property (nonatomic, unsafe_unretained) IBOutlet UIButton *configButton;
 @property (nonatomic, unsafe_unretained) int startWithHelpDownload;
 
 - (IBAction) playCurrentLevel: (id) sender;
@@ -52,6 +52,7 @@
 - (ConfigView*) configView;
 
 - (void) initMap;
+- (void) initConfigView;
 - (void) reloadAllLevels;
 - (void) drawAllLeveles;
 - (void) removeAllLevels;
@@ -75,7 +76,7 @@
 - (void) helpAnimation1;
 //- (IBAction) helpDownload;
 
-- (IBAction) openConfigView;
+//- (IBAction) openConfigView;
 - (void) initializeTimeoutToPlayBackgroundSound;
 - (void) initAvatarAnimation;
 - (void) initializeTimer;

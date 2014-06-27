@@ -31,7 +31,7 @@
 #import "FacebookManager.h"
 #import "AlbumMenu.h"
 
-@class MainMenu;
+//@class MainMenu;
 
 @interface VocabularyTrip2AppDelegate : NSObject <UIApplicationDelegate, UINavigationControllerDelegate, UIAlertViewDelegate, PurchaseDelegate> {
     UIWindow *window;

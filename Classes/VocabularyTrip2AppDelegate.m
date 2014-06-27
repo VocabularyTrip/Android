@@ -7,7 +7,6 @@
 //
 
 #import "VocabularyTrip2AppDelegate.h"
-#import "MainMenu.h"
 #import "TraceWS.h"
 
 @implementation VocabularyTrip2AppDelegate 

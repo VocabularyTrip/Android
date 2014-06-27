@@ -7,7 +7,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapView">
             <connections>
-                <outlet property="configButton" destination="e8i-1N-68i" id="8ua-Vk-Ock"/>
                 <outlet property="helpButton" destination="g1W-9h-gG6" id="c3x-ka-k7N"/>
                 <outlet property="mapScrollView" destination="ns4-AB-LhT" id="aSy-Ad-6bz"/>
                 <outlet property="playCurrentLevelButton" destination="E4V-Su-mpc" id="NSs-h2-Bp1"/>
@@ -67,16 +66,13 @@
                         <action selector="albumShowInfo:" destination="-1" eventType="touchDown" id="wxR-jV-aWs"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="e8i-1N-68i" userLabel="ConfigButton">
+                <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="e8i-1N-68i" userLabel="ConfigButton">
                     <rect key="frame" x="820" y="-3" width="97" height="97"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" image="help@ipad.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <connections>
-                        <action selector="openConfigView" destination="-1" eventType="touchDown" id="Rgy-ah-edR"/>
-                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

@@ -15,7 +15,7 @@
 @synthesize helpButton;
 @synthesize playCurrentLevelButton;
 @synthesize flagFirstShowInSession;
-@synthesize configButton;
+//@synthesize configButton;
 @synthesize backgroundSound;
 @synthesize startWithHelpDownload;
 
@@ -69,6 +69,8 @@
     
     [super viewWillAppear: animated];
     
+    [self initConfigView];
+    
     // First execution jump to wizard to select user and lang
     UserContext *aUserC = [UserContext getSingleton];
     if (!aUserC.userSelected) {
@@ -76,7 +78,6 @@
         return;
     }
 
-    configView.view.frame = [[self configView] frameClosed];
     
     // First move map to the end. viewDidAppear implement showAllMapInFirstSession
     if (flagFirstShowInSession) {
@@ -142,7 +143,7 @@
     if ([UserContext getHelpLevel] || startWithHelpPurchase) [self helpAnimation1];
     
     if (!singletonVocabulary.isDownloading && ![Vocabulary isDownloadCompleted]) [configView startLoading];
-    if (startWithHelpDownload) [self openConfigView];
+    if (startWithHelpDownload) [configView show];
     startWithHelpDownload = 0;
     startWithHelpPurchase = 0;
 }
@@ -204,7 +205,7 @@
     
     flagFirstShowInSession = NO;
     
-    configButton.alpha = 0;
+    //configButton.alpha = 0;
     //langButton.alpha = 0;
     helpButton.alpha = 0;
     
@@ -220,7 +221,7 @@
 }
 
 - (void) showAllMapFinished {
-    configButton.alpha = 1;
+    //configButton.alpha = 1;
     //langButton.alpha = 1;
     helpButton.alpha = 1;
 }
@@ -382,12 +383,11 @@
     return configView;
 }
 
-- (IBAction) openConfigView {
+- (void) initConfigView {
     [self.view addSubview: [self configView].view];
     configView.parentView = self;
-    [configView show];
+    [configView close];
 }
-
 
 - (void)initAvatarAnimation {
     avatarAnimationSeq = 0;

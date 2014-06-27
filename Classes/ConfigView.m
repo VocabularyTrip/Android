@@ -33,14 +33,14 @@
     int configButtonFrameX = [ImageManager windowWidthXIB] - backgroundView.frame.size.width;
     return CGRectMake(
                configButtonFrameX,
-               0, // configButtonFrame.origin.y + configButtonFrame.size.height,
+               0, 
                backgroundView.frame.size.width,
                backgroundView.frame.size.height);
 }
 
 - (CGRect) frameClosed {
     CGRect frame = [self frameOpened];
-    frame.origin.x = frame.origin.x  + backgroundView.frame.size.width - 20;
+    frame.origin.x = frame.origin.x  + round(backgroundView.frame.size.width * 0.85);
     return frame;
 }
 
@@ -66,10 +66,11 @@
 	[self refreshSoundButton];
     
     self.view.frame = [self frameClosed];
-    [UIView beginAnimations: @"move" context: (__bridge void *)(self.view)];
+    [UIView beginAnimations: @"moveShow" context: (__bridge void *)(self.view)];
     [UIView setAnimationRepeatAutoreverses: NO];
     [UIView setAnimationDuration: 1];
     [UIView setAnimationDelegate: self];
+	[UIView setAnimationCurve: UIViewAnimationCurveEaseInOut];
     self.view.frame = [self frameOpened];
     [UIView commitAnimations];
 
@@ -80,20 +81,22 @@
 
 - (bool) frameIsClosed {
     CGRect frameClosed = [self frameClosed];
+    NSLog(@"%f, %f", self.view.frame.origin.x, frameClosed.origin.x);
     return (self.view.frame.origin.x == frameClosed.origin.x);
 }
 
 - (void) close {
     //[self setParentMode: YES];
+    [super done: nil];
+
     self.view.frame = [self frameOpened];
-    [UIView beginAnimations: @"move" context: (__bridge void *)(self.view)];
+    [UIView beginAnimations: @"moveClose" context: nil];
     [UIView setAnimationRepeatAutoreverses: NO];
     [UIView setAnimationDuration: 1];
     [UIView setAnimationDelegate: self];
+	[UIView setAnimationCurve: UIViewAnimationCurveEaseInOut];
     self.view.frame = [self frameClosed];
     [UIView commitAnimations];
-    
-    [super done: nil];
 }
 
 - (IBAction)changeUserShowInfo:(id)sender {
