@@ -86,6 +86,7 @@
 }
 
 - (void) close {
+    if ([self frameIsClosed]) return;
     //[self setParentMode: YES];
     [super done: nil];
 

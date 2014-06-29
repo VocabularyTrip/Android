@@ -401,6 +401,25 @@ UserContext *userContextSingleton;
 	[[NSUserDefaults standardUserDefaults] setBool: value forKey: cIsLocked];
 }
 
++ (NSString*) printUserContext {
+    NSString *r;
+    
+    r  = [NSString stringWithFormat: @"MaxLevel: %i", userContextSingleton.maxLevel];
+    r  = [NSString stringWithFormat: @"%@, qPostInFacebook: %i", r, userContextSingleton.qPostInFacebook];
+    r  = [NSString stringWithFormat: @"%@, Money1: %i, Money2: %i, Money3: %i",
+          r,
+          userContextSingleton.userSelected.money1,
+          userContextSingleton.userSelected.money2,
+          userContextSingleton.userSelected.money3];
+    r  = [NSString stringWithFormat: @"%@, Level: %i, Lang: %@, userName: %@",
+          r,
+          userContextSingleton.userSelected.level,
+          userContextSingleton.userSelected.langSelected.name,
+          userContextSingleton.userSelected.userName];
+    return r;
+}
+
+
 -(void) addLevel: (Level*) aLevel {
 	if (allLevels == nil) {
 		allLevels = [[NSMutableArray alloc] init];

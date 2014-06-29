@@ -40,6 +40,8 @@
     [super done: sender];*/
     
     [vocTripDelegate checkAndStartDownload];
+  	[UserContext setHelpSelectLang: NO];
+    
 }
 
 - (IBAction) lockLangPressed:(id)sender {

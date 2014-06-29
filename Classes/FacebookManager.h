@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <FacebookSDK/FacebookSDK.h>
 #import "PromoCode.h"
+#import "TraceWS.h"
 
 #define APP_HANDLED_URL @"APP_HANDLED_URL"
 

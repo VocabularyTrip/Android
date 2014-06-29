@@ -163,5 +163,6 @@ extern UserContext *userContextSingleton;
 -(void) initGame;
 -(void) addPostInFacebook;
 +(void) reloadContext;
-    
++ (NSString*) printUserContext;
+
 @end

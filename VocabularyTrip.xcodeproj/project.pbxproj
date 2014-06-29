@@ -2664,6 +2664,10 @@
 		B022716B18EB3AEC00DBF3AC /* Unused */ = {
 			isa = PBXGroup;
 			children = (
+				B094FBBA18D356A20053EEBE /* SetGameModeView.h */,
+				B094FBBB18D356A20053EEBE /* SetGameModeView.m */,
+				B094FBBC18D356A20053EEBE /* SetGameModeView~ipad.xib */,
+				B094FBBD18D356A20053EEBE /* SetGameModeView.xib */,
 				B0A8B752187AD62C00245F48 /* GameStartView.xib */,
 				B09D368818BC92D900D21B9D /* GameStartView~ipad.xib */,
 				B0A8B754187B15A100245F48 /* GameStartView.h */,
@@ -4188,10 +4192,6 @@
 		CE7C916F165D96A90016F2F7 /* WizardUserLang */ = {
 			isa = PBXGroup;
 			children = (
-				B094FBBA18D356A20053EEBE /* SetGameModeView.h */,
-				B094FBBB18D356A20053EEBE /* SetGameModeView.m */,
-				B094FBBC18D356A20053EEBE /* SetGameModeView~ipad.xib */,
-				B094FBBD18D356A20053EEBE /* SetGameModeView.xib */,
 				B06C86F8178CC75500E2A1E8 /* GenericDownloadViewController.h */,
 				B06C86F9178CC75500E2A1E8 /* GenericDownloadViewController.m */,
 				CE71CD751648A8C1009E6E61 /* ChangeUserView.h */,

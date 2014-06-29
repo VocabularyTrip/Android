@@ -47,12 +47,9 @@
     //[Language requestAllLanguages];
     [self initUsersDefaults];
 	[self initAllControllers];	
-	[self checkIfaskToRate];
-    [self checkAPromoCodeForUUID];
-    [self checkPromoCodeDueDate];
     //[self checkDownloadCompleted];
     [self initializeInternetReachabilityNotifier];
-    [FacebookManager initFacebookSession];    
+    //[FacebookManager initFacebookSession];
     
 	UIView *aView = [self.navController view];
 	[window addSubview: aView];
@@ -66,10 +63,18 @@
         [self.window setRootViewController: self.navController];
     }
 
-	[self saveTimePlayedInDB];
     [self.window makeKeyAndVisible];
-    
+
+    //[self checkOnInitialization];
     return YES;
+}
+
+- (void) checkOnInitialization {
+    // this method is called from didFinishLaunching and applicationDidBecomeActive
+    [self checkIfaskToRate];
+    [self checkAPromoCodeForUUID];
+    [self checkPromoCodeDueDate];
+    [self saveTimePlayedInDB];
 }
 
 // Addeb by Facebook Implementation.
@@ -137,8 +142,8 @@
 - (void) saveTimePlayedInDB {
     int i = [[NSUserDefaults standardUserDefaults] integerForKey: cLastTimePlayed];
     if (i!=0) {
-        Language *lang = [UserContext getLanguageSelected];
-        [TraceWS register: @"applicationWillTerminate" valueStr: lang.name valueNum: [NSNumber numberWithInt: i]];
+        //Language *lang = [UserContext getLanguageSelected];
+        [TraceWS register: @"applicationWillTerminate" valueStr: [UserContext printUserContext] valueNum: [NSNumber numberWithInt: i]];
     }
 	self.startPlaying = [NSDate date];
 }
@@ -580,22 +585,25 @@
 - (void) responseToCancelAction {
 }    
 
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-}
-
-
-- (void)applicationWillTerminate:(UIApplication *)application {
+- (void) saveTimePlayedInUsersDefaults {
     NSTimeInterval timePlayed = [self.startPlaying timeIntervalSinceNow];
     [[NSUserDefaults standardUserDefaults] setInteger: timePlayed forKey: cLastTimePlayed];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    
-    [[FBSession activeSession] close];
+}
+
+- (void) applicationDidEnterBackground:(UIApplication *)application {
+    [self saveTimePlayedInUsersDefaults];
+}
+
+- (void) applicationWillTerminate:(UIApplication *)application {
+    [self saveTimePlayedInUsersDefaults];
+}
+
+- (void) applicationWillEnterForeground:(UIApplication *)application {
+}
+
+- (void) applicationDidBecomeActive:(UIApplication *)application {
+    [self checkOnInitialization];
 }
 
 - (void) checkIfaskToRate {

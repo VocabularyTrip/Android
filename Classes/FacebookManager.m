@@ -164,15 +164,18 @@ FacebookManager *fbSingleton;
         [FBDialogs presentShareDialogWithParams: shareParams
             clientState: nil
             handler:^(FBAppCall *call, NSDictionary *results, NSError *error) {
+                NSString *result;
                 if (error) {
-                    NSLog(@"Error publishing story.");
+                    result = @"Error publishing story.";
                 } else if (results[@"completionGesture"] && [results[@"completionGesture"] isEqualToString:@"cancel"]) {
-                    NSLog(@"User canceled story publishing.");
+                    result = @"User canceled story publishing.";
                 } else {
-                    NSLog(@"Story published.");
+                    result = @"Story published.";
                     [[UserContext getSingleton] addPostInFacebook];
                     [PromoCode giveAccessForOneDay];
                 }
+                
+                [TraceWS register: @"FacebookPostFeed" valueStr: result valueNum: [NSNumber numberWithInt: [[UserContext getSingleton]qPostInFacebook]]];
             }
          ];
         return tFacebookSuccessful;

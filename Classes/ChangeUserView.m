@@ -31,6 +31,7 @@
 	VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
 	[vocTripDelegate pushChangeLangView];
     [super done: sender];
+	[UserContext setHelpSelectUser: NO];
 }
 
 - (void) initUsers {

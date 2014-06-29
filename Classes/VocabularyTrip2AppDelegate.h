@@ -109,7 +109,7 @@
 - (void) responseToCancelAction;
 - (void) checkIfaskToRate;
 - (void) askToRate;
-- (int) getAppId;
+- (int)  getAppId;
 - (void) checkDownloadCompleted;
 - (void) alertAskToReview: (UIAlertView*) alertView clickedButtonAtIndex: (NSInteger) buttonIndex;
 - (void) alertBuyNewLevel: (UIAlertView*) alertView clickedButtonAtIndex: (NSInteger) buttonIndex;
@@ -119,8 +119,8 @@
 - (void) saveTimePlayedInDB;
 - (bool) checkAndStartDownload;
 - (void) initializeInternetReachabilityNotifier;
-- (void)checkNetworkStatus:(NSNotification *)notice;
-
+- (void) checkNetworkStatus:(NSNotification *)notice;
+- (void) saveTimePlayedInUsersDefaults;
 
 @end
 

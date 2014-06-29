@@ -173,14 +173,15 @@
 
 - (tResultEvaluateNextLevel) evaluateGetIntoNextLevel {
 	// The limit of the game. There are no more levels over cLimitLevel
-	if ([UserContext getLevelNumber] >= cLimitLevel) {
+    //NSLog(@"Level: %i, Limit: %i", [UserContext getLevelNumber], cLimitLevel);
+	if ([UserContext getLevelNumber] >= cLimitLevel - 1) {
 		//[self takeOutTrain];
 		return tResultEvaluateNextLevel_none;
 	}
 	
 	double wasLearnedResult = [Vocabulary wasLearned];
     double wasLearned5LastLevelsResult = [Vocabulary wasLearnedLast5Levels];
-    NSLog(@"wasLearnedResult: %f, wasLearned5LastLevelsResult: %f, cPercentageCloseToLearnd: %f, viewMode: %i", wasLearnedResult, wasLearned5LastLevelsResult, cPercentageCloseToLearnd, viewMode);
+    //NSLog(@"wasLearnedResult: %f, wasLearned5LastLevelsResult: %f, cPercentageCloseToLearnd: %f, viewMode: %i", wasLearnedResult, wasLearned5LastLevelsResult, cPercentageCloseToLearnd, viewMode);
     
 	if (wasLearnedResult >= cPercentageLearnd &&
         wasLearned5LastLevelsResult >= cPercentageLearnd && [self hitRate] >= 5) {
