@@ -96,6 +96,47 @@
     [UIView commitAnimations];
 }
 
++ (void) clickingView: (UIView*) itemView delegate: (id) delegate {
+    CGRect frame = itemView.frame;
+    
+    NSMutableDictionary *animationParameters = [[NSMutableDictionary alloc] init];
+    [animationParameters setObject: delegate forKey: @"delegate"];
+    [animationParameters setObject: itemView forKey: @"itemView"];
+    
+	[UIImageView beginAnimations: @"clickingAnimation" context: (__bridge void *)(animationParameters)];
+	[UIImageView setAnimationDelegate: self];
+	[UIImageView setAnimationDidStopSelector: @selector(releaseClickingView:finished:context:)];
+	[UIImageView setAnimationDuration: .15];
+	[UIImageView setAnimationBeginsFromCurrentState: YES];
+    
+	frame.size.width = frame.size.width*.9;
+	frame.size.height = frame.size.height*.9;
+	itemView.frame = frame;
+    
+	[UIImageView commitAnimations];
+}
+
+- (void) releaseClickingView:(NSString *)theAnimation finished:(BOOL)flag context:(void *)context {
+    NSMutableDictionary *parameters = (__bridge NSMutableDictionary*) context; // *** ARC
+    
+    UIImageView *itemView = (UIImageView*) [parameters objectForKey: @"itemView"];
+    id delegate = (id) [parameters objectForKey: @"delegate"];
+    
+	CGRect frame = itemView.frame;
+
+	[UIImageView beginAnimations: @"helpAnimation" context: Nil];
+	[UIImageView setAnimationDelegate: delegate];
+	[UIImageView setAnimationDuration: .5];
+	[UIImageView setAnimationBeginsFromCurrentState: YES];
+	[UIImageView setAnimationDidStopSelector: @selector(finishClicking)];
+    
+	frame.size.width = frame.size.width/.9;
+	frame.size.height = frame.size.height/.9;
+	itemView.frame = frame;
+    
+	[UIImageView commitAnimations];
+}
+
 + (void)shakeView:(UIView*)itemView {
     [self shakeView: itemView delegate: self];
 }

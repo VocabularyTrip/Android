@@ -14,27 +14,28 @@
 #import "GameSequenceManager.h"
 #import "MapScrollView.h"
 #import "ConfigView.h"
+#import "AlbumMenu.h"
 #import "AnimatorHelper.h"
 
 #define cMailInfo @"" // @"info@vocabularyTrip.com"
 
 @interface MapView : UIViewController <UIAlertViewDelegate> {
     
-    AVAudioPlayer* backgroundSound;
-    CADisplayLink *timerToPlayBackgroundSound;
   	MapScrollView *__unsafe_unretained mapScrollView;
     UIButton *__unsafe_unretained helpButton;
     UIButton *__unsafe_unretained playCurrentLevelButton;
-    //UIButton *__unsafe_unretained configButton;
     ConfigView *configView;
+    AlbumMenu *albumMenu;
+    UIImageView *__unsafe_unretained hand;
 
+    
     bool flagFirstShowInSession;
     int startWithHelpPurchase, // when the View did show, the Purchase help is launched. When the user finish his purchase succesfully the user is redirected automatically to LevelView with purchase help
     startWithHelpDownload; // when the View did show, the Download help is launched. When the user is playiinng and a sound is not loaded from server, the user is redirected automatically to LevelView with download help
     int currentLevelNumber; // Is used to compare if the user getLevel hasChanged --> do animation to advance to next level
-    
+    AVAudioPlayer* backgroundSound;
+    CADisplayLink *timerToPlayBackgroundSound;
     bool flagTimeoutStartMusic; // theTimer call immediate. This flat is used to omit it.
-
     CADisplayLink *theTimer; // Used for avatar animation
     int avatarAnimationSeq; 
 }
@@ -44,15 +45,16 @@
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *helpButton;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *playCurrentLevelButton;
 @property (nonatomic, unsafe_unretained) bool flagFirstShowInSession;
-//@property (nonatomic, unsafe_unretained) IBOutlet UIButton *configButton;
 @property (nonatomic, unsafe_unretained) int startWithHelpDownload;
+@property (nonatomic, unsafe_unretained) IBOutlet UIImageView *hand;
 
 - (IBAction) playCurrentLevel: (id) sender;
-- (IBAction) albumShowInfo: (id) sender;
+//- (IBAction) albumShowInfo: (id) sender;
 - (ConfigView*) configView;
-
+- (AlbumMenu*) albumMenu;
 - (void) initMap;
 - (void) initConfigView;
+- (void) initAlbumMenu;
 - (void) reloadAllLevels;
 - (void) drawAllLeveles;
 - (void) removeAllLevels;
@@ -64,22 +66,16 @@
 - (void) initAudioSession;
 - (void) stopBackgroundSound;
 - (void) startPlayBackgroundSound;
-
 - (void) playChallengeTrain;
 - (void) playTrainingTrain;
-//- (void) playMemoryTrain;
-//- (void) playSimonTrain;
-
 - (void) moveOffsetToSeeUser: (Level*) aLevel;
 - (void) showAllMapInFirstSession;
 - (void) showAllMapFinished;
-- (void) helpAnimation1;
-//- (IBAction) helpDownload;
-
-//- (IBAction) openConfigView;
 - (void) initializeTimeoutToPlayBackgroundSound;
 - (void) initAvatarAnimation;
 - (void) initializeTimer;
 - (void) randomAvatarAnimation;
-    
+- (void) helpAnimation1;
+- (void) helpAnimationPurchase;
+
 @end

@@ -10,16 +10,20 @@
 #import "ImageManager.h"
 
 @interface Landscape : NSObject {
-	UIImage *image;
-	UIImage *sky;
-	NSString* imageName;
-	NSString* skyName;	
+	UIImage *layer1;
+	UIImage *layer2;
+	UIImage *layer3;
+	NSString* layer1Name;
+	NSString* layer2Name;
+	NSString* layer3Name;
 }
 
-@property (nonatomic) UIImage *image;
-@property (nonatomic) UIImage *sky;
-@property (nonatomic, strong) NSString* imageName;
-@property (nonatomic, strong) NSString* skyName;
+@property (nonatomic) UIImage *layer1;
+@property (nonatomic) UIImage *layer2;
+@property (nonatomic) UIImage *layer3;
+@property (nonatomic, strong) NSString* layer1Name;
+@property (nonatomic, strong) NSString* layer2Name;
+@property (nonatomic, strong) NSString* layer3Name;
 
 -(void) purge;
 	

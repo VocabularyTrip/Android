@@ -29,7 +29,7 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MfF-en-A6j" userLabel="BackButton">
                     <rect key="frame" x="1" y="0.0" width="91" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" image="Menu1@ipad.png">
+                    <state key="normal" image="menu1.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -56,7 +56,7 @@
                     <rect key="frame" x="61" y="231" width="97" height="97"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
-                    <state key="normal" image="buyButton@ipad.png">
+                    <state key="normal" image="buyButton.png">
                         <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -87,7 +87,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="9"/>
                     <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-33"/>
-                    <state key="normal" backgroundImage="btn_info_on@ipad.png">
+                    <state key="normal" backgroundImage="btn_info_on.png">
                         <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -113,7 +113,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="9"/>
                     <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-33"/>
-                    <state key="normal" backgroundImage="btn_avatar_on@ipad.png">
+                    <state key="normal" backgroundImage="btn_avatar_on.png">
                         <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -128,7 +128,7 @@
                     <rect key="frame" x="34" y="620" width="150" height="60"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                    <state key="normal" image="btn_download_cancel@ipad.png">
+                    <state key="normal" image="btn_download_cancel.png">
                         <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -143,7 +143,7 @@
                     <rect key="frame" x="34" y="620" width="150" height="60"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                    <state key="normal" title="Button" image="btn_download@ipad.png">
+                    <state key="normal" title="Button" image="btn_download.png">
                         <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -169,14 +169,14 @@
     </objects>
     <resources>
         <image name="English.png" width="256" height="256"/>
-        <image name="Menu1@ipad.png" width="209" height="80"/>
-        <image name="btn_avatar_on@ipad.png" width="97" height="97"/>
-        <image name="btn_download@ipad.png" width="165" height="56"/>
-        <image name="btn_download_cancel@ipad.png" width="165" height="56"/>
-        <image name="btn_info_on@ipad.png" width="97" height="97"/>
-        <image name="buyButton@ipad.png" width="97" height="97"/>
+        <image name="btn_avatar_on.png" width="97" height="97"/>
+        <image name="btn_download.png" width="480" height="320"/>
+        <image name="btn_download_cancel.png" width="480" height="320"/>
+        <image name="btn_info_on.png" width="97" height="97"/>
+        <image name="buyButton.png" width="97" height="97"/>
         <image name="clicking.png" width="139" height="147"/>
         <image name="empty-page-princesses.png" width="480" height="320"/>
+        <image name="menu1.png" width="209" height="80"/>
         <image name="reset@ipad.png" width="60" height="56"/>
         <image name="sound-of@ipad.png" width="210" height="95"/>
     </resources>

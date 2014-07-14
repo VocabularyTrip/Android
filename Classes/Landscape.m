@@ -11,37 +11,48 @@
 
 @implementation Landscape
 
-@synthesize image;
-@synthesize sky;
-@synthesize imageName;
-@synthesize skyName;
+@synthesize layer1;
+@synthesize layer2;
+@synthesize layer3;
+@synthesize layer1Name;
+@synthesize layer2Name;
+@synthesize layer3Name;
 
--(UIImage*) image {
-	if (image == nil) {
-        NSString *file = [[NSString alloc] initWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath], [ImageManager getIphone5xIpadFile: imageName]];
-        image = [UIImage alloc];
-        image = [image initWithContentsOfFile: file];
+-(UIImage*) layer1 {
+	if (layer1 == nil) {
+        NSString *file = [[NSString alloc] initWithFormat:@"%@/%@.png", [[NSBundle mainBundle] resourcePath], layer1Name];
+        layer1 = [UIImage alloc];
+        layer1 = [layer1 initWithContentsOfFile: file];
     }
-	return image;
+	return layer1;
 }
 
-
--(UIImage*) sky {
-	if (sky == nil) {
-        NSString *file = [[NSString alloc] initWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath], [ImageManager getIphoneIpadFile: skyName]];		
-        sky = [UIImage alloc];
-        sky = [sky initWithContentsOfFile: file];
+-(UIImage*) layer2 {
+	if (layer2 == nil) {
+        NSString *file = [[NSString alloc] initWithFormat:@"%@/%@.png", [[NSBundle mainBundle] resourcePath], layer2Name];
+        layer2 = [UIImage alloc];
+        layer2 = [layer2 initWithContentsOfFile: file];
     }
-	return sky;
+	return layer2;
+}
+
+-(UIImage*) layer3 {
+	if (layer3 == nil) {
+        NSString *file = [[NSString alloc] initWithFormat:@"%@/%@.png", [[NSBundle mainBundle] resourcePath], layer3Name];
+        layer3 = [UIImage alloc];
+        layer3 = [layer3 initWithContentsOfFile: file];
+    }
+	return layer3;
 }
 
 -(void) purge {
-	image = nil;
-	sky = nil;
+	layer1 = nil;
+	layer2 = nil;
+	layer3 = nil;
 }
 
 -(void) dealloc {
-	[self purge];	
+	//[self purge];
 }
 
 @end

@@ -17,8 +17,6 @@
 
 @implementation ConfigView
 
-@synthesize backgroundView;
-@synthesize parentView;
 @synthesize soundButton;
 @synthesize langButton;
 @synthesize handHelpView;
@@ -29,76 +27,18 @@
     return vocTripDelegate.mapView;
 }
 
-- (CGRect) frameOpened {
-    int configButtonFrameX = [ImageManager windowWidthXIB] - backgroundView.frame.size.width;
-    return CGRectMake(
-               configButtonFrameX,
-               0, 
-               backgroundView.frame.size.width,
-               backgroundView.frame.size.height);
-}
-
-- (CGRect) frameClosed {
-    CGRect frame = [self frameOpened];
-    frame.origin.x = frame.origin.x  + round(backgroundView.frame.size.width * 0.85);
-    return frame;
-}
-
-/*- (void) setParentMode: (bool) value {
-    MapScrollView *scroll = [parentView mapScrollView];
-    //scroll.scrollEnabled = value;
-    [scroll setEnabledInteraction: value];
-}*/
-
-
-- (IBAction) closeOpenClicked {
-    if ([self frameIsClosed])
-        [self show];
-    else
-        [self close];
-}
-
 - (void) show {
-
     // Refresh buttons
     Language* l = [UserContext getLanguageSelected];
     [langButton setImage: l.image forState: UIControlStateNormal];
 	[self refreshSoundButton];
+
+    [super show];
     
-    self.view.frame = [self frameClosed];
-    [UIView beginAnimations: @"moveShow" context: (__bridge void *)(self.view)];
-    [UIView setAnimationRepeatAutoreverses: NO];
-    [UIView setAnimationDuration: 1];
-    [UIView setAnimationDelegate: self];
-	[UIView setAnimationCurve: UIViewAnimationCurveEaseInOut];
-    self.view.frame = [self frameOpened];
-    [UIView commitAnimations];
-
-    [self viewWillAppear: YES];
-    flagCancelAllSounds = 0;
     if (![Vocabulary isDownloadCompleted] && !singletonVocabulary.isDownloading) [self helpDownload1];
+    [[parentView albumMenu] close];
 }
 
-- (bool) frameIsClosed {
-    CGRect frameClosed = [self frameClosed];
-    NSLog(@"%f, %f", self.view.frame.origin.x, frameClosed.origin.x);
-    return (self.view.frame.origin.x == frameClosed.origin.x);
-}
-
-- (void) close {
-    if ([self frameIsClosed]) return;
-    //[self setParentMode: YES];
-    [super done: nil];
-
-    self.view.frame = [self frameOpened];
-    [UIView beginAnimations: @"moveClose" context: nil];
-    [UIView setAnimationRepeatAutoreverses: NO];
-    [UIView setAnimationDuration: 1];
-    [UIView setAnimationDelegate: self];
-	[UIView setAnimationCurve: UIViewAnimationCurveEaseInOut];
-    self.view.frame = [self frameClosed];
-    [UIView commitAnimations];
-}
 
 - (IBAction)changeUserShowInfo:(id)sender {
 	//[parentView stopBackgroundSound];

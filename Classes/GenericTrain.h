@@ -68,9 +68,9 @@ enum {
 	UIButton *__unsafe_unretained purchaseButton;
     
     // Landscape
-	//UIImageView *__unsafe_unretained loadingView;
-	UIImageView *__unsafe_unretained landscape;
-	UIImageView *__unsafe_unretained landscapeSky;
+	UIImageView *__unsafe_unretained landscape_1;
+	UIImageView *__unsafe_unretained landscape_2;
+	UIImageView *__unsafe_unretained landscape_3;
 	
 	// **********************************
 	// The Train ************************
@@ -136,8 +136,9 @@ enum {
 @property (nonatomic, unsafe_unretained) IBOutlet UIView *money3View;
 @property (nonatomic, unsafe_unretained) IBOutlet UICountingLabel *money3Label;
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *hand;
-@property (nonatomic, unsafe_unretained) IBOutlet UIImageView *landscape;
-@property (nonatomic, unsafe_unretained) IBOutlet UIImageView *landscapeSky;
+@property (nonatomic, unsafe_unretained) IBOutlet UIImageView *landscape_1;
+@property (nonatomic, unsafe_unretained) IBOutlet UIImageView *landscape_2;
+@property (nonatomic, unsafe_unretained) IBOutlet UIImageView *landscape_3;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *pauseButton;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *helpButton;
 //@property (nonatomic, unsafe_unretained) IBOutlet UIImageView *loadingView;

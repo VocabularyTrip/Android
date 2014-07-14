@@ -34,8 +34,9 @@ int qtyLandscapes, currentLandscape = 0;
 	
 	if ([elementName isEqualToString:@"landscape"]) {
 		Landscape *landscape = [Landscape alloc];
-		landscape.imageName = [attributeDict objectForKey:@"name"];
-		landscape.skyName = [attributeDict objectForKey:@"sky"];
+		landscape.layer1Name = [attributeDict objectForKey:@"layer1"];
+		landscape.layer2Name = [attributeDict objectForKey:@"layer2"];
+		landscape.layer3Name = [attributeDict objectForKey:@"layer3"];
 		[allLandscapes addObject:landscape]; 	
 		qtyLandscapes++;
 	}

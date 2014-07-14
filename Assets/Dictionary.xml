@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <dictionary>
 
-<level name="Colors" image="yellow" levelId="11" levelOrder="1" ipodx="100" ipody="50" ipadx="100" ipady="100">
+<level name="Colors" image="yellow" levelId="11" levelOrder="1" ipodx="166" ipody="308" ipadx="100" ipady="100">
 	<word name="black" fileName="black" wordOrder="" type="adjective"
         English="Black" Chinese="黑色" Spanish="Negro" French="Noir" Farsi="سیاه" German="Schwarz" Portuguese="Preto" Italian="Nero" Arabic="أسود" Hebrew="שחור" Hindi="काला" Japanese="黒" Korean="검정색" Russian="Черный" Malay="Hitam" Vietnamese="Màu Đen"> </word>
 	<word name="white" fileName="white" wordOrder="" type="adjective"
@@ -24,7 +24,7 @@
         English="Purple" Chinese="紫色" Spanish="Morado" French="Violet" Farsi="بنفش" German="Lila" Portuguese="Roxo" Italian="Porpora" Arabic="أرجواني" Hebrew="סגול" Hindi="बैंगनी" Japanese="紫" Korean="보라색" Russian="Фиолетовый" Malay="Ungu" Vietnamese="Màu Tím"> </word>
 </level>
 
-<level name="Pets" image="parrot" levelId="32" levelOrder="2" ipodx="100" ipody="150" ipadx="100" ipady="300">
+<level name="Pets" image="parrot" levelId="32" levelOrder="2" ipodx="205" ipody="370" ipadx="100" ipady="300">
 	<word name="bird" fileName="bird" wordOrder="" type="noun"> </word>
 	<word name="cat" fileName="cat" wordOrder="" type="noun"> </word>
 	<word name="dog" fileName="dog" wordOrder="" type="noun"> </word>
@@ -34,7 +34,7 @@
 	<word name="parrot" fileName="parrot" wordOrder="" type="noun"> </word>
 </level>
 
-<level name="Food/drinks I" image="ice" levelId="14" levelOrder="3" ipodx="100" ipody="250" ipadx="100" ipady="500">
+<level name="Food/drinks I" image="ice" levelId="14" levelOrder="3" ipodx="247" ipody="307" ipadx="100" ipady="500">
 	<word name="beef" fileName="beef" wordOrder="" type="noun"> </word>
 	<word name="bread" fileName="bread" wordOrder="" type="noun"> </word>
 	<word name="butter" fileName="butter" wordOrder="" type="noun"> </word>
@@ -48,7 +48,7 @@
 	<word name="ice" fileName="ice" wordOrder="" type="noun"> </word>
 </level>
 
-<level name="Clothing I" image="t-shirt" levelId="8" levelOrder="4" ipodx="200" ipody="250" ipadx="300" ipady="500">
+<level name="Clothing I" image="t-shirt" levelId="8" levelOrder="4" ipodx="249" ipody="243" ipadx="300" ipady="500">
 	<word name="dress" fileName="dress" wordOrder="" type="noun"> </word>
 	<word name="jacket" fileName="jacket" wordOrder="" type="noun"> </word>
 	<word name="pants" fileName="pants" wordOrder="" type="noun"> </word>
@@ -61,7 +61,7 @@
 	<word name="boots" fileName="boots" wordOrder="" type="noun"> </word>
 </level>
 
-<level name="Toys and games" image="swings" levelId="40" levelOrder="5" ipodx="200" ipody="150" ipadx="300" ipady="300">
+<level name="Toys and games" image="swings" levelId="40" levelOrder="5" ipodx="288" ipody="177" ipadx="300" ipady="300">
 	<word name="ball" fileName="ball" wordOrder="" type="noun"> </word>
 	<word name="balloons" fileName="balloons" wordOrder="" type="noun"> </word>
 	<word name="blocks" fileName="blocks" wordOrder="" type="noun"> </word>
@@ -79,7 +79,7 @@
 	<word name="swings" fileName="swings" wordOrder="" type="noun"> </word>
 </level>
 
-<level name="Verbs I" image="paint_verb" levelId="44" levelOrder="6" ipodx="200" ipody="50" ipadx="300" ipady="100">
+<level name="Verbs I" image="paint_verb" levelId="44" levelOrder="6" ipodx="329" ipody="243" ipadx="300" ipady="100">
 	<word name="cook" fileName="cook_verb" wordOrder="" type="verb"> </word>
 	<word name="cut" fileName="cut" wordOrder="" type="verb"> </word>
 	<word name="dance" fileName="dance" wordOrder="" type="verb"> </word>
@@ -94,7 +94,7 @@
 	<word name="paint" fileName="paint_verb" wordOrder="" type="verb"> </word>
 </level>
 
-<level name="Nature I" image="wood" levelId="23" levelOrder="7" ipodx="300" ipody="50" ipadx="500" ipady="100">
+<level name="Nature I" image="wood" levelId="23" levelOrder="7" ipodx="329" ipody="307" ipadx="500" ipady="100">
 	<word name="clouds" fileName="clouds" wordOrder="" type="noun"> </word>
 	<word name="fire" fileName="fire" wordOrder="" type="noun"> </word>
 	<word name="flower" fileName="flower" wordOrder="" type="noun"> </word>
@@ -106,7 +106,7 @@
 	<word name="wood" fileName="wood" wordOrder="" type="noun"> </word>
 </level>
 
-<level name="Body Parts I" image="nose" levelId="5" levelOrder="8" ipodx="300" ipody="150" ipadx="500" ipady="300">
+<level name="Body Parts I" image="nose" levelId="5" levelOrder="8" ipodx="369" ipody="371" ipadx="500" ipady="300">
 	<word name="ear" fileName="ear" wordOrder="" type="noun"> </word>
 	<word name="eye" fileName="eye" wordOrder="" type="noun"> </word>
 	<word name="finger" fileName="finger" wordOrder="" type="noun"> </word>
@@ -118,7 +118,7 @@
 	<word name="nose" fileName="nose" wordOrder="" type="noun"> </word>
 </level>
 
-<level name="Animals I" image="tiger" levelId="1" levelOrder="9" ipodx="300" ipody="250" ipadx="500" ipady="500">
+<level name="Animals I" image="tiger" levelId="1" levelOrder="9" ipodx="410" ipody="307" ipadx="500" ipady="500">
 	<word name="elephant" fileName="elephant" wordOrder="" type="noun"> </word>
 	<word name="giraffe" fileName="giraffe" wordOrder="" type="noun"> </word>
 	<word name="gorilla" fileName="gorilla" wordOrder="" type="noun"> </word>
@@ -130,7 +130,7 @@
 	<word name="tiger" fileName="tiger" wordOrder="" type="noun"> </word>
 </level>
 
-<level name="Fruit" image="watermelon" levelId="17" levelOrder="10" ipodx="400" ipody="250" ipadx="700" ipady="500">
+<level name="Fruit" image="watermelon" levelId="17" levelOrder="10" ipodx="410" ipody="242" ipadx="700" ipady="500">
 	<word name="apple" fileName="apple" wordOrder="" type="noun"> </word>
 	<word name="banana" fileName="banana" wordOrder="" type="noun"> </word>
 	<word name="cherry" fileName="cherry" wordOrder="" type="noun"> </word>
@@ -147,7 +147,7 @@
 	<word name="watermelon" fileName="watermelon" wordOrder="" type="noun"> </word>
 </level>
 
-<level name="Furniture" image="table" levelId="18" levelOrder="11" ipodx="400" ipody="150" ipadx="700" ipady="300">
+<level name="Furniture" image="table" levelId="18" levelOrder="11" ipodx="450" ipody="176" ipadx="700" ipady="300">
 	<word name="bed" fileName="bed" wordOrder="" type="noun"> </word>
 	<word name="bench" fileName="bench" wordOrder="" type="noun"> </word>
 	<word name="bookcase" fileName="bookcase" wordOrder="" type="noun"> </word>
@@ -158,7 +158,7 @@
 	<word name="table" fileName="table" wordOrder="" type="noun"> </word>
 </level>
 
-<level name="Opposites I" image="thin" levelId="27" levelOrder="12" ipodx="400" ipody="50" ipadx="700" ipady="100">
+<level name="Opposites I" image="thin" levelId="27" levelOrder="12" ipodx="493" ipody="242" ipadx="700" ipady="100">
 	<word name="big" fileName="big" wordOrder="3" type="adjective"> </word>
 	<word name="small" fileName="small" wordOrder="3" type="adjective"> </word>
 	<word name="boy" fileName="boy" wordOrder="4" type="noun"> </word>
@@ -173,7 +173,7 @@
 	<word name="short" fileName="short" wordOrder="38" type="adjective"> </word>
 </level>
 
-<level name="Places I" image="supermarket" levelId="33" levelOrder="13" ipodx="500" ipody="50" ipadx="900" ipady="100">
+<level name="Places I" image="supermarket" levelId="33" levelOrder="13" ipodx="625" ipody="241" ipadx="900" ipady="100">
 	<word name="bakery" fileName="bakery" wordOrder="" type="noun"> </word>
 	<word name="building" fileName="building" wordOrder="" type="noun"> </word>
 	<word name="church" fileName="church" wordOrder="" type="noun"> </word>
@@ -188,7 +188,7 @@
 	<word name="supermarket" fileName="supermarket" wordOrder="" type="noun"> </word>
 </level>
 
-<level name="Verbs II" image="run" levelId="45" levelOrder="14" ipodx="500" ipody="150" ipadx="900" ipady="300">
+<level name="Verbs II" image="run" levelId="45" levelOrder="14" ipodx="665" ipody="177" ipadx="900" ipady="300">
 	<word name="bathe" fileName="bathe" wordOrder="" type="verb"> </word>
 	<word name="clean" fileName="clean_verb" wordOrder="" type="verb"> </word>
 	<word name="comb" fileName="comb_verb" wordOrder="" type="verb"> </word>
@@ -202,7 +202,7 @@
 	<word name="run" fileName="run" wordOrder="" type="verb"> </word>
 </level>
 
-<level name="Transportation I" image="train_Transportation" levelId="41" levelOrder="15" ipodx="500" ipody="250" ipadx="900" ipady="500">
+<level name="Transportation I" image="train_Transportation" levelId="41" levelOrder="15" ipodx="706" ipody="241" ipadx="900" ipady="500">
 	<word name="airplane" fileName="airplane" wordOrder="" type="noun"> </word>
 	<word name="ambulance" fileName="ambulance" wordOrder="" type="noun"> </word>
 	<word name="bicycle" fileName="bicycle" wordOrder="" type="noun"> </word>
@@ -214,7 +214,7 @@
 	<word name="train" fileName="train_Transportation" wordOrder="" type="noun"> </word>
 </level>
 
-<level name="Tools" image="screwdriver" levelId="39" levelOrder="16" ipodx="600" ipody="250" ipadx="1100" ipady="500">
+<level name="Tools" image="screwdriver" levelId="39" levelOrder="16" ipodx="706" ipody="305" ipadx="1100" ipady="500">
 	<word name="drill" fileName="drill" wordOrder="" type="noun"> </word>
 	<word name="hammer" fileName="hammer" wordOrder="" type="noun"> </word>
 	<word name="handsaw" fileName="handsaw" wordOrder="" type="noun"> </word>
@@ -229,7 +229,7 @@
 	<word name="screwdriver" fileName="screwdriver" wordOrder="" type="noun"> </word>
 </level>
 
-<level name="Professions I" image="teacher" levelId="35" levelOrder="17" ipodx="600" ipody="150" ipadx="1100" ipady="300">
+<level name="Professions I" image="teacher" levelId="35" levelOrder="17" ipodx="747" ipody="370" ipadx="1100" ipady="300">
 	<word name="architect" fileName="architect" wordOrder="" type="noun"> </word>
 	<word name="carpenter" fileName="carpenter" wordOrder="" type="noun"> </word>
 	<word name="cook" fileName="cook" wordOrder="" type="noun"> </word>
@@ -244,7 +244,7 @@
 	<word name="teacher" fileName="teacher" wordOrder="" type="noun"> </word>
 </level>
 
-<level name="School items" image="uniform" levelId="37" levelOrder="18" ipodx="600" ipody="50" ipadx="1100" ipady="100">
+<level name="School items" image="uniform" levelId="37" levelOrder="18" ipodx="789" ipody="305" ipadx="1100" ipady="100">
 	<word name="backpack" fileName="backpack" wordOrder="" type="noun"> </word>
 	<word name="blackboard" fileName="blackboard" wordOrder="" type="noun"> </word>
 	<word name="book" fileName="book" wordOrder="" type="noun"> </word>
@@ -261,7 +261,7 @@
 	<word name="uniform" fileName="uniform" wordOrder="" type="noun"> </word>
 </level>
 
-<level name="Sports" image="volleyball" levelId="38" levelOrder="19" ipodx="700" ipody="50" ipadx="1300" ipady="100">
+<level name="Sports" image="volleyball" levelId="38" levelOrder="19" ipodx="789" ipody="241" ipadx="1300" ipady="100">
 	<word name="badminton" fileName="badminton" wordOrder="" type="noun"> </word>
 	<word name="basketball" fileName="basketball" wordOrder="" type="noun"> </word>
 	<word name="dive" fileName="dive" wordOrder="" type="noun"> </word>
@@ -276,7 +276,7 @@
 	<word name="volleyball" fileName="volleyball" wordOrder="" type="noun"> </word>
 </level>
 
-<level name="Animals II" image="zebra" levelId="2" levelOrder="20" ipodx="700" ipody="150" ipadx="1300" ipady="300">
+<level name="Animals II" image="zebra" levelId="2" levelOrder="20" ipodx="828" ipody="177" ipadx="1300" ipady="300">
 	<word name="animals" fileName="animals" wordOrder="" type="noun"> </word>
 	<word name="ant" fileName="ant" wordOrder="" type="noun"> </word>
 	<word name="bat" fileName="bat" wordOrder="" type="noun"> </word>
@@ -290,7 +290,7 @@
 	<word name="zebra" fileName="zebra" wordOrder="" type="noun"> </word>
 </level>
 
-<level name="Body Parts II" image="tooth" levelId="6" levelOrder="21" ipodx="700" ipody="250" ipadx="1300" ipady="500">
+<level name="Body Parts II" image="tooth" levelId="6" levelOrder="21" ipodx="869" ipody="241" ipadx="1300" ipady="500">
 	<word name="face" fileName="face" wordOrder="" type="noun"> </word>
 	<word name="foot" fileName="foot" wordOrder="" type="noun"> </word>
 	<word name="knee" fileName="knee" wordOrder="" type="noun"> </word>
@@ -302,7 +302,7 @@
 	<word name="tooth" fileName="tooth" wordOrder="" type="noun"> </word>
 </level>
 
-<level name="Clothing II" image="watch" levelId="9" levelOrder="22" ipodx="800" ipody="250" ipadx="1500" ipady="500">
+<level name="Clothing II" image="watch" levelId="9" levelOrder="22" ipodx="869" ipody="305" ipadx="1500" ipady="500">
 	<word name="necklace" fileName="necklace" wordOrder="" type="noun"> </word>
 	<word name="pajama" fileName="pajama" wordOrder="" type="noun"> </word>
 	<word name="purse" fileName="purse" wordOrder="" type="noun"> </word>
@@ -315,7 +315,7 @@
 	<word name="watch" fileName="watch" wordOrder="" type="noun"> </word>
 </level>
 
-<level name="Food/drinks II" image="pizza" levelId="15" levelOrder="23" ipodx="800" ipody="150" ipadx="1500" ipady="300">
+<level name="Food/drinks II" image="pizza" levelId="15" levelOrder="23" ipodx="910" ipody="370" ipadx="1500" ipady="300">
 	<word name="beer" fileName="beer" wordOrder="" type="noun"> </word>
 	<word name="coffee" fileName="coffee" wordOrder="" type="noun"> </word>
 	<word name="honey" fileName="honey" wordOrder="" type="noun"> </word>
@@ -328,7 +328,7 @@
 	<word name="pizza" fileName="pizza" wordOrder="" type="noun"> </word>
 </level>
 
-<level name="House" image="window" levelId="19" levelOrder="24" ipodx="800" ipody="50" ipadx="1500" ipady="100">
+<level name="House" image="window" levelId="19" levelOrder="24" ipodx="910" ipody="540" ipadx="1500" ipady="100">
 	<word name="balcony" fileName="balcony" wordOrder="" type="noun"> </word>
 	<word name="bathroom" fileName="bathroom" wordOrder="" type="noun"> </word>
 	<word name="bathtub" fileName="bathtub" wordOrder="" type="noun"> </word>
@@ -347,7 +347,7 @@
 	<word name="window" fileName="window" wordOrder="" type="noun"> </word>
 </level>
 
-<level name="Nature II" image="winter" levelId="24" levelOrder="25" ipodx="900" ipody="50" ipadx="1700" ipady="100">
+<level name="Nature II" image="winter" levelId="24" levelOrder="25" ipodx="910" ipody="604" ipadx="1700" ipady="100">
 	<word name="autumn" fileName="autumn" wordOrder="" type="noun"> </word>
 	<word name="rain" fileName="rain" wordOrder="" type="noun"> </word>
 	<word name="rainbow" fileName="rainbow" wordOrder="" type="noun"> </word>
@@ -359,7 +359,7 @@
 	<word name="winter" fileName="winter" wordOrder="" type="noun"> </word>
 </level>
 
-<level name="Opposites II" image="wet" levelId="28" levelOrder="26" ipodx="900" ipody="150" ipadx="1700" ipady="300">
+<level name="Opposites II" image="wet" levelId="28" levelOrder="26" ipodx="869" ipody="667" ipadx="1700" ipady="300">
 	<word name="asleep" fileName="asleep" wordOrder="1" type="adjective"> </word>
 	<word name="awake" fileName="awake" wordOrder="2" type="adjective"> </word>
 	<word name="clean" fileName="clean" wordOrder="6" type="adjective"> </word>
@@ -374,7 +374,7 @@
 	<word name="right" fileName="right" wordOrder="40" type="adjective"> </word>
 </level>
 
-<level name="Personal relationships" image="son" levelId="31" levelOrder="27" ipodx="900" ipody="250" ipadx="1700" ipady="500">
+<level name="Personal relationships" image="son" levelId="31" levelOrder="27" ipodx="829" ipody="604" ipadx="1700" ipady="500">
 	<word name="baby" fileName="baby" wordOrder="" type="noun"> </word>
 	<word name="brother" fileName="brother" wordOrder="" type="noun"> </word>
 	<word name="daughter" fileName="daughter" wordOrder="" type="noun"> </word>
@@ -390,7 +390,7 @@
 	<word name="son" fileName="son" wordOrder="" type="noun"> </word>
 </level>
 
-<level name="Transportation II" image="tricycle" levelId="42" levelOrder="28" ipodx="1000" ipody="250" ipadx="1900" ipady="500">
+<level name="Transportation II" image="tricycle" levelId="42" levelOrder="28" ipodx="829" ipody="540" ipadx="1900" ipady="500">
 	<word name="crane" fileName="crane" wordOrder="" type="noun"> </word>
 	<word name="patrol car" fileName="patrol_car" wordOrder="" type="noun"> </word>
 	<word name="skateboard" fileName="skateboard" wordOrder="" type="noun"> </word>
@@ -401,7 +401,7 @@
 	<word name="tricycle" fileName="tricycle" wordOrder="" type="noun"> </word>
 </level>
 
-<level name="Verbs III" image="write" levelId="46" levelOrder="29" ipodx="1000" ipody="150" ipadx="1900" ipady="300">
+<level name="Verbs III" image="write" levelId="46" levelOrder="29" ipodx="788" ipody="473" ipadx="1900" ipady="300">
 	<word name="point" fileName="point" wordOrder="" type="verb"> </word>
 	<word name="see" fileName="see" wordOrder="" type="verb"> </word>
 	<word name="shave" fileName="shave" wordOrder="" type="verb"> </word>
@@ -416,7 +416,7 @@
 	<word name="write" fileName="write" wordOrder="" type="verb"> </word>
 </level>
 
-<level name="Bath Items" image="toothpaste" levelId="4" levelOrder="30" ipodx="1000" ipody="50" ipadx="1900" ipady="100">
+<level name="Bath Items" image="toothpaste" levelId="4" levelOrder="30" ipodx="748" ipody="540" ipadx="1900" ipady="100">
 	<word name="bath towel" fileName="bath_towel" wordOrder="" type="noun"> </word>
 	<word name="comb" fileName="comb" wordOrder="" type="noun"> </word>
 	<word name="hairbrush" fileName="hairbrush" wordOrder="" type="noun"> </word>
@@ -426,7 +426,7 @@
 	<word name="toothpaste" fileName="toothpaste" wordOrder="" type="noun"> </word>
 </level>
 
-<level name="Body Parts III" image="wrist" levelId="7" levelOrder="31" ipodx="1100" ipody="50" ipadx="2100" ipady="100">
+<level name="Body Parts III" image="wrist" levelId="7" levelOrder="31" ipodx="748" ipody="604" ipadx="2100" ipady="100">
 	<word name="ankle" fileName="ankle" wordOrder="" type="noun"> </word>
 	<word name="arm" fileName="arm" wordOrder="" type="noun"> </word>
 	<word name="back" fileName="back" wordOrder="" type="noun"> </word>
@@ -438,7 +438,7 @@
 	<word name="wrist" fileName="wrist" wordOrder="" type="noun"> </word>
 </level>
 
-<level name="Clothing III" image="hat" levelId="10" levelOrder="32" ipodx="1100" ipody="150" ipadx="2100" ipady="300">
+<level name="Clothing III" image="hat" levelId="10" levelOrder="32" ipodx="705" ipody="667" ipadx="2100" ipady="300">
 	<word name="belt" fileName="belt" wordOrder="" type="noun"> </word>
 	<word name="bracelet" fileName="bracelet" wordOrder="" type="noun"> </word>
 	<word name="cap" fileName="cap" wordOrder="" type="noun"> </word>
@@ -452,7 +452,7 @@
 	<word name="hat" fileName="hat" wordOrder="" type="noun"> </word>
 </level>
 
-<level name="Feelings" image="tired" levelId="13" levelOrder="33" ipodx="1100" ipody="250" ipadx="2100" ipady="500">
+<level name="Feelings" image="tired" levelId="13" levelOrder="33" ipodx="667" ipody="604" ipadx="2100" ipady="500">
 	<word name="angry" fileName="angry" wordOrder="" type="adjective"> </word>
 	<word name="bored" fileName="bored" wordOrder="" type="adjective"> </word>
 	<word name="happy" fileName="happy" wordOrder="" type="adjective"> </word>
@@ -465,7 +465,7 @@
 	<word name="tired" fileName="tired" wordOrder="" type="adjective"> </word>
 </level>
 
-<level name="Farm" image="sheep" levelId="12" levelOrder="34" ipodx="1200" ipody="250" ipadx="2300" ipady="500">
+<level name="Farm" image="sheep" levelId="12" levelOrder="34" ipodx="667" ipody="540" ipadx="2300" ipady="500">
 	<word name="cow" fileName="cow" wordOrder="" type="noun"> </word>
 	<word name="donkey" fileName="donkey" wordOrder="" type="noun"> </word>
 	<word name="duck" fileName="duck" wordOrder="" type="noun"> </word>
@@ -477,7 +477,7 @@
 	<word name="sheep" fileName="sheep" wordOrder="" type="noun"> </word>
 </level>
 
-<level name="Food/drinks III" image="wine" levelId="16" levelOrder="35" ipodx="1200" ipody="150" ipadx="2300" ipady="300">
+<level name="Food/drinks III" image="wine" levelId="16" levelOrder="35" ipodx="626" ipody="473" ipadx="2300" ipady="300">
 	<word name="rice" fileName="rice" wordOrder="" type="noun"> </word>
 	<word name="salad" fileName="salad" wordOrder="" type="noun"> </word>
 	<word name="salt" fileName="salt" wordOrder="" type="noun"> </word>
@@ -490,7 +490,7 @@
 	<word name="crackers" fileName="crackers" wordOrder="" type="noun"> </word>
 </level>
 
-<level name="House Items" image="toaster" levelId="20" levelOrder="36" ipodx="1200" ipody="50" ipadx="2300" ipady="100">
+<level name="House Items" image="toaster" levelId="20" levelOrder="36" ipodx="491" ipody="473" ipadx="2300" ipady="100">
 	<word name="blanket" fileName="blanket" wordOrder="" type="noun"> </word>
 	<word name="chopsticks" fileName="chopsticks" wordOrder="" type="noun"> </word>
 	<word name="fan" fileName="fan" wordOrder="" type="noun"> </word>
@@ -508,7 +508,7 @@
 	<word name="toaster" fileName="toaster" wordOrder="" type="noun"> </word>
 </level>
 
-<level name="Items" image="TV" levelId="21" levelOrder="37" ipodx="1300" ipody="50" ipadx="2500" ipady="100">
+<level name="Items" image="TV" levelId="21" levelOrder="37" ipodx="451" ipody="540" ipadx="2500" ipady="100">
 	<word name="bag" fileName="bag" wordOrder="" type="noun"> </word>
 	<word name="camera" fileName="camera" wordOrder="" type="noun"> </word>
 	<word name="cellphone" fileName="cellphone" wordOrder="" type="noun"> </word>
@@ -525,7 +525,7 @@
 	<word name="speakers" fileName="speakers" wordOrder="" type="noun"> </word>
 </level>
 
-<level name="Nature III" image="soil" levelId="25" levelOrder="38" ipodx="1300" ipody="150" ipadx="2500" ipady="300">
+<level name="Nature III" image="soil" levelId="25" levelOrder="38" ipodx="452" ipody="604" ipadx="2500" ipady="300">
 	<word name="lake" fileName="lake" wordOrder="" type="noun"> </word>
 	<word name="mountain" fileName="mountain" wordOrder="" type="noun"> </word>
 	<word name="river" fileName="river" wordOrder="" type="noun"> </word>
@@ -537,7 +537,7 @@
 	<word name="rock" fileName="rock" wordOrder="" type="noun"> </word>
 </level>
 
-<level name="Numbers" image="zero" levelId="26" levelOrder="39" ipodx="1300" ipody="250" ipadx="2500" ipady="500">
+<level name="Numbers" image="zero" levelId="26" levelOrder="39" ipodx="409" ipody="667" ipadx="2500" ipady="500">
 	<word name="zero" fileName="zero" wordOrder="" type="adjective"> </word>
 	<word name="one" fileName="one" wordOrder="" type="adjective"> </word>
 	<word name="two" fileName="two" wordOrder="" type="adjective"> </word>
@@ -551,7 +551,7 @@
 	<word name="ten" fileName="ten" wordOrder="" type="adjective"> </word>
 </level>
 
-<level name="Opposites III" image="wide" levelId="29" levelOrder="40" ipodx="1400" ipody="250" ipadx="2700" ipady="500">
+<level name="Opposites III" image="wide" levelId="29" levelOrder="40" ipodx="370" ipody="604" ipadx="2700" ipady="500">
 	<word name="backwards" fileName="backwards" wordOrder="8" type="adverb"> </word>
 	<word name="forward" fileName="forward" wordOrder="9" type="adverb"> </word>
 	<word name="cold" fileName="cold" wordOrder="16" type="adjective"> </word>
@@ -564,7 +564,7 @@
 	<word name="wide" fileName="wide" wordOrder="42" type="adjective"> </word>
 </level>
 
-<level name="Places II" image="traffic_light" levelId="34" levelOrder="41" ipodx="1400" ipody="150" ipadx="2700" ipady="300">
+<level name="Places II" image="traffic_light" levelId="34" levelOrder="41" ipodx="370" ipody="540" ipadx="2700" ipady="300">
 	<word name="bank" fileName="bank" wordOrder="" type="noun"> </word>
 	<word name="barn" fileName="barn" wordOrder="" type="noun"> </word>
 	<word name="bridge" fileName="bridge" wordOrder="" type="noun"> </word>
@@ -579,7 +579,7 @@
 	<word name="traffic light" fileName="traffic_light" wordOrder="" type="noun"> </word>
 </level>
 
-<level name="Professions II" image="waiter" levelId="36" levelOrder="42" ipodx="1400" ipody="50" ipadx="2700" ipady="100">
+<level name="Professions II" image="waiter" levelId="36" levelOrder="42" ipodx="330" ipody="473" ipadx="2700" ipady="100">
 	<word name="actress" fileName="actress" wordOrder="" type="noun"> </word>
 	<word name="astronaut" fileName="astronaut" wordOrder="" type="noun"> </word>
 	<word name="judge" fileName="judge" wordOrder="" type="noun"> </word>
@@ -593,7 +593,7 @@
 	<word name="waiter" fileName="waiter" wordOrder="" type="noun"> </word>
 </level>
 
-<level name="Vegetables" image="vegetables" levelId="43" levelOrder="43" ipodx="1500" ipody="50" ipadx="2900" ipady="100">
+<level name="Vegetables" image="vegetables" levelId="43" levelOrder="43" ipodx="288" ipody="540" ipadx="2900" ipady="100">
 	<word name="cabbage" fileName="cabbage" wordOrder="" type="noun"> </word>
 	<word name="carrot" fileName="carrot" wordOrder="" type="noun"> </word>
 	<word name="cauliflower" fileName="cauliflower" wordOrder="" type="noun"> </word>
@@ -608,7 +608,7 @@
 	<word name="vegetables" fileName="vegetables" wordOrder="" type="noun"> </word>
 </level>
 
-<level name="Musical Instruments" image="xylophone" levelId="22" levelOrder="44" ipodx="1500" ipody="150" ipadx="2900" ipady="300">
+<level name="Musical Instruments" image="xylophone" levelId="22" levelOrder="44" ipodx="288" ipody="604" ipadx="2900" ipady="300">
 	<word name="accordion" fileName="accordion" wordOrder="" type="noun"> </word>
 	<word name="bass" fileName="bass" wordOrder="" type="noun"> </word>
 	<word name="cello" fileName="cello" wordOrder="" type="noun"> </word>
@@ -624,7 +624,7 @@
 	<word name="xylophone" fileName="xylophone" wordOrder="" type="noun"> </word>
 </level>
 
-<level name="Animals III" image="worm" levelId="3" levelOrder="45" ipodx="1500" ipody="250" ipadx="2900" ipady="500">
+<level name="Animals III" image="worm" levelId="3" levelOrder="45" ipodx="246" ipody="667" ipadx="2900" ipady="500">
 	<word name="bee" fileName="bee" wordOrder="" type="noun"> </word>
 	<word name="butterfly" fileName="butterfly" wordOrder="" type="noun"> </word>
 	<word name="camel" fileName="camel" wordOrder="" type="noun"> </word>
@@ -638,7 +638,7 @@
 	<word name="worm" fileName="worm" wordOrder="" type="noun"> </word>
 </level>
 
-<level name="Opposites IV" image="underneath" levelId="30" levelOrder="46" ipodx="1600" ipody="250" ipadx="3100" ipady="500">
+<level name="Opposites IV" image="underneath" levelId="30" levelOrder="46" ipodx="208" ipody="604" ipadx="3100" ipady="500">
 	<word name="behind" fileName="behind" wordOrder="10" type="adverb"> </word>
 	<word name="in front" fileName="in_front" wordOrder="11" type="adjective"> </word>
 	<word name="expensive" fileName="expensive" wordOrder="26" type="adjective"> </word>

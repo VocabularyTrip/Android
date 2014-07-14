@@ -33,8 +33,9 @@
 @synthesize wordButton3;
 @synthesize driverView;
 @synthesize langView;
-@synthesize landscape;
-@synthesize landscapeSky;
+@synthesize landscape_1;
+@synthesize landscape_2;
+@synthesize landscape_3;
 @synthesize wheel1;
 @synthesize wheel2;
 @synthesize wheel3;
@@ -278,8 +279,8 @@
 
 	// Hide Image
 	[UIView beginAnimations:@"HideWordAnimation" context: CFBridgingRetain(parameters)]; 
-	[UIView setAnimationDelegate:self]; 
-	[UIView setAnimationDuration:0.5];
+	[UIView setAnimationDelegate: self];
+	[UIView setAnimationDuration: 0.5];
 	[UIView setAnimationDidStopSelector: @selector(hideWordAnimationDidStop:finished:context:)]; 	
 	[UIView setAnimationCurve: UIViewAnimationCurveLinear];
 
@@ -354,8 +355,8 @@
 }
 
 - (void)showWordAnimationDidStop:(NSString *)theAnimation finished:(BOOL)flag context:(void *)context {
-	NSMutableDictionary *parameters = (__bridge  NSMutableDictionary*) context;
-	UIButton *aWordButton = (UIButton*) [parameters objectForKey: @"button"];
+	//NSMutableDictionary *parameters = (__bridge  NSMutableDictionary*) context;
+	//UIButton *aWordButton = (UIButton*) [parameters objectForKey: @"button"];
     //NSLog(@"Origin.x: %f, size.width: %f", aWordButton.frame.origin.x, aWordButton.frame.size.width);
 }
 
@@ -389,9 +390,6 @@
 // Train animation
 - (void)introduceTrain { 
 
-    // This behaviour was moved before open the NotifierView
-    // [self prepareIntroduceTrain];
-    
 	if (UserContext.soundEnabled) {
 		[self.trainSound play]; 
 	}
@@ -466,11 +464,6 @@
 
 - (void) viewDidAppear:(BOOL)animated {
 	if (gameStatus != cStatusGameIsOn && gameStatus != cStatusGameIsPaused) {
-
-        /*gameStartView.parentView = self;
-        gameEndView.progressBeforePlay = [Vocabulary progressIndividualLevel];
-        [gameStartView show];*/
-        
 		[self introduceTrain];
 	}
 	[self refreshSoundButton];
@@ -493,6 +486,19 @@
     originalframeWord1ButtonView = CGRectMake(wordButton1.frame.origin.x, wordButton1.frame.origin.y, wordButton1.frame.size.width, wordButton1.frame.size.height);
     originalframeWord2ButtonView = CGRectMake(wordButton2.frame.origin.x, wordButton2.frame.origin.y, wordButton2.frame.size.width, wordButton2.frame.size.height);
     originalframeWord3ButtonView = CGRectMake(wordButton3.frame.origin.x, wordButton3.frame.origin.y, wordButton3.frame.size.width, wordButton3.frame.size.height);
+    
+    
+    CGRect frame = returnMapButton.frame;
+    frame.origin.x = frame.origin.x + [ImageManager getDeltaWidthIphone5];
+    returnMapButton.frame = frame;
+    
+    frame = playAgainButton.frame;
+    frame.origin.x = frame.origin.x + [ImageManager getDeltaWidthIphone5];
+    playAgainButton.frame = frame;
+    
+    frame = purchaseButton.frame;
+    frame.origin.x = frame.origin.x + [ImageManager getDeltaWidthIphone5];
+    purchaseButton.frame = frame;
     
     /*if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         gameStartView = [[GameStartView alloc] initWithNibName: @"GameStartView~ipad" bundle:[NSBundle mainBundle]];
@@ -749,6 +755,47 @@
 - (void) moveLandscape { 
 	
 	Landscape *l = [LandscapeManager switchLandscape];
+    landscape_1.image = l.layer1;
+    landscape_2.image = l.layer2;
+    landscape_3.image = l.layer3;
+    
+	CGRect frame = landscape_1.frame;
+    frame.origin.x = [self getLandscapeOffset] - [ImageManager windowWidth];
+	[UIView beginAnimations: @"LandscapeAnimation1" context: (__bridge void *)(landscape_1)];
+	[UIView setAnimationDelegate: self];
+	[UIView setAnimationDidStopSelector: @selector(landscapeAnimationDidStop:finished:context:)];
+	[UIView setAnimationDuration: 30];
+	[UIView setAnimationRepeatCount: 40];
+	[UIView setAnimationCurve:UIViewAnimationCurveLinear];
+	frame.origin.x = 0; // frame.origin.x - [self getLandscapeOffset] - [ImageManager windowWidth];
+    
+	landscape_1.frame = frame;
+	[UIView commitAnimations];
+
+    frame = landscape_2.frame;
+	[UIView beginAnimations: @"LandscapeAnimation2" context: (__bridge void *)(landscape_2)];
+	[UIView setAnimationDelegate: self];
+	[UIView setAnimationDidStopSelector: @selector(landscapeAnimationDidStop:finished:context:)];
+	[UIView setAnimationDuration: 100];
+	[UIView setAnimationRepeatCount: 20];
+	[UIView setAnimationCurve:UIViewAnimationCurveLinear];
+	frame.origin.x = frame.origin.x - [self getLandscapeOffset] - [ImageManager windowWidth];
+	landscape_2.frame = frame;
+	[UIView commitAnimations];
+
+    frame = landscape_3.frame;
+	[UIView beginAnimations: @"LandscapeAnimation3" context: (__bridge void *)(landscape_3)];
+	[UIView setAnimationDelegate: self];
+	[UIView setAnimationDidStopSelector: @selector(landscapeAnimationDidStop:finished:context:)];
+	[UIView setAnimationDuration: 180];
+	[UIView setAnimationRepeatCount: 20];
+	[UIView setAnimationCurve:UIViewAnimationCurveLinear];
+	frame.origin.x = frame.origin.x - [self getLandscapeOffset] - [ImageManager windowWidth];
+	landscape_3.frame = frame;
+	[UIView commitAnimations];
+
+    
+	/*Landscape *l = [LandscapeManager switchLandscape];
 	landscape.image = l.image;
 	landscapeSky.image = l.sky;
 	
@@ -766,7 +813,7 @@
 	frame.origin.x = frame.origin.x - [self getLandscapeOffset] - [ImageManager windowWidth];
 	landscape.frame = frame;
 	
-	[UIView commitAnimations];
+	[UIView commitAnimations];*/
 }
 
 - (void)landscapeAnimationDidStop: (NSString *)theAnimation finished: (BOOL)flag context: (void *)context {

@@ -40,6 +40,9 @@
 #define cHelpLevel @"helpLevel"
 #define cHelpSelectUser @"helpSelectUser"
 #define cHelpSelectLang @"helpSelectLang"
+#define cHelpMapViewStep1 @"helpMapViewStep1"
+#define cHelpMapViewStep2 @"helpMapViewStep2"
+#define cHelpMapViewStep3 @"helpMapViewStep3"
 
 #define cNoAskMeAgain @"noAskMeAgain"
 #define cCountExecutions @"countExecutions"
@@ -113,7 +116,6 @@ extern UserContext *userContextSingleton;
 + (NSString*) getaNewLanguage;
 + (NSString*) getMoneyAsText: (NSDecimalNumber*) money;
 + (NSString*) getMoneyIntAsText: (int) money;
-
 + (int)  getMoney1;
 + (int)  getMoney2;
 + (int)  getMoney3;
@@ -124,7 +126,6 @@ extern UserContext *userContextSingleton;
 + (void) addMoney2: (float) aMoney;
 + (void) addMoney3: (float) aMoney;
 + (bool) nextLevel;
-
 + (void) resetLevelAndMoney;
 // ******** Money & Level **********
 // **************************************
@@ -141,6 +142,13 @@ extern UserContext *userContextSingleton;
 +(void) setHelpSelectUser: (bool) help;
 +(bool) getHelpSelectLang;
 +(void) setHelpSelectLang: (bool) help;
++(bool) getHelpMapViewStep1;
++(void) setHelpMapViewStep1: (bool) help;
++(bool) getHelpMapViewStep2;
++(void) setHelpMapViewStep2: (bool) help;
++(bool) getHelpMapViewStep3;
++(void) setHelpMapViewStep3: (bool) help;
+
 
 +(bool) setUserPassword: (NSString*) password;
 +(NSString*) getUserPassword;

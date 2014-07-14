@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <list>
-	<landscape name="landscape1" sky="landscape1Sky"/>
-	<landscape name="landscape2" sky="landscape2Sky"/>
-	<landscape name="landscape3" sky="landscape3Sky"/>
+	<landscape layer1 = "landscape_a_1" layer2 = "landscape_a_2" layer3 = "landscape_a_3"/>
+	<landscape layer1 = "landscape_b_1" layer2 = "landscape_b_2" layer3 = "landscape_b_3"/>
+	<landscape layer1 = "landscape_c_1" layer2 = "landscape_c_2" layer3 = "landscape_c_3"/>
 </list>

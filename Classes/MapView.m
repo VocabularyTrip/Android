@@ -18,7 +18,7 @@
 //@synthesize configButton;
 @synthesize backgroundSound;
 @synthesize startWithHelpDownload;
-
+@synthesize hand;
 
 - (BOOL)shouldAutorotate{
     //if([[UIDevice currentDevice] orientation] == UIInterfaceOrientationLandscapeLeft ||[[UIDevice currentDevice] orientation] == UIInterfaceOrientationLandscapeRight)
@@ -40,14 +40,8 @@
 - (void) viewDidLoad {
     [self initializeGame];
     [self initMap];
-    //[mapScrollView init];
-    //[self drawAllLeveles];
-
-    //self.view.layer.shouldRasterize = YES;
-    //self.view.layer.rasterizationScale = [[UIScreen mainScreen] scale];
-    
-    
-    for (int i=1; i<mapScrollView.subviews.count; i++) {
+ 
+    for (int i=0; i < mapScrollView.subviews.count; i++) {
         UIView *aView = [mapScrollView.subviews objectAtIndex:i];
         [aView setTag: 999]; // Tag 999 means dont remove in reloadAllLevels method. Since this method remove all subviews.
     }
@@ -70,6 +64,7 @@
     [super viewWillAppear: animated];
     
     [self initConfigView];
+    [self initAlbumMenu];
     
     // First execution jump to wizard to select user and lang
     UserContext *aUserC = [UserContext getSingleton];
@@ -78,7 +73,6 @@
         return;
     }
 
-    
     // First move map to the end. viewDidAppear implement showAllMapInFirstSession
     if (flagFirstShowInSession) {
         [self.backgroundSound play]; // If soundEnabled is false the volumne is 0. This play prepare buffer and resourses to prevent delay in first word
@@ -88,7 +82,7 @@
         
         Level *level = [UserContext getLevel];
         playCurrentLevelButton.center = [level placeinMap];
-        playCurrentLevelButton.center = (CGPoint) {playCurrentLevelButton.center.x - 20, playCurrentLevelButton.center.y };
+        playCurrentLevelButton.center = (CGPoint) {playCurrentLevelButton.center.x, playCurrentLevelButton.center.y };
         
         currentLevelNumber = level.levelNumber;
     }
@@ -140,8 +134,7 @@
     [self showAllMapInFirstSession];
     [self moveUser];
     
-    if ([UserContext getHelpLevel] || startWithHelpPurchase) [self helpAnimation1];
-    
+    if ([UserContext getHelpLevel] || startWithHelpPurchase) [self helpAnimationPurchase];
     if (!singletonVocabulary.isDownloading && ![Vocabulary isDownloadCompleted]) [configView startLoading];
     if (startWithHelpDownload) [configView show];
     startWithHelpDownload = 0;
@@ -151,7 +144,10 @@
 - (void) moveOffsetToSeeUser: (Level*) aLevel {
     int offset = [ImageManager windowWidthXIB] / 2;
     int newX = [aLevel placeinMap].x > offset ? [aLevel placeinMap].x - offset : 0;
-    CGPoint newPlace = CGPointMake(newX, 0);
+    
+    offset = [ImageManager windowHeightXIB] / 2;
+    int newY = [aLevel placeinMap].y > offset ? [aLevel placeinMap].y - offset : 0;
+    CGPoint newPlace = CGPointMake(newX, newY);
     mapScrollView.contentOffset = newPlace;
 }
 
@@ -181,7 +177,6 @@
             
             currentLevelNumber = level.levelNumber < currentLevelNumber ? currentLevelNumber-delta : currentLevelNumber+delta;
             Level * currentLevel = [UserContext getLevelAt: currentLevelNumber];
-            //[self moveOffsetToSeeUser: currentLevel];
             
             [UIView beginAnimations: @"Move User" context: nil];
             [UIView setAnimationDuration: 0.5];
@@ -189,7 +184,6 @@
             [UIImageView setAnimationDidStopSelector: @selector(moveUserEnded)];
             [UIView setAnimationCurve: UIViewAnimationCurveLinear];
             playCurrentLevelButton.center = [currentLevel placeinMap];
-            //[self.view bringSubviewToFront: playCurrentLevelButton];
             [UIView commitAnimations];
         }
         
@@ -204,9 +198,6 @@
     Level *level = [UserContext getLevel];
     
     flagFirstShowInSession = NO;
-    
-    //configButton.alpha = 0;
-    //langButton.alpha = 0;
     helpButton.alpha = 0;
     
     [UIView beginAnimations:@"ShowMapAndPositionInCurrentLevel" context: nil];
@@ -221,17 +212,14 @@
 }
 
 - (void) showAllMapFinished {
-    //configButton.alpha = 1;
-    //langButton.alpha = 1;
     helpButton.alpha = 1;
+    if ([UserContext getHelpMapViewStep1]) [self helpAnimation1];
 }
 
 - (IBAction) playCurrentLevel:(id)sender {
     GameSequence *s = [GameSequenceManager getCurrentGameSequence];
     if ([s gameIsChallenge]) [self playChallengeTrain];
     if ([s gameIsTraining]) [self playTrainingTrain];
-    //if ([s gameIsMemory]) [self playMemoryTrain];
-    //if ([s gameIsSimon]) [self playSimonTrain];
 }
 
 - (void) playChallengeTrain {
@@ -248,25 +236,11 @@
 	[vcDelegate pushTrainingTrain];
 }
 
-/*- (void) playMemoryTrain {
-	[self stopBackgroundSound];
-	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
-	Sentence.delegate = vcDelegate.memoryTrain;
-	[vcDelegate pushMemoryTrain];
-}
-
-- (void) playSimonTrain {
-	[self stopBackgroundSound];
-	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
-	Sentence.delegate = vcDelegate.simonTrain;
-	[vcDelegate pushSimonTrain];
-}*/
-
-- (IBAction) albumShowInfo:(id)sender {
+/*- (IBAction) albumShowInfo:(id)sender {
 	[self stopBackgroundSound];
 	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
 	[vcDelegate pushAlbumMenu];
-}
+}*/
 
 - (void) initMap {
     // Configurar el ancho del mapa
@@ -293,10 +267,9 @@
 
 - (void) drawAllLeveles {
     Level *level;
-    UIImageView* image;
     for (int i=0; i< [Vocabulary countOfLevels]; i++) {
         level = [UserContext getLevelAt: i];
-        image = [self addImage: level.image
+        [self addImage: [UIImage imageNamed: @"stage_off.png"] //level.image
                   pos: [level placeinMap]
                   size: [ImageManager getMapViewLevelSize]];
         //image.tag = 1000 + level.levelNumber;
@@ -326,10 +299,10 @@
     //     * Lock icon if the user didn't reach this level
     //     * Buy icon if the user has to buy to unlock the level
     
-    CGPoint newPlace = CGPointMake([level placeinMap].x + [ImageManager getMapViewLevelSize] * 0.7, [level placeinMap].y + [ImageManager getMapViewLevelSize] * 0.7);
+    CGPoint newPlace = CGPointMake([level placeinMap].x + [ImageManager getMapViewLevelSize] * 0.8, [level placeinMap].y + [ImageManager getMapViewLevelSize] * 0.3);
  
     if (level.order > [UserContext getTemporalMaxLevel] && level.order > cSetLevelsFree) {
-        [self addImage: [UIImage imageNamed:@"buyButton.png"] pos: newPlace size: [ImageManager getMapViewLevelSize] * 0.4];
+        [self addImage: [UIImage imageNamed:@"lock2.png"] pos: newPlace size: [ImageManager getMapViewLevelSize] * 0.4];
     }/* else if (level.order > ([UserContext getLevelNumber]+1) && level.order != 1) {
         [self addImage: [UIImage imageNamed:@"token-bronze.png"] pos: newPlace size: [ImageManager getMapViewLevelSize] * 0.4];
     }*/
@@ -339,35 +312,30 @@
 - (void) addProgressLevel: (Level*) level {
     
     if (level.order <= ([UserContext getLevelNumber]+1) || level.order == 1) {
-        int starSize = [ImageManager getMapViewLevelSize] / 2 * 0.95;
+        int starSize = [ImageManager getMapViewLevelSize] / 2 * 1.1;
         CGPoint newPlace = CGPointMake(
-            [level placeinMap].x - starSize / 2,
-            [level placeinMap].y + [ImageManager getMapViewLevelSize] * 0.9);
+            [level placeinMap].x + [ImageManager getMapViewLevelSize] * 0.6,
+            [level placeinMap].y + [ImageManager getMapViewLevelSize] * 0.3);
         
         double progress = [Vocabulary progressLevel: level.levelNumber];
         UIImage *star1, *star2, *star3;
 
-        star1 = progress > cThresholdStar1 ? [UIImage imageNamed:@"star1.png"] : [UIImage imageNamed:@"star2.png"];
-        star2 = progress > cThresholdStar2 ? [UIImage imageNamed:@"star1.png"] : [UIImage imageNamed:@"star2.png"];
-        star3 = progress > cThresholdStar3 ? [UIImage imageNamed:@"star1.png"] : [UIImage imageNamed:@"star2.png"];
+        star1 = progress > cThresholdStar1 ? [UIImage imageNamed:@"star_on.png"] : [UIImage imageNamed:@"star_off.png"];
+        star2 = progress > cThresholdStar2 ? [UIImage imageNamed:@"star_on.png"] : [UIImage imageNamed:@"star_off.png"];
+        star3 = progress > cThresholdStar3 ? [UIImage imageNamed:@"star_on.png"] : [UIImage imageNamed:@"star_off.png"];
 
         [self addImage: star1
               pos: (CGPoint) {newPlace.x, newPlace.y}
               size: starSize];
 
         [self addImage: star2
-              pos: (CGPoint) {newPlace.x + starSize, newPlace.y + starSize * 0.3}
+                   pos: (CGPoint) {newPlace.x + starSize * 0.6, newPlace.y}
               size: starSize];
 
         [self addImage: star3
-              pos: (CGPoint) { newPlace.x + starSize * 2, newPlace.y}
+              pos: (CGPoint) { newPlace.x + starSize * 1.2, newPlace.y}
               size: starSize];
         
-        /*UIImageView *progressFillView = [self addImage: [UIImage imageNamed:@"progress_fill.png"] pos: newPlace size: [ImageManager getMapViewLevelSize]];
-        UIImageView *progressView = [self addImage: [UIImage imageNamed:@"progress_back.png"] pos: newPlace size: [ImageManager getMapViewLevelSize] ];
-        
-
-        progressView.frame = [Vocabulary resizeProgressFrame: progressView.frame toNewProgress: progress progressFill: progressFillView.frame];*/
     }
 }
 
@@ -383,10 +351,27 @@
     return configView;
 }
 
+- (AlbumMenu*) albumMenu {
+    if (!albumMenu) {
+      	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            albumMenu = [[AlbumMenu alloc] initWithNibName: @"AlbumMenu~ipad" bundle:[NSBundle mainBundle]];
+        } else {
+            albumMenu = [[AlbumMenu alloc] initWithNibName: @"AlbumMenu" bundle:[NSBundle mainBundle]];
+        }
+    }
+    return albumMenu;
+}
+
 - (void) initConfigView {
     [self.view addSubview: [self configView].view];
     configView.parentView = self;
     [configView close];
+}
+
+- (void) initAlbumMenu {
+    [self.view addSubview: [self albumMenu].view];
+    albumMenu.parentView = self;
+    [albumMenu close];
 }
 
 - (void)initAvatarAnimation {
@@ -422,14 +407,17 @@
 }
 
 - (void) helpAnimation1 {
+    hand.alpha = 1;
+    [AnimatorHelper clickingView: hand delegate: self];
 }
 
-/*- (IBAction) helpDownload {
-    
-    [self openConfigView];
-    [configView helpDownload1];
+- (void) finishClicking {
+    NSLog(@"finish clicking");
+}
 
-}*/
+- (void) helpAnimationPurchase {
+}
+
 
 - (void) initAudioSession {
 	NSError* audio_session_error = nil;

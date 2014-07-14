@@ -306,6 +306,10 @@ UserContext *userContextSingleton;
 	[UserContext setHelpLevel: YES];
     [UserContext setHelpSelectLang: YES];
     [UserContext setHelpSelectUser: YES];
+    [UserContext setHelpMapViewStep1: YES];
+    [UserContext setHelpMapViewStep2: YES];
+    [UserContext setHelpMapViewStep3: YES];
+    
 	UserContext.soundEnabled = YES;
 	[[UserContext getSingleton] setMaxLevel: cSetLevelsFree];
 }
@@ -334,6 +338,30 @@ UserContext *userContextSingleton;
     VocabularyTrip2AppDelegate *vcDelegate;
     vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
     [vcDelegate.albumView reloadFigurines];
+}
+
++(bool) getHelpMapViewStep1 {
+	return [[NSUserDefaults standardUserDefaults] boolForKey: cHelpMapViewStep1];
+}
+
++(void) setHelpMapViewStep1: (bool) help {
+	[[NSUserDefaults standardUserDefaults] setBool: help forKey: cHelpMapViewStep1];
+}
+
++(bool) getHelpMapViewStep2 {
+	return [[NSUserDefaults standardUserDefaults] boolForKey: cHelpMapViewStep2];
+}
+
++(void) setHelpMapViewStep2: (bool) help {
+	[[NSUserDefaults standardUserDefaults] setBool: help forKey: cHelpMapViewStep2];
+}
+
++(bool) getHelpMapViewStep3 {
+	return [[NSUserDefaults standardUserDefaults] boolForKey: cHelpMapViewStep3];
+}
+
++(void) setHelpMapViewStep3: (bool) help {
+	[[NSUserDefaults standardUserDefaults] setBool: help forKey: cHelpMapViewStep3];
 }
 
 +(bool) getHelpTraining {

@@ -28,7 +28,7 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MfF-en-A6j" userLabel="BackButton">
                     <rect key="frame" x="0.0" y="0.0" width="200" height="92"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" image="Menu1@ipad.png">
+                    <state key="normal" image="menu1.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -53,7 +53,7 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3S7-FL-4Y6" userLabel="PauseButton">
                     <rect key="frame" x="949" y="7" width="68" height="68"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" image="pause2@ipad.png">
+                    <state key="normal" image="pause2.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -84,10 +84,10 @@
         </view>
     </objects>
     <resources>
-        <image name="Menu1@ipad.png" width="209" height="80"/>
         <image name="architect.png" width="267" height="300"/>
         <image name="empty-page-princesses.png" width="480" height="320"/>
-        <image name="pause2@ipad.png" width="97" height="97"/>
+        <image name="menu1.png" width="209" height="80"/>
+        <image name="pause2.png" width="97" height="97"/>
         <image name="reset@ipad.png" width="60" height="56"/>
     </resources>
 </document>
