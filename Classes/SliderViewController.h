@@ -10,6 +10,8 @@
 
 #define cFlapWidthIpad 21
 #define cFlapWidthIpod 17
+#define cMarginHeightIpad 10
+#define cMarginHeightIpod 5
 
 @interface SliderViewController : GenericDownloadViewController {
     id __unsafe_unretained parentView;

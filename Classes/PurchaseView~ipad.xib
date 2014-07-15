@@ -51,7 +51,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="117" userLabel="BuyAllLevelsButton">
-                            <rect key="frame" x="120" y="141" width="346" height="205"/>
+                            <rect key="frame" x="142" y="115" width="346" height="245"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="34"/>
                             <inset key="contentEdgeInsets" minX="111" minY="144" maxX="0.0" maxY="0.0"/>
@@ -67,7 +67,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lmm-LU-rwO" userLabel="BuyOneSetButton">
-                            <rect key="frame" x="517" y="141" width="346" height="205"/>
+                            <rect key="frame" x="539" y="115" width="346" height="245"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <accessibility key="accessibilityConfiguration" label="aa"/>
                             <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="34"/>
@@ -84,7 +84,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="199" userLabel="RestoreButton">
-                            <rect key="frame" x="120" y="663" width="208" height="42"/>
+                            <rect key="frame" x="142" y="637" width="208" height="42"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="25"/>
                             <state key="normal" backgroundImage="btn_restore.png">
@@ -99,7 +99,7 @@
                             </connections>
                         </button>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="24" clearButtonMode="whileEditing" id="202" userLabel="PromoCodeText">
-                            <rect key="frame" x="556" y="553" width="301" height="43"/>
+                            <rect key="frame" x="506" y="549" width="373" height="43"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="36"/>
@@ -109,28 +109,28 @@
                             </connections>
                         </textField>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Register a Promo Code" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" id="210">
-                            <rect key="frame" x="126" y="561" width="301" height="28"/>
+                            <rect key="frame" x="148" y="557" width="301" height="28"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="25"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="error" lineBreakMode="tailTruncation" minimumFontSize="14" id="211">
-                            <rect key="frame" x="556" y="599" width="420" height="21"/>
+                            <rect key="frame" x="506" y="595" width="492" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
                             <color key="textColor" red="0.99736752719999999" green="0.16258857369999999" blue="0.23899615569999999" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Boost KL Vocabulary and get 1 day access free" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="3" minimumFontSize="10" id="wLt-xs-jGI" userLabel="FacebookLabel">
-                            <rect key="frame" x="143" y="394" width="284" height="79"/>
+                            <rect key="frame" x="165" y="418" width="284" height="79"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="25"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="cHH-Fp-oCQ" userLabel="FacebookButton">
-                            <rect key="frame" x="490" y="359" width="373" height="159"/>
+                            <rect key="frame" x="506" y="403" width="373" height="110"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <state key="normal" title="Button" image="btn_fcbk.png">
@@ -141,19 +141,19 @@
                             </connections>
                         </button>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="linea_compra.png" id="454-P7-XS5">
-                            <rect key="frame" x="126" y="359" width="731" height="8"/>
+                            <rect key="frame" x="148" y="383" width="731" height="8"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="linea_compra.png" id="uSy-8i-2qW">
-                            <rect key="frame" x="126" y="510" width="731" height="8"/>
+                            <rect key="frame" x="148" y="517" width="731" height="8"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="linea_compra.png" id="AkJ-FS-xgh">
-                            <rect key="frame" x="126" y="642" width="731" height="8"/>
+                            <rect key="frame" x="148" y="615" width="731" height="8"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="clip" id="cUs-Af-9nk" userLabel="NoReachabilityButton">
-                            <rect key="frame" x="524" y="77" width="447" height="67"/>
+                            <rect key="frame" x="539" y="49" width="447" height="67"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="21"/>
                             <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -162,14 +162,14 @@
                             </state>
                         </button>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xvs-fq-AhP" userLabel="BuyOneSetDescLabel">
-                            <rect key="frame" x="524" y="259" width="333" height="40"/>
+                            <rect key="frame" x="546" y="233" width="333" height="40"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="16"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ddh-Hk-i7K" userLabel="BuyAllWordsDescLabel">
-                            <rect key="frame" x="126" y="259" width="333" height="40"/>
+                            <rect key="frame" x="148" y="233" width="333" height="40"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="16"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>

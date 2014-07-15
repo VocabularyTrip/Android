@@ -55,15 +55,15 @@
             <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="landscape_a_3.png" id="QE4-uu-RsW" userLabel="Landscape3">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="landscape_a_3.png" id="QE4-uu-RsW" userLabel="Landscape3">
                     <rect key="frame" x="0.0" y="0.0" width="4964" height="768"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="landscape_a_2.png" id="29" userLabel="Landscape2">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="landscape_a_2.png" id="29" userLabel="Landscape2">
                     <rect key="frame" x="0.0" y="0.0" width="4964" height="768"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="landscape_a_1.png" id="12" userLabel="Landscape1">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="landscape_a_1.png" id="12" userLabel="Landscape1">
                     <rect key="frame" x="0.0" y="0.0" width="4844" height="768"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>

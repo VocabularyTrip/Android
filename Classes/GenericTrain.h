@@ -32,7 +32,7 @@
 #define cStatusHelpOn 8
 
 #define cLandscapeOffset -2059
-#define cLandscapeOffsetIpad -4813
+#define cLandscapeOffsetIpad -4964
 #define cHitsPerGame 7
 
 enum {

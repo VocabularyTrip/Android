@@ -759,42 +759,47 @@
     landscape_2.image = l.layer2;
     landscape_3.image = l.layer3;
     
+    int duration = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 60 : 30;
 	CGRect frame = landscape_1.frame;
-    frame.origin.x = [self getLandscapeOffset] - [ImageManager windowWidth];
+	frame.origin.x = [self getLandscapeOffset] + [ImageManager windowWidth];
+	landscape_1.frame = frame;
 	[UIView beginAnimations: @"LandscapeAnimation1" context: (__bridge void *)(landscape_1)];
 	[UIView setAnimationDelegate: self];
 	[UIView setAnimationDidStopSelector: @selector(landscapeAnimationDidStop:finished:context:)];
-	[UIView setAnimationDuration: 20];
+	[UIView setAnimationDuration: duration];
 	[UIView setAnimationRepeatCount: 40];
 	[UIView setAnimationCurve:UIViewAnimationCurveLinear];
-	frame.origin.x = 0; // frame.origin.x - [self getLandscapeOffset] - [ImageManager windowWidth];
-    
+    frame.origin.x = 0;
 	landscape_1.frame = frame;
 	[UIView commitAnimations];
 
+    duration = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 360 : 180;
     frame = landscape_2.frame;
-    frame.origin.x = [self getLandscapeOffset] - [ImageManager windowWidth];
+    frame.origin.x = [self getLandscapeOffset] + [ImageManager windowWidth];
+	landscape_2.frame = frame;
 	[UIView beginAnimations: @"LandscapeAnimation2" context: (__bridge void *)(landscape_2)];
 	[UIView setAnimationDelegate: self];
 	[UIView setAnimationDidStopSelector: @selector(landscapeAnimationDidStop:finished:context:)];
-	[UIView setAnimationDuration: 180];
+	[UIView setAnimationDuration: duration];
 	[UIView setAnimationRepeatCount: 20];
 	[UIView setAnimationCurve:UIViewAnimationCurveLinear];
     frame.origin.x = 0;
 	landscape_2.frame = frame;
 	[UIView commitAnimations];
 
+    /*duration = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 500 : 250;
     frame = landscape_3.frame;
-    frame.origin.x = [self getLandscapeOffset] - [ImageManager windowWidth];
+    frame.origin.x = [self getLandscapeOffset] + [ImageManager windowWidth];
+	landscape_3.frame = frame;
 	[UIView beginAnimations: @"LandscapeAnimation3" context: (__bridge void *)(landscape_3)];
 	[UIView setAnimationDelegate: self];
 	[UIView setAnimationDidStopSelector: @selector(landscapeAnimationDidStop:finished:context:)];
-	[UIView setAnimationDuration: 400];
+	[UIView setAnimationDuration: duration];
 	[UIView setAnimationRepeatCount: 1];
 	[UIView setAnimationCurve:UIViewAnimationCurveLinear];
     frame.origin.x = 0;
 	landscape_3.frame = frame;
-	[UIView commitAnimations];
+	[UIView commitAnimations];*/
 
     
 	/*Landscape *l = [LandscapeManager switchLandscape];

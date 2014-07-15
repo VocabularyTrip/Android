@@ -21,22 +21,24 @@
 
     
     int flapWidth = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? cFlapWidthIpad : cFlapWidthIpod;
+    int marginHeight = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? cMarginHeightIpad : cMarginHeightIpod;
+
     
     int frameX = [ImageManager windowWidthXIB] - backgroundView.frame.size.width + flapWidth;
-    int frameY = [ImageManager windowHeightXIB] - backgroundView.frame.size.height;
+    int frameY = [ImageManager windowHeightXIB] - backgroundView.frame.size.height - marginHeight;
     
     return CGRectMake(
                       frameX,
                       frameY,
                       backgroundView.frame.size.width,
-                      backgroundView.frame.size.height);
+                      backgroundView.frame.size.height - marginHeight);
 }
 
 - (CGRect) frameClosed {
     CGRect frame = [self frameOpened];
     
     int flapWidth = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? cFlapWidthIpad : cFlapWidthIpod;
-    frame.origin.x = [ImageManager windowWidthXIB] - flapWidth * 2;
+    frame.origin.x = [ImageManager windowWidthXIB] - abs(flapWidth * 1.8);
     // frame.origin.x + round(backgroundView.frame.size.width * 0.80);
     return frame;
 }
@@ -49,6 +51,7 @@
 }
 
 - (void) show {
+    self.view.layer.shouldRasterize = YES;
     
     self.view.frame = [self frameClosed];
     [UIView beginAnimations: @"moveShow" context: (__bridge void *)(self.view)];

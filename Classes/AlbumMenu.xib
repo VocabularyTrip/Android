@@ -27,39 +27,9 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slider_albums.png" id="gyq-fK-YKx" userLabel="BackgroundView">
-                    <rect key="frame" x="-17" y="0.0" width="149" height="278"/>
+                    <rect key="frame" x="-17" y="0.0" width="149" height="270"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="R6J-Zz-hfl" userLabel="AlbumMonsterButton">
-                    <rect key="frame" x="32" y="55" width="87" height="46"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Button" image="cover-monster.png">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="album2ShowInfo:" destination="-1" eventType="touchDown" id="EYW-10-uWi"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Rda-di-5lC" userLabel="AlbumPrincessesButton">
-                    <rect key="frame" x="33" y="214" width="87" height="46"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Button" image="cover-princess.png">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="album1ShowInfo:" destination="-1" eventType="touchDown" id="UtE-Ic-1ea"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Mb2-pc-0Sb" userLabel="AlbumAnimalsButton">
-                    <rect key="frame" x="33" y="135" width="87" height="46"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" image="cover-animal.png">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="album3ShowInfo:" destination="-1" eventType="touchDown" id="SMJ-Nu-GvR"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="BaY-ou-r5i" userLabel="BackButton">
                     <rect key="frame" x="-16" y="1" width="33" height="33"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -71,44 +41,74 @@
                         <action selector="done:" destination="-1" eventType="touchDown" id="PtN-1K-dEu"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="R6J-Zz-hfl" userLabel="AlbumMonsterButton">
+                    <rect key="frame" x="32" y="47" width="87" height="46"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button" image="cover-monster.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="album2ShowInfo:" destination="-1" eventType="touchDown" id="EYW-10-uWi"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Rda-di-5lC" userLabel="AlbumPrincessesButton">
+                    <rect key="frame" x="33" y="206" width="87" height="46"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button" image="cover-princess.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="album1ShowInfo:" destination="-1" eventType="touchDown" id="UtE-Ic-1ea"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Mb2-pc-0Sb" userLabel="AlbumAnimalsButton">
+                    <rect key="frame" x="33" y="127" width="87" height="46"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="cover-animal.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="album3ShowInfo:" destination="-1" eventType="touchDown" id="SMJ-Nu-GvR"/>
+                    </connections>
+                </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_back.png" id="vnQ-eH-Ali" userLabel="Progress1BarBacklView">
-                    <rect key="frame" x="32" y="261" width="90" height="12"/>
+                    <rect key="frame" x="32" y="253" width="90" height="12"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_fill.png" id="2Yb-OK-zHG" userLabel="Progress1BarFillView">
-                    <rect key="frame" x="32" y="261" width="90" height="12"/>
+                    <rect key="frame" x="32" y="253" width="90" height="12"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_empty.png" id="1Fz-4J-cMP" userLabel="Progress1BarMaskView">
-                    <rect key="frame" x="32" y="261" width="90" height="12"/>
+                    <rect key="frame" x="32" y="253" width="90" height="12"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_back.png" id="Ri4-vO-TeZ" userLabel="Progress2BarBacklView">
-                    <rect key="frame" x="31" y="103" width="90" height="12"/>
+                    <rect key="frame" x="31" y="95" width="90" height="12"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_fill.png" id="hIQ-fZ-RQ7" userLabel="Progress2BarFillView">
-                    <rect key="frame" x="31" y="103" width="90" height="12"/>
+                    <rect key="frame" x="31" y="95" width="90" height="12"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_empty.png" id="H5s-sB-hGA" userLabel="Progress2BarMaskView">
-                    <rect key="frame" x="31" y="103" width="90" height="12"/>
+                    <rect key="frame" x="31" y="95" width="90" height="12"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_back.png" id="GRw-sa-Yk0" userLabel="Progress3BarBacklView">
-                    <rect key="frame" x="31" y="182" width="90" height="12"/>
+                    <rect key="frame" x="31" y="174" width="90" height="12"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_fill.png" id="PKG-G9-van" userLabel="Progress3BarFillView">
-                    <rect key="frame" x="31" y="182" width="90" height="12"/>
+                    <rect key="frame" x="31" y="174" width="90" height="12"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_empty.png" id="YMN-E9-uxp" userLabel="Progress3BarMaskView">
-                    <rect key="frame" x="31" y="182" width="90" height="12"/>
+                    <rect key="frame" x="31" y="174" width="90" height="12"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
