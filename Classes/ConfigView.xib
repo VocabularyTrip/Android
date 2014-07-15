@@ -18,16 +18,16 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view alpha="0.90000000000000013" contentMode="scaleToFill" id="1">
+        <view contentMode="scaleToFill" id="1">
             <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slider_settings.png" id="lex-dP-IOg" userLabel="Background">
-                    <rect key="frame" x="-14" y="-4" width="116" height="327"/>
+                    <rect key="frame" x="-14" y="-7" width="149" height="333"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="VcY-zx-dmG" userLabel="BackButton">
-                    <rect key="frame" x="-15" y="-1" width="29" height="29"/>
+                    <rect key="frame" x="-9" y="-1" width="33" height="33"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" image="config.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -37,7 +37,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5AM-oX-KOK" userLabel="BuyButton">
-                    <rect key="frame" x="23" y="121" width="44" height="44"/>
+                    <rect key="frame" x="24" y="119" width="44" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                     <state key="normal" image="ico_purchase.png">
@@ -52,7 +52,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="AsB-21-LPk">
-                    <rect key="frame" x="23" y="206" width="44" height="44"/>
+                    <rect key="frame" x="24" y="204" width="44" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="9"/>
                     <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-33"/>
@@ -68,7 +68,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="puw-Sd-HiS" userLabel="SoundButton">
-                    <rect key="frame" x="23" y="161" width="44" height="44"/>
+                    <rect key="frame" x="24" y="159" width="44" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="9"/>
                     <state key="normal" image="ico_volume.png">
@@ -83,7 +83,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yOi-Eh-IW0" userLabel="MailButton">
-                    <rect key="frame" x="23" y="252" width="44" height="44"/>
+                    <rect key="frame" x="24" y="250" width="44" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="9"/>
                     <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-33"/>
@@ -99,7 +99,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="c29-Iy-zJP" userLabel="UserButton">
-                    <rect key="frame" x="23" y="36" width="44" height="44"/>
+                    <rect key="frame" x="24" y="34" width="44" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="9"/>
                     <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-33"/>
@@ -115,7 +115,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="mRB-Mf-0Yu" userLabel="LangSelectedButton">
-                    <rect key="frame" x="23" y="81" width="44" height="44"/>
+                    <rect key="frame" x="24" y="79" width="44" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" backgroundImage="English.png">
@@ -126,11 +126,11 @@
                     </connections>
                 </button>
                 <progressView opaque="NO" alpha="0.0" contentMode="scaleToFill" id="JKy-72-7KA" userLabel="DownloadProgressView">
-                    <rect key="frame" x="0.0" y="314" width="73" height="2"/>
+                    <rect key="frame" x="1" y="312" width="73" height="2"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </progressView>
                 <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="I1f-98-j1x" userLabel="DownloadButton">
-                    <rect key="frame" x="-2" y="286" width="77" height="29"/>
+                    <rect key="frame" x="-1" y="284" width="77" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <state key="normal" title="Button" image="btn_download@ipad.png">
@@ -145,7 +145,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="LvE-ap-e6H" userLabel="CancelDownloadButton">
-                    <rect key="frame" x="-2" y="286" width="77" height="29"/>
+                    <rect key="frame" x="-1" y="284" width="77" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <state key="normal" image="btn_download_cancel@ipad.png">
@@ -160,7 +160,7 @@
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clicking.png" id="7bw-3F-s5j" userLabel="HandHelp">
-                    <rect key="frame" x="-15" y="70" width="70" height="75"/>
+                    <rect key="frame" x="-14" y="68" width="70" height="75"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
             </subviews>

@@ -23,6 +23,8 @@
 @synthesize image;
 @synthesize readAbility;
 @synthesize gameSequenceNumber;
+
+
 +(void)loadDataFromXML {
 	
 	NSString* path = [[NSBundle mainBundle] pathForResource: @"Users" ofType: @"xml"];
@@ -303,8 +305,8 @@
 
 -(UIImage*) image {
     if (image == nil) {
-        NSString *imageName = [NSString stringWithFormat: @"avatar%i", userId];
-        NSString *file = [[NSString alloc ] initWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath], [ImageManager getIphoneIpadFile: imageName]];		
+        NSString *imageName = [NSString stringWithFormat: @"avatar%i_0", userId];
+        NSString *file = [[NSString alloc ] initWithFormat:@"%@/%@.png", [[NSBundle mainBundle] resourcePath], imageName];
         image = [UIImage alloc];
         image = [image initWithContentsOfFile: file];
     }

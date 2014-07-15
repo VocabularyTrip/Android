@@ -24,11 +24,12 @@
     //      backgroundView.frame.size.width,
     //      backgroundView.frame.origin.x);
     int frameX = [ImageManager windowWidthXIB]
-    - backgroundView.frame.size.width
-    - backgroundView.frame.origin.x
-    + 3; // ???
+    - backgroundView.frame.size.width;
+    //- backgroundView.frame.origin.x; // ???
     
-    int frameY = [ImageManager windowHeightXIB] - backgroundView.frame.size.height + 10;
+    int frameY = [ImageManager windowHeightXIB] - backgroundView.frame.size.height;
+    NSLog(@"x: %i, y: %i, width: %f, height: %f", frameX, frameY, backgroundView.frame.size.width, backgroundView.frame.size.height);
+    
     return CGRectMake(
                       frameX,
                       frameY,
@@ -38,6 +39,7 @@
 
 - (CGRect) frameClosed {
     CGRect frame = [self frameOpened];
+    NSLog(@"origin.x: %f, delta: %f", frame.origin.x, round(backgroundView.frame.size.width * 0.70));
     frame.origin.x = frame.origin.x  + round(backgroundView.frame.size.width * 0.70);
     return frame;
 }

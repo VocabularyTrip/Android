@@ -10,7 +10,6 @@
                 <outlet property="album1Button" destination="bDr-dC-xPV" id="nkP-oA-eHZ"/>
                 <outlet property="album2Button" destination="0xp-ea-9Ed" id="t4K-gs-PUx"/>
                 <outlet property="album3Button" destination="isf-Q2-VSp" id="LOI-Zg-zul"/>
-                <outlet property="avatarView" destination="Ffj-86-4qv" id="eKT-x2-vO1"/>
                 <outlet property="backButton" destination="FZf-oT-28c" id="qgL-44-ZNE"/>
                 <outlet property="backgroundView" destination="cpE-h8-oYx" id="1PQ-Eb-FR7"/>
                 <outlet property="progress1BarFillView" destination="vQI-mz-3VF" id="wVn-5S-Rap"/>
@@ -27,14 +26,14 @@
             <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_wizard@ipad.png" id="cpE-h8-oYx" userLabel="Background">
-                    <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slider_albums.png" id="cpE-h8-oYx" userLabel="Background">
+                    <rect key="frame" x="-32" y="0.0" width="300" height="648"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="FZf-oT-28c" userLabel="BackButton">
-                    <rect key="frame" x="20" y="12" width="200" height="92"/>
+                    <rect key="frame" x="-15" y="11" width="40" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" image="Menu1@ipad.png">
+                    <state key="normal" image="sticker.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -42,7 +41,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bDr-dC-xPV" userLabel="PrincessesAlbumButton">
-                    <rect key="frame" x="39" y="526" width="267" height="160"/>
+                    <rect key="frame" x="64" y="84" width="190" height="113"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Button" image="cover-princess.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -51,27 +50,20 @@
                         <action selector="album1ShowInfo:" destination="-1" eventType="touchDown" id="unM-Df-MQ2"/>
                     </connections>
                 </button>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Your Progres" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="Eh5-fc-esX" userLabel="PrincessProgressLabel">
-                    <rect key="frame" x="46" y="703" width="253" height="28"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_back.png" id="8tk-F2-tyO" userLabel="Progress1BackView">
-                    <rect key="frame" x="64" y="730" width="217" height="30"/>
+                    <rect key="frame" x="61" y="205" width="197" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_fill.png" id="vQI-mz-3VF" userLabel="Progress1FillView">
-                    <rect key="frame" x="64" y="730" width="217" height="30"/>
+                    <rect key="frame" x="61" y="205" width="197" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_empty.png" id="wsj-iN-HRJ" userLabel="Progress1EmptyView">
-                    <rect key="frame" x="64" y="730" width="217" height="30"/>
+                    <rect key="frame" x="61" y="205" width="197" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0xp-ea-9Ed" userLabel="MonsterAlbumButton">
-                    <rect key="frame" x="371" y="527" width="267" height="160"/>
+                    <rect key="frame" x="64" y="250" width="190" height="113"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Button" image="cover-monster.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -80,27 +72,20 @@
                         <action selector="album2ShowInfo:" destination="-1" eventType="touchDown" id="9Gx-0E-WDl"/>
                     </connections>
                 </button>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Completeness" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="gWU-3J-0Dd" userLabel="MonsterProgressLabel">
-                    <rect key="frame" x="378" y="704" width="253" height="28"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_back.png" id="W7e-Me-q2E" userLabel="Progress2BackView">
-                    <rect key="frame" x="396" y="731" width="217" height="30"/>
+                    <rect key="frame" x="61" y="369" width="197" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_fill.png" id="f9s-V3-NHC" userLabel="Progress2FillView">
-                    <rect key="frame" x="396" y="731" width="217" height="30"/>
+                    <rect key="frame" x="61" y="369" width="197" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_empty.png" id="Yoh-ev-jnn" userLabel="Progress2EmptyView">
-                    <rect key="frame" x="396" y="731" width="217" height="30"/>
+                    <rect key="frame" x="61" y="369" width="197" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="isf-Q2-VSp" userLabel="AnimalAlbumButton">
-                    <rect key="frame" x="709" y="526" width="267" height="160"/>
+                    <rect key="frame" x="64" y="410" width="190" height="113"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Button" image="cover-animal.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -109,28 +94,17 @@
                         <action selector="album3ShowInfo:" destination="-1" eventType="touchDown" id="uhT-rW-7ww"/>
                     </connections>
                 </button>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Completeness" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="cak-eA-oDN" userLabel="AnimalProgressLabel">
-                    <rect key="frame" x="716" y="703" width="253" height="28"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_back.png" id="lAR-n9-tuE" userLabel="Progress3BackView">
-                    <rect key="frame" x="734" y="731" width="217" height="30"/>
+                    <rect key="frame" x="61" y="532" width="197" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_fill.png" id="Jnw-OA-Nt9" userLabel="Progress3FillView">
-                    <rect key="frame" x="734" y="730" width="217" height="30"/>
+                    <rect key="frame" x="61" y="531" width="197" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_empty.png" id="B8c-Xk-Ets" userLabel="Progress3EmptyView">
-                    <rect key="frame" x="734" y="731" width="217" height="30"/>
+                    <rect key="frame" x="61" y="532" width="197" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar2_0.png" id="Ffj-86-4qv" userLabel="AvatarView">
-                    <rect key="frame" x="384" y="177" width="250" height="332"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -138,14 +112,13 @@
         </view>
     </objects>
     <resources>
-        <image name="Menu1@ipad.png" width="209" height="80"/>
-        <image name="avatar2_0.png" width="580" height="770"/>
-        <image name="background_wizard@ipad.png" width="1024" height="683"/>
         <image name="cover-animal.png" width="480" height="320"/>
         <image name="cover-monster.png" width="480" height="320"/>
         <image name="cover-princess.png" width="480" height="320"/>
         <image name="progress_back.png" width="434" height="61"/>
         <image name="progress_empty.png" width="434" height="61"/>
         <image name="progress_fill.png" width="434" height="61"/>
+        <image name="slider_albums.png" width="919" height="2540"/>
+        <image name="sticker.png" width="58" height="58"/>
     </resources>
 </document>

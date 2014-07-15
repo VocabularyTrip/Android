@@ -121,7 +121,7 @@
 
 - (void) viewWillAppear:(BOOL)animated { 
 	[self refreshLevelInfo];
-    NSString* coverName = [ImageManager getIphone5xIpadFile: @"background_purchase"];
+    NSString* coverName = [ImageManager getIphone5xIpadFile: @"level_bg"];
     [backgroundView setImage: [UIImage imageNamed: coverName]];
 }
 

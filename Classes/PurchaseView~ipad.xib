@@ -28,27 +28,15 @@
                     <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="background_purchase@ipad.png" id="76" userLabel="BackgroundView">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="level_bg.png" id="76" userLabel="BackgroundView">
                             <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_user@ipad.png" id="l8p-oy-nyn" userLabel="FacebookAreaView">
-                            <rect key="frame" x="341" y="308" width="320" height="400"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_user@ipad.png" id="tZy-fY-ph4" userLabel="PromoCodeAreaView">
-                            <rect key="frame" x="684" y="308" width="320" height="400"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_user@ipad.png" id="mER-bi-14a" userLabel="PurchaseAreaView">
-                            <rect key="frame" x="0.0" y="308" width="320" height="400"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="22" userLabel="BackButton">
                             <rect key="frame" x="0.0" y="6" width="200" height="92"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
-                            <state key="normal" title="Back" image="Menu1@ipad.png">
+                            <state key="normal" title="Back" image="menu1.png">
                                 <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -60,11 +48,11 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="117" userLabel="BuyAllLevelsButton">
-                            <rect key="frame" x="7" y="411" width="307" height="108"/>
+                            <rect key="frame" x="120" y="166" width="307" height="180"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="34"/>
-                            <inset key="contentEdgeInsets" minX="159" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="U$S 9.98" backgroundImage="Buy All.png">
+                            <inset key="contentEdgeInsets" minX="88" minY="110" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="U$S 9.98" backgroundImage="btn_buy_all.png">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -76,12 +64,12 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lmm-LU-rwO" userLabel="BuyOneSetButton">
-                            <rect key="frame" x="7" y="519" width="307" height="108"/>
+                            <rect key="frame" x="556" y="166" width="307" height="180"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <accessibility key="accessibilityConfiguration" label="aa"/>
                             <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="34"/>
-                            <inset key="contentEdgeInsets" minX="159" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="U$S 3.99" backgroundImage="buy one.png">
+                            <inset key="contentEdgeInsets" minX="159" minY="110" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="U$S 3.99" backgroundImage="btn_buy_one.png">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -93,10 +81,10 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="199" userLabel="RestoreButton">
-                            <rect key="frame" x="10" y="635" width="300" height="60"/>
+                            <rect key="frame" x="120" y="663" width="208" height="42"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="25"/>
-                            <state key="normal" title="Restore Purchase" backgroundImage="restoreButton.png">
+                            <state key="normal" backgroundImage="btn_restore.png">
                                 <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -108,7 +96,7 @@
                             </connections>
                         </button>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="24" clearButtonMode="whileEditing" id="202" userLabel="PromoCodeText">
-                            <rect key="frame" x="694" y="584" width="301" height="43"/>
+                            <rect key="frame" x="556" y="553" width="301" height="43"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="36"/>
@@ -117,38 +105,50 @@
                                 <outlet property="delegate" destination="-1" id="209"/>
                             </connections>
                         </textField>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Register a Promo Code" lineBreakMode="tailTruncation" minimumFontSize="10" id="210">
-                            <rect key="frame" x="694" y="548" width="301" height="28"/>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Register a Promo Code" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" id="210">
+                            <rect key="frame" x="126" y="561" width="301" height="28"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="25"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="error" lineBreakMode="tailTruncation" minimumFontSize="14" id="211">
-                            <rect key="frame" x="694" y="635" width="420" height="21"/>
+                            <rect key="frame" x="556" y="599" width="420" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
                             <color key="textColor" red="0.99736752719999999" green="0.16258857369999999" blue="0.23899615569999999" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Boost KL Vocabulary and get 1 day access free" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" minimumFontSize="10" id="wLt-xs-jGI" userLabel="FacebookLabel">
-                            <rect key="frame" x="364" y="432" width="284" height="79"/>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Boost KL Vocabulary and get 1 day access free" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="3" minimumFontSize="10" id="wLt-xs-jGI" userLabel="FacebookLabel">
+                            <rect key="frame" x="143" y="394" width="284" height="79"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="19"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="25"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="cHH-Fp-oCQ" userLabel="FacebookButton">
-                            <rect key="frame" x="411" y="531" width="181" height="159"/>
+                            <rect key="frame" x="490" y="359" width="373" height="159"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <state key="normal" title="Button" image="FB-f-Logo__blue_512.png">
+                            <state key="normal" title="Button" image="btn_fcbk.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
                                 <action selector="facebookButtonClicked" destination="-1" eventType="touchDown" id="nXL-R9-alE"/>
                             </connections>
                         </button>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="linea_compra.png" id="454-P7-XS5">
+                            <rect key="frame" x="126" y="359" width="731" height="8"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="linea_compra.png" id="uSy-8i-2qW">
+                            <rect key="frame" x="126" y="510" width="731" height="8"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="linea_compra.png" id="AkJ-FS-xgh">
+                            <rect key="frame" x="126" y="642" width="731" height="8"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
                     </subviews>
                 </scrollView>
             </subviews>
@@ -157,12 +157,12 @@
         </view>
     </objects>
     <resources>
-        <image name="Buy All.png" width="254" height="95"/>
-        <image name="FB-f-Logo__blue_512.png" width="512" height="512"/>
-        <image name="Menu1@ipad.png" width="209" height="80"/>
-        <image name="background_purchase@ipad.png" width="1024" height="748"/>
-        <image name="bg_user@ipad.png" width="496" height="490"/>
-        <image name="buy one.png" width="254" height="95"/>
-        <image name="restoreButton.png" width="254" height="67"/>
+        <image name="btn_buy_all.png" width="585" height="395"/>
+        <image name="btn_buy_one.png" width="585" height="395"/>
+        <image name="btn_fcbk.png" width="569" height="169"/>
+        <image name="btn_restore.png" width="254" height="67"/>
+        <image name="level_bg.png" width="960" height="640"/>
+        <image name="linea_compra.png" width="1241" height="10"/>
+        <image name="menu1.png" width="209" height="80"/>
     </resources>
 </document>

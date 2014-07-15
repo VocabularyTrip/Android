@@ -11,8 +11,8 @@
                 <outlet property="driverView" destination="128" id="130"/>
                 <outlet property="hand" destination="123" id="124"/>
                 <outlet property="helpButton" destination="125" id="127"/>
-                <outlet property="landscape" destination="12" id="22"/>
-                <outlet property="landscapeSky" destination="29" id="30"/>
+                <outlet property="landscape_1" destination="12" id="Aie-cL-7wc"/>
+                <outlet property="landscape_2" destination="29" id="A29-65-yrb"/>
                 <outlet property="langView" destination="137" id="138"/>
                 <outlet property="money1Label" destination="79" id="115"/>
                 <outlet property="money1View" destination="78" id="116"/>
@@ -54,15 +54,15 @@
             <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="landscape1@ipad.png" id="12" userLabel="Landscape">
-                    <rect key="frame" x="-1150" y="0.0" width="4813" height="768"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="landscape_a_1.png" id="12" userLabel="Landscape">
+                    <rect key="frame" x="0.0" y="0.0" width="4844" height="768"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="center" image="landscape2Sky@ipad.png" id="29" userLabel="Sky">
-                    <rect key="frame" x="0.0" y="0.0" width="1024" height="248"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="landscape_a_1.png" id="29" userLabel="Sky">
+                    <rect key="frame" x="0.0" y="0.0" width="4964" height="768"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="avatar6@ipad.png" id="128" userLabel="driverView">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="avatar6_0.png" id="128" userLabel="driverView">
                     <rect key="frame" x="217" y="531" width="100" height="140"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
@@ -275,7 +275,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="English.png" id="137" userLabel="FlagView" colorLabel="IBBuiltInLabel-Orange">
-                    <rect key="frame" x="182" y="388" width="64" height="64"/>
+                    <rect key="frame" x="230" y="423" width="90" height="90"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9xo-O1-llW" userLabel="wordLabel1Button">
@@ -312,10 +312,10 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="oHl-X7-JWh" userLabel="PlayAgainButton">
-                    <rect key="frame" x="254" y="388" width="245" height="60"/>
+                    <rect key="frame" x="115" y="251" width="305" height="167"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="36"/>
-                    <state key="normal" title="Play Again" image="reset@ipad.png">
+                    <state key="normal" image="btn_keep_play.png">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -324,10 +324,10 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="p1V-9y-4TU" userLabel="ReturnToMapButton">
-                    <rect key="frame" x="552" y="396" width="409" height="43"/>
+                    <rect key="frame" x="564" y="251" width="305" height="167"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="36"/>
-                    <state key="normal" title="Return to Map" image="menu1.png">
+                    <state key="normal" image="btn_return.png">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -336,10 +336,10 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="WHm-XN-wvz" userLabel="PurchaseButton">
-                    <rect key="frame" x="274" y="474" width="701" height="49"/>
+                    <rect key="frame" x="339" y="457" width="305" height="167"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="36"/>
-                    <state key="normal" title="Unlock to go to Next Level" image="unlock@ipad.png">
+                    <state key="normal" title="Unlock to go to Next Level" image="btn_unlock.png">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -355,24 +355,24 @@
     <resources>
         <image name="English.png" width="256" height="256"/>
         <image name="airplane.png" width="300" height="218"/>
-        <image name="avatar6@ipad.png" width="250" height="350"/>
+        <image name="avatar6_0.png" width="580" height="763"/>
+        <image name="btn_keep_play.png" width="610" height="334"/>
+        <image name="btn_return.png" width="610" height="334"/>
+        <image name="btn_unlock.png" width="610" height="334"/>
         <image name="cheap.png" width="300" height="279"/>
         <image name="clicking.png" width="139" height="147"/>
         <image name="crab.png" width="300" height="243"/>
         <image name="help.png" width="97" height="97"/>
-        <image name="landscape1@ipad.png" width="4813" height="748"/>
-        <image name="landscape2Sky@ipad.png" width="1000" height="248"/>
+        <image name="landscape_a_1.png" width="9888" height="1536"/>
         <image name="menu1.png" width="209" height="80"/>
-        <image name="pause2.png" width="97" height="97"/>
+        <image name="pause2.png" width="100" height="100"/>
         <image name="rail-768.png" width="4830" height="9"/>
-        <image name="reset@ipad.png" width="60" height="56"/>
         <image name="smoke.png" width="66" height="44"/>
         <image name="sound-on@ipad.png" width="210" height="110"/>
         <image name="token-bronze.png" width="66" height="66"/>
         <image name="token-gold.png" width="66" height="66"/>
         <image name="token-silver.png" width="66" height="66"/>
-        <image name="train.png" width="394" height="379"/>
-        <image name="unlock@ipad.png" width="97" height="97"/>
+        <image name="train.png" width="468" height="390"/>
         <image name="wagon.png" width="210" height="96"/>
         <image name="wheel1.png" width="61" height="61"/>
         <image name="wheel3.png" width="61" height="61"/>

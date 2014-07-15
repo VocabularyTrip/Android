@@ -28,9 +28,9 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="cuC-rx-lhv" userLabel="PlayCurrentLevelButton">
-                            <rect key="frame" x="128" y="182" width="40" height="53"/>
+                            <rect key="frame" x="128" y="182" width="44" height="58"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" image="avatar1.png">
+                            <state key="normal" image="avatar1_0.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -66,7 +66,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="start_bronze.png" id="EFG-zr-WSQ" userLabel="FlagStartView">
-                            <rect key="frame" x="115" y="233" width="120" height="52"/>
+                            <rect key="frame" x="66" y="330" width="120" height="52"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                     </subviews>
@@ -91,7 +91,7 @@
         </view>
     </objects>
     <resources>
-        <image name="avatar1.png" width="125" height="175"/>
+        <image name="avatar1_0.png" width="580" height="763"/>
         <image name="clicking.png" width="139" height="147"/>
         <image name="flag_finish.png" width="453" height="287"/>
         <image name="flag_gold.png" width="589" height="225"/>

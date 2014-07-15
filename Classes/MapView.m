@@ -40,7 +40,9 @@
 - (void) viewDidLoad {
     [self initializeGame];
     [self initMap];
- 
+    [self initConfigView];
+    [self initAlbumMenu];
+    
     for (int i=0; i < mapScrollView.subviews.count; i++) {
         UIView *aView = [mapScrollView.subviews objectAtIndex:i];
         [aView setTag: 999]; // Tag 999 means dont remove in reloadAllLevels method. Since this method remove all subviews.
@@ -63,8 +65,6 @@
     
     [super viewWillAppear: animated];
     
-    [self initConfigView];
-    [self initAlbumMenu];
     
     // First execution jump to wizard to select user and lang
     UserContext *aUserC = [UserContext getSingleton];
@@ -82,7 +82,7 @@
         
         Level *level = [UserContext getLevel];
         playCurrentLevelButton.center = [level placeinMap];
-        playCurrentLevelButton.center = (CGPoint) {playCurrentLevelButton.center.x, playCurrentLevelButton.center.y };
+        //playCurrentLevelButton.center = (CGPoint) {playCurrentLevelButton.center.x, playCurrentLevelButton.center.y };
         
         currentLevelNumber = level.levelNumber;
     }
@@ -272,7 +272,6 @@
         [self addImage: [UIImage imageNamed: @"stage_off.png"] //level.image
                   pos: [level placeinMap]
                   size: [ImageManager getMapViewLevelSize]];
-        //image.tag = 1000 + level.levelNumber;
         [self addAccessibleIconToLevel: level];
         [self addProgressLevel: level];
     }

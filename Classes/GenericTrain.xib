@@ -62,7 +62,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="2060" height="320"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="avatar6.png" id="131" userLabel="DriverView">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="avatar6_0.png" id="131" userLabel="DriverView">
                     <rect key="frame" x="100" y="206" width="51" height="76"/>
                     <autoresizingMask key="autoresizingMask"/>
                 </imageView>
@@ -281,7 +281,7 @@
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="English.png" id="135" userLabel="FlagView">
-                    <rect key="frame" x="86" y="142" width="34" height="34"/>
+                    <rect key="frame" x="113" y="163" width="36" height="36"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qbd-Ry-ka3" userLabel="WordButtonLabel1">
@@ -321,7 +321,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="i6z-st-JxC" userLabel="PlayAgainButton">
-                    <rect key="frame" x="59" y="109" width="150" height="82"/>
+                    <rect key="frame" x="56" y="109" width="150" height="82"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
                     <state key="normal" image="btn_keep_play.png">
@@ -363,7 +363,7 @@
     </objects>
     <resources>
         <image name="English.png" width="256" height="256"/>
-        <image name="avatar6.png" width="125" height="175"/>
+        <image name="avatar6_0.png" width="580" height="763"/>
         <image name="btn_keep_play.png" width="610" height="334"/>
         <image name="btn_return.png" width="610" height="334"/>
         <image name="btn_unlock.png" width="610" height="334"/>
@@ -382,7 +382,7 @@
         <image name="token-bronze.png" width="66" height="66"/>
         <image name="token-gold.png" width="66" height="66"/>
         <image name="token-silver.png" width="66" height="66"/>
-        <image name="train.png" width="394" height="379"/>
+        <image name="train.png" width="468" height="390"/>
         <image name="wagon.png" width="210" height="96"/>
         <image name="wheel1.png" width="61" height="61"/>
         <image name="wheel3.png" width="61" height="61"/>

@@ -160,7 +160,7 @@
 
 + (CGSize) getMapViewSize {
     return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ?
-    CGSizeMake(3400,768) : CGSizeMake(1140, 858);
+    CGSizeMake(2048,1542) : CGSizeMake(1140, 858);
 }
 
 + (int) albumMagnifierDeltaPos {
