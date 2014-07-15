@@ -363,12 +363,14 @@
 
 - (void) initConfigView {
     [self.view addSubview: [self configView].view];
+    [self.view bringSubviewToFront: [self configView].view];
     configView.parentView = self;
     [configView close];
 }
 
 - (void) initAlbumMenu {
     [self.view addSubview: [self albumMenu].view];
+    [self.view bringSubviewToFront: [self albumMenu].view];
     albumMenu.parentView = self;
     [albumMenu close];
 }

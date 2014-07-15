@@ -27,21 +27,21 @@
 	//self.transform = t;
 	UIImage *image;
 	if (i==0)
-		image = [UIImage imageNamed: [ImageManager getIphoneIpadFile: @"wheel1"]];
+		image = [UIImage imageNamed: @"wheel1.png"];
 	else if (i==1) 
-		image = [UIImage imageNamed: [ImageManager getIphoneIpadFile: @"wheel2"]];
+		image = [UIImage imageNamed: @"wheel2.png"];
 	else if (i==2) 
-		image = [UIImage imageNamed: [ImageManager getIphoneIpadFile: @"wheel3"]];
+		image = [UIImage imageNamed: @"wheel3.png"];
 	else if (i==3) 
-		image = [UIImage imageNamed: [ImageManager getIphoneIpadFile: @"wheel4"]];
+		image = [UIImage imageNamed: @"wheel4.png"];
 	else if (i==4) 
-		image = [UIImage imageNamed: [ImageManager getIphoneIpadFile: @"wheel5"]];
+		image = [UIImage imageNamed: @"wheel5.png"];
 	else if (i==5) 
-		image = [UIImage imageNamed: [ImageManager getIphoneIpadFile: @"wheel6"]];
+		image = [UIImage imageNamed: @"wheel6.png"];
 	else if (i==6) 
-		image = [UIImage imageNamed: [ImageManager getIphoneIpadFile: @"wheel7"]];
+		image = [UIImage imageNamed: @"wheel7.png"];
 	else  
-		image = [UIImage imageNamed: [ImageManager getIphoneIpadFile: @"wheel8"]];	
+		image = [UIImage imageNamed: @"wheel8.png"];
 	self.image = image;
 	i+=1;
 	if (i==8) i = 0;

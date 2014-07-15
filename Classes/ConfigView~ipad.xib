@@ -23,11 +23,11 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slider_settings.png" id="RvO-D9-0wg" userLabel="Background">
-                    <rect key="frame" x="-33" y="-7" width="300" height="768"/>
+                    <rect key="frame" x="-21" y="0.0" width="260" height="768"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MfF-en-A6j" userLabel="BackButton">
-                    <rect key="frame" x="-26" y="1" width="40" height="40"/>
+                    <rect key="frame" x="-20" y="4" width="40" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" image="config.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -37,7 +37,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tCv-jT-lnc" userLabel="ResetButton">
-                    <rect key="frame" x="15" y="405" width="97" height="97"/>
+                    <rect key="frame" x="28" y="405" width="97" height="97"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="17"/>
                     <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-57"/>
@@ -53,7 +53,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="l4s-lh-sgb" userLabel="BuyButton">
-                    <rect key="frame" x="15" y="300" width="97" height="97"/>
+                    <rect key="frame" x="28" y="300" width="97" height="97"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                     <state key="normal" image="ico_purchase.png">
@@ -68,7 +68,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="TiA-24-cWu" userLabel="SoundButton">
-                    <rect key="frame" x="-42" y="510" width="210" height="95"/>
+                    <rect key="frame" x="-29" y="510" width="210" height="95"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="9"/>
                     <state key="normal" image="ico_volume.png">
@@ -83,7 +83,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="RAJ-Yq-gvP" userLabel="MailButton">
-                    <rect key="frame" x="15" y="624" width="97" height="97"/>
+                    <rect key="frame" x="28" y="624" width="97" height="97"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="9"/>
                     <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-33"/>
@@ -99,7 +99,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="wip-yf-0uN" userLabel="LangButton">
-                    <rect key="frame" x="15" y="198" width="97" height="97"/>
+                    <rect key="frame" x="28" y="198" width="97" height="97"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Button" image="English.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -109,7 +109,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="GGa-3A-lzL" userLabel="UserButton">
-                    <rect key="frame" x="15" y="86" width="97" height="97"/>
+                    <rect key="frame" x="28" y="86" width="97" height="97"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="9"/>
                     <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-33"/>
@@ -125,7 +125,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="BG1-59-0mO" userLabel="CancelDownloadButton">
-                    <rect key="frame" x="1" y="613" width="150" height="60"/>
+                    <rect key="frame" x="14" y="613" width="150" height="60"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <state key="normal" image="btn_download_cancel.png">
@@ -140,7 +140,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="CCf-U6-viN" userLabel="DownloadButton">
-                    <rect key="frame" x="1" y="613" width="150" height="60"/>
+                    <rect key="frame" x="14" y="613" width="150" height="60"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <state key="normal" title="Button" image="btn_download.png">
@@ -155,11 +155,11 @@
                     </connections>
                 </button>
                 <progressView opaque="NO" alpha="0.0" contentMode="scaleToFill" id="8Ad-ZT-pWf" userLabel="DownloadProgressView">
-                    <rect key="frame" x="1" y="672" width="150" height="2"/>
+                    <rect key="frame" x="14" y="672" width="150" height="2"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </progressView>
                 <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clicking.png" id="w2Z-Hg-XA9" userLabel="HandHelp">
-                    <rect key="frame" x="15" y="115" width="70" height="75"/>
+                    <rect key="frame" x="28" y="115" width="70" height="75"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
             </subviews>
@@ -178,6 +178,6 @@
         <image name="ico_purchase.png" width="100" height="100"/>
         <image name="ico_reset.png" width="100" height="100"/>
         <image name="ico_volume.png" width="100" height="100"/>
-        <image name="slider_settings.png" width="1071" height="3060"/>
+        <image name="slider_settings.png" width="1017" height="3008"/>
     </resources>
 </document>

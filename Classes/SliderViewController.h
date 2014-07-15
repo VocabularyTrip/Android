@@ -8,6 +8,9 @@
 
 #import "GenericDownloadViewController.h"
 
+#define cFlapWidthIpad 21
+#define cFlapWidthIpod 17
+
 @interface SliderViewController : GenericDownloadViewController {
     id __unsafe_unretained parentView;
     UIImageView *__unsafe_unretained backgroundView;

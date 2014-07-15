@@ -130,8 +130,8 @@
 
 - (void) refreshSoundButton {
 	NSString *soundImageFile;
-	soundImageFile = UserContext.soundEnabled == YES ? @"sound-on" : @"sound-of";
-    soundImageFile = [ImageManager getIphoneIpadFile: soundImageFile];
+	soundImageFile = UserContext.soundEnabled == YES ? @"ico_volume.png" : @"sound-of.png";
+    //soundImageFile = [ImageManager getIphoneIpadFile: soundImageFile];
 	[soundButton setImage: [UIImage imageNamed: soundImageFile] forState: UIControlStateNormal];
 	//[self.view.layer removeAllAnimations];
 }

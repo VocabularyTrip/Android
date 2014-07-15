@@ -10,8 +10,11 @@
                 <outlet property="backButton" destination="22" id="31"/>
                 <outlet property="backgroundView" destination="76" id="kSm-zq-65b"/>
                 <outlet property="buyAllButton" destination="117" id="120"/>
+                <outlet property="buyAllDescLabel" destination="Ddh-Hk-i7K" id="Zmd-6k-aHk"/>
+                <outlet property="buyOneSetDescLabel" destination="xvs-fq-AhP" id="H3P-rn-35E"/>
                 <outlet property="buyOneSetofLevelesButton" destination="lmm-LU-rwO" id="BQS-LB-YrU"/>
                 <outlet property="facebookButton" destination="cHH-Fp-oCQ" id="TMo-Cg-eR7"/>
+                <outlet property="noReachabilityButton" destination="cUs-Af-9nk" id="XeW-aT-ADI"/>
                 <outlet property="promoCodeLabel" destination="210" id="212"/>
                 <outlet property="promoCodeStatus" destination="211" id="213"/>
                 <outlet property="promoCodeText" destination="202" id="203"/>
@@ -48,10 +51,10 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="117" userLabel="BuyAllLevelsButton">
-                            <rect key="frame" x="120" y="166" width="307" height="180"/>
+                            <rect key="frame" x="120" y="141" width="346" height="205"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="34"/>
-                            <inset key="contentEdgeInsets" minX="88" minY="110" maxX="0.0" maxY="0.0"/>
+                            <inset key="contentEdgeInsets" minX="111" minY="144" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="U$S 9.98" backgroundImage="btn_buy_all.png">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -64,11 +67,11 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lmm-LU-rwO" userLabel="BuyOneSetButton">
-                            <rect key="frame" x="556" y="166" width="307" height="180"/>
+                            <rect key="frame" x="517" y="141" width="346" height="205"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <accessibility key="accessibilityConfiguration" label="aa"/>
                             <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="34"/>
-                            <inset key="contentEdgeInsets" minX="159" minY="110" maxX="0.0" maxY="0.0"/>
+                            <inset key="contentEdgeInsets" minX="106" minY="144" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="U$S 3.99" backgroundImage="btn_buy_one.png">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -149,6 +152,29 @@
                             <rect key="frame" x="126" y="642" width="731" height="8"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="clip" id="cUs-Af-9nk" userLabel="NoReachabilityButton">
+                            <rect key="frame" x="524" y="77" width="447" height="67"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="21"/>
+                            <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="No Internet or Parental Gate">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xvs-fq-AhP" userLabel="BuyOneSetDescLabel">
+                            <rect key="frame" x="524" y="259" width="333" height="40"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="16"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ddh-Hk-i7K" userLabel="BuyAllWordsDescLabel">
+                            <rect key="frame" x="126" y="259" width="333" height="40"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="16"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                 </scrollView>
             </subviews>
