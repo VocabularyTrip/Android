@@ -307,6 +307,11 @@
 	int idButton = [n intValue];
 	Word* word = (Word*) [parameters objectForKey: @"word"];
 	
+    qOfImagesRemaining--;
+    if ([self checkFinishGame: word]) {
+        [self endGame];
+    }
+    
 	if (word != nil && idButton >= 0 && idButton < 3) {
 		@try {
             [self showThisWord: word id: idButton button: aWordButton buttonLabel: aWordButtonLabel context: context];
@@ -318,9 +323,13 @@
 		
 	} else {
 		NSLog(@"End game abnormally. getRandomWeightedWord return nil");
-		[self endGame];
+		//[self endGame];
 	}
 	
+}
+
+- (bool) checkFinishGame: (Word*) word {
+    return (qOfImagesRemaining <= 0);
 }
 
 - (void) showThisWord: (Word*) aWord id: (int) idButton button: (UIButton*) aWordButton buttonLabel: (UIButton*) aWordButtonLabel context:(void *)context {
@@ -348,10 +357,6 @@
     if ([GameSequenceManager getCurrentGameSequence].includeImages) aWordButton.alpha = 1;
     
     [UIView commitAnimations];
-    qOfImagesRemaining--;
-    if (qOfImagesRemaining <= 0) {
-        [self endGame];
-    }
 }
 
 - (void)showWordAnimationDidStop:(NSString *)theAnimation finished:(BOOL)flag context:(void *)context {
@@ -587,6 +592,7 @@
 }
 
 - (int) hitsPerGame {
+   
 	return cHitsPerGame;
 }
 
@@ -948,7 +954,7 @@
 	//[wordButton3 setImage: word.image forState: UIControlStateNormal];
     [ImageManager fitImage: word.image inButton: wordButton3];
 	[wordButtonLabel3 setTitle: word.translatedName forState: UIControlStateNormal];
-	
+
 }
 
 /*-(void) hideAllViews {

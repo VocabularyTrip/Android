@@ -151,7 +151,7 @@
 // ********************* IMAGE SIZE DEFINITION *********************** //
 
 + (int) getMapViewLevelSize {
-    return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 80 : 42;
+    return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 160 : 62;
 }
 
 + (CGSize) getFlagSize {
@@ -160,7 +160,7 @@
 
 + (CGSize) getMapViewSize {
     return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ?
-    CGSizeMake(2048,1542) : CGSizeMake(1140, 858);
+    CGSizeMake(3497,2635) : CGSizeMake(1140, 858);
 }
 
 + (int) albumMagnifierDeltaPos {

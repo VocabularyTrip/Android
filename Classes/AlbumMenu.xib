@@ -38,7 +38,6 @@
                     </state>
                     <connections>
                         <action selector="closeOpenClicked" destination="-1" eventType="touchDown" id="X40-Hm-q5o"/>
-                        <action selector="done:" destination="-1" eventType="touchDown" id="PtN-1K-dEu"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="R6J-Zz-hfl" userLabel="AlbumMonsterButton">
@@ -109,7 +108,6 @@
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>

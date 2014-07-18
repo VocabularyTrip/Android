@@ -182,6 +182,11 @@ Vocabulary *singletonVocabulary;
 	}
 }
 
++ (int) countOfWordsInOneLevel {
+    return [oneLevel count];
+}
+
+
 + (int) countOfLevels {
     return levelIndex;
 }
@@ -257,7 +262,7 @@ Vocabulary *singletonVocabulary;
 			i=0;	
 		}
 		Word *w = [oneLevel objectAtIndex: i];
-		[oneLevel removeObjectAtIndex: i];
+        [oneLevel removeObjectAtIndex: i];
 		return w;
 	} else {
 		NSLog(@"Exception: getRandomWeightedWord return nil");

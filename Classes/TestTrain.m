@@ -113,6 +113,10 @@
     [self takeOutTrain];
 }*/
 
+- (bool) checkFinishGame: (Word*) word {
+    return (qOfImagesRemaining <= 0 || !word);
+}
+
 - (void) endGame { 
 	[super endGame];
     gameStatus = cStatusGameIsMoneyCount;

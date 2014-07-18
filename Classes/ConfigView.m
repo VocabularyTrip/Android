@@ -35,10 +35,10 @@
 
     [super show];
     
-    if (![Vocabulary isDownloadCompleted] && !singletonVocabulary.isDownloading) [self helpDownload1];
+    if (![Vocabulary isDownloadCompleted] && !singletonVocabulary.isDownloading)
+        [self helpDownload1];
     [[parentView albumMenu] close];
 }
-
 
 - (IBAction)changeUserShowInfo:(id)sender {
 	//[parentView stopBackgroundSound];

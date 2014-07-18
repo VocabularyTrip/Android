@@ -55,7 +55,7 @@ extern Vocabulary *singletonVocabulary;
 + (void) loadDataFromXML; //
 + (void) parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict; //
 + (Word*) getOrderedWord;
-+ (Word*) getRandomWeightedWord; //
++ (Word*) getRandomWeightedWord;
 + (Word*) getRandomWordFromLevel: (int) levelNumber;
 + (void)parserDidEndDocument:(NSXMLParser *)parser;
 + (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError;
@@ -70,24 +70,18 @@ extern Vocabulary *singletonVocabulary;
 + (double) wasLearnedLast5Levels;
 + (double) wasLearnedFrom: (int) startLevel;
 + (int) getLevelLessLearned;
-//+ (double) progressIndividualLevel;
 + (double) progressLevel: (int) aLevel;
 + (CGRect) resizeProgressFrame: (CGRect) progressFrame toNewProgress: (double) progress progressFill: (CGRect) progressBarFillFrame;
-
-//+ (NSString*) getTranslatedName: (NSDictionary *) attributeDict;
-
-//+ (void) setDelegate: (id<DownloadDelegate>) delegate;
-
 + (void) loadDataFromSql; //
 + (void) connectionFinishSuccesfully: (NSDictionary*) response;
 - (void) startDownload;
 - (void) downlloadOneLevel;
 + (void) connectionFinishWidhError:(NSError *) error;
-
 + (void) setProgress: (float) progress; //
 + (int) countOfFilesInLocalPath; //
 + (bool) isDownloadCompleted; //
 + (int) countOfLevels;
++ (int) countOfWordsInOneLevel;
 + (Word*) getWord: (NSString*) name inLevel: (int) level;
 
 @end

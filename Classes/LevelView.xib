@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="backgroundView" destination="lex-dP-IOg" id="mcJ-ab-gAG"/>
                 <outlet property="imageView" destination="Ipa-JT-cCQ" id="6qa-CM-kcW"/>
+                <outlet property="levelNamelabel" destination="3Yw-3U-OWW" id="dPr-MW-lqS"/>
                 <outlet property="nativeWordNamelabel" destination="Qh2-BJ-JkS" id="RUy-IT-Apo"/>
                 <outlet property="pauseButton" destination="zz7-AB-Gpj" id="kSO-Og-C9t"/>
                 <outlet property="repeatButton" destination="2cF-0E-uru" id="fmy-n9-mAd"/>
@@ -26,21 +27,28 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" minimumFontSize="10" id="Qh2-BJ-JkS" userLabel="WordNameLabelSecondLang">
-                    <rect key="frame" x="259" y="185" width="274" height="23"/>
+                    <rect key="frame" x="259" y="185" width="297" height="23"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="The Name" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumFontSize="9" id="x9e-J2-UUA" userLabel="WordNameLabel">
-                    <rect key="frame" x="259" y="125" width="274" height="52"/>
+                    <rect key="frame" x="259" y="125" width="297" height="52"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="36"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Level Name" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumFontSize="9" id="3Yw-3U-OWW" userLabel="LevelNameLabel">
+                    <rect key="frame" x="122" y="2" width="320" height="40"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="31"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="architect.png" id="Ipa-JT-cCQ" userLabel="ImageView">
-                    <rect key="frame" x="102" y="93" width="138" height="135"/>
+                    <rect key="frame" x="61" y="93" width="138" height="135"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zz7-AB-Gpj" userLabel="PauseButton">

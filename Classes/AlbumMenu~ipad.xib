@@ -38,11 +38,10 @@
                     </state>
                     <connections>
                         <action selector="closeOpenClicked" destination="-1" eventType="touchDown" id="OO0-vH-uTh"/>
-                        <action selector="done:" destination="-1" eventType="touchDown" id="jlQ-ZM-fcO"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bDr-dC-xPV" userLabel="PrincessesAlbumButton">
-                    <rect key="frame" x="35" y="84" width="190" height="113"/>
+                    <rect key="frame" x="37" y="84" width="190" height="113"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Button" image="cover-princess.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -52,19 +51,19 @@
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_back.png" id="8tk-F2-tyO" userLabel="Progress1BackView">
-                    <rect key="frame" x="32" y="205" width="197" height="30"/>
+                    <rect key="frame" x="34" y="205" width="197" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_fill.png" id="vQI-mz-3VF" userLabel="Progress1FillView">
-                    <rect key="frame" x="32" y="205" width="197" height="30"/>
+                    <rect key="frame" x="34" y="205" width="197" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_empty.png" id="wsj-iN-HRJ" userLabel="Progress1EmptyView">
-                    <rect key="frame" x="32" y="205" width="197" height="30"/>
+                    <rect key="frame" x="34" y="205" width="197" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0xp-ea-9Ed" userLabel="MonsterAlbumButton">
-                    <rect key="frame" x="35" y="250" width="190" height="113"/>
+                    <rect key="frame" x="37" y="250" width="190" height="113"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Button" image="cover-monster.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -74,19 +73,19 @@
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_back.png" id="W7e-Me-q2E" userLabel="Progress2BackView">
-                    <rect key="frame" x="32" y="369" width="197" height="30"/>
+                    <rect key="frame" x="34" y="369" width="197" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_fill.png" id="f9s-V3-NHC" userLabel="Progress2FillView">
-                    <rect key="frame" x="32" y="369" width="197" height="30"/>
+                    <rect key="frame" x="34" y="369" width="197" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_empty.png" id="Yoh-ev-jnn" userLabel="Progress2EmptyView">
-                    <rect key="frame" x="32" y="369" width="197" height="30"/>
+                    <rect key="frame" x="34" y="369" width="197" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="isf-Q2-VSp" userLabel="AnimalAlbumButton">
-                    <rect key="frame" x="35" y="410" width="190" height="113"/>
+                    <rect key="frame" x="37" y="410" width="190" height="113"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Button" image="cover-animal.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -96,15 +95,15 @@
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_back.png" id="lAR-n9-tuE" userLabel="Progress3BackView">
-                    <rect key="frame" x="32" y="532" width="197" height="30"/>
+                    <rect key="frame" x="34" y="532" width="197" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_fill.png" id="Jnw-OA-Nt9" userLabel="Progress3FillView">
-                    <rect key="frame" x="32" y="531" width="197" height="30"/>
+                    <rect key="frame" x="34" y="531" width="197" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_empty.png" id="B8c-Xk-Ets" userLabel="Progress3EmptyView">
-                    <rect key="frame" x="32" y="532" width="197" height="30"/>
+                    <rect key="frame" x="34" y="532" width="197" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
             </subviews>

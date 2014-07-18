@@ -55,21 +55,21 @@
     progressView.frame = frame;
 }
 
-- (IBAction)album1ShowInfo:(id)sender {
+- (IBAction) album1ShowInfo:(id)sender {
    	[parentView stopBackgroundSound];
 	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
     [vcDelegate.albumView selectAlbum1];
 	[vcDelegate pushAlbumView];
 }
 
-- (IBAction)album2ShowInfo:(id)sender {
+- (IBAction) album2ShowInfo:(id)sender {
    	[parentView stopBackgroundSound];
 	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
     [vcDelegate.albumView selectAlbum2];
 	[vcDelegate pushAlbumView];
 }
 
-- (IBAction)album3ShowInfo:(id)sender {
+- (IBAction) album3ShowInfo:(id)sender {
    	[parentView stopBackgroundSound];
 	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
     [vcDelegate.albumView selectAlbum3];

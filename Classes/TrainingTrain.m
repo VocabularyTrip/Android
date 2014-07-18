@@ -50,6 +50,13 @@
 	[self addFlyWord: 2];
 }
 
+- (int) hitsPerGame {
+    if ([UserContext levelGameMode] == tLevelModeGame_currentLevel)
+        return [Vocabulary countOfWordsInOneLevel] + 3;
+    else
+        return [super hitsPerGame];
+}
+
 -(int) distanceBetweenWords {
 	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 		return cDistanceBetweenWords * 2;

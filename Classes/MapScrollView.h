@@ -19,6 +19,12 @@
 //@property (nonatomic) LevelView *levelView;
 
 - (void) openLevelView: (Level*) level;
+- (void) reloadAllLevels;
+- (void) drawAllLeveles;
+- (void) removeAllLevels;
+- (UIImageView*) addImage: (UIImage*) image pos: (CGPoint) pos size: (int) size;
+- (bool) addAccessibleIconToLevel: (Level*) level;
+- (void) addProgressLevel: (Level*) level;
 
 @end
 

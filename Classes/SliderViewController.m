@@ -39,7 +39,6 @@
     
     int flapWidth = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? cFlapWidthIpad : cFlapWidthIpod;
     frame.origin.x = [ImageManager windowWidthXIB] - abs(flapWidth * 1.8);
-    // frame.origin.x + round(backgroundView.frame.size.width * 0.80);
     return frame;
 }
 
@@ -51,7 +50,7 @@
 }
 
 - (void) show {
-    self.view.layer.shouldRasterize = YES;
+    //self.view.layer.shouldRasterize = YES;
     
     self.view.frame = [self frameClosed];
     [UIView beginAnimations: @"moveShow" context: (__bridge void *)(self.view)];

@@ -22,6 +22,7 @@
 	UILabel *__unsafe_unretained nativeWordNamelabel;
 	UIButton *__unsafe_unretained pauseButton;
     UIButton *__unsafe_unretained repeatButton;
+	UILabel *__unsafe_unretained levelNamelabel;
     
 	CADisplayLink *theTimer;
     CGRect originalframeImageView;
@@ -33,6 +34,7 @@
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *backgroundView;
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *imageView;
 @property (nonatomic, unsafe_unretained) IBOutlet UILabel *wordNamelabel;
+@property (nonatomic, unsafe_unretained) IBOutlet UILabel *levelNamelabel;
 @property (nonatomic, unsafe_unretained) IBOutlet UILabel *nativeWordNamelabel;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *pauseButton;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *repeatButton;

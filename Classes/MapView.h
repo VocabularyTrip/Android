@@ -49,19 +49,14 @@
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *hand;
 
 - (IBAction) playCurrentLevel: (id) sender;
+- (IBAction) helpAnimation1;
 //- (IBAction) albumShowInfo: (id) sender;
 - (ConfigView*) configView;
 - (AlbumMenu*) albumMenu;
 - (void) initMap;
 - (void) initConfigView;
 - (void) initAlbumMenu;
-- (void) reloadAllLevels;
-- (void) drawAllLeveles;
-- (void) removeAllLevels;
 - (void) moveUser;
-- (UIImageView*) addImage: (UIImage*) image pos: (CGPoint) pos size: (int) size;
-- (void) addAccessibleIconToLevel: (Level*) level;
-- (void) addProgressLevel: (Level*) level;
 - (void) initializeGame;
 - (void) initAudioSession;
 - (void) stopBackgroundSound;
@@ -75,7 +70,7 @@
 - (void) initAvatarAnimation;
 - (void) initializeTimer;
 - (void) randomAvatarAnimation;
-- (void) helpAnimation1;
+
 - (void) helpAnimationPurchase;
 
 @end

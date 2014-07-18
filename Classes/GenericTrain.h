@@ -195,6 +195,7 @@ enum {
 - (void) initializeTimer;
 - (void) trainLoop;
 - (void) initMusicPlayer;
+- (bool) checkFinishGame: (Word*) word;
 - (void) endGame;
 - (void) startGame;
 - (void) takeOutTrain;

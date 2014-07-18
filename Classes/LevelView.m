@@ -24,6 +24,7 @@
 @synthesize backgroundView;
 @synthesize parentView;
 @synthesize level;
+@synthesize levelNamelabel;
 
 - (IBAction) done:(id)sender {
     [theTimer invalidate];
@@ -45,6 +46,7 @@
     imageView.alpha = 0;
 	wordNamelabel.alpha = 0;
 	nativeWordNamelabel.alpha = 0;
+    levelNamelabel.text = level.name;
 }
 
 - (void) viewDidAppear:(BOOL)animated {
