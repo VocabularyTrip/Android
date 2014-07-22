@@ -37,7 +37,9 @@
     CADisplayLink *timerToPlayBackgroundSound;
     bool flagTimeoutStartMusic; // theTimer call immediate. This flat is used to omit it.
     CADisplayLink *theTimer; // Used for avatar animation
-    int avatarAnimationSeq; 
+    int avatarAnimationSeq;
+    float angle;    // Used in helps
+
 }
 
 @property (nonatomic, strong) AVAudioPlayer *backgroundSound;
@@ -72,5 +74,10 @@
 - (void) randomAvatarAnimation;
 
 - (void) helpAnimationPurchase;
+- (void) helpAnimation1;
+- (void) helpAnimation2;
+- (void) helpAnimation3;
+- (void) helpAnimation4;
+
 
 @end
