@@ -72,7 +72,7 @@
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="helpAnimation1" destination="-1" eventType="touchDown" id="uWf-FH-VYp"/>
+                        <action selector="helpClicked" destination="-1" eventType="touchDown" id="Kaf-SM-5XD"/>
                     </connections>
                 </button>
             </subviews>

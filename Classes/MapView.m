@@ -104,7 +104,7 @@
 }
 
 - (void) startHelp {
-    helpButton.alpha = 0;
+    hand.alpha = 0;
     NSLog(@"%i, %i, %i", [UserContext getHelpMapViewStep1], [UserContext getHelpMapViewStep2], [UserContext getHelpMapViewStep3]);
     if ([UserContext getHelpMapViewStep1]) [self helpAnimation1];
     else if ([UserContext getHelpMapViewStep2]) [self helpAnimation2];
@@ -212,6 +212,7 @@
 
 - (void) showAllMapFinished {
     [self startHelp];
+    helpButton.alpha = 1;
     flagFirstShowInSession = NO;
 }
 
@@ -307,7 +308,7 @@
 }
 
 - (IBAction) helpClicked {
-	[self helpAnimation3];
+	[self helpAnimation2];
 }
 
 - (IBAction) helpAnimation1 {
@@ -436,7 +437,7 @@
 
 - (void) helpAnimation2_C {
     // Open Album Menu and move hand to first album
-    [Sentence playSpeaker: @"MapView-Help2_B"];
+    [Sentence playSpeaker: @"MapView-Help2_A"];
     [albumMenu show];
     [UIImageView beginAnimations: @"HandToAlbumButton" context: (__bridge void *)(hand)];
     [UIImageView setAnimationDelegate: self];
@@ -453,7 +454,7 @@
 }
 
 - (void) helpAnimation2_D {
-    [Sentence playSpeaker: @"MapView-Help2_A"];
+    [Sentence playSpeaker: @"MapView-Help2_B"];
     [self helpAnimation2_E];
 }
 
