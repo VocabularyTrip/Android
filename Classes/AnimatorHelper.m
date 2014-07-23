@@ -10,6 +10,8 @@
 #import "User.h"
 #import "UserContext.h"
 
+SEL selectorAnimator = nil;
+
 @implementation AnimatorHelper
 
 + (void) avatarBlink: (UIImageView*) avatarView {
@@ -97,21 +99,21 @@
 }
 
 + (void) clickingView: (UIView*) itemView delegate: (id) delegate {
-    [self clickingView: itemView delegate: delegate context: nil];
+    [self clickingView: itemView delegate: delegate selector: nil];
 }
 
-+ (void) clickingView: (UIView*) itemView delegate: (id) delegate context: (NSNumber*) i {
++ (void) clickingView: (UIView*) itemView delegate: (id) delegate selector: (SEL) selectorParam {
     CGRect frame = itemView.frame;
     
     NSMutableDictionary *animationParameters = [[NSMutableDictionary alloc] init];
     [animationParameters setObject: delegate forKey: @"delegate"];
     [animationParameters setObject: itemView forKey: @"itemView"];
-    [animationParameters setObject: i forKey: @"context"];
+    selectorAnimator = !selectorParam ? @selector(releaseClickingView:finished:context:) : selectorParam;
 
 	[UIImageView beginAnimations: @"clickingAnimation" context: CFBridgingRetain(animationParameters)];
 	[UIImageView setAnimationDelegate: self];
-	[UIImageView setAnimationDidStopSelector: @selector(releaseClickingView:finished:context:)];
 	[UIImageView setAnimationDuration: .15];
+	[UIImageView setAnimationDidStopSelector: @selector(releaseClickingView:finished:context:)];
 	[UIImageView setAnimationBeginsFromCurrentState: YES];
     
 	frame.size.width = frame.size.width*.9;
@@ -133,13 +135,15 @@
 	[UIImageView setAnimationDelegate: delegate];
 	[UIImageView setAnimationDuration: .5];
 	[UIImageView setAnimationBeginsFromCurrentState: YES];
-	[UIImageView setAnimationDidStopSelector: @selector(finishClicking:finished:context:)];
+    if (selectorAnimator) [UIImageView setAnimationDidStopSelector: selectorAnimator];
     
 	frame.size.width = frame.size.width/.9;
 	frame.size.height = frame.size.height/.9;
 	itemView.frame = frame;
     
 	[UIImageView commitAnimations];
+    
+    selectorAnimator = nil;
 }
 
 + (void)shakeView:(UIView*)itemView {

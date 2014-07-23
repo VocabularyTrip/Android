@@ -233,7 +233,7 @@ enum {
 
 @protocol GenericTrainDelegate
 - (void) takeOutTrain;
-- (void) sentenceDidFinish: (NSString*) method;
+//- (void) sentenceDidFinish: (NSString*) method;
 @end
 
 

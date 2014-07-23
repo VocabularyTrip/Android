@@ -15,8 +15,8 @@
 #define supportedLanguages @"" // Add in this string all language avilable in sentences. English (en) must not be included.
 
 extern NSMutableArray *allSentences;
-
-extern id <GenericTrainDelegate> delegate;
+extern NSObject* delegate;
+extern SEL selector;
 
 // This flag is used to avoid concurrent sentences.
 // If isPlaying is YES, no other Sentence can be played and is ignored.
@@ -40,8 +40,8 @@ extern AVAudioPlayer *currentAudio;
 @property (nonatomic, strong) NSString *type;
 @property (nonatomic, assign) int wasPlayed;
 
-+ (id) delegate;
-+ (void) setDelegate: (id) aDelegate;
++ (NSObject*) delegate;
++ (void) setDelegate: (NSObject*) aDelegate;
 + (NSString*) getSentenceName: (NSString*) name;
 
 + (void)loadDataFromXML;
@@ -50,6 +50,7 @@ extern AVAudioPlayer *currentAudio;
 + (void) testAllSentences;
 + (AVAudioPlayer*) getAudioPlayer: (NSString*) fileName;
 + (bool) playSpeaker: (NSString*) name;
++ (bool) playSpeaker: (NSString*) name delegate: (id) del selector: (SEL) aSelector;
 + (void) stopCurrentAudio;
 - (void) play;
 - (void) audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag;

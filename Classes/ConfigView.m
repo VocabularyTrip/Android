@@ -110,7 +110,7 @@
 			break;
 		case 1:
 			[[UserContext getSingleton] resetGame];
-			[parentView reloadAllLevels];
+			[[parentView mapScrollView] reloadAllLevels];
             [parentView moveUser];
 			break;
 		default:

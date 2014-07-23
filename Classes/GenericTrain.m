@@ -240,8 +240,8 @@
 // **** IBActions *****
 // ********************
 
--(void) sentenceDidFinish: (NSString*) method {
-}
+/*-(void) sentenceDidFinish: (NSString*) method {
+}*/
 
 // ************************
 // **** Core Business *****

@@ -31,20 +31,19 @@
     <!-- Training -->
 	<Sentence Method="Training-ViewDidAppear" name="Training help" type="always"></Sentence> <!-- ok -->
     
-    
     <!-- Map -->
-    <Sentence Method="MapView-Help1" name="en_map_01" type="always"></Sentence> <!-- ok -->
-    <Sentence Method="MapView-Help2_A" name="en_map_02" type="always"></Sentence> <!-- ok -->
-    <Sentence Method="MapView-Help2_B" name="en_map_03" type="always"></Sentence> <!-- ok -->
-    <Sentence Method="MapView-Help3_A" name="en_map_05" type="always"></Sentence> <!-- ok -->
-    <Sentence Method="MapView-Help3_B" name="en_map_06" type="always"></Sentence> <!-- ok -->
-    <Sentence Method="MapView-Help4_A" name="en_map_07" type="always"></Sentence> <!-- ok -->
-    <Sentence Method="MapView-Help4_B" name="en_map_08" type="always"></Sentence> <!-- ok -->
-    <Sentence Method="MapView-Help4_C" name="en_map_11" type="always"></Sentence> <!-- ok -->
-    <Sentence Method="MapView-Help4_D" name="en_map_12" type="always"></Sentence> <!-- ok -->
-    <Sentence Method="MapView-Help4_E" name="en_map_13" type="always"></Sentence> <!-- ok -->
-    <Sentence Method="MapView-Help4_F" name="en_map_14" type="always"></Sentence> <!-- ok -->
-    <Sentence Method="MapView-Help4_G" name="en_map_15" type="always"></Sentence> <!-- ok -->
+    <Sentence Method="MapView-Help1" name="map_01" type="always"></Sentence> <!-- ok -->
+    <Sentence Method="MapView-Help2_A" name="map_02" type="always"></Sentence> <!-- ok -->
+    <Sentence Method="MapView-Help2_B" name="map_03" type="always"></Sentence> <!-- ok -->
+    <Sentence Method="MapView-Help3_A" name="map_05" type="always"></Sentence> <!-- ok -->
+    <Sentence Method="MapView-Help3_B" name="map_06" type="always"></Sentence> <!-- ok -->
+    <Sentence Method="MapView-Help4_A" name="map_07" type="always"></Sentence> <!-- ok -->
+    <Sentence Method="MapView-Help4_B" name="map_08" type="always"></Sentence> <!-- ok -->
+    <Sentence Method="MapView-Help4_C" name="map_11" type="always"></Sentence> <!-- ok -->
+    <Sentence Method="MapView-Help4_D" name="map_12" type="always"></Sentence> <!-- ok -->
+    <Sentence Method="MapView-Help4_E" name="map_13" type="always"></Sentence> <!-- ok -->
+    <Sentence Method="MapView-Help4_F" name="map_14" type="always"></Sentence> <!-- ok -->
+    <Sentence Method="MapView-Help4_G" name="map_15" type="always"></Sentence> <!-- ok -->
     
     <!-- Album -->
 	<Sentence Method="AlbumView-onEmptyFigClick-NotEnoughGold" name="win more play more" type="always"></Sentence> <!-- ok -->

@@ -64,7 +64,7 @@
     
     [super viewWillAppear: animated];
     
-        // First execution jump to wizard to select user and lang
+    // First execution jump to wizard to select user and lang
     User *user = [UserContext getSingleton].userSelected;
     if (!user) {
         [self.configView changeUserShowInfo: nil];
@@ -72,24 +72,43 @@
     }
     [playCurrentLevelButton.imageView setImage: user.image];
     
-        // First move map to the end. viewDidAppear implement showAllMapInFirstSession
+    // First move map to the end. viewDidAppear implement showAllMapInFirstSession
     if (flagFirstShowInSession) {
-        [self.backgroundSound play]; // If soundEnabled is false the volumne is 0. This play prepare buffer and resourses to prevent delay in first word
-        
+        // If soundEnabled is false the volumne is 0. This play prepare buffer and resourses to prevent delay in first word
+        [self.backgroundSound play];
         [mapScrollView setContentOffset: CGPointMake(
-                                                     [ImageManager getMapViewSize].width - [ImageManager windowWidth],
-                                                     [ImageManager getMapViewSize].height - [ImageManager windowHeightXIB]) animated: NO];
-        
+            [ImageManager getMapViewSize].width - [ImageManager windowWidthXIB],
+            [ImageManager getMapViewSize].height - [ImageManager windowHeightXIB]) animated: NO];
         Level *level = [UserContext getLevel];
         playCurrentLevelButton.center = [level placeinMap];
-            //playCurrentLevelButton.center = (CGPoint) {playCurrentLevelButton.center.x, playCurrentLevelButton.center.y };
-        
         currentLevelNumber = level.levelNumber;
     }
     [self initializeTimeoutToPlayBackgroundSound];
-    
     [mapScrollView reloadAllLevels];
     [mapScrollView bringSubviewToFront: playCurrentLevelButton];
+    [albumMenu close];
+    [configView close];
+}
+
+- (void) viewDidAppear:(BOOL)animated {
+    [self showAllMapInFirstSession];
+    [self moveUser];
+    
+    if ([UserContext getHelpLevel] || startWithHelpPurchase) [self helpAnimationPurchase];
+    if (!singletonVocabulary.isDownloading && ![Vocabulary isDownloadCompleted]) [configView startLoading];
+    if (startWithHelpDownload) [configView show];
+    startWithHelpDownload = 0;
+    startWithHelpPurchase = 0;
+    if (!flagFirstShowInSession)
+        [self startHelp];
+}
+
+- (void) startHelp {
+    helpButton.alpha = 0;
+    NSLog(@"%i, %i, %i", [UserContext getHelpMapViewStep1], [UserContext getHelpMapViewStep2], [UserContext getHelpMapViewStep3]);
+    if ([UserContext getHelpMapViewStep1]) [self helpAnimation1];
+    else if ([UserContext getHelpMapViewStep2]) [self helpAnimation2];
+    else if ([UserContext getHelpMapViewStep3]) [self helpAnimation3];
 }
 
 - (AVAudioPlayer*) backgroundSound {
@@ -125,19 +144,6 @@
         flagTimeoutStartMusic = YES;
     else
         [self.backgroundSound play];
-}
-
-- (void) viewDidAppear:(BOOL)animated {
-    
-    
-    [self showAllMapInFirstSession];
-    [self moveUser];
-    
-    if ([UserContext getHelpLevel] || startWithHelpPurchase) [self helpAnimationPurchase];
-    if (!singletonVocabulary.isDownloading && ![Vocabulary isDownloadCompleted]) [configView startLoading];
-    if (startWithHelpDownload) [configView show];
-    startWithHelpDownload = 0;
-    startWithHelpPurchase = 0;
 }
 
 - (void) moveOffsetToSeeUser: (Level*) aLevel {
@@ -192,25 +198,21 @@
  }*/
 
 - (void) showAllMapInFirstSession {
-    Level *level = [UserContext getLevel];
-    
-    flagFirstShowInSession = NO;
-    helpButton.alpha = 0;
-    
-    [UIView beginAnimations:@"ShowMapAndPositionInCurrentLevel" context: nil];
-    [UIView setAnimationDelegate: self];
-    [UIImageView setAnimationDidStopSelector: @selector(showAllMapFinished)];
-    [UIView setAnimationDuration: 5];
-    [UIView setAnimationCurve: UIViewAnimationCurveEaseOut];
-    
-    [self moveOffsetToSeeUser: level];
-    
-    [UIView commitAnimations];
+    if (flagFirstShowInSession) {
+        Level *level = [UserContext getLevel];
+        [UIView beginAnimations:@"ShowMapAndPositionInCurrentLevel" context: nil];
+        [UIView setAnimationDelegate: self];
+        [UIImageView setAnimationDidStopSelector: @selector(showAllMapFinished)];
+        [UIView setAnimationDuration: 5];
+        [UIView setAnimationCurve: UIViewAnimationCurveEaseOut];
+        [self moveOffsetToSeeUser: level];
+        [UIView commitAnimations];
+    }
 }
 
 - (void) showAllMapFinished {
-    helpButton.alpha = 1;
-    if ([UserContext getHelpMapViewStep1]) [self helpAnimation1];
+    [self startHelp];
+    flagFirstShowInSession = NO;
 }
 
 - (IBAction) playCurrentLevel:(id)sender {
@@ -304,6 +306,10 @@
     if (avatarAnimationSeq > 3) avatarAnimationSeq = 0;
 }
 
+- (IBAction) helpClicked {
+	[self helpAnimation3];
+}
+
 - (IBAction) helpAnimation1 {
     
     // Show Hand and move to the play button
@@ -314,7 +320,6 @@
     [UIImageView setAnimationDelegate: self];
     [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
     [UIImageView setAnimationDidStopSelector: @selector(helpAnimation1_B)];
-//    [UIImageView setAnimationDidStopSelector: @selector(helpAnimation1_B)];
     [UIImageView setAnimationDuration: 2];
     [UIImageView setAnimationBeginsFromCurrentState: YES];
     hand.center =  (CGPoint)  {
@@ -326,19 +331,19 @@
     
 }
 
-
+// Help 1: Play Game
 - (void) helpAnimation1_B {
     [Sentence playSpeaker: @"MapView-Help1"];
     [self helpAnimation1_C];
 }
 
 - (void) helpAnimation1_C {
-        // hoover over avatar
+    // hoover over avatar
     CGPoint center = hand.center;
     [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
     [UIImageView setAnimationDelegate: self];
     [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
-    if (angle>3*M_PI) {
+    if (angle > M_PI) {
         [UIImageView setAnimationDidStopSelector: @selector(helpAnimation1_D)];
     }
     else {
@@ -352,24 +357,22 @@
     
     angle += M_PI/100;
     [UIImageView commitAnimations];
-        //[AnimatorHelper clickingView: hand delegate: self context: [NSNumber numberWithInt: 1]];
 }
 
 - (void) helpAnimation1_D {
-        // bring hand to alpha = 0
+    // bring hand to alpha = 0
     [UIImageView beginAnimations: @"helpAnimation" context: ( void *)(hand)];
 	[UIImageView setAnimationDelegate: self];
-    [UIImageView setAnimationDidStopSelector: @selector(helpAnimation2_B)];
+    //[UIImageView setAnimationDidStopSelector: @selector(helpAnimation2_B)];
 	[UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
 	[UIImageView setAnimationDuration: .5];
     
 	hand.alpha = 0;
 	[UIImageView commitAnimations];
+    [UserContext setHelpMapViewStep1: NO];
 }
 
-
-
-- (void) finishClicking:(NSString *)theAnimation finished:(BOOL)flag context:(void *)context {
+/*- (void) finishClicking:(NSString *)theAnimation finished:(BOOL)flag context:(void *)context {
     
     NSMutableDictionary *parameters = (__bridge NSMutableDictionary*) context;
     NSNumber* step = (NSNumber*) [parameters objectForKey: @"context"];
@@ -388,26 +391,34 @@
     }
     
 }
+*/
 
+// Help 1: Play with Sticker Album
 - (void) helpAnimation2 {
-        // Show Hand and starting close to stickers tab
-    hand.alpha = 0;
+    // Show Hand and starting close to stickers tab
+
     angle = 0;
+    [albumMenu close];
+    [self.view bringSubviewToFront: hand];
+    
+    /*
+    [UIImageView beginAnimations: @"show hand" context: (__bridge void *)(hand)];
     [UIImageView setAnimationDelegate: self];
     [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
     [UIImageView setAnimationDidStopSelector: @selector(helpAnimation2_B)];
-    [UIImageView setAnimationDuration: .1];
-    [UIImageView setAnimationBeginsFromCurrentState: YES];
+    [UIImageView setAnimationDuration: .2];*/
     hand.center =  (CGPoint)  {
         albumMenu.view.frame.origin.x - albumMenu.view.frame.size.width,
         albumMenu.view.frame.origin.y
     };
-    [UIImageView commitAnimations];
+    hand.alpha = 1;
+    //[UIImageView commitAnimations];
+    
+    [self helpAnimation2_B];
 };
 
-
 - (void) helpAnimation2_B {
-        // Move hand to toolbar button
+    // Move hand to toolbar button
     [UIImageView beginAnimations: @"HandToToolbar" context: (__bridge void *)(hand)];
     [UIImageView setAnimationDelegate: self];
     [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
@@ -424,13 +435,14 @@
 }
 
 - (void) helpAnimation2_C {
-        // Open Album Menu and move hand to first album
+    // Open Album Menu and move hand to first album
+    [Sentence playSpeaker: @"MapView-Help2_B"];
     [albumMenu show];
     [UIImageView beginAnimations: @"HandToAlbumButton" context: (__bridge void *)(hand)];
     [UIImageView setAnimationDelegate: self];
     [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
     [UIImageView setAnimationDidStopSelector: @selector(helpAnimation2_D)];
-    [UIImageView setAnimationDuration: 2];
+    [UIImageView setAnimationDuration: 3];
     [UIImageView setAnimationBeginsFromCurrentState: YES];
     
     hand.center = (CGPoint) {
@@ -441,17 +453,22 @@
 }
 
 - (void) helpAnimation2_D {
-        // hoover over album
+    [Sentence playSpeaker: @"MapView-Help2_A"];
+    [self helpAnimation2_E];
+}
+
+- (void) helpAnimation2_E {
+    // hoover over album
+
     CGPoint center = hand.center;
-    
     [UIImageView beginAnimations: @"HooverOverAlbum" context:(__bridge void *)([NSNumber numberWithInt:0])];
     [UIImageView setAnimationDelegate: self];
     [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
-    if (angle>3*M_PI) {
-        [UIImageView setAnimationDidStopSelector: @selector(helpAnimation2_E)];
+    if (angle>M_PI) {
+        [UIImageView setAnimationDidStopSelector: @selector(helpAnimation2_F)];
     }
     else {
-        [UIImageView setAnimationDidStopSelector: @selector(helpAnimation2_D)];
+        [UIImageView setAnimationDidStopSelector: @selector(helpAnimation2_E)];
     }
     [UIImageView setAnimationDuration: .025];
     [UIImageView setAnimationBeginsFromCurrentState: YES];
@@ -461,31 +478,26 @@
     
     angle += M_PI/100;
     [UIImageView commitAnimations];
-        //[AnimatorHelper clickingView: hand delegate: self context: [NSNumber numberWithInt: 1]];
 }
 
-- (void) helpAnimation2_E {
-        // bring hand to alpha = 0
+- (void) helpAnimation2_F {
+    // bring hand to alpha = 0
     [UIImageView beginAnimations: @"helpAnimation" context: ( void *)(hand)];
     [UIImageView setAnimationDelegate: self];
     [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
-    [UIImageView setAnimationDidStopSelector: @selector(helpAnimation3)];
     [UIImageView setAnimationDuration: .5];
     
     hand.alpha = 0;
     [UIImageView commitAnimations];
+    [UserContext setHelpMapViewStep2: NO];
 }
 
 - (void) helpAnimation3 {
-        // Make hand visible
-    [UIImageView beginAnimations: @"VisibleHand" context: ( void *)(hand)];
-    [UIImageView setAnimationDelegate: self];
-    [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
-    [UIImageView setAnimationDidStopSelector: @selector(helpAnimation3_B)];
-    [UIImageView setAnimationDuration: .5];
-    
+    hand.center =  (CGPoint)  { [[UserContext getLevelAt: 1] placeinMap].x - mapScrollView.contentOffset.x + [ImageManager getMapViewLevelSize] / 2 + hand.frame.size.width/2,
+        [[UserContext getLevelAt: 1] placeinMap].y - mapScrollView.contentOffset.y + [ImageManager getMapViewLevelSize] / 2 + hand.frame.size.height/2
+    };
     hand.alpha = 1;
-    [UIImageView commitAnimations];
+    [self helpAnimation3_B];
 }
 
 - (void) helpAnimation3_B {
@@ -504,51 +516,34 @@
 }
 
 - (void) helpAnimation3_C {
-    // click down once
-
-CGRect frame = hand.frame;
-[UIImageView beginAnimations: @"ClickingOnce" context: nil];
-[UIImageView setAnimationDelegate: self];
-[UIImageView setAnimationDidStopSelector: @selector(helpAnimation3_D)];
-[UIImageView setAnimationDuration: .15];
-[UIImageView setAnimationBeginsFromCurrentState: YES];
-
-frame.size.width = frame.size.width*.9;
-frame.size.height = frame.size.height*.9;
-hand.frame = frame;
-
-[UIImageView commitAnimations];
+    [AnimatorHelper clickingView: hand delegate: self];
+    [Sentence playSpeaker: @"MapView-Help3_A" delegate: self selector: @selector(helpAnimation3_D)];
+    [mapScrollView showLevelInMap: [UserContext getLevelAt: 3]];
 }
 
 - (void) helpAnimation3_D {
-        // Release click
-	CGRect frame = hand.frame;
-    
-	[UIImageView beginAnimations: @"helpAnimation" context: Nil];
-	[UIImageView setAnimationDelegate: self];
-	[UIImageView setAnimationDuration: .3];
-	[UIImageView setAnimationBeginsFromCurrentState: YES];
-	[UIImageView setAnimationDidStopSelector: @selector(helpAnimation3_E)];
-    
-	frame.size.width = frame.size.width/.9;
-	frame.size.height = frame.size.height/.9;
-	hand.frame = frame;
-    
-	[UIImageView commitAnimations];
+    [self helpAnimation3_E];
 }
 
 - (void) helpAnimation3_E {
-    [AnimatorHelper clickingView: hand delegate: self context: [NSNumber numberWithInt: 3]];
+    [AnimatorHelper clickingView: hand delegate: self selector: @selector(helpAnimation3_F)];
 }
 
-- (void) helpAnimation9 {
+- (void) helpAnimation3_F {
+    [AnimatorHelper clickingView: hand delegate: self selector: @selector(helpAnimation3_G)];
+}
+
+- (void) helpAnimation3_G {
+    [Sentence playSpeaker: @"MapView-Help3_B" delegate: self selector: @selector(helpAnimation3_H)];
+}
+
+- (void) helpAnimation3_H {
+    [UserContext setHelpMapViewStep3: NO];
     hand.alpha = 0;
-    [UserContext setHelpMapViewStep1: NO];
 }
 
 - (void) helpAnimationPurchase {
 }
-
 
 - (void) initAudioSession {
 	NSError* audio_session_error = nil;

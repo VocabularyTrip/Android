@@ -12,7 +12,8 @@
 #import <AVFoundation/AVFoundation.h>
 
 NSMutableArray *allSentences = nil;
-id <GenericTrainDelegate> delegate = nil;
+NSObject* delegate = nil;
+SEL selector = nil;
 bool isPlaying = NO;
 AVAudioPlayer *currentAudio = nil;
 
@@ -24,13 +25,19 @@ AVAudioPlayer *currentAudio = nil;
 @synthesize type;
 @synthesize wasPlayed;
 
-+ (id) delegate {
++ (NSObject*) delegate {
 	return delegate;
 }	
 
-+ (void) setDelegate: (id) aDelegate {
++ (void) setDelegate: (NSObject*) aDelegate {
 	delegate = aDelegate;
 }	
+
++ (bool) playSpeaker: (NSString*) name delegate: (id) del selector: (SEL) aSelector {
+    delegate = del;
+    selector = aSelector;
+    return [self playSpeaker: name];
+}
 
 + (bool) playSpeaker: (NSString*) name {
 	Sentence *sentence = [self getSentenceOfMethod: name];
@@ -81,11 +88,19 @@ AVAudioPlayer *currentAudio = nil;
 	isPlaying = NO;
     currentAudio = nil;
 	@try {
-		if ([next isEqualToString: @"NumCurrentLevel"]) {
+        
+        if (delegate && selector) {
+            [delegate performSelector: selector];
+            //delegate = nil;
+            //selector = nil;
+        }
+        
+		/*if ([next isEqualToString: @"NumCurrentLevel"]) {
 			NSString *l = [[NSString alloc] initWithFormat: @"%d", [UserContext getLevelNumber]];
 			[Sentence playSpeaker: l];
 			//[delegate takeOutTrain]; 
-		} else if (next != nil) {
+		} else*/
+        if (next != nil) {
 			[Sentence playSpeaker: next];
 		}
 
@@ -97,7 +112,7 @@ AVAudioPlayer *currentAudio = nil;
 	@finally {
 	}
     
-    [delegate sentenceDidFinish: method];
+    //[delegate sentenceDidFinish: method];
 }
 
 +(void)loadDataFromXML {
