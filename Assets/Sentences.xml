@@ -37,6 +37,7 @@
     <Sentence Method="MapView-Help2_B" name="map_03" type="always"></Sentence> <!-- ok -->
     <Sentence Method="MapView-Help3_A" name="map_05" type="always"></Sentence> <!-- ok -->
     <Sentence Method="MapView-Help3_B" name="map_06" type="always"></Sentence> <!-- ok -->
+    <Sentence Method="MapView-Help3_C" name="map_06b" type="always"></Sentence> <!-- ok -->
     <Sentence Method="MapView-Help4_A" name="map_07" type="always"></Sentence> <!-- ok -->
     <Sentence Method="MapView-Help4_B" name="map_08" type="always"></Sentence> <!-- ok -->
     <Sentence Method="MapView-Help4_C" name="map_11" type="always"></Sentence> <!-- ok -->

@@ -32,6 +32,7 @@
 		893AF8D9153BAD4700EA0BF1 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 893AF8D8153BAD4700EA0BF1 /* Default.png */; };
 		893AF8DB153BAD5100EA0BF1 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 893AF8DA153BAD5100EA0BF1 /* Default@2x.png */; };
 		893AF8DF153BAD6900EA0BF1 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 893AF8DE153BAD6900EA0BF1 /* Default-Landscape~ipad.png */; };
+		8942A57E19822868009D5733 /* en_map_06b.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8942A57D19822868009D5733 /* en_map_06b.mp3 */; };
 		895BB77F1777AB9C00E7540C /* en_Download_Help_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 895BB7781777AB9C00E7540C /* en_Download_Help_1.mp3 */; };
 		895BB7801777AB9C00E7540C /* en_Level_helpA.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 895BB7791777AB9C00E7540C /* en_Level_helpA.mp3 */; };
 		895BB7821777AB9C00E7540C /* en_Level_helpE.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 895BB77B1777AB9C00E7540C /* en_Level_helpE.mp3 */; };
@@ -1217,6 +1218,7 @@
 		893AF8D8153BAD4700EA0BF1 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../../Default.png; sourceTree = "<group>"; };
 		893AF8DA153BAD5100EA0BF1 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../../Default@2x.png"; sourceTree = "<group>"; };
 		893AF8DE153BAD6900EA0BF1 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape~ipad.png"; path = "../../Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		8942A57D19822868009D5733 /* en_map_06b.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_map_06b.mp3; sourceTree = "<group>"; };
 		895BB7781777AB9C00E7540C /* en_Download_Help_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_Download_Help_1.mp3; sourceTree = "<group>"; };
 		895BB7791777AB9C00E7540C /* en_Level_helpA.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_Level_helpA.mp3; sourceTree = "<group>"; };
 		895BB77B1777AB9C00E7540C /* en_Level_helpE.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_Level_helpE.mp3; sourceTree = "<group>"; };
@@ -2870,6 +2872,7 @@
 		CE1627B31522531A00BFDE69 /* English */ = {
 			isa = PBXGroup;
 			children = (
+				8942A57D19822868009D5733 /* en_map_06b.mp3 */,
 				890A27EF197CA203000651D4 /* en_map_01.mp3 */,
 				890A27F0197CA203000651D4 /* en_map_02.mp3 */,
 				890A27F1197CA203000651D4 /* en_map_03.mp3 */,
@@ -4658,6 +4661,7 @@
 				CE7211D1149675EC00D60184 /* princess6.png in Resources */,
 				B0A8B3DE1872CC4F00245F48 /* crab.png in Resources */,
 				B09D361A18AFC0CD00D21B9D /* closet.png in Resources */,
+				8942A57E19822868009D5733 /* en_map_06b.mp3 in Resources */,
 				B0A8B7451876C33700245F48 /* toilet_paper.png in Resources */,
 				B0A8B62F187671B800245F48 /* animal20.png in Resources */,
 				CE7211D2149675EC00D60184 /* princess7.png in Resources */,

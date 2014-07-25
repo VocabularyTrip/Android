@@ -308,7 +308,7 @@
 }
 
 - (IBAction) helpClicked {
-	[self helpAnimation2];
+	[self helpAnimation3];
 }
 
 - (IBAction) helpAnimation1 {
@@ -522,23 +522,33 @@
     [mapScrollView showLevelInMap: [UserContext getLevelAt: 3]];
 }
 
+
 - (void) helpAnimation3_D {
-    [self helpAnimation3_E];
+        // Move hand to a station 2
+    [UIImageView beginAnimations: @"HandToLevel" context: (__bridge void *)(hand)];
+    [UIImageView setAnimationDelegate: self];
+    [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
+    [UIImageView setAnimationDidStopSelector: @selector(helpAnimation3_E)];
+    [UIImageView setAnimationDuration: 2];
+    [UIImageView setAnimationBeginsFromCurrentState: YES];
+    hand.center =  (CGPoint)  {
+        [[UserContext getLevelAt: 2] placeinMap].x - mapScrollView.contentOffset.x + [ImageManager getMapViewLevelSize] / 2 + hand.frame.size.width/2,
+        [[UserContext getLevelAt: 2] placeinMap].y - mapScrollView.contentOffset.y + [ImageManager getMapViewLevelSize] / 2 + hand.frame.size.height/2
+    };
+    [UIImageView commitAnimations];
 }
 
 - (void) helpAnimation3_E {
-    [AnimatorHelper clickingView: hand delegate: self selector: @selector(helpAnimation3_F)];
+    [AnimatorHelper clickingView: hand delegate: self ];
+    [Sentence playSpeaker: @"MapView-Help3_B" delegate: self selector: @selector(helpAnimation3_F)];
+    [mapScrollView showLevelInMap: [UserContext getLevelAt: 2]];
 }
 
 - (void) helpAnimation3_F {
-    [AnimatorHelper clickingView: hand delegate: self selector: @selector(helpAnimation3_G)];
+    [Sentence playSpeaker: @"MapView-Help3_C" delegate: self selector: @selector(helpAnimation3_G)];
 }
 
 - (void) helpAnimation3_G {
-    [Sentence playSpeaker: @"MapView-Help3_B" delegate: self selector: @selector(helpAnimation3_H)];
-}
-
-- (void) helpAnimation3_H {
     [UserContext setHelpMapViewStep3: NO];
     hand.alpha = 0;
 }
