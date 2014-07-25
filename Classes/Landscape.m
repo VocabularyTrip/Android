@@ -20,7 +20,7 @@
 
 -(UIImage*) layer1 {
 	if (layer1 == nil) {
-        NSString *file = [[NSString alloc] initWithFormat:@"%@/%@.png", [[NSBundle mainBundle] resourcePath], layer1Name];
+        NSString *file = [[NSString alloc] initWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath], [ImageManager getIphoneIpadFile: layer1Name]];
         layer1 = [UIImage alloc];
         layer1 = [layer1 initWithContentsOfFile: file];
     }
@@ -29,7 +29,7 @@
 
 -(UIImage*) layer2 {
 	if (layer2 == nil) {
-        NSString *file = [[NSString alloc] initWithFormat:@"%@/%@.png", [[NSBundle mainBundle] resourcePath], layer2Name];
+        NSString *file = [[NSString alloc] initWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath], [ImageManager getIphoneIpadFile: layer2Name]];
         layer2 = [UIImage alloc];
         layer2 = [layer2 initWithContentsOfFile: file];
     }
@@ -38,7 +38,7 @@
 
 -(UIImage*) layer3 {
 	if (layer3 == nil) {
-        NSString *file = [[NSString alloc] initWithFormat:@"%@/%@.png", [[NSBundle mainBundle] resourcePath], layer3Name];
+        NSString *file = [[NSString alloc] initWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath], [ImageManager getIphoneIpadFile: layer3Name]];
         layer3 = [UIImage alloc];
         layer3 = [layer3 initWithContentsOfFile: file];
     }

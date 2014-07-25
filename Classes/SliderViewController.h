@@ -8,8 +8,8 @@
 
 #import "GenericDownloadViewController.h"
 
-#define cFlapWidthIpad 21
-#define cFlapWidthIpod 17
+#define cFlapWidthIpad 30
+#define cFlapWidthIpod 16
 #define cMarginHeightIpad 10
 #define cMarginHeightIpod 5
 

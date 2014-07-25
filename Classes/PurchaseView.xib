@@ -57,6 +57,7 @@
                             <accessibility key="accessibilityConfiguration" label="aa"/>
                             <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="17"/>
                             <inset key="contentEdgeInsets" minX="50" minY="79" maxX="0.0" maxY="0.0"/>
+                            <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="U$S 3.99" backgroundImage="btn_buy_all.png">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -74,6 +75,7 @@
                             <accessibility key="accessibilityConfiguration" label="aa"/>
                             <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="17"/>
                             <inset key="contentEdgeInsets" minX="50" minY="79" maxX="0.0" maxY="0.0"/>
+                            <inset key="titleEdgeInsets" minX="11" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="U$S 3.99" backgroundImage="btn_buy_one.png">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -102,18 +104,14 @@
                                 <action selector="restorePurchase:" destination="-1" eventType="touchDown" id="Bm4-zf-3gc"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="clip" id="B8g-nx-Ki4" userLabel="NoReachabilityButton">
-                            <rect key="frame" x="189" y="6" width="271" height="53"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" id="B8g-nx-Ki4" userLabel="NoReachabilityButton">
+                            <rect key="frame" x="108" y="4" width="316" height="50"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="15"/>
-                            <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="No Internet or Parental Gate">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <state key="highlighted">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
+                            <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="16"/>
+                            <inset key="contentEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="titleEdgeInsets" minX="-138" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="260" maxY="0.0"/>
+                            <state key="normal" title="No Internet or Parental Gate " image="ico_warning.png"/>
                         </button>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" id="287" userLabel="PromoCodeText">
                             <rect key="frame" x="232" y="236" width="184" height="31"/>
@@ -132,7 +130,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Promo Code " lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" id="307" userLabel="PromoCodeStatusLabel">
-                            <rect key="frame" x="271" y="281" width="145" height="32"/>
+                            <rect key="frame" x="271" y="276" width="145" height="32"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="13"/>
                             <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -194,6 +192,7 @@
         <image name="btn_buy_one.png" width="585" height="395"/>
         <image name="btn_fcbk.png" width="569" height="169"/>
         <image name="btn_restore.png" width="254" height="67"/>
+        <image name="ico_warning.png" width="134" height="134"/>
         <image name="level_bg.png" width="960" height="640"/>
         <image name="linea_compra.png" width="1241" height="10"/>
         <image name="menu1.png" width="209" height="80"/>

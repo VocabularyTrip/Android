@@ -27,12 +27,13 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slider_albums.png" id="cpE-h8-oYx" userLabel="Background">
-                    <rect key="frame" x="-21" y="0.0" width="260" height="628"/>
+                    <rect key="frame" x="2" y="20" width="287" height="608"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="FZf-oT-28c" userLabel="BackButton">
-                    <rect key="frame" x="-20" y="3" width="40" height="40"/>
+                    <rect key="frame" x="6" y="29" width="47" height="141"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="94"/>
                     <state key="normal" image="sticker.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -41,7 +42,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bDr-dC-xPV" userLabel="PrincessesAlbumButton">
-                    <rect key="frame" x="37" y="84" width="190" height="113"/>
+                    <rect key="frame" x="81" y="34" width="190" height="113"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Button" image="cover-princess.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -51,19 +52,19 @@
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_back.png" id="8tk-F2-tyO" userLabel="Progress1BackView">
-                    <rect key="frame" x="34" y="205" width="197" height="30"/>
+                    <rect key="frame" x="78" y="155" width="197" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_fill.png" id="vQI-mz-3VF" userLabel="Progress1FillView">
-                    <rect key="frame" x="34" y="205" width="197" height="30"/>
+                    <rect key="frame" x="78" y="155" width="197" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_empty.png" id="wsj-iN-HRJ" userLabel="Progress1EmptyView">
-                    <rect key="frame" x="34" y="205" width="197" height="30"/>
+                    <rect key="frame" x="78" y="155" width="197" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0xp-ea-9Ed" userLabel="MonsterAlbumButton">
-                    <rect key="frame" x="37" y="250" width="190" height="113"/>
+                    <rect key="frame" x="81" y="200" width="190" height="113"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Button" image="cover-monster.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -73,19 +74,19 @@
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_back.png" id="W7e-Me-q2E" userLabel="Progress2BackView">
-                    <rect key="frame" x="34" y="369" width="197" height="30"/>
+                    <rect key="frame" x="78" y="319" width="197" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_fill.png" id="f9s-V3-NHC" userLabel="Progress2FillView">
-                    <rect key="frame" x="34" y="369" width="197" height="30"/>
+                    <rect key="frame" x="78" y="319" width="197" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_empty.png" id="Yoh-ev-jnn" userLabel="Progress2EmptyView">
-                    <rect key="frame" x="34" y="369" width="197" height="30"/>
+                    <rect key="frame" x="78" y="319" width="197" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="isf-Q2-VSp" userLabel="AnimalAlbumButton">
-                    <rect key="frame" x="37" y="410" width="190" height="113"/>
+                    <rect key="frame" x="81" y="360" width="190" height="113"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Button" image="cover-animal.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -95,15 +96,15 @@
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_back.png" id="lAR-n9-tuE" userLabel="Progress3BackView">
-                    <rect key="frame" x="34" y="532" width="197" height="30"/>
+                    <rect key="frame" x="78" y="482" width="197" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_fill.png" id="Jnw-OA-Nt9" userLabel="Progress3FillView">
-                    <rect key="frame" x="34" y="531" width="197" height="30"/>
+                    <rect key="frame" x="78" y="481" width="197" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_empty.png" id="B8c-Xk-Ets" userLabel="Progress3EmptyView">
-                    <rect key="frame" x="34" y="532" width="197" height="30"/>
+                    <rect key="frame" x="78" y="482" width="197" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
             </subviews>
@@ -118,7 +119,7 @@
         <image name="progress_back.png" width="434" height="61"/>
         <image name="progress_empty.png" width="434" height="61"/>
         <image name="progress_fill.png" width="434" height="61"/>
-        <image name="slider_albums.png" width="865" height="2488"/>
+        <image name="slider_albums.png" width="834" height="2358"/>
         <image name="sticker.png" width="58" height="58"/>
     </resources>
 </document>

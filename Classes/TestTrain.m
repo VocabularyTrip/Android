@@ -280,10 +280,13 @@
 			[self changeImageOn: aButton wordButtonLabel: aButtonLabel id: i];
 		} else {
 			flagFaild = YES;
+            Word* w2 = [words objectAtIndex: i];
+            [w2 incWeight];
 			[w incWeight];
-			//AudioServicesPlaySystemSound(errorSoundId);
             [errorSoundId play];
             [AnimatorHelper shakeView: aButton];
+            
+            
 		}
 	} @catch (NSException * e) {
 		NSLog(@"Exception in wordButton:clicked");

@@ -522,9 +522,8 @@
     [mapScrollView showLevelInMap: [UserContext getLevelAt: 3]];
 }
 
-
 - (void) helpAnimation3_D {
-        // Move hand to a station 2
+    // Move hand to a station 2
     [UIImageView beginAnimations: @"HandToLevel" context: (__bridge void *)(hand)];
     [UIImageView setAnimationDelegate: self];
     [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];

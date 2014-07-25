@@ -38,7 +38,7 @@ PurchaseManager *purchaseManagerSingleton;
 }
 
 + (NSString*) getPriceAsText: (SKProduct*) p {
-    if (!p) return  @"---";
+    if (!p) return  @"no internet ?";
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
     [formatter setLocale: p.priceLocale];

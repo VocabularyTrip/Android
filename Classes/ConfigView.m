@@ -28,6 +28,7 @@
 }
 
 - (void) show {
+    [super viewWillAppear: YES];
     // Refresh buttons
     Language* l = [UserContext getLanguageSelected];
     [langButton setImage: l.image forState: UIControlStateNormal];
@@ -130,7 +131,7 @@
 
 - (void) refreshSoundButton {
 	NSString *soundImageFile;
-	soundImageFile = UserContext.soundEnabled == YES ? @"ico_volume.png" : @"sound-of.png";
+	soundImageFile = UserContext.soundEnabled == YES ? @"ico_volume.png" : @"ico_volume_off.png";
     //soundImageFile = [ImageManager getIphoneIpadFile: soundImageFile];
 	[soundButton setImage: [UIImage imageNamed: soundImageFile] forState: UIControlStateNormal];
 	//[self.view.layer removeAllAnimations];

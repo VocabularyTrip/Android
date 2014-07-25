@@ -27,12 +27,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slider_albums.png" id="gyq-fK-YKx" userLabel="BackgroundView">
-                    <rect key="frame" x="-17" y="0.0" width="149" height="270"/>
+                    <rect key="frame" x="-8" y="9" width="149" height="252"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="BaY-ou-r5i" userLabel="BackButton">
-                    <rect key="frame" x="-16" y="1" width="33" height="33"/>
+                    <rect key="frame" x="0.0" y="13" width="27" height="63"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="36"/>
                     <state key="normal" image="sticker.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -41,7 +42,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="R6J-Zz-hfl" userLabel="AlbumMonsterButton">
-                    <rect key="frame" x="32" y="47" width="87" height="46"/>
+                    <rect key="frame" x="42" y="16" width="87" height="46"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Button" image="cover-monster.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -51,7 +52,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Rda-di-5lC" userLabel="AlbumPrincessesButton">
-                    <rect key="frame" x="33" y="206" width="87" height="46"/>
+                    <rect key="frame" x="43" y="175" width="87" height="46"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Button" image="cover-princess.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -61,7 +62,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Mb2-pc-0Sb" userLabel="AlbumAnimalsButton">
-                    <rect key="frame" x="33" y="127" width="87" height="46"/>
+                    <rect key="frame" x="43" y="96" width="87" height="46"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" image="cover-animal.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -71,39 +72,39 @@
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_back.png" id="vnQ-eH-Ali" userLabel="Progress1BarBacklView">
-                    <rect key="frame" x="32" y="253" width="90" height="12"/>
+                    <rect key="frame" x="42" y="224" width="90" height="12"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_fill.png" id="2Yb-OK-zHG" userLabel="Progress1BarFillView">
-                    <rect key="frame" x="32" y="253" width="90" height="12"/>
+                    <rect key="frame" x="42" y="224" width="90" height="12"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_empty.png" id="1Fz-4J-cMP" userLabel="Progress1BarMaskView">
-                    <rect key="frame" x="32" y="253" width="90" height="12"/>
+                    <rect key="frame" x="42" y="224" width="90" height="12"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_back.png" id="Ri4-vO-TeZ" userLabel="Progress2BarBacklView">
-                    <rect key="frame" x="31" y="95" width="90" height="12"/>
+                    <rect key="frame" x="41" y="66" width="90" height="12"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_fill.png" id="hIQ-fZ-RQ7" userLabel="Progress2BarFillView">
-                    <rect key="frame" x="31" y="95" width="90" height="12"/>
+                    <rect key="frame" x="41" y="66" width="90" height="12"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_empty.png" id="H5s-sB-hGA" userLabel="Progress2BarMaskView">
-                    <rect key="frame" x="31" y="95" width="90" height="12"/>
+                    <rect key="frame" x="41" y="66" width="90" height="12"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_back.png" id="GRw-sa-Yk0" userLabel="Progress3BarBacklView">
-                    <rect key="frame" x="31" y="174" width="90" height="12"/>
+                    <rect key="frame" x="41" y="145" width="90" height="12"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_fill.png" id="PKG-G9-van" userLabel="Progress3BarFillView">
-                    <rect key="frame" x="31" y="174" width="90" height="12"/>
+                    <rect key="frame" x="41" y="145" width="90" height="12"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="progress_empty.png" id="YMN-E9-uxp" userLabel="Progress3BarMaskView">
-                    <rect key="frame" x="31" y="174" width="90" height="12"/>
+                    <rect key="frame" x="41" y="145" width="90" height="12"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
             </subviews>
@@ -119,7 +120,7 @@
         <image name="progress_back.png" width="434" height="61"/>
         <image name="progress_empty.png" width="434" height="61"/>
         <image name="progress_fill.png" width="434" height="61"/>
-        <image name="slider_albums.png" width="865" height="2488"/>
+        <image name="slider_albums.png" width="834" height="2358"/>
         <image name="sticker.png" width="58" height="58"/>
     </resources>
 </document>

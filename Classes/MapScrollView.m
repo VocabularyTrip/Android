@@ -138,7 +138,7 @@
 	[UIView beginAnimations: @"ShowLevelInMap" context: (__bridge void *)(imageLevel)];
 	[UIView setAnimationDelegate: self];
 	[UIView setAnimationDidStopSelector: @selector(showLevelInMapDidStop:finished:context:)];
-	[UIView setAnimationDuration: 4];
+	[UIView setAnimationDuration: 2];
 	[UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
     imageLevel.alpha = 0;
 	[UIView commitAnimations];
