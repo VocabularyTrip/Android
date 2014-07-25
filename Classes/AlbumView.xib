@@ -81,10 +81,10 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="19" userLabel="SoundButton">
-                    <rect key="frame" x="102" y="1" width="50" height="46"/>
+                    <rect key="frame" x="390" y="4" width="40" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
-                    <state key="normal" image="sound-on.png">
+                    <state key="normal" image="ico_volume.png">
                         <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -103,33 +103,33 @@
                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="token-bronze.png" id="17" userLabel="Money1View">
-                    <rect key="frame" x="174" y="7" width="33" height="33"/>
+                    <rect key="frame" x="126" y="7" width="33" height="33"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="token-silver.png" id="33" userLabel="Money2View">
-                    <rect key="frame" x="262" y="7" width="33" height="33"/>
+                    <rect key="frame" x="214" y="7" width="33" height="33"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="token-gold.png" id="34" userLabel="Money3View">
-                    <rect key="frame" x="350" y="7" width="33" height="33"/>
+                    <rect key="frame" x="302" y="7" width="33" height="33"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="$ 00" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="18" userLabel="Money1Label">
-                    <rect key="frame" x="207" y="8" width="55" height="32"/>
+                    <rect key="frame" x="159" y="8" width="55" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="$ 00" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="35" userLabel="Money2Label">
-                    <rect key="frame" x="295" y="8" width="55" height="32"/>
+                    <rect key="frame" x="247" y="8" width="55" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="$ 00" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="36" userLabel="Money3Label">
-                    <rect key="frame" x="383" y="8" width="47" height="32"/>
+                    <rect key="frame" x="335" y="8" width="47" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -166,12 +166,12 @@
     <resources>
         <image name="clicking.png" width="139" height="147"/>
         <image name="empty-page-animals.png" width="480" height="320"/>
-        <image name="help.png" width="97" height="97"/>
+        <image name="help.png" width="100" height="100"/>
+        <image name="ico_volume.png" width="100" height="100"/>
         <image name="library.png" width="300" height="215"/>
         <image name="menu1.png" width="209" height="80"/>
         <image name="nav_back.png" width="94" height="94"/>
         <image name="nav_next.png" width="94" height="94"/>
-        <image name="sound-on.png" width="105" height="110"/>
         <image name="token-bronze.png" width="66" height="66"/>
         <image name="token-gold.png" width="66" height="66"/>
         <image name="token-silver.png" width="66" height="66"/>

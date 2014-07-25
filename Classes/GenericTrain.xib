@@ -55,15 +55,15 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Eli-6z-EWW" userLabel="Landscape_3">
-                    <rect key="frame" x="0.0" y="0.0" width="2060" height="320"/>
+                    <rect key="frame" x="0.0" y="0.0" width="2487" height="320"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="landscape_a_2.png" id="9ET-N2-Id1" userLabel="Landscape_2">
-                    <rect key="frame" x="0.0" y="0.0" width="2060" height="320"/>
+                    <rect key="frame" x="0.0" y="0.0" width="2487" height="320"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="landscape_a_1.png" id="12" userLabel="Landscape_1">
-                    <rect key="frame" x="0.0" y="0.0" width="2060" height="320"/>
+                    <rect key="frame" x="0.0" y="0.0" width="2487" height="320"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="avatar6_0.png" id="131" userLabel="DriverView">
@@ -124,7 +124,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="92" userLabel="PauseButton">
-                    <rect key="frame" x="394" y="2" width="42" height="42"/>
+                    <rect key="frame" x="393" y="2" width="42" height="42"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                     <accessibility key="accessibilityConfiguration">
                         <accessibilityTraits key="traits" none="YES" image="YES" playsSound="YES" notEnabled="YES"/>
@@ -142,10 +142,10 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="98" userLabel="SoundButton">
-                    <rect key="frame" x="100" y="1" width="50" height="46"/>
+                    <rect key="frame" x="349" y="2" width="42" height="42"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
-                    <state key="normal" image="sound-on.png">
+                    <state key="normal" image="ico_volume.png">
                         <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -157,8 +157,8 @@
                     </connections>
                 </button>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="$ 0" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="79" userLabel="Money1Label" customClass="UICountingLabel">
-                    <rect key="frame" x="191" y="8" width="50" height="33"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                    <rect key="frame" x="143" y="8" width="50" height="33"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <accessibility key="accessibilityConfiguration" label="Money">
                         <accessibilityTraits key="traits" none="YES"/>
                     </accessibility>
@@ -182,8 +182,8 @@
                     </connections>
                 </button>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="$ 0" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="111" userLabel="Money2Label" customClass="UICountingLabel">
-                    <rect key="frame" x="274" y="8" width="50" height="33"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                    <rect key="frame" x="226" y="8" width="50" height="33"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <accessibility key="accessibilityConfiguration">
                         <accessibilityTraits key="traits" none="YES"/>
                     </accessibility>
@@ -192,8 +192,8 @@
                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="$ 0" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="112" userLabel="Money3Label" customClass="UICountingLabel">
-                    <rect key="frame" x="358" y="8" width="40" height="33"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                    <rect key="frame" x="310" y="8" width="40" height="33"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <accessibility key="accessibilityConfiguration">
                         <accessibilityTraits key="traits" none="YES"/>
                     </accessibility>
@@ -202,16 +202,16 @@
                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="token-bronze.png" id="78" userLabel="Money1View">
-                    <rect key="frame" x="158" y="7" width="33" height="33"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                    <rect key="frame" x="110" y="7" width="33" height="33"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="token-silver.png" id="113" userLabel="Money2View">
-                    <rect key="frame" x="241" y="7" width="33" height="33"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                    <rect key="frame" x="193" y="7" width="33" height="33"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="token-gold.png" id="114" userLabel="Money3View">
-                    <rect key="frame" x="324" y="7" width="33" height="33"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                    <rect key="frame" x="276" y="7" width="33" height="33"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="wagon.png" id="31" userLabel="wagon1">
                     <rect key="frame" x="181" y="256" width="93" height="43"/>
@@ -368,16 +368,16 @@
         <image name="btn_unlock.png" width="610" height="334"/>
         <image name="clicking.png" width="139" height="147"/>
         <image name="firefighter.png" width="231" height="300"/>
-        <image name="help.png" width="97" height="97"/>
-        <image name="landscape_a_1.png" width="9888" height="1536"/>
-        <image name="landscape_a_2.png" width="9888" height="1536"/>
+        <image name="help.png" width="100" height="100"/>
+        <image name="ico_volume.png" width="100" height="100"/>
+        <image name="landscape_a_1.png" width="11936" height="1536"/>
+        <image name="landscape_a_2.png" width="834" height="2358"/>
         <image name="menu1.png" width="209" height="80"/>
         <image name="mouse.png" width="300" height="192"/>
         <image name="orange.png" width="300" height="274"/>
         <image name="pause2.png" width="100" height="100"/>
         <image name="rail.png" width="478" height="4"/>
         <image name="smoke.png" width="66" height="44"/>
-        <image name="sound-on.png" width="105" height="110"/>
         <image name="token-bronze.png" width="66" height="66"/>
         <image name="token-gold.png" width="66" height="66"/>
         <image name="token-silver.png" width="66" height="66"/>
