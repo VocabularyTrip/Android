@@ -73,9 +73,9 @@
 
 -(UIImage*) tokenView {
 	
-	if ([self typeIsBronze]) return [UIImage imageNamed: [ImageManager getIphoneIpadFile: @"token-bronze"]];
-	if ([self typeIsSilver]) return [UIImage imageNamed: [ImageManager getIphoneIpadFile: @"token-silver"]];
-	if ([self typeIsGold]) return [UIImage imageNamed: [ImageManager getIphoneIpadFile: @"token-gold"]];
+	if ([self typeIsBronze]) return [UIImage imageNamed: @"token-bronze"];
+	if ([self typeIsSilver]) return [UIImage imageNamed: @"token-silver"];
+	if ([self typeIsGold]) return [UIImage imageNamed: @"token-gold"];
 	return nil;
 }
 

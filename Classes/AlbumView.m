@@ -373,7 +373,10 @@
 	[imageView setTitle: aTitle forState: UIControlStateNormal];
 	[imageView setTitleColor: emptyFigColor forState: UIControlStateNormal];
 	imageView.titleLabel.font = emptyFigFont;
-	[imageView setImage: [fig tokenView] forState: UIControlStateNormal];
+    
+    UIImage* tokenSized = [ImageManager imageWithImage: [fig tokenView] scaledToSize: (CGSize) {fig.size/4, fig.size/4}];
+        
+	[imageView setImage: tokenSized forState: UIControlStateNormal];
 	[imageView addTarget: self action: @selector(onEmptyFigClickRepeat:) forControlEvents: UIControlEventTouchDownRepeat];
 	[imageView addTarget: self action: @selector(onEmptyFigClick:) forControlEvents: UIControlEventTouchDown];
 	[imageView addTarget: self action: @selector(onEmptyFigClickUp:) forControlEvents: UIControlEventTouchUpInside];
