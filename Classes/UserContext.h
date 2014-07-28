@@ -165,12 +165,14 @@ extern UserContext *userContextSingleton;
 + (int) osVersion;
 + (NSString*) getUUID;
 
++(void) reloadContext;
++(NSString*) printUserContext;
+
 -(void) addLevel: (Level*) level;	
 -(Level*) getLevelAt: (int) anIndex;
 -(void) resetGame;
 -(void) initGame;
+-(void) initGameOnVersionChange;
 -(void) addPostInFacebook;
-+(void) reloadContext;
-+ (NSString*) printUserContext;
 
 @end

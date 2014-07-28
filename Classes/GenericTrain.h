@@ -31,8 +31,8 @@
 #define cStatusGameIsGoingToNextLevel 7
 #define cStatusHelpOn 8
 
-#define cLandscapeOffset -2059
-#define cLandscapeOffsetIpad -4964
+#define cLandscapeOffset -2487
+#define cLandscapeOffsetIpad -5968
 #define cHitsPerGame 7
 
 enum {
@@ -233,7 +233,7 @@ enum {
 
 @protocol GenericTrainDelegate
 - (void) takeOutTrain;
-- (void) sentenceDidFinish: (NSString*) method;
+//- (void) sentenceDidFinish: (NSString*) method;
 @end
 
 

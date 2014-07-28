@@ -142,15 +142,23 @@
 }
 
 -(void) resetLevelAndMoney {
+    [self resetLevel];
+    [self resetMoney];
+}
+
+-(void) resetLevel {
 	level = 0;
+    [self saveLevel: level];
+    [self setGameSequenceNumber: 0]; // Ver si no requiere hacer un nextSequence
+}
+
+-(void) resetMoney {
 	money1 = 0;
 	money2 = 0;
 	money3 = 0;
     [self saveInt: money1 forKey: cMoney1Key];
     [self saveInt: money2 forKey: cMoney2Key];
     [self saveInt: money3 forKey: cMoney3Key];
-    [self saveLevel: level];
-    [self setGameSequenceNumber: 0]; // Ver si no requiere hacer un nextSequence
 }
 
 -(NSString*) userName {

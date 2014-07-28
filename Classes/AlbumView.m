@@ -333,7 +333,7 @@
 
 - (void) refreshSoundButton {
 	NSString *soundImageFile;
-	soundImageFile = UserContext.soundEnabled == YES ? @"sound-on" : @"sound-of";
+	soundImageFile = UserContext.soundEnabled == YES ? @"ico_volume" : @"ico_volume_off";
     soundImageFile = [ImageManager getIphoneIpadFile: soundImageFile];
 	[soundButton setImage: [UIImage imageNamed: soundImageFile] forState: UIControlStateNormal];	
 	[self.view.layer removeAllAnimations];
@@ -373,7 +373,10 @@
 	[imageView setTitle: aTitle forState: UIControlStateNormal];
 	[imageView setTitleColor: emptyFigColor forState: UIControlStateNormal];
 	imageView.titleLabel.font = emptyFigFont;
-	[imageView setImage: [fig tokenView] forState: UIControlStateNormal];
+    
+    UIImage* tokenSized = [ImageManager imageWithImage: [fig tokenView] scaledToSize: (CGSize) {fig.size/4, fig.size/4}];
+        
+	[imageView setImage: tokenSized forState: UIControlStateNormal];
 	[imageView addTarget: self action: @selector(onEmptyFigClickRepeat:) forControlEvents: UIControlEventTouchDownRepeat];
 	[imageView addTarget: self action: @selector(onEmptyFigClick:) forControlEvents: UIControlEventTouchDown];
 	[imageView addTarget: self action: @selector(onEmptyFigClickUp:) forControlEvents: UIControlEventTouchUpInside];
@@ -496,7 +499,7 @@
 // ****** Help Animation
 
 - (IBAction) helpClicked {
-	[self helpAnimation1];
+	[self helpAnimation2];
 }
 
 - (void) helpAnimation1 {

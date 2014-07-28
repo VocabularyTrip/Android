@@ -27,7 +27,6 @@
     ConfigView *configView;
     AlbumMenu *albumMenu;
     UIImageView *__unsafe_unretained hand;
-
     
     bool flagFirstShowInSession;
     int startWithHelpPurchase, // when the View did show, the Purchase help is launched. When the user finish his purchase succesfully the user is redirected automatically to LevelView with purchase help
@@ -37,7 +36,9 @@
     CADisplayLink *timerToPlayBackgroundSound;
     bool flagTimeoutStartMusic; // theTimer call immediate. This flat is used to omit it.
     CADisplayLink *theTimer; // Used for avatar animation
-    int avatarAnimationSeq; 
+    int avatarAnimationSeq;
+    float angle;    // Used in helps
+
 }
 
 @property (nonatomic, strong) AVAudioPlayer *backgroundSound;
@@ -49,7 +50,7 @@
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *hand;
 
 - (IBAction) playCurrentLevel: (id) sender;
-- (IBAction) helpAnimation1;
+- (IBAction) helpClicked;
 //- (IBAction) albumShowInfo: (id) sender;
 - (ConfigView*) configView;
 - (AlbumMenu*) albumMenu;
@@ -71,6 +72,13 @@
 - (void) initializeTimer;
 - (void) randomAvatarAnimation;
 
+- (void) startHelp;
 - (void) helpAnimationPurchase;
+- (void) helpAnimation1;
+- (void) helpAnimation2;
+- (void) helpAnimation2_B;
+- (void) helpAnimation3;
+
+
 
 @end

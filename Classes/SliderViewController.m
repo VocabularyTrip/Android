@@ -23,7 +23,6 @@
     int flapWidth = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? cFlapWidthIpad : cFlapWidthIpod;
     int marginHeight = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? cMarginHeightIpad : cMarginHeightIpod;
 
-    
     int frameX = [ImageManager windowWidthXIB] - backgroundView.frame.size.width + flapWidth;
     int frameY = [ImageManager windowHeightXIB] - backgroundView.frame.size.height - marginHeight;
     
@@ -50,8 +49,6 @@
 }
 
 - (void) show {
-    //self.view.layer.shouldRasterize = YES;
-    
     self.view.frame = [self frameClosed];
     [UIView beginAnimations: @"moveShow" context: (__bridge void *)(self.view)];
     [UIView setAnimationRepeatAutoreverses: NO];

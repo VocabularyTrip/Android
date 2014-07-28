@@ -28,6 +28,7 @@
 }
 
 - (void) show {
+    [super viewWillAppear: YES];
     // Refresh buttons
     Language* l = [UserContext getLanguageSelected];
     [langButton setImage: l.image forState: UIControlStateNormal];
@@ -35,8 +36,13 @@
 
     [super show];
     
-    if (![Vocabulary isDownloadCompleted] && !singletonVocabulary.isDownloading)
+    if (![Vocabulary isDownloadCompleted] &&
+        !singletonVocabulary.isDownloading &&
+        ![UserContext getHelpMapViewStep1] &&
+        ![UserContext getHelpMapViewStep2] &&
+        ![UserContext getHelpMapViewStep3])
         [self helpDownload1];
+    
     [[parentView albumMenu] close];
 }
 
@@ -110,7 +116,7 @@
 			break;
 		case 1:
 			[[UserContext getSingleton] resetGame];
-			[parentView reloadAllLevels];
+			[[parentView mapScrollView] reloadAllLevels];
             [parentView moveUser];
 			break;
 		default:
@@ -130,7 +136,7 @@
 
 - (void) refreshSoundButton {
 	NSString *soundImageFile;
-	soundImageFile = UserContext.soundEnabled == YES ? @"ico_volume.png" : @"sound-of.png";
+	soundImageFile = UserContext.soundEnabled == YES ? @"ico_volume.png" : @"ico_volume_off.png";
     //soundImageFile = [ImageManager getIphoneIpadFile: soundImageFile];
 	[soundButton setImage: [UIImage imageNamed: soundImageFile] forState: UIControlStateNormal];
 	//[self.view.layer removeAllAnimations];

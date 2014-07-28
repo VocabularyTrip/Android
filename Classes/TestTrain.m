@@ -123,29 +123,29 @@
 	if (viewMode == 1) {
 		int hitRate = [self hitRate];
 		if (hitRate < 5) {
-			[Sentence playSpeaker: @"Test-EndGame-PracticeMore"];
+			[Sentence playSpeaker: @"Test-EndGame-PracticeMore" delegate: self selector: @selector(refreshMoneyLabels)];
             [[UserContext getUserSelected] nextSequence: @"Training"];
 		} else if (hitRate < 7) {
-			[Sentence playSpeaker: @"Test-EndGame-GoodJob"];
+			[Sentence playSpeaker: @"Test-EndGame-GoodJob" delegate: self selector: @selector(refreshMoneyLabels)];
             [[UserContext getUserSelected] nextSequence];
 		} else if (hitRate < 9) {
-			[Sentence playSpeaker: @"Test-EndGame-GreatJob"];
+			[Sentence playSpeaker: @"Test-EndGame-GreatJob" delegate: self selector: @selector(refreshMoneyLabels)];
             [[UserContext getUserSelected] nextSequence: @"Challenge"];
 		} else {
-			[Sentence playSpeaker: @"Test-EndGame-Amazing"];
+			[Sentence playSpeaker: @"Test-EndGame-Amazing" delegate: self selector: @selector(refreshMoneyLabels)];
             [[UserContext getUserSelected] nextSequence: @"Challenge"];
 		}
 	}
 //	[self refreshMoneyLabels];
 }
 
--(void) sentenceDidFinish: (NSString*) method {
+/*-(void) sentenceDidFinish: (NSString*) method {
     if ([method isEqualToString: @"Test-EndGame-PracticeMore"]
         || [method isEqualToString: @"Test-EndGame-GoodJob"]
         || [method isEqualToString: @"Test-EndGame-GreatJob"]
         || [method isEqualToString: @"Test-EndGame-Amazing"])
 	[self refreshMoneyLabels];
-}
+}*/
 
 - (void) trainLoop {
 	if (gameStatus == cStatusGameIsOn) {
@@ -280,10 +280,13 @@
 			[self changeImageOn: aButton wordButtonLabel: aButtonLabel id: i];
 		} else {
 			flagFaild = YES;
+            Word* w2 = [words objectAtIndex: i];
+            [w2 incWeight];
 			[w incWeight];
-			//AudioServicesPlaySystemSound(errorSoundId);
             [errorSoundId play];
             [AnimatorHelper shakeView: aButton];
+            
+            
 		}
 	} @catch (NSException * e) {
 		NSLog(@"Exception in wordButton:clicked");

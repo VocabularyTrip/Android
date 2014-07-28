@@ -114,7 +114,6 @@
 	// Implemented by subclass
 }
 
-
 - (IBAction)pauseClicked { 
 	NSString *imageFile;
 	if (gameStatus == cStatusGameIsOn) { 
@@ -240,8 +239,8 @@
 // **** IBActions *****
 // ********************
 
--(void) sentenceDidFinish: (NSString*) method {
-}
+/*-(void) sentenceDidFinish: (NSString*) method {
+}*/
 
 // ************************
 // **** Core Business *****
@@ -685,7 +684,7 @@
 
 - (void) refreshSoundButton {
 	NSString *soundImageFile;
-	soundImageFile = UserContext.soundEnabled == YES ? @"sound-on" : @"sound-of";
+	soundImageFile = UserContext.soundEnabled == YES ? @"ico_volume" : @"ico_volume_off";
     soundImageFile = [ImageManager getIphoneIpadFile: soundImageFile];
 	[soundButton setImage: [UIImage imageNamed: soundImageFile] forState: UIControlStateNormal];	
 	[self.view.layer removeAllAnimations];
@@ -769,11 +768,11 @@
 	CGRect frame = landscape_1.frame;
 	frame.origin.x = [self getLandscapeOffset] + [ImageManager windowWidth];
 	landscape_1.frame = frame;
-	[UIView beginAnimations: @"LandscapeAnimation1" context: (__bridge void *)(landscape_1)];
+	[UIView beginAnimations: @"LandscapeAnimation1" context: nil];
 	[UIView setAnimationDelegate: self];
 	[UIView setAnimationDidStopSelector: @selector(landscapeAnimationDidStop:finished:context:)];
 	[UIView setAnimationDuration: duration];
-	[UIView setAnimationRepeatCount: 40];
+	[UIView setAnimationRepeatCount: 20];
 	[UIView setAnimationCurve:UIViewAnimationCurveLinear];
     frame.origin.x = 0;
 	landscape_1.frame = frame;
@@ -783,7 +782,7 @@
     frame = landscape_2.frame;
     frame.origin.x = [self getLandscapeOffset] + [ImageManager windowWidth];
 	landscape_2.frame = frame;
-	[UIView beginAnimations: @"LandscapeAnimation2" context: (__bridge void *)(landscape_2)];
+	[UIView beginAnimations: @"LandscapeAnimation2" context: nil];
 	[UIView setAnimationDelegate: self];
 	[UIView setAnimationDidStopSelector: @selector(landscapeAnimationDidStop:finished:context:)];
 	[UIView setAnimationDuration: duration];
@@ -793,7 +792,7 @@
 	landscape_2.frame = frame;
 	[UIView commitAnimations];
 
-    /*duration = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 500 : 250;
+    duration = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 500 : 250;
     frame = landscape_3.frame;
     frame.origin.x = [self getLandscapeOffset] + [ImageManager windowWidth];
 	landscape_3.frame = frame;
@@ -801,32 +800,11 @@
 	[UIView setAnimationDelegate: self];
 	[UIView setAnimationDidStopSelector: @selector(landscapeAnimationDidStop:finished:context:)];
 	[UIView setAnimationDuration: duration];
-	[UIView setAnimationRepeatCount: 1];
+	[UIView setAnimationRepeatCount: 5];
 	[UIView setAnimationCurve:UIViewAnimationCurveLinear];
     frame.origin.x = 0;
 	landscape_3.frame = frame;
-	[UIView commitAnimations];*/
-
-    
-	/*Landscape *l = [LandscapeManager switchLandscape];
-	landscape.image = l.image;
-	landscapeSky.image = l.sky;
-	
-	CGRect frame = landscape.frame;
-	frame.origin.x = [self getLandscapeOffset] + [ImageManager windowWidth];
-	landscape.frame = frame;
-	
-	[UIView beginAnimations: @"LandscapeAnimation" context: (__bridge void *)(landscape)];
-	[UIView setAnimationDelegate: self]; 
-	[UIView setAnimationDidStopSelector: @selector(landscapeAnimationDidStop:finished:context:)]; 
-	[UIView setAnimationDuration: 50];
-	[UIView setAnimationRepeatCount: 20];
-	[UIView setAnimationCurve:UIViewAnimationCurveLinear];
-	frame = landscape.frame;
-	frame.origin.x = frame.origin.x - [self getLandscapeOffset] - [ImageManager windowWidth];
-	landscape.frame = frame;
-	
-	[UIView commitAnimations];*/
+	[UIView commitAnimations];
 }
 
 - (void)landscapeAnimationDidStop: (NSString *)theAnimation finished: (BOOL)flag context: (void *)context {
