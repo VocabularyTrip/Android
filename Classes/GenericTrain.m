@@ -114,7 +114,6 @@
 	// Implemented by subclass
 }
 
-
 - (IBAction)pauseClicked { 
 	NSString *imageFile;
 	if (gameStatus == cStatusGameIsOn) { 

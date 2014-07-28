@@ -208,6 +208,9 @@
             // and started.
             //[self firstStartAfterUpgradeDowngrade];
             [TraceWS register: @"First Execution of new Version" valueStr: currentVersion valueNum: [NSNumber numberWithInt: 0]];
+
+            [[UserContext getSingleton] initGameOnVersionChange];
+    
             NSMutableArray *updatedPrevStartVersions = [NSMutableArray arrayWithArray:prevStartupVersions];
             [updatedPrevStartVersions addObject: currentVersion];
             [[NSUserDefaults standardUserDefaults] setObject:updatedPrevStartVersions forKey:@"prevStartupVersions"];

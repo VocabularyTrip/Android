@@ -57,6 +57,8 @@
 - (int) getLevel;
 - (void) reloadLevel; // Is used to force change the level. When the game mode change, the level has to change.
 - (void) resetLevelAndMoney;
+- (void) resetLevel;
+- (void) resetMoney;
 - (bool) nextLevel;
 - (void) nextSequence;
 - (void) nextSequence: (NSString*) gameType;

@@ -314,6 +314,21 @@ UserContext *userContextSingleton;
 	[[UserContext getSingleton] setMaxLevel: cSetLevelsFree];
 }
 
+- (void) initGameOnVersionChange {
+    [[NSUserDefaults standardUserDefaults] setBool: NO forKey: cNoAskMeAgain];
+    [[NSUserDefaults standardUserDefaults] setInteger: 0 forKey: cCountExecutions];
+    [UserContext setHelpMapViewStep1: YES];
+    [UserContext setHelpMapViewStep2: YES];
+    [UserContext setHelpMapViewStep3: YES];
+
+    for (int i=0; i < [[UserContext getSingleton].users count]; i++) {
+        User* u = [[UserContext getSingleton].users objectAtIndex: i];
+        [[UserContext getSingleton] setUserSelected: u];
+        [Vocabulary resetAllWeigths];
+        [u resetLevel];
+	}
+}
+
 -(void) resetGame {	
 	[UserContext resetLevelAndMoney];
 	[Vocabulary resetAllWeigths];	

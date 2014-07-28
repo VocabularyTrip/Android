@@ -91,8 +91,8 @@ AVAudioPlayer *currentAudio = nil;
         
         if (delegate && selector) {
             [delegate performSelector: selector];
-            //delegate = nil;
-            //selector = nil;
+            delegate = nil;
+            selector = nil;
         }
         
 		/*if ([next isEqualToString: @"NumCurrentLevel"]) {
