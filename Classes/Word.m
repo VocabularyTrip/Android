@@ -312,7 +312,7 @@
     if ([loc isEqualToString: @"es"]) return @"Spanish";
     if ([loc isEqualToString: @"fa"]) return @"Farsi";
     if ([loc isEqualToString: @"de"]) return @"German";
-    if ([loc isEqualToString: @"de"]) return @"Italian";
+    if ([loc isEqualToString: @"it"]) return @"Italian";
     if ([loc isEqualToString: @"pt"]) return @"Portuguese";
     if ([loc isEqualToString: @"ar"]) return @"Arabic";
     if ([loc isEqualToString: @"he"]) return @"Hebrew";
@@ -321,7 +321,7 @@
     if ([loc isEqualToString: @"ko"]) return @"Korean";
     if ([loc isEqualToString: @"ru"]) return @"Russian";
     if ([loc isEqualToString: @"ms"]) return @"Malay";
-    if ([loc isEqualToString: @"vi"]) return @"Vietnamese";
+    if ([loc isEqualToString: @"vn"]) return @"Vietnamese";
     
     return @"English";
 }

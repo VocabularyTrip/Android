@@ -578,8 +578,6 @@
 		B0A8B4CC1872CC4F00245F48 /* year.png in Resources */ = {isa = PBXBuildFile; fileRef = B0A8B3951872CC4F00245F48 /* year.png */; };
 		B0A8B4CD1872CC4F00245F48 /* yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = B0A8B3961872CC4F00245F48 /* yellow.png */; };
 		B0A8B4CE1872CC4F00245F48 /* zebra.png in Resources */ = {isa = PBXBuildFile; fileRef = B0A8B3971872CC4F00245F48 /* zebra.png */; };
-		B0A8B4D71872F9B000245F48 /* FB-f-Logo__blue_512.png in Resources */ = {isa = PBXBuildFile; fileRef = B0A8B4D51872F9B000245F48 /* FB-f-Logo__blue_512.png */; };
-		B0A8B4D81872F9B000245F48 /* FB-LikeButton-online-512.png in Resources */ = {isa = PBXBuildFile; fileRef = B0A8B4D61872F9B000245F48 /* FB-LikeButton-online-512.png */; };
 		B0A8B4E2187663C700245F48 /* AlbumMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = B0A8B4DC187663C700245F48 /* AlbumMenu.m */; };
 		B0A8B4E3187663C700245F48 /* AlbumMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0A8B4DD187663C700245F48 /* AlbumMenu.xib */; };
 		B0A8B4E4187663C700245F48 /* AlbumMenu~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0A8B4DE187663C700245F48 /* AlbumMenu~ipad.xib */; };
@@ -1794,8 +1792,6 @@
 		B0A8B3951872CC4F00245F48 /* year.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = year.png; sourceTree = "<group>"; };
 		B0A8B3961872CC4F00245F48 /* yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellow.png; sourceTree = "<group>"; };
 		B0A8B3971872CC4F00245F48 /* zebra.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zebra.png; sourceTree = "<group>"; };
-		B0A8B4D51872F9B000245F48 /* FB-f-Logo__blue_512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "FB-f-Logo__blue_512.png"; path = "Facebook/FB-f-Logo__blue_512.png"; sourceTree = "<group>"; };
-		B0A8B4D61872F9B000245F48 /* FB-LikeButton-online-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "FB-LikeButton-online-512.png"; path = "Facebook/FB-LikeButton-online-512.png"; sourceTree = "<group>"; };
 		B0A8B4DB187663C700245F48 /* AlbumMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumMenu.h; sourceTree = "<group>"; };
 		B0A8B4DC187663C700245F48 /* AlbumMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumMenu.m; sourceTree = "<group>"; };
 		B0A8B4DD187663C700245F48 /* AlbumMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlbumMenu.xib; sourceTree = "<group>"; };
@@ -2577,6 +2573,8 @@
 		B022716B18EB3AEC00DBF3AC /* Unused */ = {
 			isa = PBXGroup;
 			children = (
+				CE75CD0F16AED1DC00BBFD39 /* AvatarView.h */,
+				CE75CD1016AED1DC00BBFD39 /* AvatarView.m */,
 				B094FBBA18D356A20053EEBE /* SetGameModeView.h */,
 				B094FBBB18D356A20053EEBE /* SetGameModeView.m */,
 				B094FBBC18D356A20053EEBE /* SetGameModeView~ipad.xib */,
@@ -2688,15 +2686,6 @@
 				B09D35BA18AE6E2400D21B9D /* GameSequence.m */,
 			);
 			name = GameSequence;
-			sourceTree = "<group>";
-		};
-		B0A8B4D41872F99500245F48 /* Facebook */ = {
-			isa = PBXGroup;
-			children = (
-				B0A8B4D51872F9B000245F48 /* FB-f-Logo__blue_512.png */,
-				B0A8B4D61872F9B000245F48 /* FB-LikeButton-online-512.png */,
-			);
-			name = Facebook;
 			sourceTree = "<group>";
 		};
 		B0A8B4E7187663D900245F48 /* Album */ = {
@@ -2830,12 +2819,12 @@
 				B0A2944C1884A884000F6AB0 /* MapView.m */,
 				B0A2944E1884A93B000F6AB0 /* MapView.xib */,
 				B09D35B118AE406D00D21B9D /* MapView~ipad.xib */,
+				B0B0F41718878702007C1667 /* MapScrollView.h */,
+				B0B0F41818878702007C1667 /* MapScrollView.m */,
 				B0B0F40D1885D145007C1667 /* LevelView.h */,
 				B0B0F40E1885D145007C1667 /* LevelView.m */,
 				B0B0F4121885D210007C1667 /* LevelView.xib */,
 				B0B0F40F1885D145007C1667 /* LevelView~ipad.xib */,
-				B0B0F41718878702007C1667 /* MapScrollView.h */,
-				B0B0F41818878702007C1667 /* MapScrollView.m */,
 			);
 			name = MapView;
 			sourceTree = "<group>";
@@ -2972,7 +2961,6 @@
 			isa = PBXGroup;
 			children = (
 				B0A8B5BD187671B800245F48 /* Animal Album */,
-				B0A8B4D41872F99500245F48 /* Facebook */,
 				B0309D9717164C98003002D4 /* iphone5 */,
 				CE7C404F16DFFDFD002DA556 /* Purchase */,
 				CE71604E16D709CF00517DFD /* Icons */,
@@ -3983,6 +3971,7 @@
 				B09F3E511970875B004DFD47 /* reset_on.png */,
 				B09A36191722B7F200153E71 /* background_wizard.png */,
 				B09A361A1722B7F200153E71 /* background_wizard@2x.png */,
+				CE7C406D16E138D6002DA556 /* background_wizard@ipad.png */,
 				B09A361B1722B7F200153E71 /* toolbar.png */,
 				B09A361C1722B7F300153E71 /* toolbar@2x.png */,
 				B09A361D1722B7F300153E71 /* toolbar@ipad.png */,
@@ -3995,7 +3984,6 @@
 				CE7C406A16E138D2002DA556 /* btn_download.png */,
 				CE7C406B16E138D3002DA556 /* btn_download_on.png */,
 				B086B394171F29FA00C714B9 /* btn_download_cancel.png */,
-				CE7C406D16E138D6002DA556 /* background_wizard@ipad.png */,
 				CE71604B16D707D300517DFD /* lock.png */,
 				CE81AF4916C9C55200B63FCE /* unlock.png */,
 			);
@@ -4096,8 +4084,6 @@
 				CE6F7A651422968B00F03599 /* UIButtonEmptyFigurine.m */,
 				CE807A9914D04F9800D2B727 /* SmokeView.h */,
 				CE807A9A14D04F9800D2B727 /* SmokeView.m */,
-				CE75CD0F16AED1DC00BBFD39 /* AvatarView.h */,
-				CE75CD1016AED1DC00BBFD39 /* AvatarView.m */,
 			);
 			name = ExtendedViewsAndButtons;
 			sourceTree = "<group>";
@@ -4782,7 +4768,6 @@
 				CE7211F3149675EC00D60184 /* rail.png in Resources */,
 				B0A8B3B41872CC4F00245F48 /* bicycle.png in Resources */,
 				B0A8B4A71872CC4F00245F48 /* t-shirt.png in Resources */,
-				B0A8B4D71872F9B000245F48 /* FB-f-Logo__blue_512.png in Resources */,
 				CE7211F6149675EC00D60184 /* train.png in Resources */,
 				B09EE53E1902109D0005B18D /* Finished.mp3 in Resources */,
 				CE721202149675EC00D60184 /* wheel1.png in Resources */,
@@ -5232,7 +5217,6 @@
 				B0A8B66A187671B800245F48 /* animal79.png in Resources */,
 				B0A8B4A01872CC4F00245F48 /* sugar.png in Resources */,
 				B0A8B536187664A300245F48 /* avatar1_0.png in Resources */,
-				B0A8B4D81872F9B000245F48 /* FB-LikeButton-online-512.png in Resources */,
 				B09A36211722B7F500153E71 /* toolbar@2x.png in Resources */,
 				B09A36221722B7F500153E71 /* toolbar@ipad.png in Resources */,
 				B09A362F1725C60500153E71 /* en_Congratulations2.mp3 in Resources */,

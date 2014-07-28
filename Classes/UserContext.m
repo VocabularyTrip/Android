@@ -327,6 +327,10 @@ UserContext *userContextSingleton;
         [Vocabulary resetAllWeigths];
         [u resetLevel];
 	}
+
+    // Previous version had 9 levels.
+    if ([UserContext getMaxLevel] > 1 && [UserContext getMaxLevel] < cSet1OfLevels)
+        [[UserContext getSingleton] setMaxLevel: cSet1OfLevels];
 }
 
 -(void) resetGame {	

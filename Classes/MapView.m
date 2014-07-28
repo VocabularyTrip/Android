@@ -541,6 +541,7 @@
     [AnimatorHelper clickingView: hand delegate: self ];
     [Sentence playSpeaker: @"MapView-Help3_B" delegate: self selector: @selector(helpAnimation3_F)];
     [mapScrollView showLevelInMap: [UserContext getLevelAt: 2]];
+    [UserContext setHelpMapViewStep3: NO];
 }
 
 - (void) helpAnimation3_F {
