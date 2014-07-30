@@ -46,5 +46,6 @@
 - (void) helpAnimation3;
 - (void) helpAnimation4;
 - (void) helpAnimation5;
+- (void) changeStatusOnEndHelp;
 
 @end

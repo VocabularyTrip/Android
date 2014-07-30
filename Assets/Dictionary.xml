@@ -164,9 +164,9 @@
     <word name="boy" fileName="boy" wordOrder="4" type="noun"> </word>
     <word name="girl" fileName="girl" wordOrder="5" type="noun"> </word>
     <word name="open" fileName="open" wordOrder="15" type="adjective"> </word>
+    <word name="closed" fileName="closed" wordOrder="15" type="adjective"> </word>
     <word name="down" fileName="down" wordOrder="20" type="adverb"> </word>
     <word name="up" fileName="up" wordOrder="21" type="adverb"> </word>
-    <word name="closed" fileName="closed" wordOrder="15" type="adjective"> </word>
     <word name="fat" fileName="fat" wordOrder="29" type="adjective"> </word>
     <word name="thin" fileName="thin" wordOrder="30" type="adjective"> </word>
     <word name="long" fileName="long" wordOrder="37" type="adjective"> </word>
@@ -365,13 +365,13 @@
     <word name="clean" fileName="clean" wordOrder="6" type="adjective"> </word>
     <word name="dirty" fileName="dirty" wordOrder="7" type="adjective"> </word>
     <word name="close" fileName="close" wordOrder="14" type="adjective"> </word>
+    <word name="far" fileName="far" wordOrder="14" type="adverb"> </word>
     <word name="day" fileName="day" wordOrder="18" type="noun"> </word>
     <word name="night" fileName="night" wordOrder="19" type="noun"> </word>
     <word name="dry" fileName="dry" wordOrder="22" type="adjective"> </word>
     <word name="wet" fileName="wet" wordOrder="23" type="adjective"> </word>
     <word name="expensive" fileName="expensive" wordOrder="26" type="adjective"> </word>
     <word name="cheap" fileName="cheap" wordOrder="26" type="adjective"> </word>
-    <word name="far" fileName="far" wordOrder="14" type="adverb"> </word>
     <word name="left" fileName="left" wordOrder="39" type="adjective"> </word>
     <word name="right" fileName="right" wordOrder="40" type="adjective"> </word>
 </level>
@@ -646,8 +646,8 @@
     <word name="heavy" fileName="heavy" wordOrder="31" type="adjective"> </word>
     <word name="light" fileName="light" wordOrder="32" type="adjective"> </word>
     <word name="on" fileName="on" wordOrder="43" type="adverb"> </word>
-    <word name="underneath" fileName="underneath" wordOrder="44" type="adverb"> </word>
     <word name="off" fileName="off" wordOrder="43" type="adjective"> </word>
+    <word name="underneath" fileName="underneath" wordOrder="44" type="adverb"> </word>
     <word name="on" fileName="on2" wordOrder="46" type="adjective"> </word>
     <word name="poor" fileName="poor" wordOrder="47" type="adjective"> </word>
     <word name="rich" fileName="rich" wordOrder="48" type="adjective"> </word>

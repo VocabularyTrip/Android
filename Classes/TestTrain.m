@@ -327,7 +327,8 @@
 	gameStatus = cStatusHelpOn;
     
 	helpButton.enabled = NO;
-	[Sentence playSpeaker: @"Test-IntroduceTrain"];
+	[Sentence playSpeaker: @"Test-IntroduceTrain" delegate: self selector: @selector(changeStatusOnEndHelp)];
+
 	
     [UIImageView beginAnimations: @"helpAnimation" context: (__bridge void *)(hand) ];
     [UIImageView setAnimationDelegate: self]; 
@@ -452,6 +453,10 @@
 	[UserContext setHelpTest: NO];
 	helpButton.enabled = YES;	
 	[self pauseClicked];
+  	gameStatus = cStatusHelpOn; // pauseClicked put gameStatus in on. Enable to say the target Wotd. At this moment the help sentence didn-t finish. Wait to sentence to finish to change the status. See the following method. Otherwise the word target is superimposed with the end of the help sentence.
+}
+
+- (void) changeStatusOnEndHelp {
   	gameStatus = cStatusGameIsOn;
 }
 

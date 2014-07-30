@@ -110,18 +110,18 @@
 }*/
 
 - (IBAction) pauseClicked {
-	NSString *imageFile;
+	//NSString *imageFile;
 	if (gameStatus == cStatusGameIsOn) {
-		imageFile = [ImageManager getIphoneIpadFile: @"pause1"];
-		[pauseButton setImage: [UIImage imageNamed: imageFile] forState: UIControlStateNormal];
+		//imageFile = [ImageManager getIphoneIpadFile: @"pause1"];
+		[pauseButton setImage: [UIImage imageNamed: @"pause1.png"] forState: UIControlStateNormal];
 		gameStatus = cStatusGameIsPaused;
         repeatButton.enabled = YES;
         [theTimer setPaused: YES];
         [self throbPauseButton];
 	} else	{
         [theTimer setPaused: NO];
-		imageFile = [ImageManager getIphoneIpadFile: @"pause2"];
-		[pauseButton setImage: [UIImage imageNamed: imageFile] forState: UIControlStateNormal];
+		//imageFile = [ImageManager getIphoneIpadFile: @"pause2"];
+		[pauseButton setImage: [UIImage imageNamed: @"pause2.png"] forState: UIControlStateNormal];
 		gameStatus = cStatusGameIsOn;
         repeatButton.enabled = NO;
 	}

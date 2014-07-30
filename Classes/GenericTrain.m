@@ -115,10 +115,10 @@
 }
 
 - (IBAction)pauseClicked { 
-	NSString *imageFile;
+	//NSString *imageFile;
 	if (gameStatus == cStatusGameIsOn) { 
-		imageFile = [ImageManager getIphoneIpadFile: @"pause1"];
-		[pauseButton setImage: [UIImage imageNamed: imageFile] forState: UIControlStateNormal];
+		//imageFile = [ImageManager getIphoneIpadFile: @"pause1"];
+		[pauseButton setImage: [UIImage imageNamed: @"pause1.png"] forState: UIControlStateNormal];
 		gameStatus = cStatusGameIsPaused;
 		[self.trainSound pause];
 		wordButton1.enabled = NO;
@@ -128,11 +128,10 @@
         wordButtonLabel1.enabled = NO;
         wordButtonLabel2.enabled = NO;
         wordButtonLabel3.enabled = NO;
-        
         [self throbPauseButton];
 	} else	{
-		imageFile = [ImageManager getIphoneIpadFile: @"pause2"];
-		[pauseButton setImage: [UIImage imageNamed: imageFile] forState: UIControlStateNormal];
+		//imageFile = [ImageManager getIphoneIpadFile: @"pause2"];
+		[pauseButton setImage: [UIImage imageNamed: @"pause2.png"] forState: UIControlStateNormal];
 		gameStatus = cStatusGameIsOn;
 		wordButton1.enabled = YES;
 		wordButton2.enabled = YES;
@@ -370,7 +369,7 @@
 	pauseButton.alpha = 1;
 	helpButton.alpha = 1;
     backButton.alpha = 1;
-	gameStatus = cStatusGameIsOn;
+gameStatus = cStatusGameIsOn;
 	[smokeView startAnimation];
 }
 
@@ -764,9 +763,10 @@
     landscape_2.image = l.layer2;
     landscape_3.image = l.layer3;
     
-    int duration = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 60 : 30;
+    int duration = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 80 : 40;
+    int deltaWidth = [ImageManager windowWidth];
 	CGRect frame = landscape_1.frame;
-	frame.origin.x = [self getLandscapeOffset] + [ImageManager windowWidth];
+	frame.origin.x = [self getLandscapeOffset] + deltaWidth;
 	landscape_1.frame = frame;
 	[UIView beginAnimations: @"LandscapeAnimation1" context: nil];
 	[UIView setAnimationDelegate: self];
@@ -780,7 +780,7 @@
 
     duration = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 360 : 180;
     frame = landscape_2.frame;
-    frame.origin.x = [self getLandscapeOffset] + [ImageManager windowWidth];
+    frame.origin.x = [self getLandscapeOffset] + deltaWidth;
 	landscape_2.frame = frame;
 	[UIView beginAnimations: @"LandscapeAnimation2" context: nil];
 	[UIView setAnimationDelegate: self];
@@ -794,7 +794,7 @@
 
     duration = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 500 : 250;
     frame = landscape_3.frame;
-    frame.origin.x = [self getLandscapeOffset] + [ImageManager windowWidth];
+    frame.origin.x = [self getLandscapeOffset] + deltaWidth;
 	landscape_3.frame = frame;
 	[UIView beginAnimations: @"LandscapeAnimation3" context: (__bridge void *)(landscape_3)];
 	[UIView setAnimationDelegate: self];
