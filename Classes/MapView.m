@@ -103,6 +103,20 @@
         [self startHelp];
 }
 
+- (void) cancelAllAnimations {
+	// Cancel actual animation
+    [Sentence stopCurrentAudio];
+    hand.alpha = 0;
+
+	[UIView beginAnimations: nil context: NULL];
+	[UIView setAnimationBeginsFromCurrentState: YES];
+	[UIView setAnimationDuration: 0.1];
+	[UIView setAnimationCurve:UIViewAnimationCurveLinear];
+	[UIView commitAnimations];
+	
+	[self.view.layer removeAllAnimations];
+}
+
 - (void) startHelp {
     hand.alpha = 0;
     NSLog(@"%i, %i, %i", [UserContext getHelpMapViewStep1], [UserContext getHelpMapViewStep2], [UserContext getHelpMapViewStep3]);
@@ -217,20 +231,20 @@
 }
 
 - (IBAction) playCurrentLevel:(id)sender {
+	[self stopBackgroundSound];
+    [self cancelAllAnimations];
     GameSequence *s = [GameSequenceManager getCurrentGameSequence];
     if ([s gameIsChallenge]) [self playChallengeTrain];
     if ([s gameIsTraining]) [self playTrainingTrain];
 }
 
 - (void) playChallengeTrain {
-	[self stopBackgroundSound];
 	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
 	Sentence.delegate = vcDelegate.testTrain;
 	[vcDelegate pushTestTrain];
 }
 
 - (void) playTrainingTrain {
-	[self stopBackgroundSound];
 	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
 	Sentence.delegate = vcDelegate.trainingTrain;
 	[vcDelegate pushTrainingTrain];

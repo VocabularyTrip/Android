@@ -59,6 +59,7 @@
 - (void) initAlbumMenu;
 - (void) moveUser;
 - (void) initializeGame;
+- (void) cancelAllAnimations;
 - (void) initAudioSession;
 - (void) stopBackgroundSound;
 - (void) startPlayBackgroundSound;
