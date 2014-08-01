@@ -38,7 +38,8 @@
     CADisplayLink *theTimer; // Used for avatar animation
     int avatarAnimationSeq;
     float angle;    // Used in helps
-
+    
+  	CADisplayLink *helpTimer;
 }
 
 @property (nonatomic, strong) AVAudioPlayer *backgroundSound;
@@ -80,6 +81,7 @@
 - (void) helpAnimation2_B;
 - (void) helpAnimation3;
 
+- (void) initializeHelpTimer;
 
 
 @end

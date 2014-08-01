@@ -466,6 +466,7 @@ gameStatus = cStatusGameIsOn;
 }
 
 - (void) viewDidAppear:(BOOL)animated {
+    [UserContext setHelpMapViewStep1: NO];
 	if (gameStatus != cStatusGameIsOn && gameStatus != cStatusGameIsPaused) {
 		[self introduceTrain];
 	}
@@ -489,7 +490,6 @@ gameStatus = cStatusGameIsOn;
     originalframeWord1ButtonView = CGRectMake(wordButton1.frame.origin.x, wordButton1.frame.origin.y, wordButton1.frame.size.width, wordButton1.frame.size.height);
     originalframeWord2ButtonView = CGRectMake(wordButton2.frame.origin.x, wordButton2.frame.origin.y, wordButton2.frame.size.width, wordButton2.frame.size.height);
     originalframeWord3ButtonView = CGRectMake(wordButton3.frame.origin.x, wordButton3.frame.origin.y, wordButton3.frame.size.width, wordButton3.frame.size.height);
-    
     
     CGRect frame = returnMapButton.frame;
     frame.origin.x = frame.origin.x + [ImageManager getDeltaWidthIphone5];

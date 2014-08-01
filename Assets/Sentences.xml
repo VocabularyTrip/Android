@@ -29,22 +29,15 @@
 	<Sentence Method="Toolbar-saySentence-NotInGoldSection" name="To win gold coins" type="always"></Sentence> <!-- ok -->
     
     <!-- Training -->
-	<Sentence Method="Training-ViewDidAppear" name="Training help" type="always"></Sentence> <!-- ok -->
+	<Sentence Method="Training-ViewDidAppear" name="Training help" type="always"></Sentence>
     
     <!-- Map -->
-    <Sentence Method="MapView-Help1" name="map_01" type="always"></Sentence> <!-- ok -->
-    <Sentence Method="MapView-Help2_A" name="map_02" type="always"></Sentence> <!-- ok -->
-    <Sentence Method="MapView-Help2_B" name="map_03" type="always"></Sentence> <!-- ok -->
-    <Sentence Method="MapView-Help3_A" name="map_05" type="always"></Sentence> <!-- ok -->
-    <Sentence Method="MapView-Help3_B" name="map_06" type="always"></Sentence> <!-- ok -->
-    <Sentence Method="MapView-Help3_C" name="map_06b" type="always"></Sentence> <!-- ok -->
-    <Sentence Method="MapView-Help4_A" name="map_07" type="always"></Sentence> <!-- ok -->
-    <Sentence Method="MapView-Help4_B" name="map_08" type="always"></Sentence> <!-- ok -->
-    <Sentence Method="MapView-Help4_C" name="map_11" type="always"></Sentence> <!-- ok -->
-    <Sentence Method="MapView-Help4_D" name="map_12" type="always"></Sentence> <!-- ok -->
-    <Sentence Method="MapView-Help4_E" name="map_13" type="always"></Sentence> <!-- ok -->
-    <Sentence Method="MapView-Help4_F" name="map_14" type="always"></Sentence> <!-- ok -->
-    <Sentence Method="MapView-Help4_G" name="map_15" type="always"></Sentence> <!-- ok -->
+    <Sentence Method="MapView-Help1A" name="map_01A" type="always"></Sentence>
+    <Sentence Method="MapView-Help2A" name="map_02A" type="always"></Sentence>
+    <Sentence Method="MapView-Help2B" name="map_02B" type="always"></Sentence>
+    <Sentence Method="MapView-Help2C" name="map_02C" type="always"></Sentence>
+    <Sentence Method="MapView-Help3A" name="map_03A" type="always"></Sentence>
+    <Sentence Method="MapView-Help3B" name="map_03B" type="always"></Sentence>
     
     <!-- Album -->
 	<Sentence Method="AlbumView-onEmptyFigClick-NotEnoughGold" name="win more play more" type="always"></Sentence> <!-- ok -->

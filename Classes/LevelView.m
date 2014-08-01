@@ -51,7 +51,7 @@
 
 - (void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear: animated];
-
+    [UserContext setHelpMapViewStep3: NO];
     [self showAndSayDictionary];
 }
 

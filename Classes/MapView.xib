@@ -21,7 +21,7 @@
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" id="Ycl-U6-2ce" customClass="MapScrollView">
                     <rect key="frame" x="0.0" y="0.0" width="570" height="320"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map.png" id="JKV-Cb-XEC" userLabel="Map">
                             <rect key="frame" x="0.0" y="0.0" width="1140" height="858"/>
@@ -56,10 +56,6 @@
                     </subviews>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </scrollView>
-                <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" image="clicking.png" id="gnb-Vg-PAP" userLabel="hand">
-                    <rect key="frame" x="261" y="133" width="46" height="54"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="j3w-MX-XXF" userLabel="HelpButton">
                     <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
@@ -75,6 +71,10 @@
                         <action selector="helpClicked" destination="-1" eventType="touchDown" id="Kaf-SM-5XD"/>
                     </connections>
                 </button>
+                <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" image="clicking.png" id="gnb-Vg-PAP" userLabel="hand">
+                    <rect key="frame" x="261" y="133" width="46" height="54"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>

@@ -11,17 +11,12 @@
 #import "PurchaseProtocol.h"
 #import "UserContext.h"
 
-#define cPurchaseSet1 @"BSG" // The set 1 is the old Bronze, Silver, Gold. If the user has bought BSG, is going to be able to play with first 120 words.
+#define cPurchaseSet1 @"PurchaseSet1"
 #define cPurchaseSet2 @"PurchaseSet2"
 #define cPurchaseSet3 @"PurchaseSet3"
 #define cPurchaseSet4 @"PurchaseSet4"
 #define cPurchaseSet1to4 @"PurchaseSet1to4"
 #define cPurchaseSet2to4 @"PurchaseSet2to4"
-
-/*#define cPurchaseBronzeLevel @"BronzeLevel"
-#define cPurchaseSilverLevel @"SilverLevel"
-#define cPurchaseGoldLevel @"GoldLevel"
-#define cPurchaseAllLevels @"BSG"*/
 
 #define cInAppPurchaseManagerProductsFetchedNotification @"kInAppPurchaseManagerProductsFetchedNotification" 
 

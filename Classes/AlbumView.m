@@ -111,6 +111,8 @@
 }
 
 - (void) viewDidAppear:(BOOL)animated {
+    [UserContext setHelpMapViewStep2: NO];
+    //if ([UserContext getHelpAlbum]) return;
 	if ([currentAlbum.xmlName isEqualToString: cAlbum1])
 		[Sentence playSpeaker: @"AlbumView-ViewDidAppear-Album1Start"];	// Princess World
 	else if ([currentAlbum.xmlName isEqualToString: cAlbum2])
@@ -243,7 +245,7 @@
 - (void) initializeTimer {
 	if (theTimer == nil) {
 		theTimer = [CADisplayLink displayLinkWithTarget:self selector:@selector(initializePageAndThenSoundLoop)];
-		theTimer.frameInterval = 160;
+		theTimer.frameInterval = 260;
 		[theTimer addToRunLoop: [NSRunLoop currentRunLoop] forMode: NSDefaultRunLoopMode];
 	}
 }

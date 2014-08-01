@@ -36,11 +36,12 @@
 
     [super show];
     
-    if (![Vocabulary isDownloadCompleted] &&
-        !singletonVocabulary.isDownloading &&
-        ![UserContext getHelpMapViewStep1] &&
-        ![UserContext getHelpMapViewStep2] &&
-        ![UserContext getHelpMapViewStep3])
+    if (![Vocabulary isDownloadCompleted]) // &&
+        //!singletonVocabulary.isDownloading &&
+        //![UserContext getHelpMapViewStep1] &&
+        //![UserContext getHelpMapViewStep2] &&
+        //![UserContext getHelpMapViewStep3])
+        
         [self helpDownload1];
     
     [[parentView albumMenu] close];

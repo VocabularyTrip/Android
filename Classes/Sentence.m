@@ -60,6 +60,8 @@ AVAudioPlayer *currentAudio = nil;
         [currentAudio stop];
         isPlaying = NO;
         currentAudio = nil;
+        delegate = nil;
+        selector = nil;
     }
 }
 
