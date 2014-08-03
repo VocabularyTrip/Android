@@ -319,7 +319,7 @@
 }
 
 - (IBAction) helpClicked {
-	[self helpAnimation1];
+	[self helpAnimation4];
 }
 
 - (void) startHelp {
@@ -488,6 +488,124 @@
 
 - (void) helpAnimation3_F {
     hand.alpha = 0;
+}
+
+- (void) helpAnimation4 {
+    // this helps gets triggered when user presses the help button.
+    // this part of the animation makes hand visible in the screen center.
+    hand.center =  (CGPoint)  {
+        [ImageManager windowWidthXIB] / 2,
+        [ImageManager windowHeightXIB] / 2
+    };
+    hand.alpha = 1;
+    [self.view bringSubviewToFront: hand];
+    
+    [UIImageView beginAnimations: @"HandToPlayButton" context: (__bridge void *)(hand)];
+    [UIImageView setAnimationDelegate: self];
+    [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
+    [UIImageView setAnimationDidStopSelector: @selector(helpAnimation4_A)];
+    [UIImageView setAnimationDuration: .75];
+    [UIImageView setAnimationBeginsFromCurrentState: YES];
+    hand.center =  (CGPoint)  {
+        playCurrentLevelButton.center.x + hand.frame.size.width/2 - mapScrollView.contentOffset.x,
+        playCurrentLevelButton.center.y + hand.frame.size.height/2 - mapScrollView.contentOffset.y
+    };
+    
+    [UIImageView commitAnimations];
+}
+
+    // Help 4, part 1: Play Game
+- (void) helpAnimation4_A {
+        //    [Sentence playSpeaker: @"MapView-Help1A"];
+    [Sentence playSpeaker:@"MapView-Help1A" delegate: self selector:@selector(helpAnimation4_B)];
+    [AnimatorHelper clickingView: hand delegate: self selector: @selector(helpAnimation4_D2)];
+}
+
+
+- (void) helpAnimation4_B {
+        // Start part of help about the Level view
+        // Move hand to a station
+    [UIImageView beginAnimations: @"HandToLevel" context: (__bridge void *)(hand)];
+    [UIImageView setAnimationDelegate: self];
+    [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
+    [UIImageView setAnimationDidStopSelector: @selector(helpAnimation4_C)];
+    [UIImageView setAnimationDuration: 2];
+    [UIImageView setAnimationBeginsFromCurrentState: YES];
+    
+    hand.center =  (CGPoint)  {
+        [[UserContext getLevelAt: 3] placeinMap].x - mapScrollView.contentOffset.x + [ImageManager getMapViewLevelSize] / 2 + hand.frame.size.width/2,
+        [[UserContext getLevelAt: 3] placeinMap].y - mapScrollView.contentOffset.y + [ImageManager getMapViewLevelSize] / 2 + hand.frame.size.height/2
+    };
+    [UIImageView commitAnimations];
+}
+
+- (void) helpAnimation4_C {
+        //    [Sentence playSpeaker: @"MapView-Help3A"];
+    [Sentence playSpeaker:@"MapView-Help3A" delegate:self selector:@selector(helpAnimation4_E)];
+    [AnimatorHelper clickingView: hand delegate: self selector: @selector(helpAnimation4_D)];
+}
+
+- (void) helpAnimation4_D {
+        //[AnimatorHelper clickingView: hand delegate: self selector: @selector(helpAnimation4_E)];
+    [AnimatorHelper clickingView: hand delegate: self selector: @selector(helpAnimation4_D2)];
+}
+
+- (void) helpAnimation4_D2 {
+    
+}
+- (void) helpAnimation4_E {
+        // Move hand to toolbar button
+    [UIImageView beginAnimations: @"HandToToolbar" context: (__bridge void *)(hand)];
+    [UIImageView setAnimationDelegate: self];
+    [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
+    [UIImageView setAnimationDidStopSelector: @selector(helpAnimation4_F)];
+    [UIImageView setAnimationDuration: 2];
+    [UIImageView setAnimationBeginsFromCurrentState: YES];
+    hand.center = (CGPoint) {
+        albumMenu.view.frame.origin.x + hand.frame.size.width/2,
+        albumMenu.view.frame.origin.y + hand.frame.size.width
+    };
+    [UIImageView commitAnimations];
+}
+
+- (void) helpAnimation4_F {
+        // Open Album Menu and move hand to first album
+    
+    [albumMenu show];
+    [Sentence playSpeaker: @"MapView-Help2A"];
+    [self helpAnimation4_G];
+}
+
+- (void) helpAnimation4_G {
+    [UIImageView beginAnimations: @"HandToAlbumButton" context: (__bridge void *)(hand)];
+    [UIImageView setAnimationDelegate: self];
+    [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
+    [UIImageView setAnimationDidStopSelector: @selector(helpAnimation4_H)];
+    [UIImageView setAnimationDuration: 3];
+    [UIImageView setAnimationBeginsFromCurrentState: YES];
+    
+    hand.center = (CGPoint) {
+        albumMenu.view.frame.origin.x + hand.frame.size.width/2 + albumMenu.album3Button.center.x,
+        albumMenu.view.frame.origin.y + hand.frame.size.width + albumMenu.album3Button.frame.origin.y
+    };
+    [UIImageView commitAnimations];
+}
+
+- (void) helpAnimation4_H {
+    [Sentence playSpeaker: @"MapView-Help2B"];
+    [Sentence playSpeaker: @"MapView-Help2B" delegate: self selector: @selector(helpAnimation4_I)];
+    [AnimatorHelper clickingView: hand delegate: self selector: @selector(helpAnimation4_D2)];
+}
+
+- (void) helpAnimation4_I {
+    hand.alpha = 0;
+    hand.center = (CGPoint)  {
+        [ImageManager windowWidthXIB] / 2,
+        [ImageManager windowHeightXIB] / 2
+    };
+    [albumMenu close];
+
+
 }
 
 - (void) helpAnimationPurchase {

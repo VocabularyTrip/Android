@@ -80,6 +80,8 @@
 - (void) helpAnimation2;
 - (void) helpAnimation2_B;
 - (void) helpAnimation3;
+- (void) helpAnimation4;
+- (void) helpAnimation4_E;
 
 - (void) initializeHelpTimer;
 
