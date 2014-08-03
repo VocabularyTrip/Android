@@ -55,15 +55,15 @@
             <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="landscape_a_3.png" id="QE4-uu-RsW" userLabel="Landscape3">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="landscape_3_a@ipad.png" id="QE4-uu-RsW" userLabel="Landscape3">
                     <rect key="frame" x="0.0" y="0.0" width="5968" height="768"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="landscape_a_2.png" id="29" userLabel="Landscape2">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="landscape_3_b@ipad.png" id="29" userLabel="Landscape2">
                     <rect key="frame" x="0.0" y="0.0" width="5968" height="768"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="landscape_a_1.png" id="12" userLabel="Landscape1">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="landscape_3_c@ipad.png" id="12" userLabel="Landscape1">
                     <rect key="frame" x="0.0" y="0.0" width="5968" height="768"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
@@ -369,9 +369,9 @@
         <image name="crab.png" width="300" height="243"/>
         <image name="help.png" width="100" height="100"/>
         <image name="ico_volume.png" width="100" height="100"/>
-        <image name="landscape_a_1.png" width="2060" height="320"/>
-        <image name="landscape_a_2.png" width="2060" height="320"/>
-        <image name="landscape_a_3.png" width="834" height="2358"/>
+        <image name="landscape_3_a@ipad.png" width="5968" height="768"/>
+        <image name="landscape_3_b@ipad.png" width="2487" height="320"/>
+        <image name="landscape_3_c@ipad.png" width="5968" height="768"/>
         <image name="menu1.png" width="209" height="80"/>
         <image name="pause2.png" width="100" height="100"/>
         <image name="rail-768.png" width="4830" height="9"/>

@@ -763,7 +763,7 @@ gameStatus = cStatusGameIsOn;
     landscape_2.image = l.layer2;
     landscape_3.image = l.layer3;
     
-    int duration = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 8 : 8;//80 : 40;
+    int duration = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 8 : 4;//80 : 40;
     int deltaWidth = [ImageManager windowWidth];
     deltaWidth = 568;
 	CGRect frame = landscape_1.frame;
@@ -779,7 +779,7 @@ gameStatus = cStatusGameIsOn;
 	landscape_1.frame = frame;
 	[UIView commitAnimations];
 
-    duration = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 8 : 8; //360 : 180;
+    duration = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 36 : 18; //360 : 180;
     frame = landscape_2.frame;
     frame.origin.x = [self getLandscapeOffset] + deltaWidth;
 	landscape_2.frame = frame;
@@ -793,7 +793,7 @@ gameStatus = cStatusGameIsOn;
 	landscape_2.frame = frame;
 	[UIView commitAnimations];
 
-    duration = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 8 : 8; //500 : 250;
+    duration = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 50 : 25; //500 : 250;
     frame = landscape_3.frame;
     frame.origin.x = [self getLandscapeOffset] + deltaWidth;
 	landscape_3.frame = frame;
