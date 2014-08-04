@@ -31,7 +31,7 @@
 #define cStatusGameIsGoingToNextLevel 7
 #define cStatusHelpOn 8
 
-#define cLandscapeOffset -2487
+#define cLandscapeOffset -2629
 #define cLandscapeOffsetIpad -5968
 #define cHitsPerGame 7
 
