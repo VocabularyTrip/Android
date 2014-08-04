@@ -114,7 +114,7 @@
                             <state key="normal" title="No Internet or Parental Gate " image="ico_warning.png"/>
                         </button>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" id="287" userLabel="PromoCodeText">
-                            <rect key="frame" x="232" y="236" width="184" height="31"/>
+                            <rect key="frame" x="250" y="236" width="184" height="31"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" returnKeyType="send" enablesReturnKeyAutomatically="YES"/>
@@ -123,7 +123,7 @@
                             </connections>
                         </textField>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Register a Promo code" lineBreakMode="tailTruncation" minimumFontSize="10" id="295" userLabel="PromoCodeLabel">
-                            <rect key="frame" x="72" y="241" width="139" height="21"/>
+                            <rect key="frame" x="94" y="241" width="139" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="15"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -136,15 +136,15 @@
                             <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Boost KL Vocabulary and get 1 day access free" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="3" minimumFontSize="10" id="V0G-iK-lo0" userLabel="FacebookLabel">
-                            <rect key="frame" x="39" y="176" width="172" height="52"/>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Help us to spread the word and get 1 day of full access for free" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="3" minimumFontSize="10" id="V0G-iK-lo0" userLabel="FacebookLabel">
+                            <rect key="frame" x="31" y="176" width="202" height="52"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="15"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Vj8-o3-fxK" userLabel="FacebookButton">
-                            <rect key="frame" x="232" y="177" width="184" height="50"/>
+                            <rect key="frame" x="250" y="177" width="184" height="50"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <state key="normal" title="Button" image="btn_fcbk.png">

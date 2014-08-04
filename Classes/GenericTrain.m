@@ -85,6 +85,8 @@
 }
 
 - (void) cancelAllAnimations {
+    [Sentence stopCurrentAudio];
+    
 	// Cancel actual animation
 	[UIView beginAnimations: nil context: NULL]; 
 	[UIView setAnimationBeginsFromCurrentState: YES]; 
@@ -765,7 +767,7 @@ gameStatus = cStatusGameIsOn;
 
     int deltaWidth = [self getLandscapeOffset];
 
-    int duration = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 8 : 4;//80 : 40;
+    int duration = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 80 : 40;
 	CGRect frame = landscape_1.frame;
 	frame.origin.x =  deltaWidth - frame.size.width;
 	landscape_1.frame = frame;
@@ -779,7 +781,7 @@ gameStatus = cStatusGameIsOn;
 	landscape_1.frame = frame;
 	[UIView commitAnimations];
 
-    duration = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 36 : 18; //360 : 180;
+    duration = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 360 : 180;
     frame = landscape_2.frame;
 	frame.origin.x =  deltaWidth - frame.size.width;
 	landscape_2.frame = frame;
@@ -793,7 +795,7 @@ gameStatus = cStatusGameIsOn;
 	landscape_2.frame = frame;
 	[UIView commitAnimations];
 
-    duration = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 50 : 25; //500 : 250;
+    duration = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 500 : 250;
     frame = landscape_3.frame;
 	frame.origin.x =  deltaWidth - frame.size.width;
 	landscape_3.frame = frame;

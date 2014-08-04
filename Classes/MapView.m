@@ -106,8 +106,8 @@
 
 - (void) cancelAllAnimations {
 	[self stopBackgroundSound];
+    hand.alpha = 0;
     [Sentence stopCurrentAudio];
-
 
 	[UIView beginAnimations: nil context: NULL];
 	[UIView setAnimationBeginsFromCurrentState: YES];

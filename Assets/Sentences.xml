@@ -67,6 +67,8 @@
     <!-- Level -->
     <Sentence Method="Download_Help_1" name="Download_Help_1" type="always"></Sentence> <!-- ok -->
     <Sentence Method="Download_Help_2" name="Download_Help_2" type="always"></Sentence> <!-- ok -->
+    <Sentence Method="Download_Help_3" name="Download_Help_3" type="always"></Sentence> <!-- ok -->
+    
     <Sentence Method="Level_helpA" name="Level_helpA" type="always"></Sentence> <!-- ok -->
     <Sentence Method="Level_helpB" name="Level_helpB" type="always"></Sentence> <!-- ok -->
     <Sentence Method="Level_helpC" name="Level_helpC" type="always"></Sentence> <!-- ok -->

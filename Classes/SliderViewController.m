@@ -80,6 +80,7 @@
 	[UIView setAnimationCurve: UIViewAnimationCurveEaseInOut];
     self.view.frame = [self frameClosed];
     [UIView commitAnimations];
+    
 }
 
 @end

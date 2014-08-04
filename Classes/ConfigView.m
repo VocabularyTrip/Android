@@ -36,7 +36,8 @@
 
     [super show];
     
-    if (![Vocabulary isDownloadCompleted]) // &&
+    if (![Vocabulary isDownloadCompleted] && [parentView startWithHelpDownload])
+        // &&
         //!singletonVocabulary.isDownloading &&
         //![UserContext getHelpMapViewStep1] &&
         //![UserContext getHelpMapViewStep2] &&
@@ -45,6 +46,11 @@
         [self helpDownload1];
     
     [[parentView albumMenu] close];
+}
+
+- (void) close {
+    handHelpView.alpha = 0;
+    [super close];
 }
 
 - (IBAction)changeUserShowInfo:(id)sender {
@@ -188,30 +194,34 @@
 - (void) helpDownload3 {
     // click down
     if (flagCancelAllSounds) return;
-    [Sentence playSpeaker: @"Download_Help_2"];
-	CGRect frame = handHelpView.frame;
-    
-	[UIImageView beginAnimations: @"helpAnimation" context: nil];
-	[UIImageView setAnimationDelegate: self];
-	[UIImageView setAnimationDidStopSelector: @selector(helpDownload4)];
-	[UIImageView setAnimationDuration: .15];
-	[UIImageView setAnimationBeginsFromCurrentState: YES];
-    
-	frame.size.width = frame.size.width*.9;
-	frame.size.height = frame.size.height*.9;
-	handHelpView.frame = frame;
-    
-	[UIImageView commitAnimations];
+    [Sentence playSpeaker: @"Download_Help_2" delegate: self selector: @selector(helpDownload4)];
 }
 
 - (void) helpDownload4 {
+    [Sentence playSpeaker: @"Download_Help_3"];
+    
+    CGRect frame = handHelpView.frame;
+    [UIImageView beginAnimations: @"helpAnimation" context: nil];
+    [UIImageView setAnimationDelegate: self];
+    [UIImageView setAnimationDidStopSelector: @selector(helpDownload5)];
+    [UIImageView setAnimationDuration: .15];
+    [UIImageView setAnimationBeginsFromCurrentState: YES];
+
+    frame.size.width = frame.size.width*.9;
+    frame.size.height = frame.size.height*.9;
+    handHelpView.frame = frame;
+
+    [UIImageView commitAnimations];
+}
+
+- (void) helpDownload5 {
     // release click
     if (flagCancelAllSounds) return;
 	CGRect frame = handHelpView.frame;
     
 	[UIImageView beginAnimations: @"helpAnimation" context: nil];
 	[UIImageView setAnimationDelegate: self];
-	[UIImageView setAnimationDidStopSelector: @selector(helpDownload5)];
+	[UIImageView setAnimationDidStopSelector: @selector(helpDownload6)];
 	[UIImageView setAnimationDuration: .15];
 	[UIImageView setAnimationBeginsFromCurrentState: YES];
     
@@ -222,12 +232,12 @@
 	[UIImageView commitAnimations];
 }
 
-- (void) helpDownload5 {
+- (void) helpDownload6 {
     // Wait before restarting this help
     if (flagCancelAllSounds) return;
 	[UIImageView beginAnimations: @"helpAnimation" context: nil];
 	[UIImageView setAnimationDelegate: self];
-	[UIImageView setAnimationDidStopSelector: @selector(helpDownload6)];
+	[UIImageView setAnimationDidStopSelector: @selector(helpDownload7)];
 	[UIImageView setAnimationDuration: 3];
 	[UIImageView setAnimationBeginsFromCurrentState: YES];
     
@@ -239,7 +249,7 @@
 	[UIImageView commitAnimations];
 }
 
-- (void) helpDownload6 {
+- (void) helpDownload7 {
     // Wait before restarting this help
     if (flagCancelAllSounds) return;
 	[UIImageView beginAnimations: @"helpAnimation" context: nil];

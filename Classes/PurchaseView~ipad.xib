@@ -122,8 +122,8 @@
                             <color key="textColor" red="0.99736752719999999" green="0.16258857369999999" blue="0.23899615569999999" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Boost KL Vocabulary and get 1 day access free" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="3" minimumFontSize="10" id="wLt-xs-jGI" userLabel="FacebookLabel">
-                            <rect key="frame" x="165" y="418" width="284" height="79"/>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Help us to spread the word and get 1 day of full access for free" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="3" minimumFontSize="10" id="wLt-xs-jGI" userLabel="FacebookLabel">
+                            <rect key="frame" x="148" y="418" width="333" height="79"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="25"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

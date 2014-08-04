@@ -210,7 +210,7 @@
 	}
 }
 
--(void) helpLevel {
+- (void) helpLevel {
     // the user reach the last level
 	if ([UserContext getLevelNumber] >= cLimitLevel) return;
     
@@ -220,14 +220,9 @@
 		[Sentence playSpeaker: @"LevelView-DidSelectRow-UnlockLevel"];
 }
 
--(void) cancelAnimation {
-	//imageView.alpha = 0;
-	//wordNamelabel.alpha = 0;
-    //nativeWordNamelabel.alpha = 0;
-	//helpButton.enabled = YES;
+- (void) cancelAnimation {
 	if (theTimer) [theTimer invalidate];
 	theTimer = nil;
-    
     [self done: nil];
 }
 
