@@ -762,12 +762,12 @@ gameStatus = cStatusGameIsOn;
     landscape_1.image = l.layer1;
     landscape_2.image = l.layer2;
     landscape_3.image = l.layer3;
-    
+
+    int deltaWidth = [self getLandscapeOffset];
+
     int duration = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 8 : 4;//80 : 40;
-    int deltaWidth = [ImageManager windowWidth];
-    deltaWidth = 568;
 	CGRect frame = landscape_1.frame;
-	frame.origin.x = [self getLandscapeOffset] + deltaWidth;
+	frame.origin.x =  deltaWidth - frame.size.width;
 	landscape_1.frame = frame;
 	[UIView beginAnimations: @"LandscapeAnimation1" context: nil];
 	[UIView setAnimationDelegate: self];
@@ -781,7 +781,7 @@ gameStatus = cStatusGameIsOn;
 
     duration = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 36 : 18; //360 : 180;
     frame = landscape_2.frame;
-    frame.origin.x = [self getLandscapeOffset] + deltaWidth;
+	frame.origin.x =  deltaWidth - frame.size.width;
 	landscape_2.frame = frame;
 	[UIView beginAnimations: @"LandscapeAnimation2" context: nil];
 	[UIView setAnimationDelegate: self];
@@ -795,7 +795,7 @@ gameStatus = cStatusGameIsOn;
 
     duration = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 50 : 25; //500 : 250;
     frame = landscape_3.frame;
-    frame.origin.x = [self getLandscapeOffset] + deltaWidth;
+	frame.origin.x =  deltaWidth - frame.size.width;
 	landscape_3.frame = frame;
 	[UIView beginAnimations: @"LandscapeAnimation3" context: (__bridge void *)(landscape_3)];
 	[UIView setAnimationDelegate: self];
