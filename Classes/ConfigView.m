@@ -167,7 +167,7 @@
     [UIImageView setAnimationDuration: .5];
     handHelpView.alpha = 1;
     [UIImageView commitAnimations];
-    
+    angle=0;
 }
 
 -(void) helpDownload2 {
@@ -184,10 +184,10 @@
     [UIImageView setAnimationBeginsFromCurrentState: YES];
     
     CGRect frame = handHelpView.frame;
-    frame.origin.x = downloadButton.center.x;
-    frame.origin.y = downloadButton.center.y;
+    frame.origin.x = downloadProgressView.center.x;
+    frame.origin.y = downloadProgressView.center.y;
     handHelpView.frame = frame;
-    
+    NSLog(@"%f, %f", frame.origin.x, frame.origin.y);
     [UIImageView commitAnimations];
 }
 
@@ -198,76 +198,38 @@
 }
 
 - (void) helpDownload4 {
-    [Sentence playSpeaker: @"Download_Help_3"];
-    
+
+        // hover over lock button
+    if (flagCancelAllSounds) return;
     CGRect frame = handHelpView.frame;
-    [UIImageView beginAnimations: @"helpAnimation" context: nil];
+    
+    [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
     [UIImageView setAnimationDelegate: self];
-    [UIImageView setAnimationDidStopSelector: @selector(helpDownload5)];
-    [UIImageView setAnimationDuration: .15];
+    [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
+    if (angle>2.5*M_PI) {
+        [UIImageView setAnimationDidStopSelector: @selector(helpDownload5)];
+    }
+    else {
+        [UIImageView setAnimationDidStopSelector: @selector(helpDownload4)];
+    }
+    [UIImageView setAnimationDuration: .025];
     [UIImageView setAnimationBeginsFromCurrentState: YES];
 
-    frame.size.width = frame.size.width*.9;
-    frame.size.height = frame.size.height*.9;
-    handHelpView.frame = frame;
+    frame.origin.x = downloadProgressView.center.x + downloadProgressView.frame.size.width/2*sin(angle);
+        //    frame.origin.y = downloadProgressView.center.y + downloadProgressView.frame.size.height/2*sin(angle);
 
+    handHelpView.frame = frame;
+    
+    angle += M_PI/100;
     [UIImageView commitAnimations];
+
+    [Sentence playSpeaker: @"Download_Help_3"];
+    
 }
 
 - (void) helpDownload5 {
-    // release click
-    if (flagCancelAllSounds) return;
-	CGRect frame = handHelpView.frame;
-    
-	[UIImageView beginAnimations: @"helpAnimation" context: nil];
-	[UIImageView setAnimationDelegate: self];
-	[UIImageView setAnimationDidStopSelector: @selector(helpDownload6)];
-	[UIImageView setAnimationDuration: .15];
-	[UIImageView setAnimationBeginsFromCurrentState: YES];
-    
-	frame.size.width = frame.size.width/.9;
-	frame.size.height = frame.size.height/.9;
-	handHelpView.frame = frame;
-    
-	[UIImageView commitAnimations];
-}
-
-- (void) helpDownload6 {
-    // Wait before restarting this help
-    if (flagCancelAllSounds) return;
-	[UIImageView beginAnimations: @"helpAnimation" context: nil];
-	[UIImageView setAnimationDelegate: self];
-	[UIImageView setAnimationDidStopSelector: @selector(helpDownload7)];
-	[UIImageView setAnimationDuration: 3];
-	[UIImageView setAnimationBeginsFromCurrentState: YES];
-    
-    CGRect frame = handHelpView.frame;
-	frame.size.width = frame.size.width*.99;
-	frame.size.height = frame.size.height*.99;
-	handHelpView.frame = frame;
-    
-	[UIImageView commitAnimations];
-}
-
-- (void) helpDownload7 {
-    // Wait before restarting this help
-    if (flagCancelAllSounds) return;
-	[UIImageView beginAnimations: @"helpAnimation" context: nil];
-	[UIImageView setAnimationDelegate: self];
-	[UIImageView setAnimationDidStopSelector: @selector(helpEnd1)];
-	[UIImageView setAnimationDuration: .9];
-	[UIImageView setAnimationBeginsFromCurrentState: YES];
-    
-    CGRect frame = handHelpView.frame;
-	frame.size.width = frame.size.width/.99;
-	frame.size.height = frame.size.height/.99;
-	handHelpView.frame = frame;
-    
-	[UIImageView commitAnimations];
-}
-
-- (void) helpEnd1 {
     handHelpView.alpha = 0;
 }
+
 
 @end

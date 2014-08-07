@@ -17,6 +17,7 @@
     UIButton *__unsafe_unretained langButton;
     UIButton *__unsafe_unretained helpButton;
     UIImageView *__unsafe_unretained handHelpView;
+    float angle;
 }
 
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *soundButton;;
