@@ -85,7 +85,7 @@
 }
 
 - (void) cancelAllAnimations {
-    [Sentence stopCurrentAudio];
+    //[Sentence stopCurrentAudio];
     
 	// Cancel actual animation
 	[UIView beginAnimations: nil context: NULL]; 

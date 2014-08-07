@@ -26,6 +26,10 @@
 @synthesize progress3BarFillView;
 
 - (void) show {
+    [self show: YES];
+}
+
+- (void) show: (bool) cancelAnimation {
 
     VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
 
@@ -33,7 +37,7 @@
     [self updateLevelSlider: progress2View over: progress2BarFillView  progress: [vcDelegate.albumView.album2 progress]];
     [self updateLevelSlider: progress3View over: progress3BarFillView  progress: [vcDelegate.albumView.album3 progress]];
     
-    [super show];
+    [super show: cancelAnimation];
     [[self.parentView configView] close];
 }
 

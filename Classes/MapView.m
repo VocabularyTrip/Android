@@ -108,7 +108,9 @@
 	[self stopBackgroundSound];
     hand.alpha = 0;
     [Sentence stopCurrentAudio];
-
+    [helpTimer invalidate];
+	helpTimer = nil;
+    
 	[UIView beginAnimations: nil context: NULL];
 	[UIView setAnimationBeginsFromCurrentState: YES];
 	[UIView setAnimationDuration: 0.1];
@@ -226,9 +228,7 @@
 - (IBAction) playCurrentLevel:(id)sender {
 
     [self cancelAllAnimations];
-    hand.alpha = 0;
-    [helpTimer invalidate];
-	helpTimer = nil;
+
     
     GameSequence *s = [GameSequenceManager getCurrentGameSequence];
     if ([s gameIsChallenge]) [self playChallengeTrain];
@@ -423,7 +423,7 @@
 - (void) helpAnimation2_C {
     // Open Album Menu and move hand to first album
 
-    [albumMenu show];
+    [albumMenu show: NO];
     [Sentence playSpeaker: @"MapView-Help2A"];
     [self helpAnimation2_D];
 }
@@ -571,7 +571,7 @@
 - (void) helpAnimation4_F {
         // Open Album Menu and move hand to first album
     
-    [albumMenu show];
+    [albumMenu show: NO];
     [Sentence playSpeaker: @"MapView-Help2A"];
     [self helpAnimation4_G];
 }
