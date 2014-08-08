@@ -17,8 +17,10 @@
     UIImageView *__unsafe_unretained progress1BarFillView;
     UIImageView *__unsafe_unretained progress2BarFillView;
     UIImageView *__unsafe_unretained progress3BarFillView;
+    UIButton *__unsafe_unretained openCloseButton;
 }
 
+@property (nonatomic, unsafe_unretained) IBOutlet UIButton *openCloseButton;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *album1Button;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *album2Button;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *album3Button;

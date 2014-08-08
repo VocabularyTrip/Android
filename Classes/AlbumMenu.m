@@ -15,6 +15,7 @@
 
 @implementation AlbumMenu
 
+@synthesize openCloseButton;
 @synthesize album1Button;
 @synthesize album2Button;
 @synthesize album3Button;

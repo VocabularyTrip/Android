@@ -13,6 +13,7 @@
                 <outlet property="downloadProgressView" destination="JKy-72-7KA" id="naa-b6-6Ss"/>
                 <outlet property="handHelpView" destination="7bw-3F-s5j" id="04T-D7-zIn"/>
                 <outlet property="langButton" destination="mRB-Mf-0Yu" id="Lar-Ek-isF"/>
+                <outlet property="openCloseButton" destination="VcY-zx-dmG" id="TXD-3y-ysX"/>
                 <outlet property="soundButton" destination="puw-Sd-HiS" id="vwX-FN-5MB"/>
                 <outlet property="view" destination="1" id="7vY-px-z7l"/>
             </connections>

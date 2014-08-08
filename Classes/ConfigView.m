@@ -17,6 +17,7 @@
 
 @implementation ConfigView
 
+@synthesize openCloseButton;
 @synthesize soundButton;
 @synthesize langButton;
 @synthesize handHelpView;
@@ -73,9 +74,9 @@
 		MFMailComposeViewController *mailCont = [[MFMailComposeViewController alloc] init];
 		mailCont.mailComposeDelegate = self;
 		
-		[mailCont setSubject:@"Awesome app: Kids Learn Vocabulary !"];
+		[mailCont setSubject:@"Hello Kids Learn Vocabulary !"];
 		[mailCont setToRecipients:[NSArray arrayWithObject: cMailInfo]];
-		[mailCont setMessageBody:@"I'm using this app and I found ..." isHTML:NO];
+		[mailCont setMessageBody:@"" isHTML:NO];
 		
 		[parentView presentModalViewController: mailCont animated:YES];
 	} else {

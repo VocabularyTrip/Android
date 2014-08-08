@@ -12,6 +12,7 @@
                 <outlet property="album3Button" destination="isf-Q2-VSp" id="LOI-Zg-zul"/>
                 <outlet property="backButton" destination="FZf-oT-28c" id="qgL-44-ZNE"/>
                 <outlet property="backgroundView" destination="cpE-h8-oYx" id="1PQ-Eb-FR7"/>
+                <outlet property="openCloseButton" destination="FZf-oT-28c" id="0n4-wy-5Oz"/>
                 <outlet property="progress1BarFillView" destination="vQI-mz-3VF" id="wVn-5S-Rap"/>
                 <outlet property="progress1View" destination="wsj-iN-HRJ" id="l6H-qc-N9U"/>
                 <outlet property="progress2BarFillView" destination="f9s-V3-NHC" id="Qkq-mQ-1OY"/>
