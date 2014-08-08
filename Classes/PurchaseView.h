@@ -29,6 +29,8 @@
     UIImageView *__unsafe_unretained backgroundView;
     UILabel *__unsafe_unretained buyAllDescLabel;
     UILabel *__unsafe_unretained buyOneSetDescLabel;
+    UILabel *__unsafe_unretained buyAllNameLabel;
+    UILabel *__unsafe_unretained buyOneSetNameLabel;
     
     int resultParentalGate;
     bool flagBuyAllLevels; // indicate if the requirements is buy all levels. YES --> All Level, NO --> next set of levels.
@@ -46,6 +48,8 @@
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *backgroundView;
 @property (nonatomic, unsafe_unretained) IBOutlet UILabel *buyAllDescLabel;
 @property (nonatomic, unsafe_unretained) IBOutlet UILabel *buyOneSetDescLabel;
+@property (nonatomic, unsafe_unretained) IBOutlet UILabel *buyAllNameLabel;
+@property (nonatomic, unsafe_unretained) IBOutlet UILabel *buyOneSetNameLabel;
 
 
 - (IBAction) done:(id)sender;

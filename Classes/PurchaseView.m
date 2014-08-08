@@ -23,6 +23,8 @@
 @synthesize backgroundView;
 @synthesize buyAllDescLabel;
 @synthesize buyOneSetDescLabel;
+@synthesize buyAllNameLabel;
+@synthesize buyOneSetNameLabel;
 @synthesize facebookButton;
 @synthesize noReachabilityButton;
 
@@ -149,15 +151,19 @@
         if (!aProduct) {
             noReachabilityButton.alpha = 1;
             buyOneSetDescLabel.alpha = 0;
+            buyOneSetNameLabel.alpha = 0;
         } else {
             noReachabilityButton.alpha = 0;
             buyOneSetDescLabel.alpha = 1;
+            buyOneSetNameLabel.alpha = 1;
             buyOneSetDescLabel.text = aProduct.localizedDescription;
+            buyOneSetNameLabel.text = aProduct.localizedTitle;
         }
     } else {
         buyOneSetofLevelesButton.enabled  =  0;
         //[buyOneSetofLevelesButton setTitle: @"" forState: UIControlStateNormal];
         buyOneSetDescLabel.text = @"";
+        buyOneSetNameLabel.text = @"";
     }
 
     aProduct = [PurchaseManager getProductoFromIdentifier: [PurchaseManager getPurchaseAllSet]];
@@ -170,15 +176,19 @@
         if (!aProduct) {
             noReachabilityButton.alpha = 1;
             buyAllDescLabel.alpha = 0;
+            buyAllNameLabel.alpha = 0;
         } else {
             noReachabilityButton.alpha = 0;
             buyAllDescLabel.alpha = 1;
+            buyAllNameLabel.alpha = 1;
             buyAllDescLabel.text = aProduct.localizedDescription;
+            buyAllNameLabel.text = aProduct.localizedTitle;
         }
     } else {
         buyAllButton.enabled =  0;
         //[buyAllButton setTitle: @"" forState: UIControlStateNormal];
         buyAllDescLabel.text = @"";
+        buyAllNameLabel.text = @"";
     }
 
 

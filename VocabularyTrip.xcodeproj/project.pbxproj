@@ -877,6 +877,7 @@
 		B0B0F4131885D210007C1667 /* LevelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0B0F4121885D210007C1667 /* LevelView.xib */; };
 		B0B0F4161886404C007C1667 /* ImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B0F4151886404C007C1667 /* ImageManager.m */; };
 		B0B0F41918878702007C1667 /* MapScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B0F41818878702007C1667 /* MapScrollView.m */; };
+		B0B11FE619956B80004EF84C /* btn_buy.png in Resources */ = {isa = PBXBuildFile; fileRef = B0B11FE519956B80004EF84C /* btn_buy.png */; };
 		B0BAD91219479F4C0016173D /* UICountingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B0BAD91119479F4C0016173D /* UICountingLabel.m */; };
 		B0BD2FC21754D02900226A38 /* en_User_Wizard_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B0BD2FBF1754D02900226A38 /* en_User_Wizard_1.mp3 */; };
 		B0BD2FC31754D02900226A38 /* en_User_Wizard_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B0BD2FC01754D02900226A38 /* en_User_Wizard_2.mp3 */; };
@@ -2095,6 +2096,7 @@
 		B0B0F4151886404C007C1667 /* ImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageManager.m; sourceTree = "<group>"; };
 		B0B0F41718878702007C1667 /* MapScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapScrollView.h; sourceTree = "<group>"; };
 		B0B0F41818878702007C1667 /* MapScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapScrollView.m; sourceTree = "<group>"; };
+		B0B11FE519956B80004EF84C /* btn_buy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_buy.png; sourceTree = "<group>"; };
 		B0BAD91019479F4C0016173D /* UICountingLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICountingLabel.h; sourceTree = "<group>"; };
 		B0BAD91119479F4C0016173D /* UICountingLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICountingLabel.m; sourceTree = "<group>"; };
 		B0BD2FBF1754D02900226A38 /* en_User_Wizard_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = en_User_Wizard_1.mp3; sourceTree = "<group>"; };
@@ -4035,6 +4037,7 @@
 		CE7C404F16DFFDFD002DA556 /* Purchase */ = {
 			isa = PBXGroup;
 			children = (
+				B0B11FE519956B80004EF84C /* btn_buy.png */,
 				B0FDB9001982017B003EAC9B /* ico_warning.png */,
 				B06A6BB01974B98000F3A515 /* btn_buy_all.png */,
 				B06A6BB11974B98000F3A515 /* btn_buy_one.png */,
@@ -5285,6 +5288,7 @@
 				B0A8B5BB187671AE00245F48 /* figu-empty.png in Resources */,
 				B0A8B57C187664A300245F48 /* avatar6_arm4b.png in Resources */,
 				B0A8B4B21872CC4F00245F48 /* tooth.png in Resources */,
+				B0B11FE619956B80004EF84C /* btn_buy.png in Resources */,
 				B08C35C619903FAB00FE1D59 /* en_Download_Help_3.mp3 in Resources */,
 				899344AF17C064FC00197362 /* iTunesArtwork@2x.png in Resources */,
 				B0A8B53C187664A300245F48 /* avatar1_arm5a.png in Resources */,
