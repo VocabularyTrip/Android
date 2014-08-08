@@ -14,7 +14,6 @@
                 <outlet property="landscape_1" destination="12" id="Aie-cL-7wc"/>
                 <outlet property="landscape_2" destination="29" id="A29-65-yrb"/>
                 <outlet property="landscape_3" destination="QE4-uu-RsW" id="2IU-wI-yCS"/>
-                <outlet property="langView" destination="137" id="138"/>
                 <outlet property="money1Label" destination="79" id="115"/>
                 <outlet property="money1View" destination="78" id="116"/>
                 <outlet property="money2Label" destination="111" id="117"/>
@@ -68,11 +67,11 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="avatar6_0.png" id="128" userLabel="driverView">
-                    <rect key="frame" x="217" y="531" width="100" height="140"/>
+                    <rect key="frame" x="217" y="505" width="100" height="140"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="train.png" id="13" userLabel="Train">
-                    <rect key="frame" x="0.0" y="410" width="394" height="321"/>
+                    <rect key="frame" x="0.0" y="463" width="394" height="266"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="14" userLabel="BackButton">
@@ -279,10 +278,6 @@
                     <rect key="frame" x="163" y="204" width="92" height="108"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="English.png" id="137" userLabel="FlagView" colorLabel="IBBuiltInLabel-Orange">
-                    <rect key="frame" x="230" y="423" width="90" height="90"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9xo-O1-llW" userLabel="wordLabel1Button">
                     <rect key="frame" x="365" y="566" width="221" height="58"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -358,7 +353,6 @@
         </view>
     </objects>
     <resources>
-        <image name="English.png" width="256" height="256"/>
         <image name="airplane.png" width="300" height="218"/>
         <image name="avatar6_0.png" width="580" height="765"/>
         <image name="btn_keep_play.png" width="610" height="334"/>
@@ -379,7 +373,7 @@
         <image name="token-bronze.png" width="66" height="66"/>
         <image name="token-gold.png" width="66" height="66"/>
         <image name="token-silver.png" width="66" height="66"/>
-        <image name="train.png" width="468" height="390"/>
+        <image name="train.png" width="468" height="316"/>
         <image name="wagon.png" width="210" height="96"/>
         <image name="wheel1.png" width="61" height="61"/>
         <image name="wheel3.png" width="61" height="61"/>

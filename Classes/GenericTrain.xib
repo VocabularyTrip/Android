@@ -71,7 +71,7 @@
                     <autoresizingMask key="autoresizingMask"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="train.png" id="13" userLabel="Train">
-                    <rect key="frame" x="6" y="152" width="175" height="152"/>
+                    <rect key="frame" x="6" y="185" width="175" height="118"/>
                     <autoresizingMask key="autoresizingMask"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="43" userLabel="WordButton1">
@@ -382,7 +382,7 @@
         <image name="token-bronze.png" width="66" height="66"/>
         <image name="token-gold.png" width="66" height="66"/>
         <image name="token-silver.png" width="66" height="66"/>
-        <image name="train.png" width="468" height="390"/>
+        <image name="train.png" width="468" height="316"/>
         <image name="wagon.png" width="210" height="96"/>
         <image name="wheel1.png" width="61" height="61"/>
         <image name="wheel3.png" width="61" height="61"/>

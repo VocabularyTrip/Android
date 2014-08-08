@@ -86,7 +86,7 @@ enum {
    	UIButton *__unsafe_unretained wordButtonLabel2;
   	UIButton *__unsafe_unretained wordButtonLabel3;
 	UIImageView *__unsafe_unretained driverView;
-    UIImageView *__unsafe_unretained langView;
+    //UIImageView *__unsafe_unretained langView;
     
 	UIWheelView *__unsafe_unretained wheel1;
 	UIWheelView *__unsafe_unretained wheel2;
@@ -152,7 +152,7 @@ enum {
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *wordButton2;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *wordButton3;
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *driverView;
-@property (nonatomic, unsafe_unretained) IBOutlet UIImageView *langView;
+//@property (nonatomic, unsafe_unretained) IBOutlet UIImageView *langView;
 @property (nonatomic, unsafe_unretained) IBOutlet UIWheelView *wheel1;
 @property (nonatomic, unsafe_unretained) IBOutlet UIWheelView *wheel2;
 @property (nonatomic, unsafe_unretained) IBOutlet UIWheelView *wheel3;

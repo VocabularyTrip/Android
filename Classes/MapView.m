@@ -368,6 +368,11 @@
             playCurrentLevelButton.userInteractionEnabled = NO;
             preventOpenLevelView = NO;
             break;
+        case 4:
+            albumMenu.openCloseButton.enabled = NO;
+            playCurrentLevelButton.userInteractionEnabled = NO;
+            preventOpenLevelView = YES;
+            break;
     }
 }
 
@@ -531,6 +536,8 @@
 }
 
 - (void) helpAnimation4 {
+    
+    [self preventPlayingHelp: 4];
     // this helps gets triggered when user presses the help button.
     // this part of the animation makes hand visible in the screen center.
     hand.center =  (CGPoint)  {
@@ -647,7 +654,7 @@
     };
     [albumMenu close];
 
-
+    [self allowPlayingHelpEnded];
 }
 
 - (void) helpAnimationPurchase {
