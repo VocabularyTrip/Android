@@ -501,7 +501,7 @@
 // ****** Help Animation
 
 - (IBAction) helpClicked {
-	[self helpAnimation2];
+	[self helpAnimation1];
 }
 
 - (void) helpAnimation1 {

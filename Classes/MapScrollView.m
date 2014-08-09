@@ -111,6 +111,10 @@
 
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 	[super touchesBegan: touches withEvent: event];
+
+    VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
+
+    if (vcDelegate.mapView.preventOpenLevelView) return;
     
 	UITouch *touch = [[event allTouches] anyObject];
 	CGPoint touchLocation = [touch locationInView: touch.view];

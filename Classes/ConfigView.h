@@ -13,6 +13,7 @@
 
 
 @interface ConfigView : SliderViewController <UIAlertViewDelegate, MFMailComposeViewControllerDelegate> {
+  	UIButton *__unsafe_unretained openCloseButton;
   	UIButton *__unsafe_unretained soundButton;
     UIButton *__unsafe_unretained langButton;
     UIButton *__unsafe_unretained helpButton;
@@ -20,6 +21,7 @@
     float angle;
 }
 
+@property (nonatomic, unsafe_unretained) IBOutlet UIButton *openCloseButton;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *soundButton;;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *langButton;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *helpButton;

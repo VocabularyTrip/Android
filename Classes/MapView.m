@@ -19,6 +19,7 @@
 @synthesize backgroundSound;
 @synthesize startWithHelpDownload;
 @synthesize hand;
+@synthesize preventOpenLevelView;
 
 - (BOOL)shouldAutorotate{
         //if([[UIDevice currentDevice] orientation] == UIInterfaceOrientationLandscapeLeft ||[[UIDevice currentDevice] orientation] == UIInterfaceOrientationLandscapeRight)
@@ -108,7 +109,9 @@
 	[self stopBackgroundSound];
     hand.alpha = 0;
     [Sentence stopCurrentAudio];
-
+    [helpTimer invalidate];
+	helpTimer = nil;
+    
 	[UIView beginAnimations: nil context: NULL];
 	[UIView setAnimationBeginsFromCurrentState: YES];
 	[UIView setAnimationDuration: 0.1];
@@ -226,9 +229,7 @@
 - (IBAction) playCurrentLevel:(id)sender {
 
     [self cancelAllAnimations];
-    hand.alpha = 0;
-    [helpTimer invalidate];
-	helpTimer = nil;
+
     
     GameSequence *s = [GameSequenceManager getCurrentGameSequence];
     if ([s gameIsChallenge]) [self playChallengeTrain];
@@ -330,6 +331,7 @@
     else {
         [helpTimer invalidate];
         helpTimer = nil;
+        [self allowPlayingHelpEnded];
     }
 }
 
@@ -344,10 +346,44 @@
 - (void) refreshHelp {
     [self startHelp];
 }
-        
+
+- (void) preventPlayingHelp: (int) help {
+    mapScrollView.scrollEnabled = NO;
+    configView.openCloseButton.enabled = NO;
+    helpButton.enabled = NO;
+    
+    switch (help) {
+        case 1:
+            albumMenu.openCloseButton.enabled = NO;
+            preventOpenLevelView = YES;
+            playCurrentLevelButton.userInteractionEnabled = YES;
+            break;
+        case 2:
+            playCurrentLevelButton.userInteractionEnabled = NO;
+            preventOpenLevelView = YES;
+            albumMenu.openCloseButton.enabled = YES;
+            break;
+        case 3:
+            albumMenu.openCloseButton.enabled = NO;
+            playCurrentLevelButton.userInteractionEnabled = NO;
+            preventOpenLevelView = NO;
+            break;
+    }
+}
+
+- (void) allowPlayingHelpEnded {
+    mapScrollView.scrollEnabled = YES;
+    albumMenu.openCloseButton.enabled = YES;
+    configView.openCloseButton.enabled = YES;
+    playCurrentLevelButton.userInteractionEnabled = YES;
+    preventOpenLevelView = NO;
+    helpButton.enabled = YES;
+}
+
 - (IBAction) helpAnimation1 {
     
     // Show Hand and move to the play button
+    [self preventPlayingHelp: 1];
     
     hand.center =  (CGPoint)  {
         [ImageManager windowWidthXIB] / 2,
@@ -372,6 +408,8 @@
 
 // Help 1: Play Game
 - (void) helpAnimation1_A {
+    
+    mapScrollView.enabledInteraction = NO;
     [Sentence playSpeaker: @"MapView-Help1A"];
     [AnimatorHelper clickingView: hand delegate: self selector: @selector(helpAnimation1_B)];
 }
@@ -389,7 +427,8 @@
 // Help 1: Play with Sticker Album
 - (void) helpAnimation2 {
     // Show Hand and starting close to stickers tab
-    
+
+    [self preventPlayingHelp: 2];
     // [albumMenu close];
     [self.view bringSubviewToFront: hand];
     
@@ -423,7 +462,7 @@
 - (void) helpAnimation2_C {
     // Open Album Menu and move hand to first album
 
-    [albumMenu show];
+    [albumMenu show: NO];
     [Sentence playSpeaker: @"MapView-Help2A"];
     [self helpAnimation2_D];
 }
@@ -453,6 +492,7 @@
 }
 
 - (void) helpAnimation3 {
+    [self preventPlayingHelp: 3];
     hand.center =  (CGPoint)  {
         [ImageManager windowWidthXIB] / 2,
         [ImageManager windowHeightXIB] / 2
@@ -498,6 +538,7 @@
         [ImageManager windowHeightXIB] / 2
     };
     hand.alpha = 1;
+
     [self.view bringSubviewToFront: hand];
     
     [UIImageView beginAnimations: @"HandToPlayButton" context: (__bridge void *)(hand)];
@@ -516,7 +557,8 @@
 
     // Help 4, part 1: Play Game
 - (void) helpAnimation4_A {
-        //    [Sentence playSpeaker: @"MapView-Help1A"];
+    
+    //    [Sentence playSpeaker: @"MapView-Help1A"];
     [Sentence playSpeaker:@"MapView-Help1A" delegate: self selector:@selector(helpAnimation4_B)];
     [AnimatorHelper clickingView: hand delegate: self selector: @selector(helpAnimation4_D2)];
 }
@@ -571,7 +613,7 @@
 - (void) helpAnimation4_F {
         // Open Album Menu and move hand to first album
     
-    [albumMenu show];
+    [albumMenu show: NO];
     [Sentence playSpeaker: @"MapView-Help2A"];
     [self helpAnimation4_G];
 }

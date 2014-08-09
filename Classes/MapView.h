@@ -17,7 +17,7 @@
 #import "AlbumMenu.h"
 #import "AnimatorHelper.h"
 
-#define cMailInfo @"" // @"info@vocabularyTrip.com"
+#define cMailInfo @"info@vocabularyTrip.com"
 
 @interface MapView : UIViewController <UIAlertViewDelegate> {
     
@@ -40,6 +40,7 @@
     float angle;    // Used in helps
     
   	CADisplayLink *helpTimer;
+    bool preventOpenLevelView;
 }
 
 @property (nonatomic, strong) AVAudioPlayer *backgroundSound;
@@ -49,6 +50,7 @@
 @property (nonatomic, unsafe_unretained) bool flagFirstShowInSession;
 @property (nonatomic, unsafe_unretained) int startWithHelpDownload;
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *hand;
+@property (nonatomic, unsafe_unretained) bool preventOpenLevelView;
 
 - (IBAction) playCurrentLevel: (id) sender;
 - (IBAction) helpClicked;
