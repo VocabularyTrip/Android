@@ -126,13 +126,13 @@
 		if (hitRate < 4) {
 			[Sentence playSpeaker: @"Test-EndGame-Level0" delegate: self selector: @selector(refreshMoneyLabels)];
             [[UserContext getUserSelected] nextSequence: @"Training"];
-		} else if (hitRate < 6) {
+		} else if (hitRate < 7) {
 			[Sentence playSpeaker: @"Test-EndGame-Level1" delegate: self selector: @selector(refreshMoneyLabels)];
             [[UserContext getUserSelected] nextSequence: @"Training"];
-		} else if (hitRate < 7) {
+		} else if (hitRate < 9) {
 			[Sentence playSpeaker: @"Test-EndGame-Level2" delegate: self selector: @selector(refreshMoneyLabels)];
             [[UserContext getUserSelected] nextSequence];
-		} else if (hitRate < 9) {
+		} else if (hitRate < 10) {
 			[Sentence playSpeaker: @"Test-EndGame-Level3" delegate: self selector: @selector(refreshMoneyLabels)];
             [[UserContext getUserSelected] nextSequence: @"Challenge"];
 		} else {

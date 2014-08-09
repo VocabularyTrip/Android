@@ -508,6 +508,7 @@
 
 - (void) helpAnimation3_B {
     // Move hand to a station
+    [Sentence playSpeaker: @"MapView-Help3A"];
     [UIImageView beginAnimations: @"HandToLevel" context: (__bridge void *)(hand)];
     [UIImageView setAnimationDelegate: self];
     [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
@@ -523,7 +524,6 @@
 }
 
 - (void) helpAnimation3_C {
-    [Sentence playSpeaker: @"MapView-Help3A"];
     [AnimatorHelper clickingView: hand delegate: self selector: @selector(helpAnimation3_E)];
 }
 
