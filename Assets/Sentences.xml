@@ -2,15 +2,25 @@
 
 <list>
 	<Sentence Method="AppDelegate-ResponseToBuyAction-NextLevel" name="Advanced to next level" type="always"></Sentence> <!-- ok -->
-    
+    <!-- Ariel, modifique todos los nombres de los archivos de sonido que era de felicitaciones. La logica ahora es agruparlos por nivel.
+     Hay 5 niveles, los que terminan en:
+     nivel 0) Pifiaron casi todo, sacar una frase al azar de las que terminan en _1_* y concatenar una de las que termina en _0_* (ver como queda)
+     nivel 1) Acertaron 3-5: Sacar una frase al azar de las que terminan en _1_*
+     nivel 2) 6-7 aciertos: Sacar una frase al azar de las que terminan en _2_*
+     nivel 3) 8-9 aciertos: Sacar una frase al azar de las que terminan en _3_*
+     nivel 4) Acertaron todas, sacar la frase de _4_*
+     -->
     <!-- TEST -->
 	<Sentence Method="Test-EndGame-PracticeMore" name="Congratulations3" type="always"> </Sentence>
+    
 	<Sentence Method="Test-EndGame-Amazing" name="Congratulations4" type="always"> <!-- ok -->
         <Alternative name= "Congratulations6"></Alternative></Sentence> <!-- Wow You got the mok! -->
+    
     <Sentence Method="Test-EndGame-GreatJob" name="Congratulations8" type="always"> <!-- ok -->
         <Alternative name= "Congratulations9"></Alternative>
         <Alternative name= "Congratulations12"></Alternative>
         <Alternative name= "Congratulations2"></Alternative></Sentence> <!-- You are very good on this -->
+    
     <Sentence Method="Test-EndGame-GoodJob" name="Congratulations10" type="always"> <!-- ok -->
         <Alternative name= "Congratulations14"></Alternative> <!-- You are geting better -->
         <Alternative name= "Congratulations5"></Alternative></Sentence> <!-- Keep working you are definetely improving -->
@@ -35,9 +45,7 @@
     <Sentence Method="MapView-Help1A" name="map_01A" type="always"></Sentence>
     <Sentence Method="MapView-Help2A" name="map_02A" type="always"></Sentence>
     <Sentence Method="MapView-Help2B" name="map_02B" type="always"></Sentence>
-    <Sentence Method="MapView-Help2C" name="map_02C" type="always"></Sentence>
     <Sentence Method="MapView-Help3A" name="map_03A" type="always"></Sentence>
-    <Sentence Method="MapView-Help3B" name="map_03B" type="always"></Sentence>
     
     <!-- Album -->
 	<Sentence Method="AlbumView-onEmptyFigClick-NotEnoughGold" name="win more play more" type="always"></Sentence> <!-- ok -->
@@ -65,9 +73,8 @@
     <Sentence Method="AlbumView-help2" name="Album help 2" type="always"></Sentence> <!-- ok -->
     
     <!-- Level -->
-    <Sentence Method="Download_Help_1" name="Download_Help_1" type="always"></Sentence> <!-- ok -->
-    <Sentence Method="Download_Help_2" name="Download_Help_2" type="always"></Sentence> <!-- ok -->
-    <Sentence Method="Download_Help_3" name="Download_Help_3" type="always"></Sentence> <!-- ok -->
+    <Sentence Method="Download_Help_1" name="Download_Help_1A" type="always"></Sentence> <!-- ok -->
+    <Sentence Method="Download_Help_2" name="Download_Help_1B" type="always"></Sentence> <!-- ok -->
     
     <Sentence Method="Level_helpA" name="Level_helpA" type="always"></Sentence> <!-- ok -->
     <Sentence Method="Level_helpB" name="Level_helpB" type="always"></Sentence> <!-- ok -->
