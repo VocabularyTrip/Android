@@ -132,6 +132,7 @@
 			[Sentence playSpeaker: @"Test-EndGame-GreatJob" delegate: self selector: @selector(refreshMoneyLabels)];
             [[UserContext getUserSelected] nextSequence: @"Challenge"];
 		} else {
+            [AnimatorHelper avatarDance: driverView];
 			[Sentence playSpeaker: @"Test-EndGame-Amazing" delegate: self selector: @selector(refreshMoneyLabels)];
             [[UserContext getUserSelected] nextSequence: @"Challenge"];
 		}
@@ -273,12 +274,14 @@
 		if (targetId == i) {
 			if (flagFaild == NO) {
 				[w decWeight];
-                [AnimatorHelper avatarOk: driverView];
+                [AnimatorHelper avatarDance: driverView];
 				// Increment the hit of Level
 				[self incrementHitAtLevel: w.theme];
 			}
 			[self changeImageOn: aButton wordButtonLabel: aButtonLabel id: i];
 		} else {
+                // TODO, insert here frustrated animation
+            [AnimatorHelper avatarFrustrated: driverView];
 			flagFaild = YES;
             Word* w2 = [words objectAtIndex: i];
             [w2 incWeight];
