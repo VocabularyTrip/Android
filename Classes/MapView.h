@@ -32,7 +32,7 @@
     int startWithHelpPurchase, // when the View did show, the Purchase help is launched. When the user finish his purchase succesfully the user is redirected automatically to LevelView with purchase help
     startWithHelpDownload; // when the View did show, the Download help is launched. When the user is playiinng and a sound is not loaded from server, the user is redirected automatically to LevelView with download help
     int currentLevelNumber; // Is used to compare if the user getLevel hasChanged --> do animation to advance to next level
-    AVAudioPlayer* backgroundSound;
+    AVAudioPlayer *backgroundSound;
     CADisplayLink *timerToPlayBackgroundSound;
     bool flagTimeoutStartMusic; // theTimer call immediate. This flat is used to omit it.
     CADisplayLink *theTimer; // Used for avatar animation
@@ -51,6 +51,7 @@
 @property (nonatomic, unsafe_unretained) int startWithHelpDownload;
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *hand;
 @property (nonatomic, unsafe_unretained) bool preventOpenLevelView;
+@property (nonatomic, unsafe_unretained) bool flagTimeoutStartMusic;
 
 - (IBAction) playCurrentLevel: (id) sender;
 - (IBAction) helpClicked;

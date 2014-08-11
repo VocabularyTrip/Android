@@ -171,6 +171,7 @@ extern UserContext *userContextSingleton;
 -(void) addLevel: (Level*) level;	
 -(Level*) getLevelAt: (int) anIndex;
 -(void) resetGame;
+-(void) resetHelps;
 -(void) initGame;
 -(void) initGameOnVersionChange;
 -(void) addPostInFacebook;
