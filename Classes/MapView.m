@@ -78,7 +78,7 @@
         // If soundEnabled is false the volumne is 0. This play prepare buffer and resourses to prevent delay in first word
         [self.backgroundSound play];
         [mapScrollView setContentOffset: CGPointMake(
-            [ImageManager getMapViewSize].width - [ImageManager windowWidthXIB],
+            [ImageManager getMapViewSize].width/2 - [ImageManager windowWidthXIB],
             [ImageManager getMapViewSize].height - [ImageManager windowHeightXIB]) animated: NO];
         Level *level = [UserContext getLevel];
         playCurrentLevelButton.center = [level placeinMap];
