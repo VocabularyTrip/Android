@@ -32,7 +32,7 @@
 @synthesize wordButton2;
 @synthesize wordButton3;
 @synthesize driverView;
-@synthesize langView;
+//@synthesize langView;
 @synthesize landscape_1;
 @synthesize landscape_2;
 @synthesize landscape_3;
@@ -432,8 +432,8 @@ gameStatus = cStatusGameIsOn;
         User *user = [UserContext getUserSelected];
         [driverView setImage: user.image];
         
-        Language *lang = [UserContext getLanguageSelected];
-        [langView setImage: lang.image];
+        //Language *lang = [UserContext getLanguageSelected];
+        //[langView setImage: lang.image];
         
 		if (gameStatus == cStatusGameIsFinished) { 
 			[self shiftTrain: [ImageManager windowWidth]];
@@ -830,11 +830,11 @@ gameStatus = cStatusGameIsOn;
 	[wheel9 wheelLoop];
     
 	int maxDeltaY = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 4 : 2;
-	int trainY = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 410 : 152;
+	int trainY = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 463 : 185;
 	int wheelY = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 680 : 285;
 	int wagonY = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 609 : 256;
-    int driverY = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 520 : 202;
-    int flagY = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 415 : 152;
+    int driverY = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 505 : 202;
+    //int flagY = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 415 : 152;
     
     // train
     CGRect frame = self.train.frame;
@@ -848,9 +848,9 @@ gameStatus = cStatusGameIsOn;
     self.driverView.frame = frame;
 
     // Flag
-    frame = self.langView.frame;
-    frame.origin.y = flagY + deltaY;
-    self.langView.frame = frame;
+    //frame = self.langView.frame;
+    //frame.origin.y = flagY + deltaY;
+    //self.langView.frame = frame;
     
     // Train's wheels
     frame = self.wheel2.frame;
@@ -966,9 +966,9 @@ gameStatus = cStatusGameIsOn;
 	frame.origin.x = frame.origin.x + xPix;
 	driverView.frame = frame;
 
-	frame = langView.frame;
-	frame.origin.x = frame.origin.x + xPix;
-	langView.frame = frame;
+	//frame = langView.frame;
+	//frame.origin.x = frame.origin.x + xPix;
+	//langView.frame = frame;
     
 	frame = wagon1.frame;
 	frame.origin.x = frame.origin.x + xPix; 

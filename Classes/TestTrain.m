@@ -117,22 +117,26 @@
     return (qOfImagesRemaining <= 0 || !word);
 }
 
-- (void) endGame { 
+
+- (void) endGame {
 	[super endGame];
     gameStatus = cStatusGameIsMoneyCount;
 	if (viewMode == 1) {
 		int hitRate = [self hitRate];
-		if (hitRate < 5) {
-			[Sentence playSpeaker: @"Test-EndGame-PracticeMore" delegate: self selector: @selector(refreshMoneyLabels)];
+		if (hitRate < 4) {
+			[Sentence playSpeaker: @"Test-EndGame-Level0" delegate: self selector: @selector(refreshMoneyLabels)];
             [[UserContext getUserSelected] nextSequence: @"Training"];
 		} else if (hitRate < 7) {
-			[Sentence playSpeaker: @"Test-EndGame-GoodJob" delegate: self selector: @selector(refreshMoneyLabels)];
-            [[UserContext getUserSelected] nextSequence];
+			[Sentence playSpeaker: @"Test-EndGame-Level1" delegate: self selector: @selector(refreshMoneyLabels)];
+            [[UserContext getUserSelected] nextSequence: @"Training"];
 		} else if (hitRate < 9) {
-			[Sentence playSpeaker: @"Test-EndGame-GreatJob" delegate: self selector: @selector(refreshMoneyLabels)];
+			[Sentence playSpeaker: @"Test-EndGame-Level2" delegate: self selector: @selector(refreshMoneyLabels)];
+            [[UserContext getUserSelected] nextSequence];
+		} else if (hitRate < 10) {
+			[Sentence playSpeaker: @"Test-EndGame-Level3" delegate: self selector: @selector(refreshMoneyLabels)];
             [[UserContext getUserSelected] nextSequence: @"Challenge"];
 		} else {
-			[Sentence playSpeaker: @"Test-EndGame-Amazing" delegate: self selector: @selector(refreshMoneyLabels)];
+			[Sentence playSpeaker: @"Test-EndGame-Level4" delegate: self selector: @selector(refreshMoneyLabels)];
             [[UserContext getUserSelected] nextSequence: @"Challenge"];
 		}
 	}

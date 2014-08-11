@@ -2,29 +2,46 @@
 
 <list>
 	<Sentence Method="AppDelegate-ResponseToBuyAction-NextLevel" name="Advanced to next level" type="always"></Sentence> <!-- ok -->
-    <!-- Ariel, modifique todos los nombres de los archivos de sonido que era de felicitaciones. La logica ahora es agruparlos por nivel.
-     Hay 5 niveles, los que terminan en:
-     nivel 0) Pifiaron casi todo, sacar una frase al azar de las que terminan en _1_* y concatenar una de las que termina en _0_* (ver como queda)
-     nivel 1) Acertaron 3-5: Sacar una frase al azar de las que terminan en _1_*
-     nivel 2) 6-7 aciertos: Sacar una frase al azar de las que terminan en _2_*
-     nivel 3) 8-9 aciertos: Sacar una frase al azar de las que terminan en _3_*
-     nivel 4) Acertaron todas, sacar la frase de _4_*
-     -->
-    <!-- TEST -->
-	<Sentence Method="Test-EndGame-PracticeMore" name="Congratulations3" type="always"> </Sentence>
+
+	<Sentence Method="Test-EndGame-Level0" name="Congratulations_0_0" type="always">
+        <Alternative name= "Congratulations_0_1"></Alternative>
+        <Alternative name= "Congratulations_0_2"></Alternative>
+        <Alternative name= "Congratulations_0_3"></Alternative>
+    </Sentence>
     
-	<Sentence Method="Test-EndGame-Amazing" name="Congratulations4" type="always"> <!-- ok -->
-        <Alternative name= "Congratulations6"></Alternative></Sentence> <!-- Wow You got the mok! -->
+	<Sentence Method="Test-EndGame-Level1" name="Congratulations_1_0" type="always">
+        <Alternative name= "Congratulations_1_1"></Alternative>
+        <Alternative name= "Congratulations_1_2"></Alternative>
+        <Alternative name= "Congratulations_1_3"></Alternative>
+        <Alternative name= "Congratulations_1_4"></Alternative>
+        <Alternative name= "Congratulations_1_5"></Alternative>
+        <Alternative name= "Congratulations_1_6"></Alternative>
+        <Alternative name= "Congratulations_1_7"></Alternative>
+        <Alternative name= "Congratulations_1_8"></Alternative>
+        <Alternative name= "Congratulations_1_9"></Alternative>
+        <Alternative name= "Congratulations_1_10"></Alternative>
+    </Sentence>
     
-    <Sentence Method="Test-EndGame-GreatJob" name="Congratulations8" type="always"> <!-- ok -->
-        <Alternative name= "Congratulations9"></Alternative>
-        <Alternative name= "Congratulations12"></Alternative>
-        <Alternative name= "Congratulations2"></Alternative></Sentence> <!-- You are very good on this -->
+	<Sentence Method="Test-EndGame-Level2" name="Congratulations_2_0" type="always">
+        <Alternative name= "Congratulations_2_1"></Alternative>
+        <Alternative name= "Congratulations_2_2"></Alternative>
+        <Alternative name= "Congratulations_2_3"></Alternative>
+        <Alternative name= "Congratulations_2_4"></Alternative>
+        <Alternative name= "Congratulations_2_5"></Alternative>
+        <Alternative name= "Congratulations_2_6"></Alternative>
+        <Alternative name= "Congratulations_2_7"></Alternative>
+    </Sentence>
     
-    <Sentence Method="Test-EndGame-GoodJob" name="Congratulations10" type="always"> <!-- ok -->
-        <Alternative name= "Congratulations14"></Alternative> <!-- You are geting better -->
-        <Alternative name= "Congratulations5"></Alternative></Sentence> <!-- Keep working you are definetely improving -->
-    
+	<Sentence Method="Test-EndGame-Level3" name="Congratulations_3_0" type="always">
+        <Alternative name= "Congratulations_3_1"></Alternative>
+        <Alternative name= "Congratulations_3_2"></Alternative>
+    </Sentence>
+
+    <Sentence Method="Test-EndGame-Level4" name="Congratulations_4_0" type="always">
+        <Alternative name= "Congratulations_4_1"></Alternative>
+        <Alternative name= "Congratulations_4_2"></Alternative>
+    </Sentence>
+
 	<Sentence Method="Test-EvaluateGetIntoNextLevel-NextLevel" name="Advanced to next level" type="always"></Sentence> <!-- ok -->
 	<Sentence Method="Test-IntroduceTrain" name="Test help" type="always"></Sentence> <!-- ok -->
     

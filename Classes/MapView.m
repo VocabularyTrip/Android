@@ -368,6 +368,11 @@
             playCurrentLevelButton.userInteractionEnabled = NO;
             preventOpenLevelView = NO;
             break;
+        case 4:
+            albumMenu.openCloseButton.enabled = NO;
+            playCurrentLevelButton.userInteractionEnabled = NO;
+            preventOpenLevelView = YES;
+            break;
     }
 }
 
@@ -503,6 +508,7 @@
 
 - (void) helpAnimation3_B {
     // Move hand to a station
+    [Sentence playSpeaker: @"MapView-Help3A"];
     [UIImageView beginAnimations: @"HandToLevel" context: (__bridge void *)(hand)];
     [UIImageView setAnimationDelegate: self];
     [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
@@ -518,7 +524,6 @@
 }
 
 - (void) helpAnimation3_C {
-    [Sentence playSpeaker: @"MapView-Help3A"];
     [AnimatorHelper clickingView: hand delegate: self selector: @selector(helpAnimation3_E)];
 }
 
@@ -531,6 +536,8 @@
 }
 
 - (void) helpAnimation4 {
+    
+    [self preventPlayingHelp: 4];
     // this helps gets triggered when user presses the help button.
     // this part of the animation makes hand visible in the screen center.
     hand.center =  (CGPoint)  {
@@ -647,7 +654,7 @@
     };
     [albumMenu close];
 
-
+    [self allowPlayingHelpEnded];
 }
 
 - (void) helpAnimationPurchase {

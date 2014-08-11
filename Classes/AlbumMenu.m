@@ -61,21 +61,24 @@
 }
 
 - (IBAction) album1ShowInfo:(id)sender {
-   	[parentView stopBackgroundSound];
+   	//[parentView stopBackgroundSound];
+    [parentView cancelAllAnimations];
 	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
     [vcDelegate.albumView selectAlbum1];
 	[vcDelegate pushAlbumView];
 }
 
 - (IBAction) album2ShowInfo:(id)sender {
-   	[parentView stopBackgroundSound];
+   	//[parentView stopBackgroundSound];
+    [parentView cancelAllAnimations];
 	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
     [vcDelegate.albumView selectAlbum2];
 	[vcDelegate pushAlbumView];
 }
 
 - (IBAction) album3ShowInfo:(id)sender {
-   	[parentView stopBackgroundSound];
+   	//[parentView stopBackgroundSound];
+    [parentView cancelAllAnimations];
 	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
     [vcDelegate.albumView selectAlbum3];
 	[vcDelegate pushAlbumView];
