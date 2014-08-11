@@ -20,6 +20,7 @@
 @synthesize startWithHelpDownload;
 @synthesize hand;
 @synthesize preventOpenLevelView;
+@synthesize flagTimeoutStartMusic;
 
 - (BOOL)shouldAutorotate{
         //if([[UIDevice currentDevice] orientation] == UIInterfaceOrientationLandscapeLeft ||[[UIDevice currentDevice] orientation] == UIInterfaceOrientationLandscapeRight)
@@ -83,8 +84,9 @@
         Level *level = [UserContext getLevel];
         playCurrentLevelButton.center = [level placeinMap];
         currentLevelNumber = level.levelNumber;
+    } else {
+        [self initializeTimeoutToPlayBackgroundSound];
     }
-    [self initializeTimeoutToPlayBackgroundSound];
     [mapScrollView reloadAllLevels];
     [mapScrollView bringSubviewToFront: playCurrentLevelButton];
     [albumMenu close];
@@ -151,8 +153,11 @@
 - (void) startPlayBackgroundSound {
     if (!flagTimeoutStartMusic)
         flagTimeoutStartMusic = YES;
-    else
+    else {
         [self.backgroundSound play];
+        [timerToPlayBackgroundSound invalidate];
+        timerToPlayBackgroundSound = nil;
+    }
 }
 
 - (void) moveOffsetToSeeUser: (Level*) aLevel {
@@ -413,7 +418,8 @@
 
 // Help 1: Play Game
 - (void) helpAnimation1_A {
-    
+    [backgroundSound setVolume: 0.3];
+    [self moveOffsetToSeeUser: [UserContext getLevel]];
     mapScrollView.enabledInteraction = NO;
     [Sentence playSpeaker: @"MapView-Help1A"];
     [AnimatorHelper clickingView: hand delegate: self selector: @selector(helpAnimation1_B)];
@@ -427,12 +433,13 @@
 	[UIImageView setAnimationDuration: 1.5];
 	hand.alpha = 0;
 	[UIImageView commitAnimations];
+    [backgroundSound setVolume: 1];
 }
 
 // Help 1: Play with Sticker Album
 - (void) helpAnimation2 {
     // Show Hand and starting close to stickers tab
-
+    [backgroundSound setVolume: 0.3];
     [self preventPlayingHelp: 2];
     // [albumMenu close];
     [self.view bringSubviewToFront: hand];
@@ -494,9 +501,12 @@
 
 - (void) helpAnimation2_F {
     hand.alpha = 0;
+    [backgroundSound setVolume: 1];
 }
 
 - (void) helpAnimation3 {
+    [backgroundSound setVolume: 0.3];
+    [self moveOffsetToSeeUser: [UserContext getLevelAt: 3]];
     [self preventPlayingHelp: 3];
     hand.center =  (CGPoint)  {
         [ImageManager windowWidthXIB] / 2,
@@ -533,10 +543,11 @@
 
 - (void) helpAnimation3_F {
     hand.alpha = 0;
+    [backgroundSound setVolume: 1];
 }
 
 - (void) helpAnimation4 {
-    
+    [backgroundSound setVolume: 0.3];
     [self preventPlayingHelp: 4];
     // this helps gets triggered when user presses the help button.
     // this part of the animation makes hand visible in the screen center.
@@ -554,6 +565,7 @@
     [UIImageView setAnimationDidStopSelector: @selector(helpAnimation4_A)];
     [UIImageView setAnimationDuration: .75];
     [UIImageView setAnimationBeginsFromCurrentState: YES];
+    [self moveOffsetToSeeUser: [UserContext getLevel]];
     hand.center =  (CGPoint)  {
         playCurrentLevelButton.center.x + hand.frame.size.width/2 - mapScrollView.contentOffset.x,
         playCurrentLevelButton.center.y + hand.frame.size.height/2 - mapScrollView.contentOffset.y
@@ -570,16 +582,17 @@
     [AnimatorHelper clickingView: hand delegate: self selector: @selector(helpAnimation4_D2)];
 }
 
-
 - (void) helpAnimation4_B {
-        // Start part of help about the Level view
-        // Move hand to a station
+    // Start part of help about the Level view
+    // Move hand to a station
     [UIImageView beginAnimations: @"HandToLevel" context: (__bridge void *)(hand)];
     [UIImageView setAnimationDelegate: self];
     [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
     [UIImageView setAnimationDidStopSelector: @selector(helpAnimation4_C)];
     [UIImageView setAnimationDuration: 2];
     [UIImageView setAnimationBeginsFromCurrentState: YES];
+
+    [self moveOffsetToSeeUser: [UserContext getLevelAt: 3]];
     
     hand.center =  (CGPoint)  {
         [[UserContext getLevelAt: 3] placeinMap].x - mapScrollView.contentOffset.x + [ImageManager getMapViewLevelSize] / 2 + hand.frame.size.width/2,
@@ -589,7 +602,7 @@
 }
 
 - (void) helpAnimation4_C {
-        //    [Sentence playSpeaker: @"MapView-Help3A"];
+    //    [Sentence playSpeaker: @"MapView-Help3A"];
     [Sentence playSpeaker:@"MapView-Help3A" delegate:self selector:@selector(helpAnimation4_E)];
     [AnimatorHelper clickingView: hand delegate: self selector: @selector(helpAnimation4_D)];
 }
@@ -655,6 +668,7 @@
     [albumMenu close];
 
     [self allowPlayingHelpEnded];
+    [backgroundSound setVolume: 1];
 }
 
 - (void) helpAnimationPurchase {

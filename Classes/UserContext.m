@@ -300,6 +300,12 @@ UserContext *userContextSingleton;
     [[NSUserDefaults standardUserDefaults] setBool: NO forKey: cNoAskMeAgain];
     [[NSUserDefaults standardUserDefaults] setInteger: 0 forKey: cCountExecutions];
 
+    [self resetHelps];
+	UserContext.soundEnabled = YES;
+	[[UserContext getSingleton] setMaxLevel: cSetLevelsFree];
+}
+
+- (void) resetHelps {
 	[UserContext setHelpTraining: YES];
 	[UserContext setHelpTest: YES];
 	[UserContext setHelpAlbum: YES];
@@ -309,9 +315,6 @@ UserContext *userContextSingleton;
     [UserContext setHelpMapViewStep1: YES];
     [UserContext setHelpMapViewStep2: YES];
     [UserContext setHelpMapViewStep3: YES];
-    
-	UserContext.soundEnabled = YES;
-	[[UserContext getSingleton] setMaxLevel: cSetLevelsFree];
 }
 
 - (void) initGameOnVersionChange {
@@ -333,7 +336,9 @@ UserContext *userContextSingleton;
         [[UserContext getSingleton] setMaxLevel: cSet1OfLevels];
 }
 
--(void) resetGame {	
+-(void) resetGame {
+    
+    [self resetHelps];
 	[UserContext resetLevelAndMoney];
 	[Vocabulary resetAllWeigths];	
 	Album* albumTemp = [Album alloc];

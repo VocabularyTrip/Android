@@ -36,9 +36,9 @@
                         <action selector="done:" destination="-1" eventType="touchDown" id="Cbd-60-zVL"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tCv-jT-lnc" userLabel="RepeatButton">
+                <button opaque="NO" contentMode="scaleAspectFit" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tCv-jT-lnc" userLabel="RepeatButton">
                     <rect key="frame" x="855" y="8" width="77" height="77"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="17"/>
                     <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-57"/>
                     <state key="normal" backgroundImage="ico_reset.png">
@@ -51,9 +51,9 @@
                         <action selector="repeatClicked" destination="-1" eventType="touchDown" id="vBK-Uj-BMg"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3S7-FL-4Y6" userLabel="PauseButton">
+                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3S7-FL-4Y6" userLabel="PauseButton">
                     <rect key="frame" x="940" y="8" width="77" height="77"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                     <state key="normal" image="pause2.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>

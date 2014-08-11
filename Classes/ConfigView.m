@@ -126,6 +126,8 @@
 			[[UserContext getSingleton] resetGame];
 			[[parentView mapScrollView] reloadAllLevels];
             [parentView moveUser];
+            [self close];
+            [parentView initializeHelpTimer];
 			break;
 		default:
 			break;
@@ -133,11 +135,14 @@
 }
 
 - (IBAction)soundClicked {
+    
 	if (UserContext.soundEnabled == YES) {
 		UserContext.soundEnabled = NO;
         [[self parentView] stopBackgroundSound];
 	} else	{
 		UserContext.soundEnabled = YES;
+        [[self parentView] setFlagTimeoutStartMusic: YES];
+        [[self parentView] startPlayBackgroundSound];
 	}
 	[self refreshSoundButton];
 }
