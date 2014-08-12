@@ -32,7 +32,6 @@
 
     VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
     [vocTripDelegate popMainMenuFromChangeLang];
-    [vocTripDelegate.mapView initializeTimeoutToPlayBackgroundSound];
 }
 
 - (MapView*) mapView {
@@ -59,55 +58,6 @@
     originalframeImageView = imageView.frame;
     //[parentView setEnabledInteraction: YES];
 }
-
-/*- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    // This empty method is intended to overwrite the MapScrollView method.
-    // the idea is not scrolling when Level is visible
-}
-
-- (void) showLevel: (Level*) aLevel at: (CGPoint) offset {
-    VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
-    [vcDelegate.mapView stopBackgroundSound];
-    level = aLevel;
-    
-    gameStatus = cStatusGameIsOn;
-    
-    self.view.frame = CGRectMake(offset.x, offset.y, 0, 0);
-    self.view.alpha = 0;
-    imageView.alpha = 0;
-    wordNamelabel.alpha = 0;
-    nativeWordNamelabel.alpha = 0;
-
-    int deltaX = ([ImageManager windowWidthXIB] - backgroundView.frame.size.width) / 2;
-    // [ImageManager levelViewDeltaXYCorner];
-
-    //int deltaY = vcDelegate.mapView.langButton.frame.size.height + ([ImageManager windowHeightXIB] - backgroundView.frame.size.height - vcDelegate.mapView.langButton.frame.size.height) / 2;
-
-    int deltaY = ([ImageManager windowHeightXIB] - backgroundView.frame.size.height) / 2;
-    
-    [UIView animateWithDuration: 0.50 animations: ^ {
-        self.view.frame = CGRectMake(
-            offset.x + deltaX, offset.y + deltaY,
-            backgroundView.frame.size.width,
-            backgroundView.frame.size.height);
-        self.view.alpha = 1;
-    }];
-    
-    [self showAndSayDictionary];
-}
-
-- (IBAction) close {
-    [parentView setEnabledInteraction: YES];
-
-    [UIView animateWithDuration: 0.50 animations: ^ {
-        self.view.frame = CGRectMake(0, 0, 0, 0);
-        self.view.alpha = 0;
-    }];
-    [theTimer invalidate];
-	theTimer = nil;
-    VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
-    [vcDelegate.mapView initializeTimeoutToPlayBackgroundSound];
-}*/
 
 - (IBAction) pauseClicked {
 	//NSString *imageFile;

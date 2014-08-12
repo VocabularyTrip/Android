@@ -49,11 +49,6 @@
 }
 
 - (void) show {
-    [self show: YES];
-}
-
-- (void) show: (bool) cancelAnimation {
-    //if (cancelAnimation) [parentView cancelAllAnimations];
     self.view.frame = [self frameClosed];
     [UIView beginAnimations: @"moveShow" context: (__bridge void *)(self.view)];
     [UIView setAnimationRepeatAutoreverses: NO];

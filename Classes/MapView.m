@@ -21,6 +21,7 @@
 @synthesize hand;
 @synthesize preventOpenLevelView;
 @synthesize flagTimeoutStartMusic;
+@synthesize viewComeFrom;
 
 - (BOOL)shouldAutorotate{
         //if([[UIDevice currentDevice] orientation] == UIInterfaceOrientationLandscapeLeft ||[[UIDevice currentDevice] orientation] == UIInterfaceOrientationLandscapeRight)
@@ -51,6 +52,7 @@
     }
     
     [self initAvatarAnimation];
+    viewComeFrom = 0;
 }
 
 - (void) initializeGame {
@@ -84,8 +86,6 @@
         Level *level = [UserContext getLevel];
         playCurrentLevelButton.center = [level placeinMap];
         currentLevelNumber = level.levelNumber;
-    } else {
-        [self initializeTimeoutToPlayBackgroundSound];
     }
     [mapScrollView reloadAllLevels];
     [mapScrollView bringSubviewToFront: playCurrentLevelButton];
@@ -94,25 +94,42 @@
 }
 
 - (void) viewDidAppear:(BOOL)animated {
-    [self showAllMapInFirstSession];
-    [self moveUser];
+    if (flagFirstShowInSession) {
+        [self showAllMapInFirstSession];
+    } else {
+        
+        [self initializeTimeoutToPlayBackgroundSound];
+        
+        Level *level = [UserContext getLevel];
+        if (level.levelNumber != currentLevelNumber) {
+            // Move the train from the previous level to the next level
+            if (viewComeFrom == cViewComeFromTrain) {
+                [Sentence playSpeaker: @"Test-EvaluateGetIntoNextLevel-NextLevel" delegate: self selector: @selector(initializeHelpTimer)];
+                viewComeFrom = 0;
+            }
+            [self moveUser];
+        } else {
+            [self initializeHelpTimer];
+        }
+    }
     
     if ([UserContext getHelpLevel] || startWithHelpPurchase) [self helpAnimationPurchase];
     if (!singletonVocabulary.isDownloading && ![Vocabulary isDownloadCompleted]) [configView startLoading];
     if (startWithHelpDownload) [configView show];
     startWithHelpDownload = 0;
     startWithHelpPurchase = 0;
-    if (!flagFirstShowInSession)
-        //[self startHelp];
-        [self initializeHelpTimer];
+
 }
 
 - (void) cancelAllAnimations {
+
 	[self stopBackgroundSound];
-    hand.alpha = 0;
     [Sentence stopCurrentAudio];
+
     [helpTimer invalidate];
 	helpTimer = nil;
+    [timerToPlayBackgroundSound invalidate];
+    timerToPlayBackgroundSound = nil;
     
 	[UIView beginAnimations: nil context: NULL];
 	[UIView setAnimationBeginsFromCurrentState: YES];
@@ -120,6 +137,8 @@
 	[UIView setAnimationCurve:UIViewAnimationCurveLinear];
 	[UIView commitAnimations];
 	[self.view.layer removeAllAnimations];
+    
+    //hand.alpha = 0;
 }
 
 - (AVAudioPlayer*) backgroundSound {
@@ -172,61 +191,34 @@
 
 - (void) moveUser {
     Level *level = [UserContext getLevel];
-    if (level.levelNumber != currentLevelNumber) {
-            // Move the train from the previous level to the next level
-        [self moveOffsetToSeeUser: level];
+    [self moveOffsetToSeeUser: level];
         
-        if (abs(level.levelNumber - currentLevelNumber) == 0) {
-            return;
-        } else { // if (abs(level.levelNumber - currentLevelNumber) == 1) {
+    [UIView beginAnimations: @"Move User" context: nil];
+    [UIView setAnimationDuration: 1];
+    [UIView setAnimationDelegate: self];
+    [UIView setAnimationCurve: UIViewAnimationCurveEaseOut];
             
-                //level = [UserContext getLevelAt: currentLevelNumber];
-            [UIView beginAnimations: @"Move User" context: nil];
-            [UIView setAnimationDuration: 1];
-            [UIView setAnimationDelegate: self];
-            [UIView setAnimationCurve: UIViewAnimationCurveEaseOut];
-            
-            playCurrentLevelButton.center = [level placeinMap];
-            [UIView commitAnimations];
-            currentLevelNumber = level.levelNumber;
-        } /*else {
-           
-           int delta = abs(level.levelNumber - currentLevelNumber) > 10 ? 5 : 1;
-           
-           currentLevelNumber = level.levelNumber < currentLevelNumber ? currentLevelNumber-delta : currentLevelNumber+delta;
-           Level * currentLevel = [UserContext getLevelAt: currentLevelNumber];
-           
-           [UIView beginAnimations: @"Move User" context: nil];
-           [UIView setAnimationDuration: 0.5];
-           [UIView setAnimationDelegate: self];
-           [UIImageView setAnimationDidStopSelector: @selector(moveUserEnded)];
-           [UIView setAnimationCurve: UIViewAnimationCurveLinear];
-           playCurrentLevelButton.center = [currentLevel placeinMap];
-           [UIView commitAnimations];
-           }*/
-    }
+    playCurrentLevelButton.center = [level placeinMap];
+    [UIView commitAnimations];
+    currentLevelNumber = level.levelNumber;
 }
 
-/*- (void) moveUserEnded {
- [self moveUser];
- }*/
-
 - (void) showAllMapInFirstSession {
-    if (flagFirstShowInSession) {
-        Level *level = [UserContext getLevel];
-        [UIView beginAnimations:@"ShowMapAndPositionInCurrentLevel" context: nil];
-        [UIView setAnimationDelegate: self];
-        [UIImageView setAnimationDidStopSelector: @selector(showAllMapFinished)];
-        [UIView setAnimationDuration: 5];
-        [UIView setAnimationCurve: UIViewAnimationCurveEaseOut];
-        [self moveOffsetToSeeUser: level];
-        [UIView commitAnimations];
-    }
+
+    Level *level = [UserContext getLevel];
+    [UIView beginAnimations:@"ShowMapAndPositionInCurrentLevel" context: nil];
+    [UIView setAnimationDelegate: self];
+    [UIImageView setAnimationDidStopSelector: @selector(showAllMapFinished)];
+    [UIView setAnimationDuration: 5];
+    [UIView setAnimationCurve: UIViewAnimationCurveEaseOut];
+    [self moveOffsetToSeeUser: level];
+    [UIView commitAnimations];
+
 }
 
 - (void) showAllMapFinished {
-    //[self startHelp];
     [self initializeHelpTimer];
+    [self initializeTimeoutToPlayBackgroundSound];
     helpButton.alpha = 1;
     flagFirstShowInSession = NO;
 }
@@ -234,7 +226,6 @@
 - (IBAction) playCurrentLevel:(id)sender {
 
     [self cancelAllAnimations];
-
     
     GameSequence *s = [GameSequenceManager getCurrentGameSequence];
     if ([s gameIsChallenge]) [self playChallengeTrain];
@@ -330,9 +321,9 @@
 
 - (void) startHelp {
     hand.alpha = 0;
-    [timerToPlayBackgroundSound invalidate];
-    timerToPlayBackgroundSound = nil;
-    [configView close];
+    //[timerToPlayBackgroundSound invalidate];
+    //timerToPlayBackgroundSound = nil;
+    //[configView close];
     
     if ([UserContext getHelpMapViewStep1]) [self helpAnimation1];
     else if ([UserContext getHelpMapViewStep2]) [self helpAnimation2];
@@ -341,7 +332,6 @@
         [helpTimer invalidate];
         helpTimer = nil;
         [self allowPlayingHelpEnded];
-        [self initializeTimeoutToPlayBackgroundSound];
     }
 }
 
@@ -358,28 +348,40 @@
 }
 
 - (void) preventPlayingHelp: (int) help {
-    [configView close];
+
+    [backgroundSound setVolume: cMusicVolumeOff];
+    [Sentence stopCurrentAudio];
+    [timerToPlayBackgroundSound invalidate];
+    timerToPlayBackgroundSound = nil;
+    
+    [UIView beginAnimations: nil context: NULL];
+    [UIView setAnimationBeginsFromCurrentState: YES];
+    [UIView setAnimationDuration: 0.1];
+    [UIView setAnimationCurve:UIViewAnimationCurveLinear];
+    [UIView commitAnimations];
+    [self.view.layer removeAllAnimations];
+    
     mapScrollView.scrollEnabled = NO;
     configView.openCloseButton.enabled = NO;
     helpButton.enabled = NO;
     
     switch (help) {
-        case 1:
+        case cPreventPlayingHelpTouchAvatar:
             albumMenu.openCloseButton.enabled = NO;
             preventOpenLevelView = YES;
             playCurrentLevelButton.userInteractionEnabled = YES;
             break;
-        case 2:
+        case cPreventPlayingHelpTouchAlbum:
             playCurrentLevelButton.userInteractionEnabled = NO;
             preventOpenLevelView = YES;
             albumMenu.openCloseButton.enabled = YES;
             break;
-        case 3:
+        case cPreventPlayingHelpTouchLevel:
             albumMenu.openCloseButton.enabled = NO;
             playCurrentLevelButton.userInteractionEnabled = NO;
             preventOpenLevelView = NO;
             break;
-        case 4:
+        case cPreventPlayingHelpTouchNothing:
             albumMenu.openCloseButton.enabled = NO;
             playCurrentLevelButton.userInteractionEnabled = NO;
             preventOpenLevelView = YES;
@@ -394,12 +396,14 @@
     playCurrentLevelButton.userInteractionEnabled = YES;
     preventOpenLevelView = NO;
     helpButton.enabled = YES;
+    [backgroundSound setVolume: cMusicVolume];
+    [self initializeTimeoutToPlayBackgroundSound];
 }
 
 - (IBAction) helpAnimation1 {
     
     // Show Hand and move to the play button
-    [self preventPlayingHelp: 1];
+    [self preventPlayingHelp: cPreventPlayingHelpTouchAvatar];
     
     hand.center =  (CGPoint)  {
         [ImageManager windowWidthXIB] / 2,
@@ -422,11 +426,12 @@
     [UIImageView commitAnimations];
 }
 
+
+
 // Help 1: Play Game
 - (void) helpAnimation1_A {
-    [backgroundSound setVolume: cMusicVolumeOff];
     [self moveOffsetToSeeUser: [UserContext getLevel]];
-    mapScrollView.enabledInteraction = NO;
+    //mapScrollView.enabledInteraction = NO;
     [Sentence playSpeaker: @"MapView-Help1A"];
     [AnimatorHelper clickingView: hand delegate: self selector: @selector(helpAnimation1_B)];
 }
@@ -439,14 +444,13 @@
 	[UIImageView setAnimationDuration: 1.5];
 	hand.alpha = 0;
 	[UIImageView commitAnimations];
-    [backgroundSound setVolume: cMusicVolume];
+
 }
 
 // Help 1: Play with Sticker Album
 - (void) helpAnimation2 {
     // Show Hand and starting close to stickers tab
-    [backgroundSound setVolume: cMusicVolumeOff];
-    [self preventPlayingHelp: 2];
+    [self preventPlayingHelp: cPreventPlayingHelpTouchAlbum];
     // [albumMenu close];
     [self.view bringSubviewToFront: hand];
     
@@ -480,7 +484,7 @@
 - (void) helpAnimation2_C {
     // Open Album Menu and move hand to first album
 
-    [albumMenu show: NO];
+    [albumMenu show];
     [Sentence playSpeaker: @"MapView-Help2A"];
     [self helpAnimation2_D];
 }
@@ -507,13 +511,11 @@
 
 - (void) helpAnimation2_F {
     hand.alpha = 0;
-    [backgroundSound setVolume: cMusicVolume];
 }
 
 - (void) helpAnimation3 {
-    [backgroundSound setVolume: cMusicVolumeOff];
     [self moveOffsetToSeeUser: [UserContext getLevelAt: 3]];
-    [self preventPlayingHelp: 3];
+    [self preventPlayingHelp: cPreventPlayingHelpTouchLevel];
     hand.center =  (CGPoint)  {
         [ImageManager windowWidthXIB] / 2,
         [ImageManager windowHeightXIB] / 2
@@ -549,12 +551,11 @@
 
 - (void) helpAnimation3_F {
     hand.alpha = 0;
-    [backgroundSound setVolume: cMusicVolume];
 }
 
 - (void) helpAnimation4 {
-    [backgroundSound setVolume: cMusicVolumeOff];
-    [self preventPlayingHelp: 4];
+    [configView close];
+    [self preventPlayingHelp: cPreventPlayingHelpTouchNothing];
     // this helps gets triggered when user presses the help button.
     // this part of the animation makes hand visible in the screen center.
     hand.center =  (CGPoint)  {
@@ -639,7 +640,7 @@
 - (void) helpAnimation4_F {
         // Open Album Menu and move hand to first album
     
-    [albumMenu show: NO];
+    [albumMenu show];
     [Sentence playSpeaker: @"MapView-Help2A"];
     [self helpAnimation4_G];
 }
@@ -674,7 +675,7 @@
     [albumMenu close];
 
     [self allowPlayingHelpEnded];
-    [backgroundSound setVolume: cMusicVolume];
+
 }
 
 - (void) helpAnimationPurchase {

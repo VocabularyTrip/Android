@@ -82,6 +82,9 @@
 	}
 	
 	[smokeView endAnimation];
+    
+	VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
+	vocTripDelegate.mapView.viewComeFrom = cViewComeFromTrain;
 }
 
 - (void) cancelAllAnimations {
@@ -724,7 +727,7 @@ gameStatus = cStatusGameIsOn;
 
 -(void) pushLevelWithHelpDownload {
     VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
-    vocTripDelegate.mapView.startWithHelpDownload = 1;
+    //vocTripDelegate.mapView.startWithHelpDownload = 1;
     [vocTripDelegate pushMapViewWithHelpDownload];
 }
 
