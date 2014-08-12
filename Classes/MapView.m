@@ -127,7 +127,7 @@
 		backgroundSound = [Sentence getAudioPlayer: @"keepTrying"];
 		backgroundSound.numberOfLoops = -1;
 	}
-    backgroundSound.volume = UserContext.soundEnabled == YES ? 1 : 0;
+    backgroundSound.volume = UserContext.soundEnabled == YES ? cMusicVolume : 0;
 	return backgroundSound;
 }
 
@@ -418,7 +418,7 @@
 
 // Help 1: Play Game
 - (void) helpAnimation1_A {
-    [backgroundSound setVolume: 0.3];
+    [backgroundSound setVolume: cMusicVolumeOff];
     [self moveOffsetToSeeUser: [UserContext getLevel]];
     mapScrollView.enabledInteraction = NO;
     [Sentence playSpeaker: @"MapView-Help1A"];
@@ -433,13 +433,13 @@
 	[UIImageView setAnimationDuration: 1.5];
 	hand.alpha = 0;
 	[UIImageView commitAnimations];
-    [backgroundSound setVolume: 1];
+    [backgroundSound setVolume: cMusicVolume];
 }
 
 // Help 1: Play with Sticker Album
 - (void) helpAnimation2 {
     // Show Hand and starting close to stickers tab
-    [backgroundSound setVolume: 0.3];
+    [backgroundSound setVolume: cMusicVolumeOff];
     [self preventPlayingHelp: 2];
     // [albumMenu close];
     [self.view bringSubviewToFront: hand];
@@ -501,11 +501,11 @@
 
 - (void) helpAnimation2_F {
     hand.alpha = 0;
-    [backgroundSound setVolume: 1];
+    [backgroundSound setVolume: cMusicVolume];
 }
 
 - (void) helpAnimation3 {
-    [backgroundSound setVolume: 0.3];
+    [backgroundSound setVolume: cMusicVolumeOff];
     [self moveOffsetToSeeUser: [UserContext getLevelAt: 3]];
     [self preventPlayingHelp: 3];
     hand.center =  (CGPoint)  {
@@ -543,11 +543,11 @@
 
 - (void) helpAnimation3_F {
     hand.alpha = 0;
-    [backgroundSound setVolume: 1];
+    [backgroundSound setVolume: cMusicVolume];
 }
 
 - (void) helpAnimation4 {
-    [backgroundSound setVolume: 0.3];
+    [backgroundSound setVolume: cMusicVolumeOff];
     [self preventPlayingHelp: 4];
     // this helps gets triggered when user presses the help button.
     // this part of the animation makes hand visible in the screen center.
@@ -668,7 +668,7 @@
     [albumMenu close];
 
     [self allowPlayingHelpEnded];
-    [backgroundSound setVolume: 1];
+    [backgroundSound setVolume: cMusicVolume];
 }
 
 - (void) helpAnimationPurchase {

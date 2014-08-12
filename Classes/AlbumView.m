@@ -507,6 +507,7 @@
 - (void) helpAnimation1 {
     // Make clicking hand visible
 	helpButton.enabled = NO;
+    backButton.enabled = NO;
 	[self.view bringSubviewToFront: hand];
 	
     [UIImageView beginAnimations: @"helpAnimation" context: Nil]; 
@@ -538,7 +539,7 @@
 - (void) drawHelpPage {
 	[self removeCurrentPage];
 	helpButton.enabled = NO;
-    
+    backButton.enabled = NO;
 	AlbumPage *page = [currentAlbum.pages objectAtIndex: currentAlbum.actualPage];
 	for (int i=0; i < [page.figurines count]; i++) {
 		Figurine *fig = [page.figurines objectAtIndex: i];
@@ -773,7 +774,7 @@
     frame.origin.y = 50;
     hand.frame = frame;
     helpButton.enabled = YES;
-	
+    backButton.enabled = YES;
 	[UIView beginAnimations: @"Turn Page Left" context: nil]; 
 	[UIView setAnimationDuration:1];
 	[UIView setAnimationTransition: UIViewAnimationTransitionCurlDown forView: self.view cache: YES];

@@ -117,7 +117,6 @@
     return (qOfImagesRemaining <= 0 || !word);
 }
 
-
 - (void) endGame {
 	[super endGame];
     gameStatus = cStatusGameIsMoneyCount;
@@ -126,12 +125,12 @@
 		if (hitRate < 4) {
 			[Sentence playSpeaker: @"Test-EndGame-Level0" delegate: self selector: @selector(refreshMoneyLabels)];
             [[UserContext getUserSelected] nextSequence: @"Training"];
-		} else if (hitRate < 7) {
+		} else if (hitRate < 6) {
 			[Sentence playSpeaker: @"Test-EndGame-Level1" delegate: self selector: @selector(refreshMoneyLabels)];
-            [[UserContext getUserSelected] nextSequence: @"Training"];
-		} else if (hitRate < 9) {
-			[Sentence playSpeaker: @"Test-EndGame-Level2" delegate: self selector: @selector(refreshMoneyLabels)];
             [[UserContext getUserSelected] nextSequence];
+		} else if (hitRate < 8) {
+			[Sentence playSpeaker: @"Test-EndGame-Level2" delegate: self selector: @selector(refreshMoneyLabels)];
+            [[UserContext getUserSelected] nextSequence: @"Challenge"];
 		} else if (hitRate < 10) {
 			[Sentence playSpeaker: @"Test-EndGame-Level3" delegate: self selector: @selector(refreshMoneyLabels)];
             [[UserContext getUserSelected] nextSequence: @"Challenge"];
@@ -331,6 +330,7 @@
 	gameStatus = cStatusHelpOn;
     
 	helpButton.enabled = NO;
+    backButton.enabled = NO;
 	[Sentence playSpeaker: @"Test-IntroduceTrain" delegate: self selector: @selector(changeStatusOnEndHelp)];
 
 	
@@ -455,7 +455,8 @@
     frame.origin.y = 50;
     hand.frame = frame;
 	[UserContext setHelpTest: NO];
-	helpButton.enabled = YES;	
+	helpButton.enabled = YES;
+    backButton.enabled = YES;
 	[self pauseClicked];
   	gameStatus = cStatusHelpOn; // pauseClicked put gameStatus in on. Enable to say the target Wotd. At this moment the help sentence didn-t finish. Wait to sentence to finish to change the status. See the following method. Otherwise the word target is superimposed with the end of the help sentence.
 }

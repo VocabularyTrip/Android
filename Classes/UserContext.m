@@ -338,7 +338,8 @@ UserContext *userContextSingleton;
 
 -(void) resetGame {
     
-    [self resetHelps];
+    //[self resetHelps];
+    
 	[UserContext resetLevelAndMoney];
 	[Vocabulary resetAllWeigths];	
 	Album* albumTemp = [Album alloc];
