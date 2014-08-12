@@ -145,7 +145,7 @@
 	if (timerToPlayBackgroundSound == nil) {
         flagTimeoutStartMusic = NO;
 		timerToPlayBackgroundSound = [CADisplayLink displayLinkWithTarget:self selector:@selector(startPlayBackgroundSound)];
-		timerToPlayBackgroundSound.frameInterval = 1200;
+		timerToPlayBackgroundSound.frameInterval = 800;
 		[timerToPlayBackgroundSound addToRunLoop: [NSRunLoop currentRunLoop] forMode: NSDefaultRunLoopMode];
 	}
 }
@@ -330,6 +330,10 @@
 
 - (void) startHelp {
     hand.alpha = 0;
+    [timerToPlayBackgroundSound invalidate];
+    timerToPlayBackgroundSound = nil;
+    [configView close];
+    
     if ([UserContext getHelpMapViewStep1]) [self helpAnimation1];
     else if ([UserContext getHelpMapViewStep2]) [self helpAnimation2];
     else if ([UserContext getHelpMapViewStep3]) [self helpAnimation3];
@@ -337,6 +341,7 @@
         [helpTimer invalidate];
         helpTimer = nil;
         [self allowPlayingHelpEnded];
+        [self initializeTimeoutToPlayBackgroundSound];
     }
 }
 
@@ -353,6 +358,7 @@
 }
 
 - (void) preventPlayingHelp: (int) help {
+    [configView close];
     mapScrollView.scrollEnabled = NO;
     configView.openCloseButton.enabled = NO;
     helpButton.enabled = NO;
