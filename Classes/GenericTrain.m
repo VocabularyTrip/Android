@@ -73,7 +73,7 @@
 // Return to Main Menu
 - (IBAction)done:(id)sender {
 	
-	[self cancelAllAnimations];
+	//[self cancelAllAnimations];
 	
 	viewMode = 0;
 	if ([theTimer isKindOfClass: [CADisplayLink class]]) {
@@ -588,6 +588,9 @@ gameStatus = cStatusGameIsOn;
 }
 
 - (int) hitRate {
+    //NSLog(@"%i, %i, %i, %i, %d", hitsOfLevel1, hitsOfLevel2, hitsOfLevel3, [self hitsPerGame],
+    //      (hitsOfLevel1 + hitsOfLevel2 + hitsOfLevel3) * 10 / [self hitsPerGame]);
+    
 	return (hitsOfLevel1 + hitsOfLevel2 + hitsOfLevel3) * 10 / [self hitsPerGame];
 }
 

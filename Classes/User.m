@@ -149,7 +149,7 @@
 -(void) resetLevel {
 	level = 0;
     [self saveLevel: level];
-    [self setGameSequenceNumber: 0]; // Ver si no requiere hacer un nextSequence
+    [self setGameSequenceNumber: 0];
 }
 
 -(void) resetMoney {

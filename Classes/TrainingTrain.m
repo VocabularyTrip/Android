@@ -309,7 +309,8 @@
 - (void) helpAnimation1 {
 	gameStatus = cStatusHelpOn;
 	helpButton.enabled = NO;
-
+    backButton.enabled = NO;
+    
 	[Sentence playSpeaker: @"Training-ViewDidAppear"];	
     // Make clicking hand visible
     [UIImageView beginAnimations: @"helpAnimation1" context: ( void *)(hand)];
@@ -460,6 +461,7 @@
 	[Sentence playSpeaker: @"Training-HelpEnded"];
 	[UserContext setHelpTraining: NO];
 	helpButton.enabled = YES;
+    backButton.enabled = YES;
 }
 
 // Help Animation **************************

@@ -158,7 +158,7 @@ FacebookManager *fbSingleton;
     shareParams.caption = @"Its great!";
     shareParams.picture = [NSURL URLWithString: pictureURL];
     shareParams.description =
-    [NSString stringWithFormat:@"It's the perfecto tool to..."];
+    [NSString stringWithFormat: @"It's the perfecto tool to..."];
 
     if ([FBDialogs canPresentShareDialogWithParams: shareParams]) {
         [FBDialogs presentShareDialogWithParams: shareParams

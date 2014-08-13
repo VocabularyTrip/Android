@@ -12,10 +12,6 @@
 
 #define cDefaultLang 1
 
-// ******** change 400 words - Pending
-// Ya no son 9 niveles. Estas dos constantes quedan deprecated
-//#define cSilverLevel 6
-//#define cBronzeLevel 3
 #define cSetLevelsFree 2
 #define cSet1OfLevels 12
 #define cSet2OfLevels 24

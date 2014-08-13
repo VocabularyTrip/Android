@@ -18,6 +18,8 @@
 #import "AnimatorHelper.h"
 
 #define cMailInfo @"info@vocabularyTrip.com"
+#define cMusicVolume 0.6
+#define cMusicVolumeOff 0.3
 
 @interface MapView : UIViewController <UIAlertViewDelegate> {
     

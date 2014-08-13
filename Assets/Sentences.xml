@@ -13,10 +13,6 @@
         <Alternative name= "Congratulations_1_1"></Alternative>
         <Alternative name= "Congratulations_1_2"></Alternative>
         <Alternative name= "Congratulations_1_3"></Alternative>
-        <Alternative name= "Congratulations_1_4"></Alternative>
-        <Alternative name= "Congratulations_1_5"></Alternative>
-        <Alternative name= "Congratulations_1_6"></Alternative>
-        <Alternative name= "Congratulations_1_7"></Alternative>
         <Alternative name= "Congratulations_1_8"></Alternative>
         <Alternative name= "Congratulations_1_9"></Alternative>
         <Alternative name= "Congratulations_1_10"></Alternative>
@@ -35,11 +31,15 @@
 	<Sentence Method="Test-EndGame-Level3" name="Congratulations_3_0" type="always">
         <Alternative name= "Congratulations_3_1"></Alternative>
         <Alternative name= "Congratulations_3_2"></Alternative>
+        <Alternative name= "Congratulations_1_4"></Alternative>
+        <Alternative name= "Congratulations_1_5"></Alternative>
     </Sentence>
 
     <Sentence Method="Test-EndGame-Level4" name="Congratulations_4_0" type="always">
         <Alternative name= "Congratulations_4_1"></Alternative>
         <Alternative name= "Congratulations_4_2"></Alternative>
+        <Alternative name= "Congratulations_1_6"></Alternative>
+        <Alternative name= "Congratulations_1_7"></Alternative>
     </Sentence>
 
 	<Sentence Method="Test-EvaluateGetIntoNextLevel-NextLevel" name="Advanced to next level" type="always"></Sentence> <!-- ok -->

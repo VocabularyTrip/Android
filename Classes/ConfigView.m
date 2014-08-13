@@ -103,6 +103,7 @@
 }
 
 - (IBAction) buyClicked {
+    [[self parentView] stopBackgroundSound];
     VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
     [vocTripDelegate pushPurchaseView];
 }
@@ -126,8 +127,8 @@
 			[[UserContext getSingleton] resetGame];
 			[[parentView mapScrollView] reloadAllLevels];
             [parentView moveUser];
-            [self close];
-            [parentView initializeHelpTimer];
+            //[self close];
+            //[parentView initializeHelpTimer];
 			break;
 		default:
 			break;
