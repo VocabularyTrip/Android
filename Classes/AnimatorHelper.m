@@ -12,7 +12,7 @@
     // blink1 -> 01
     // blink2 -> 02
     //      saludo
-    // _0 -> 03
+    // -0 -> 03
     // arm1 -> 04
     // arm2 -> 05
     // arm3 -> 06
@@ -22,9 +22,9 @@
     // arm4a -> 09
     // arm5a -> 10
     //      frustrado
-    // frustrado_# -> #+10 (por ejemplo frustrado_1 paso a ser 11)
+    // frustrado_# -> #+10 (por ejemplo frustrado-1 paso a ser 11)
     //      bailando
-    // bailando_# -> #+14 (bailand_1 paso a ser _15)
+    // bailando_# -> #+14 (bailand-1 paso a ser -15)
 
 #import "AnimatorHelper.h"
 #import "User.h"
@@ -37,10 +37,10 @@ SEL selectorAnimator = nil;
 + (void) avatarBlink: (UIImageView*) avatarView {
     User *user = [UserContext getUserSelected];
     avatarView.animationImages = @[
-                                   //[UIImage imageNamed: @"avatar2_0.png"],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_01.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_02.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_01.png"]]
+                                   //[UIImage imageNamed: @"avatar2-0.png"],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-01.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-02.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-01.png"]]
                                    ];
     
     avatarView.animationDuration = 0.2;
@@ -52,19 +52,19 @@ SEL selectorAnimator = nil;
     User *user = [UserContext getUserSelected];
     
     avatarView.animationImages = @[
-                                   //[UIImage imageNamed: @"avatar2_0.png"],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_03.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_04.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_05.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_06.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_07.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_07.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_08.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_07.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_08.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_07.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_06.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_05.png"]]
+                                   //[UIImage imageNamed: @"avatar2-0.png"],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-03.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-04.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-05.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-06.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-07.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-07.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-08.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-07.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-08.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-07.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-06.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-05.png"]]
                                    ];
     
     avatarView.animationDuration = 1.7;
@@ -77,17 +77,17 @@ SEL selectorAnimator = nil;
     User *user = [UserContext getUserSelected];
     
     avatarView.animationImages = @[
-                                   //[UIImage imageNamed: @"avatar2_0.png"],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_11.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_12.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_13.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_14.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_14.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_14.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_14.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_13.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_12.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_11.png"]],
+                                   //[UIImage imageNamed: @"avatar2-0.png"],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-11.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-12.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-13.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-14.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-14.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-14.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-14.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-13.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-12.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-11.png"]],
                                    ];
     
     avatarView.animationDuration = 1;
@@ -100,31 +100,31 @@ SEL selectorAnimator = nil;
     User *user = [UserContext getUserSelected];
     
     avatarView.animationImages = @[
-                                   //[UIImage imageNamed: @"avatar2_0.png"],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_15.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_16.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_17.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_18.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_19.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_18.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_17.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_16.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_15.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_16.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_17.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_18.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_19.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_18.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_17.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_16.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_15.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_16.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_17.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_18.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_19.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_18.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_17.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_16.png"]],
+                                   //[UIImage imageNamed: @"avatar2-0.png"],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-15.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-16.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-17.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-18.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-19.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-18.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-17.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-16.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-15.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-16.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-17.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-18.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-19.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-18.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-17.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-16.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-15.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-16.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-17.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-18.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-19.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-18.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-17.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-16.png"]],
                                    ];
     
     avatarView.animationDuration = 1;
@@ -137,17 +137,17 @@ SEL selectorAnimator = nil;
     User *user = [UserContext getUserSelected];
     
     avatarView.animationImages = @[
-                                   //[UIImage imageNamed: @"avatar2_0.png"],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_04.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_05.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_06.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_10.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_11.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_11.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_11.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_10.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_06.png"]],
-                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"_05.png"]]
+                                   //[UIImage imageNamed: @"avatar2-0.png"],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-04.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-05.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-06.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-10.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-11.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-11.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-11.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-10.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-06.png"]],
+                                   [UIImage imageNamed: [NSString stringWithFormat: @"avatar%i%@", user.userId, @"-05.png"]]
                                    ];
     
     avatarView.animationDuration = 1;
