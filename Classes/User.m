@@ -313,7 +313,7 @@
 
 -(UIImage*) image {
     if (image == nil) {
-        NSString *imageName = [NSString stringWithFormat: @"avatar%i_0", userId];
+        NSString *imageName = [NSString stringWithFormat: @"avatar%i-03-01", userId];
         NSString *file = [[NSString alloc ] initWithFormat:@"%@/%@.png", [[NSBundle mainBundle] resourcePath], imageName];
         image = [UIImage alloc];
         image = [image initWithContentsOfFile: file];

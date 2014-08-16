@@ -303,16 +303,25 @@
     switch (avatarAnimationSeq) {
         case 0:
             [AnimatorHelper avatarGreet: playCurrentLevelButton.imageView];
-            break;
+                break;
         case 1:
             [AnimatorHelper avatarBlink: playCurrentLevelButton.imageView];
+                break;
+        case 2:
+            [AnimatorHelper avatarDance: playCurrentLevelButton.imageView];
+            break;
+        case 3:
+            [AnimatorHelper avatarFrustrated: playCurrentLevelButton.imageView];
+            break;
+        case 4:
+            [AnimatorHelper avatarOk: playCurrentLevelButton.imageView];
             break;
         default:
             [AnimatorHelper avatarBlink: playCurrentLevelButton.imageView];
-            break;
     }
+    
     avatarAnimationSeq++;
-    if (avatarAnimationSeq > 3) avatarAnimationSeq = 0;
+    if (avatarAnimationSeq > 4) avatarAnimationSeq = 0;
 }
 
 - (IBAction) helpClicked {

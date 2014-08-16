@@ -17,6 +17,8 @@ extern SEL selectorAnimator;
 + (void) shakeView: (UIView*) itemView delegate: (id) delegate;
 + (void) avatarGreet: (UIImageView*) avatarView;
 + (void) avatarOk: (UIImageView*) avatarView;
++ (void) avatarFrustrated: (UIImageView*) avatarView;
++ (void) avatarDance: (UIImageView*) avatarView;
 + (void) scale: (UIView*) itemView from: (CGPoint) p1 to: (CGPoint) p2;
 + (void) rotateView: (UIView*) itemView;
 + (void) clickingView: (UIView*) itemView delegate: (id) delegate selector: (SEL) selector;
