@@ -27,10 +27,6 @@
 @synthesize progress3BarFillView;
 
 - (void) show {
-    [self show: YES];
-}
-
-- (void) show: (bool) cancelAnimation {
 
     VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
 
@@ -38,7 +34,7 @@
     [self updateLevelSlider: progress2View over: progress2BarFillView  progress: [vcDelegate.albumView.album2 progress]];
     [self updateLevelSlider: progress3View over: progress3BarFillView  progress: [vcDelegate.albumView.album3 progress]];
     
-    [super show: cancelAnimation];
+    [super show];
     [[self.parentView configView] close];
 }
 
@@ -61,7 +57,6 @@
 }
 
 - (IBAction) album1ShowInfo:(id)sender {
-   	//[parentView stopBackgroundSound];
     [parentView cancelAllAnimations];
 	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
     [vcDelegate.albumView selectAlbum1];
@@ -69,7 +64,6 @@
 }
 
 - (IBAction) album2ShowInfo:(id)sender {
-   	//[parentView stopBackgroundSound];
     [parentView cancelAllAnimations];
 	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
     [vcDelegate.albumView selectAlbum2];
@@ -77,7 +71,6 @@
 }
 
 - (IBAction) album3ShowInfo:(id)sender {
-   	//[parentView stopBackgroundSound];
     [parentView cancelAllAnimations];
 	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
     [vcDelegate.albumView selectAlbum3];

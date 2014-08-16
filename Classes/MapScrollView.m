@@ -156,7 +156,6 @@
 - (void) openLevelView: (Level*) level {
 
 	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
-    [vcDelegate.mapView stopBackgroundSound];
     [vcDelegate.mapView cancelAllAnimations];
     vcDelegate.levelView.level = level;
 	[vcDelegate pushLevelView];

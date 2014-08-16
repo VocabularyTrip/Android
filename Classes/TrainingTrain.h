@@ -12,7 +12,7 @@
 #define cDistanceBetweenWords 100
 #define cYposOfFlyWords 60
 #define cXposOfFlyWords 50
-#define cWordSpeed 4
+#define cWordSpeed 5
 
 @interface TrainingTrain : GenericTrain {
 	NSMutableArray *flyWords;

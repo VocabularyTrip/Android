@@ -24,7 +24,6 @@
 - (IBAction) closeOpenClicked;
 - (void) close;
 - (void) show;
-- (void) show: (bool) cancelAnimation;
 - (CGRect) frameOpened;
 - (CGRect) frameClosed;
 - (bool) frameIsClosed;

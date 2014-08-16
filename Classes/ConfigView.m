@@ -55,21 +55,20 @@
 }
 
 - (IBAction)changeUserShowInfo:(id)sender {
-	//[parentView stopBackgroundSound];
-    [[self parentView] stopBackgroundSound];
+
+    [[self parentView] cancelAllAnimations];
 	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
 	[vcDelegate pushChangeUserView];
 }
 
 - (IBAction) changeLang:(id)sender {
-    [[self parentView] stopBackgroundSound];
-	//[parentView stopBackgroundSound];
+    [[self parentView] cancelAllAnimations];
 	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
 	[vcDelegate pushChangeLangView];
 }
 
 - (IBAction) mailButtonClicked:(id)sender {
-  	//[self stopBackgroundSound];
+    [[self parentView] cancelAllAnimations];
 	if([MFMailComposeViewController canSendMail]) {
 		MFMailComposeViewController *mailCont = [[MFMailComposeViewController alloc] init];
 		mailCont.mailComposeDelegate = self;
@@ -103,7 +102,7 @@
 }
 
 - (IBAction) buyClicked {
-    [[self parentView] stopBackgroundSound];
+    [[self parentView] cancelAllAnimations];
     VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
     [vocTripDelegate pushPurchaseView];
 }
@@ -127,8 +126,6 @@
 			[[UserContext getSingleton] resetGame];
 			[[parentView mapScrollView] reloadAllLevels];
             [parentView moveUser];
-            //[self close];
-            //[parentView initializeHelpTimer];
 			break;
 		default:
 			break;
@@ -156,9 +153,10 @@
 	//[self.view.layer removeAllAnimations];
 }
 
--(void) helpDownload1{
+-(void) helpDownload1 {
     
-   	[parentView stopBackgroundSound];
+   	[parentView cancelAllAnimations];
+    [parentView preventPlayingHelp: cPreventPlayingHelpTouchNothing];
     
     // Make clicking hand visible
     if (flagCancelAllSounds) return;
@@ -180,28 +178,27 @@
 -(void) helpDownload2 {
     // bring clicking hand onto Download button
     if (flagCancelAllSounds) return;
-    [Sentence playSpeaker: @"Download_Help_1"];
+    [Sentence playSpeaker: @"Download_Help_1" delegate: self selector: @selector(helpDownload3)];
     
     [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
     [UIImageView setAnimationDelegate: self];
     [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
-    [UIImageView setAnimationDidStopSelector: @selector(helpDownload3)];
+    [UIImageView setAnimationDidStopSelector: @selector(helpDownload4)];
     
-    [UIImageView setAnimationDuration: 6];
+    [UIImageView setAnimationDuration: 4];
     [UIImageView setAnimationBeginsFromCurrentState: YES];
     
     CGRect frame = handHelpView.frame;
     frame.origin.x = downloadProgressView.center.x;
-    frame.origin.y = downloadProgressView.center.y;
+    frame.origin.y = downloadProgressView.center.y - handHelpView.frame.size.height / 3;
     handHelpView.frame = frame;
-    NSLog(@"%f, %f", frame.origin.x, frame.origin.y);
     [UIImageView commitAnimations];
 }
 
 - (void) helpDownload3 {
     // click down
     if (flagCancelAllSounds) return;
-    [Sentence playSpeaker: @"Download_Help_2" delegate: self selector: @selector(helpDownload4)];
+    [Sentence playSpeaker: @"Download_Help_2"];
 }
 
 - (void) helpDownload4 {
@@ -236,6 +233,7 @@
 
 - (void) helpDownload5 {
     handHelpView.alpha = 0;
+    [parentView allowPlayingHelpEnded];
 }
 
 

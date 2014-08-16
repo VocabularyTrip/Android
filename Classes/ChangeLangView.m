@@ -164,7 +164,13 @@
 
 - (void) helpAnimation1 {
     // Make clicking hand visible
-    if (flagCancelAllSounds) return;    
+    if (flagCancelAllSounds) return;
+    
+    nextButton.enabled = NO;
+    backButton.enabled = NO;
+    
+    lockUnlockButton.enabled = NO;
+    
 	[UIImageView beginAnimations: @"helpAnimation" context: ( void *)(hand)];
 	[UIImageView setAnimationDelegate: self];
 	[UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
@@ -349,6 +355,11 @@
     hand.center = backButton.center;
 	[UIImageView commitAnimations];
   	[UserContext setHelpSelectLang: NO];
+    
+    nextButton.enabled = YES;
+    backButton.enabled = YES;
+    lockUnlockButton.enabled = YES;
+    
 }
 
 @end

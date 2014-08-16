@@ -86,8 +86,10 @@
 
 - (void) sayTargetWord {
 	Word *word = [words objectAtIndex: targetId];
-    if (![word playSound])
+    if (![word playSound]) {
+        [self done: nil];
         [self pushLevelWithHelpDownload];
+    }
 	inactivity1 = CFAbsoluteTimeGetCurrent();
 }
 
@@ -210,7 +212,7 @@
         return tResultEvaluateNextLevel_BuyRequired;
 	} else {
 		if ([UserContext nextLevel]) {
-			[Sentence playSpeaker: @"Test-EvaluateGetIntoNextLevel-NextLevel"];
+			//[Sentence playSpeaker: @"Test-EvaluateGetIntoNextLevel-NextLevel"];
             return tResultEvaluateNextLevel_NextLevel;
 		}
 	}

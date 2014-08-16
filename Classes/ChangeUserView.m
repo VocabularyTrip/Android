@@ -147,7 +147,9 @@
 
 - (void) helpAnimation1 {
     // Make clicking hand visible
-    if (flagCancelAllSounds) return;    
+    if (flagCancelAllSounds) return;
+    
+    nextButton.enabled = NO;
 	[UIImageView beginAnimations: @"helpAnimation" context: ( void *)(hand)];
 	[UIImageView setAnimationDelegate: self];
 	[UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
@@ -344,6 +346,7 @@
   
 	[UserContext setHelpSelectUser: NO];
 	helpButton.enabled = YES;
+    nextButton.enabled = YES;
 }
 
 @end

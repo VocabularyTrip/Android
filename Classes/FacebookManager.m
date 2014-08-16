@@ -174,8 +174,9 @@ FacebookManager *fbSingleton;
                     [[UserContext getSingleton] addPostInFacebook];
                     [PromoCode giveAccessForOneDay];
                 }
-                
-                [TraceWS register: @"FacebookPostFeed" valueStr: result valueNum: [NSNumber numberWithInt: [[UserContext getSingleton]qPostInFacebook]]];
+                NSString *errorMessage = [NSString stringWithFormat: @"%@, %@, errorCode: %li, %@", result, error.description, (long)error.code, error.localizedFailureReason];
+                NSLog(errorMessage);
+                [TraceWS register: @"FacebookPostFeed" valueStr: errorMessage valueNum: [NSNumber numberWithInt: [[UserContext getSingleton]qPostInFacebook]]];
             }
          ];
         return tFacebookSuccessful;

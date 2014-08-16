@@ -21,6 +21,13 @@
 #define cMusicVolume 0.6
 #define cMusicVolumeOff 0.3
 
+#define cPreventPlayingHelpTouchAvatar 1
+#define cPreventPlayingHelpTouchAlbum 2
+#define cPreventPlayingHelpTouchLevel 3
+#define cPreventPlayingHelpTouchNothing 4
+
+#define cViewComeFromTrain 1
+
 @interface MapView : UIViewController <UIAlertViewDelegate> {
     
   	MapScrollView *__unsafe_unretained mapScrollView;
@@ -40,7 +47,7 @@
     CADisplayLink *theTimer; // Used for avatar animation
     int avatarAnimationSeq;
     float angle;    // Used in helps
-    
+    int viewComeFrom; // used to known if we came from wizard, train, album. Is used when came from train and the level changed to say congratulation you had advanced to ....
   	CADisplayLink *helpTimer;
     bool preventOpenLevelView;
 }
@@ -54,6 +61,7 @@
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *hand;
 @property (nonatomic, unsafe_unretained) bool preventOpenLevelView;
 @property (nonatomic, unsafe_unretained) bool flagTimeoutStartMusic;
+@property (nonatomic, unsafe_unretained) int viewComeFrom;
 
 - (IBAction) playCurrentLevel: (id) sender;
 - (IBAction) helpClicked;
@@ -80,6 +88,8 @@
 - (void) randomAvatarAnimation;
 
 - (void) startHelp;
+- (void) preventPlayingHelp: (int) help;
+- (void) allowPlayingHelpEnded;
 - (void) helpAnimationPurchase;
 - (void) helpAnimation1;
 - (void) helpAnimation2;
