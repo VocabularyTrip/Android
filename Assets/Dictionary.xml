@@ -2,16 +2,26 @@
 <dictionary>
 
 <level name="Colors" image="yellow" levelId="11" levelOrder="1" ipodx="90" ipody="264" ipadx="291" ipady="824">
-     <word name="black" fileName="black" wordOrder="" type="adjective"> </word>
-     <word name="white" fileName="white" wordOrder="" type="adjective"> </word>
-     <word name="yellow" fileName="yellow" wordOrder="" type="adjective"> </word>
-     <word name="green" fileName="green" wordOrder="" type="adjective"> </word>
-     <word name="red" fileName="red" wordOrder="" type="adjective"> </word>
-     <word name="blue" fileName="blue" wordOrder="" type="adjective"> </word>
-     <word name="pink" fileName="pink" wordOrder="" type="adjective"> </word>
-     <word name="brown" fileName="brown" wordOrder="" type="adjective"> </word>
-     <word name="orange" fileName="orange" wordOrder="" type="adjective"> </word>
-     <word name="purple" fileName="purple" wordOrder="" type="adjective"> </word>
+	<word name="black" fileName="black" wordOrder="" type="adjective"
+        English="Black" Chinese="黑色" Spanish="Negro" French="Noir" Farsi="سیاه" German="Schwarz" Portuguese="Preto" Italian="Nero" Arabic="أسود" Hebrew="שחור" Hindi="काला" Japanese="黒" Korean="검정색" Russian="Черный" Malay="Hitam" Vietnamese="Màu Đen"> </word>
+	<word name="white" fileName="white" wordOrder="" type="adjective"
+        English="White" Chinese="白色" Spanish="Blanco" French="Blanc" Farsi="سفید" German="Weiß" Portuguese="Branco" Italian="Bianco" Arabic="أبيض" Hebrew="לבן" Hindi="सफ़ेद" Japanese="白" Korean="흰색" Russian="Белила" Malay="Putih" Vietnamese="Màu Trắng"> </word>
+	<word name="yellow" fileName="yellow" wordOrder="" type="adjective"
+        English="Yellow" Chinese="黄色" Spanish="Amarillo" French="Jaune" Farsi="زرد" German="Gelb" Portuguese="Amarelo" Italian="Giallo" Arabic="أصفر" Hebrew="צהוב" Hindi="पीला" Japanese="黄色" Korean="노랑색" Russian="Желтый" Malay="Kuning" Vietnamese="Màu Vàng"> </word>
+	<word name="green" fileName="green" wordOrder="" type="adjective"
+        English="Green" Chinese="绿色" Spanish="Verde" French="Vert" Farsi="سبز" German="Grün" Portuguese="Verde" Italian="Verde" Arabic="أخضر" Hebrew="ירוק" Hindi="ग्रीन" Japanese="緑" Korean="초록색" Russian="Зеленый" Malay="Hijau" Vietnamese="Màu Xanh La Cay"> </word>
+	<word name="red" fileName="red" wordOrder="" type="adjective"
+        English="Red" Chinese="红色" Spanish="Rojo" French="Rouge" Farsi="قرمز" German="Rot" Portuguese="Vermelho" Italian="Rosso" Arabic="أحمر" Hebrew="אדום" Hindi="लाल" Japanese="赤" Korean="빨강색" Russian="Красный" Malay="Merah" Vietnamese="Màu Đỏ"> </word>
+	<word name="blue" fileName="blue" wordOrder="" type="adjective"
+        English="Blue" Chinese="蓝色" Spanish="Azul" French="Bleu" Farsi="آبی" German="Blau" Portuguese="Azul" Italian="Blu" Arabic="أزرق" Hebrew="כחול" Hindi="नीला" Japanese="青" Korean="파랑색" Russian="Синий" Malay="Biru" Vietnamese="Màu Xanh Duong"> </word>
+	<word name="pink" fileName="pink" wordOrder="" type="adjective"
+        English="Pink" Chinese="粉红色" Spanish="Rosado" French="Rose" Farsi="صورتی" German="Rosa" Portuguese="Rosa" Italian="Rosa" Arabic="وردي" Hebrew="ורוד" Hindi="गुलाबी" Japanese="ピンク" Korean="핑크색" Russian="Розовый" Malay="Merah Jambu" Vietnamese="Màu Hồng"> </word>
+	<word name="brown" fileName="brown" wordOrder="" type="adjective"
+        English="Brown" Chinese="棕色" Spanish="Café" French="Marron" Farsi="قهوهای" German="Braun" Portuguese="Marrom" Italian="Marrone" Arabic="أسمر" Hebrew="חום" Hindi="ब्राउन" Japanese="ブラウン" Korean="갈색" Russian="Коричневый" Malay="Coklat" Vietnamese="Màu Nâu"> </word>
+	<word name="orange" fileName="orange" wordOrder="" type="adjective"
+        English="Orange" Chinese="橙" Spanish="Naranja" French="Orange" Farsi="نارنجی" German="Orange" Portuguese="Laranja" Italian="Arancione" Arabic="البرتقالي" Hebrew="תפוז" Hindi="नारंगी" Japanese="オレンジ" Korean="주황색" Russian="Оранжевый" Malay="Oren" Vietnamese="Màu Cam"> </word>
+	<word name="purple" fileName="purple" wordOrder="" type="adjective"
+        English="Purple" Chinese="紫色" Spanish="Morado" French="Violet" Farsi="بنفش" German="Lila" Portuguese="Roxo" Italian="Porpora" Arabic="أرجواني" Hebrew="סגול" Hindi="बैंगनी" Japanese="紫" Korean="보라색" Russian="Фиолетовый" Malay="Ungu" Vietnamese="Màu Tím"> </word>
 </level>
 
 <level name="Numbers" image="zero" levelId="26" levelOrder="2" ipodx="138" ipody="341" ipadx="429" ipady="1053">
