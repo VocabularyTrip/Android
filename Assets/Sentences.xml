@@ -3,8 +3,7 @@
 <list>
 	<Sentence Method="AppDelegate-ResponseToBuyAction-NextLevel" name="Advanced to next level" type="always"></Sentence> <!-- ok -->
 
-	<Sentence Method="Test-EndGame-Level0" name="Congratulations_0_0" type="always">
-        <Alternative name= "Congratulations_0_1"></Alternative>
+	<Sentence Method="Test-EndGame-Level0" name="Congratulations_0_1" type="always">
         <Alternative name= "Congratulations_0_2"></Alternative>
         <Alternative name= "Congratulations_0_3"></Alternative>
     </Sentence>

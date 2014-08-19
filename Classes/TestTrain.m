@@ -278,7 +278,7 @@
 		if (targetId == i) {
 			if (flagFaild == NO) {
 				[w decWeight];
-                [AnimatorHelper avatarOk: driverView];
+                [AnimatorHelper avatarDance: driverView];
 				// Increment the hit of Level
 				[self incrementHitAtLevel: w.theme];
 			}
@@ -289,9 +289,7 @@
             [w2 incWeight];
 			[w incWeight];
             [errorSoundId play];
-            [AnimatorHelper shakeView: aButton];
-            
-            
+            [AnimatorHelper avatarFrustrated: driverView];
 		}
 	} @catch (NSException * e) {
 		NSLog(@"Exception in wordButton:clicked");

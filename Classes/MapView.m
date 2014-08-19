@@ -74,7 +74,8 @@
         [self.configView changeUserShowInfo: nil];
         return;
     }
-    [playCurrentLevelButton.imageView setImage: user.image];
+
+    [ImageManager fitImage: user.image inButton: playCurrentLevelButton];
     
     // First move map to the end. viewDidAppear implement showAllMapInFirstSession
     if (flagFirstShowInSession) {
@@ -307,21 +308,21 @@
         case 1:
             [AnimatorHelper avatarBlink: playCurrentLevelButton.imageView];
                 break;
-        case 2:
-            [AnimatorHelper avatarDance: playCurrentLevelButton.imageView];
-            break;
+        //case 2:
+            //[AnimatorHelper avatarDance: playCurrentLevelButton.imageView];
+        //    break;
         case 3:
-            [AnimatorHelper avatarFrustrated: playCurrentLevelButton.imageView];
+            //[AnimatorHelper avatarFrustrated: playCurrentLevelButton.imageView];
             break;
         case 4:
-            [AnimatorHelper avatarOk: playCurrentLevelButton.imageView];
+            //[AnimatorHelper avatarOk: playCurrentLevelButton.imageView];
             break;
         default:
             [AnimatorHelper avatarBlink: playCurrentLevelButton.imageView];
     }
     
     avatarAnimationSeq++;
-    if (avatarAnimationSeq > 4) avatarAnimationSeq = 0;
+    if (avatarAnimationSeq > 2) avatarAnimationSeq = 0;
 }
 
 - (IBAction) helpClicked {

@@ -30,7 +30,7 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="cuC-rx-lhv" userLabel="PlayCurrentLevelButton">
                             <rect key="frame" x="128" y="182" width="60" height="79"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" image="avatar1_0.png">
+                            <state key="normal" image="avatar1-03-01.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -82,7 +82,7 @@
         </view>
     </objects>
     <resources>
-        <image name="avatar1_0.png" width="580" height="763"/>
+        <image name="avatar1-03-01.png" width="301" height="388"/>
         <image name="clicking.png" width="139" height="147"/>
         <image name="flag_finish.png" width="453" height="287"/>
         <image name="flag_gold.png" width="589" height="225"/>

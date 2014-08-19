@@ -433,7 +433,8 @@ gameStatus = cStatusGameIsOn;
 		[self initWagons];	
 
         User *user = [UserContext getUserSelected];
-        [driverView setImage: user.image];
+        //[driverView setImage: user.image];
+        [ImageManager fitImage: user.image inImageView: driverView];
         
         //Language *lang = [UserContext getLanguageSelected];
         //[langView setImage: lang.image];

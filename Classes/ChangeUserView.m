@@ -39,9 +39,8 @@
 
 	for (int i=0; i < [[UserContext getSingleton].users count]; i++) {
         User* u = [[UserContext getSingleton].users objectAtIndex: i];
-        //NSLog(@"user i: %i, name: %@", i, u.userName);
-        
-		[(AFOpenFlowView *)self.usersView setImage: [ImageManager imageWithImage: u.image scaledToSize: [ImageManager changeUserUserSize]] forIndex: i];
+
+		[(AFOpenFlowView *)self.usersView setImage: [ImageManager imageWithImage: u.image scaledToSize: [ImageManager changeUserUserSize: u.image]] forIndex: i];
 	}
     //NSLog(@"User Count: %i", [[UserContext getSingleton].users count]);
 	[(AFOpenFlowView *)self.usersView setNumberOfImages: [[UserContext getSingleton].users count]];

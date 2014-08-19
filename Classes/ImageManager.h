@@ -41,7 +41,7 @@ typedef enum {
 + (CGSize) getMapViewSize;
 + (int) albumMagnifierDeltaPos;
 + (int) albumMagnifierSize;
-+ (CGSize) changeUserUserSize;
++ (CGSize) changeUserUserSize: (UIImage*) u;
 + (CGRect) smokeViewInitRect;
 + (int) levelViewDeltaXYCorner;
 

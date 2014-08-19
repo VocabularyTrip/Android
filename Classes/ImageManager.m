@@ -171,9 +171,11 @@
     return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 120 : 60;
 }
 
-+ (CGSize) changeUserUserSize {
-	return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)?
-    CGSizeMake(250, 350) : CGSizeMake(125, 175);
++ (CGSize) changeUserUserSize: (UIImage*)  u {
+    int height = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)? 350 : 175;
+    int newWitdh = height * u.size.width / u.size.height;
+    CGSize newSize = CGSizeMake(newWitdh, height);
+    return newSize;
 }
 
 + (CGRect) smokeViewInitRect {
