@@ -163,7 +163,7 @@
                         <accessibilityTraits key="traits" none="YES"/>
                     </accessibility>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.96862745100000003" green="0.051467000890000003" blue="0.1255583814" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="highlightedColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="14" userLabel="BackButton">
@@ -188,7 +188,7 @@
                         <accessibilityTraits key="traits" none="YES"/>
                     </accessibility>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.96862745100000003" green="0.051467000890000003" blue="0.1255583814" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="$ 0" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="112" userLabel="Money3Label" customClass="UICountingLabel">
@@ -198,7 +198,7 @@
                         <accessibilityTraits key="traits" none="YES"/>
                     </accessibility>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.96862745100000003" green="0.051467000890000003" blue="0.1255583814" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="token-bronze.png" id="78" userLabel="Money1View">
@@ -362,7 +362,7 @@
         </view>
     </objects>
     <resources>
-        <image name="avatar5-03-01.png" width="301" height="368"/>
+        <image name="avatar5-03-01.png" width="637" height="765"/>
         <image name="btn_keep_play.png" width="610" height="334"/>
         <image name="btn_return.png" width="610" height="334"/>
         <image name="btn_unlock.png" width="610" height="334"/>

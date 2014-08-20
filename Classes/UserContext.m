@@ -299,7 +299,8 @@ UserContext *userContextSingleton;
    	[[NSUserDefaults standardUserDefaults] setInteger: cDefaultLang forKey: cLangSelected];
     [[NSUserDefaults standardUserDefaults] setBool: NO forKey: cNoAskMeAgain];
     [[NSUserDefaults standardUserDefaults] setInteger: 0 forKey: cCountExecutions];
-
+    [[NSUserDefaults standardUserDefaults] setObject: @"" forKey: cPromoCodeStatus];
+    
     [self resetHelps];
 	UserContext.soundEnabled = YES;
 	[[UserContext getSingleton] setMaxLevel: cSetLevelsFree];

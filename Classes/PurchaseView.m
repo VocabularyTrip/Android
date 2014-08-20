@@ -168,7 +168,7 @@
         }
     } else {
         buyOneSetofLevelesButton.enabled  =  0;
-        //[buyOneSetofLevelesButton setTitle: @"" forState: UIControlStateNormal];
+        [buyOneSetofLevelesButton setTitle: @"" forState: UIControlStateNormal];
         buyOneSetDescLabel.text = @"";
         buyOneSetNameLabel.text = @"";
     }
@@ -193,7 +193,7 @@
         }
     } else {
         buyAllButton.enabled =  0;
-        //[buyAllButton setTitle: @"" forState: UIControlStateNormal];
+        [buyAllButton setTitle: @"" forState: UIControlStateNormal];
         buyAllDescLabel.text = @"";
         buyAllNameLabel.text = @"";
     }

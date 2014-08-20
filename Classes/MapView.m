@@ -105,15 +105,15 @@
         Level *level = [UserContext getLevel];
         if (level.levelNumber != currentLevelNumber) {
             // Move the train from the previous level to the next level
-            if (viewComeFrom == cViewComeFromTrain) {
-                [Sentence playSpeaker: @"Test-EvaluateGetIntoNextLevel-NextLevel" delegate: self selector: @selector(initializeHelpTimer)];
-                viewComeFrom = 0;
-            }
+            if (viewComeFrom == cViewComeFromTrain)
+                [Sentence playSpeaker: @"Test-EvaluateGetIntoNextLevel-NextLevel"
+                          delegate: self selector: @selector(initializeHelpTimer)];
             [self moveUser];
         } else {
             [self initializeHelpTimer];
         }
     }
+    viewComeFrom = 0;
     
     if ([UserContext getHelpLevel] || startWithHelpPurchase) [self helpAnimationPurchase];
     if (!singletonVocabulary.isDownloading && ![Vocabulary isDownloadCompleted]) [configView startLoading];
