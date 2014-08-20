@@ -106,14 +106,17 @@
                                 <action selector="restorePurchase:" destination="-1" eventType="touchDown" id="Bm4-zf-3gc"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" id="B8g-nx-Ki4" userLabel="NoReachabilityButton">
-                            <rect key="frame" x="108" y="4" width="316" height="50"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" id="B8g-nx-Ki4" userLabel="NoReachabilityButton">
+                            <rect key="frame" x="108" y="4" width="290" height="50"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="16"/>
-                            <inset key="contentEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <inset key="titleEdgeInsets" minX="-138" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="260" maxY="0.0"/>
-                            <state key="normal" title="No Internet or Parental Gate " image="ico_warning.png"/>
+                            <inset key="contentEdgeInsets" minX="3" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="titleEdgeInsets" minX="-63" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="234" maxY="0.0"/>
+                            <state key="normal" title="No Internet or Parental Gate. Click here to refresh" image="ico_warning.png"/>
+                            <connections>
+                                <action selector="claimProductsAgain:" destination="-1" eventType="touchDown" id="ST6-OR-msR"/>
+                            </connections>
                         </button>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" id="287" userLabel="PromoCodeText">
                             <rect key="frame" x="250" y="236" width="202" height="31"/>
@@ -138,7 +141,7 @@
                             <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Help us to spread the word and get 1 day of full access for free" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="3" minimumFontSize="10" id="V0G-iK-lo0" userLabel="FacebookLabel">
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Help us spread the word and get 1 day of full access for free" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="3" minimumFontSize="10" id="V0G-iK-lo0" userLabel="FacebookLabel">
                             <rect key="frame" x="31" y="176" width="202" height="52"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="15"/>

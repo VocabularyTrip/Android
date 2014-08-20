@@ -120,6 +120,9 @@
     };
 }
 
+- (IBAction) claimProductsAgain: (id) sender {
+    [[PurchaseManager getSingleton] initializeObserver];
+}
 
 - (void) viewWillAppear:(BOOL)animated { 
 	[self refreshLevelInfo];
@@ -151,7 +154,12 @@
             noReachabilityButton.alpha = 1;
             buyOneSetDescLabel.alpha = 0;
             buyOneSetNameLabel.alpha = 0;
+            buyAllButton.alpha = 0;
+            buyOneSetofLevelesButton.alpha = 0;
+            [self throbNoReachabilityButton];
         } else {
+            buyAllButton.alpha = 1;
+            buyOneSetofLevelesButton.alpha = 1;
             noReachabilityButton.alpha = 0;
             buyOneSetDescLabel.alpha = 1;
             buyOneSetNameLabel.alpha = 1;
@@ -191,6 +199,40 @@
     }
 
 
+}
+
+- (void) throbNoReachabilityButton {
+    SKProduct* aProduct;
+    aProduct = [PurchaseManager getProductoFromIdentifier: [PurchaseManager getPurchaseAllSet]];
+    if (aProduct) {
+        [self refreshLevelInfo];
+        return;
+    }
+    
+	[UIView beginAnimations:@"HideWordAnimation" context: nil];
+	[UIView setAnimationDelegate:self];
+	[UIView setAnimationDuration:0.2];
+	[UIView setAnimationDidStopSelector: @selector(throbNnoReachabilityButtonOff)];
+	[UIView setAnimationCurve: UIViewAnimationCurveLinear];
+	noReachabilityButton.alpha = 0.5;
+	[UIView commitAnimations];
+}
+
+- (void) throbNnoReachabilityButtonOff {
+    SKProduct* aProduct;
+    aProduct = [PurchaseManager getProductoFromIdentifier: [PurchaseManager getPurchaseAllSet]];
+    if (aProduct) {
+        [self refreshLevelInfo];
+        return;
+    }
+    
+	[UIView beginAnimations:@"HideWordAnimation" context: nil];
+	[UIView setAnimationDelegate:self];
+	[UIView setAnimationDuration:0.2];
+	[UIView setAnimationDidStopSelector: @selector(throbNoReachabilityButton)];
+	[UIView setAnimationCurve: UIViewAnimationCurveLinear];
+	noReachabilityButton.alpha = 1;
+	[UIView commitAnimations];
 }
 
 -(BOOL) textFieldShouldBeginEditing:(UITextField *)textField {

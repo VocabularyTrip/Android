@@ -278,7 +278,12 @@
 		if (targetId == i) {
 			if (flagFaild == NO) {
 				[w decWeight];
-                [AnimatorHelper avatarDance: driverView];
+               	int avatarAnim = arc4random() % 2;
+                NSLog(@"Anim %i", avatarAnim);
+                if (avatarAnim == 1)
+                    [AnimatorHelper avatarDance: driverView];
+                else
+                    [AnimatorHelper avatarOk: driverView];
 				// Increment the hit of Level
 				[self incrementHitAtLevel: w.theme];
 			}

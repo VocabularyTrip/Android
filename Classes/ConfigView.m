@@ -135,10 +135,10 @@
 - (IBAction)soundClicked {
     
 	if (UserContext.soundEnabled == YES) {
-		UserContext.soundEnabled = NO;
+        [UserContext setSoundEnabled: NO];
         [[self parentView] stopBackgroundSound];
 	} else	{
-		UserContext.soundEnabled = YES;
+        [UserContext setSoundEnabled: YES];
         [[self parentView] setFlagTimeoutStartMusic: YES];
         [[self parentView] startPlayBackgroundSound];
 	}

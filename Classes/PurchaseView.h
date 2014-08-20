@@ -58,6 +58,7 @@
 - (IBAction) buyOneSetOfLevels;
 - (IBAction) registerPromoCode;
 - (IBAction) facebookButtonClicked;
+- (IBAction) claimProductsAgain: (id) sender;
 
 - (BOOL) textFieldShouldBeginEditing:(UITextField *)textField;
 - (BOOL) textFieldShouldReturn: (UITextField*) textField;

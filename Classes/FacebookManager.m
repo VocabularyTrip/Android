@@ -167,6 +167,8 @@ FacebookManager *fbSingleton;
                 NSString *result;
                 if (error) {
                     result = @"Error publishing story.";
+                    result = [NSString stringWithFormat: @"Error publishing story. %@, errorCode: %li, %@", error.description, (long)error.code, error.localizedFailureReason];
+                    [self facebookError: result];
                 } else if (results[@"completionGesture"] && [results[@"completionGesture"] isEqualToString:@"cancel"]) {
                     result = @"User canceled story publishing.";
                 } else {
@@ -174,9 +176,7 @@ FacebookManager *fbSingleton;
                     [[UserContext getSingleton] addPostInFacebook];
                     [PromoCode giveAccessForOneDay];
                 }
-                NSString *errorMessage = [NSString stringWithFormat: @"%@, %@, errorCode: %li, %@", result, error.description, (long)error.code, error.localizedFailureReason];
-                NSLog(errorMessage);
-                [TraceWS register: @"FacebookPostFeed" valueStr: errorMessage valueNum: [NSNumber numberWithInt: [[UserContext getSingleton]qPostInFacebook]]];
+                [TraceWS register: @"FacebookPostFeed" valueStr: result valueNum: [NSNumber numberWithInt: [[UserContext getSingleton]qPostInFacebook]]];
             }
          ];
         return tFacebookSuccessful;
@@ -202,6 +202,18 @@ FacebookManager *fbSingleton;
               handler: [self getStandardResultHandler]
         ];*/
     }
+}
+
+
++ (void) facebookError: (NSString*) error {
+    
+    UIAlertView *alert = [[UIAlertView alloc]
+                         initWithTitle: @"Facebook Error"
+                         message: error
+                         delegate: self
+                         cancelButtonTitle: @"OK"
+                         otherButtonTitles: nil];
+    [alert show];
 }
 
 @end

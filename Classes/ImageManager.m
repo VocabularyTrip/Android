@@ -20,7 +20,7 @@
     if (imageView.size.height < imageView.size.width) {
         frame.size.height = imageView.size.height * aView.frame.size.width / imageView.size.width;
         frame.size.width = aView.frame.size.width;
-        frame.origin.y = frame.origin.y + (aView.frame.size.height - frame.size.height);
+        frame.origin.y = frame.origin.y + (aView.frame.size.height - frame.size.height) / 2;
     } else {
         frame.size.width = imageView.size.width * aView.frame.size.height / imageView.size.height;
         frame.size.height = aView.frame.size.height;

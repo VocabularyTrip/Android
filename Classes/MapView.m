@@ -81,8 +81,9 @@
     if (flagFirstShowInSession) {
         // If soundEnabled is false the volumne is 0. This play prepare buffer and resourses to prevent delay in first word
         [self.backgroundSound play];
+        int width = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? [ImageManager getMapViewSize].width/2 : [ImageManager getMapViewSize].width;
         [mapScrollView setContentOffset: CGPointMake(
-            [ImageManager getMapViewSize].width/2 - [ImageManager windowWidthXIB],
+            width - [ImageManager windowWidthXIB],
             [ImageManager getMapViewSize].height - [ImageManager windowHeightXIB]) animated: NO];
         Level *level = [UserContext getLevel];
         playCurrentLevelButton.center = [level placeinMap];
@@ -406,7 +407,8 @@
     playCurrentLevelButton.userInteractionEnabled = YES;
     preventOpenLevelView = NO;
     helpButton.enabled = YES;
-    [backgroundSound setVolume: cMusicVolume];
+
+    backgroundSound.volume = UserContext.soundEnabled == YES ? cMusicVolume : 0;
     [self initializeTimeoutToPlayBackgroundSound];
 }
 
