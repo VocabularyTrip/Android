@@ -571,13 +571,16 @@ gameStatus = cStatusGameIsOn;
 }
 
 - (void) showButtonsPlayAgainAndReturnToMap {
+    returnMapButton.alpha = 1;
+    playAgainButton.alpha = 1;
+    returnMapButton.enabled = 1;
+    playAgainButton.enabled = 1;
+
     NSUInteger result = [self evaluateGetIntoNextLevel];
     // If the result is nextLevel or buyRequired, the play again is ignored. The user is forwarded to map or purchase view.
     if (result == tResultEvaluateNextLevel_NextLevel) {
         [self done: nil];
     } else {
-        returnMapButton.alpha = 1;
-        playAgainButton.alpha = 1;
         if (result == tResultEvaluateNextLevel_BuyRequired)
             purchaseButton.alpha = 1;
     }

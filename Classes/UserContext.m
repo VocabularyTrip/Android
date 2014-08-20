@@ -238,7 +238,6 @@ UserContext *userContextSingleton;
 - (void) setUserSelected: (User *) aUser {
     userSelected = aUser;
 	[[NSUserDefaults standardUserDefaults] setInteger: userSelected.userId forKey: cUserselected];
-
 }
 
 - (User *) userSelected {
@@ -264,6 +263,15 @@ UserContext *userContextSingleton;
 }
 
 -(void) setMaxLevel: (int) aLevel {
+    
+    if (aLevel != cSet1OfLevels &&
+        aLevel != cSet2OfLevels &&
+        aLevel != cSet3OfLevels &&
+        aLevel != cSet4OfLevels &&
+        aLevel != cSetLevelsFree) {
+        NSLog(@"Warning, setMaxLevel error. %i", aLevel);
+    }
+        
 	[[NSUserDefaults standardUserDefaults] setInteger: aLevel forKey: cMaxLevelKey];
 }
 

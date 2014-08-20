@@ -86,7 +86,7 @@
 - (void) initAvatarAnimation;
 - (void) initializeTimer;
 - (void) randomAvatarAnimation;
-
+- (void) endGetIntoNextLevel;
 - (void) startHelp;
 - (void) preventPlayingHelp: (int) help;
 - (void) allowPlayingHelpEnded;

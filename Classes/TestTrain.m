@@ -196,12 +196,23 @@
         wasLearned5LastLevelsResult >= cPercentageLearnd && [self hitRate] >= 5) {
 		return [self goToNextLevel];
 	} else if (wasLearnedResult >= cPercentageCloseToLearnd && [self hitRate] >= 5) {
-		if (viewMode == 1) [Sentence playSpeaker: @"Test-EvaluateGetIntoNextLevel-CloseToLearned"];
+		if (viewMode == 1) {
+            returnMapButton.enabled = 0;
+            playAgainButton.enabled = 0;
+            purchaseButton.enabled = 0;
+            [Sentence playSpeaker: @"Test-EvaluateGetIntoNextLevel-CloseToLearned" delegate: self selector:@selector(endSayCloseToLearnd)];
+        }
 		return tResultEvaluateNextLevel_closeToNextLevel;
 	}
     
     return tResultEvaluateNextLevel_none;
 	//[self takeOutTrain];
+}
+
+-(void) endSayCloseToLearnd {
+    returnMapButton.enabled = 1;
+    playAgainButton.enabled = 1;
+    purchaseButton.enabled = 1;
 }
 
 -(tResultEvaluateNextLevel) goToNextLevel {

@@ -105,9 +105,11 @@
         Level *level = [UserContext getLevel];
         if (level.levelNumber != currentLevelNumber) {
             // Move the train from the previous level to the next level
-            if (viewComeFrom == cViewComeFromTrain)
+            if (viewComeFrom == cViewComeFromTrain) {
+                [self preventPlayingHelp: cPreventPlayingHelpTouchNothing];
                 [Sentence playSpeaker: @"Test-EvaluateGetIntoNextLevel-NextLevel"
                           delegate: self selector: @selector(initializeHelpTimer)];
+            }
             [self moveUser];
         } else {
             [self initializeHelpTimer];
@@ -121,6 +123,11 @@
     startWithHelpDownload = 0;
     startWithHelpPurchase = 0;
 
+}
+
+- (void) endGetIntoNextLevel {
+    [self initializeHelpTimer];
+    [self allowPlayingHelpEnded];
 }
 
 - (void) cancelAllAnimations {
