@@ -39,5 +39,16 @@ ehtumbs.db
 Thumbs.db
 
 # Xcode generated files
+<<<<<<< HEAD
 *.xcuserstate
 *.xcbkptlist
+=======
+VocabularyTrip.xcodeproj/project.xcworkspace/xcuserdata/jadz.xcuserdatad/UserInterfaceState.xcuserstate
+VocabularyTrip.xcodeproj/project.pbxproj
+VocabularyTrip.xcodeproj/xcuserdata/jadz.xcuserdatad/xcdebugger/Breakpoints.xcbkptlist
+
+
+VocabularyTrip.xcodeproj/project.xcworkspace/xcuserdata/ariel.xcuserdatad/UserInterfaceState.xcuserstate
+
+VocabularyTrip.xcodeproj/xcuserdata/ariel.xcuserdatad/xcdebugger/Breakpoints.xcbkptlist
+>>>>>>> parent of a22c12b... Uploaded v2.2 to the App Store
