@@ -250,7 +250,11 @@
 // **** Core Business *****
 
 - (void) incrementHitAtLevel: (int) aLevel {
-    int range;
+	if (aLevel <= cLimitLevelBronze) hitsOfLevel1++;
+	if (aLevel > cLimitLevelBronze && aLevel <= cLimitLevelSilver) hitsOfLevel2++;
+	if (aLevel > cLimitLevelSilver) hitsOfLevel3++;
+
+    /*int range;
 	if (aLevel <= cLimitLevelBronze) range = 1;
 	if (aLevel > cLimitLevelBronze && aLevel <= cLimitLevelSilver) range = 2;
 	if (aLevel > cLimitLevelSilver) range = 3;
@@ -258,7 +262,7 @@
   	int hit = arc4random() % range;
 	if (hit == 0) hitsOfLevel1++;
 	if (hit == 1) hitsOfLevel2++;
-	if (hit == 2) hitsOfLevel3++;
+	if (hit == 2) hitsOfLevel3++;*/
     
 	/*if (aLevel <= cLimitLevelBronze) hitsOfLevel1++;
 	if (aLevel > cLimitLevelBronze && aLevel <= cLimitLevelSilver) hitsOfLevel2++;

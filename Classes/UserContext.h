@@ -60,7 +60,7 @@
 #define cIsLocked @"langSelectionIsLocked"
 
 #define cqPostInFasebook @"qPostInFacebook"
-#define cMaxPostInFasebook 20
+#define cMaxPostInFasebook 15
 
 enum {
     tLevelModeGame_cumulative = 0, // default mode. If you are in the level 4, the game choose randomly words between words in level 1 to 4.

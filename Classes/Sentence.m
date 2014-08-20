@@ -66,7 +66,7 @@ AVAudioPlayer *currentAudio = nil;
 }
 
 - (void) play {
-	
+	NSLog(@"Start Playing %@", method);
 	@try {
 		int c = arc4random() % [names count];
 		avProxy = [names objectAtIndex: c];
@@ -89,9 +89,11 @@ AVAudioPlayer *currentAudio = nil;
 - (void) audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
 	isPlaying = NO;
     currentAudio = nil;
+	NSLog(@"finish Playing %@", method);
 	@try {
         
         if (delegate && selector) {
+            NSLog(@"Perform Selector %@", method);
             [delegate performSelector: selector];
             delegate = nil;
             selector = nil;
@@ -103,6 +105,7 @@ AVAudioPlayer *currentAudio = nil;
 			//[delegate takeOutTrain]; 
 		} else*/
         if (next != nil) {
+            NSLog(@"Playing Next %@", method);
 			[Sentence playSpeaker: next];
 		}
 

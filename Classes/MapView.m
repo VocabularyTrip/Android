@@ -611,11 +611,13 @@
     [UIImageView setAnimationDuration: 2];
     [UIImageView setAnimationBeginsFromCurrentState: YES];
 
-    [self moveOffsetToSeeUser: [UserContext getLevelAt: 3]];
+    int helpLevel = [[[UserContext getSingleton] userSelected] getLevel] + 2;
+    if (helpLevel > cLimitLevel) helpLevel = cLimitLevel - 2;
+    [self moveOffsetToSeeUser: [UserContext getLevelAt: helpLevel]];
     
     hand.center =  (CGPoint)  {
-        [[UserContext getLevelAt: 3] placeinMap].x - mapScrollView.contentOffset.x + [ImageManager getMapViewLevelSize] / 2 + hand.frame.size.width/2,
-        [[UserContext getLevelAt: 3] placeinMap].y - mapScrollView.contentOffset.y + [ImageManager getMapViewLevelSize] / 2 + hand.frame.size.height/2
+        [[UserContext getLevelAt: helpLevel] placeinMap].x - mapScrollView.contentOffset.x + [ImageManager getMapViewLevelSize] / 2 + hand.frame.size.width/2,
+        [[UserContext getLevelAt: helpLevel] placeinMap].y - mapScrollView.contentOffset.y + [ImageManager getMapViewLevelSize] / 2 + hand.frame.size.height/2
     };
     [UIImageView commitAnimations];
 }
@@ -705,10 +707,11 @@
 		NSLog(@"Error setting Audio Session category: %@", [audio_session_error localizedDescription]);
 	}
 	
-        // Make this class the delegate so we can receive the interruption messages
+    // Make this class the delegate so we can receive the interruption messages
 	[[AVAudioSession sharedInstance] setDelegate:self];
 	audio_session_error = nil;
-        // Make the Audio Session active
+    
+    // Make the Audio Session active
 	is_success = [[AVAudioSession sharedInstance] setActive:YES error:&audio_session_error];
 	if(!is_success || audio_session_error) {
 		NSLog(@"Error setting Audio Session active: %@", [audio_session_error localizedDescription]);

@@ -291,7 +291,7 @@
     [UIImageView beginAnimations: @"helpAnimation" context:(__bridge void *)([NSNumber numberWithInt:0])];
     [UIImageView setAnimationDelegate: self];
     [UIImageView setAnimationCurve: UIViewAnimationCurveLinear];
-    if (angle>3*M_PI) {
+    if (angle>2.8*M_PI) {
        [UIImageView setAnimationDidStopSelector: @selector(helpAnimation7)];
     }
     else {

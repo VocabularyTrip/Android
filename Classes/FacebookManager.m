@@ -158,7 +158,7 @@ FacebookManager *fbSingleton;
     shareParams.caption = @"Its great!";
     shareParams.picture = [NSURL URLWithString: pictureURL];
     shareParams.description =
-    [NSString stringWithFormat: @"It's the perfecto tool to..."];
+    [NSString stringWithFormat: @"This app is the perfect tool for toddlers and older children to learn vocabulary in many languages with more than 500 commonly used words."];
 
     if ([FBDialogs canPresentShareDialogWithParams: shareParams]) {
         [FBDialogs presentShareDialogWithParams: shareParams

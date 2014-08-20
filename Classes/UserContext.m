@@ -325,13 +325,15 @@ UserContext *userContextSingleton;
     [UserContext setHelpMapViewStep2: YES];
     [UserContext setHelpMapViewStep3: YES];
 
+    User *originalUser = [UserContext getUserSelected];
     for (int i=0; i < [[UserContext getSingleton].users count]; i++) {
         User* u = [[UserContext getSingleton].users objectAtIndex: i];
         [[UserContext getSingleton] setUserSelected: u];
         [Vocabulary resetAllWeigths];
         [u resetLevel];
 	}
-
+    [[UserContext getSingleton] setUserSelected: originalUser];
+    
     // Previous version had 9 levels.
     if ([UserContext getMaxLevel] > 1 && [UserContext getMaxLevel] < cSet1OfLevels)
         [[UserContext getSingleton] setMaxLevel: cSet1OfLevels];

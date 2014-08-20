@@ -66,6 +66,7 @@
     [self.window makeKeyAndVisible];
 
     //[self checkOnInitialization];
+    
     return YES;
 }
 
