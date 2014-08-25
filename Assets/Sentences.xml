@@ -46,7 +46,7 @@
     
     <!-- Generic & Toolbar -->
     
-	<Sentence Method="Test-EvaluateGetIntoNextLevel-CloseToLearned" name="Congratulations1" type="alwaysSoundOn"></Sentence> <!-- ok -->
+	<Sentence Method="Test-EvaluateGetIntoNextLevel-CloseToLearned" name="Congratulations1" type="always"></Sentence> <!-- ok -->
     
     <!-- Generic & Toolbar -->
     
