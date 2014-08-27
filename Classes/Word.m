@@ -101,7 +101,7 @@
         [singletonVocabulary.delegate downloadFinishWidhError: result];
 }
 
--(UIImage*) image {
+- (UIImage*) image {
 	if (image == nil) {
         NSString *file = [[NSString alloc ] initWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath], [NSString stringWithFormat: @"%@.png", fileName]]; // [UserContext getIphoneIpadFile: name]];
         image = [UIImage alloc];
@@ -110,7 +110,7 @@
 	return image;
 }
 
--(AVAudioPlayer*) sound {
+- (AVAudioPlayer*) sound {
 	if (sound == nil)
 		@try {
             if (theme == 1) {
@@ -129,18 +129,18 @@
 	return sound;
 }
 
--(void) purge {
+- (void) purge {
 	image = nil;
 	sound = nil;
 }
 
--(bool) playSoundWithDelegate: (id) delegate {
+- (bool) playSoundWithDelegate: (id) delegate {
 	self.sound.delegate = delegate;
 	[sound play];
     return (sound != nil);
 }
 
--(bool) playSound {
+- (bool) playSound {
     return [self playSoundWithDelegate: self];
 }
 
