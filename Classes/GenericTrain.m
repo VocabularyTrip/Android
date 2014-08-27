@@ -122,8 +122,7 @@
 - (IBAction)pauseClicked { 
 	//NSString *imageFile;
 	if (gameStatus == cStatusGameIsOn) { 
-		//imageFile = [ImageManager getIphoneIpadFile: @"pause1"];
-		[pauseButton setImage: [UIImage imageNamed: @"pause1.png"] forState: UIControlStateNormal];
+		[pauseButton setImage: [UIImage imageNamed: @"pause_on.png"] forState: UIControlStateNormal];
 		gameStatus = cStatusGameIsPaused;
 		[self.trainSound pause];
 		wordButton1.enabled = NO;
@@ -135,8 +134,7 @@
         wordButtonLabel3.enabled = NO;
         [self throbPauseButton];
 	} else	{
-		//imageFile = [ImageManager getIphoneIpadFile: @"pause2"];
-		[pauseButton setImage: [UIImage imageNamed: @"pause2.png"] forState: UIControlStateNormal];
+		[pauseButton setImage: [UIImage imageNamed: @"pause_off.png"] forState: UIControlStateNormal];
 		gameStatus = cStatusGameIsOn;
 		wordButton1.enabled = YES;
 		wordButton2.enabled = YES;
