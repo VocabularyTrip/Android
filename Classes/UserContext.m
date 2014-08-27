@@ -334,17 +334,31 @@ UserContext *userContextSingleton;
     [UserContext setHelpMapViewStep3: YES];
 
     User *originalUser = [UserContext getUserSelected];
+    Language *originalLang = [UserContext getLanguageSelected];
+    
     for (int i=0; i < [[UserContext getSingleton].users count]; i++) {
         User* u = [[UserContext getSingleton].users objectAtIndex: i];
         [[UserContext getSingleton] setUserSelected: u];
-        [Vocabulary resetAllWeigths];
-        [u resetLevel];
+        
+        for (int j=0; j < [[Language getAllLanguages] count]; j++) {
+            Language* l = [[Language getAllLanguages] objectAtIndex: j];
+            [u setLangSelected: l];
+            [Vocabulary resetAllWeigths];
+            [u resetLevel];
+        }
 	}
-    [[UserContext getSingleton] setUserSelected: originalUser];
     
-    // Previous version had 9 levels.
+    // Restore original selection
+    [originalUser setLangSelected: originalLang];
+    [[UserContext getSingleton] setUserSelected: originalUser];
+
+    // Set max Level
     if ([UserContext getMaxLevel] > 1 && [UserContext getMaxLevel] < cSet1OfLevels)
         [[UserContext getSingleton] setMaxLevel: cSet1OfLevels];
+    else
+        [[UserContext getSingleton] setMaxLevel: cSetLevelsFree];
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 -(void) resetGame {
