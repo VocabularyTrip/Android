@@ -999,7 +999,7 @@
 		CE5C23421609580600CB7814 /* libSystem.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CE5C23411609580600CB7814 /* libSystem.dylib */; settings = {ATTRIBUTES = (Weak, ); }; };
 		CE6F7A661422968B00F03599 /* UIButtonEmptyFigurine.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6F7A651422968B00F03599 /* UIButtonEmptyFigurine.m */; };
 		CE707C7B149BDB2100598B9A /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE707C7A149BDB2100598B9A /* MediaPlayer.framework */; };
-		CE71604D16D707D300517DFD /* lock.png in Resources */ = {isa = PBXBuildFile; fileRef = CE71604B16D707D300517DFD /* lock.png */; };
+		CE71604D16D707D300517DFD /* unlock1.png in Resources */ = {isa = PBXBuildFile; fileRef = CE71604B16D707D300517DFD /* unlock1.png */; };
 		CE717A3914C1B023002E4551 /* menu1.png in Resources */ = {isa = PBXBuildFile; fileRef = CE717A3614C1B023002E4551 /* menu1.png */; };
 		CE717A3A14C1B023002E4551 /* pause_off.png in Resources */ = {isa = PBXBuildFile; fileRef = CE717A3714C1B023002E4551 /* pause_off.png */; };
 		CE71831313F765A5008742FA /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = CE71831213F765A5008742FA /* Level.m */; };
@@ -1211,7 +1211,7 @@
 		CE807A9B14D04F9800D2B727 /* SmokeView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE807A9A14D04F9800D2B727 /* SmokeView.m */; };
 		CE807B2314D09F0900D2B727 /* clicking.png in Resources */ = {isa = PBXBuildFile; fileRef = CE807B2214D09F0900D2B727 /* clicking.png */; };
 		CE812E39150A28D80078532F /* help.png in Resources */ = {isa = PBXBuildFile; fileRef = CE812E38150A28D80078532F /* help.png */; };
-		CE81AF4D16C9C55200B63FCE /* unlock.png in Resources */ = {isa = PBXBuildFile; fileRef = CE81AF4916C9C55200B63FCE /* unlock.png */; };
+		CE81AF4D16C9C55200B63FCE /* lock1.png in Resources */ = {isa = PBXBuildFile; fileRef = CE81AF4916C9C55200B63FCE /* lock1.png */; };
 		CE824D6614EC506100C4A9EB /* smoke.png in Resources */ = {isa = PBXBuildFile; fileRef = CE824D6514EC506100C4A9EB /* smoke.png */; };
 		CE838066146C5A1C00BB32F0 /* AlbumMonsters~ipad.xml in Resources */ = {isa = PBXBuildFile; fileRef = CE838065146C5A1C00BB32F0 /* AlbumMonsters~ipad.xml */; };
 		CE84D691140F1956009119FD /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE84D690140F1956009119FD /* StoreKit.framework */; };
@@ -2289,7 +2289,7 @@
 		CE6F7A641422968B00F03599 /* UIButtonEmptyFigurine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIButtonEmptyFigurine.h; sourceTree = "<group>"; };
 		CE6F7A651422968B00F03599 /* UIButtonEmptyFigurine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIButtonEmptyFigurine.m; sourceTree = "<group>"; };
 		CE707C7A149BDB2100598B9A /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
-		CE71604B16D707D300517DFD /* lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lock.png; sourceTree = "<group>"; };
+		CE71604B16D707D300517DFD /* unlock1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unlock1.png; sourceTree = "<group>"; };
 		CE717A3614C1B023002E4551 /* menu1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu1.png; sourceTree = "<group>"; };
 		CE717A3714C1B023002E4551 /* pause_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause_off.png; sourceTree = "<group>"; };
 		CE71831113F765A5008742FA /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
@@ -2527,7 +2527,7 @@
 		CE807A9A14D04F9800D2B727 /* SmokeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmokeView.m; sourceTree = "<group>"; };
 		CE807B2214D09F0900D2B727 /* clicking.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = clicking.png; path = Assets/Images/Toolbar/clicking.png; sourceTree = SOURCE_ROOT; };
 		CE812E38150A28D80078532F /* help.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help.png; sourceTree = "<group>"; };
-		CE81AF4916C9C55200B63FCE /* unlock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unlock.png; sourceTree = "<group>"; };
+		CE81AF4916C9C55200B63FCE /* lock1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lock1.png; sourceTree = "<group>"; };
 		CE824D6514EC506100C4A9EB /* smoke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smoke.png; sourceTree = "<group>"; };
 		CE838065146C5A1C00BB32F0 /* AlbumMonsters~ipad.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "AlbumMonsters~ipad.xml"; sourceTree = "<group>"; };
 		CE84D690140F1956009119FD /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -4167,8 +4167,8 @@
 				CE7C406B16E138D3002DA556 /* btn_download_on.png */,
 				B086B394171F29FA00C714B9 /* btn_download_cancel.png */,
 				CE7C406D16E138D6002DA556 /* background_wizard@ipad.png */,
-				CE71604B16D707D300517DFD /* lock.png */,
-				CE81AF4916C9C55200B63FCE /* unlock.png */,
+				CE71604B16D707D300517DFD /* unlock1.png */,
+				CE81AF4916C9C55200B63FCE /* lock1.png */,
 			);
 			path = ChangeUserLang;
 			sourceTree = "<group>";
@@ -5293,7 +5293,7 @@
 				CE77DAE516ADBABD009AAB3C /* LockLanguageView.xib in Resources */,
 				B0A8B5BA187671AE00245F48 /* figu-empty-no.png in Resources */,
 				B0A8B4961872CC4F00245F48 /* soldier.png in Resources */,
-				CE81AF4D16C9C55200B63FCE /* unlock.png in Resources */,
+				CE81AF4D16C9C55200B63FCE /* lock1.png in Resources */,
 				B0A8B3C51872CC4F00245F48 /* camel.png in Resources */,
 				B025E08519AD719F001BCBAC /* newAvatar5-15-01.png in Resources */,
 				B0A8B4611872CC4F00245F48 /* pizza.png in Resources */,
@@ -5310,7 +5310,7 @@
 				B0A8B7011876C33700245F48 /* flag.png in Resources */,
 				B0B1204D19958525004EF84C /* en_Level_helpE.mp3 in Resources */,
 				B0A8B3DD1872CC4F00245F48 /* cow.png in Resources */,
-				CE71604D16D707D300517DFD /* lock.png in Resources */,
+				CE71604D16D707D300517DFD /* unlock1.png in Resources */,
 				B0A8B74E1876C33700245F48 /* washing_machine.png in Resources */,
 				B0A8B4CC1872CC4F00245F48 /* year.png in Resources */,
 				B0A8B7101876C33700245F48 /* harp.png in Resources */,

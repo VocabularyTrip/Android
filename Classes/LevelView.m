@@ -46,6 +46,9 @@
 	wordNamelabel.alpha = 0;
 	nativeWordNamelabel.alpha = 0;
     levelNamelabel.text = level.name;
+
+    gameStatus = cStatusGameIsPaused;
+    [self pauseClicked]; // This method chanche the gameStatus and refresh button. 
 }
 
 - (void) viewDidAppear:(BOOL)animated {
