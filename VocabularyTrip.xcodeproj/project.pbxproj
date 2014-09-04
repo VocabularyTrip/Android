@@ -5756,7 +5756,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = "Vocabulary Trip";
-				"PROVISIONING_PROFILE[sdk=*]" = "";
+				"PROVISIONING_PROFILE[sdk=*]" = "6097e638-5788-46e6-b66c-91c93de6ad8a";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -5783,8 +5783,9 @@
 				INFOPLIST_FILE = "Vocabulary Trip-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "Vocabulary Trip";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "6097e638-5788-46e6-b66c-91c93de6ad8a";
+				"PROVISIONING_PROFILE[sdk=*]" = "6097e638-5788-46e6-b66c-91c93de6ad8a";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6097e638-5788-46e6-b66c-91c93de6ad8a";
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
