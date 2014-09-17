@@ -139,8 +139,8 @@
 - (void) refreshLevelInfo {
     SKProduct* aProduct;
 	restorePurchaseButton.enabled = 1; //[UserContext getMaxLevel] >= cSet1OfLevels ? 1 : 0;
-    promoCodeText.enabled = [UserContext getMaxLevel] <= cSet2OfLevels ? 1 : 0;
-    facebookButton.enabled = [[UserContext getSingleton] qPostInFacebook] < cMaxPostInFasebook ? 1 : 0;
+    //promoCodeText.enabled = [UserContext getMaxLevel] <= cSet2OfLevels ? 1 : 0;
+    //facebookButton.enabled = [[UserContext getSingleton] qPostInFacebook] < cMaxPostInFasebook ? 1 : 0;
     noReachabilityButton.alpha = 0;
 
     aProduct = [PurchaseManager getProductoFromIdentifier: [PurchaseManager getPurchaseOneSet]];
