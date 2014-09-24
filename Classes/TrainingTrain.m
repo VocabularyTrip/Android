@@ -276,23 +276,6 @@
 	return NO;
 }
 
-/*- (void) addMoney {
-	if (money <= hitsOfLevel1) {
-		[UserContext addMoney1: 1];
-		[self refreshMoneyViews: cBronzeType];
-	} else if (money <= hitsOfLevel2 + hitsOfLevel1) {
-		[UserContext addMoney2: 1];
-		[self refreshMoneyViews: cSilverType];
-	} else if (money <= hitsOfLevel1 + hitsOfLevel2 + hitsOfLevel3) {
-		[UserContext addMoney3: 1];
-		[self refreshMoneyViews: cGoldType];		
-	} 
-}
-
-- (void) refreshMoneyLabelsFinished {
-	[self takeOutTrain];
-}*/
-
 - (void) endGame { 
 	[super endGame];
     [[UserContext getUserSelected] nextSequence];

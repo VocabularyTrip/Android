@@ -84,7 +84,6 @@
 - (void) viewWillAppear:(BOOL)animated {
     singletonVocabulary.isDownloadView = YES;
     singletonVocabulary.delegate = self;
-    //NSLog(@"IsDownloading: %i", singletonVocabulary.isDownloading);
     downloadButton.alpha = 1;
     [self refreshSearchingModeEnabled: singletonVocabulary.isDownloading];
 }

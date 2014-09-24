@@ -73,9 +73,7 @@
     if (level.order > [UserContext getTemporalMaxLevel] && level.order > cSetLevelsFree) {
         [self addImage: [UIImage imageNamed:@"lock2.png"] pos: newPlace size: [ImageManager getMapViewLevelSize] * 0.4];
         return NO;
-    }/* else if (level.order > ([UserContext getLevelNumber]+1) && level.order != 1) {
-      [self addImage: [UIImage imageNamed:@"token-bronze.png"] pos: newPlace size: [ImageManager getMapViewLevelSize] * 0.4];
-      }*/
+    }
     return YES;
 }
 

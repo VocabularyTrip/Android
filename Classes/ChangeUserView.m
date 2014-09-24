@@ -22,11 +22,6 @@
 @synthesize hand;
 @synthesize helpButton;
 
-/*- (IBAction)done:(id)sender {
-	VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
-	[vocTripDelegate popMainMenuFromChangeLang];
-}*/
-
 - (IBAction) nextButtonPressed: (id)sender {
 	VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
 	[vocTripDelegate pushChangeLangView];
@@ -42,7 +37,7 @@
 
 		[(AFOpenFlowView *)self.usersView setImage: [ImageManager imageWithImage: u.image scaledToSize: [ImageManager changeUserUserSize: u.image]] forIndex: i];
 	}
-    //NSLog(@"User Count: %i", [[UserContext getSingleton].users count]);
+
 	[(AFOpenFlowView *)self.usersView setNumberOfImages: [[UserContext getSingleton].users count]];
 }
 
@@ -56,12 +51,12 @@
     // Set user Selected
     User *user = [[UserContext getSingleton].users objectAtIndex: index];
     [[UserContext getSingleton] setUserSelected: user];
-    [UserContext reloadContext];
+    [UserContext reloadContext]; // no deber[ia estar en el NEXT ?????
      
     // Update user name
     userNameText.text = user.userName;
     [self refreshLabels];
-    //[AnimatorHelper avatarGreet: [openFlowView getSelectedCoverView].imageView];
+
  }
 
 - (void) refreshLabels {

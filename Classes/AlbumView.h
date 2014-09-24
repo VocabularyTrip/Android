@@ -11,7 +11,6 @@
 #import "Album.h"
 #import "UIButtonEmptyFigurine.h"
 #import "UserContext.h"
-#import "ToolbarController.h"
 
 #define cComeFromMenu 1
 #define cComeFromPlaying 2

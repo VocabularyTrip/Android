@@ -23,9 +23,7 @@ NSMutableArray *allLanguages = nil;
 
 + (NSMutableArray*) getAllLanguages {
     if (allLanguages == nil)
-//        [self requestAllLanguages]; // Load from web service. Check if there are new languages
-//    if ([allLanguages count] == 0)
-        [self loadLanguagesLocaly]; // Load from local path.
+        [self loadLanguagesLocaly];
     return allLanguages;
 }
 
@@ -49,73 +47,8 @@ NSMutableArray *allLanguages = nil;
     return nil;
 }
 
-+(void) requestAllLanguages {
-    NSURL *url =
-    [NSURL URLWithString: [NSString stringWithFormat: @"%@/db_select.php?rquest=allLangs", cUrlServer]];
-    
-    AFJSONRequestOperation *operation = [AFProxy prepareRequest: url delegate: self];
-    [operation start];
 
-}
-
-// Response to allLangs
-+ (void) connectionFinishSuccesfully: (NSDictionary*) response {
-    if ([self allImagesDownloaded: [response count]]) return;
-
-    int langSelKey = [[[UserContext getUserSelected] langSelected] key];
-    if (langSelKey == 0) langSelKey = 1; // First execution, there are not language selected. LangKey = 1 is English as default
-    [[UserContext getUserSelected] setLangSelected: nil];
-
-    [allLanguages removeAllObjects]; // since the request is asynchronous, could be load languages locally
-    allLanguages = [[NSMutableArray alloc] init];
-    //NSLog(@"Start Loading Languages !!!!!");
-    
-    for (NSDictionary* value in response) {
-        Language *lang = [Language alloc];
-        lang.key = [[value objectForKey: @"lang_id"] intValue];
-        lang.name = [value objectForKey: @"lang_name"];
-        lang.code = [value objectForKey: @"lang_code"];
-
-        [self download: [self iconImageName: lang.name prefix: @""] setAnewLanguage: NO];
-        [self download: [self iconImageName: lang.name prefix: @"@2x"] setAnewLanguage: UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad];
-        [self download: [self iconImageName: lang.name prefix: @"@ipad"] setAnewLanguage: UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad];
-
-        [allLanguages addObject: lang];
-    }
-    
-    [[UserContext getUserSelected] setLangSelected: [allLanguages objectAtIndex: langSelKey - 1]];
-    //NSLog(@"Finish Loading Languages !!!!!");
-    [self saveLanguagesLocaly];
-    
-}
-    
-// Response to allLangs
-+ (void) connectionFinishWidhError:(NSError *) error {
-    NSString *result = error.localizedDescription;
-    NSLog(@"%@", result);
-}
-
-+ (bool) allImagesDownloaded: (int) qLangs {
-    NSString *path = [self downloadDestinationPath];
-    NSFileManager *fm = [NSFileManager defaultManager];
-    NSError *err;
-    int qFiles = [[fm contentsOfDirectoryAtPath: path error: &err] count];
-    return qLangs*3 == qFiles; // Each lang has IconEnglish.png, @2x.png and @ipad.png
-}
-
-+ (NSString*) iconImageName: (NSString*) fileName prefix: (NSString*) prefix {
-    NSString *a = [NSString stringWithFormat: @"%@Flag%@.png", fileName, prefix];
-    return a;
-}
-
-+ (NSString*) iconImageName: (NSString*) fileName {
-    //NSString *a = [ImageManager getIphoneIpadFile: [NSString stringWithFormat: @"%@Flag", fileName]];
-    NSString *a = [NSString stringWithFormat:@"%@.png", fileName];
-    
-    return a;
-}
-
-+ (BOOL) download: (NSString*) langArchive setAnewLanguage: (bool) setANewLang {
+/*+ (BOOL) download: (NSString*) langArchive setAnewLanguage: (bool) setANewLang {
     
     // Set Source & Destination
     NSString *fullUrl =
@@ -177,9 +110,9 @@ NSMutableArray *allLanguages = nil;
     NSString *originPath = [[NSString alloc] initWithFormat:@"%@/%@%@%@", 
                             [[NSBundle mainBundle] resourcePath], langName, @"Flag", ext];	
     [fm copyItemAtPath: originPath toPath: destPath error: &error];
-}
+}*/
 
-+ (void) saveLanguagesLocaly {
+/*+ (void) saveLanguagesLocaly {
     NSMutableArray *tempLangs = [[NSMutableArray alloc] init];
     for (int i=0; i < allLanguages.count; i++) {
         Language *lang = [allLanguages objectAtIndex: i];
@@ -187,11 +120,10 @@ NSMutableArray *allLanguages = nil;
         [tempLangs addObject: temp];
     }
     [[NSUserDefaults standardUserDefaults] setValue: [tempLangs componentsJoinedByString: @"-"] forKey: cArrayLanguages];
-}
+}*/
 
 + (void) loadLanguagesLocaly {
 	NSString *langs = cInitFirstLanguages;
-    //[[NSUserDefaults standardUserDefaults] stringForKey: cArrayLanguages];
     NSArray *tempLangs = [langs componentsSeparatedByString: @"-"];
     NSArray *tempOneLang;
     allLanguages = [[NSMutableArray alloc] init];
@@ -208,47 +140,14 @@ NSMutableArray *allLanguages = nil;
 
 -(UIImage*) image {
 	if (image == nil) {
-        image = [UIImage alloc];
-        NSString* file = [[NSString alloc ] initWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath],
-                 [Language iconImageName: name]];
-        image = [image initWithContentsOfFile: file];
+        image = [UIImage imageNamed: name];
         image = [ImageManager imageWithImage: image scaledToSize: [ImageManager getFlagSize]];
     }
 	return image;
 }
 
-- (void) countOfWords {
-    NSURL *url =
-    [NSURL URLWithString: [NSString stringWithFormat: @"%@/db_select.php?rquest=countOfWordsforLang", cUrlServer]];
-    
-    Language *lang = [UserContext getLanguageSelected];
-    NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:
-                          [NSNumber numberWithInt: lang.key], @"lang", nil];
-    
-    
-    AFJSONRequestOperation *operation = [AFProxy preparePostRequest: url param: dict delegate: self];
-    [operation start];
-}
-
-- (void) connectionFinishSuccesfully: (NSDictionary*) dict {
-    qWords = [[dict objectForKey: @"qWords"] intValue];
-}
-
-- (void) connectionFinishWidhError:(NSError *) error {
-    NSString *result = error.localizedDescription;
-    NSLog(@"%@", result);
-}
-
 - (int) qWords {
-/*    if (qWords == 0) {
-        [self countOfWords];
-        // ******** change 400 words - Pending
-        // Se usa para validar si esta completo. No sirve lo leido
-        return qWords; // count of words is asyncronic
-    }
-
-    return qWords;*/
-    return 506;
+    return cDictionrySize;
 }
 
 @end

@@ -10,10 +10,10 @@
 #import "AFHTTPRequestOperation.h"
 #import "SBJSON.h"
 
+#define cDictionrySize 506
 #define cArrayLanguages @"arrayOfLanguages"
 #define cInitFirstLanguages @"1|English-2|Spanish-3|Chinese-4|Farsi-5|French-6|German-7|Italian-8|Korean-9|Malay-10|Vietnamese-11|Arabic-12|Egyptian"
 
-//#define cInitFirstLanguages @"1|English-2|Chinese-3|Spanish-4|French-5|Farsi-6|German-7|Portuguese-8|Italian-9|Arabic-10|Egyptian-11|Hebrew-12|Hindi-13|Japanese-14|Russian-15|Malay-16|Vietnamese-17|Korean"
 
 extern NSMutableArray *allLanguages;
 
@@ -37,24 +37,17 @@ extern NSMutableArray *allLanguages;
 + (Language*) getLanguageforLocalization: (NSString*) loc;
 + (Language*) getLanguageforKey: (int) key;
 + (NSMutableArray*) getAllLanguages;
+
 + (void) loadLanguagesLocaly;
-+ (void) saveLanguagesLocaly;
-+ (void) initLanguagesLocaly;
-+ (BOOL) download: (NSString*) langArchive setAnewLanguage: (bool) setANewLang;
-+ (NSString*) downloadDestinationPath;
-+ (NSString*) checkIfDestinationPathExist;
-+ (NSString*) iconImageName: (NSString*) fileName;
-+ (NSString*) iconImageName: (NSString*) fileName prefix: (NSString*) prefix;
-+ (bool) allImagesDownloaded: (int) qLangs;
-+ (void) copyImageToDestinationPath: (NSString *) langName ext: (NSString*) ext;
+//+ (void) saveLanguagesLocaly;
+//+ (void) initLanguagesLocaly;
+
+//+ (BOOL) download: (NSString*) langArchive setAnewLanguage: (bool) setANewLang;
+//+ (NSString*) downloadDestinationPath;
+//+ (NSString*) checkIfDestinationPathExist;
+//+ (void) copyImageToDestinationPath: (NSString *) langName ext: (NSString*) ext;
 
 
-+ (void) requestAllLanguages;
-+ (void) connectionFinishSuccesfully: (NSDictionary*) dict;
-+ (void) connectionFinishWidhError:(NSError *) error;
 
-- (void) countOfWords;
-- (void) connectionFinishSuccesfully: (NSDictionary*) dict;
-- (void) connectionFinishWidhError:(NSError *) error;
     
 @end

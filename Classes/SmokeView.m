@@ -8,9 +8,7 @@
 
 #import "SmokeView.h"
 
-
 @implementation SmokeView
-
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -78,15 +76,6 @@
 
 - (void) initPosition {
 	smokeCnt = 0;
-    
-    
-	/*CGRect frame = self.frame;
-	frame.origin.x = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 86 : 45 + [ImageManager getDeltaWidthIphone5];
-	frame.origin.y = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 480 : 175;
-	frame.size.width = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 40 : 20;
-	frame.size.height= UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 40 : 20;
-	self.frame = frame;*/
-
     self.frame = [ImageManager smokeViewInitRect];
 }
 

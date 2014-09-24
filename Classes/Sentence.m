@@ -91,16 +91,12 @@ AVAudioPlayer *currentAudio = nil;
 	@try {
         
         if (delegate && selector) {
-            [delegate performSelector: selector];
-            delegate = nil;
-            selector = nil;
+            if ([delegate respondsToSelector: selector]) {
+                [delegate performSelector: selector];
+                delegate = nil;
+                selector = nil;
+            }
         }
-        
-		/*if ([next isEqualToString: @"NumCurrentLevel"]) {
-			NSString *l = [[NSString alloc] initWithFormat: @"%d", [UserContext getLevelNumber]];
-			[Sentence playSpeaker: l];
-			//[delegate takeOutTrain]; 
-		} else*/
         if (next != nil) {
 			[Sentence playSpeaker: next];
 		}
@@ -112,8 +108,7 @@ AVAudioPlayer *currentAudio = nil;
 	}
 	@finally {
 	}
-    
-    //[delegate sentenceDidFinish: method];
+
 }
 
 +(void)loadDataFromXML {
@@ -144,8 +139,7 @@ AVAudioPlayer *currentAudio = nil;
 			
 			Sentence *newSentence = [Sentence alloc];
             NSString* nameSentence = [self getSentenceName: [attributeDict objectForKey:@"name"]];
-			//NSString* nameSentence = [attributeDict objectForKey:@"name"];
-			newSentence.names = [[NSMutableArray alloc] init]; 
+			newSentence.names = [[NSMutableArray alloc] init];
 			AudioPlayerProxy *aSound = [AudioPlayerProxy alloc];
             
 			aSound.name = nameSentence;
@@ -172,6 +166,9 @@ AVAudioPlayer *currentAudio = nil;
 	}
 }
 
++ (void)parserDidEndDocument:(NSXMLParser *)parser {
+}
+
 + (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
 	NSLog(@"Sentence. Error Parsing at line: %li, column: %li", (long)parser.lineNumber, (long)parser.columnNumber);	
 }
@@ -193,9 +190,6 @@ AVAudioPlayer *currentAudio = nil;
 // The path used is relative
 + (AVAudioPlayer*) getAudioPlayerRelPath: (NSString*) fileName {
        
-    //Language *lang = [UserContext getLanguageSelected];
-    
-    //NSString *newPath = [NSString stringWithFormat:@"%@%@%@%@%@%@", NSHomeDirectory(), @"/Assets/Sounds/", lang.name, @"/", fileName, @".mp3"];
     NSString *newPath =  [NSString stringWithFormat:@"%@%@%@", [Word downloadDestinationPath], fileName, @".mp3"];
                           
     NSURL* file_url = [[NSURL alloc] initFileURLWithPath: newPath]; 
@@ -222,10 +216,6 @@ AVAudioPlayer *currentAudio = nil;
 	@finally {
 	}
 	return nil;
-}
-
-
-+ (void)parserDidEndDocument:(NSXMLParser *)parser {
 }
 
 + (Sentence*) getSentenceOfMethod: (NSString*) aMethod {

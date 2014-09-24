@@ -12,21 +12,18 @@
 @implementation VocabularyTrip2AppDelegate 
 
 @synthesize window;
-//@synthesize mainMenu;
+@synthesize navController;
+
 @synthesize trainingTrain;
 @synthesize testTrain;
-//@synthesize memoryTrain;
-//@synthesize simonTrain;
 @synthesize levelView;
 @synthesize changeLangView;
 @synthesize changeUserView;
 @synthesize lockLanguageView;
-@synthesize gameModeView;
 @synthesize mapView;
 @synthesize purchaseView;
 @synthesize albumView;
-@synthesize albumMenu;
-@synthesize navController;
+
 @synthesize startPlaying;
 @synthesize internetReachable;
 
@@ -35,50 +32,46 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     
-	[[UIApplication sharedApplication] setStatusBarHidden: YES];
-
-    [User loadDataFromXML]; // initialize users variable
+    
+    // ***************************
+    // ****** Init Objects *******
+    [User initAllUsers];
     [[UserContext getSingleton] userSelected]; // force load the user selected
-    [[UserContext getLanguageSelected] countOfWords]; // start request to the server
-
-    if (!singletonVocabulary) // Initialize singletonVocabulary
-        singletonVocabulary = [Vocabulary alloc];
-    
-    //[Language requestAllLanguages];
-    [self initUsersDefaults];
-	[self initAllControllers];	
-    //[self checkDownloadCompleted];
-    [self initializeInternetReachabilityNotifier];
+    if (!singletonVocabulary) singletonVocabulary = [Vocabulary alloc];
+    [self initUsersDefaultsOnFirstExecutionOrVersionChange];
+    //[self checkAndStartDownload]; Agregar ??????
     //[FacebookManager initFacebookSession];
+    [[PurchaseManager getSingleton] initializeObserver];
+    [LandscapeManager loadDataFromXML];
+    [Vocabulary loadDataFromXML];
+    [Sentence loadDataFromXML];
+    [GameSequenceManager loadDataFromXML];
+    // ****** Init Objects *******
+    // ***************************
     
-	UIView *aView = [self.navController view];
-	[window addSubview: aView];
     
-    if ( [[UIDevice currentDevice].systemVersion floatValue] < 6.0) {
-        // warning: addSubView doesn’t work on iOS6
-        [self.window addSubview: aView];
-    }
-    else {
+    // ****************************
+    // ***** Init Controllers *****
+	[[UIApplication sharedApplication] setStatusBarHidden: YES];
+	navController = [[UINavigationController alloc ] initWithRootViewController: self.mapView];
+	[navController setNavigationBarHidden: YES];
+	[navController setDelegate: self];
+	[window addSubview: [self.navController view]];
+    if ( [[UIDevice currentDevice].systemVersion floatValue] >= 6.0) {
         // use this method on ios6
         [self.window setRootViewController: self.navController];
     }
-
     [self.window makeKeyAndVisible];
-
-    //[self checkOnInitialization];
+    [self initializeInternetReachabilityNotifier];
+    // ***** Init Controllers *****
+    // ****************************
+    
+	//[[self mapView] initializeGame]; // BORRAR !!!
     
     return YES;
 }
 
-- (void) checkOnInitialization {
-    // this method is called from didFinishLaunching and applicationDidBecomeActive
-    [self checkIfaskToRate];
-    [self checkAPromoCodeForUUID];
-    [self checkPromoCodeDueDate];
-    [self saveTimePlayedInDB];
-}
-
-// Addeb by Facebook Implementation.
+// Added by Facebook Implementation.
 // To control facebook page opening
 // No behaviour yet
 - (BOOL) application: (UIApplication*) application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
@@ -150,44 +143,7 @@
 }
 
 
--(void) checkPromoCodeDueDate {
-    [PromoCode checkPromoCodeDueDate];
-}
-
-- (void) checkAPromoCodeForUUID {
-    [PromoCode checkAPromoCodeForUUID];    
-}
-
-- (void) checkDownloadCompleted {
-    
-    //[self checkAndStartDownload];
-    
-    //double wasLearnedResult = [Vocabulary wasLearned];
-    // Check Download complete only if advance to level 2 is unlock and at least is close to level 2
-    //if (!([UserContext getMaxLevel] >= 6) ||
-    //    (wasLearnedResult < cPercentageCloseToLearnd && [UserContext getLevelNumber] == 1)
-    //    ) return;
-    
-    //if (![Vocabulary isDownloadCompleted]) {
-
-        //singletonVocabulary.delegate = nil;
-        //singletonVocabulary.isDownloadView = NO;
-        //NSLog(@"IsDownloading: %i", singletonVocabulary.isDownloading);
-        //[Vocabulary loadDataFromSql];
-        
-        /*Language *lang = [UserContext getLanguageSelected];
-        NSString *message = [NSString stringWithFormat: @"Downloading %@ did not complete. Do you want to restart it?", lang.name];
-        UIAlertView *alert = [[UIAlertView alloc] 
-                              initWithTitle: cAskToRedownloadTitle
-                              message: message
-                              delegate:self 
-                              cancelButtonTitle: @"NO" 
-                              otherButtonTitles: @"YES", nil];
-        [alert show];*/
-    //}
-}
-
-- (void) initUsersDefaults {
+- (void) initUsersDefaultsOnFirstExecutionOrVersionChange {
     // Get current version ("Bundle Version") from the default Info.plist file
     NSString *currentVersion = (NSString*)[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
     NSArray *prevStartupVersions = [[NSUserDefaults standardUserDefaults] arrayForKey:@"prevStartupVersions"];
@@ -220,17 +176,6 @@
 
     // Save changes to disk
     [[NSUserDefaults standardUserDefaults] synchronize];
-}
-
-- (void) initAllControllers {
-	
-	[[self mapView] initializeGame];
-    [self mapView].flagFirstShowInSession = YES;
-    
-	navController = [[UINavigationController alloc ] initWithRootViewController: mapView];
-	[navController setNavigationBarHidden: YES];
-	[navController setDelegate: self];
-	
 }
 
 -(MapView*) mapView {
@@ -283,16 +228,6 @@
 	return lockLanguageView;
 }
 
--(SetGameModeView*) gameModeView {
-	if (gameModeView == nil) {
-		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-			gameModeView = [[SetGameModeView alloc] initWithNibName:@"SetGameModeView~ipad" bundle:nil];
-		else
-			gameModeView = [[SetGameModeView alloc] initWithNibName:@"SetGameModeView" bundle:nil];
-	}
-	return gameModeView;
-}
-
 -(AlbumView*) albumView {
 	if ( albumView == nil) {
 		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
@@ -302,16 +237,6 @@
 		[albumView initialize];
 	}
 	return albumView;
-}
-
--(AlbumMenu*) albumMenu {
-	if ( albumMenu == nil) {
-		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-			albumMenu = [[AlbumMenu alloc] initWithNibName:@"AlbumMenu~ipad" bundle:nil];
-		else
-			albumMenu = [[AlbumMenu alloc] initWithNibName:@"AlbumMenu" bundle:nil];
-	}
-	return albumMenu;
 }
 
 -(TestTrain*) testTrain {
@@ -334,27 +259,6 @@
     return levelView;
 }
  
-/*-(MemoryTrain*) memoryTrain {
-	if (memoryTrain == nil) {
-		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-			memoryTrain = [[MemoryTrain alloc] initWithNibName:@"GenericTrain~ipad" bundle:nil];
-		else
-			memoryTrain = [[MemoryTrain alloc] initWithNibName:@"GenericTrain" bundle:nil];
-	}
-	return memoryTrain;
-}
-
--(SimonTrain*) simonTrain {
-	if (simonTrain == nil) {
-		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-			simonTrain = [[SimonTrain alloc] initWithNibName:@"GenericTrain~ipad" bundle:nil];
-		else
-			simonTrain = [[SimonTrain alloc] initWithNibName:@"GenericTrain" bundle:nil];
-	}
-	return simonTrain;
-}*/
-
-
 -(TrainingTrain*) trainingTrain {
 	if (trainingTrain == nil) {
 		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)		
@@ -377,26 +281,8 @@
 	[navController pushViewController: self.lockLanguageView animated: YES];
 }
 
-- (void) pushSetGameModeView {
-	[navController pushViewController: self.gameModeView animated: YES];
-}
-
 - (void) pushAlbumView {
 	[navController pushViewController: self.albumView animated: YES];
-}
-
-- (void) pushAlbumMenu {
-	[navController pushViewController: self.albumMenu animated: YES];
-}
-
-/*- (void) pushMapView {
-	[navController pushViewController: self.mapView animated: YES];
-}*/
-
-- (void) pushMapViewWithHelpPurchase {
-//    self.mapView.startWithHelpPurchase = 1;
-  	[navController popViewControllerAnimated: NO];
-	//[navController pushViewController: self.mapView animated: YES];
 }
 
 - (void) pushMapViewWithHelpDownload {
@@ -418,21 +304,11 @@
  [navController pushViewController: self.levelView animated: YES];
 }
 
-/*- (void) pushMemoryTrain {
-	[navController pushViewController: self.memoryTrain animated: NO];
-}
-
-- (void) pushSimonTrain {
-	[navController pushViewController: self.simonTrain animated: NO];
-}*/
-
 - (void) pushTrainingTrain {
 	[navController pushViewController: self.trainingTrain animated: NO];
 }
 
 - (void) popMainMenu {
-	// [navController popViewControllerAnimated: NO];
-    // NSLog(@"%@", self.navController.viewControllers);
     [navController popToRootViewControllerAnimated: NO];
 }
 
@@ -446,15 +322,6 @@
   	[navController popViewControllerAnimated: NO];
 	lockLanguageView = nil;
 }
-
-- (void) popMainMenuFromSetGameMode {
-  	[navController popViewControllerAnimated: NO];
-	[self popMainMenu]; // Pop Select Lang
-    [self popMainMenu]; // Pop Select User
-    [[mapView configView] refreshSearchingModeEnabled: singletonVocabulary.isDownloading];
-	gameModeView = nil;
-}
-
 
 - (void) popMainMenuFromLevel {
 	[self popMainMenu];
@@ -471,28 +338,11 @@
 	albumView = nil;
 }
 
-- (void) popMainMenuFromAlbumMenu {
-	[self popMainMenu];
-	albumMenu = nil;
-}
-
 - (void) popMainMenuFromTestTrain {
 	[self popMainMenu];
 	Sentence.delegate = nil;
 	testTrain = nil;
 }
-
-/*- (void) popMainMenuFromMemoryTrain {
-	[self popMainMenu];
-	Sentence.delegate = nil;
-	memoryTrain = nil;
-}
-
-- (void) popMainMenuFromSimonTrain {
-	[self popMainMenu];
-	Sentence.delegate = nil;
-	simonTrain = nil;
-}*/
 
 - (void) popMainMenuFromTrainingTrain {
 	[self popMainMenu];
@@ -501,19 +351,14 @@
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
-	//[mainMenu.backgroundSound pause];
 }
 
 - (void) alertView: (UIAlertView*) alertView clickedButtonAtIndex: (NSInteger) buttonIndex {
     if ([alertView.title isEqualToString: cAskToReviewTitle]) {
         [self alertAskToReview: alertView clickedButtonAtIndex: buttonIndex];
-    //} else if ([alertView.title isEqualToString: cAskToRedownloadTitle]) {
-    //    [self alertDownloadLang: alertView clickedButtonAtIndex: buttonIndex];
-    } else if ([alertView.title isEqualToString: cNotifyToPromoCodeDetected]) {        
-    } else if ([alertView.title isEqualToString: cNotifyToPromoCodeLimited]) {        
-    } else {
+    } /*else {
         [self alertBuyNewLevel: alertView clickedButtonAtIndex: buttonIndex];
-    }
+    }*/
 }
 
 - (void) alertAskToReview: (UIAlertView*) alertView clickedButtonAtIndex: (NSInteger) buttonIndex {
@@ -539,7 +384,7 @@
     }
 }
 
-- (void) alertBuyNewLevel: (UIAlertView*) alertView clickedButtonAtIndex: (NSInteger) buttonIndex {
+/*- (void) alertBuyNewLevel: (UIAlertView*) alertView clickedButtonAtIndex: (NSInteger) buttonIndex {
     // Alert To buy new level. From TestTrain 
     VocabularyTrip2AppDelegate *vcDelegate;
     vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
@@ -554,21 +399,6 @@
             [vcDelegate pushPurchaseView];
             break;
     }	
-}
-
-/*- (void) alertDownloadLang: (UIAlertView*) alertView clickedButtonAtIndex: (NSInteger) buttonIndex {
-    switch (buttonIndex) {
-        case 0: // Don't Download !
-            break;
-        case 1:  { // Download
-            VocabularyTrip2AppDelegate *vcDelegate;
-            vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
-            [vcDelegate pushMapViewWithHelpDownload];
-            break;
-        }            
-        default: 
-            break;
-    }
 }*/
 
 - (int) getAppId {
@@ -604,10 +434,12 @@
 }
 
 - (void) applicationWillEnterForeground:(UIApplication *)application {
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void) applicationDidBecomeActive:(UIApplication *)application {
-    [self checkOnInitialization];
+    [self checkIfaskToRate];
+    [self saveTimePlayedInDB];
 }
 
 - (void) checkIfaskToRate {

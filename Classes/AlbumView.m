@@ -123,13 +123,6 @@
 
 -(void) initMusicPlayer {
 	
-	// Page turn Sound
-	//NSURL* soundUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"PageTurn" ofType:@"wav"]];
-	//AudioServicesCreateSystemSoundID((__bridge CFURLRef) soundUrl, &pageTurnSoundId);
-	
-	//soundUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"TillWithBell" ofType:@"wav"]];
-	//AudioServicesCreateSystemSoundID((__bridge CFURLRef) soundUrl, &tillSoundId);
-
     pageTurnSoundId = [Sentence getAudioPlayer: @"PageTurn"];
     tillSoundId = [Sentence getAudioPlayer: @"TillWithBell"];
     
@@ -150,7 +143,6 @@
 	[self removeCurrentPage];
 	currentAlbum.actualPage--;
 	[self drawCurrentPage];
-	//AudioServicesPlaySystemSound(pageTurnSoundId);
     [pageTurnSoundId play];
     
 	[UIView beginAnimations: @"Turn Page Left" context: nil]; 
@@ -166,7 +158,6 @@
 	[self removeCurrentPage];
 	currentAlbum.actualPage++;
 	[self drawCurrentPage];
-	//AudioServicesPlaySystemSound(pageTurnSoundId);
 	[pageTurnSoundId play];
     
 	[UIView beginAnimations: @"Turn Page Right" context: nil]; 
@@ -266,7 +257,8 @@
 	} else {
 		UITouch *touch = [[event allTouches] anyObject];
 		CGPoint touchLocation = [touch locationInView: touch.view];
-		[ToolbarController saySentence: touchLocation
+        
+        [UserContext saySentenceOnToolbarClic: touchLocation
 			frame1View: money1View.frame
 			frame1Label: money1Label.frame
 			frame2View: money2View.frame
@@ -442,7 +434,6 @@
 }
 
 - (void) buyNewFigurine: (UIButtonEmptyFigurine *) buttonEmptyfig {
-//	AudioServicesPlaySystemSound(tillSoundId);
 	[tillSoundId play];
     
 	buttonEmptyfig.fig.wasBought = YES;

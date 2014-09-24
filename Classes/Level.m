@@ -12,10 +12,6 @@
 
 @implementation Level
 
-//@synthesize imageLocked;
-//@synthesize imageNotAvailable;
-//@synthesize imageLockedName;
-//@synthesize imageNotAvailableName;
 @synthesize levelName;
 @synthesize size;
 @synthesize ipodPlaceInMap;

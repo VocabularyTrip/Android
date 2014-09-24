@@ -44,9 +44,6 @@
 #define cCountExecutions @"countExecutions"
 #define cAskRateEachTimes 6
 #define cAskToReviewTitle @"Review App"
-//#define cAskToRedownloadTitle @"Download all words"
-#define cNotifyToPromoCodeDetected @"Promo Code Detected !" 
-#define cNotifyToPromoCodeLimited @"Promo Code !" 
 
 #define cFirstUser 1
 #define cUserselected @"userSelected"
@@ -78,7 +75,7 @@ enum {
 	NSMutableArray *allLevels;
 	int soundEnabled;
     tLevelModeGame levelGameMode;
-    NSString* aNewLanguage;
+    //NSString* aNewLanguage;
     int qPostInFacebook;
 }
 
@@ -90,13 +87,12 @@ extern UserContext *userContextSingleton;
 @property (nonatomic, assign) tLevelModeGame levelGameMode;
 @property (nonatomic, strong) NSMutableArray *users;
 @property (nonatomic, unsafe_unretained) User *userSelected;
-@property (nonatomic, strong) NSString* aNewLanguage;
+//@property (nonatomic, strong) NSString* aNewLanguage;
 @property (nonatomic, assign) int qPostInFacebook;
 @property (nonatomic, assign) bool isTemporalGameUnlocked;
 
 + (UserContext*) getSingleton;
 + (User*) getUserSelected;
-+ (void) addUser: (User*) aUser;
 + (Language*) getLanguageSelected;
 + (bool) existUserData;
     
@@ -108,10 +104,7 @@ extern UserContext *userContextSingleton;
 + (int)  getLevelNumber;
 + (Level*) getLevelAt: (int) anIndex;
 + (Level*) getLevel;
-+ (void) setaNewLanguage: (NSString*) aLang;
-+ (NSString*) getaNewLanguage;
-+ (NSString*) getMoneyAsText: (NSDecimalNumber*) money;
-+ (NSString*) getMoneyIntAsText: (int) money;
+
 + (int)  getMoney1;
 + (int)  getMoney2;
 + (int)  getMoney3;
@@ -145,7 +138,6 @@ extern UserContext *userContextSingleton;
 +(bool) getHelpMapViewStep3;
 +(void) setHelpMapViewStep3: (bool) help;
 
-
 +(bool) setUserPassword: (NSString*) password;
 +(NSString*) getUserPassword;
 +(bool) getIsLocked;
@@ -163,6 +155,13 @@ extern UserContext *userContextSingleton;
 
 +(void) reloadContext;
 +(NSString*) printUserContext;
++(void) saySentenceOnToolbarClic: (CGPoint) touchLocation
+                      frame1View: (CGRect) frame1View
+                     frame1Label: (CGRect) frame1Label
+                      frame2View: (CGRect) frame2View
+                     frame2Label: (CGRect) frame2Label
+                      frame3View: (CGRect) frame3View
+                     frame3Label: (CGRect) frame3Label;
 
 -(void) addLevel: (Level*) level;	
 -(Level*) getLevelAt: (int) anIndex;

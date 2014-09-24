@@ -98,23 +98,6 @@
 	flagFaild = NO;
 }
 
-/*- (void) addMoney {
-	if (money <= hitsOfLevel1) {
-		[UserContext addMoney1: cBronzeHitPrice];
-		[self refreshMoneyViews: cBronzeType];
-	} else if (money <= hitsOfLevel2 + hitsOfLevel1) {
-		[UserContext addMoney2: cSilverHitPrice];
-		[self refreshMoneyViews: cSilverType];
-	} else if (money <= hitsOfLevel1 + hitsOfLevel2 + hitsOfLevel3) {
-		[UserContext addMoney3: cGoldHitPrice];
-		[self refreshMoneyViews: cGoldType];		
-	} 
-}
-
-- (void) refreshMoneyLabelsFinished {
-    [self takeOutTrain];
-}*/
-
 - (bool) checkFinishGame: (Word*) word {
     return (qOfImagesRemaining <= 0 || !word);
 }

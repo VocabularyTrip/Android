@@ -24,9 +24,6 @@
 @synthesize viewComeFrom;
 
 - (BOOL)shouldAutorotate{
-        //if([[UIDevice currentDevice] orientation] == UIInterfaceOrientationLandscapeLeft ||[[UIDevice currentDevice] orientation] == UIInterfaceOrientationLandscapeRight)
-        //        return YES;
-        //    else
     return NO;
 }
 
@@ -41,7 +38,6 @@
 }
 
 - (void) viewDidLoad {
-    [self initializeGame];
     [self initMap];
     [self initConfigView];
     [self initAlbumMenu];
@@ -53,15 +49,6 @@
     
     [self initAvatarAnimation];
     viewComeFrom = 0;
-}
-
-- (void) initializeGame {
-    [[PurchaseManager getSingleton] initializeObserver];
-    [LandscapeManager loadDataFromXML];
-    [Vocabulary loadDataFromXML];
-    [Sentence loadDataFromXML];
-    [GameSequenceManager loadDataFromXML];
-    [self initAudioSession];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -99,9 +86,7 @@
     if (flagFirstShowInSession) {
         [self showAllMapInFirstSession];
     } else {
-        
         [self initializeTimeoutToPlayBackgroundSound];
-        
         Level *level = [UserContext getLevel];
         if (level.levelNumber != currentLevelNumber) {
             // Move the train from the previous level to the next level
@@ -117,18 +102,18 @@
     }
     viewComeFrom = 0;
     
-    if ([UserContext getHelpLevel] || startWithHelpPurchase) [self helpAnimationPurchase];
+    //if ([UserContext getHelpLevel] || startWithHelpPurchase) [self helpAnimationPurchase];
     if (!singletonVocabulary.isDownloading && ![Vocabulary isDownloadCompleted]) [configView startLoading];
     if (startWithHelpDownload) [configView show];
     startWithHelpDownload = 0;
-    startWithHelpPurchase = 0;
+    //startWithHelpPurchase = 0;
 
 }
 
-- (void) endGetIntoNextLevel {
+/*- (void) endGetIntoNextLevel {
     [self initializeHelpTimer];
     [self allowPlayingHelpEnded];
-}
+}*/
 
 - (void) cancelAllAnimations {
 
@@ -254,7 +239,8 @@
 }
 
 - (void) initMap {
-        // Configurar el ancho del mapa
+    [self initAudioSession];
+    flagFirstShowInSession = YES;
     [mapScrollView setContentSize: [ImageManager getMapViewSize]];
 }
 
@@ -265,7 +251,6 @@
         } else {
             configView = [[ConfigView alloc] initWithNibName: @"ConfigView" bundle:[NSBundle mainBundle]];
         }
-            //configView.view.tag = 999;
     }
     return configView;
 }
@@ -697,9 +682,6 @@
 
     [self allowPlayingHelpEnded];
 
-}
-
-- (void) helpAnimationPurchase {
 }
 
 - (void) initAudioSession {

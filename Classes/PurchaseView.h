@@ -11,11 +11,10 @@
 #import <AudioToolbox/AudioToolbox.h>	
 #import "PurchaseProtocol.h"
 #import "PurchaseManager.h"
-#import "PromoCode.h"
 
 #define cParentalGateTitle @"Parental Gate"
 
-@interface PurchaseView : UIViewController <UITextFieldDelegate, UIAlertViewDelegate, PurchaseDelegate> {
+@interface PurchaseView : UIViewController <UIAlertViewDelegate, PurchaseDelegate> {
 
 	UIButton *__unsafe_unretained backButton;
 	UIButton *__unsafe_unretained buyAllButton;
@@ -23,9 +22,6 @@
 	UIButton *__unsafe_unretained restorePurchaseButton;
 	UIButton *__unsafe_unretained facebookButton;
 	UIButton *__unsafe_unretained noReachabilityButton;
-	UITextField *__unsafe_unretained promoCodeText;
-    UILabel *__unsafe_unretained promoCodeStatus;
-    UILabel *__unsafe_unretained promoCodeLabel;
     UIImageView *__unsafe_unretained backgroundView;
     UILabel *__unsafe_unretained buyAllDescLabel;
     UILabel *__unsafe_unretained buyOneSetDescLabel;
@@ -42,9 +38,6 @@
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *restorePurchaseButton;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *facebookButton;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *noReachabilityButton;
-@property (nonatomic, unsafe_unretained) IBOutlet UITextField *promoCodeText;
-@property (nonatomic, unsafe_unretained) IBOutlet UILabel *promoCodeStatus;
-@property (nonatomic, unsafe_unretained) IBOutlet UILabel *promoCodeLabel;
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *backgroundView;
 @property (nonatomic, unsafe_unretained) IBOutlet UILabel *buyAllDescLabel;
 @property (nonatomic, unsafe_unretained) IBOutlet UILabel *buyOneSetDescLabel;
@@ -56,18 +49,11 @@
 - (IBAction) restorePurchase:(id)sender;
 - (IBAction) buyAllLevels;
 - (IBAction) buyOneSetOfLevels;
-- (IBAction) registerPromoCode;
 - (IBAction) facebookButtonClicked;
 - (IBAction) claimProductsAgain: (id) sender;
 
-- (BOOL) textFieldShouldBeginEditing:(UITextField *)textField;
-- (BOOL) textFieldShouldReturn: (UITextField*) textField;
-- (void) textFieldDidEndEditing:(UITextField *)textField;
 - (void) disableBuyButtons;
-
-//- (void) showPromoCodeResult: (PromoCodeResult) promoCodeResult;
 - (void) refreshLevelInfo;
-    
 - (void) responseToBuyAction;
 - (void) responseToCancelAction;
 - (void) implementParentalGate;

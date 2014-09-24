@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AnimatorHelper.h"
+//#import "AnimatorHelper.h"
 #import "SliderViewController.h"
 
 @interface AlbumMenu : SliderViewController {

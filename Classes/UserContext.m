@@ -21,7 +21,7 @@ UserContext *userContextSingleton;
 @synthesize allLevels;
 @synthesize users;
 @synthesize userSelected;
-@synthesize aNewLanguage;
+//@synthesize aNewLanguage;
 @synthesize qPostInFacebook;
 @synthesize levelGameMode;
 @synthesize isTemporalGameUnlocked;
@@ -35,10 +35,6 @@ UserContext *userContextSingleton;
 +(User*) getUserSelected {
     UserContext *c = [UserContext getSingleton];
     return c.userSelected;
-}
-
-+(void) addUser: (User*) aUser {
-    [[UserContext getSingleton].users addObject: aUser ];
 }
 
 +(Language*) getLanguageSelected {
@@ -68,10 +64,6 @@ UserContext *userContextSingleton;
 	return user.level;
 }
 
-+(void) addLevel: (Level*) aLevel {
-	return [[UserContext getSingleton] addLevel: aLevel];
-}
-
 +(int) getMaxLevel {
 	return [[UserContext getSingleton] maxLevel];
 }
@@ -93,31 +85,27 @@ UserContext *userContextSingleton;
 	return [[UserContext getSingleton] getLevelAt: [self getLevelNumber]];
 }
 
-+(void) setaNewLanguage: (NSString*) aLang {
++(void) addLevel: (Level*) aLevel {
+	return [[UserContext getSingleton] addLevel: aLevel];
+}
+
+
+/*+(void) setaNewLanguage: (NSString*) aLang {
     [UserContext getSingleton].aNewLanguage = aLang;
 }
 
 +(NSString*) getaNewLanguage {
     return [UserContext getSingleton].aNewLanguage;
-}
+}*/
 
-+ (NSString*) getMoneyAsText: (NSDecimalNumber*) money {
+/*+ (NSString*) getMoneyAsText: (NSDecimalNumber*) money {
 	NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
 	f.numberStyle = NSNumberFormatterCurrencyStyle;
 	f.maximumFractionDigits = 2;
 	NSString *r = [f stringFromNumber: money];
 	f = nil;
 	return r;
-}
-
-+ (NSString*) getMoneyIntAsText: (int) money {
-	NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
-	f.numberStyle = NSNumberFormatterCurrencyStyle;
-	f.maximumFractionDigits = 0;
-	NSString *r = [f stringFromNumber: [NSNumber numberWithInt: money]];
-	f = nil;
-	return r;
-}
+}*/
 
 +(int)  getMoney1 {
     User *user = [self getUserSelected];
@@ -203,17 +191,13 @@ UserContext *userContextSingleton;
 
 + (NSString*) getUUID {
   NSString* uniqueIdentifier = nil;
-  if( [UIDevice instancesRespondToSelector:@selector(identifierForVendor)] ) {
-      // iOS 6+
+  if( [UIDevice instancesRespondToSelector:@selector(identifierForVendor)] ) { // iOS 6+
     uniqueIdentifier = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
-  } else {
-      // before iOS 6, so just generate an identifier and store it
+  } else {  // before iOS 6, so just generate an identifier and store it
     CFUUIDRef uuid = CFUUIDCreate(NULL);
     uniqueIdentifier = (__bridge_transfer NSString*)CFUUIDCreateString(NULL, uuid);
   }
   return uniqueIdentifier;
-    //    NSString* uuid = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
-    //    return  uuid;
 }
 
 -(id) init { 
@@ -224,7 +208,6 @@ UserContext *userContextSingleton;
 }
 
 - (NSMutableArray*) users {
-    //if (!users) users = [User loadDataFromXML];
     return users;
 }
 
@@ -302,12 +285,10 @@ UserContext *userContextSingleton;
 
 -(void) initGame {
     [self resetGame];
-    [Language initLanguagesLocaly];
 
    	[[NSUserDefaults standardUserDefaults] setInteger: cDefaultLang forKey: cLangSelected];
     [[NSUserDefaults standardUserDefaults] setBool: NO forKey: cNoAskMeAgain];
     [[NSUserDefaults standardUserDefaults] setInteger: 0 forKey: cCountExecutions];
-    [[NSUserDefaults standardUserDefaults] setObject: @"" forKey: cPromoCodeStatus];
     
     [self resetHelps];
 	UserContext.soundEnabled = YES;
@@ -363,10 +344,9 @@ UserContext *userContextSingleton;
 
 -(void) resetGame {
     
-    //[self resetHelps];
-    
 	[UserContext resetLevelAndMoney];
 	[Vocabulary resetAllWeigths];	
+
 	Album* albumTemp = [Album alloc];
 	[albumTemp resetAlbum: cAlbum1];
     
@@ -495,6 +475,37 @@ UserContext *userContextSingleton;
           userContextSingleton.userSelected.langSelected.name,
           userContextSingleton.userSelected.userName];
     return r;
+}
+
++(void) saySentenceOnToolbarClic: (CGPoint) touchLocation
+                      frame1View: (CGRect) frame1View
+                     frame1Label: (CGRect) frame1Label
+                      frame2View: (CGRect) frame2View
+                     frame2Label: (CGRect) frame2Label
+                      frame3View: (CGRect) frame3View
+                     frame3Label: (CGRect) frame3Label {
+	
+	// Check toolbar click
+	if (CGRectContainsPoint(frame1View, touchLocation) ||
+		CGRectContainsPoint(frame1Label, touchLocation)) {
+		[Sentence playSpeaker: @"Toolbar-saySentence-BronzeToolbar"];
+	}
+    
+	if (CGRectContainsPoint(frame2View, touchLocation) ||
+		CGRectContainsPoint(frame2Label, touchLocation)) {
+		if ([UserContext getLevelNumber] <= cLimitLevelBronze)
+			[Sentence playSpeaker: @"Toolbar-saySentence-NotInSilverSection"];
+		else
+			[Sentence playSpeaker: @"Toolbar-saySentence-BronzeToolbar"];
+	}
+    
+	if (CGRectContainsPoint(frame3View, touchLocation) ||
+		CGRectContainsPoint(frame3Label, touchLocation) ) {
+		if ([UserContext getLevelNumber] <= cLimitLevelSilver)
+			[Sentence playSpeaker: @"Toolbar-saySentence-NotInGoldSection"];
+		else
+			[Sentence playSpeaker: @"Toolbar-saySentence-BronzeToolbar"];
+	}	
 }
 
 

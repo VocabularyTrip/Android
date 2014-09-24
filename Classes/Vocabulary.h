@@ -52,14 +52,27 @@ extern Vocabulary *singletonVocabulary;
 @property (nonatomic, retain) NSMutableArray *responseWithLevelsToDownload;
 @property (nonatomic, retain) CADisplayLink *theTimerToDownloadLevels;
 
+// Download sounds
++ (void) loadDataFromSql; //
++ (void) connectionFinishSuccesfully: (NSDictionary*) response;
+- (void) startDownload;
+- (void) downlloadOneLevel;
++ (void) connectionFinishWidhError:(NSError *) error;
++ (void) setProgress: (float) progress; //
++ (int) countOfFilesInLocalPath; //
++ (bool) isDownloadCompleted; //
+
+// Load XML Dictionary
 + (void) loadDataFromXML; //
 + (void) parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict; //
-+ (Word*) getOrderedWord;
-+ (Word*) getRandomWeightedWord;
-+ (Word*) getRandomWordFromLevel: (int) levelNumber;
 + (void)parserDidEndDocument:(NSXMLParser *)parser;
 + (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError;
-+ (void) initializeLevelUntil: (int) level; // Initialize all words form level 1 to the parameter  
+
+
++ (Word*) getOrderedWord;
++ (Word*) getRandomWeightedWord;
+//+ (Word*) getRandomWordFromLevel: (int) levelNumber;
++ (void) initializeLevelUntil: (int) level; // Initialize all words form level 1 to the parameter
 + (void) initializeLevelAt: (int) level; // Initialize all word in the parameter level. In general are 10 words
 + (int) getSumOfAllWeights; //
 + (int) getSelectedWordFrom: (int) rWeighted; //
@@ -71,17 +84,9 @@ extern Vocabulary *singletonVocabulary;
 + (double) wasLearnedFrom: (int) startLevel;
 + (int) getLevelLessLearned;
 + (double) progressLevel: (int) aLevel;
-+ (CGRect) resizeProgressFrame: (CGRect) progressFrame toNewProgress: (double) progress progressFill: (CGRect) progressBarFillFrame;
-+ (void) loadDataFromSql; //
-+ (void) connectionFinishSuccesfully: (NSDictionary*) response;
-- (void) startDownload;
-- (void) downlloadOneLevel;
-+ (void) connectionFinishWidhError:(NSError *) error;
-+ (void) setProgress: (float) progress; //
-+ (int) countOfFilesInLocalPath; //
-+ (bool) isDownloadCompleted; //
 + (int) countOfLevels;
 + (int) countOfWordsInOneLevel;
 + (Word*) getWord: (NSString*) name inLevel: (int) level;
 
+//+ (CGRect) resizeProgressFrame: (CGRect) progressFrame toNewProgress: (double) progress progressFill: (CGRect) progressBarFillFrame;∫
 @end

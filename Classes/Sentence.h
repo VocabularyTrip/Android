@@ -52,10 +52,10 @@ extern AVAudioPlayer *currentAudio;
 + (bool) playSpeaker: (NSString*) name;
 + (bool) playSpeaker: (NSString*) name delegate: (id) del selector: (SEL) aSelector;
 + (void) stopCurrentAudio;
-- (void) play;
-- (void) audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag;
 + (AVAudioPlayer*) getAudioPlayerRelPath: (NSString*) fileName;
 + (AVAudioPlayer*) getAudioPlayerAtURL: (NSURL*) file_url;
 + (AVAudioPlayer*) getAudioPlayer: (NSString*) fileName dir: (NSString*) dir;
-    
+- (void) play;
+- (void) audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag;
+
 @end

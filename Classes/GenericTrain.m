@@ -721,7 +721,7 @@ gameStatus = cStatusGameIsOn;
 	UITouch *touch = [[event allTouches] anyObject];
 	CGPoint touchLocation = [touch locationInView: touch.view];
 
-	[ToolbarController saySentence: touchLocation
+	[UserContext saySentenceOnToolbarClic: touchLocation
 		frame1View: money1View.frame
 		frame1Label: money1Label.frame
 		frame2View: money2View.frame

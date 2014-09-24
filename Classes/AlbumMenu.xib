@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5053" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1280" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -10,7 +10,6 @@
                 <outlet property="album1Button" destination="Mb2-pc-0Sb" id="tjy-Iq-YTK"/>
                 <outlet property="album2Button" destination="R6J-Zz-hfl" id="2d3-ly-z1u"/>
                 <outlet property="album3Button" destination="Rda-di-5lC" id="uXO-rg-hgu"/>
-                <outlet property="backButton" destination="BaY-ou-r5i" id="ujN-af-OCn"/>
                 <outlet property="backgroundView" destination="gyq-fK-YKx" id="53a-PO-0TD"/>
                 <outlet property="openCloseButton" destination="BaY-ou-r5i" id="fgT-4z-ZaB"/>
                 <outlet property="progress1BarFillView" destination="2Yb-OK-zHG" id="MbF-Ct-Apa"/>

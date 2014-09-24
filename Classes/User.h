@@ -41,9 +41,10 @@
 @property (nonatomic, strong) UIImage* image;
 @property (nonatomic) bool readAbility;
 
-+ (void)loadDataFromXML;
-+ (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict;
+//+ (void)loadDataFromXML;
+//+ (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict;
 
++ (void) initAllUsers;
 - (void) saveInt: (int) value forKey: (NSString*) key;
 - (int) getIntForKey: (NSString*) key;
 - (void) addMoney1: (float) aMoney;
@@ -64,5 +65,6 @@
 - (void) nextSequence: (NSString*) gameType;
 - (void) resetSequence;
 - (void) purge;
+- (NSString*) formatIntAsText: (int) money;
 
 @end

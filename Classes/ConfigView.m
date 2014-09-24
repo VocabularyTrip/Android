@@ -8,8 +8,8 @@
 
 #import "ConfigView.h"
 #include "VocabularyTrip2AppDelegate.h"
-#include "MapView.h"
-#import "Vocabulary.h"
+//#include "MapView.h"
+//#import "Vocabulary.h"
 
 @interface ConfigView ()
 
@@ -22,6 +22,9 @@
 @synthesize langButton;
 @synthesize handHelpView;
 @synthesize helpButton;
+@synthesize downloadButton;
+@synthesize cancelDownloadButton;
+@synthesize downloadProgressView;
 
 - (MapView*) mapView {
     VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
@@ -29,7 +32,12 @@
 }
 
 - (void) show {
-    [super viewWillAppear: YES];
+
+    singletonVocabulary.isDownloadView = YES;
+    singletonVocabulary.delegate = self;
+    downloadButton.alpha = 1;
+    [self refreshSearchingModeEnabled: singletonVocabulary.isDownloading];
+    
     // Refresh buttons
     Language* l = [UserContext getLanguageSelected];
     [langButton setImage: l.image forState: UIControlStateNormal];
@@ -38,12 +46,6 @@
     [super show];
     
     if (![Vocabulary isDownloadCompleted] && [parentView startWithHelpDownload])
-        // &&
-        //!singletonVocabulary.isDownloading &&
-        //![UserContext getHelpMapViewStep1] &&
-        //![UserContext getHelpMapViewStep2] &&
-        //![UserContext getHelpMapViewStep3])
-        
         [self helpDownload1];
     
     [[parentView albumMenu] close];
@@ -52,23 +54,24 @@
 - (void) close {
     handHelpView.alpha = 0;
     [super close];
+    singletonVocabulary.isDownloadView = NO;
 }
 
 - (IBAction)changeUserShowInfo:(id)sender {
 
-    [[self parentView] cancelAllAnimations];
+    //[[self parentView] cancelAllAnimations];
 	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
 	[vcDelegate pushChangeUserView];
 }
 
 - (IBAction) changeLang:(id)sender {
-    [[self parentView] cancelAllAnimations];
+    //[[self parentView] cancelAllAnimations];
 	VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
 	[vcDelegate pushChangeLangView];
 }
 
 - (IBAction) mailButtonClicked:(id)sender {
-    [[self parentView] cancelAllAnimations];
+    //[[self parentView] cancelAllAnimations];
 	if([MFMailComposeViewController canSendMail]) {
 		MFMailComposeViewController *mailCont = [[MFMailComposeViewController alloc] init];
 		mailCont.mailComposeDelegate = self;
@@ -102,7 +105,7 @@
 }
 
 - (IBAction) buyClicked {
-    [[self parentView] cancelAllAnimations];
+    //[[self parentView] cancelAllAnimations];
     VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
     [vocTripDelegate pushPurchaseView];
 }
@@ -148,14 +151,71 @@
 - (void) refreshSoundButton {
 	NSString *soundImageFile;
 	soundImageFile = UserContext.soundEnabled == YES ? @"ico_volume.png" : @"ico_volume_off.png";
-    //soundImageFile = [ImageManager getIphoneIpadFile: soundImageFile];
 	[soundButton setImage: [UIImage imageNamed: soundImageFile] forState: UIControlStateNormal];
-	//[self.view.layer removeAllAnimations];
+}
+
+
+-(IBAction) startLoading {
+    singletonVocabulary.delegate = self;
+    
+    [self refreshSearchingModeEnabled: YES];
+    
+    [Vocabulary loadDataFromSql];
+    NSLog(@"Load Launched...");
+    
+}
+
+- (void) downloadFinishWidhError: (NSString*) error {
+    [self refreshSearchingModeEnabled: NO];
+    
+    singletonVocabulary.wasErrorAtDownload++;
+    singletonVocabulary.isDownloading = NO;
+    //errorAtDownload = error;
+    if (singletonVocabulary.wasErrorAtDownload == 1) {
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle: @"Download Error"
+                              message: error
+                              delegate: self
+                              cancelButtonTitle: @"OK"
+                              otherButtonTitles: nil];
+        [alert show];
+    }
+}
+
+- (void) downloadFinishSuccesfully {
+}
+
+- (IBAction) cancelDownload:(id)sender {
+    [self refreshSearchingModeEnabled: NO];
+}
+
+-(void) refreshSearchingModeEnabled:(BOOL)isDownloading {
+    singletonVocabulary.isDownloading = isDownloading;
+	
+	if (isDownloading) {
+        cancelDownloadButton.alpha = 1;
+        downloadProgressView.alpha = 1;
+        downloadButton.alpha = 0;
+        downloadButton.enabled = NO;
+		[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+	} else {
+        downloadProgressView.alpha = 0;
+        cancelDownloadButton.alpha = 0;
+        downloadButton.enabled = YES;
+        downloadButton.alpha = [Vocabulary isDownloadCompleted] ? 0 : 1;
+	}
+}
+
+- (void) addProgress: (float) aProgress {
+    downloadProgressView.progress = aProgress;
+    if (aProgress >= 1) {
+        [self refreshSearchingModeEnabled: NO];
+    }
 }
 
 -(void) helpDownload1 {
     
-   	[parentView cancelAllAnimations];
+   	//[parentView cancelAllAnimations];
     [parentView preventPlayingHelp: cPreventPlayingHelpTouchNothing];
     
     // Make clicking hand visible

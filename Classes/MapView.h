@@ -38,8 +38,8 @@
     UIImageView *__unsafe_unretained hand;
     
     bool flagFirstShowInSession;
-    int startWithHelpPurchase, // when the View did show, the Purchase help is launched. When the user finish his purchase succesfully the user is redirected automatically to LevelView with purchase help
-    startWithHelpDownload; // when the View did show, the Download help is launched. When the user is playiinng and a sound is not loaded from server, the user is redirected automatically to LevelView with download help
+    //int startWithHelpPurchase, // when the View did show, the Purchase help is launched. When the user finish his purchase succesfully the user is redirected automatically to LevelView with purchase help
+    int startWithHelpDownload; // when the View did show, the Download help is launched. When the user is playiinng and a sound is not loaded from server, the user is redirected automatically to LevelView with download help
     int currentLevelNumber; // Is used to compare if the user getLevel hasChanged --> do animation to advance to next level
     AVAudioPlayer *backgroundSound;
     CADisplayLink *timerToPlayBackgroundSound;
@@ -72,7 +72,6 @@
 - (void) initConfigView;
 - (void) initAlbumMenu;
 - (void) moveUser;
-- (void) initializeGame;
 - (void) cancelAllAnimations;
 - (void) initAudioSession;
 - (void) stopBackgroundSound;
@@ -86,18 +85,18 @@
 - (void) initAvatarAnimation;
 - (void) initializeTimer;
 - (void) randomAvatarAnimation;
-- (void) endGetIntoNextLevel;
+//- (void) endGetIntoNextLevel;
+
 - (void) startHelp;
 - (void) preventPlayingHelp: (int) help;
 - (void) allowPlayingHelpEnded;
-- (void) helpAnimationPurchase;
+//- (void) helpAnimationPurchase;
 - (void) helpAnimation1;
 - (void) helpAnimation2;
 - (void) helpAnimation2_B;
 - (void) helpAnimation3;
 - (void) helpAnimation4;
 - (void) helpAnimation4_E;
-
 - (void) initializeHelpTimer;
 
 

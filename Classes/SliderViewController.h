@@ -6,14 +6,14 @@
 //
 //
 
-#import "GenericDownloadViewController.h"
+#import "GenericViewController.h"
 
 #define cFlapWidthIpad 30
 #define cFlapWidthIpod 16
 #define cMarginHeightIpad 10
 #define cMarginHeightIpod 5
 
-@interface SliderViewController : GenericDownloadViewController {
+@interface SliderViewController : GenericViewController {
     id __unsafe_unretained parentView;
     UIImageView *__unsafe_unretained backgroundView;
 }

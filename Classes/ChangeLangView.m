@@ -16,9 +16,7 @@
 @synthesize langsView;
 @synthesize langLabel;
 @synthesize lockUnlockButton;
-//@synthesize progressView;
 @synthesize backgroundView;
-//@synthesize progressBarFillView;
 @synthesize hand;
 @synthesize helpButton;
 
@@ -34,11 +32,6 @@
     [vocTripDelegate popMainMenuFromChangeLang];
     [super done: sender];
 
-    // this code enable the step 3 to select modes (images / words)
-    /*VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
-	[vocTripDelegate pushSetGameModeView];
-    [super done: sender];*/
-    
     [vocTripDelegate checkAndStartDownload];
   	[UserContext setHelpSelectLang: NO];
     
@@ -66,35 +59,9 @@
 
     User *user = [[UserContext getSingleton] userSelected];
     user.langSelected = l;
-    //[l countOfWords]; // Start request to the server to check how much words should be downloaded.
-    
-    //[self updateLevelSlider];
 }
 
-/*- (void) updateLevelSlider {
-    
-    double progress = [Vocabulary progressIndividualLevel];
-    progressView.frame = [Vocabulary resizeProgressFrame: progressView.frame toNewProgress: progress progressFill: progressBarFillView.frame];
 
-    
-    // Original is widh: 434, x: 295
-    float progress = [Vocabulary wasLearned] / 1;
-    //NSLog(@"General Progress: %f", progress);
-    
-	// New formula of Progress
-    progress = [Vocabulary progressIndividualLevel];
-    //NSLog(@"Progress this Level: %f", progress);
-    CGRect frame = progressView.frame;
-    
-    CGRect frameFill = progressBarFillView.frame;
-    int deltaWidth = frameFill.size.width;
-    int deltaX = frameFill.origin.x;
-    
-	frame.size.width = deltaWidth * (1-progress);
-    frame.origin.x = deltaX + (deltaWidth * progress);
-    progressView.frame = frame;
-   
-}*/
 
 #pragma mark - View lifecycle
 
@@ -112,7 +79,6 @@
     [backgroundView setImage: [UIImage imageNamed: coverName]];
  
     langSelected = [UserContext getLanguageSelected];
-    [langSelected countOfWords]; // start request to the server to check how much words should be downloaded
     langLabel.text = langSelected.name;
 
     if ([UserContext getIsLocked]) {
@@ -124,7 +90,6 @@
         langsView.userInteractionEnabled = YES;
         [lockUnlockButton setImage: [UIImage imageNamed: @"lock1"] forState: UIControlStateNormal];
     }
-    //[self updateLevelSlider];
     
     if (langSelected.key >= 6)
         [langsView setSelectedCover: 6];
@@ -134,11 +99,6 @@
     
     [super viewWillAppear: animated];
 
-    // Initialize to check if there are Internet Connection
-    /*internetReachability = [Reachability reachabilityForInternetConnection];
-    [internetReachability startNotifier];
-    Reachability *hostReachable = [Reachability reachabilityWithHostName:@"www.google.com"];
-    [hostReachable startNotifier];*/
 }
 
 - (void)viewDidAppear:(BOOL)animated {

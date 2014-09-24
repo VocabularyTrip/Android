@@ -25,7 +25,20 @@
 @synthesize gameSequenceNumber;
 
 
-+(void)loadDataFromXML {
++ (void) initAllUsers {
+    User *user;
+    NSMutableArray *users = [[NSMutableArray alloc] initWithCapacity: 1];
+
+    for (int i=1; i<=6; i++) {
+        user = [[User alloc] init];
+        user.userId = i;
+        [users addObject: user ];
+    }
+
+	[UserContext getSingleton].users = users;
+}
+
+/*+(void)loadDataFromXML {
 	
 	NSString* path = [[NSBundle mainBundle] pathForResource: @"Users" ofType: @"xml"];
 	NSData* data = [NSData dataWithContentsOfFile: path];
@@ -53,7 +66,7 @@
 
 + (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
 	NSLog(@"Users. Error Parsing at line: %li, column: %li", (long)parser.lineNumber, (long)parser.columnNumber);	
-}
+}*/
 
 -(id) init { 
     if (self=[super init]) {    
@@ -300,15 +313,24 @@
 }
 
 -(NSString*) getMoney1AsText {
-	return [UserContext getMoneyIntAsText: [self money1]];
+    return [self formatIntAsText: [self money1]];
 }
 
 -(NSString*) getMoney2AsText {
-	return [UserContext getMoneyIntAsText: [self money2]];
+    return [self formatIntAsText: [self money2]];
 }
 
 -(NSString*) getMoney3AsText {
-	return [UserContext getMoneyIntAsText: [self money3]];
+    return [self formatIntAsText: [self money3]];
+}
+
+- (NSString*) formatIntAsText: (int) money {
+	NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
+	f.numberStyle = NSNumberFormatterCurrencyStyle;
+	f.maximumFractionDigits = 0;
+	NSString *r = [f stringFromNumber: [NSNumber numberWithInt: money]];
+	f = nil;
+	return r;
 }
 
 -(UIImage*) image {
@@ -323,7 +345,6 @@
 
 -(void) purge {
 	image = nil;
- 
 }
 
 

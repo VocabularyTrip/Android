@@ -22,7 +22,6 @@
     CGPoint ipodPlaceInMap;
     CGPoint ipadPlaceInMap;
     int levelNumber;
-  
 }
 
 @property (nonatomic, strong) NSString *levelName;
@@ -33,7 +32,7 @@
 
 
 - (CGPoint) placeinMap;
-+ (void)loadDataFromSql: (int) levelId;
++ (void) loadDataFromSql: (int) levelId;
 + (void) connectionFinishSuccesfully: (NSDictionary*) response;
 + (void) connectionFinishWidhError:(NSError *) error;
 

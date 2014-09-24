@@ -17,9 +17,6 @@
 @synthesize buyAllButton;
 @synthesize buyOneSetofLevelesButton;
 @synthesize restorePurchaseButton;
-@synthesize promoCodeText;
-@synthesize promoCodeStatus;
-@synthesize promoCodeLabel;
 @synthesize backgroundView;
 @synthesize buyAllDescLabel;
 @synthesize buyOneSetDescLabel;
@@ -32,7 +29,6 @@
 	VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
 	[vocTripDelegate popMainMenuFromPurchase];
     [PurchaseManager getSingleton].delegate = nil;
-    [PromoCode getSingleton].delegate = nil;
 }
 
 - (IBAction) restorePurchase:(id)sender {
@@ -92,13 +88,6 @@
     }
 }
 
-- (IBAction) registerPromoCode {
-    [PromoCode getSingleton].delegate = self;
-    
-    [PromoCode registerPromoCode: promoCodeText.text];
-    //[self showPromoCodeResult: p]; // Has to be called asyncronic from PromoCode
-}
-
 - (IBAction) facebookButtonClicked {
     
     [FacebookManager initFacebookSession];
@@ -130,17 +119,9 @@
     [backgroundView setImage: [UIImage imageNamed: coverName]];
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    promoCodeStatus.text = [[NSUserDefaults standardUserDefaults] objectForKey: cPromoCodeStatus];
-    promoCodeText.text = [[NSUserDefaults standardUserDefaults] objectForKey: cPromoCode];
-}
-
 - (void) refreshLevelInfo {
     SKProduct* aProduct;
 	restorePurchaseButton.enabled = 1; //[UserContext getMaxLevel] >= cSet1OfLevels ? 1 : 0;
-    //promoCodeText.enabled = [UserContext getMaxLevel] <= cSet2OfLevels ? 1 : 0;
-    //facebookButton.enabled = [[UserContext getSingleton] qPostInFacebook] < cMaxPostInFasebook ? 1 : 0;
     noReachabilityButton.alpha = 0;
 
     aProduct = [PurchaseManager getProductoFromIdentifier: [PurchaseManager getPurchaseOneSet]];
@@ -235,20 +216,6 @@
 	[UIView commitAnimations];
 }
 
--(BOOL) textFieldShouldBeginEditing:(UITextField *)textField {
-	return YES;
-}
-
--(BOOL) textFieldShouldReturn: (UITextField*) textField {
-	[textField resignFirstResponder];
-    [self registerPromoCode];
-	return YES;
-}
-
--(void) textFieldDidEndEditing:(UITextField *)textField {
-	//[[NSUserDefaults standardUserDefaults] setObject: textField.text forKey: cMailKey];
-}
-
 -(void) disableBuyButtons {
 	buyAllButton.enabled = NO;
     buyOneSetofLevelesButton.enabled = NO;
@@ -256,18 +223,7 @@
 }
 
 -(void) responseToBuyAction {
-    
-    //VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
-//    vocTripDelegate.mapView.startWithHelpPurchase = 1;
     [self done: nil];
-    
-/*    [PurchaseManager getSingleton].delegate = nil;
-    [PromoCode getSingleton].delegate = nil;
-
-	VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
-
-	[vocTripDelegate pushLevelView]; //]WithHelp];*/
-	
 }
 
 -(void) responseToCancelAction {

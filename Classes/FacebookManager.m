@@ -7,6 +7,7 @@
 //
 
 #import "FacebookManager.h"
+#import "UserContext.h"
 
 FacebookManager *fbSingleton;
 
@@ -174,7 +175,7 @@ FacebookManager *fbSingleton;
                 } else {
                     result = @"Story published.";
                     [[UserContext getSingleton] addPostInFacebook];
-                    [PromoCode giveAccessForOneDay];
+                    //[PromoCode giveAccessForOneDay];
                 }
                 [TraceWS register: @"FacebookPostFeed" valueStr: result valueNum: [NSNumber numberWithInt: [[UserContext getSingleton]qPostInFacebook]]];
             }

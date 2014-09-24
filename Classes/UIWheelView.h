@@ -11,7 +11,6 @@
 #import "ImageManager.h"
 
 @interface UIWheelView : UIImageView {
-	//CADisplayLink *theTimer; 
 	int i;
 }
 

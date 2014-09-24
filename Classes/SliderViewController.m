@@ -18,7 +18,6 @@
 @synthesize parentView;
 
 - (CGRect) frameOpened {
-
     
     int flapWidth = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? cFlapWidthIpad : cFlapWidthIpod;
     int marginHeight = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? cMarginHeightIpad : cMarginHeightIpod;

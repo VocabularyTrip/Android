@@ -13,9 +13,7 @@
 @implementation UIWheelView
 
 - (void) initialize {
-	//[super init];
 	i = arc4random() % 8;
-	//return self;
 }
 
 -(void) setI: (int) j {
@@ -23,8 +21,6 @@
 }
 
 - (void) wheelLoop {
-	//CGAffineTransform t = CGAffineTransformRotate(self.transform, cRotate); //M_PI*i/180);
-	//self.transform = t;
 	UIImage *image;
 	if (i==0)
 		image = [UIImage imageNamed: @"wheel1.png"];

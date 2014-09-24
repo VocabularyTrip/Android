@@ -63,7 +63,6 @@
 }
 
 - (IBAction) pauseClicked {
-	//NSString *imageFile;
 	if (gameStatus == cStatusGameIsOn) {
 		[pauseButton setImage: [UIImage imageNamed: @"pause_on.png"] forState: UIControlStateNormal];
 		gameStatus = cStatusGameIsPaused;
@@ -137,20 +136,13 @@
 	wordNamelabel.alpha = 1;
 	nativeWordNamelabel.alpha = 1;
     
-    //NSLog(@"Word: %@, Translated: %@, Loc: %@", word.name, word.translatedName, word.localizationName);
-    imageView.alpha = 1;
-    wordNamelabel.alpha = 1;
-    nativeWordNamelabel.alpha = 1;
-    //NSLog(@"is downloading: %i", singletonVocabulary.isDownloading);
-    if (![word playSound]) { // && !singletonVocabulary.isDownloading
+    if (![word playSound]) {
         [self mapView].startWithHelpDownload = 1;
         [self done: nil];
     }
 }
 
 - (void) showAndSayNextWord {
-    
-
 	word = [Vocabulary getOrderedWord];
     
 	if ((word != nil)) {

@@ -29,9 +29,9 @@ Vocabulary *singletonVocabulary;
 @synthesize responseWithLevelsToDownload;
 @synthesize theTimerToDownloadLevels;
 
-// ****************************************************************
-// Load from Server. The first time is loaded and save localy
-// Second time is loaded from xml file
+
+// ************************************* //
+// ******* Download 506 sounds ********* //
 + (void)loadDataFromSql {
 
     singletonVocabulary.isDownloading = YES;
@@ -48,7 +48,6 @@ Vocabulary *singletonVocabulary;
     AFJSONRequestOperation *operation = [AFProxy preparePostRequest: url param: dict delegate: self];
     
     [operation start];
-    
 }
 
 + (void) setProgress: (float) progress {
@@ -99,8 +98,6 @@ Vocabulary *singletonVocabulary;
 
 }
 
-// Load from Server. The first time is loaded and save localy
-// ****************************************************************
 
 + (bool) isDownloadCompleted {
     Language *lang = [UserContext getLanguageSelected];
@@ -115,6 +112,13 @@ Vocabulary *singletonVocabulary;
     NSError *err;
     return [[fm contentsOfDirectoryAtPath: path error: &err] count];
 }
+
+// ******* Download 506 sounds ********* //
+// ************************************* //
+
+
+// ****************************************** //
+// ******* Load Dictionary from XML ********* //
 
 +(void)loadDataFromXML {
 	
@@ -182,15 +186,6 @@ Vocabulary *singletonVocabulary;
 	}
 }
 
-+ (int) countOfWordsInOneLevel {
-    return [oneLevel count];
-}
-
-
-+ (int) countOfLevels {
-    return levelIndex;
-}
-
 + (void)parserDidEndDocument:(NSXMLParser *)parser {
 	[allWords addObject: [oneLevel copy]]; 
 	[oneLevel removeAllObjects];
@@ -199,6 +194,17 @@ Vocabulary *singletonVocabulary;
 
 + (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
 	NSLog(@"Vocabulary. Error Parsing at line: %li, column: %li", (long)parser.lineNumber, (long)parser.columnNumber);	
+}
+
+// ******* Load Dictionary from XML ********* //
+// ****************************************** //
+
++ (int) countOfWordsInOneLevel {
+    return [oneLevel count];
+}
+
++ (int) countOfLevels {
+    return levelIndex;
 }
 
 + (Word*) getWord: (NSString*) name inLevel: (int) level {
@@ -228,7 +234,7 @@ Vocabulary *singletonVocabulary;
 }
 
 
-+ (Word*) getRandomWordFromLevel: (int) levelNumber {
+/*+ (Word*) getRandomWordFromLevel: (int) levelNumber {
 
     if (levelNumber < [allWords count]) {
         NSMutableArray* aLevel = [allWords objectAtIndex: levelNumber];
@@ -238,7 +244,7 @@ Vocabulary *singletonVocabulary;
 		NSLog(@"Exception: getOrderedWord return nil");
     }
 	return nil;
-}
+}*/
 
 
 + (Word*) getOrderedWord {
@@ -398,13 +404,13 @@ Vocabulary *singletonVocabulary;
 	return progress;
 }*/
 
-+ (CGRect) resizeProgressFrame: (CGRect) progressFrame toNewProgress: (double) progress progressFill: (CGRect) progressBarFillFrame {
+/*+ (CGRect) resizeProgressFrame: (CGRect) progressFrame toNewProgress: (double) progress progressFill: (CGRect) progressBarFillFrame {
 
     int deltaWidth = progressBarFillFrame.size.width;
     int deltaX = progressBarFillFrame.origin.x;
     progressFrame.size.width = deltaWidth * (1-progress);
     progressFrame.origin.x = deltaX + (deltaWidth * progress);
     return progressFrame;
-}
+}*/
 
 @end

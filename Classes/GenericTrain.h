@@ -14,7 +14,6 @@
 #import "Vocabulary.h"
 #import "LandscapeManager.h"
 #import "UIWheelView.h"
-#import "ToolbarController.h"
 #import "SmokeView.h"
 #import "ImageManager.h"
 #import "UICountingLabel.h"
@@ -227,6 +226,7 @@ enum {
 - (void) refreshGameMode;
 - (void) showButtonsPlayAgainAndReturnToMap;
 - (tResultEvaluateNextLevel) evaluateGetIntoNextLevel;
+
 
 @end
 
