@@ -1,113 +1,30 @@
 <?xml version="1.0"?>
 
 <list>
-	<Sentence Method="AppDelegate-ResponseToBuyAction-NextLevel" name="Advanced to next level" type="always"></Sentence> <!-- ok -->
-
-	<Sentence Method="Test-EndGame-Level0" name="Congratulations_0_1" type="always">
-        <Alternative name= "Congratulations_0_2"></Alternative>
-        <Alternative name= "Congratulations_0_3"></Alternative>
-    </Sentence>
-    
-	<Sentence Method="Test-EndGame-Level1" name="Congratulations_1_0" type="always">
-        <Alternative name= "Congratulations_1_1"></Alternative>
-        <Alternative name= "Congratulations_1_2"></Alternative>
-        <Alternative name= "Congratulations_1_3"></Alternative>
-        <Alternative name= "Congratulations_1_8"></Alternative>
-        <Alternative name= "Congratulations_1_9"></Alternative>
-        <Alternative name= "Congratulations_1_10"></Alternative>
-    </Sentence>
-    
-	<Sentence Method="Test-EndGame-Level2" name="Congratulations_2_0" type="always">
-        <Alternative name= "Congratulations_2_1"></Alternative>
-        <Alternative name= "Congratulations_2_2"></Alternative>
-        <Alternative name= "Congratulations_2_3"></Alternative>
-        <Alternative name= "Congratulations_2_4"></Alternative>
-        <Alternative name= "Congratulations_2_5"></Alternative>
-        <Alternative name= "Congratulations_2_6"></Alternative>
-        <Alternative name= "Congratulations_2_7"></Alternative>
-    </Sentence>
-    
-	<Sentence Method="Test-EndGame-Level3" name="Congratulations_3_0" type="always">
-        <Alternative name= "Congratulations_3_1"></Alternative>
-        <Alternative name= "Congratulations_3_2"></Alternative>
-        <Alternative name= "Congratulations_1_4"></Alternative>
-        <Alternative name= "Congratulations_1_5"></Alternative>
+	<Sentence Method="AppDelegate-ResponseToBuyAction-NextLevel"
+        name="Advanced to next level" type="always">
     </Sentence>
 
-    <Sentence Method="Test-EndGame-Level4" name="Congratulations_4_0" type="always">
-        <Alternative name= "Congratulations_4_1"></Alternative>
-        <Alternative name= "Congratulations_4_2"></Alternative>
-        <Alternative name= "Congratulations_1_6"></Alternative>
-        <Alternative name= "Congratulations_1_7"></Alternative>
-    </Sentence>
-
-	<Sentence Method="Test-EvaluateGetIntoNextLevel-NextLevel" name="Advanced to next level" type="always"></Sentence> <!-- ok -->
-	<Sentence Method="Test-IntroduceTrain" name="Test help" type="always"></Sentence> <!-- ok -->
-    
-    <!-- Generic & Toolbar -->
-    
-	<Sentence Method="Test-EvaluateGetIntoNextLevel-CloseToLearned" name="Congratulations1" type="always"></Sentence> <!-- ok -->
-    
-    <!-- Generic & Toolbar -->
-    
-	<Sentence Method="Toolbar-saySentence-BronzeToolbar" name="The more correct the more coins" type="always"></Sentence> <!-- ok -->
-	<Sentence Method="Toolbar-saySentence-NotInSilverSection" name="To win silver coins" type="always"></Sentence> <!-- ok -->
-	<Sentence Method="Toolbar-saySentence-NotInGoldSection" name="To win gold coins" type="always"></Sentence> <!-- ok -->
-    
-    <!-- Training -->
-	<Sentence Method="Training-ViewDidAppear" name="Training help" type="always"></Sentence>
-    
-    <!-- Map -->
-    <Sentence Method="MapView-Help1A" name="map_01A" type="always"></Sentence>
-    <Sentence Method="MapView-Help2A" name="map_02A" type="always"></Sentence>
-    <Sentence Method="MapView-Help2B" name="map_02B" type="always"></Sentence>
-    <Sentence Method="MapView-Help3A" name="map_03A" type="always"></Sentence>
-    
-    <!-- Album -->
-	<Sentence Method="AlbumView-onEmptyFigClick-NotEnoughGold" name="win more play more" type="always"></Sentence> <!-- ok -->
-	<Sentence Method="AlbumView-onEmptyFigClick-NotEnoughSilver" name="win more play more" type="always"></Sentence> <!-- ok -->
-	<Sentence Method="AlbumView-onEmptyFigClick-NotEnoughBronze" name="win more play more" type="always"></Sentence>  <!-- ok -->
-    
-    <Sentence Method="AlbumView-ViewDidAppear-Album1Start" name="Welcome to fairyland" type="alwaysSoundOn"></Sentence> <!-- ok -->
-	<Sentence Method="AlbumView-ViewDidAppear-Album2Start" name="Welcome to monsters world" type="alwaysSoundOn"></Sentence> <!-- ok -->
-	<Sentence Method="AlbumView-ViewDidAppear-Album3Start" name="elephant" type="alwaysSoundOn">
-        <Alternative name= "elephant"></Alternative>
-    </Sentence> <!-- ok -->
-    
-    
-    <!-- <Sentence Method="AlbumView-Loop-Album1" name="Welcome to fairyland" type="alwaysSoundOn"></Sentence>  -->
-    <!-- <Sentence Method="AlbumView-Loop-Album2" name="Welcome to monsters world" type="alwaysSoundOn"></Sentence>  -->
-    <Sentence Method="AlbumView-Loop-Album3" name="owl" type="alwaysSoundOn">
-        <Alternative name= "birds flap"></Alternative>
-        <Alternative name= "birds"></Alternative>
-        <Alternative name= "hen"></Alternative>
+	<Sentence Method="Test-EvaluateGetIntoNextLevel-NextLevel"
+        name="Advanced to next level" type="always">
     </Sentence>
     
-	<Sentence Method="AlbumView-onEmptyFigClick-NotInSilverSection" name="To win silver coins" type="always"></Sentence> <!-- ok -->
-    <Sentence Method="AlbumView-onEmptyFigClick-NotInGoldSection" name="To win gold coins" type="always"></Sentence> <!-- ok -->
-    <Sentence Method="AlbumView-help1" name="Album help 1" type="always"></Sentence> <!-- ok -->
-    <Sentence Method="AlbumView-help2" name="Album help 2" type="always"></Sentence> <!-- ok -->
+	<Sentence Method="Test-IntroduceTrain"
+        name="Test help" type="always">
+    </Sentence>
     
-    <!-- Level -->
-    <Sentence Method="Download_Help_1" name="Download_Help_1A" type="always"></Sentence> <!-- ok -->
-    <Sentence Method="Download_Help_2" name="Download_Help_1B" type="always"></Sentence> <!-- ok -->
+	<Sentence Method="Test-EvaluateGetIntoNextLevel-CloseToLearned"
+        name="Congratulations1" type="always">
+    </Sentence>
     
-    <Sentence Method="Level_helpA" name="Level_helpA" type="always"></Sentence> <!-- ok -->
-    <Sentence Method="Level_helpB" name="Level_helpB" type="always"></Sentence> <!-- ok -->
-    <Sentence Method="Level_helpC" name="Level_helpC" type="always"></Sentence> <!-- ok -->
-    <Sentence Method="Level_helpD" name="Level_helpD" type="always"></Sentence> <!-- ok -->
-    <Sentence Method="Level_helpE" name="Level_helpE" type="always"></Sentence> <!-- ok -->
-    <Sentence Method="LevelView-DidSelectRow-UnlockLevel" name="To unlock this level you first" type="always"> <!-- ok -->
-        <Alternative name= "keep playing to advance to that level"></Alternative></Sentence>
-    <Sentence Method="LevelView-DidSelectRow-LearnThisLevel" name="Once you know these words you Advance" type="always"></Sentence> <!-- ok -->
+    <Sentence Method="LevelView-DidSelectRow-UnlockLevel"
+        name="To unlock this level you first" type="always">
+        <Alternative name= "keep playing to advance to that level"></Alternative>
+    </Sentence>
     
-    <!-- User Wizard -->
-    <Sentence Method="User_Wizard_1" name="User_Wizard_1" type="always"></Sentence> <!-- ok -->
-    <Sentence Method="User_Wizard_2" name="User_Wizard_2" type="always"></Sentence> <!-- ok -->
-    <Sentence Method="User_Wizard_3" name="User_Wizard_3" type="always"></Sentence> <!-- ok -->
+    <Sentence Method="LevelView-DidSelectRow-LearnThisLevel"
+        name="Once you know these words you Advance" type="always">
+    </Sentence>
     
-    <!-- Language Wizard -->
-    <Sentence Method="Language_Wizard_1" name="Language_Wizard_1" type="always"></Sentence> <!-- ok -->
-    <Sentence Method="Language_Wizard_2" name="Language_Wizard_2" type="always"></Sentence> <!-- ok -->
     
 </list>

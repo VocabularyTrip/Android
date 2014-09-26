@@ -18,7 +18,7 @@
                           key, @"key",
                           valueStr, @"valueStr",
                           valueNum, @"valueNum",
-                          [UserContext getUUID], @"uuid",
+                          [self getUUID], @"uuid",
                           nil];
     
     AFJSONRequestOperation *operation = [AFProxy preparePostRequest: url param: dict delegate: self];
@@ -31,6 +31,17 @@
 + (void) connectionFinishWidhError:(NSError *) error {
     NSString *result = error.localizedDescription;
     NSLog(@"%@", result);
+}
+
++ (NSString*) getUUID {
+    NSString* uniqueIdentifier = nil;
+    if( [UIDevice instancesRespondToSelector:@selector(identifierForVendor)] ) { // iOS 6+
+        uniqueIdentifier = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+    } else {  // before iOS 6, so just generate an identifier and store it
+        CFUUIDRef uuid = CFUUIDCreate(NULL);
+        uniqueIdentifier = (__bridge_transfer NSString*)CFUUIDCreateString(NULL, uuid);
+    }
+    return uniqueIdentifier;
 }
 
 @end

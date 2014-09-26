@@ -22,7 +22,6 @@
 @synthesize pauseButton;
 @synthesize repeatButton;
 @synthesize backgroundView;
-@synthesize parentView;
 @synthesize level;
 @synthesize levelNamelabel;
 
@@ -31,12 +30,7 @@
 	theTimer = nil;
 
     VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
-    [vocTripDelegate popMainMenuFromChangeLang];
-}
-
-- (MapView*) mapView {
-    VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
-    return vocTripDelegate.mapView;
+    [vocTripDelegate popMapView];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -53,13 +47,11 @@
 
 - (void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear: animated];
-    [UserContext setHelpMapViewStep3: NO];
     [self showAndSayDictionary];
 }
 
 - (void) viewDidLoad {
     originalframeImageView = imageView.frame;
-    //[parentView setEnabledInteraction: YES];
 }
 
 - (IBAction) pauseClicked {
@@ -113,8 +105,7 @@
 
 
 - (void) showAndSayDictionary {
-    
-	[Vocabulary initializeLevelAt: level.levelNumber];
+	[singletonVocabulary initializeLevelAt: level.levelNumber];
 	[self initializeTimer];
 }
 
@@ -123,6 +114,17 @@
 		theTimer = [CADisplayLink displayLinkWithTarget:self selector:@selector(showAndSayNextWord)];
 		theTimer.frameInterval = 120;
 		[theTimer addToRunLoop: [NSRunLoop currentRunLoop] forMode: NSDefaultRunLoopMode];
+	}
+}
+
+- (void) showAndSayNextWord {
+	word = [singletonVocabulary getOrderedWord];
+    
+	if ((word != nil)) {
+        [self showAndSayWord];
+	} else {
+		[self helpLevel];
+		[self cancelAnimation];
 	}
 }
 
@@ -137,20 +139,9 @@
 	nativeWordNamelabel.alpha = 1;
     
     if (![word playSound]) {
-        [self mapView].startWithHelpDownload = 1;
+        //[self mapView].startWithHelpDownload = 1;
         [self done: nil];
     }
-}
-
-- (void) showAndSayNextWord {
-	word = [Vocabulary getOrderedWord];
-    
-	if ((word != nil)) {
-        [self showAndSayWord];
-	} else {
-		[self cancelAnimation];
-		[self helpLevel];
-	}
 }
 
 - (void) helpLevel {

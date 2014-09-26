@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5053" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1280" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -7,8 +7,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapView">
             <connections>
-                <outlet property="hand" destination="gnb-Vg-PAP" id="bG9-mG-qiC"/>
-                <outlet property="helpButton" destination="j3w-MX-XXF" id="TIG-Qj-hQs"/>
                 <outlet property="mapScrollView" destination="Ycl-U6-2ce" id="3HH-hR-F4U"/>
                 <outlet property="playCurrentLevelButton" destination="cuC-rx-lhv" id="FKN-Eg-7Ge"/>
                 <outlet property="view" destination="1" id="PQj-cK-3g8"/>
@@ -23,14 +21,14 @@
                     <rect key="frame" x="0.0" y="0.0" width="570" height="320"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map.png" id="JKV-Cb-XEC" userLabel="Map">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map.png" id="JKV-Cb-XEC" userLabel="MapView">
                             <rect key="frame" x="0.0" y="0.0" width="1140" height="858"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="cuC-rx-lhv" userLabel="PlayCurrentLevelButton">
                             <rect key="frame" x="128" y="182" width="60" height="79"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" image="avatar1-03-01.png">
+                            <state key="normal" image="newAvatar1-03-01.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -56,11 +54,11 @@
                     </subviews>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </scrollView>
-                <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="j3w-MX-XXF" userLabel="HelpButton">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="j3w-MX-XXF" userLabel="ConfigButton">
                     <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
-                    <state key="normal" image="help.png">
+                    <state key="normal" image="ico_avatar.png">
                         <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -68,13 +66,24 @@
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="helpClicked" destination="-1" eventType="touchDown" id="Kaf-SM-5XD"/>
+                        <action selector="selectUserAndLang:" destination="-1" eventType="touchDown" id="0yn-vF-dNS"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" image="clicking.png" id="gnb-Vg-PAP" userLabel="hand">
-                    <rect key="frame" x="261" y="133" width="46" height="54"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="O77-KZ-DO4" userLabel="ResetButton">
+                    <rect key="frame" x="50" y="0.0" width="40" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
+                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                    <state key="normal" image="reset_on.png">
+                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="highlighted">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="reset:" destination="-1" eventType="touchDown" id="cVL-2m-9JN"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -82,13 +91,13 @@
         </view>
     </objects>
     <resources>
-        <image name="avatar1-03-01.png" width="301" height="388"/>
-        <image name="clicking.png" width="139" height="147"/>
         <image name="flag_finish.png" width="453" height="287"/>
         <image name="flag_gold.png" width="589" height="225"/>
         <image name="flag_silver.png" width="591" height="201"/>
-        <image name="help.png" width="100" height="100"/>
+        <image name="ico_avatar.png" width="100" height="100"/>
         <image name="map.png" width="3497" height="2635"/>
+        <image name="newAvatar1-03-01.png" width="301" height="388"/>
+        <image name="reset_on.png" width="100" height="100"/>
         <image name="start_bronze.png" width="591" height="224"/>
     </resources>
 </document>

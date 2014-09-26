@@ -11,6 +11,9 @@
 #import "ImageManager.h"
 #import "Level.h"
 
+#define cStatusGameIsPaused 1
+#define cStatusGameIsOn 2
+
 @interface LevelView : UIViewController {
 	
     Level* level; // Selected level in mapView
@@ -28,7 +31,6 @@
     CGRect originalframeImageView;
     int gameStatus;
     
-    id __unsafe_unretained parentView;
 }
 
 @property (nonatomic, unsafe_unretained) IBOutlet UIImageView *backgroundView;
@@ -38,7 +40,6 @@
 @property (nonatomic, unsafe_unretained) IBOutlet UILabel *nativeWordNamelabel;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *pauseButton;
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *repeatButton;
-@property (nonatomic, unsafe_unretained) id parentView;
 @property (nonatomic) Level* level;
 
 - (IBAction) done:(id)sender;
@@ -48,8 +49,6 @@
 - (void) showAndSayWord;
 - (void) showAndSayNextWord;
 - (void) helpLevel;
-//- (void) showLevel: (Level*) aLevel at: (CGPoint) offset;
-//- (IBAction) close;
 - (IBAction) pauseClicked;
 - (IBAction) repeatClicked;
     

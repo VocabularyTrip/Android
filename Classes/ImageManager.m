@@ -62,7 +62,7 @@
     return newImage;
 }
 
-+ (NSString*) getIphoneIpadFile: (NSString*) imageFile {
+/*+ (NSString*) getIphoneIpadFile: (NSString*) imageFile {
 	return [self getIphoneIpadFile: imageFile ext: @"@ipad"];
 }
 
@@ -71,9 +71,9 @@
 		imageFile = [NSString stringWithFormat: @"%@%@", imageFile, ext];
 	imageFile = [NSString stringWithFormat: @"%@.png", imageFile];
     return imageFile;
-}
+}*/
 
-+ (NSString*) getIphone5xIpadFile: (NSString*) imageFile {
+/*+ (NSString*) getIphone5xIpadFile: (NSString*) imageFile {
 	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
 		imageFile = [NSString stringWithFormat: @"%@%@.png", imageFile, @"@ipad"];
     } else if ([self resolution] == UIDeviceResolution_iPhoneRetina5) {
@@ -82,9 +82,9 @@
         imageFile = [NSString stringWithFormat: @"%@.png", imageFile];
     }
     return imageFile;
-}
+}*/
 
-+ (UIDeviceResolution)resolution
+/*+ (UIDeviceResolution)resolution
 {
     UIDeviceResolution resolution = UIDeviceResolution_Unknown;
     UIScreen *mainScreen = [UIScreen mainScreen];
@@ -111,7 +111,7 @@
     }
     
     return resolution;
-}
+}*/
 
 + (int) windowHeightXIB {
     // This size correspond to XIB design and return the same number on iphone 5, iphone 4
@@ -125,7 +125,7 @@
     return [[UIScreen mainScreen] bounds].size.height;
 }
 
-+ (int) windowWidth {
+/*+ (int) windowWidth {
     // This size correspond real size and is diferent on iphone 5, iphone 5
     // windowWidthXIB return the same size as XIB design. Return the same number on iphone 5, iphone 4
 
@@ -134,9 +134,9 @@
     CGFloat pixelHeight = (CGRectGetHeight(mainScreen.bounds) * scale);
     return pixelHeight;
 
-}
+}*/
 
-+ (int) getDeltaWidthIphone5 {
+/*+ (int) getDeltaWidthIphone5 {
     UIScreen *mainScreen = [UIScreen mainScreen];
     CGFloat scale = ([mainScreen respondsToSelector:@selector(scale)] ? mainScreen.scale : 1.0f);
     CGFloat pixelHeight = (CGRectGetHeight(mainScreen.bounds) * scale);
@@ -145,7 +145,7 @@
         return (pixelHeight - 1024)/2;
     else
         return 0;
-}
+}*/
 
 // ******************************************************************* //
 // ********************* IMAGE SIZE DEFINITION *********************** //
@@ -163,14 +163,6 @@
     CGSizeMake(3497,2635) : CGSizeMake(1140, 858);
 }
 
-+ (int) albumMagnifierDeltaPos {
-    return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 30 : 15;
-}
-
-+ (int) albumMagnifierSize {
-    return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 120 : 60;
-}
-
 + (CGSize) changeUserUserSize: (UIImage*)  u {
     int height = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)? 350 : 175;
     int newWitdh = height * u.size.width / u.size.height;
@@ -178,17 +170,9 @@
     return newSize;
 }
 
-+ (CGRect) smokeViewInitRect {
-    return CGRectMake(
-       UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 86 : 45 + [ImageManager getDeltaWidthIphone5],
-       UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 480 : 175,
-       UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 40 : 20,
-       UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 40 : 20);
-}
-
-+ (int) levelViewDeltaXYCorner {
+/*+ (int) levelViewDeltaXYCorner {
     return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 120 : 60;
-}
+}*/
 
 // ********************* IMAGE SIZE DEFINITION *********************** //
 // ******************************************************************* //

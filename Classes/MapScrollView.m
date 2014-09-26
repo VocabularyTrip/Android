@@ -31,8 +31,8 @@
 
 - (void) drawAllLeveles {
     Level *level;
-    for (int i=0; i< [Vocabulary countOfLevels]; i++) {
-        level = [UserContext getLevelAt: i];
+    for (int i=0; i< [singletonVocabulary countOfLevels]; i++) {
+        level = [singletonVocabulary.allLevels objectAtIndex: i];
         UIImage* stage = [UserContext getLevelNumber] >= i ? [UIImage imageNamed: @"stage_on.png"] : [UIImage imageNamed: @"stage_off.png"];
         [self addImage: stage
                    pos: [level placeinMap]
@@ -42,7 +42,7 @@
         // Often you need unlock to reach the level and make any progress
         // Is posible to temprally unlock the game (via facebook for example).
         // In this case the user can advance, make some progress. If the unlock due, the lock and the progress are located in the same position.
-        if ([self addAccessibleIconToLevel: level])
+        if ([self addLockIconToLevel: level])
             [self addProgressLevel: level];
     }
 }
@@ -62,15 +62,11 @@
     return imageView;
 }
 
-- (bool) addAccessibleIconToLevel: (Level*) level {
-    // To each level is added:
-    //     * Nothing if the level is accessible
-    //     * Lock icon if the user didn't reach this level
-    //     * Buy icon if the user has to buy to unlock the level
+- (bool) addLockIconToLevel: (Level*) level {
     
     CGPoint newPlace = CGPointMake([level placeinMap].x + [ImageManager getMapViewLevelSize] * 0.8, [level placeinMap].y + [ImageManager getMapViewLevelSize] * 0.3);
     
-    if (level.order > [UserContext getTemporalMaxLevel] && level.order > cSetLevelsFree) {
+    if (level.order > [UserContext getMaxLevel] && level.order > cSetLevelsFree) {
         [self addImage: [UIImage imageNamed:@"lock2.png"] pos: newPlace size: [ImageManager getMapViewLevelSize] * 0.4];
         return NO;
     }
@@ -85,7 +81,7 @@
                                        [level placeinMap].x + [ImageManager getMapViewLevelSize] * 0.6,
                                        [level placeinMap].y + [ImageManager getMapViewLevelSize] * 0.3);
         
-        double progress = [Vocabulary progressLevel: level.levelNumber];
+        double progress = [singletonVocabulary progressLevel: level.levelNumber];
         UIImage *star1, *star2, *star3;
         
         star1 = progress > cThresholdStar1 ? [UIImage imageNamed:@"star_on.png"] : [UIImage imageNamed:@"star_off.png"];
@@ -110,16 +106,12 @@
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 	[super touchesBegan: touches withEvent: event];
 
-    VocabularyTrip2AppDelegate *vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
-
-    if (vcDelegate.mapView.preventOpenLevelView) return;
-    
 	UITouch *touch = [[event allTouches] anyObject];
 	CGPoint touchLocation = [touch locationInView: touch.view];
     
     Level *level;
-    for (int i=0; i< [Vocabulary countOfLevels]; i++) {
-        level = [UserContext getLevelAt: i];
+    for (int i=0; i< [singletonVocabulary countOfLevels]; i++) {
+        level = [singletonVocabulary.allLevels objectAtIndex: i];
         
         if (CGRectContainsPoint(CGRectMake([level placeinMap].x, [level placeinMap].y, [ImageManager getMapViewLevelSize], [ImageManager getMapViewLevelSize]), touchLocation)) {
             

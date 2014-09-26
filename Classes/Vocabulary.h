@@ -14,36 +14,38 @@
 #import "SBJSON.h"
 #import "Word.h"
 
-
 #define cPercentageLearnd 0.8
 #define cPercentageCloseToLearnd 0.65
 #define cThresholdStar1 0.3
 #define cThresholdStar2 0.55
 #define cThresholdStar3 0.8
 
-extern NSMutableArray *allWords;
-extern NSMutableArray *oneLevel; 
-extern int levelIndex;	
-extern id <DownloadDelegate> downloadDelegate;
+//extern id <DownloadDelegate> downloadDelegate;
 
 @interface Vocabulary : NSObject <NSXMLParserDelegate, NSURLConnectionDelegate> {
-
+	NSMutableArray *allLevels;
+    NSMutableArray *allWords;
+    NSMutableArray *oneLevel;
+    int levelIndex; // count of levels
+    
     // Variables used to syncronyze download with UI
-    id <DownloadDelegate> __unsafe_unretained delegate; // View to delegate response
+    //id <DownloadDelegate> __unsafe_unretained delegate; // View to delegate response
     int qWordsLoaded; // count the words downloaded. Is used to know if downloading has finished
-    int wasErrorAtDownload; // flag to detect an error
+    int wasErrorAtDownload; // flag to detect an error. Relation asyncronous between Vocabulary and Level
     bool isDownloading; // is true when download is active. is false when an error is detected or 90 words al allready downloaded
     bool isDownloadView; // is true if LevelView is visible and the downloadButton and progressBar exists
         // Is flase when the user press back button and the download continue in background.
-
     NSMutableArray *responseWithLevelsToDownload;
-    
     CADisplayLink *theTimerToDownloadLevels;
 
 }
 
 extern Vocabulary *singletonVocabulary;
 
+@property (nonatomic, retain) NSMutableArray *allLevels;
+@property (nonatomic, retain) NSMutableArray *allWords;
+@property (nonatomic, retain) NSMutableArray *oneLevel;
+@property (nonatomic, assign) int levelIndex;
 @property (nonatomic, unsafe_unretained) id delegate;
 @property (nonatomic, unsafe_unretained) int wasErrorAtDownload;
 @property (nonatomic, assign) bool isDownloading;
@@ -52,41 +54,42 @@ extern Vocabulary *singletonVocabulary;
 @property (nonatomic, retain) NSMutableArray *responseWithLevelsToDownload;
 @property (nonatomic, retain) CADisplayLink *theTimerToDownloadLevels;
 
-// Download sounds
-+ (void) loadDataFromSql; //
-+ (void) connectionFinishSuccesfully: (NSDictionary*) response;
-- (void) startDownload;
-- (void) downlloadOneLevel;
-+ (void) connectionFinishWidhError:(NSError *) error;
-+ (void) setProgress: (float) progress; //
-+ (int) countOfFilesInLocalPath; //
-+ (bool) isDownloadCompleted; //
 
 // Load XML Dictionary
-+ (void) loadDataFromXML; //
-+ (void) parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict; //
-+ (void)parserDidEndDocument:(NSXMLParser *)parser;
-+ (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError;
+- (void) loadDataFromXML; //
+- (void) parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict; //
+- (void)parserDidEndDocument:(NSXMLParser *)parser;
+- (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError;
 
+// Download sounds
++ (int) countOfFilesInLocalPath; //
++ (bool) isDownloadCompleted; //
++ (void) loadDataFromSql; //
++ (void) connectionFinishSuccesfully: (NSDictionary*) response;
++ (void) connectionFinishWidhError:(NSError *) error;
++ (void) setProgress: (float) progress; //
 
-+ (Word*) getOrderedWord;
-+ (Word*) getRandomWeightedWord;
-//+ (Word*) getRandomWordFromLevel: (int) levelNumber;
-+ (void) initializeLevelUntil: (int) level; // Initialize all words form level 1 to the parameter
-+ (void) initializeLevelAt: (int) level; // Initialize all word in the parameter level. In general are 10 words
-+ (int) getSumOfAllWeights; //
-+ (int) getSelectedWordFrom: (int) rWeighted; //
-+ (void) resetAllWeigths; //
-+ (void) reloadAllWeigths; //
-+ (void) testAllSounds; //
-+ (double) wasLearned; //
-+ (double) wasLearnedLast5Levels;
-+ (double) wasLearnedFrom: (int) startLevel;
-+ (int) getLevelLessLearned;
-+ (double) progressLevel: (int) aLevel;
-+ (int) countOfLevels;
-+ (int) countOfWordsInOneLevel;
-+ (Word*) getWord: (NSString*) name inLevel: (int) level;
+- (void) startDownload;
+- (void) downlloadOneLevel;
 
-//+ (CGRect) resizeProgressFrame: (CGRect) progressFrame toNewProgress: (double) progress progressFill: (CGRect) progressBarFillFrame;∫
+// Access to Vocabulary
+- (void) initializeLevelAt: (int) level; // Initialize the buffer oneLevel
+- (Word*) getOrderedWord;
+- (double) progressLevel: (int) aLevel;
+- (int) countOfLevels;
+//- (int) countOfWordsInOneLevel;
+- (Word*) getWord: (NSString*) name inLevel: (int) level;
+
+//+ (Word*) getRandomWeightedWord;
+//+ (void) initializeLevelUntil: (int) level; // Initialize all words form level 1 to the parameter
+//+ (int) getSumOfAllWeights; //
+//+ (int) getSelectedWordFrom: (int) rWeighted; //
+//+ (void) resetAllWeigths; //
+//+ (void) reloadAllWeigths; //
+//+ (void) testAllSounds; //
+//+ (double) wasLearned; //
+//+ (double) wasLearnedLast5Levels;
+//+ (double) wasLearnedFrom: (int) startLevel;
+//+ (int) getLevelLessLearned;
+
 @end

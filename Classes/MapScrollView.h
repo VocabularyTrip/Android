@@ -11,19 +11,16 @@
 
 
 @interface MapScrollView : UIScrollView {
-    //LevelView *levelView;
-    //bool enabledInteraction;
 }
 
 @property (nonatomic, unsafe_unretained) bool enabledInteraction;
-//@property (nonatomic) LevelView *levelView;
 
 - (void) openLevelView: (Level*) level;
 - (void) reloadAllLevels;
 - (void) drawAllLeveles;
 - (void) removeAllLevels;
 - (UIImageView*) addImage: (UIImage*) image pos: (CGPoint) pos size: (int) size;
-- (bool) addAccessibleIconToLevel: (Level*) level;
+- (bool) addLockIconToLevel: (Level*) level;
 - (void) addProgressLevel: (Level*) level;
 - (void) showLevelInMap: (Level*) level;
 

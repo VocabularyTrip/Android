@@ -30,7 +30,6 @@
 @property (nonatomic) CGPoint ipadPlaceInMap;
 @property (nonatomic) int levelNumber;
 
-
 - (CGPoint) placeinMap;
 + (void) loadDataFromSql: (int) levelId;
 + (void) connectionFinishSuccesfully: (NSDictionary*) response;

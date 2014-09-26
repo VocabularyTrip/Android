@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-
-<list>
-	<landscape layer1 = "landscape_1_a" layer2 = "landscape_1_b" layer3 = "landscape_1_c"/>
-	<landscape layer1 = "landscape_2_a" layer2 = "landscape_2_b" layer3 = "landscape_3_c"/>
-	<landscape layer1 = "landscape_3_a" layer2 = "landscape_3_b" layer3 = "landscape_3_c"/>
-</list>

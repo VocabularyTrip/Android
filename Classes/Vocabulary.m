@@ -12,15 +12,14 @@
 #import <AudioToolbox/AudioToolbox.h>	
 #import "UserContext.h"
 
-
-NSMutableArray *allWords = nil;
-NSMutableArray *oneLevel = nil;
-int levelIndex=0;
-
 Vocabulary *singletonVocabulary;
 
 @implementation Vocabulary
 
+@synthesize allLevels;
+@synthesize allWords;
+@synthesize oneLevel;
+@synthesize levelIndex;
 @synthesize delegate;
 @synthesize wasErrorAtDownload;
 @synthesize isDownloading;
@@ -29,9 +28,102 @@ Vocabulary *singletonVocabulary;
 @synthesize responseWithLevelsToDownload;
 @synthesize theTimerToDownloadLevels;
 
+// ****************************************** //
+// ******* Load Dictionary from XML ********* //
+
+- (void)loadDataFromXML {
+	
+	if ([allWords count] == 0) {
+		NSString* path = [[NSBundle mainBundle] pathForResource: @"Dictionary" ofType: @"xml"];
+		NSData* data = [NSData dataWithContentsOfFile: path];
+		NSXMLParser* parser = [[NSXMLParser alloc] initWithData: data];
+        
+        allLevels = [[NSMutableArray alloc] init];
+		allWords = [[NSMutableArray alloc] init];
+		oneLevel = [[NSMutableArray alloc] init];
+		levelIndex = 0;
+        
+		[parser setDelegate: self];
+		[parser parse];
+	}
+}
+
+- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict{
+	
+	@try {
+		if ([elementName isEqualToString: @"level"]) {
+            
+            if (levelIndex!=0) {
+                //Level* lastLevel = [UserContext getLevelAt: levelIndex-1];
+                Level* lastLevel = [singletonVocabulary.allLevels objectAtIndex: levelIndex-1];
+                lastLevel.size = [oneLevel count];
+				[allWords addObject: [oneLevel copy]];
+				[oneLevel removeAllObjects];
+			}
+            
+			Level *newLevel;
+			newLevel = [Level alloc];
+			newLevel.levelName = [attributeDict objectForKey: @"name"];
+			newLevel.name = [attributeDict objectForKey: @"name"];
+            newLevel.fileName = [attributeDict objectForKey: @"image"];
+            newLevel.ipodPlaceInMap = CGPointMake([[attributeDict objectForKey: @"ipodx"] intValue], [[attributeDict objectForKey: @"ipody"] intValue]);
+            newLevel.ipadPlaceInMap = CGPointMake([[attributeDict objectForKey: @"ipadx"] intValue], [[attributeDict objectForKey: @"ipady"] intValue]);
+            newLevel.order = [[attributeDict objectForKey: @"levelOrder"] intValue];
+            newLevel.levelNumber = levelIndex;
+            
+			levelIndex++;
+            
+            [singletonVocabulary.allLevels addObject: newLevel];
+		}
+		
+		if ([elementName isEqualToString: @"word"]) {
+			Word *newWord = [Word alloc];
+			newWord.name = [attributeDict objectForKey: @"name"];
+			newWord.fileName = [attributeDict objectForKey: @"fileName"];
+            newWord.order = [[attributeDict objectForKey: @"wordOrder"] intValue];
+			newWord.theme = levelIndex;
+            if (levelIndex == 1) // Hardcoded first level, the translations are loaded from XML
+                [newWord setAllTranslatedNames: [attributeDict mutableCopy]];
+			[oneLevel addObject: newWord];
+		}
+	}
+	@catch (NSException * e) {
+		NSLog(@"Error Loading Dictionary");
+	}
+	@finally {
+	}
+}
+
+- (void)parserDidEndDocument:(NSXMLParser *)parser {
+	[allWords addObject: [oneLevel copy]];
+	[oneLevel removeAllObjects];
+}
+
+
+- (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
+	NSLog(@"Vocabulary. Error Parsing at line: %li, column: %li", (long)parser.lineNumber, (long)parser.columnNumber);
+}
+
+// ******* Load Dictionary from XML ********* //
+// ****************************************** //
 
 // ************************************* //
 // ******* Download 506 sounds ********* //
+
++ (bool) isDownloadCompleted {
+    Language *lang = [UserContext getLanguageSelected];
+    if (!lang) return true;
+    NSLog(@"In disk: %i, in cloud: %i", [self countOfFilesInLocalPath], lang.qWords);
+    return [self countOfFilesInLocalPath] >= lang.qWords;
+}
+
++ (int) countOfFilesInLocalPath {
+    NSString *path = [Word downloadDestinationPath];
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSError *err;
+    return [[fm contentsOfDirectoryAtPath: path error: &err] count];
+}
+
 + (void)loadDataFromSql {
 
     singletonVocabulary.isDownloading = YES;
@@ -56,12 +148,18 @@ Vocabulary *singletonVocabulary;
 
 // Response to getLevelsForLang
 + (void) connectionFinishSuccesfully: (NSDictionary*) response {
-    
     singletonVocabulary.responseWithLevelsToDownload = [((NSArray*) response) mutableCopy];
-    //for (NSDictionary* value in response) {
-    //    [Level loadDataFromSql: [[value objectForKey: @"level_id"] intValue]];
-    //}
     [singletonVocabulary startDownload];
+}
+
++ (void) connectionFinishWidhError:(NSError *) error {
+    NSString *result = error.localizedDescription;
+    NSLog(@"%@", result);
+    
+    singletonVocabulary.isDownloading = NO;
+    if (singletonVocabulary.isDownloadView)
+        [singletonVocabulary.delegate downloadFinishWidhError: result];
+    
 }
 
 - (void) startDownload {
@@ -74,12 +172,8 @@ Vocabulary *singletonVocabulary;
 }
 
 - (void) downlloadOneLevel {
-    
     if ([responseWithLevelsToDownload count] > 0 && singletonVocabulary.isDownloading) {
         NSDictionary* value = [responseWithLevelsToDownload lastObject];
-        //NSLog(@"Download level: %i, order: %i"
-        //      , [[value objectForKey: @"level_id"] intValue]
-        //      , [[value objectForKey: @"level_order"] intValue]);
         [Level loadDataFromSql: [[value objectForKey: @"level_id"] intValue]];
         [responseWithLevelsToDownload removeLastObject];
     } else {
@@ -88,126 +182,18 @@ Vocabulary *singletonVocabulary;
     }
 }
 
-+ (void) connectionFinishWidhError:(NSError *) error {
-    NSString *result = error.localizedDescription;
-    NSLog(@"%@", result);
-    
-    singletonVocabulary.isDownloading = NO;
-    if (singletonVocabulary.isDownloadView)
-        [singletonVocabulary.delegate downloadFinishWidhError: result];
-
-}
-
-
-+ (bool) isDownloadCompleted {
-    Language *lang = [UserContext getLanguageSelected];
-    if (!lang) return true;
-    NSLog(@"In disk: %i, in cloud: %i", [self countOfFilesInLocalPath], lang.qWords);
-    return [self countOfFilesInLocalPath] >= lang.qWords;
-}
-    
-+ (int) countOfFilesInLocalPath {
-    NSString *path = [Word downloadDestinationPath];
-    NSFileManager *fm = [NSFileManager defaultManager];
-    NSError *err;
-    return [[fm contentsOfDirectoryAtPath: path error: &err] count];
-}
-
 // ******* Download 506 sounds ********* //
 // ************************************* //
 
-
-// ****************************************** //
-// ******* Load Dictionary from XML ********* //
-
-+(void)loadDataFromXML {
-	
-	if ([allWords count] == 0) {
-		NSString* path = [[NSBundle mainBundle] pathForResource: @"Dictionary" ofType: @"xml"];
-		NSData* data = [NSData dataWithContentsOfFile: path];
-		NSXMLParser* parser = [[NSXMLParser alloc] initWithData: data];
-	
-		allWords = [[NSMutableArray alloc] init];	
-		oneLevel = [[NSMutableArray alloc] init];	
-		levelIndex = 0;
-	
-		[parser setDelegate: self];
-		[parser parse];
-	}	
-}
-
-+ (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict{
-	
-	@try {
-		if ([elementName isEqualToString: @"level"]) {
-
-            if (levelIndex!=0) {
-                //Level* lastLevel = [UserContext getLevelAt: levelIndex-1];
-                Level* lastLevel = [[UserContext getSingleton].allLevels objectAtIndex: levelIndex-1];
-                lastLevel.size = [oneLevel count];
-				[allWords addObject: [oneLevel copy]];
-				[oneLevel removeAllObjects];
-			}
-
-			Level *newLevel;
-			newLevel = [Level alloc];
-			newLevel.levelName = [attributeDict objectForKey: @"name"];
-			newLevel.name = [attributeDict objectForKey: @"name"];
-            newLevel.fileName = [attributeDict objectForKey: @"image"];
-            newLevel.ipodPlaceInMap = CGPointMake([[attributeDict objectForKey: @"ipodx"] intValue], [[attributeDict objectForKey: @"ipody"] intValue]);
-            newLevel.ipadPlaceInMap = CGPointMake([[attributeDict objectForKey: @"ipadx"] intValue], [[attributeDict objectForKey: @"ipady"] intValue]);
-            newLevel.order = [[attributeDict objectForKey: @"levelOrder"] intValue];
-            newLevel.levelNumber = levelIndex;
-            
-			levelIndex++;
-            
-			[UserContext addLevel: newLevel];
-		}
-		
-		if ([elementName isEqualToString: @"word"]) {
-			Word *newWord = [Word alloc];
-			newWord.name = [attributeDict objectForKey: @"name"];
-			newWord.fileName = [attributeDict objectForKey: @"fileName"];
-            newWord.order = [[attributeDict objectForKey: @"wordOrder"] intValue];
-			newWord.theme = levelIndex;
-            //NSLog(@"Word: %@, translations: %i", newWord.name, [newWord.allTranslatedNames count]);
-            //if ([newWord.allTranslatedNames count] < [attributeDict count] - 4) // First 4 attr are not translations
-            if (levelIndex == 1) // Hardcoded first level, the translations are loaded from XML
-                [newWord setAllTranslatedNames: [attributeDict mutableCopy]];
-            
-            //newWord.localizationName = [self getNativeNameFromLocalization: attributeDict];
-			[oneLevel addObject: newWord];
-		}
-	}
-	@catch (NSException * e) {
-		NSLog(@"Error Loading Dictionary");
-	}
-	@finally {
-	}
-}
-
-+ (void)parserDidEndDocument:(NSXMLParser *)parser {
-	[allWords addObject: [oneLevel copy]]; 
-	[oneLevel removeAllObjects];
-}
-
-
-+ (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
-	NSLog(@"Vocabulary. Error Parsing at line: %li, column: %li", (long)parser.lineNumber, (long)parser.columnNumber);	
-}
-
-// ******* Load Dictionary from XML ********* //
-// ****************************************** //
-
-+ (int) countOfWordsInOneLevel {
+/*- (int) countOfWordsInOneLevel {
     return [oneLevel count];
-}
+}*/
 
-+ (int) countOfLevels {
+- (int) countOfLevels {
     return levelIndex;
 }
 
-+ (Word*) getWord: (NSString*) name inLevel: (int) level {
+- (Word*) getWord: (NSString*) name inLevel: (int) level {
     Word *w;
     for (w in [allWords objectAtIndex: level - 1]) {
         if ([w.name isEqualToString: name]) return w;
@@ -215,7 +201,7 @@ Vocabulary *singletonVocabulary;
 	return nil;
 }
 
-+ (void)initializeLevelUntil: (int) level {
+/*+ (void)initializeLevelUntil: (int) level {
 	Word *w;
 	[oneLevel removeAllObjects];
 	for (int i=0; i<=level; i++) {
@@ -223,9 +209,9 @@ Vocabulary *singletonVocabulary;
 			[oneLevel addObject: w ];
 		}
 	}
-}
+}*/
 
-+ (void)initializeLevelAt: (int) level {
+- (void)initializeLevelAt: (int) level {
 	Word *w;
 	[oneLevel removeAllObjects];
 	for (w in [allWords objectAtIndex: level]) {
@@ -247,7 +233,7 @@ Vocabulary *singletonVocabulary;
 }*/
 
 
-+ (Word*) getOrderedWord {
+- (Word*) getOrderedWord {
 	if ([oneLevel count]>0) {
 		Word *w = [oneLevel objectAtIndex: 0];
 		[oneLevel removeObjectAtIndex: 0];
@@ -259,7 +245,7 @@ Vocabulary *singletonVocabulary;
 	return nil;
 }
 
-+ (Word*) getRandomWeightedWord {
+/*+ (Word*) getRandomWeightedWord {
 	if ([oneLevel count]>0) {
 		int i = arc4random() % [self getSumOfAllWeights];
 		i = [self getSelectedWordFrom: i];
@@ -275,18 +261,18 @@ Vocabulary *singletonVocabulary;
 	}
 
 	return nil;
-}
+}*/
 
-+ (int) getSumOfAllWeights {
+/*+ (int) getSumOfAllWeights {
 	Word *w;
 	int total=0;
 	for (w in oneLevel) {
 		total += w.weight;
 	}
 	return total;
-}
+}*/
 
-+ (int) getSelectedWordFrom: (int) rWeighted {
+/*+ (int) getSelectedWordFrom: (int) rWeighted {
 	int accumulatedWeight=0, i=0;
 	Word *w;	
 	for (w in oneLevel) {
@@ -295,9 +281,9 @@ Vocabulary *singletonVocabulary;
 		i++;
 	}
 	return 0;
-}
+}*/
 
-+ (void) reloadAllWeigths {
+/*+ (void) reloadAllWeigths {
     // Loadweight depends on UserSelected.
     // When the user is changed, the weight has to be reloaded.
 	Word *w;
@@ -322,18 +308,18 @@ Vocabulary *singletonVocabulary;
 	}
 	@finally {
 	}
-}
+}*/
 
-+ (void) testAllSounds {
+/*+ (void) testAllSounds {
 	Word *w;
 	for (int i=0; i< [Vocabulary countOfLevels]; i++) {
 		for (w in [allWords objectAtIndex:i]) {
 			[w.sound play];
 		}
 	}
-}
+}*/
 
-+ (int) getLevelLessLearned {
+/*+ (int) getLevelLessLearned {
 	double progress;
     double lessProgress = 10000; // progress is between 0 to 1. Init with 1 should be fine.
     int levelSelected;
@@ -345,9 +331,9 @@ Vocabulary *singletonVocabulary;
         }
 	}
 	return levelSelected;
-}
+}*/
 
-+ (double) wasLearnedLast5Levels {
+/*+ (double) wasLearnedLast5Levels {
     int levelFrom = 0;
     if ([UserContext getLevelNumber] > 5) levelFrom = [UserContext getLevelNumber] - 5;
     // include las5 5 levels
@@ -374,9 +360,9 @@ Vocabulary *singletonVocabulary;
 	if (total == 0) return NO;
 	//NSLog(@"Words Learned: %@ Total: %@", [NSString stringWithFormat:@"%i", r], [NSString stringWithFormat:@"%i",total]);
 	return ((double) r / (double) total);
-}
+}*/
 
-+ (double) progressLevel: (int) aLevel  {
+- (double) progressLevel: (int) aLevel  {
 	int r = 0, total = 0;
 	Word *w;
 	

@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 #import <MediaPlayer/MediaPlayer.h>
-#import "GenericTrain.h"
 #import "AudioPlayerProxy.h"
 
 #define supportedLanguages @"" // Add in this string all language avilable in sentences. English (en) must not be included.
@@ -24,7 +23,7 @@ extern bool isPlaying;
 extern AVAudioPlayer *currentAudio;
 
 @interface Sentence : NSObject <NSXMLParserDelegate, AVAudioSessionDelegate, AVAudioPlayerDelegate> {
-	NSMutableArray *names;
+	NSMutableArray *names; // all alternatives; similar sentences
 	NSString *next;
 	NSString *method;
 	NSString *type;
@@ -46,8 +45,8 @@ extern AVAudioPlayer *currentAudio;
 
 + (void)loadDataFromXML;
 + (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict;
+
 + (Sentence*) getSentenceOfMethod: (NSString*) aMethod;
-+ (void) testAllSentences;
 + (AVAudioPlayer*) getAudioPlayer: (NSString*) fileName;
 + (bool) playSpeaker: (NSString*) name;
 + (bool) playSpeaker: (NSString*) name delegate: (id) del selector: (SEL) aSelector;

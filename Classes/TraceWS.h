@@ -11,6 +11,7 @@
 
 @interface TraceWS : NSObject <NSURLConnectionDelegate>
 
-+(void) register: (NSString*) key valueStr: (NSString*) valueStr valueNum: (NSNumber*) valueNum; 
++ (NSString*) getUUID;
++ (void) register: (NSString*) key valueStr: (NSString*) valueStr valueNum: (NSNumber*) valueNum; 
    
 @end

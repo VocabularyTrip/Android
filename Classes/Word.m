@@ -19,7 +19,7 @@
 @synthesize localizationName;
 @synthesize sound;
 @synthesize weightImage;
-@synthesize weightWord;
+//@synthesize weightWord;
 @synthesize theme;
 @synthesize order;
 
@@ -62,11 +62,8 @@
     if (![fm fileExistsAtPath: destPath isDirectory: &isDir]) {
     
         // Start Download
-        //NSLog(@"Request download full path: %@", fullUrl);
         NSURL *url = [NSURL URLWithString: fullUrl];
-        //NSLog(@"URL: %@, DestPath: %@", url, destPath);
         AFHTTPRequestOperation* operation = [AFProxy prepareDownload: url destination: destPath delegate:self];
-
         [operation start];
     } else {
         singletonVocabulary.qWordsLoaded++;
@@ -81,6 +78,7 @@
     if (singletonVocabulary.isDownloading && singletonVocabulary.isDownloadView)
         [singletonVocabulary.delegate addProgress: progress];
     
+    NSLog(@"Progress: %f", progress);
     if (progress >= 1) singletonVocabulary.isDownloading = NO;
 }
 
@@ -129,11 +127,6 @@
 	return sound;
 }
 
-- (void) purge {
-	image = nil;
-	sound = nil;
-}
-
 - (bool) playSoundWithDelegate: (id) delegate {
 	self.sound.delegate = delegate;
 	[sound play];
@@ -147,108 +140,21 @@
 - (void) audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
 	if (sound != nil) {
 		sound.delegate = nil;
-		[self purge];
 	}
-}
-
--(void) incWeight {
-    if ([GameSequenceManager getCurrentGameSequence].readAbility) {
-        if (weightWord < cMaxWeight) weightWord += cStepWeight;
-        [self saveWeightWord];
-    } else {
-        if (weightImage < cMaxWeight) weightImage += cStepWeight;
-        [self saveWeightImage];
-	}
-
-}
-
--(void) decWeight {
-    if ([GameSequenceManager getCurrentGameSequence].readAbility) {
-        if (weightWord > 1) weightWord -= cStepWeight;
-        [self saveWeightWord];
-    } else {
-        if (weightImage > 1) weightImage-= cStepWeight;
-        [self saveWeightImage];
-    }
 }
 
 -(int) weight {
-    if ([GameSequenceManager getCurrentGameSequence].readAbility)
-        return self.weightWord;
-    else
+    //if ([GameSequenceManager getCurrentGameSequence].readAbility)
+    //    return self.weightWord;
+    //else
         return self.weightImage;
-}
-
--(NSString*) weightImageKeyUserLang {
-    User *u = [UserContext getUserSelected];
-    Language *l = [u langSelected];
-    return [NSString stringWithFormat: @"image%@-%i-%i", name, u.userId, l.key];
-}
-
--(NSString*) weightWordKeyUserLang {
-    User *u = [UserContext getUserSelected];
-    Language *l = [u langSelected];
-    return [NSString stringWithFormat: @"word%@-%i-%i", name, u.userId, l.key];
-}
-
--(void) saveWeightWord {
-    NSString *key = [self weightWordKeyUserLang];
-    [[NSUserDefaults standardUserDefaults] setInteger: weightWord forKey: key];
-}
-
--(void) saveWeightImage {
-    NSString *key = [self weightImageKeyUserLang];
-    [[NSUserDefaults standardUserDefaults] setInteger: weightImage forKey: key];
-}
-
--(void) loadWeight {
-    [self loadWeightWord];
-    [self loadWeightImage];
-}
-
--(int) loadWeightImage {
-    NSString *key = [self weightImageKeyUserLang];
-    weightImage = [[NSUserDefaults standardUserDefaults] integerForKey: key];
-	if (weightImage == 0) {
-		weightImage = cInitialWeight;
-		[self saveWeightImage];
-	}
-	return weightImage;
-}
-
--(int) loadWeightWord {
-    NSString *key = [self weightWordKeyUserLang];
-    weightWord = [[NSUserDefaults standardUserDefaults] integerForKey: key];
-	if (weightWord == 0) {
-		weightWord = cInitialWeight;
-		[self saveWeightWord];
-	}
-	return weightWord;
-}
-
--(void) resetWeight { 
-	weightImage = cInitialWeight;
-	[self saveWeightImage];
-	weightWord = cInitialWeight;
-	[self saveWeightWord];
 }
 
 -(int) weightImage {
 	if (weightImage == 0) {
-        weightImage = [self loadWeightImage];
+        weightImage = 0; // Poner un Random [self loadWeightImage];
 	}
 	return weightImage;
-}
-
--(int) weightWord {
-	if (weightWord == 0) {
-        weightWord = [self loadWeightWord];
-	}
-	return weightWord;
-}
-
-- (NSString*) keyDictionary {
-    return [NSString stringWithFormat: @"%@%@", cKeyDictionary, name];
 }
 
 - (void) addTranslation: (NSString*) translation forKey: (NSString*) key {
@@ -261,8 +167,7 @@
   
     NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     return [NSString stringWithFormat: @"%@/%@", [path objectAtIndex: 0], name];
-//    return [[NSString alloc] initWithFormat:@"%@/%@/%@",
-//            [[NSBundle mainBundle] resourcePath], @"Dict", name];
+
 }
 
 - (NSMutableDictionary*) allTranslatedNames {
@@ -325,10 +230,5 @@
     
     return @"English";
 }
-
--(void) dealloc {
-	[self purge];
-}
-
 
 @end

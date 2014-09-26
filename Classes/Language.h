@@ -7,13 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AFHTTPRequestOperation.h"
-#import "SBJSON.h"
 
 #define cDictionrySize 506
-#define cArrayLanguages @"arrayOfLanguages"
 #define cInitFirstLanguages @"1|English-2|Spanish-3|Chinese-4|Farsi-5|French-6|German-7|Italian-8|Korean-9|Malay-10|Vietnamese-11|Arabic-12|Egyptian"
-
 
 extern NSMutableArray *allLanguages;
 
@@ -33,21 +29,10 @@ extern NSMutableArray *allLanguages;
 @property (nonatomic, strong) UIImage *image;
 @property (nonatomic, assign) int langOrder;
 
++ (NSMutableArray*) getAllLanguages;
++ (void) initLanguages;
 + (Language*) getLanguageAt: (int) key;
 + (Language*) getLanguageforLocalization: (NSString*) loc;
 + (Language*) getLanguageforKey: (int) key;
-+ (NSMutableArray*) getAllLanguages;
 
-+ (void) loadLanguagesLocaly;
-//+ (void) saveLanguagesLocaly;
-//+ (void) initLanguagesLocaly;
-
-//+ (BOOL) download: (NSString*) langArchive setAnewLanguage: (bool) setANewLang;
-//+ (NSString*) downloadDestinationPath;
-//+ (NSString*) checkIfDestinationPathExist;
-//+ (void) copyImageToDestinationPath: (NSString *) langName ext: (NSString*) ext;
-
-
-
-    
 @end

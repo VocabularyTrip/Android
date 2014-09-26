@@ -185,7 +185,6 @@ AVAudioPlayer *currentAudio = nil;
     return [self getAudioPlayerAtURL: file_url];
 }
 
-
 // This method is used to load words depending on language selected
 // The path used is relative
 + (AVAudioPlayer*) getAudioPlayerRelPath: (NSString*) fileName {
@@ -227,20 +226,5 @@ AVAudioPlayer *currentAudio = nil;
 	}	
 	return nil;
 }
-
-+ (void) testAllSentences {
-   	AudioPlayerProxy* avProxy;
-	Sentence *aSentence;
-	for (int i=0; i<[allSentences count]; i++) {
-        aSentence = [allSentences objectAtIndex: i];
-        for (int j=0; j < [aSentence.names count]; j++) {
-            avProxy = [aSentence.names objectAtIndex: j];
-            //avProxy.sound.delegate = self;
-            if (avProxy.sound) [avProxy.sound play];
-        }
-	}	
-	//return nil;
-}
-
 
 @end

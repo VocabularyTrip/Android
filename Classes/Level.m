@@ -43,7 +43,7 @@
 
     for (NSDictionary* value in response) {
         if (singletonVocabulary.wasErrorAtDownload == 0) {
-            Word *aWord = [Vocabulary getWord: [value objectForKey: @"word_name"] inLevel: [[value objectForKey: @"level_order"] intValue]];
+            Word *aWord = [singletonVocabulary getWord: [value objectForKey: @"word_name"] inLevel: [[value objectForKey: @"level_order"] intValue]];
             
             Language *lang = [UserContext getLanguageSelected]; // Para el Log
             if (!singletonVocabulary.isDownloading) {

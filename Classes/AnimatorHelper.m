@@ -51,7 +51,6 @@ SEL selectorAnimator = nil;
     User *user = [UserContext getUserSelected];
     
     avatarView.animationImages = @[
-                                   //[UIImage imageNamed: @"avatar2-0-01.png"],
                                    [UIImage imageNamed: [NSString stringWithFormat: @"newAvatar%i%@", user.userId, @"-03-01.png"]],
                                    [UIImage imageNamed: [NSString stringWithFormat: @"newAvatar%i%@", user.userId, @"-04-01.png"]],
                                    [UIImage imageNamed: [NSString stringWithFormat: @"newAvatar%i%@", user.userId, @"-05-01.png"]],
@@ -76,7 +75,6 @@ SEL selectorAnimator = nil;
     User *user = [UserContext getUserSelected];
     
     avatarView.animationImages = @[
-                                   //[UIImage imageNamed: @"avatar2-0-01.png"],
                                    [UIImage imageNamed: [NSString stringWithFormat: @"newAvatar%i%@", user.userId, @"-11-01.png"]],
                                    [UIImage imageNamed: [NSString stringWithFormat: @"newAvatar%i%@", user.userId, @"-12-01.png"]],
                                    [UIImage imageNamed: [NSString stringWithFormat: @"newAvatar%i%@", user.userId, @"-13-01.png"]],
@@ -99,7 +97,6 @@ SEL selectorAnimator = nil;
     User *user = [UserContext getUserSelected];
     
     avatarView.animationImages = @[
-                                   //[UIImage imageNamed: @"avatar2-0-01.png"],
                                    [UIImage imageNamed: [NSString stringWithFormat: @"newAvatar%i%@", user.userId, @"-15-01.png"]],
                                    [UIImage imageNamed: [NSString stringWithFormat: @"newAvatar%i%@", user.userId, @"-16-01.png"]],
                                    [UIImage imageNamed: [NSString stringWithFormat: @"newAvatar%i%@", user.userId, @"-17-01.png"]],
@@ -133,7 +130,6 @@ SEL selectorAnimator = nil;
     User *user = [UserContext getUserSelected];
     
     avatarView.animationImages = @[
-                                   //[UIImage imageNamed: @"avatar2-0-01.png"],
                                    [UIImage imageNamed: [NSString stringWithFormat: @"newAvatar%i%@", user.userId, @"-04-01.png"]],
                                    [UIImage imageNamed: [NSString stringWithFormat: @"newAvatar%i%@", user.userId, @"-05-01.png"]],
                                    [UIImage imageNamed: [NSString stringWithFormat: @"newAvatar%i%@", user.userId, @"-06-01.png"]],
@@ -153,29 +149,8 @@ SEL selectorAnimator = nil;
     
 }
 
-+ (void) shakeView: (UIView*) itemView delegate: (id) delegate {
-        //AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
-    
-    CGFloat t = 3.0;
-    
-    CGAffineTransform leftQuake  = CGAffineTransformTranslate(CGAffineTransformIdentity, t, -t);
-    CGAffineTransform rightQuake = CGAffineTransformTranslate(CGAffineTransformIdentity, -t, t);
-    
-    itemView.transform = leftQuake;  // starting point
-    
-    [UIView beginAnimations:@"shake" context: (__bridge void *)(itemView)];
-    [UIView setAnimationRepeatAutoreverses:YES];
-    [UIView setAnimationRepeatCount:3];
-    [UIView setAnimationDuration:0.06];
-    [UIView setAnimationDelegate: delegate];
-    [UIView setAnimationDidStopSelector:@selector(shakeViewEnded:finished:context:)];
-    
-    itemView.transform = rightQuake; // end here & auto-reverse
-    
-    [UIView commitAnimations];
-}
 
-+ (void) clickingView: (UIView*) itemView delegate: (id) delegate {
+/*+ (void) clickingView: (UIView*) itemView delegate: (id) delegate {
     [self clickingView: itemView delegate: delegate selector: nil];
 }
 
@@ -221,22 +196,9 @@ SEL selectorAnimator = nil;
 	[UIImageView commitAnimations];
     
     selectorAnimator = nil;
-}
+}*/
 
-+ (void)shakeView:(UIView*)itemView {
-    [self shakeView: itemView delegate: self];
-}
-
-+ (void)shakeViewEnded:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context
-{
-    if ([finished boolValue])
-    {
-        UIView* item = (__bridge UIView *)context;
-        item.transform = CGAffineTransformIdentity;
-    }
-}
-
-+ (void) scale: (UIView*) itemView from: (CGPoint) p1 to: (CGPoint) p2 {
+/*+ (void) scale: (UIView*) itemView from: (CGPoint) p1 to: (CGPoint) p2 {
         //AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
     
         //CGAffineTransform st1  = CGAffineTransformTranslate(CGAffineTransformIdentity, 0, -100);
@@ -249,14 +211,14 @@ SEL selectorAnimator = nil;
     [UIView beginAnimations: @"scale" context: (__bridge void *)(itemView)];
     [UIView setAnimationDuration: 3];
         //[UIView setAnimationDidStopSelector:@selector(shakeViewEnded:finished:context:)];
-    [UIView setAnimationDelegate: self];
+    [UIView setAnimationDelegate: self];	
     
     itemView.transform = CGAffineTransformMakeScale(p2.x, p2.y);
     
     [UIView commitAnimations];
-}
+}*/
 
-+ (void) rotateView: (UIView*) itemView {
+/*+ (void) rotateView: (UIView*) itemView {
     
     [UIView beginAnimations:@"rotate" context: (__bridge void *)(itemView)];
     [UIView setAnimationDuration: 1];
@@ -264,6 +226,6 @@ SEL selectorAnimator = nil;
     CATransform3DScale(CATransform3DMakeRotation(M_PI, 0, 0, 1), -1, 1, 1);
     
     [UIView commitAnimations];
-}
+}*/
 
 @end

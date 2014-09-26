@@ -14,15 +14,8 @@
 @synthesize window;
 @synthesize navController;
 
-@synthesize trainingTrain;
-@synthesize testTrain;
 @synthesize levelView;
-@synthesize changeLangView;
-@synthesize changeUserView;
-@synthesize lockLanguageView;
 @synthesize mapView;
-@synthesize purchaseView;
-@synthesize albumView;
 
 @synthesize startPlaying;
 @synthesize internetReachable;
@@ -35,17 +28,14 @@
     
     // ***************************
     // ****** Init Objects *******
-    [User initAllUsers];
+    [[UserContext getSingleton] initAllUsers];
     [[UserContext getSingleton] userSelected]; // force load the user selected
     if (!singletonVocabulary) singletonVocabulary = [Vocabulary alloc];
     [self initUsersDefaultsOnFirstExecutionOrVersionChange];
     //[self checkAndStartDownload]; Agregar ??????
     //[FacebookManager initFacebookSession];
-    [[PurchaseManager getSingleton] initializeObserver];
-    [LandscapeManager loadDataFromXML];
-    [Vocabulary loadDataFromXML];
+    [singletonVocabulary loadDataFromXML];
     [Sentence loadDataFromXML];
-    [GameSequenceManager loadDataFromXML];
     // ****** Init Objects *******
     // ***************************
     
@@ -75,12 +65,6 @@
 // To control facebook page opening
 // No behaviour yet
 - (BOOL) application: (UIApplication*) application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    
-    [FBAppCall handleOpenURL: url sourceApplication: sourceApplication fallbackHandler:^(FBAppCall *call) {
-        if (call.appLinkData && call.appLinkData.targetURL) {
-            [[NSNotificationCenter defaultCenter] postNotificationName: APP_HANDLED_URL object: call.appLinkData.targetURL];
-        }
-    }];
     return YES;
 }
 
@@ -133,16 +117,6 @@
     return false;
 }
 
-- (void) saveTimePlayedInDB {
-    int i = [[NSUserDefaults standardUserDefaults] integerForKey: cLastTimePlayed];
-    if (i!=0) {
-        //Language *lang = [UserContext getLanguageSelected];
-        [TraceWS register: @"applicationWillTerminate" valueStr: [UserContext printUserContext] valueNum: [NSNumber numberWithInt: i]];
-    }
-	self.startPlaying = [NSDate date];
-}
-
-
 - (void) initUsersDefaultsOnFirstExecutionOrVersionChange {
     // Get current version ("Bundle Version") from the default Info.plist file
     NSString *currentVersion = (NSString*)[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
@@ -154,8 +128,7 @@
         // First installation did't have this control. So the prevStartupVersion could be nil and not be the first time.
         [TraceWS register: @"First Execution" valueStr: currentVersion valueNum: [NSNumber numberWithInt: 0]];
         
-        if (![UserContext existUserData])
-            [[UserContext getSingleton] initGame];
+        [[UserContext getSingleton] initGame];
         [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObject:currentVersion] forKey:@"prevStartupVersions"];
     }
     else {
@@ -188,66 +161,6 @@
 	return mapView;
 }
 
--(PurchaseView*) purchaseView {
-	if (purchaseView == nil) {	
-		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-			purchaseView = [[PurchaseView alloc] initWithNibName:@"PurchaseView~ipad" bundle:nil];
-		else
-			purchaseView = [[PurchaseView alloc] initWithNibName:@"PurchaseView" bundle:nil];
-	}
-	return purchaseView;
-}
-
--(ChangeLangView*) changeLangView {
-	if (changeLangView == nil) {	
-		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-			changeLangView = [[ChangeLangView alloc] initWithNibName:@"ChangeLangView~ipad" bundle:nil];
-		else
-			changeLangView = [[ChangeLangView alloc] initWithNibName:@"ChangeLangView" bundle:nil];
-	}
-	return changeLangView;
-}
-
--(ChangeUserView*) changeUserView {
-	if (changeUserView == nil) {	
-		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-			changeUserView = [[ChangeUserView alloc] initWithNibName:@"ChangeUserView~ipad" bundle:nil];
-		else
-			changeUserView = [[ChangeUserView alloc] initWithNibName:@"ChangeUserView" bundle:nil];
-	}
-	return changeUserView;
-}
-
--(LockLanguageView*) lockLanguageView {
-	if (lockLanguageView == nil) {	
-		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-			lockLanguageView = [[LockLanguageView alloc] initWithNibName:@"LockLanguageView~ipad" bundle:nil];
-		else
-			lockLanguageView = [[LockLanguageView alloc] initWithNibName:@"LockLanguageView" bundle:nil];
-	}
-	return lockLanguageView;
-}
-
--(AlbumView*) albumView {
-	if ( albumView == nil) {
-		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-			albumView = [[AlbumView alloc] initWithNibName:@"AlbumView~ipad" bundle:nil];
-		else
-			albumView = [[AlbumView alloc] initWithNibName:@"AlbumView" bundle:nil];
-		[albumView initialize];
-	}
-	return albumView;
-}
-
--(TestTrain*) testTrain {
-	if (testTrain == nil) {
-		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-			testTrain = [[TestTrain alloc] initWithNibName:@"GenericTrain~ipad" bundle:nil];
-		else
-			testTrain = [[TestTrain alloc] initWithNibName:@"GenericTrain" bundle:nil];
-	}
-	return testTrain;
-}
 
 -(LevelView*) levelView {
     if (levelView == nil) {
@@ -259,165 +172,30 @@
     return levelView;
 }
  
--(TrainingTrain*) trainingTrain {
-	if (trainingTrain == nil) {
-		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)		
-			trainingTrain = [[TrainingTrain alloc] initWithNibName:@"GenericTrain~ipad" bundle: nil];
-		else
-			trainingTrain = [[TrainingTrain alloc] initWithNibName:@"GenericTrain" bundle: nil];
-		}
-	return trainingTrain;
-}
-
-- (void) pushChangeLangView {
-	[navController pushViewController: self.changeLangView animated: YES];
-}
-
-- (void) pushChangeUserView {
-	[navController pushViewController: self.changeUserView animated: YES];
-}
-
-- (void) pushLockLanguageView {
-	[navController pushViewController: self.lockLanguageView animated: YES];
-}
-
-- (void) pushAlbumView {
-	[navController pushViewController: self.albumView animated: YES];
-}
-
-- (void) pushMapViewWithHelpDownload {
-    self.mapView.startWithHelpDownload = 1;
-  	[navController popViewControllerAnimated: NO];
-	//[navController pushViewController: self.mapView animated: YES];
-}
-
-
-- (void) pushPurchaseView {
-	[navController pushViewController: self.purchaseView animated: YES];
-}
-
-- (void) pushTestTrain {
-	[navController pushViewController: self.testTrain animated: NO];
-}
 
 - (void) pushLevelView {
  [navController pushViewController: self.levelView animated: YES];
 }
 
-- (void) pushTrainingTrain {
-	[navController pushViewController: self.trainingTrain animated: NO];
-}
-
-- (void) popMainMenu {
+- (void) popMapView {
     [navController popToRootViewControllerAnimated: NO];
 }
 
-- (void) popMainMenuFromChangeLang {
-  	[navController popViewControllerAnimated: NO];
-	[self popMainMenu]; // Pop Select User
-	changeLangView = nil;
-}
-
-- (void) popFromLockLanguageView {
-  	[navController popViewControllerAnimated: NO];
-	lockLanguageView = nil;
-}
-
-- (void) popMainMenuFromLevel {
-	[self popMainMenu];
-	mapView = nil;
-}
-
-- (void) popMainMenuFromPurchase {
-	[self popMainMenu];
-	purchaseView = nil;
-}
-
-- (void) popMainMenuFromAlbum {
-	[self popMainMenu];
-	albumView = nil;
-}
-
-- (void) popMainMenuFromTestTrain {
-	[self popMainMenu];
-	Sentence.delegate = nil;
-	testTrain = nil;
-}
-
-- (void) popMainMenuFromTrainingTrain {
-	[self popMainMenu];
-	Sentence.delegate = nil;	
-	trainingTrain = nil;
-}
-
-- (void)applicationWillResignActive:(UIApplication *)application {
-}
-
-- (void) alertView: (UIAlertView*) alertView clickedButtonAtIndex: (NSInteger) buttonIndex {
-    if ([alertView.title isEqualToString: cAskToReviewTitle]) {
-        [self alertAskToReview: alertView clickedButtonAtIndex: buttonIndex];
-    } /*else {
-        [self alertBuyNewLevel: alertView clickedButtonAtIndex: buttonIndex];
-    }*/
-}
-
-- (void) alertAskToReview: (UIAlertView*) alertView clickedButtonAtIndex: (NSInteger) buttonIndex {
-    switch (buttonIndex) {
-        case 0: // Don't ask again
-            [[NSUserDefaults standardUserDefaults] setBool: YES forKey: cNoAskMeAgain];
-            break;
-        case 1: { // Rate It
-            int appId = [self getAppId];
-            //NSString *url = [NSString stringWithFormat: @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%i", appId];
-            
-            NSString *url;
-            if ([UserContext osVersion] >= 7)
-                url = [NSString stringWithFormat: @"itms-apps://itunes.apple.com/app/id%i", appId];
-            else
-                url = [NSString stringWithFormat: @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%i", appId];
-
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString: url]];
-            [[NSUserDefaults standardUserDefaults] setBool: YES forKey: cNoAskMeAgain];
-            break;
-        }  default: // Remind me later
-            break;
-    }
-}
-
-/*- (void) alertBuyNewLevel: (UIAlertView*) alertView clickedButtonAtIndex: (NSInteger) buttonIndex {
-    // Alert To buy new level. From TestTrain 
-    VocabularyTrip2AppDelegate *vcDelegate;
-    vcDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
-    
-    switch (buttonIndex) {
-            //case 0:
-            //	break;
-        default:
-            // If the user confirme the purchase, the user has to be redirected to the LevelView to see the help
-            //[vcDelegate.mainMenu stopBackgroundSound];
-          	[navController pushViewController: self.mapView animated: NO];
-            [vcDelegate pushPurchaseView];
-            break;
-    }	
-}*/
-
-- (int) getAppId {
-    NSString *appId = [[NSBundle mainBundle] objectForInfoDictionaryKey: @"Application Id"];
-    return [appId intValue];
-}
-                     
-- (void) responseToBuyAction {
+/*- (void) responseToBuyAction {
 	
-	if ([UserContext nextLevel])
-		[Sentence playSpeaker: @"AppDelegate-ResponseToBuyAction-NextLevel"];
-	
-	// If the actual view is LevelView, send responseToBuyAction to refresh level information
-	if ([[navController topViewController] isKindOfClass: [PurchaseView class]])
-		[(PurchaseView*) [navController topViewController] responseToBuyAction];
 }
 
 - (void) responseToCancelAction {
-}    
+}    */
+
+- (void) saveTimePlayedInDB {
+    int i = [[NSUserDefaults standardUserDefaults] integerForKey: cLastTimePlayed];
+    if (i!=0) {
+        //Language *lang = [UserContext getLanguageSelected];
+        [TraceWS register: @"applicationWillTerminate" valueStr: [UserContext printUserContext] valueNum: [NSNumber numberWithInt: i]];
+    }
+	self.startPlaying = [NSDate date];
+}
 
 - (void) saveTimePlayedInUsersDefaults {
     NSTimeInterval timePlayed = [self.startPlaying timeIntervalSinceNow];
@@ -440,6 +218,14 @@
 - (void) applicationDidBecomeActive:(UIApplication *)application {
     [self checkIfaskToRate];
     [self saveTimePlayedInDB];
+}
+
+
+// Ask to review App
+
+- (int) getAppId {
+    NSString *appId = [[NSBundle mainBundle] objectForInfoDictionaryKey: @"Application Id"];
+    return [appId intValue];
 }
 
 - (void) checkIfaskToRate {
@@ -472,6 +258,29 @@
         cancelButtonTitle: @"Don't ask again"
                           otherButtonTitles: @"Yes, Rate It!", @"Ramind me later", nil];
     [alert show];
+}
+
+- (void) alertView: (UIAlertView*) alertView clickedButtonAtIndex: (NSInteger) buttonIndex {
+    switch (buttonIndex) {
+        case 0: // Don't ask again
+            [[NSUserDefaults standardUserDefaults] setBool: YES forKey: cNoAskMeAgain];
+            break;
+        case 1: { // Rate It
+            int appId = [self getAppId];
+            //NSString *url = [NSString stringWithFormat: @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%i", appId];
+            
+            NSString *url;
+            if ([UserContext osVersion] >= 7)
+                url = [NSString stringWithFormat: @"itms-apps://itunes.apple.com/app/id%i", appId];
+            else
+                url = [NSString stringWithFormat: @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%i", appId];
+            
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString: url]];
+            [[NSUserDefaults standardUserDefaults] setBool: YES forKey: cNoAskMeAgain];
+            break;
+        }  default: // Remind me later
+            break;
+    }
 }
 
 #pragma mark -
