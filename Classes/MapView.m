@@ -194,7 +194,9 @@
 }
 
 - (IBAction) selectUserAndLang:(id)sender {
-    //[self.configView changeUserShowInfo: nil];
+    
+	VocabularyTrip2AppDelegate *vocTripDelegate = (VocabularyTrip2AppDelegate*) [[UIApplication sharedApplication] delegate];
+	[vocTripDelegate pushChangeUserView];
 }
 
 - (IBAction) reset:(id)sender {

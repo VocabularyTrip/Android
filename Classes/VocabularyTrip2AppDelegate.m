@@ -15,6 +15,8 @@
 @synthesize navController;
 
 @synthesize levelView;
+@synthesize changeLangView;
+@synthesize changeUserView;
 @synthesize mapView;
 
 @synthesize startPlaying;
@@ -161,7 +163,6 @@
 	return mapView;
 }
 
-
 -(LevelView*) levelView {
     if (levelView == nil) {
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
@@ -171,10 +172,37 @@
     }
     return levelView;
 }
- 
+
+-(ChangeUserView*) changeUserView {
+    if (changeUserView == nil) {
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+            changeUserView = [[ChangeUserView alloc] initWithNibName:@"ChangeUserView~ipad" bundle:nil];
+        else
+            changeUserView = [[ChangeUserView alloc] initWithNibName:@"ChangeUserView" bundle:nil];
+    }
+    return changeUserView;
+}
+
+-(ChangeLangView*) changeLangView {
+    if (changeLangView == nil) {
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+            changeLangView = [[ChangeLangView alloc] initWithNibName:@"ChangeLangView~ipad" bundle:nil];
+        else
+            changeLangView = [[ChangeLangView alloc] initWithNibName:@"ChangeLangView" bundle:nil];
+    }
+    return changeLangView;
+}
 
 - (void) pushLevelView {
- [navController pushViewController: self.levelView animated: YES];
+    [navController pushViewController: self.levelView animated: YES];
+}
+
+- (void) pushChangeLangView {
+    [navController pushViewController: self.changeLangView animated: YES];
+}
+
+- (void) pushChangeUserView {
+    [navController pushViewController: self.changeUserView animated: YES];
 }
 
 - (void) popMapView {

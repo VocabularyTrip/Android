@@ -148,6 +148,17 @@
 		B04ABB101971D69E001B5D10 /* config.png in Resources */ = {isa = PBXBuildFile; fileRef = B04ABB0F1971D69E001B5D10 /* config.png */; };
 		B04ABB121971DA4E001B5D10 /* sticker.png in Resources */ = {isa = PBXBuildFile; fileRef = B04ABB111971DA4E001B5D10 /* sticker.png */; };
 		B080D20B179104D10021F113 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B080D20A179104D10021F113 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		B0858D9B19D516BB00C7F019 /* AFItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0858D9519D516BB00C7F019 /* AFItemView.m */; };
+		B0858D9C19D516BB00C7F019 /* AFOpenFlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0858D9819D516BB00C7F019 /* AFOpenFlowView.m */; };
+		B0858D9D19D516BB00C7F019 /* AFUIImageReflection.m in Sources */ = {isa = PBXBuildFile; fileRef = B0858D9A19D516BB00C7F019 /* AFUIImageReflection.m */; };
+		B0858DA719D516E800C7F019 /* ChangeLangView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0858DA019D516E800C7F019 /* ChangeLangView.m */; };
+		B0858DA819D516E800C7F019 /* ChangeLangView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0858DA119D516E800C7F019 /* ChangeLangView.xib */; };
+		B0858DA919D516E800C7F019 /* ChangeLangView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0858DA219D516E800C7F019 /* ChangeLangView~ipad.xib */; };
+		B0858DAA19D516E800C7F019 /* ChangeUserView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0858DA419D516E800C7F019 /* ChangeUserView.m */; };
+		B0858DAB19D516E800C7F019 /* ChangeUserView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0858DA519D516E800C7F019 /* ChangeUserView.xib */; };
+		B0858DAC19D516E800C7F019 /* ChangeUserView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0858DA619D516E800C7F019 /* ChangeUserView~ipad.xib */; };
+		B0858DAF19D5422500C7F019 /* en_Once you know these words you Advance.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B0858DAD19D5422500C7F019 /* en_Once you know these words you Advance.mp3 */; };
+		B0858DB019D5422500C7F019 /* en_To unlock this level you first.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B0858DAE19D5422500C7F019 /* en_To unlock this level you first.mp3 */; };
 		B086B395171F29FA00C714B9 /* btn_download_cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = B086B394171F29FA00C714B9 /* btn_download_cancel.png */; };
 		B0915DE916FB958D000F2C23 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B0915DD516FB958C000F2C23 /* AFHTTPClient.m */; };
 		B0915DEA16FB958D000F2C23 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = B0915DD716FB958C000F2C23 /* AFHTTPRequestOperation.m */; };
@@ -951,6 +962,23 @@
 		B04ABB111971DA4E001B5D10 /* sticker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sticker.png; sourceTree = "<group>"; };
 		B080D209179104D10021F113 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		B080D20A179104D10021F113 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		B0858D9419D516BB00C7F019 /* AFItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFItemView.h; sourceTree = "<group>"; };
+		B0858D9519D516BB00C7F019 /* AFItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFItemView.m; sourceTree = "<group>"; };
+		B0858D9619D516BB00C7F019 /* AFOpenFlowConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFOpenFlowConstants.h; sourceTree = "<group>"; };
+		B0858D9719D516BB00C7F019 /* AFOpenFlowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFOpenFlowView.h; sourceTree = "<group>"; };
+		B0858D9819D516BB00C7F019 /* AFOpenFlowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFOpenFlowView.m; sourceTree = "<group>"; };
+		B0858D9919D516BB00C7F019 /* AFUIImageReflection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFUIImageReflection.h; sourceTree = "<group>"; };
+		B0858D9A19D516BB00C7F019 /* AFUIImageReflection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFUIImageReflection.m; sourceTree = "<group>"; };
+		B0858D9F19D516E800C7F019 /* ChangeLangView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeLangView.h; sourceTree = "<group>"; };
+		B0858DA019D516E800C7F019 /* ChangeLangView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeLangView.m; sourceTree = "<group>"; };
+		B0858DA119D516E800C7F019 /* ChangeLangView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangeLangView.xib; sourceTree = "<group>"; };
+		B0858DA219D516E800C7F019 /* ChangeLangView~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "ChangeLangView~ipad.xib"; sourceTree = "<group>"; };
+		B0858DA319D516E800C7F019 /* ChangeUserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeUserView.h; sourceTree = "<group>"; };
+		B0858DA419D516E800C7F019 /* ChangeUserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeUserView.m; sourceTree = "<group>"; };
+		B0858DA519D516E800C7F019 /* ChangeUserView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangeUserView.xib; sourceTree = "<group>"; };
+		B0858DA619D516E800C7F019 /* ChangeUserView~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "ChangeUserView~ipad.xib"; sourceTree = "<group>"; };
+		B0858DAD19D5422500C7F019 /* en_Once you know these words you Advance.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "en_Once you know these words you Advance.mp3"; sourceTree = "<group>"; };
+		B0858DAE19D5422500C7F019 /* en_To unlock this level you first.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "en_To unlock this level you first.mp3"; sourceTree = "<group>"; };
 		B086B394171F29FA00C714B9 /* btn_download_cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_download_cancel.png; sourceTree = "<group>"; };
 		B0915DD416FB958C000F2C23 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		B0915DD516FB958C000F2C23 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
@@ -1748,6 +1776,35 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B0858D9319D516BB00C7F019 /* OpenFlow */ = {
+			isa = PBXGroup;
+			children = (
+				B0858D9419D516BB00C7F019 /* AFItemView.h */,
+				B0858D9519D516BB00C7F019 /* AFItemView.m */,
+				B0858D9619D516BB00C7F019 /* AFOpenFlowConstants.h */,
+				B0858D9719D516BB00C7F019 /* AFOpenFlowView.h */,
+				B0858D9819D516BB00C7F019 /* AFOpenFlowView.m */,
+				B0858D9919D516BB00C7F019 /* AFUIImageReflection.h */,
+				B0858D9A19D516BB00C7F019 /* AFUIImageReflection.m */,
+			);
+			path = OpenFlow;
+			sourceTree = "<group>";
+		};
+		B0858D9E19D516D100C7F019 /* Wizard User Lang */ = {
+			isa = PBXGroup;
+			children = (
+				B0858D9F19D516E800C7F019 /* ChangeLangView.h */,
+				B0858DA019D516E800C7F019 /* ChangeLangView.m */,
+				B0858DA119D516E800C7F019 /* ChangeLangView.xib */,
+				B0858DA219D516E800C7F019 /* ChangeLangView~ipad.xib */,
+				B0858DA319D516E800C7F019 /* ChangeUserView.h */,
+				B0858DA419D516E800C7F019 /* ChangeUserView.m */,
+				B0858DA519D516E800C7F019 /* ChangeUserView.xib */,
+				B0858DA619D516E800C7F019 /* ChangeUserView~ipad.xib */,
+			);
+			name = "Wizard User Lang";
+			sourceTree = "<group>";
+		};
 		B0915DD316FB958C000F2C23 /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -1827,6 +1884,8 @@
 		CE1627B31522531A00BFDE69 /* English */ = {
 			isa = PBXGroup;
 			children = (
+				B0858DAD19D5422500C7F019 /* en_Once you know these words you Advance.mp3 */,
+				B0858DAE19D5422500C7F019 /* en_To unlock this level you first.mp3 */,
 				B0B11FE719958525004EF84C /* en_Advanced to next level.mp3 */,
 			);
 			path = English;
@@ -2716,6 +2775,7 @@
 		CE9BDED115A292E6005C14B9 /* External Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				B0858D9319D516BB00C7F019 /* OpenFlow */,
 				B0915DD316FB958C000F2C23 /* AFNetworking */,
 				CE9BDE3615A28337005C14B9 /* JSON */,
 			);
@@ -2735,6 +2795,7 @@
 		CEC234F713BD65DD00C179EB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B0858D9E19D516D100C7F019 /* Wizard User Lang */,
 				B0B0F41A1887876A007C1667 /* MapView */,
 			);
 			name = Controller;
@@ -2811,6 +2872,7 @@
 				B0A8B7091876C33700245F48 /* glass.png in Resources */,
 				B098F47018CE49DD006B190B /* crackers.png in Resources */,
 				B0A8B6F31876C33700245F48 /* chopsticks.png in Resources */,
+				B0858DA819D516E800C7F019 /* ChangeLangView.xib in Resources */,
 				B09D367818B4B54D00D21B9D /* Arabic.png in Resources */,
 				B0A8B3FE1872CC4F00245F48 /* eye.png in Resources */,
 				CEE766221402D6E700138F7D /* Sentences.xml in Resources */,
@@ -2960,6 +3022,7 @@
 				B09D361E18AFC0CD00D21B9D /* daugther.png in Resources */,
 				B0A8B7051876C33700245F48 /* garage.png in Resources */,
 				B09D362118AFC0CD00D21B9D /* family.png in Resources */,
+				B0858DAC19D516E800C7F019 /* ChangeUserView~ipad.xib in Resources */,
 				B0A8B4B81872CC4F00245F48 /* uniform.png in Resources */,
 				B09D363F18AFC0CD00D21B9D /* point.png in Resources */,
 				B025E07C19AD719F001BCBAC /* newAvatar5-06-01.png in Resources */,
@@ -3086,6 +3149,7 @@
 				B025E04519AD719F001BCBAC /* newAvatar2-05-01.png in Resources */,
 				B0A8B49A1872CC4F00245F48 /* spider.png in Resources */,
 				B0A8B3DE1872CC4F00245F48 /* crab.png in Resources */,
+				B0858DA919D516E800C7F019 /* ChangeLangView~ipad.xib in Resources */,
 				B09D361A18AFC0CD00D21B9D /* closet.png in Resources */,
 				B025E05B19AD719F001BCBAC /* newAvatar3-09-01.png in Resources */,
 				B0A8B7451876C33700245F48 /* toilet_paper.png in Resources */,
@@ -3098,6 +3162,7 @@
 				B0A8B3F01872CC4F00245F48 /* dress.png in Resources */,
 				B09D362518AFC0CD00D21B9D /* granddaugther.png in Resources */,
 				B0A8B4141872CC4F00245F48 /* golf.png in Resources */,
+				B0858DAB19D516E800C7F019 /* ChangeUserView.xib in Resources */,
 				B025E08D19AD719F001BCBAC /* newAvatar6-05-01.png in Resources */,
 				B0A8B3FA1872CC4F00245F48 /* eggs.png in Resources */,
 				B0A8B3D61872CC4F00245F48 /* clouds.png in Resources */,
@@ -3301,6 +3366,7 @@
 				B0A8B47E1872CC4F00245F48 /* scarf.png in Resources */,
 				B0A8B4681872CC4F00245F48 /* priest.png in Resources */,
 				B0A8B3E21872CC4F00245F48 /* cut.png in Resources */,
+				B0858DAF19D5422500C7F019 /* en_Once you know these words you Advance.mp3 in Resources */,
 				B025E08219AD719F001BCBAC /* newAvatar5-12-01.png in Resources */,
 				B025E03519AD719F001BCBAC /* newAvatar1-07-01.png in Resources */,
 				B09F3E90197087A0004DFD47 /* start_bronze.png in Resources */,
@@ -3324,6 +3390,7 @@
 				B098F49818CE49DD006B190B /* tickets.png in Resources */,
 				B0A8B73F1876C33700245F48 /* swings.png in Resources */,
 				B0A8B3981872CC4F00245F48 /* actress.png in Resources */,
+				B0858DB019D5422500C7F019 /* en_To unlock this level you first.mp3 in Resources */,
 				894E8ECE198EC1F300B9E34E /* Icon-80.png in Resources */,
 				B0A8B4801872CC4F00245F48 /* scientist.png in Resources */,
 				B098F48418CE49DD006B190B /* nine.png in Resources */,
@@ -3557,6 +3624,7 @@
 				CEC2351213BD66E600C179EB /* Vocabulary.m in Sources */,
 				CE725EC713C69334000DC882 /* Word.m in Sources */,
 				CED20F9D13D8C54D0079F33B /* UserContext.m in Sources */,
+				B0858DAA19D516E800C7F019 /* ChangeUserView.m in Sources */,
 				CE71831313F765A5008742FA /* Level.m in Sources */,
 				B0A2944D1884A884000F6AB0 /* MapView.m in Sources */,
 				B0A8B4E6187663C700245F48 /* AnimatorHelper.m in Sources */,
@@ -3574,10 +3642,13 @@
 				CE9BDECE15A291E5005C14B9 /* SBJsonStreamParser.m in Sources */,
 				CE9BDECF15A291E5005C14B9 /* SBJsonParser.m in Sources */,
 				CE9BDED015A291E5005C14B9 /* NSObject+SBJson.m in Sources */,
+				B0858D9B19D516BB00C7F019 /* AFItemView.m in Sources */,
 				CE8071B415AD0F6900509D30 /* Language.m in Sources */,
 				CE78F3FE15C30C770031EAA7 /* TraceWS.m in Sources */,
 				CE774D8715C57EC000136BA9 /* User.m in Sources */,
 				B0915DE916FB958D000F2C23 /* AFHTTPClient.m in Sources */,
+				B0858DA719D516E800C7F019 /* ChangeLangView.m in Sources */,
+				B0858D9C19D516BB00C7F019 /* AFOpenFlowView.m in Sources */,
 				B0915DEA16FB958D000F2C23 /* AFHTTPRequestOperation.m in Sources */,
 				B0915DEB16FB958D000F2C23 /* AFImageRequestOperation.m in Sources */,
 				B0915DEC16FB958D000F2C23 /* AFJSONRequestOperation.m in Sources */,
@@ -3585,6 +3656,7 @@
 				B0915DEE16FB958D000F2C23 /* AFPropertyListRequestOperation.m in Sources */,
 				B0915DEF16FB958D000F2C23 /* AFProxy.m in Sources */,
 				B0915DF016FB958D000F2C23 /* AFURLConnectionOperation.m in Sources */,
+				B0858D9D19D516BB00C7F019 /* AFUIImageReflection.m in Sources */,
 				B0B0F4101885D145007C1667 /* LevelView.m in Sources */,
 				B0915DF116FB958D000F2C23 /* AFXMLRequestOperation.m in Sources */,
 				B0915DF216FB958D000F2C23 /* UIImageView+AFNetworking.m in Sources */,

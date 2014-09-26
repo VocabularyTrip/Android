@@ -124,7 +124,7 @@
         [self showAndSayWord];
 	} else {
 		[self helpLevel];
-		[self cancelAnimation];
+        [self done: nil];
 	}
 }
 
@@ -152,12 +152,6 @@
 		[Sentence playSpeaker: @"LevelView-DidSelectRow-LearnThisLevel"];
 	else if ([UserContext getLevelNumber] < (level.levelNumber))
 		[Sentence playSpeaker: @"LevelView-DidSelectRow-UnlockLevel"];
-}
-
-- (void) cancelAnimation {
-	if (theTimer) [theTimer invalidate];
-	theTimer = nil;
-    [self done: nil];
 }
 
 @end

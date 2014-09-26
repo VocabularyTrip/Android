@@ -43,7 +43,6 @@
 @property (nonatomic) Level* level;
 
 - (IBAction) done:(id)sender;
-- (void) cancelAnimation;
 - (void) showAndSayDictionary;
 - (void) initializeTimer;
 - (void) showAndSayWord;

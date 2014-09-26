@@ -1,20 +1,9 @@
 <?xml version="1.0"?>
 
 <list>
-	<Sentence Method="AppDelegate-ResponseToBuyAction-NextLevel"
-        name="Advanced to next level" type="always">
-    </Sentence>
 
 	<Sentence Method="Test-EvaluateGetIntoNextLevel-NextLevel"
         name="Advanced to next level" type="always">
-    </Sentence>
-    
-	<Sentence Method="Test-IntroduceTrain"
-        name="Test help" type="always">
-    </Sentence>
-    
-	<Sentence Method="Test-EvaluateGetIntoNextLevel-CloseToLearned"
-        name="Congratulations1" type="always">
     </Sentence>
     
     <Sentence Method="LevelView-DidSelectRow-UnlockLevel"
@@ -25,6 +14,5 @@
     <Sentence Method="LevelView-DidSelectRow-LearnThisLevel"
         name="Once you know these words you Advance" type="always">
     </Sentence>
-    
     
 </list>

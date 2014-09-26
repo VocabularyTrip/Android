@@ -10,6 +10,8 @@
 
 #import "MapView.h"
 #import "LevelView.h"
+#import "ChangeLangView.h"
+#import "ChangeUserView.h"
 #import "Language.h"
 #import "Reachability.h"
 #import "Sentence.h"
@@ -21,6 +23,8 @@
 	UINavigationController *navController;
 	
     LevelView *levelView;
+    ChangeUserView *changeUserView;
+    ChangeLangView *changeLangView;
 	MapView *mapView;
     
     NSDate *startPlaying;
@@ -31,6 +35,8 @@
 @property (nonatomic) UINavigationController *navController;
 
 @property (nonatomic) LevelView *levelView;
+@property (nonatomic) ChangeLangView *changeLangView;
+@property (nonatomic) ChangeUserView *changeUserView;
 @property (nonatomic) MapView *mapView;
 
 @property (nonatomic, strong) NSDate *startPlaying;
@@ -38,6 +44,8 @@
 
 - (void) initUsersDefaultsOnFirstExecutionOrVersionChange;
 - (void) pushLevelView;
+- (void) pushChangeLangView;
+- (void) pushChangeUserView;
 - (void) popMapView;
 //- (void) responseToBuyAction;
 //- (void) responseToCancelAction;
