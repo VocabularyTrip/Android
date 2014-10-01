@@ -149,9 +149,9 @@
 	if ([UserContext getLevelNumber] >= cLimitLevel) return;
     
 	if ([UserContext getLevelNumber] == (level.levelNumber))
-		[Sentence playSpeaker: @"LevelView-DidSelectRow-LearnThisLevel"];
+		[singletonSentenceManager playSpeaker: @"LevelView-DidSelectRow-LearnThisLevel"];
 	else if ([UserContext getLevelNumber] < (level.levelNumber))
-		[Sentence playSpeaker: @"LevelView-DidSelectRow-UnlockLevel"];
+		[singletonSentenceManager playSpeaker: @"LevelView-DidSelectRow-UnlockLevel"];
 }
 
 @end

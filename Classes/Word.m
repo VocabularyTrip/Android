@@ -9,6 +9,7 @@
 #import "Word.h"
 #import "Sentence.h" // Is used just to upload de AVAudioPlayer. Showld be encapsulated elsewhere
 #import "VocabularyTrip2AppDelegate.h"
+#import "SentenceManager.h"
 
 @implementation Word
 
@@ -114,10 +115,10 @@
             if (theme == 1) {
                 // Colors are stored ad-hoc and are not downloaded
                 Language *lang = [UserContext getLanguageSelected];
-                sound = [Sentence getAudioPlayer: fileName dir: lang.name];
+                sound = [self getAudioPlayerAtDir: lang.name];
             } else
                 // Other words are downloaded and the path is relative
-                sound = [Sentence getAudioPlayerRelPath: fileName];
+                sound = [self getAudioPlayerRelPath];
 		} @catch (NSException * e) {
 			NSLog(@"Can't load sound %@", name);
 		}
@@ -230,5 +231,24 @@
     
     return @"English";
 }
+
+
+// Used to load colors.
+// Colors for all languages are stored in a build and is not necesary to download from the web
+- (AVAudioPlayer*) getAudioPlayerAtDir: (NSString*) dir {
+    NSString *a = [[NSBundle mainBundle] pathForResource: fileName ofType:@"mp3" inDirectory: dir];
+    NSURL* file_url = [[NSURL alloc] initFileURLWithPath: a isDirectory: NO];
+    return [SentenceManager getAudioPlayerAtURL: file_url];
+}
+
+// This method is used to load words depending on language selected
+// The path used is relative
+// Is used for all words downloaded dynamically
+- (AVAudioPlayer*) getAudioPlayerRelPath {
+    NSString *newPath =  [NSString stringWithFormat:@"%@%@%@", [Word downloadDestinationPath], fileName, @".mp3"];
+    NSURL* file_url = [[NSURL alloc] initFileURLWithPath: newPath];
+    return [SentenceManager getAudioPlayerAtURL: file_url];
+}
+
 
 @end

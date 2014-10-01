@@ -15,7 +15,7 @@
 #import "Language.h"
 #import "Reachability.h"
 #import "Sentence.h"
-
+#import "SentenceManager.h"
 
 @interface VocabularyTrip2AppDelegate : NSObject <UIApplicationDelegate, UIAlertViewDelegate> { // , PurchaseDelegate
     

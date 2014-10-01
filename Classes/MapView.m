@@ -86,7 +86,7 @@
 - (void) cancelAllAnimations {
 
 	[self stopBackgroundSound];
-    [Sentence stopCurrentAudio];
+    [singletonSentenceManager stopCurrentAudio];
 
     [timerToPlayBackgroundSound invalidate];
     timerToPlayBackgroundSound = nil;
@@ -103,7 +103,7 @@
 // Backround sound
 - (AVAudioPlayer*) backgroundSound {
 	if (backgroundSound == nil) {
-		backgroundSound = [Sentence getAudioPlayer: @"keepTrying"];
+		backgroundSound = [SentenceManager getAudioPlayer: @"keepTrying"];
 		backgroundSound.numberOfLoops = -1;
 	}
     backgroundSound.volume = UserContext.soundEnabled == YES ? cMusicVolume : 0;
@@ -188,7 +188,7 @@
     [UserContext nextLevel];
     [mapScrollView reloadAllLevels];
     [mapScrollView bringSubviewToFront: playCurrentLevelButton];
-    [Sentence playSpeaker: @"Test-EvaluateGetIntoNextLevel-NextLevel"];
+    [singletonSentenceManager playSpeaker: @"Test-EvaluateGetIntoNextLevel-NextLevel"];
     [self moveUser];
     
 }

@@ -36,8 +36,9 @@
     [self initUsersDefaultsOnFirstExecutionOrVersionChange];
     //[self checkAndStartDownload]; Agregar ??????
     //[FacebookManager initFacebookSession];
+    if (!singletonSentenceManager) singletonSentenceManager = [SentenceManager alloc];
     [singletonVocabulary loadDataFromXML];
-    [Sentence loadDataFromXML];
+    [singletonSentenceManager loadDataFromXML];
     // ****** Init Objects *******
     // ***************************
     

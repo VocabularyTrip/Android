@@ -62,4 +62,9 @@
 - (NSString*) getTranslatedNameForLang: (NSString*) langName;
 - (NSString*) getLocalization;
 
+
+- (AVAudioPlayer*) getAudioPlayerAtDir: (NSString*) dir;
+- (AVAudioPlayer*) getAudioPlayerRelPath;
+
+
 @end
