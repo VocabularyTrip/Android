@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#define cDictionrySize 506
+#define cDictionrySize 63
 #define cInitFirstLanguages @"1|English-2|Spanish-3|Chinese-4|Farsi-5|French-6|German-7|Italian-8|Korean-9|Malay-10|Vietnamese-11|Arabic-12|Egyptian"
 
 extern NSMutableArray *allLanguages;

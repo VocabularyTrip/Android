@@ -26,7 +26,7 @@
 + (void)loadDataFromSql: (int) levelId {
     
     NSURL *url =
-    [NSURL URLWithString: [NSString stringWithFormat: @"%@/db_select.php?rquest=getWordsforLevelAndLang", cUrlServer]];
+    [NSURL URLWithString: [NSString stringWithFormat: @"%@/db_vocabulary.php?rquest=getWordsforLevelAndLang", cUrlServer]];
     
     Language *lang = [UserContext getLanguageSelected];
     NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:

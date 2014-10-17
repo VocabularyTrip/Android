@@ -31,7 +31,7 @@
 #define cUserselected @"userSelected"
 #define cLastTimePlayed @"lastTimePlayed" // This const is used to save the timePlayed. Next execution is saved in tbl_trace as statistic
 
-#define cUrlServer @"http://www.vocabularytrip.com/phpTest"
+#define cUrlServer @"http://www.vocabularytrip.com/android"
 
 @interface UserContext : NSObject  {
     NSMutableArray *__strong users;

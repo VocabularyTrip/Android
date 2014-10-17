@@ -131,7 +131,7 @@ Vocabulary *singletonVocabulary;
     singletonVocabulary.wasErrorAtDownload = 0;
 
     NSURL *url =
-    [NSURL URLWithString: [NSString stringWithFormat: @"%@/db_select.php?rquest=getLevelsForLang", cUrlServer]];
+    [NSURL URLWithString: [NSString stringWithFormat: @"%@/db_vocabulary.php?rquest=getLevelsForLang", cUrlServer]];
     
     Language *lang = [UserContext getLanguageSelected];
     NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:
