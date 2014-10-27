@@ -7,7 +7,7 @@
 //
 
 #import "Word.h"
-#import "Sentence.h" // Is used just to upload de AVAudioPlayer. Showld be encapsulated elsewhere
+#import "Sentence.h"
 #import "VocabularyTrip2AppDelegate.h"
 #import "SentenceManager.h"
 
@@ -72,17 +72,6 @@
     }
 }
 
-+ (void) refreshProgress {
-    Language *lang = [UserContext getLanguageSelected];
-    float progress =  (float) singletonVocabulary.qWordsLoaded / (float) lang.qWords;
-    
-    if (singletonVocabulary.isDownloading && singletonVocabulary.isDownloadView)
-        [singletonVocabulary.delegate addProgress: progress];
-    
-    NSLog(@"Progress: %f", progress);
-    if (progress >= 1) singletonVocabulary.isDownloading = NO;
-}
-
 // Response to Download Word
 + (void) connectionFinishSuccesfully: (NSDictionary*) response {
     singletonVocabulary.qWordsLoaded++;
@@ -98,6 +87,18 @@
     singletonVocabulary.isDownloading = NO;
     if (singletonVocabulary.isDownloadView)
         [singletonVocabulary.delegate downloadFinishWidhError: result];
+
+}
+
++ (void) refreshProgress {
+    Language *lang = [UserContext getLanguageSelected];
+    float progress =  (float) singletonVocabulary.qWordsLoaded / (float) lang.qWords;
+    
+    if (singletonVocabulary.isDownloading && singletonVocabulary.isDownloadView)
+        [singletonVocabulary.delegate addProgress: progress];
+    
+    NSLog(@"Progress: %f", progress);
+    if (progress >= 1) singletonVocabulary.isDownloading = NO;
 }
 
 - (UIImage*) image {

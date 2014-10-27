@@ -20,16 +20,13 @@
 #define cThresholdStar2 0.55
 #define cThresholdStar3 0.8
 
-//extern id <DownloadDelegate> downloadDelegate;
-
 @interface Vocabulary : NSObject <NSXMLParserDelegate, NSURLConnectionDelegate> {
 	NSMutableArray *allLevels;
     NSMutableArray *allWords;
     NSMutableArray *oneLevel;
-    int levelIndex; // count of levels
+    int levelIndex;
     
     // Variables used to syncronyze download with UI
-    //id <DownloadDelegate> __unsafe_unretained delegate; // View to delegate response
     int qWordsLoaded; // count the words downloaded. Is used to know if downloading has finished
     int wasErrorAtDownload; // flag to detect an error. Relation asyncronous between Vocabulary and Level
     bool isDownloading; // is true when download is active. is false when an error is detected or 90 words al allready downloaded
@@ -77,19 +74,6 @@ extern Vocabulary *singletonVocabulary;
 - (Word*) getOrderedWord;
 - (double) progressLevel: (int) aLevel;
 - (int) countOfLevels;
-//- (int) countOfWordsInOneLevel;
 - (Word*) getWord: (NSString*) name inLevel: (int) level;
-
-//+ (Word*) getRandomWeightedWord;
-//+ (void) initializeLevelUntil: (int) level; // Initialize all words form level 1 to the parameter
-//+ (int) getSumOfAllWeights; //
-//+ (int) getSelectedWordFrom: (int) rWeighted; //
-//+ (void) resetAllWeigths; //
-//+ (void) reloadAllWeigths; //
-//+ (void) testAllSounds; //
-//+ (double) wasLearned; //
-//+ (double) wasLearnedLast5Levels;
-//+ (double) wasLearnedFrom: (int) startLevel;
-//+ (int) getLevelLessLearned;
 
 @end

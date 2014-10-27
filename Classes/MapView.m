@@ -231,10 +231,10 @@
     switch (avatarAnimationSeq) {
         case 0:
             [AnimatorHelper avatarGreet: playCurrentLevelButton.imageView];
-                break;
+            break;
         case 1:
             [AnimatorHelper avatarBlink: playCurrentLevelButton.imageView];
-                break;
+            break;
         case 2:
             [AnimatorHelper avatarOk: playCurrentLevelButton.imageView];
             break;

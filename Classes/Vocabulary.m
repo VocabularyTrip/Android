@@ -201,16 +201,6 @@ Vocabulary *singletonVocabulary;
 	return nil;
 }
 
-/*+ (void)initializeLevelUntil: (int) level {
-	Word *w;
-	[oneLevel removeAllObjects];
-	for (int i=0; i<=level; i++) {
-		for (w in [allWords objectAtIndex:i]) {
-			[oneLevel addObject: w ];
-		}
-	}
-}*/
-
 - (void)initializeLevelAt: (int) level {
 	Word *w;
 	[oneLevel removeAllObjects];
@@ -218,20 +208,6 @@ Vocabulary *singletonVocabulary;
 		[oneLevel addObject: w ];
 	}
 }
-
-
-/*+ (Word*) getRandomWordFromLevel: (int) levelNumber {
-
-    if (levelNumber < [allWords count]) {
-        NSMutableArray* aLevel = [allWords objectAtIndex: levelNumber];
-        int i = arc4random() % [aLevel count];
-        return [aLevel objectAtIndex: i];
-    } else {
-		NSLog(@"Exception: getOrderedWord return nil");
-    }
-	return nil;
-}*/
-
 
 - (Word*) getOrderedWord {
 	if ([oneLevel count]>0) {
@@ -244,123 +220,6 @@ Vocabulary *singletonVocabulary;
     
 	return nil;
 }
-
-/*+ (Word*) getRandomWeightedWord {
-	if ([oneLevel count]>0) {
-		int i = arc4random() % [self getSumOfAllWeights];
-		i = [self getSelectedWordFrom: i];
-		if (i >= [oneLevel count]) {
-			NSLog(@"Exception: getRandomWeightedWord get an out of index: %i, %lu", i, (unsigned long)[oneLevel count]);
-			i=0;	
-		}
-		Word *w = [oneLevel objectAtIndex: i];
-        [oneLevel removeObjectAtIndex: i];
-		return w;
-	} else {
-		NSLog(@"Exception: getRandomWeightedWord return nil");
-	}
-
-	return nil;
-}*/
-
-/*+ (int) getSumOfAllWeights {
-	Word *w;
-	int total=0;
-	for (w in oneLevel) {
-		total += w.weight;
-	}
-	return total;
-}*/
-
-/*+ (int) getSelectedWordFrom: (int) rWeighted {
-	int accumulatedWeight=0, i=0;
-	Word *w;	
-	for (w in oneLevel) {
-		accumulatedWeight += w.weight;
-		if (accumulatedWeight > rWeighted) return i;
-		i++;
-	}
-	return 0;
-}*/
-
-/*+ (void) reloadAllWeigths {
-    // Loadweight depends on UserSelected.
-    // When the user is changed, the weight has to be reloaded.
-	Word *w;
-	for (int i=0; i< [Vocabulary countOfLevels]; i++) {
-		for (w in [allWords objectAtIndex:i]) {
-			[w loadWeight];
-		}
-	}
-}
-
-+ (void) resetAllWeigths {
-	@try {
-		Word *w;
-		for (int i=0; i< [Vocabulary countOfLevels]; i++) {
-			for (w in [allWords objectAtIndex:i]) {
-				[w resetWeight];
-			}
-		}
-	}
-	@catch (NSException * e) {
-		NSLog(@"Error Initializing Weights");
-	}
-	@finally {
-	}
-}*/
-
-/*+ (void) testAllSounds {
-	Word *w;
-	for (int i=0; i< [Vocabulary countOfLevels]; i++) {
-		for (w in [allWords objectAtIndex:i]) {
-			[w.sound play];
-		}
-	}
-}*/
-
-/*+ (int) getLevelLessLearned {
-	double progress;
-    double lessProgress = 10000; // progress is between 0 to 1. Init with 1 should be fine.
-    int levelSelected;
-	for (int i=0; i <= [UserContext getLevelNumber]; i++) {
-        progress = [self progressLevel: i];
-        if (progress < lessProgress) {
-            lessProgress = progress;
-            levelSelected = i;
-        }
-	}
-	return levelSelected;
-}*/
-
-/*+ (double) wasLearnedLast5Levels {
-    int levelFrom = 0;
-    if ([UserContext getLevelNumber] > 5) levelFrom = [UserContext getLevelNumber] - 5;
-    // include las5 5 levels
-    return [self wasLearnedFrom: levelFrom];
-}
-
-+ (double) wasLearned {
-    // include all levels played from colors to current level
-    return [self wasLearnedFrom: 0];
-}
-
-+ (double) wasLearnedFrom: (int) startLevel {
-	int r = 0, total = 0;
-	Word *w;
-	//NSLog(@"******** Was Learned Started: %i", [UserContext getLevelNumber]);
-	
-	for (int i=startLevel; i<=[UserContext getLevelNumber]; i++) {
-		for (w in [allWords objectAtIndex:i]) {
-			if (w.weight <= cLearnedWeight) r++; 
-			//NSLog(@"Word: %@ Weight: %i", w.name, w.weight);
-			total ++;
-		}
-	}
-	if (total == 0) return NO;
-	//NSLog(@"Words Learned: %@ Total: %@", [NSString stringWithFormat:@"%i", r], [NSString stringWithFormat:@"%i",total]);
-	return ((double) r / (double) total);
-}*/
 
 - (double) progressLevel: (int) aLevel  {
 	int r = 0, total = 0;
@@ -375,28 +234,5 @@ Vocabulary *singletonVocabulary;
 	return progress;
 }
 
-/*+ (double) progressIndividualLevel {
-	int r = 0, total = 0;
-	Word *w;
-	
-    for (w in [allWords objectAtIndex: [UserContext getLevelNumber]]) {
-		if (w.weight <= cLearnedWeight) r++;
-		total ++;
-	}
-	if (total == 0) return NO;
-	//NSLog(@"Individual Words Learned: %@ Total: %@", [NSString stringWithFormat:@"%i", r], [NSString stringWithFormat:@"%i",total]);
-    double progress = ((double) r / (double) total);
-    progress = progress >= cPercentageLearnd ? 1 : progress / cPercentageLearnd;
-	return progress;
-}*/
-
-/*+ (CGRect) resizeProgressFrame: (CGRect) progressFrame toNewProgress: (double) progress progressFill: (CGRect) progressBarFillFrame {
-
-    int deltaWidth = progressBarFillFrame.size.width;
-    int deltaX = progressBarFillFrame.origin.x;
-    progressFrame.size.width = deltaWidth * (1-progress);
-    progressFrame.origin.x = deltaX + (deltaWidth * progress);
-    return progressFrame;
-}*/
 
 @end
