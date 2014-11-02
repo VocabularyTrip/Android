@@ -957,6 +957,7 @@
 		B0412DA118E60EDF00AA8706 /* Egyptian */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Egyptian; sourceTree = "<group>"; };
 		B04ABB0F1971D69E001B5D10 /* config.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = config.png; sourceTree = "<group>"; };
 		B04ABB111971DA4E001B5D10 /* sticker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sticker.png; sourceTree = "<group>"; };
+		B07A3A6C1A066A9300C25BF4 /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = en; path = en.lproj/DownloadProtocol.h; sourceTree = "<group>"; };
 		B080D209179104D10021F113 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		B080D20A179104D10021F113 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		B084BBC519DBC064001CFABC /* SentenceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SentenceManager.h; sourceTree = "<group>"; };
@@ -2523,6 +2524,7 @@
 		CE774D8815C62AC700136BA9 /* Vocabulary */ = {
 			isa = PBXGroup;
 			children = (
+				B07A3A6B1A066A9300C25BF4 /* DownloadProtocol.h */,
 				CE8071B215AD0F6800509D30 /* Language.h */,
 				CE8071B315AD0F6900509D30 /* Language.m */,
 				CEC2351013BD66E600C179EB /* Vocabulary.h */,
@@ -2832,6 +2834,7 @@
 				Japanese,
 				French,
 				German,
+				en,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
@@ -3651,6 +3654,17 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B07A3A6B1A066A9300C25BF4 /* DownloadProtocol.h */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B07A3A6C1A066A9300C25BF4 /* en */,
+			);
+			name = DownloadProtocol.h;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
