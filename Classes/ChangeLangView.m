@@ -29,6 +29,7 @@
     [vocTripDelegate popMapView];
     
     [vocTripDelegate checkAndStartDownload];
+    [Vocabulary resetSoundWords];
 }
 
 - (void) initLangs {
@@ -64,7 +65,7 @@
     NSString* coverName = @"background_wizard"; //[ImageManager getIphone5xIpadFile: @"background_wizard"];
     [backgroundView setImage: [UIImage imageNamed: coverName]];
  
-    langSelected = [UserContext getLanguageSelected];
+    Language* langSelected = [UserContext getLanguageSelected];
     langLabel.text = langSelected.name;
 
     if (langSelected.key >= 6)

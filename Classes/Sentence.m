@@ -16,7 +16,6 @@
 
 @synthesize names;
 @synthesize method;
-//@synthesize next;
 @synthesize type;
 @synthesize wasPlayed;
 
@@ -55,9 +54,7 @@
 }
 
 - (void) audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
-    
     [singletonSentenceManager audioPlayerDidFinishPlaying];
-
 }
 
 

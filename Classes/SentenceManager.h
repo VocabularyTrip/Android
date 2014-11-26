@@ -6,9 +6,6 @@
 //  Copyright 2011 __Created by Ariel Jadzinsky__. All rights reserved.
 //
 
-//#import <Foundation/Foundation.h>
-//#import <AVFoundation/AVFoundation.h>
-//#import <MediaPlayer/MediaPlayer.h>
 #import "Sentence.h"
 
 #define supportedLanguages @"" // Add in this string all language avilable in sentences. English (en) must not be included.
@@ -33,7 +30,6 @@ extern SentenceManager *singletonSentenceManager;
 @property (nonatomic) SEL selector;
 @property (nonatomic) bool isPlaying;
 @property (nonatomic, strong) AVAudioPlayer *currentAudio;
-
 
 - (Sentence*) getSentenceOfMethod: (NSString*) aMethod;
 - (bool) playSpeaker: (NSString*) name;

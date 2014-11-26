@@ -13,11 +13,11 @@
 
 #define cDefaultLang 1
 
-#define cSetLevelsFree 2
+#define cSetLevelsFree 6
 #define cSet1OfLevels 12
-#define cSet2OfLevels 24
-#define cSet3OfLevels 36
-#define cSet4OfLevels 50
+//#define cSet2OfLevels 24
+//#define cSet3OfLevels 36
+#define cSet4OfLevels 46
 
 #define cMaxLevelKey @"keyMaxLevel"
 #define cSoundKey @"keySound"
@@ -29,7 +29,6 @@
 
 #define cFirstUser 1
 #define cUserselected @"userSelected"
-#define cLastTimePlayed @"lastTimePlayed" // This const is used to save the timePlayed. Next execution is saved in tbl_trace as statistic
 
 #define cUrlServer @"http://www.vocabularytrip.com/android"
 
@@ -43,7 +42,6 @@
 extern UserContext *userContextSingleton; // Public Variable
 
 @property (nonatomic, assign) int maxLevel;
-//@property (nonatomic) NSMutableArray *allLevels;
 @property (nonatomic, assign) int soundEnabled;
 @property (nonatomic, strong) NSMutableArray *users;
 @property (nonatomic, unsafe_unretained) User *userSelected;
@@ -55,13 +53,9 @@ extern UserContext *userContextSingleton; // Public Variable
 // *************************
 // ******** Level **********
 + (int)  getMaxLevel; // Once the app is downloaded, the maxLevel is 2 (cSetLevelsFree). Thats mean the user can play free up to level 2. Depending on diferents purchases the maxLevel could be cSet1OfLevels, cSet2OfLevels, etc.
-//+ (void) addLevel: (Level*) aLevel;
 + (int)  getLevelNumber;
-//+ (Level*) getLevelAt: (int) anIndex;
 + (Level*) getLevel;
 + (bool) nextLevel;
-//- (void) addLevel: (Level*) level;
-//- (Level*) getLevelAt: (int) anIndex;
 // ******** Level **********
 // *************************
 

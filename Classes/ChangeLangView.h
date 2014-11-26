@@ -17,8 +17,9 @@
     UIButton *__unsafe_unretained backButton;
     UIButton *__unsafe_unretained nextButton;
     UILabel *__unsafe_unretained langLabel;
-    Language *langSelected;
     UIImageView *__unsafe_unretained backgroundView;
+
+    // Language *langSelected;
 }
 
 @property (nonatomic, unsafe_unretained) IBOutlet UIButton *backButton;

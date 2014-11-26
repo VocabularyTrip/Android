@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-extern SEL selectorAnimator;
-
 @interface AnimatorHelper : NSObject
 
 + (void) avatarBlink: (UIImageView*) avatar;
@@ -17,10 +15,6 @@ extern SEL selectorAnimator;
 + (void) avatarOk: (UIImageView*) avatarView;
 + (void) avatarFrustrated: (UIImageView*) avatarView;
 + (void) avatarDance: (UIImageView*) avatarView;
-//+ (void) scale: (UIView*) itemView from: (CGPoint) p1 to: (CGPoint) p2;
-//+ (void) rotateView: (UIView*) itemView;
-//+ (void) clickingView: (UIView*) itemView delegate: (id) delegate selector: (SEL) selector;
-//+ (void) clickingView: (UIView*) itemView delegate: (id) delegate;
-//+ (void) releaseClickingView:(NSString *)theAnimation finished:(BOOL)flag context:(void *)context;
+
 
 @end

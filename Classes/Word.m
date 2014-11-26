@@ -20,13 +20,12 @@
 @synthesize localizationName;
 @synthesize sound;
 @synthesize weightImage;
-//@synthesize weightWord;
 @synthesize theme;
 @synthesize order;
 
 + (NSString*) urlDownloadFrom {
     Language *lang = [UserContext getLanguageSelected];
-    return [NSString stringWithFormat: @"%@%@%@", @"http://www.vocabularytrip.com/DictionarySounds/", lang.name, @"/"];
+    return [NSString stringWithFormat: @"%@%@%@", @"http://www.vocabularytrip.com/android/mp3words/", lang.name, @"/"];
 }
 
 + (NSString*) downloadDestinationPath {
@@ -85,16 +84,13 @@
     NSLog(@"Error with url: %@", url);
     NSLog(@"*******************");
     singletonVocabulary.isDownloading = NO;
-    if (singletonVocabulary.isDownloadView)
-        [singletonVocabulary.delegate downloadFinishWidhError: result];
-
 }
 
 + (void) refreshProgress {
     Language *lang = [UserContext getLanguageSelected];
     float progress =  (float) singletonVocabulary.qWordsLoaded / (float) lang.qWords;
     
-    if (singletonVocabulary.isDownloading && singletonVocabulary.isDownloadView)
+    if (singletonVocabulary.isDownloading)
         [singletonVocabulary.delegate addProgress: progress];
     
     NSLog(@"Progress: %f", progress);
@@ -146,15 +142,12 @@
 }
 
 -(int) weight {
-    //if ([GameSequenceManager getCurrentGameSequence].readAbility)
-    //    return self.weightWord;
-    //else
-        return self.weightImage;
+    return self.weightImage;
 }
 
 -(int) weightImage {
 	if (weightImage == 0) {
-        weightImage = 0; // Poner un Random [self loadWeightImage];
+        weightImage = arc4random_uniform(9) + 1; // Random for testing
 	}
 	return weightImage;
 }
@@ -174,8 +167,7 @@
 
 - (NSMutableDictionary*) allTranslatedNames {
     if (!allTranslatedNames) {
-        allTranslatedNames = [[NSMutableDictionary alloc] initWithContentsOfFile:
-                              [self pathToSaveTranslations]];
+        allTranslatedNames = [[NSMutableDictionary alloc] initWithContentsOfFile: [self pathToSaveTranslations]];
         if (!allTranslatedNames)
             allTranslatedNames = [[NSMutableDictionary alloc] init];
     }

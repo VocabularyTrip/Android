@@ -27,7 +27,6 @@
     ChangeLangView *changeLangView;
 	MapView *mapView;
     
-    NSDate *startPlaying;
     Reachability *internetReachable;
 }
 
@@ -39,7 +38,6 @@
 @property (nonatomic) ChangeUserView *changeUserView;
 @property (nonatomic) MapView *mapView;
 
-@property (nonatomic, strong) NSDate *startPlaying;
 @property (nonatomic) Reachability *internetReachable;
 
 - (void) initUsersDefaultsOnFirstExecutionOrVersionChange;
@@ -47,16 +45,12 @@
 - (void) pushChangeLangView;
 - (void) pushChangeUserView;
 - (void) popMapView;
-//- (void) responseToBuyAction;
-//- (void) responseToCancelAction;
 - (void) checkIfaskToRate;
 - (void) askToRate;
 - (int)  getAppId;
-- (void) saveTimePlayedInDB;
 - (bool) checkAndStartDownload;
 - (void) initializeInternetReachabilityNotifier;
 - (void) checkNetworkStatus:(NSNotification *)notice;
-- (void) saveTimePlayedInUsersDefaults;
 
 @end
 

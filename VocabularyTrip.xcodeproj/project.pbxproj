@@ -33,6 +33,7 @@
 		899344AE17C064FC00197362 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 899344A217C064FC00197362 /* iTunesArtwork.png */; };
 		899344AF17C064FC00197362 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 899344A317C064FC00197362 /* iTunesArtwork@2x.png */; };
 		89F82D7717C06BCD003C1DBB /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89F82D7617C06BCD003C1DBB /* Icon-Small@2x.png */; };
+		B00A872C1A2631BD00C0318D /* en_Keep playing to advance to that level.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B00A872B1A2631BD00C0318D /* en_Keep playing to advance to that level.mp3 */; };
 		B025E02F19AD719F001BCBAC /* newAvatar1-01-01.png in Resources */ = {isa = PBXBuildFile; fileRef = B025DFC319AD719F001BCBAC /* newAvatar1-01-01.png */; };
 		B025E03019AD719F001BCBAC /* newAvatar1-02-01.png in Resources */ = {isa = PBXBuildFile; fileRef = B025DFC419AD719F001BCBAC /* newAvatar1-02-01.png */; };
 		B025E03119AD719F001BCBAC /* newAvatar1-03-01.png in Resources */ = {isa = PBXBuildFile; fileRef = B025DFC519AD719F001BCBAC /* newAvatar1-03-01.png */; };
@@ -767,7 +768,6 @@
 		CE774D8715C57EC000136BA9 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = CE774D8615C57EC000136BA9 /* User.m */; };
 		CE78DBFB16DC0949007400FF /* btn_info_on.png in Resources */ = {isa = PBXBuildFile; fileRef = CE78DBF316DC0949007400FF /* btn_info_on.png */; };
 		CE78DBFD16DC0949007400FF /* btn_avatar_on.png in Resources */ = {isa = PBXBuildFile; fileRef = CE78DBF516DC0949007400FF /* btn_avatar_on.png */; };
-		CE78F3FE15C30C770031EAA7 /* TraceWS.m in Sources */ = {isa = PBXBuildFile; fileRef = CE78F3FD15C30C770031EAA7 /* TraceWS.m */; };
 		CE792FF31401337100D1CEA2 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE792FF21401337100D1CEA2 /* MessageUI.framework */; };
 		CE7A8AD9143511250043479A /* keepTrying.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CE7A8AD8143511250043479A /* keepTrying.mp3 */; };
 		CE7C407A16E138E5002DA556 /* nav_next.png in Resources */ = {isa = PBXBuildFile; fileRef = CE7C406416E138C4002DA556 /* nav_next.png */; };
@@ -843,6 +843,7 @@
 		899344A317C064FC00197362 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		89F82D7617C06BCD003C1DBB /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Vocabulary Trip-Info.plist */ = {isa = PBXFileReference; explicitFileType = text.plist.xml; fileEncoding = 4; path = "Vocabulary Trip-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		B00A872B1A2631BD00C0318D /* en_Keep playing to advance to that level.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "en_Keep playing to advance to that level.mp3"; sourceTree = "<group>"; };
 		B025DFC319AD719F001BCBAC /* newAvatar1-01-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "newAvatar1-01-01.png"; sourceTree = "<group>"; };
 		B025DFC419AD719F001BCBAC /* newAvatar1-02-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "newAvatar1-02-01.png"; sourceTree = "<group>"; };
 		B025DFC519AD719F001BCBAC /* newAvatar1-03-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "newAvatar1-03-01.png"; sourceTree = "<group>"; };
@@ -1607,8 +1608,6 @@
 		CE774D8615C57EC000136BA9 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		CE78DBF316DC0949007400FF /* btn_info_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_info_on.png; sourceTree = "<group>"; };
 		CE78DBF516DC0949007400FF /* btn_avatar_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_avatar_on.png; sourceTree = "<group>"; };
-		CE78F3FC15C30C770031EAA7 /* TraceWS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TraceWS.h; sourceTree = "<group>"; };
-		CE78F3FD15C30C770031EAA7 /* TraceWS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TraceWS.m; sourceTree = "<group>"; };
 		CE792FF21401337100D1CEA2 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		CE7A8AD8143511250043479A /* keepTrying.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = keepTrying.mp3; sourceTree = "<group>"; };
 		CE7C406416E138C4002DA556 /* nav_next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_next.png; sourceTree = "<group>"; };
@@ -1700,7 +1699,6 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				CE9BDED115A292E6005C14B9 /* External Libraries */,
 				CEC234F713BD65DD00C179EB /* Controller */,
 				CEC234F613BD65CF00C179EB /* Model */,
 				1D3623240D0F684500981E51 /* VocabularyTrip2AppDelegate.h */,
@@ -1724,6 +1722,7 @@
 				CE5C232C1609517D00CB7814 /* libz.dylib */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				CE9BDED115A292E6005C14B9 /* External Libraries */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
@@ -1869,8 +1868,6 @@
 				CED20F9C13D8C54D0079F33B /* UserContext.m */,
 				CE774D8515C57EBF00136BA9 /* User.h */,
 				CE774D8615C57EC000136BA9 /* User.m */,
-				CE78F3FC15C30C770031EAA7 /* TraceWS.h */,
-				CE78F3FD15C30C770031EAA7 /* TraceWS.m */,
 			);
 			name = Others;
 			sourceTree = "<group>";
@@ -1878,6 +1875,7 @@
 		CE1627B31522531A00BFDE69 /* English */ = {
 			isa = PBXGroup;
 			children = (
+				B00A872B1A2631BD00C0318D /* en_Keep playing to advance to that level.mp3 */,
 				B0858DAD19D5422500C7F019 /* en_Once you know these words you Advance.mp3 */,
 				B0858DAE19D5422500C7F019 /* en_To unlock this level you first.mp3 */,
 				B0B11FE719958525004EF84C /* en_Advanced to next level.mp3 */,
@@ -2771,6 +2769,7 @@
 				CE9BDE3615A28337005C14B9 /* JSON */,
 			);
 			name = "External Libraries";
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		CEC234F613BD65CF00C179EB /* Model */ = {
@@ -3569,6 +3568,7 @@
 				B0A8B4231872CC4F00245F48 /* honey.png in Resources */,
 				B0A8B3AC1872CC4F00245F48 /* basketball.png in Resources */,
 				B098F49018CE49DD006B190B /* shave.png in Resources */,
+				B00A872C1A2631BD00C0318D /* en_Keep playing to advance to that level.mp3 in Resources */,
 				899344A417C064FC00197362 /* Icon-72.png in Resources */,
 				899344A517C064FC00197362 /* Icon-72@2x.png in Resources */,
 				B0A8B7481876C33700245F48 /* toothbrush.png in Resources */,
@@ -3632,7 +3632,6 @@
 				CE9BDED015A291E5005C14B9 /* NSObject+SBJson.m in Sources */,
 				B0858D9B19D516BB00C7F019 /* AFItemView.m in Sources */,
 				CE8071B415AD0F6900509D30 /* Language.m in Sources */,
-				CE78F3FE15C30C770031EAA7 /* TraceWS.m in Sources */,
 				B084BBC719DBC064001CFABC /* SentenceManager.m in Sources */,
 				CE774D8715C57EC000136BA9 /* User.m in Sources */,
 				B0915DE916FB958D000F2C23 /* AFHTTPClient.m in Sources */,

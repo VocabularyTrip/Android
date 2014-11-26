@@ -7,19 +7,15 @@
 //
 
 #import "VocabularyTrip2AppDelegate.h"
-#import "TraceWS.h"
 
 @implementation VocabularyTrip2AppDelegate 
 
 @synthesize window;
 @synthesize navController;
-
 @synthesize levelView;
 @synthesize changeLangView;
 @synthesize changeUserView;
 @synthesize mapView;
-
-@synthesize startPlaying;
 @synthesize internetReachable;
 
 #pragma mark -
@@ -27,15 +23,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     
-    
     // ***************************
     // ****** Init Objects *******
     [[UserContext getSingleton] initAllUsers];
     [[UserContext getSingleton] userSelected]; // force load the user selected
     if (!singletonVocabulary) singletonVocabulary = [Vocabulary alloc];
     [self initUsersDefaultsOnFirstExecutionOrVersionChange];
-    //[self checkAndStartDownload]; Agregar ??????
-    //[FacebookManager initFacebookSession];
     if (!singletonSentenceManager) singletonSentenceManager = [SentenceManager alloc];
     [singletonVocabulary loadDataFromXML];
     [singletonSentenceManager loadDataFromXML];
@@ -58,8 +51,6 @@
     [self initializeInternetReachabilityNotifier];
     // ***** Init Controllers *****
     // ****************************
-    
-	//[[self mapView] initializeGame]; // BORRAR !!!
     
     return YES;
 }
@@ -111,7 +102,6 @@
     if (![Vocabulary isDownloadCompleted] && connectivity) {
         if (!singletonVocabulary.isDownloading) {
             singletonVocabulary.delegate = nil;
-            singletonVocabulary.isDownloadView = NO;
             singletonVocabulary.isDownloading = YES;
             [Vocabulary loadDataFromSql];
             return true;
@@ -125,12 +115,7 @@
     NSString *currentVersion = (NSString*)[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
     NSArray *prevStartupVersions = [[NSUserDefaults standardUserDefaults] arrayForKey:@"prevStartupVersions"];
     if (prevStartupVersions == nil) {
-        // Starting up for first time with NO pre-existing installs (e.g., fresh 
-        // install of some version)
-        
-        // First installation did't have this control. So the prevStartupVersion could be nil and not be the first time.
-        [TraceWS register: @"First Execution" valueStr: currentVersion valueNum: [NSNumber numberWithInt: 0]];
-        
+        // Starting up for first time with NO pre-existing installs
         [[UserContext getSingleton] initGame];
         [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObject:currentVersion] forKey:@"prevStartupVersions"];
     }
@@ -139,11 +124,7 @@
             // Starting up for first time with this version of the app. This
             // means a different version of the app was alread installed once 
             // and started.
-            //[self firstStartAfterUpgradeDowngrade];
-            [TraceWS register: @"First Execution of new Version" valueStr: currentVersion valueNum: [NSNumber numberWithInt: 0]];
-
             [[UserContext getSingleton] initGameOnVersionChange];
-    
             NSMutableArray *updatedPrevStartVersions = [NSMutableArray arrayWithArray:prevStartupVersions];
             [updatedPrevStartVersions addObject: currentVersion];
             [[NSUserDefaults standardUserDefaults] setObject:updatedPrevStartVersions forKey:@"prevStartupVersions"];
@@ -210,47 +191,13 @@
     [navController popToRootViewControllerAnimated: NO];
 }
 
-/*- (void) responseToBuyAction {
-	
-}
-
-- (void) responseToCancelAction {
-}    */
-
-- (void) saveTimePlayedInDB {
-    int i = [[NSUserDefaults standardUserDefaults] integerForKey: cLastTimePlayed];
-    if (i!=0) {
-        //Language *lang = [UserContext getLanguageSelected];
-        [TraceWS register: @"applicationWillTerminate" valueStr: [UserContext printUserContext] valueNum: [NSNumber numberWithInt: i]];
-    }
-	self.startPlaying = [NSDate date];
-}
-
-- (void) saveTimePlayedInUsersDefaults {
-    NSTimeInterval timePlayed = [self.startPlaying timeIntervalSinceNow];
-    [[NSUserDefaults standardUserDefaults] setInteger: timePlayed forKey: cLastTimePlayed];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-}
-
-- (void) applicationDidEnterBackground:(UIApplication *)application {
-    [self saveTimePlayedInUsersDefaults];
-}
-
-- (void) applicationWillTerminate:(UIApplication *)application {
-    [self saveTimePlayedInUsersDefaults];
-}
-
 - (void) applicationWillEnterForeground:(UIApplication *)application {
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void) applicationDidBecomeActive:(UIApplication *)application {
     [self checkIfaskToRate];
-    [self saveTimePlayedInDB];
 }
-
-
-// Ask to review App
 
 - (int) getAppId {
     NSString *appId = [[NSBundle mainBundle] objectForInfoDictionaryKey: @"Application Id"];
@@ -311,17 +258,5 @@
             break;
     }
 }
-
-#pragma mark -
-#pragma mark Memory management
-
-- (void)applicationDidReceiveMemoryWarning:(UIApplication *)application {
-    /*
-     Free up as much memory as possible by purging cached data objects that can be recreated (or reloaded from disk) later.
-     */
-}
-
-
-
 
 @end

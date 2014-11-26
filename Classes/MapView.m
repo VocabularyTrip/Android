@@ -1,10 +1,10 @@
-    //
-    //  MapView.m
-    //  VocabularyTrip
-    //
-    //  Created by Ariel on 1/13/14.
-    //
-    //
+//
+//  MapView.m
+//  VocabularyTrip
+//
+//  Created by Ariel on 1/13/14.
+//
+//
 
 #import "MapView.h"
 #import "VocabularyTrip2AppDelegate.h"
@@ -36,7 +36,7 @@
     
     for (int i=0; i < mapScrollView.subviews.count; i++) {
         UIView *aView = [mapScrollView.subviews objectAtIndex:i];
-        [aView setTag: 999]; // Tag 999 means dont remove in reloadAllLevels method. Since this method remove all subviews.
+        [aView setTag: 999]; // Tag 999 means dont remove in MapScrollView.reloadAllLevels method. Since this method remove all subviews.
     }
     
     [self initAvatarAnimation];
@@ -46,10 +46,10 @@
     
     [super viewWillAppear: animated];
     
-    // First execution jump to wizard to select user and lang
+	    // First execution jump to wizard to select user and lang
     User *user = [UserContext getSingleton].userSelected;
     if (!user) {
-        //[self.configView changeUserShowInfo: nil];
+        [self selectUserAndLang: nil];
         return;
     }
 

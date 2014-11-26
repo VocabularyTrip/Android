@@ -10,14 +10,12 @@
 #import "Sentence.h"
 #import "VocabularyTrip2AppDelegate.h"
 
-
 UserContext *userContextSingleton;
 
 @implementation UserContext 
 
 @synthesize maxLevel;	
 @synthesize soundEnabled;
-//@synthesize allLevels;
 @synthesize users;
 @synthesize userSelected;
 
@@ -55,17 +53,9 @@ UserContext *userContextSingleton;
 	return [[UserContext getSingleton] maxLevel];
 }
 
-/*+(Level*) getLevelAt: (int) anIndex {
-	return [[UserContext getSingleton] getLevelAt: anIndex];
-}*/
-
 +(Level*) getLevel {
 	return [singletonVocabulary.allLevels objectAtIndex: [self getLevelNumber]];
 }
-
-/*+(void) addLevel: (Level*) aLevel {
-	return [[UserContext getSingleton] addLevel: aLevel];
-}*/
 
 +(bool) nextLevel {
     User *user = [self getUserSelected];
@@ -146,7 +136,7 @@ UserContext *userContextSingleton;
     [[NSUserDefaults standardUserDefaults] setInteger: 0 forKey: cCountExecutions];
     
 	UserContext.soundEnabled = YES;
-	[[UserContext getSingleton] setMaxLevel: cSet4OfLevels]; // ]cSetLevelsFree];
+	[[UserContext getSingleton] setMaxLevel: cSet1OfLevels]; // cSetLevelsFree];
 }
 
 - (void) initGameOnVersionChange {
@@ -190,11 +180,8 @@ UserContext *userContextSingleton;
 }
 
 +(void) reloadContext {
-    // Money is lazy initialization
-
     // Weights
     //[Vocabulary reloadAllWeigths];
-
 }
 
 + (NSString*) printUserContext {
@@ -208,17 +195,6 @@ UserContext *userContextSingleton;
           userContextSingleton.userSelected.userName];
     return r;
 }
-
-/*-(void) addLevel: (Level*) aLevel {
-	if (allLevels == nil) {
-		allLevels = [[NSMutableArray alloc] init];
-	}
-	[allLevels addObject: aLevel];
-}
-
--(Level*) getLevelAt: (int) anIndex {
-	return [allLevels objectAtIndex: anIndex];
-}*/
 
 
 @end

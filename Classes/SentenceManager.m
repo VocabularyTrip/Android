@@ -9,9 +9,6 @@
 #import "SentenceManager.h"
 #import "UserContext.h"
 
-//#include <stdlib.h>
-//#import <AVFoundation/AVFoundation.h>
-
 SentenceManager *singletonSentenceManager = nil;
 
 @implementation SentenceManager
@@ -103,7 +100,6 @@ SentenceManager *singletonSentenceManager = nil;
 
 
 - (void)loadDataFromXML {
-	
 	if ([allSentences count] == 0) {
 		NSString* path = [[NSBundle mainBundle] pathForResource: @"Sentences" ofType: @"xml"];
 		NSData* data = [NSData dataWithContentsOfFile: path];
@@ -133,7 +129,6 @@ SentenceManager *singletonSentenceManager = nil;
             NSString* nameSentence = [self getLocalizedSentenceName: [attributeDict objectForKey:@"name"]];
 			AVAudioPlayer *aSound = [SentenceManager getAudioPlayer: nameSentence];
 			[newSentence.names addObject: aSound];
-			//newSentence.next = [attributeDict objectForKey:@"Next"];
 			newSentence.method = [attributeDict objectForKey:@"Method"];
 			newSentence.type = [attributeDict objectForKey:@"type"];
 
@@ -159,6 +154,5 @@ SentenceManager *singletonSentenceManager = nil;
 - (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
 	NSLog(@"Sentence. Error Parsing at line: %li, column: %li", (long)parser.lineNumber, (long)parser.columnNumber);	
 }
-
 
 @end

@@ -23,7 +23,6 @@ Vocabulary *singletonVocabulary;
 @synthesize delegate;
 @synthesize wasErrorAtDownload;
 @synthesize isDownloading;
-@synthesize isDownloadView;
 @synthesize qWordsLoaded;
 @synthesize responseWithLevelsToDownload;
 @synthesize theTimerToDownloadLevels;
@@ -54,7 +53,6 @@ Vocabulary *singletonVocabulary;
 		if ([elementName isEqualToString: @"level"]) {
             
             if (levelIndex!=0) {
-                //Level* lastLevel = [UserContext getLevelAt: levelIndex-1];
                 Level* lastLevel = [singletonVocabulary.allLevels objectAtIndex: levelIndex-1];
                 lastLevel.size = [oneLevel count];
 				[allWords addObject: [oneLevel copy]];
@@ -143,7 +141,7 @@ Vocabulary *singletonVocabulary;
 }
 
 + (void) setProgress: (float) progress {
-    //NSLog(@"progress: %f", progress);
+    // NSLog(@"Download progress: %f", progress);
 }
 
 // Response to getLevelsForLang
@@ -157,9 +155,6 @@ Vocabulary *singletonVocabulary;
     NSLog(@"%@", result);
     
     singletonVocabulary.isDownloading = NO;
-    if (singletonVocabulary.isDownloadView)
-        [singletonVocabulary.delegate downloadFinishWidhError: result];
-    
 }
 
 - (void) startDownload {
@@ -184,10 +179,6 @@ Vocabulary *singletonVocabulary;
 
 // ******* Download 506 sounds ********* //
 // ************************************* //
-
-/*- (int) countOfWordsInOneLevel {
-    return [oneLevel count];
-}*/
 
 - (int) countOfLevels {
     return levelIndex;
@@ -234,5 +225,20 @@ Vocabulary *singletonVocabulary;
 	return progress;
 }
 
++ (void) resetSoundWords {
+    
+    // Sounds are lazy initialization. When the language change, sounds has to me loaded again.
+    // Otherwize, if you had played with spanish and then changed to english, you will heir the spanish sound when had already loaded
+    
+    Word* word;
+    NSMutableArray* levelWords;
+    for (int i=0; i< singletonVocabulary.allWords.count; i++) {
+        levelWords = [singletonVocabulary.allWords objectAtIndex: i];
+        for (int j=0; j < levelWords.count; j++) {
+            word = [levelWords objectAtIndex: j];
+            word.sound = nil;
+        }
+    }
+}
 
 @end

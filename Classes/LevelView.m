@@ -146,7 +146,7 @@
 
 - (void) helpLevel {
     // the user reach the last level
-	if ([UserContext getLevelNumber] >= cLimitLevel) return;
+	if ([UserContext getLevelNumber] >= cSet4OfLevels) return;
     
 	if ([UserContext getLevelNumber] == (level.levelNumber))
 		[singletonSentenceManager playSpeaker: @"LevelView-DidSelectRow-LearnThisLevel"];

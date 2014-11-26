@@ -8,7 +8,7 @@
     
     <Sentence Method="LevelView-DidSelectRow-UnlockLevel"
         name="To unlock this level you first" type="always">
-        <Alternative name= "keep playing to advance to that level"></Alternative>
+        <Alternative name="Keep playing to advance to that level"></Alternative>
     </Sentence>
     
     <Sentence Method="LevelView-DidSelectRow-LearnThisLevel"
